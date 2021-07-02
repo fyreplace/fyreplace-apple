@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tab-Bar-Controller-tabBarController">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Tab-Bar-Controller">
+            <objects>
+                <tabBarController id="Tab-Bar-Controller-tabBarController" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tab-Bar-Controller-tabBarController-tabBar">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="AccentColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Feed-Navigation-Feed-Navigation" kind="relationship" relationship="viewControllers" id="Tab-Bar-Controller-tabBarController--S-Feed-Navigation-Feed-Navigation"/>
+                        <segue destination="Notifications-Notifications" kind="relationship" relationship="viewControllers" id="Tab-Bar-Controller-tabBarController--S-Notifications-Notifications"/>
+                        <segue destination="Archive-Archive" kind="relationship" relationship="viewControllers" id="Tab-Bar-Controller-tabBarController--S-Archive-Archive"/>
+                        <segue destination="Drafts-Drafts" kind="relationship" relationship="viewControllers" id="Tab-Bar-Controller-tabBarController--S-Drafts-Drafts"/>
+                        <segue destination="Settings-Settings" kind="relationship" relationship="viewControllers" id="Tab-Bar-Controller-tabBarController--S-Settings-Settings"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tab-Bar-Controller-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="-750"/>
+        </scene>
+        <!--Feed Navigation-->
+        <scene sceneID="Feed-Navigation">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Feed-Navigation-Feed-Navigation" userLabel="Feed Navigation" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title=" " image="square.fill.on.square.fill" catalog="system" id="Feed-Navigation-Feed-Navigation-Feed" userLabel="Feed"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Feed-Navigation-Feed-Navigation-navigationBar">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Feed-Feed" kind="relationship" relationship="rootViewController" id="Feed-Navigation-Feed-Navigation--S-Feed-Feed"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Feed-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1500" y="0.0"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="Feed">
+            <objects>
+                <viewController title="Feed" id="Feed-Feed" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Feed-Feed-view">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Feed-Feed-view-safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Feed-Feed-navigationItem"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Feed-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1500" y="750"/>
+        </scene>
+        <!--Notifications-->
+        <scene sceneID="Notifications">
+            <objects>
+                <viewController id="Notifications-Notifications" userLabel="Notifications" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Notifications-Notifications-view">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Notifications-Notifications-view-safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title=" " image="bell.fill" catalog="system" id="Notifications-Notifications-Notifications" userLabel="Notifications"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Notifications-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-750" y="0.0"/>
+        </scene>
+        <!--Archive-->
+        <scene sceneID="Archive">
+            <objects>
+                <viewController id="Archive-Archive" userLabel="Archive" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Archive-Archive-view">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Archive-Archive-view-safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title=" " image="clock.fill" catalog="system" id="Archive-Archive-Archive" userLabel="Archive"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Archive-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Drafts-->
+        <scene sceneID="Drafts">
+            <objects>
+                <viewController id="Drafts-Drafts" userLabel="Drafts" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Drafts-Drafts-view">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Drafts-Drafts-view-safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title=" " image="doc.text.fill" catalog="system" id="Drafts-Drafts-Drafts" userLabel="Drafts"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Drafts-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="0.0"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Settings">
+            <objects>
+                <viewController id="Settings-Settings" userLabel="Settings" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Settings-Settings-view">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Settings-Settings-view-safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title=" " image="person.crop.circle.fill" catalog="system" id="Settings-Settings-Settings" userLabel="Settings"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Settings-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500" y="0.0"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" name="AccentColor"/>
+    <resources>
+        <image name="bell.fill" catalog="system" width="128" height="124"/>
+        <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="doc.text.fill" catalog="system" width="115" height="128"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="square.fill.on.square.fill" catalog="system" width="128" height="113"/>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.58399999141693115" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
