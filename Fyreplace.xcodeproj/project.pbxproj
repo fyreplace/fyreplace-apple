@@ -123,6 +123,7 @@
 				4D0040E4268EEDE800AF89FD /* Sources */,
 				4D0040E5268EEDE800AF89FD /* Frameworks */,
 				4D0040E6268EEDE800AF89FD /* Resources */,
+				854DB3A2B34738C63CD0812A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -179,6 +180,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		854DB3A2B34738C63CD0812A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fyreplace/Pods-Fyreplace-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fyreplace/Pods-Fyreplace-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fyreplace/Pods-Fyreplace-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E5C729B894B38231F2E0EBFF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
