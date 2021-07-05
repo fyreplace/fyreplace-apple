@@ -12,8 +12,33 @@
 		4D0040F3268EEDE800AF89FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F1268EEDE800AF89FD /* Main.storyboard */; };
 		4D0040F5268EEDE900AF89FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F4268EEDE900AF89FD /* Assets.xcassets */; };
 		4D0040F8268EEDE900AF89FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F6268EEDE900AF89FD /* LaunchScreen.storyboard */; };
+		4D7C987126912ABA00819E3F /* comment.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98532691254B00819E3F /* comment.proto */; };
+		4D7C987226912ABD00819E3F /* id.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98512691254B00819E3F /* id.proto */; };
+		4D7C987326912ABF00819E3F /* image.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C985C2691254B00819E3F /* image.proto */; };
+		4D7C987426912AC200819E3F /* notification.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C984F2691254B00819E3F /* notification.proto */; };
+		4D7C987526912AC500819E3F /* pagination.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C984C2691254B00819E3F /* pagination.proto */; };
+		4D7C987626912AC900819E3F /* post.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C984D2691254B00819E3F /* post.proto */; };
+		4D7C987726912ACC00819E3F /* user.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C985D2691254B00819E3F /* user.proto */; };
 		D5EDE7778C671535FAB82E6F /* Pods_Fyreplace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4777A1261E1529EE476D77B7 /* Pods_Fyreplace.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		4D7C987826912C2600819E3F /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.proto";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(INPUT_FILE_DIR)/$(INPUT_FILE_BASE).pb.swift",
+				"$(INPUT_FILE_DIR)/$(INPUT_FILE_BASE).grpc.swift",
+			);
+			runOncePerArchitecture = 0;
+			script = "PATH=\"$PATH:./Pods/gRPC-Swift-Plugins/bin\"\nprotoc --swift_out=. --grpc-swift_out=. protos/$INPUT_FILE_NAME\ntouch protos/$INPUT_FILE_BASE.pb.swift\ntouch protos/$INPUT_FILE_BASE.grpc.swift\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		4777A1261E1529EE476D77B7 /* Pods_Fyreplace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fyreplace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +49,14 @@
 		4D0040F4268EEDE900AF89FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D0040F7268EEDE900AF89FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D0040F9268EEDE900AF89FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D7C984C2691254B00819E3F /* pagination.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = pagination.proto; sourceTree = "<group>"; };
+		4D7C984D2691254B00819E3F /* post.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = post.proto; sourceTree = "<group>"; };
+		4D7C984F2691254B00819E3F /* notification.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = notification.proto; sourceTree = "<group>"; };
+		4D7C98512691254B00819E3F /* id.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = id.proto; sourceTree = "<group>"; };
+		4D7C98522691254B00819E3F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4D7C98532691254B00819E3F /* comment.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = comment.proto; sourceTree = "<group>"; };
+		4D7C985C2691254B00819E3F /* image.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = image.proto; sourceTree = "<group>"; };
+		4D7C985D2691254B00819E3F /* user.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = user.proto; sourceTree = "<group>"; };
 		92881C69D2E8B8F74E97874F /* Pods-Fyreplace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.release.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.release.xcconfig"; sourceTree = "<group>"; };
 		DAFDD2F2A849ABB6085E5533 /* Pods-Fyreplace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.debug.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -44,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				4D0040EA268EEDE800AF89FD /* Fyreplace */,
+				4D7C984A2691254B00819E3F /* protos */,
 				4D0040E9268EEDE800AF89FD /* Products */,
 				C65EB2DEC8380D9ABD7483E6 /* Pods */,
 				958BE3377F98F9B27CCC6D2D /* Frameworks */,
@@ -87,6 +121,21 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		4D7C984A2691254B00819E3F /* protos */ = {
+			isa = PBXGroup;
+			children = (
+				4D7C98522691254B00819E3F /* .gitignore */,
+				4D7C98532691254B00819E3F /* comment.proto */,
+				4D7C98512691254B00819E3F /* id.proto */,
+				4D7C985C2691254B00819E3F /* image.proto */,
+				4D7C984F2691254B00819E3F /* notification.proto */,
+				4D7C984C2691254B00819E3F /* pagination.proto */,
+				4D7C984D2691254B00819E3F /* post.proto */,
+				4D7C985D2691254B00819E3F /* user.proto */,
+			);
+			path = protos;
+			sourceTree = "<group>";
+		};
 		4DB316DD26906A940000BDC3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +175,7 @@
 				854DB3A2B34738C63CD0812A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
+				4D7C987826912C2600819E3F /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -171,8 +221,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D0040F8268EEDE900AF89FD /* LaunchScreen.storyboard in Resources */,
 				4D0040F5268EEDE900AF89FD /* Assets.xcassets in Resources */,
+				4D0040F8268EEDE900AF89FD /* LaunchScreen.storyboard in Resources */,
 				4D0040F3268EEDE800AF89FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +276,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7C987326912ABF00819E3F /* image.proto in Sources */,
+				4D7C987126912ABA00819E3F /* comment.proto in Sources */,
+				4D7C987426912AC200819E3F /* notification.proto in Sources */,
+				4D7C987626912AC900819E3F /* post.proto in Sources */,
+				4D7C987526912AC500819E3F /* pagination.proto in Sources */,
+				4D7C987226912ABD00819E3F /* id.proto in Sources */,
+				4D7C987726912ACC00819E3F /* user.proto in Sources */,
 				4D0040EC268EEDE800AF89FD /* AppDelegate.swift in Sources */,
 				4D0040EE268EEDE800AF89FD /* SceneDelegate.swift in Sources */,
 			);
