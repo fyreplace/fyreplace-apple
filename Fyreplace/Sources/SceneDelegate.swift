@@ -5,7 +5,7 @@ class SceneDelegate: UIResponder {
 }
 
 @available(iOS 13.0, *)
-extension SceneDelegate : UIWindowSceneDelegate {
+extension SceneDelegate: UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         window?.tintColor = UIColor(named: "AccentColor")
     }
