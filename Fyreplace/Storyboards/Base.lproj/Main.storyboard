@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -69,7 +70,7 @@
         <scene sceneID="Notifications-Navigation">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Notifications-Navigation-Notifications-Navigation" userLabel="Notifications Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" image="bell.fill" catalog="system" id="Notifications-Navigation-Notifications-Navigation-Notifications"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="Notifications" image="bell.fill" catalog="system" id="Notifications-Navigation-Notifications-Navigation-Notifications"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Notifications-Navigation-Notifications-Navigation-navigationBar">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -104,7 +105,7 @@
         <scene sceneID="Archive-Navigation">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Archive-Navigation-Archive-Navigation" userLabel="Archive Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Archive" image="clock.fill" catalog="system" id="Archive-Navigation-Archive-Navigation-Archive"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="Archive" image="clock.fill" catalog="system" id="Archive-Navigation-Archive-Navigation-Archive"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Archive-Navigation-Archive-Navigation-navigationBar">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -139,7 +140,7 @@
         <scene sceneID="Drafts-Navigation">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Drafts-Navigation-Drafts-Navigation" userLabel="Drafts Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Drafts" image="doc.text.fill" catalog="system" id="Drafts-Navigation-Drafts-Navigation-Drafts"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="Drafts" image="doc.text.fill" catalog="system" id="Drafts-Navigation-Drafts-Navigation-Drafts"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Drafts-Navigation-Drafts-Navigation-navigationBar">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -192,22 +193,238 @@
         <!--Settings-->
         <scene sceneID="Settings">
             <objects>
-                <viewController id="Settings-Settings" userLabel="Settings" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Settings-Settings-view">
+                <tableViewController id="Settings-Settings" userLabel="Settings" customClass="SettingsViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Settings-Settings-view">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Settings-Settings-view-safeArea"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Settings-Settings-view-tableHeaderView">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Avatar" userLabel="Avatar">
+                                    <rect key="frame" x="167" y="20.5" width="80" height="79"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="80" id="Settings-Settings-view-tableHeaderView-Avatar--C-width"/>
+                                        <constraint firstAttribute="width" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="height" multiplier="1:1" id="Settings-Settings-view-tableHeaderView-Avatar--C-width-Settings-Settings-view-tableHeaderView-Avatar-height"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Username" userLabel="Username">
+                                    <rect key="frame" x="175" y="108" width="64" height="30"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX">
+                                    <string key="id">Settings-Settings-view-tableHeaderView--C-Settings-Settings-view-tableHeaderView-Avatar-centerX-Settings-Settings-view-tableHeaderView-centerX</string>
+                                </constraint>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="top" constant="20" symbolic="YES">
+                                    <string key="id">Settings-Settings-view-tableHeaderView--C-Settings-Settings-view-tableHeaderView-Avatar-top-Settings-Settings-view-tableHeaderView-top</string>
+                                </constraint>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX">
+                                    <string key="id">Settings-Settings-view-tableHeaderView--C-Settings-Settings-view-tableHeaderView-Username-centerX-Settings-Settings-view-tableHeaderView-centerX</string>
+                                </constraint>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="leading" constant="20" symbolic="YES">
+                                    <string key="id">Settings-Settings-view-tableHeaderView--C-Settings-Settings-view-tableHeaderView-Username-leading-greaterThanOrEqual-Settings-Settings-view-tableHeaderView-leading</string>
+                                </constraint>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="bottom" constant="8" symbolic="YES">
+                                    <string key="id">Settings-Settings-view-tableHeaderView--C-Settings-Settings-view-tableHeaderView-Username-top-Settings-Settings-view-tableHeaderView-Avatar-bottom</string>
+                                </constraint>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="trailing" constant="20" symbolic="YES">
+                                    <string key="id">Settings-Settings-view-tableHeaderView--C-Settings-Settings-view-tableHeaderView-Username-trailing-lessThanOrEqual-Settings-Settings-view-tableHeaderView-trailing</string>
+                                </constraint>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection id="Settings-Settings-view-Login" userLabel="Login">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Login-tableViewCell-01-contentView-Register" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Login-tableViewCell-01">
+                                        <rect key="frame" x="0.0" y="178" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Login-tableViewCell-01" id="Settings-Settings-view-Login-tableViewCell-01-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Login-tableViewCell-01-contentView-Register">
+                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Login-Login" kind="show" identifier="Register" id="Settings-Settings-view-Login-tableViewCell-01--S-Login-Login"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Login-tableViewCell-00-contentView-Login" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Login-tableViewCell-00">
+                                        <rect key="frame" x="0.0" y="221.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Login-tableViewCell-00" id="Settings-Settings-view-Login-tableViewCell-00-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Login-tableViewCell-00-contentView-Login">
+                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Login-Login" kind="show" identifier="Login" id="Settings-Settings-view-Login-tableViewCell-00--S-Login-Login"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Settings-Settings" id="Settings-Settings-view--O-dataSource"/>
+                            <outlet property="delegate" destination="Settings-Settings" id="Settings-Settings-view--O-delegate"/>
+                        </connections>
+                    </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="Settings-Settings-Settings"/>
-                </viewController>
+                </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Settings-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1500" y="750"/>
         </scene>
+        <!--Login-->
+        <scene sceneID="Login">
+            <objects>
+                <viewController id="Login-Login" userLabel="Login" customClass="LoginViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Login-Login-view">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView">
+                                        <rect key="frame" x="20" y="40" width="374" height="306"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Logo">
+                                                <rect key="frame" x="147" y="0.0" width="80" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="Login-Login-view-scrollView-stackView-Logo--C-width"/>
+                                                    <constraint firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Logo" secondAttribute="height" multiplier="1:1" id="Login-Login-view-scrollView-stackView-Logo--C-width-Login-Login-view-scrollView-stackView-Logo-height"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Email">
+                                                <rect key="frame" x="67" y="90" width="240" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                                <connections>
+                                                    <action selector="onEmailDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="Login-Login-view-scrollView-stackView-Email--A-editingDidEndOnExit-Login-Login-onEmailDidEndOnExit"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Username">
+                                                <rect key="frame" x="67" y="100" width="240" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="240" id="Login-Login-view-scrollView-stackView-Username--C-width-greaterThanOrEqual">
+                                                        <variation key="widthClass=regular" constant="300"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
+                                                <connections>
+                                                    <action selector="onUsernameDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="Login-Login-view-scrollView-stackView-Username--A-editingDidEndOnExit-Login-Login-onUsernameDidEndOnExit"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Password">
+                                                <rect key="frame" x="67" y="154" width="240" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                <connections>
+                                                    <action selector="onPasswordDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="Login-Login-view-scrollView-stackView-Password--A-editingDidEndOnExit-Login-Login-onPasswordDidEndOnExit"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Login" customClass="FatButton" customModule="Fyreplace" customModuleProvider="target">
+                                                <rect key="frame" x="150.5" y="208" width="73" height="41"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Login"/>
+                                                <connections>
+                                                    <action selector="onLoginPressed" destination="Login-Login" eventType="touchUpInside" id="Login-Login-view-scrollView-stackView-Login--A-touchUpInside-Login-Login-onLoginPressed"/>
+                                                </connections>
+                                            </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="shf-wy-ON6">
+                                                <rect key="frame" x="168.5" y="269" width="37" height="37"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Email" firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Username" secondAttribute="width">
+                                                <string key="id">Login-Login-view-scrollView-stackView--C-Login-Login-view-scrollView-stackView-Email-width-Login-Login-view-scrollView-stackView-Username-width</string>
+                                            </constraint>
+                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Password" firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Username" secondAttribute="width">
+                                                <string key="id">Login-Login-view-scrollView-stackView--C-Login-Login-view-scrollView-stackView-Password-width-Login-Login-view-scrollView-stackView-Username-width</string>
+                                            </constraint>
+                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Username" firstAttribute="width" relation="lessThanOrEqual" secondItem="Login-Login-view-scrollView-stackView" secondAttribute="width">
+                                                <string key="id">Login-Login-view-scrollView-stackView--C-Login-Login-view-scrollView-stackView-Username-width-lessThanOrEqual-Login-Login-view-scrollView-stackView-width</string>
+                                            </constraint>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="bottom" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="bottom" constant="-40">
+                                        <string key="id">Login-Login-view-scrollView--C-Login-Login-view-scrollView-stackView-bottom-Login-Login-view-scrollView-contentLayoutGuide-bottom</string>
+                                    </constraint>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="centerX" secondItem="Login-Login-view-scrollView" secondAttribute="centerX" id="Login-Login-view-scrollView--C-Login-Login-view-scrollView-stackView-centerX-Login-Login-view-scrollView-centerX"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="leading" secondItem="Login-Login-view-scrollView" secondAttribute="leading" constant="20" id="Login-Login-view-scrollView--C-Login-Login-view-scrollView-stackView-leading-Login-Login-view-scrollView-leading"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="top" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="top" constant="40" id="Login-Login-view-scrollView--C-Login-Login-view-scrollView-stackView-top-Login-Login-view-scrollView-contentLayoutGuide-top"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="trailing" secondItem="Login-Login-view-scrollView" secondAttribute="trailing" constant="-20" id="Login-Login-view-scrollView--C-Login-Login-view-scrollView-stackView-trailing-Login-Login-view-scrollView-trailing"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Login-Login-view-scrollView-contentLayoutGuide"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Login-Login-view-scrollView-frameLayoutGuide"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Login-Login-view-safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="bottom" secondItem="Login-Login-view-safeArea" secondAttribute="bottom" id="Login-Login-view--C-Login-Login-view-scrollView-bottom-Login-Login-view-safeArea-bottom" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="leading" secondItem="Login-Login-view-safeArea" secondAttribute="leading" id="Login-Login-view--C-Login-Login-view-scrollView-leading-Login-Login-view-safeArea-leading"/>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="top" secondItem="Login-Login-view-safeArea" secondAttribute="top" id="Login-Login-view--C-Login-Login-view-scrollView-top-Login-Login-view-safeArea-top"/>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="trailing" secondItem="Login-Login-view-safeArea" secondAttribute="trailing" id="Login-Login-view--C-Login-Login-view-scrollView-trailing-Login-Login-view-safeArea-trailing"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Login" id="Login-Login-Login"/>
+                    <connections>
+                        <outlet property="button" destination="Login-Login-view-scrollView-stackView-Login" id="Login-Login--O-button"/>
+                        <outlet property="email" destination="Login-Login-view-scrollView-stackView-Email" id="Login-Login--O-email"/>
+                        <outlet property="loader" destination="shf-wy-ON6" id="xyr-Qu-pOY"/>
+                        <outlet property="password" destination="Login-Login-view-scrollView-stackView-Password" id="Login-Login--O-password"/>
+                        <outlet property="username" destination="Login-Login-view-scrollView-stackView-Username" id="Login-Login--O-username"/>
+                        <outlet property="vm" destination="Login-LoginViewModel" id="Login-Login--O-vm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Login-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Login-LoginViewModel" customClass="LoginViewModel" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Login-Login" id="Login-LoginViewModel--O-delegate"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="1500" y="1500"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="Login-Login-view-scrollView-stackView-Login">
+            <size key="intrinsicContentSize" width="73" height="41"/>
+        </designable>
+    </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="Settings-Settings-view-Login-tableViewCell-00--S-Login-Login"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>
+        <image name="Logo" width="500" height="500"/>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
@@ -216,6 +433,9 @@
         <namedColor name="AccentColor">
             <color red="1" green="0.58399999141693115" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

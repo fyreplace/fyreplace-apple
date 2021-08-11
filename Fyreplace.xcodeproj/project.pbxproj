@@ -12,6 +12,10 @@
 		4D0040F3268EEDE800AF89FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F1268EEDE800AF89FD /* Main.storyboard */; };
 		4D0040F5268EEDE900AF89FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F4268EEDE900AF89FD /* Assets.xcassets */; };
 		4D0040F8268EEDE900AF89FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F6268EEDE900AF89FD /* LaunchScreen.storyboard */; };
+		4D0A8D6D26A7FAF8007691C9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */; };
+		4D28876226A74F7200D6D3CB /* Rpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28876126A74F7200D6D3CB /* Rpc.swift */; };
+		4D36CC3126964B5D00BA1675 /* FatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36CC3026964B5D00BA1675 /* FatButton.swift */; };
+		4D75EC6826B9BA2E00684537 /* ViewModelDelegate+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75EC6726B9BA2E00684537 /* ViewModelDelegate+UIViewController.swift */; };
 		4D7C987126912ABA00819E3F /* comment.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98532691254B00819E3F /* comment.proto */; };
 		4D7C987226912ABD00819E3F /* id.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98512691254B00819E3F /* id.proto */; };
 		4D7C987326912ABF00819E3F /* image.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C985C2691254B00819E3F /* image.proto */; };
@@ -19,6 +23,12 @@
 		4D7C987526912AC500819E3F /* pagination.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C984C2691254B00819E3F /* pagination.proto */; };
 		4D7C987626912AC900819E3F /* post.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C984D2691254B00819E3F /* post.proto */; };
 		4D7C987726912ACC00819E3F /* user.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C985D2691254B00819E3F /* user.proto */; };
+		4D96BF652697A2B800ED9355 /* KeyboardDodgingConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */; };
+		4D96BF672697A4E700ED9355 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96BF662697A4E700ED9355 /* LoginViewController.swift */; };
+		4DCD910926A46F3F0010F8B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */; };
+		4DFAAD21269F628200DFAB5F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAAD20269F628200DFAB5F /* String.swift */; };
+		4DFAAD25269F6D1F00DFAB5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAAD23269F6D1F00DFAB5F /* Localizable.strings */; };
+		4DFAAD29269F7CB800DFAB5F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */; };
 		D5EDE7778C671535FAB82E6F /* Pods_Fyreplace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4777A1261E1529EE476D77B7 /* Pods_Fyreplace.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +59,10 @@
 		4D0040F4268EEDE900AF89FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D0040F7268EEDE900AF89FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D0040F9268EEDE900AF89FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		4D28876126A74F7200D6D3CB /* Rpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rpc.swift; sourceTree = "<group>"; };
+		4D36CC3026964B5D00BA1675 /* FatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatButton.swift; sourceTree = "<group>"; };
+		4D75EC6726B9BA2E00684537 /* ViewModelDelegate+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModelDelegate+UIViewController.swift"; sourceTree = "<group>"; };
 		4D7C984C2691254B00819E3F /* pagination.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = pagination.proto; sourceTree = "<group>"; };
 		4D7C984D2691254B00819E3F /* post.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = post.proto; sourceTree = "<group>"; };
 		4D7C984F2691254B00819E3F /* notification.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = notification.proto; sourceTree = "<group>"; };
@@ -57,6 +71,13 @@
 		4D7C98532691254B00819E3F /* comment.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = comment.proto; sourceTree = "<group>"; };
 		4D7C985C2691254B00819E3F /* image.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = image.proto; sourceTree = "<group>"; };
 		4D7C985D2691254B00819E3F /* user.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = user.proto; sourceTree = "<group>"; };
+		4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDodgingConstraint.swift; sourceTree = "<group>"; };
+		4D96BF662697A4E700ED9355 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4DFAAD20269F628200DFAB5F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		4DFAAD24269F6D1F00DFAB5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4DFAAD26269F6D4800DFAB5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		92881C69D2E8B8F74E97874F /* Pods-Fyreplace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.release.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.release.xcconfig"; sourceTree = "<group>"; };
 		DAFDD2F2A849ABB6085E5533 /* Pods-Fyreplace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.debug.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,10 +136,42 @@
 		4D00411C268FB4B500AF89FD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4DFAAD1F269F626E00DFAB5F /* Extensions */,
+				4D28875E26A7495700D6D3CB /* Data */,
+				4DFAAD27269F7CA600DFAB5F /* ViewModels */,
+				4D22185C2693AE50007D8CFF /* ViewControllers */,
+				4D36CC2F26964B4000BA1675 /* Views */,
 				4D0040EB268EEDE800AF89FD /* AppDelegate.swift */,
 				4D0040ED268EEDE800AF89FD /* SceneDelegate.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		4D22185C2693AE50007D8CFF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4D75EC6726B9BA2E00684537 /* ViewModelDelegate+UIViewController.swift */,
+				4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */,
+				4D96BF662697A4E700ED9355 /* LoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4D28875E26A7495700D6D3CB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4D28876126A74F7200D6D3CB /* Rpc.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		4D36CC2F26964B4000BA1675 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */,
+				4D36CC3026964B5D00BA1675 /* FatButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4D7C984A2691254B00819E3F /* protos */ = {
@@ -140,8 +193,26 @@
 			isa = PBXGroup;
 			children = (
 				4D0040F4268EEDE900AF89FD /* Assets.xcassets */,
+				4DFAAD23269F6D1F00DFAB5F /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4DFAAD1F269F626E00DFAB5F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4DFAAD20269F628200DFAB5F /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4DFAAD27269F7CA600DFAB5F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */,
+				4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		958BE3377F98F9B27CCC6D2D /* Frameworks */ = {
@@ -205,6 +276,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 4D0040DF268EEDE800AF89FD;
 			productRefGroup = 4D0040E9268EEDE800AF89FD /* Products */;
@@ -222,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D0040F5268EEDE900AF89FD /* Assets.xcassets in Resources */,
+				4DFAAD25269F6D1F00DFAB5F /* Localizable.strings in Resources */,
 				4D0040F8268EEDE900AF89FD /* LaunchScreen.storyboard in Resources */,
 				4D0040F3268EEDE800AF89FD /* Main.storyboard in Resources */,
 			);
@@ -276,15 +349,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D96BF652697A2B800ED9355 /* KeyboardDodgingConstraint.swift in Sources */,
 				4D7C987326912ABF00819E3F /* image.proto in Sources */,
+				4D36CC3126964B5D00BA1675 /* FatButton.swift in Sources */,
 				4D7C987126912ABA00819E3F /* comment.proto in Sources */,
+				4DFAAD21269F628200DFAB5F /* String.swift in Sources */,
 				4D7C987426912AC200819E3F /* notification.proto in Sources */,
 				4D7C987626912AC900819E3F /* post.proto in Sources */,
+				4DCD910926A46F3F0010F8B1 /* SettingsViewController.swift in Sources */,
 				4D7C987526912AC500819E3F /* pagination.proto in Sources */,
+				4D75EC6826B9BA2E00684537 /* ViewModelDelegate+UIViewController.swift in Sources */,
+				4DFAAD29269F7CB800DFAB5F /* LoginViewModel.swift in Sources */,
+				4D0A8D6D26A7FAF8007691C9 /* ViewModel.swift in Sources */,
 				4D7C987226912ABD00819E3F /* id.proto in Sources */,
 				4D7C987726912ACC00819E3F /* user.proto in Sources */,
 				4D0040EC268EEDE800AF89FD /* AppDelegate.swift in Sources */,
 				4D0040EE268EEDE800AF89FD /* SceneDelegate.swift in Sources */,
+				4D96BF672697A4E700ED9355 /* LoginViewController.swift in Sources */,
+				4D28876226A74F7200D6D3CB /* Rpc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +387,15 @@
 				4D0040F7268EEDE900AF89FD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4DFAAD23269F6D1F00DFAB5F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DFAAD24269F6D1F00DFAB5F /* en */,
+				4DFAAD26269F6D4800DFAB5F /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -435,6 +526,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.0.1;
 				DEVELOPMENT_TEAM = T4HRKJYDTW;
+				FYREPLACE_API_HOST = localhost;
+				FYREPLACE_API_PORT = 50051;
 				INFOPLIST_FILE = Fyreplace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,6 +550,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.0.1;
 				DEVELOPMENT_TEAM = T4HRKJYDTW;
+				FYREPLACE_API_HOST = api.fyreplace.app;
+				FYREPLACE_API_PORT = 443;
 				INFOPLIST_FILE = Fyreplace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

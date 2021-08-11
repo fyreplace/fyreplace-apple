@@ -62,5 +62,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>FyreplaceApiHost</key>
+	<string>$(FYREPLACE_API_HOST)</string>
+	<key>FyreplaceApiPort</key>
+	<string>$(FYREPLACE_API_PORT)</string>
 </dict>
 </plist>
