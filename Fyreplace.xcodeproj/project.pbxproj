@@ -240,6 +240,7 @@
 			buildConfigurationList = 4D004112268EEDE900AF89FD /* Build configuration list for PBXNativeTarget "Fyreplace" */;
 			buildPhases = (
 				E5C729B894B38231F2E0EBFF /* [CP] Check Pods Manifest.lock */,
+				4D0F86D826C3CB0E00B1586D /* ShellScript */,
 				4D0040E4268EEDE800AF89FD /* Sources */,
 				4D0040E5268EEDE800AF89FD /* Frameworks */,
 				4D0040E6268EEDE800AF89FD /* Resources */,
@@ -303,6 +304,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4D0F86D826C3CB0E00B1586D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "python3 Fyreplace/Storyboards/identify.py\n";
+		};
 		854DB3A2B34738C63CD0812A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
