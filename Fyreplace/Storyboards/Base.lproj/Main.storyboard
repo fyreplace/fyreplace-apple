@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tab-Bar-Controller-tabBarController">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -38,7 +38,7 @@
                     <tabBarItem key="tabBarItem" title="Feed" image="square.fill.on.square.fill" catalog="system" id="Feed-Navigation-Feed-Navigation-Feed"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Feed-Navigation-Feed-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -55,7 +55,7 @@
             <objects>
                 <viewController id="Feed-Feed" userLabel="Feed" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Feed-Feed-view">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Feed-Feed-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -73,7 +73,7 @@
                     <tabBarItem key="tabBarItem" enabled="NO" title="Notifications" image="bell.fill" catalog="system" id="Notifications-Navigation-Notifications-Navigation-Notifications"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Notifications-Navigation-Notifications-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -90,7 +90,7 @@
             <objects>
                 <viewController id="Notifications-Notifications" userLabel="Notifications" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Notifications-Notifications-view">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Notifications-Notifications-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -108,7 +108,7 @@
                     <tabBarItem key="tabBarItem" enabled="NO" title="Archive" image="clock.fill" catalog="system" id="Archive-Navigation-Archive-Navigation-Archive"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Archive-Navigation-Archive-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -125,7 +125,7 @@
             <objects>
                 <viewController id="Archive-Archive" userLabel="Archive" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Archive-Archive-view">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Archive-Archive-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -143,7 +143,7 @@
                     <tabBarItem key="tabBarItem" enabled="NO" title="Drafts" image="doc.text.fill" catalog="system" id="Drafts-Navigation-Drafts-Navigation-Drafts"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Drafts-Navigation-Drafts-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -160,7 +160,7 @@
             <objects>
                 <viewController id="Drafts-Drafts" userLabel="Drafts" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Drafts-Drafts-view">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Drafts-Drafts-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -178,7 +178,7 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="person.crop.circle.fill" catalog="system" id="Settings-Navigation-Settings-Navigation-Settings"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Settings-Navigation-Settings-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -195,15 +195,15 @@
             <objects>
                 <tableViewController id="Settings-Settings" userLabel="Settings" customClass="SettingsViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Settings-Settings-view">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Settings-Settings-view-tableHeaderView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Avatar" userLabel="Avatar">
-                                    <rect key="frame" x="167" y="20.5" width="80" height="79"/>
+                                    <rect key="frame" x="155" y="21" width="80" height="78.666666666666671"/>
                                     <color key="tintColor" systemColor="labelColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="Settings-Settings-view-tableHeaderView-Avatar--C-width"/>
@@ -211,7 +211,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Username" userLabel="Username">
-                                    <rect key="frame" x="175" y="108" width="64" height="30"/>
+                                    <rect key="frame" x="163" y="108" width="64" height="30"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -242,14 +242,14 @@
                             <tableViewSection id="Settings-Settings-view-Login" userLabel="Login">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Login-tableViewCell-00-contentView-Register" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Login-tableViewCell-00">
-                                        <rect key="frame" x="0.0" y="178" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="178" width="390" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Login-tableViewCell-00" id="Settings-Settings-view-Login-tableViewCell-00-contentView">
-                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="360.33333333333331" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Login-tableViewCell-00-contentView-Register">
-                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="332.33333333333331" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
@@ -262,14 +262,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Login-tableViewCell-01-contentView-Login" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Login-tableViewCell-01">
-                                        <rect key="frame" x="0.0" y="221.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="221.5" width="390" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Login-tableViewCell-01" id="Settings-Settings-view-Login-tableViewCell-01-contentView">
-                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="360.33333333333331" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Login-tableViewCell-01-contentView-Login">
-                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="332.33333333333331" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
@@ -300,24 +300,24 @@
             <objects>
                 <viewController id="Login-Login" userLabel="Login" customClass="LoginViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Login-Login-view">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView">
-                                        <rect key="frame" x="20" y="40" width="374" height="306"/>
+                                        <rect key="frame" x="20" y="40" width="350" height="306"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Logo">
-                                                <rect key="frame" x="147" y="0.0" width="80" height="80"/>
+                                                <rect key="frame" x="135" y="0.0" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="Login-Login-view-scrollView-stackView-Logo--C-width"/>
                                                     <constraint firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Logo" secondAttribute="height" multiplier="1:1" id="Login-Login-view-scrollView-stackView-Logo--C-width-Login-Login-view-scrollView-stackView-Logo-height"/>
                                                 </constraints>
                                             </imageView>
                                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Email">
-                                                <rect key="frame" x="67" y="90" width="240" height="0.0"/>
+                                                <rect key="frame" x="55" y="90" width="240" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                 <connections>
@@ -325,7 +325,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Username">
-                                                <rect key="frame" x="67" y="100" width="240" height="34"/>
+                                                <rect key="frame" x="55" y="100" width="240" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="240" id="Login-Login-view-scrollView-stackView-Username--C-width-greaterThanOrEqual">
                                                         <variation key="widthClass=regular" constant="300"/>
@@ -338,7 +338,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Password">
-                                                <rect key="frame" x="67" y="154" width="240" height="34"/>
+                                                <rect key="frame" x="55" y="154" width="240" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
@@ -346,7 +346,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Login" customClass="FatButton" customModule="Fyreplace" customModuleProvider="target">
-                                                <rect key="frame" x="150.5" y="208" width="73" height="41"/>
+                                                <rect key="frame" x="138.66666666666666" y="208" width="73" height="41"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -356,7 +356,7 @@
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-activityIndicatorView">
-                                                <rect key="frame" x="168.5" y="269" width="37" height="37"/>
+                                                <rect key="frame" x="156.66666666666666" y="269" width="37" height="37"/>
                                             </activityIndicatorView>
                                         </subviews>
                                         <constraints>
@@ -394,7 +394,7 @@
                             <constraint firstItem="Login-Login-view-scrollView" firstAttribute="trailing" secondItem="Login-Login-view-safeArea" secondAttribute="trailing" id="Login-Login-view--C-Login-Login-view-scrollView-trailing-Login-Login-view-safeArea-trailing"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="Login-Login-Login"/>
+                    <navigationItem key="navigationItem" title="Login" largeTitleDisplayMode="never" id="Login-Login-Login"/>
                     <connections>
                         <outlet property="button" destination="Login-Login-view-scrollView-stackView-Login" id="Login-Login--O-button"/>
                         <outlet property="email" destination="Login-Login-view-scrollView-stackView-Email" id="Login-Login--O-email"/>
