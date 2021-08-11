@@ -18,6 +18,10 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>FPApiHost</key>
+	<string>$(FYREPLACE_API_HOST)</string>
+	<key>FPApiPort</key>
+	<string>$(FYREPLACE_API_PORT)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>
@@ -62,9 +66,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>FyreplaceApiHost</key>
-	<string>$(FYREPLACE_API_HOST)</string>
-	<key>FyreplaceApiPort</key>
-	<string>$(FYREPLACE_API_PORT)</string>
 </dict>
 </plist>

@@ -6,8 +6,8 @@ class Rpc {
     let channel: ClientConnection
 
     init() {
-        let host = Bundle.main.infoDictionary!["FyreplaceApiHost"] as! String
-        let port = Bundle.main.infoDictionary!["FyreplaceApiPort"] as! String
+        let host = Bundle.main.infoDictionary!["FPApiHost"] as! String
+        let port = Bundle.main.infoDictionary!["FPApiPort"] as! String
 
         #if DEBUG
         let builder = ClientConnection.insecure(group: group)
