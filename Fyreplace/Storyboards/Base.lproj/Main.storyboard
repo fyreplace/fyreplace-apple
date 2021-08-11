@@ -241,34 +241,14 @@
                         <sections>
                             <tableViewSection id="Settings-Settings-view-Login" userLabel="Login">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Login-tableViewCell-01-contentView-Register" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Login-tableViewCell-01">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Login-tableViewCell-00-contentView-Register" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Login-tableViewCell-00">
                                         <rect key="frame" x="0.0" y="178" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Login-tableViewCell-01" id="Settings-Settings-view-Login-tableViewCell-01-contentView">
-                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Login-tableViewCell-01-contentView-Register">
-                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Login-Login" kind="show" identifier="Register" id="Settings-Settings-view-Login-tableViewCell-01--S-Login-Login"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Login-tableViewCell-00-contentView-Login" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Login-tableViewCell-00">
-                                        <rect key="frame" x="0.0" y="221.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Login-tableViewCell-00" id="Settings-Settings-view-Login-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Login-tableViewCell-00-contentView-Login">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Login-tableViewCell-00-contentView-Register">
                                                     <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -278,7 +258,27 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Login-Login" kind="show" identifier="Login" id="Settings-Settings-view-Login-tableViewCell-00--S-Login-Login"/>
+                                            <segue destination="Login-Login" kind="show" identifier="Register" id="Settings-Settings-view-Login-tableViewCell-00--S-Login-Login"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Login-tableViewCell-01-contentView-Login" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Login-tableViewCell-01">
+                                        <rect key="frame" x="0.0" y="221.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Login-tableViewCell-01" id="Settings-Settings-view-Login-tableViewCell-01-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Login-tableViewCell-01-contentView-Login">
+                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Login-Login" kind="show" identifier="Login" id="Settings-Settings-view-Login-tableViewCell-01--S-Login-Login"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -355,7 +355,7 @@
                                                     <action selector="onLoginPressed" destination="Login-Login" eventType="touchUpInside" id="Login-Login-view-scrollView-stackView-Login--A-touchUpInside-Login-Login-onLoginPressed"/>
                                                 </connections>
                                             </button>
-                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="shf-wy-ON6">
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-activityIndicatorView">
                                                 <rect key="frame" x="168.5" y="269" width="37" height="37"/>
                                             </activityIndicatorView>
                                         </subviews>
@@ -398,7 +398,7 @@
                     <connections>
                         <outlet property="button" destination="Login-Login-view-scrollView-stackView-Login" id="Login-Login--O-button"/>
                         <outlet property="email" destination="Login-Login-view-scrollView-stackView-Email" id="Login-Login--O-email"/>
-                        <outlet property="loader" destination="shf-wy-ON6" id="xyr-Qu-pOY"/>
+                        <outlet property="loader" destination="Login-Login-view-scrollView-stackView-activityIndicatorView" id="Login-Login--O-loader"/>
                         <outlet property="password" destination="Login-Login-view-scrollView-stackView-Password" id="Login-Login--O-password"/>
                         <outlet property="username" destination="Login-Login-view-scrollView-stackView-Username" id="Login-Login--O-username"/>
                         <outlet property="vm" destination="Login-LoginViewModel" id="Login-Login--O-vm"/>
@@ -420,7 +420,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Settings-Settings-view-Login-tableViewCell-00--S-Login-Login"/>
+        <segue reference="Settings-Settings-view-Login-tableViewCell-01--S-Login-Login"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>
