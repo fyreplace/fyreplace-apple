@@ -1,0 +1,132 @@
+PODS:
+  - CGRPCZlib (1.3.0)
+  - CNIOAtomics (2.30.0)
+  - CNIOBoringSSL (2.14.0)
+  - CNIOBoringSSLShims (2.14.0):
+    - CNIOBoringSSL (= 2.14.0)
+  - CNIODarwin (2.30.0)
+  - CNIOHTTPParser (2.30.0)
+  - CNIOLinux (2.30.0)
+  - CNIOWindows (2.30.0)
+  - gRPC-Swift (1.3.0):
+    - CGRPCZlib (= 1.3.0)
+    - Logging (< 2.0.0, >= 1.4.0)
+    - SwiftNIO (< 3.0.0, >= 2.28.0)
+    - SwiftNIOExtras (< 2.0.0, >= 1.4.0)
+    - SwiftNIOHTTP2 (< 2.0.0, >= 1.16.1)
+    - SwiftNIOSSL (< 3.0.0, >= 2.14.0)
+    - SwiftNIOTransportServices (< 2.0.0, >= 1.6.0)
+    - SwiftProtobuf (< 2.0.0, >= 1.9.0)
+  - gRPC-Swift-Plugins (1.3.0):
+    - gRPC-Swift (= 1.3.0)
+  - Logging (1.4.0)
+  - ReactiveCocoa (11.2.1):
+    - ReactiveSwift (~> 6.6)
+  - ReactiveSwift (6.6.1)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SwiftNIO (2.30.0):
+    - CNIODarwin (= 2.30.0)
+    - CNIOLinux (= 2.30.0)
+    - CNIOWindows (= 2.30.0)
+    - SwiftNIOConcurrencyHelpers (= 2.30.0)
+  - SwiftNIOConcurrencyHelpers (2.30.0):
+    - CNIOAtomics (= 2.30.0)
+  - SwiftNIOExtras (1.10.0):
+    - SwiftNIO (< 3, >= 2.30.0)
+  - SwiftNIOFoundationCompat (2.30.0):
+    - SwiftNIO (= 2.30.0)
+  - SwiftNIOHPACK (1.18.0):
+    - SwiftNIO (< 3, >= 2.30.0)
+    - SwiftNIOConcurrencyHelpers (< 3, >= 2.30.0)
+    - SwiftNIOHTTP1 (< 3, >= 2.30.0)
+  - SwiftNIOHTTP1 (2.30.0):
+    - CNIOHTTPParser (= 2.30.0)
+    - SwiftNIO (= 2.30.0)
+    - SwiftNIOConcurrencyHelpers (= 2.30.0)
+  - SwiftNIOHTTP2 (1.18.0):
+    - SwiftNIO (< 3, >= 2.30.0)
+    - SwiftNIOConcurrencyHelpers (< 3, >= 2.30.0)
+    - SwiftNIOHPACK (= 1.18.0)
+    - SwiftNIOHTTP1 (< 3, >= 2.30.0)
+    - SwiftNIOTLS (< 3, >= 2.30.0)
+  - SwiftNIOSSL (2.14.0):
+    - CNIOBoringSSL (= 2.14.0)
+    - CNIOBoringSSLShims (= 2.14.0)
+    - SwiftNIO (< 3, >= 2.30.0)
+    - SwiftNIOConcurrencyHelpers (< 3, >= 2.30.0)
+    - SwiftNIOTLS (< 3, >= 2.30.0)
+  - SwiftNIOTLS (2.30.0):
+    - SwiftNIO (= 2.30.0)
+  - SwiftNIOTransportServices (1.11.0):
+    - SwiftNIO (< 3, >= 2.30.0)
+    - SwiftNIOConcurrencyHelpers (< 3, >= 2.30.0)
+    - SwiftNIOFoundationCompat (< 3, >= 2.30.0)
+    - SwiftNIOTLS (< 3, >= 2.30.0)
+  - SwiftProtobuf (1.17.0)
+
+DEPENDENCIES:
+  - gRPC-Swift (~> 1)
+  - gRPC-Swift-Plugins (~> 1)
+  - ReactiveCocoa (~> 11)
+  - SDWebImage (~> 5)
+
+SPEC REPOS:
+  trunk:
+    - CGRPCZlib
+    - CNIOAtomics
+    - CNIOBoringSSL
+    - CNIOBoringSSLShims
+    - CNIODarwin
+    - CNIOHTTPParser
+    - CNIOLinux
+    - CNIOWindows
+    - gRPC-Swift
+    - gRPC-Swift-Plugins
+    - Logging
+    - ReactiveCocoa
+    - ReactiveSwift
+    - SDWebImage
+    - SwiftNIO
+    - SwiftNIOConcurrencyHelpers
+    - SwiftNIOExtras
+    - SwiftNIOFoundationCompat
+    - SwiftNIOHPACK
+    - SwiftNIOHTTP1
+    - SwiftNIOHTTP2
+    - SwiftNIOSSL
+    - SwiftNIOTLS
+    - SwiftNIOTransportServices
+    - SwiftProtobuf
+
+SPEC CHECKSUMS:
+  CGRPCZlib: 858fb2c33706c84959695f32ce8852746c3a8c3d
+  CNIOAtomics: ab79c239d46f3a330eef44aa3f2f86a25dbba3c2
+  CNIOBoringSSL: f3b67841fc3aefe1154f1b4232f4ac7a922d16dc
+  CNIOBoringSSLShims: 95b5c4ddd4a443fb61393c3dd60671901a18b40c
+  CNIODarwin: b0645cd841ad8ac7b909095dcf82ca177a20105a
+  CNIOHTTPParser: 4b760a40a95a9cdf0745d42cbc43f460645cac24
+  CNIOLinux: e4def3bc8b0c9e7fbf4c3c85f3797be00177399e
+  CNIOWindows: 8f14a2ec959cd0fd6ee102384ca4d09b1cff9b4e
+  gRPC-Swift: f7a248c42cc639c7a66422e40b6e2797881095d1
+  gRPC-Swift-Plugins: 70dc1f53f6ab16f54969ebc2332ab70172f14cd5
+  Logging: beeb016c9c80cf77042d62e83495816847ef108b
+  ReactiveCocoa: 194289e7069037d40c59cb4ae9230f4b1ec05fa8
+  ReactiveSwift: fab34244ad908808dc822bae352a058c8837c4ca
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SwiftNIO: f8ba4a53a934bf5ef6cd84ba9133903c9c760874
+  SwiftNIOConcurrencyHelpers: 8b2657b5574ff83b8d82377d410e9272e0e16c79
+  SwiftNIOExtras: 12c3902de56e7ff1e13b503f25f91f6241e6c070
+  SwiftNIOFoundationCompat: a04ab889162baea339109971a39ac1b485efaaa1
+  SwiftNIOHPACK: d860ff998cea404983b7a8eaf467724981382707
+  SwiftNIOHTTP1: 05e35ba2884ceba1e6aac432e9d8836a44b21679
+  SwiftNIOHTTP2: ea3fb3fe106496198fa78d106c60e28a7a66b621
+  SwiftNIOSSL: 44ca606052bda37aa92cd70b3790f2fa9cb60ecd
+  SwiftNIOTLS: e0d5eafb783309ec96d05877846e7fca080d8371
+  SwiftNIOTransportServices: d7325a26197766ddaf800d5237ad9cdd1c8d47fc
+  SwiftProtobuf: 9c85136c6ba74b0a1b84279dbf0f6db8efb714e0
+
+PODFILE CHECKSUM: a2c3dc26d9813cc87e591f44276f605261059469
+
+COCOAPODS: 1.10.2

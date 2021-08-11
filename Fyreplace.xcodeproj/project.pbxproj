@@ -13,9 +13,6 @@
 		4D0040F5268EEDE900AF89FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F4268EEDE900AF89FD /* Assets.xcassets */; };
 		4D0040F8268EEDE900AF89FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F6268EEDE900AF89FD /* LaunchScreen.storyboard */; };
 		4D0A8D6D26A7FAF8007691C9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */; };
-		4D0F86DB26C3D3B600B1586D /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 4D0F86DA26C3D3B600B1586D /* GRPC */; };
-		4D0F86DE26C3D45400B1586D /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4D0F86DD26C3D45400B1586D /* ReactiveCocoa */; };
-		4D0F86E126C3D4DC00B1586D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4D0F86E026C3D4DC00B1586D /* SDWebImage */; };
 		4D28876226A74F7200D6D3CB /* Rpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28876126A74F7200D6D3CB /* Rpc.swift */; };
 		4D36CC3126964B5D00BA1675 /* FatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36CC3026964B5D00BA1675 /* FatButton.swift */; };
 		4D75EC6826B9BA2E00684537 /* ViewModelDelegate+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75EC6726B9BA2E00684537 /* ViewModelDelegate+UIViewController.swift */; };
@@ -32,6 +29,7 @@
 		4DFAAD21269F628200DFAB5F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAAD20269F628200DFAB5F /* String.swift */; };
 		4DFAAD25269F6D1F00DFAB5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAAD23269F6D1F00DFAB5F /* Localizable.strings */; };
 		4DFAAD29269F7CB800DFAB5F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */; };
+		D5EDE7778C671535FAB82E6F /* Pods_Fyreplace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4777A1261E1529EE476D77B7 /* Pods_Fyreplace.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -53,6 +51,7 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
+		4777A1261E1529EE476D77B7 /* Pods_Fyreplace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fyreplace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0040E8268EEDE800AF89FD /* Fyreplace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fyreplace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0040EB268EEDE800AF89FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D0040ED268EEDE800AF89FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +78,8 @@
 		4DFAAD24269F6D1F00DFAB5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DFAAD26269F6D4800DFAB5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		92881C69D2E8B8F74E97874F /* Pods-Fyreplace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.release.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.release.xcconfig"; sourceTree = "<group>"; };
+		DAFDD2F2A849ABB6085E5533 /* Pods-Fyreplace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.debug.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D0F86E126C3D4DC00B1586D /* SDWebImage in Frameworks */,
-				4D0F86DB26C3D3B600B1586D /* GRPC in Frameworks */,
-				4D0F86DE26C3D45400B1586D /* ReactiveCocoa in Frameworks */,
+				D5EDE7778C671535FAB82E6F /* Pods_Fyreplace.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +100,8 @@
 				4D0040EA268EEDE800AF89FD /* Fyreplace */,
 				4D7C984A2691254B00819E3F /* protos */,
 				4D0040E9268EEDE800AF89FD /* Products */,
+				C65EB2DEC8380D9ABD7483E6 /* Pods */,
+				958BE3377F98F9B27CCC6D2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,6 +215,23 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		958BE3377F98F9B27CCC6D2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4777A1261E1529EE476D77B7 /* Pods_Fyreplace.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C65EB2DEC8380D9ABD7483E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAFDD2F2A849ABB6085E5533 /* Pods-Fyreplace.debug.xcconfig */,
+				92881C69D2E8B8F74E97874F /* Pods-Fyreplace.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,10 +239,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D004112268EEDE900AF89FD /* Build configuration list for PBXNativeTarget "Fyreplace" */;
 			buildPhases = (
+				E5C729B894B38231F2E0EBFF /* [CP] Check Pods Manifest.lock */,
 				4D0F86D826C3CB0E00B1586D /* ShellScript */,
 				4D0040E4268EEDE800AF89FD /* Sources */,
 				4D0040E5268EEDE800AF89FD /* Frameworks */,
 				4D0040E6268EEDE800AF89FD /* Resources */,
+				854DB3A2B34738C63CD0812A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 				4D7C987826912C2600819E3F /* PBXBuildRule */,
@@ -232,11 +252,6 @@
 			dependencies = (
 			);
 			name = Fyreplace;
-			packageProductDependencies = (
-				4D0F86DA26C3D3B600B1586D /* GRPC */,
-				4D0F86DD26C3D45400B1586D /* ReactiveCocoa */,
-				4D0F86E026C3D4DC00B1586D /* SDWebImage */,
-			);
 			productName = Fyreplace;
 			productReference = 4D0040E8268EEDE800AF89FD /* Fyreplace.app */;
 			productType = "com.apple.product-type.application";
@@ -265,11 +280,6 @@
 				fr,
 			);
 			mainGroup = 4D0040DF268EEDE800AF89FD;
-			packageReferences = (
-				4D0F86D926C3D3B600B1586D /* XCRemoteSwiftPackageReference "grpc-swift" */,
-				4D0F86DC26C3D45400B1586D /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
-				4D0F86DF26C3D4DC00B1586D /* XCRemoteSwiftPackageReference "SDWebImage" */,
-			);
 			productRefGroup = 4D0040E9268EEDE800AF89FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -310,6 +320,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "python3 Fyreplace/Storyboards/identify.py\n";
+		};
+		854DB3A2B34738C63CD0812A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fyreplace/Pods-Fyreplace-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fyreplace/Pods-Fyreplace-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fyreplace/Pods-Fyreplace-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5C729B894B38231F2E0EBFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fyreplace-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -488,6 +537,7 @@
 		};
 		4D004113268EEDE900AF89FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAFDD2F2A849ABB6085E5533 /* Pods-Fyreplace.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -511,6 +561,7 @@
 		};
 		4D004114268EEDE900AF89FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92881C69D2E8B8F74E97874F /* Pods-Fyreplace.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -554,51 +605,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4D0F86D926C3D3B600B1586D /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/grpc/grpc-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.0;
-			};
-		};
-		4D0F86DC26C3D45400B1586D /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveCocoa";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.2.1;
-			};
-		};
-		4D0F86DF26C3D4DC00B1586D /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.11.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4D0F86DA26C3D3B600B1586D /* GRPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4D0F86D926C3D3B600B1586D /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = GRPC;
-		};
-		4D0F86DD26C3D45400B1586D /* ReactiveCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4D0F86DC26C3D45400B1586D /* XCRemoteSwiftPackageReference "ReactiveCocoa" */;
-			productName = ReactiveCocoa;
-		};
-		4D0F86E026C3D4DC00B1586D /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4D0F86DF26C3D4DC00B1586D /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D0040E0268EEDE800AF89FD /* Project object */;
 }
