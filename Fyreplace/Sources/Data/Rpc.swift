@@ -12,7 +12,7 @@ class Rpc {
         #if DEBUG
         let builder = ClientConnection.insecure(group: group)
         #else
-        let builder = ClientConnection.secure(group: group)
+        let builder = ClientConnection.usingPlatformAppropriateTLS(for: group)
         #endif
 
         channel = builder.connect(host: host, port: Int(port)!)
