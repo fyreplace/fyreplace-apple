@@ -2,6 +2,7 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder {
+    static let urlOpenedNotification = Notification.Name("urlOpened")
     var window: UIWindow?
 }
 
@@ -13,6 +14,12 @@ extension AppDelegate: UIApplicationDelegate {
             window.tintColor = UIColor(named: "AccentColor")
         }
 
+        return true
+    }
+
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let userInfo = ["url": url]
+        NotificationCenter.default.post(Notification(name: AppDelegate.urlOpenedNotification, userInfo: userInfo))
         return true
     }
 

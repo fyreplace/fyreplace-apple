@@ -15,7 +15,8 @@ class LoginViewModel: ViewModel {
     lazy var canProceed = isRegistering.negate().or(isEmailValid).and(isUsernameValid).and(isPasswordValid)
     let isLoading = MutableProperty(false)
 
-    private lazy var accountClient = FPBAccountServiceClient(channel: LoginViewModel.rpc.channel)
+    private lazy var accountService = FPBAccountServiceClient(channel: Self.rpc.channel)
+    private let authToken = Keychain.authToken
 
     func register() {
         let userCreation = FPBUserCreation.with {
@@ -25,8 +26,8 @@ class LoginViewModel: ViewModel {
         }
 
         isLoading.value = true
-        let response = accountClient.create(userCreation).response
-        response.whenSuccess { _ in self.delegate.onRegisterSuccess() }
+        let response = accountService.create(userCreation).response
+        response.whenSuccess { _ in self.delegate.onRegister() }
         response.whenFailure { self.delegate.onFailure($0) }
         response.whenComplete { _ in self.isLoading.value = false }
     }
@@ -35,25 +36,30 @@ class LoginViewModel: ViewModel {
         let credentials = FPBCredentials.with {
             $0.identifier = username.value
             $0.password = password.value
-            $0.client = .with {
-                $0.hardware = "mobile"
-                $0.software = "darwin"
-            }
+            $0.client = .default
         }
 
         isLoading.value = true
-        let response = accountClient.connect(credentials).response
-        response.whenSuccess { _ in self.delegate.onLoginSuccess() }
+        let response = accountService.connect(credentials).response
+        response.whenSuccess { self.onLogin(token: $0.token) }
         response.whenFailure { self.delegate.onFailure($0) }
         response.whenComplete { _ in self.isLoading.value = false }
+    }
+
+    private func onLogin(token: String) {
+        if authToken.set(token.data(using: .utf8)!) {
+            delegate.onLogin()
+        } else {
+            delegate.onFailure(KeychainError.set)
+        }
     }
 }
 
 @objc
 protocol LoginViewModelDelegate: ViewModelDelegate {
-    func onRegisterSuccess()
+    func onRegister()
 
-    func onLoginSuccess()
+    func onLogin()
 }
 
 private extension Int {

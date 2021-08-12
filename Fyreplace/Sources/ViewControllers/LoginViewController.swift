@@ -61,42 +61,46 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginViewModelDelegate {
-    func onRegisterSuccess() {
+    func onRegister() {
         DispatchQueue.main.async { [self] in
             navigationController?.popViewController(animated: true)
-            presentBasicAlert(title: "Login.Register.Title", message: "Login.Register.Message")
+            presentBasicAlert(text: "Login.Register")
         }
     }
 
-    func onLoginSuccess() {
+    func onLogin() {
         DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
     }
 
     func onFailure(_ error: Error) {
+        if let error = error as? KeychainError {
+            presentBasicAlert(text: error.alertText, feedback: .error)
+        }
+
         guard let status = error as? GRPCStatus else {
-            return presentBasicAlert(title: "UnknownError.Title", message: "UnknownError.Message", feedback: .error)
+            return presentBasicAlert(text: "Error", feedback: .error)
         }
 
         let key: String
 
         switch status.code {
         case .alreadyExists:
-            key = "Existing\(status.message == "email_taken" ? "Email" : "Username")"
+            key = "Login.Error.Existing\(status.message == "email_taken" ? "Email" : "Username")"
 
         case .permissionDenied:
             key = ["caller_pending", "caller_deleted", "caller_banned"].contains(status.message)
-                ? status.message!.pascalized
-                : "PermissionError"
+                ? "Login.Error.\(status.message!.pascalized)"
+                : "Error.Permission"
 
         case .invalidArgument:
             key = ["invalid_credentials", "invalid_email", "invalid_username", "invalid_password"].contains(status.message)
-                ? status.message!.pascalized
-                : "ValidationError"
+                ? "Login.Error.\(status.message!.pascalized)"
+                : "Error.Validation"
 
         default:
-            return presentBasicAlert(title: "UnknownError.Title", message: "UnknownError.Message", feedback: .error)
+            key = "Error"
         }
 
-        presentBasicAlert(title: "Login.\(key).Title", message: "Login.\(key).Message", feedback: .error)
+        presentBasicAlert(text: key, feedback: .error)
     }
 }
