@@ -1,22 +1,30 @@
 import UIKit
+import ReactiveSwift
 
 public class KeyboardDodgingConstraint: NSLayoutConstraint {
     private var originalConstant: CGFloat?
     private var lastOrientation: UIDeviceOrientation?
     private var keyboardHeight: CGFloat = 0
 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
     public override func awakeFromNib() {
         super.awakeFromNib()
-        NotificationCenter.default.addObserver(self, selector: #selector(onOrientationDidChange(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardWillShow(_:)), name: UIWindow.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardWillHide(_:)), name: UIWindow.keyboardWillHideNotification, object: nil)
+
+        NotificationCenter.default.reactive
+            .notifications(forName: UIDevice.orientationDidChangeNotification)
+            .take(during: reactive.lifetime)
+            .observeValues { [unowned self] in onOrientationDidChange($0) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: UIWindow.keyboardWillShowNotification)
+            .take(during: reactive.lifetime)
+            .observeValues { [unowned self] in onKeyboardWillShow($0) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: UIWindow.keyboardWillHideNotification)
+            .take(during: reactive.lifetime)
+            .observeValues { [unowned self] in onKeyboardWillHide($0) }
     }
 
-    @objc
     private func onOrientationDidChange(_ notification: Notification) {
         let currentOrientation = UIDevice.current.orientation
         guard currentOrientation != lastOrientation else { return }
@@ -27,7 +35,6 @@ public class KeyboardDodgingConstraint: NSLayoutConstraint {
         }
     }
 
-    @objc
     private func onKeyboardWillShow(_ notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         let frameValue = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)
@@ -40,7 +47,6 @@ public class KeyboardDodgingConstraint: NSLayoutConstraint {
         keyboardChanged(height: keyboardSize.height, info: userInfo)
     }
 
-    @objc
     private func onKeyboardWillHide(_ notification: Notification) {
         keyboardChanged(height: 0, info: notification.userInfo)
     }

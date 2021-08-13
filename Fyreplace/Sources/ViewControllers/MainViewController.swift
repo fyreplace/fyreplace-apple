@@ -5,13 +5,12 @@ class MainViewController: UITabBarController, MainViewModelDelegate {
     @IBOutlet
     private var vm: MainViewModel!
 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(onUrlOpened(_:)), name: AppDelegate.urlOpenedNotification, object: nil)
+        NotificationCenter.default.reactive
+            .notifications(forName: AppDelegate.urlOpenedNotification)
+            .take(during: reactive.lifetime)
+            .observeValues { [unowned self] in onUrlOpened($0) }
     }
 
     func onConfirmActivation() {
@@ -45,7 +44,6 @@ class MainViewController: UITabBarController, MainViewModelDelegate {
         presentBasicAlert(text: key, feedback: .error)
     }
 
-    @objc
     private func onUrlOpened(_ notification: Notification) {
         guard let url = notification.userInfo?["url"] as? URL else {
             return presentBasicAlert(text: "Error", feedback: .error)
