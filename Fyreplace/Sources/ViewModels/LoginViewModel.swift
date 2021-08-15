@@ -48,6 +48,7 @@ class LoginViewModel: ViewModel {
 
     private func onLogin(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
+            NotificationCenter.default.post(name: FPBUser.userConnectedNotification, object: self)
             delegate.onLogin()
         } else {
             delegate.onFailure(KeychainError.set)

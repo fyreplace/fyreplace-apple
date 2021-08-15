@@ -289,6 +289,27 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="Settings-Settings-view-Logout" userLabel="Logout">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-Logout-tableViewCell-00-contentView-Logout" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Logout-tableViewCell-00">
+                                        <rect key="frame" x="0.0" y="301" width="390" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Logout-tableViewCell-00" id="Settings-Settings-view-Logout-tableViewCell-00-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Logout-tableViewCell-00-contentView-Logout">
+                                                    <rect key="frame" x="20" y="0.0" width="350" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" systemColor="systemRedColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="Settings-Settings" id="Settings-Settings-view--O-dataSource"/>
@@ -296,8 +317,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="Settings-Settings-Settings"/>
+                    <connections>
+                        <outlet property="avatar" destination="Settings-Settings-view-tableHeaderView-Avatar" id="Settings-Settings--O-avatar"/>
+                        <outlet property="username" destination="Settings-Settings-view-tableHeaderView-Username" id="Settings-Settings--O-username"/>
+                        <outlet property="vm" destination="Settings-SettingsViewModel" id="Settings-Settings--O-vm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Settings-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Settings-SettingsViewModel" customClass="SettingsViewModel" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Settings-Settings" id="Settings-SettingsViewModel--O-delegate"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1500" y="750"/>
         </scene>
@@ -313,7 +344,7 @@
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView">
-                                        <rect key="frame" x="20" y="40" width="350" height="360"/>
+                                        <rect key="frame" x="20" y="40" width="350" height="352"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Logo">
                                                 <rect key="frame" x="135" y="0.0" width="80" height="80"/>
@@ -352,7 +383,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Login" customClass="FatButton" customModule="Fyreplace" customModuleProvider="target">
-                                                <rect key="frame" x="138.66666666666666" y="262" width="73" height="41"/>
+                                                <rect key="frame" x="153.66666666666666" y="262" width="43" height="33"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -362,7 +393,7 @@
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-activityIndicatorView">
-                                                <rect key="frame" x="156.66666666666666" y="323" width="37" height="37"/>
+                                                <rect key="frame" x="156.66666666666666" y="315" width="37" height="37"/>
                                             </activityIndicatorView>
                                         </subviews>
                                         <constraints>
@@ -422,7 +453,7 @@
     </scenes>
     <designables>
         <designable name="Login-Login-view-scrollView-stackView-Login">
-            <size key="intrinsicContentSize" width="73" height="41"/>
+            <size key="intrinsicContentSize" width="43" height="33"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
@@ -444,6 +475,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -31,6 +31,8 @@
 "Main.Error.UserNotPending.Title" = "Account already activated";
 "Main.Error.UserNotPending.Message" = "This account has already been activated.";
 
+"Settings.Username" = "Guest";
+
 "Login.Login" = "Login";
 "Login.Register" = "Register";
 "Login.Register.Title" = "Check your email";

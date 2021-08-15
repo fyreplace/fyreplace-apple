@@ -18,8 +18,10 @@
 		4D3AEDA326C512F100C93DFF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3AEDA226C512F100C93DFF /* MainViewModel.swift */; };
 		4D3AEDA726C5157D00C93DFF /* FPBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3AEDA626C5157D00C93DFF /* FPBClient.swift */; };
 		4D3AEDA926C5185200C93DFF /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3AEDA826C5185200C93DFF /* Keychain.swift */; };
-		4D3AEDAB26C51ED000C93DFF /* ViewModelDelegate+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3AEDAA26C51ED000C93DFF /* ViewModelDelegate+UIViewController.swift */; };
 		4D3EB6DA26C42DA10034B6FB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3EB6D926C42DA10034B6FB /* MainViewController.swift */; };
+		4D3F816226C6C53500764763 /* CallOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816126C6C53500764763 /* CallOptions.swift */; };
+		4D3F816426C6D0D000764763 /* ViewModel+FPBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816326C6D0D000764763 /* ViewModel+FPBUser.swift */; };
+		4D3F816826C6E57900764763 /* UserDefaults+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816726C6E57900764763 /* UserDefaults+Message.swift */; };
 		4D75EC6826B9BA2E00684537 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75EC6726B9BA2E00684537 /* UIViewController.swift */; };
 		4D7C987126912ABA00819E3F /* comment.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98532691254B00819E3F /* comment.proto */; };
 		4D7C987226912ABD00819E3F /* id.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98512691254B00819E3F /* id.proto */; };
@@ -30,6 +32,9 @@
 		4D7C987726912ACC00819E3F /* user.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C985D2691254B00819E3F /* user.proto */; };
 		4D96BF652697A2B800ED9355 /* KeyboardDodgingConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */; };
 		4D96BF672697A4E700ED9355 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96BF662697A4E700ED9355 /* LoginViewController.swift */; };
+		4DAF29E526C7BE67005612C9 /* FPBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAF29E426C7BE67005612C9 /* FPBUser.swift */; };
+		4DAF29E726C7C062005612C9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAF29E626C7C062005612C9 /* SettingsViewModel.swift */; };
+		4DAF29E926C7CA3E005612C9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAF29E826C7CA3E005612C9 /* UIImage.swift */; };
 		4DCD910926A46F3F0010F8B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */; };
 		4DFAAD21269F628200DFAB5F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAAD20269F628200DFAB5F /* String.swift */; };
 		4DFAAD25269F6D1F00DFAB5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAAD23269F6D1F00DFAB5F /* Localizable.strings */; };
@@ -70,8 +75,10 @@
 		4D3AEDA226C512F100C93DFF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4D3AEDA626C5157D00C93DFF /* FPBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPBClient.swift; sourceTree = "<group>"; };
 		4D3AEDA826C5185200C93DFF /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		4D3AEDAA26C51ED000C93DFF /* ViewModelDelegate+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModelDelegate+UIViewController.swift"; sourceTree = "<group>"; };
 		4D3EB6D926C42DA10034B6FB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4D3F816126C6C53500764763 /* CallOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallOptions.swift; sourceTree = "<group>"; };
+		4D3F816326C6D0D000764763 /* ViewModel+FPBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+FPBUser.swift"; sourceTree = "<group>"; };
+		4D3F816726C6E57900764763 /* UserDefaults+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Message.swift"; sourceTree = "<group>"; };
 		4D75EC6726B9BA2E00684537 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		4D7C984C2691254B00819E3F /* pagination.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = pagination.proto; sourceTree = "<group>"; };
 		4D7C984D2691254B00819E3F /* post.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = post.proto; sourceTree = "<group>"; };
@@ -83,6 +90,9 @@
 		4D7C985D2691254B00819E3F /* user.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = user.proto; sourceTree = "<group>"; };
 		4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDodgingConstraint.swift; sourceTree = "<group>"; };
 		4D96BF662697A4E700ED9355 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4DAF29E426C7BE67005612C9 /* FPBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPBUser.swift; sourceTree = "<group>"; };
+		4DAF29E626C7C062005612C9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		4DAF29E826C7CA3E005612C9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4DFAAD20269F628200DFAB5F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4DFAAD24269F6D1F00DFAB5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -160,7 +170,6 @@
 		4D22185C2693AE50007D8CFF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4D3AEDAA26C51ED000C93DFF /* ViewModelDelegate+UIViewController.swift */,
 				4D3EB6D926C42DA10034B6FB /* MainViewController.swift */,
 				4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */,
 				4D96BF662697A4E700ED9355 /* LoginViewController.swift */,
@@ -215,7 +224,11 @@
 			children = (
 				4DFAAD20269F628200DFAB5F /* String.swift */,
 				4D75EC6726B9BA2E00684537 /* UIViewController.swift */,
+				4D3F816726C6E57900764763 /* UserDefaults+Message.swift */,
+				4D3F816126C6C53500764763 /* CallOptions.swift */,
 				4D3AEDA626C5157D00C93DFF /* FPBClient.swift */,
+				4DAF29E426C7BE67005612C9 /* FPBUser.swift */,
+				4DAF29E826C7CA3E005612C9 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -224,7 +237,9 @@
 			isa = PBXGroup;
 			children = (
 				4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */,
+				4D3F816326C6D0D000764763 /* ViewModel+FPBUser.swift */,
 				4D3AEDA226C512F100C93DFF /* MainViewModel.swift */,
+				4DAF29E626C7C062005612C9 /* SettingsViewModel.swift */,
 				4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
@@ -383,19 +398,23 @@
 			files = (
 				4D96BF652697A2B800ED9355 /* KeyboardDodgingConstraint.swift in Sources */,
 				4D7C987326912ABF00819E3F /* image.proto in Sources */,
+				4D3F816426C6D0D000764763 /* ViewModel+FPBUser.swift in Sources */,
 				4D36CC3126964B5D00BA1675 /* FatButton.swift in Sources */,
+				4D3F816826C6E57900764763 /* UserDefaults+Message.swift in Sources */,
 				4D7C987126912ABA00819E3F /* comment.proto in Sources */,
-				4D3AEDAB26C51ED000C93DFF /* ViewModelDelegate+UIViewController.swift in Sources */,
 				4DFAAD21269F628200DFAB5F /* String.swift in Sources */,
 				4D3AEDA926C5185200C93DFF /* Keychain.swift in Sources */,
 				4D3AEDA726C5157D00C93DFF /* FPBClient.swift in Sources */,
 				4D3EB6DA26C42DA10034B6FB /* MainViewController.swift in Sources */,
+				4DAF29E526C7BE67005612C9 /* FPBUser.swift in Sources */,
 				4D7C987426912AC200819E3F /* notification.proto in Sources */,
+				4D3F816226C6C53500764763 /* CallOptions.swift in Sources */,
 				4D7C987626912AC900819E3F /* post.proto in Sources */,
 				4DCD910926A46F3F0010F8B1 /* SettingsViewController.swift in Sources */,
 				4D7C987526912AC500819E3F /* pagination.proto in Sources */,
 				4D75EC6826B9BA2E00684537 /* UIViewController.swift in Sources */,
 				4DFAAD29269F7CB800DFAB5F /* LoginViewModel.swift in Sources */,
+				4DAF29E926C7CA3E005612C9 /* UIImage.swift in Sources */,
 				4D0A8D6D26A7FAF8007691C9 /* ViewModel.swift in Sources */,
 				4D7C987226912ABD00819E3F /* id.proto in Sources */,
 				4D7C987726912ACC00819E3F /* user.proto in Sources */,
@@ -404,6 +423,7 @@
 				4D0040EE268EEDE800AF89FD /* SceneDelegate.swift in Sources */,
 				4D96BF672697A4E700ED9355 /* LoginViewController.swift in Sources */,
 				4D28876226A74F7200D6D3CB /* Rpc.swift in Sources */,
+				4DAF29E726C7C062005612C9 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
