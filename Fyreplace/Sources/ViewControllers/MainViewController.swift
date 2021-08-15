@@ -1,7 +1,7 @@
 import UIKit
 import GRPC
 
-class MainViewController: UITabBarController, MainViewModelDelegate {
+class MainViewController: UITabBarController {
     @IBOutlet
     private var vm: MainViewModel!
 
@@ -13,6 +13,25 @@ class MainViewController: UITabBarController, MainViewModelDelegate {
             .observeValues { [unowned self] in onUrlOpened($0) }
     }
 
+    private func onUrlOpened(_ notification: Notification) {
+        guard let url = notification.userInfo?["url"] as? URL else {
+            return presentBasicAlert(text: "Error", feedback: .error)
+        }
+        guard url.scheme == "fyreplace", url.host?.isEmpty ?? true else {
+            return presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
+        }
+
+        switch url.path {
+        case "/AccountService.ConfirmActivation":
+            vm.confirmActivation(with: url.fragment ?? "")
+
+        default:
+            presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
+        }
+    }
+}
+
+extension MainViewController: MainViewModelDelegate {
     func onConfirmActivation() {
         presentBasicAlert(text: "Main.AccountActivated")
     }
@@ -42,22 +61,5 @@ class MainViewController: UITabBarController, MainViewModelDelegate {
         }
 
         presentBasicAlert(text: key, feedback: .error)
-    }
-
-    private func onUrlOpened(_ notification: Notification) {
-        guard let url = notification.userInfo?["url"] as? URL else {
-            return presentBasicAlert(text: "Error", feedback: .error)
-        }
-        guard url.scheme == "fyreplace", url.host?.isEmpty ?? true else {
-            return presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
-        }
-
-        switch url.path {
-        case "/AccountService.ConfirmActivation":
-            vm.confirmActivation(with: url.fragment ?? "")
-
-        default:
-            presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
-        }
     }
 }
