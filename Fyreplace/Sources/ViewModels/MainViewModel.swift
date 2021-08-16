@@ -10,8 +10,6 @@ class MainViewModel: ViewModel {
     private lazy var userService = FPBUserServiceClient(channel: Self.rpc.channel)
     private let authToken = Keychain.authToken
 
-    var isAuthenticated: Bool { authToken.get() != nil }
-
     override init() {
         super.init()
         NotificationCenter.default.reactive
@@ -19,6 +17,10 @@ class MainViewModel: ViewModel {
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
+
+        if authToken.get() != nil {
+            retrieveMe()
+        }
     }
 
     func confirmActivation(with token: String) {

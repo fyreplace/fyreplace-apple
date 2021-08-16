@@ -11,10 +11,6 @@ class MainViewController: UITabBarController {
             .notifications(forName: AppDelegate.urlOpenedNotification)
             .take(during: reactive.lifetime)
             .observeValues { [unowned self] in onUrlOpened($0) }
-
-        if vm.isAuthenticated {
-            vm.retrieveMe()
-        }
     }
 
     private func onUrlOpened(_ notification: Notification) {
