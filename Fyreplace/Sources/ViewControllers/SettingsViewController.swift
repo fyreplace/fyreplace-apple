@@ -14,12 +14,7 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
         username.reactive.text <~ vm.user.map { $0?.username ?? .tr("Settings.Username") }
         vm.user.map(\.?.avatar.url).producer.start(onAvatarURLChanged(_:))
-
-        NotificationCenter.default.reactive
-            .notifications(forName: FPBUser.userChangedNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in self.onUserChanged($0) }
+        vm.user.producer.start { [unowned self] _ in self.updateTable() }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +45,7 @@ class SettingsViewController: UITableViewController {
         }
     }
 
-    private func onUserChanged(_ notification: Notification) {
+    private func updateTable() {
         let sections = IndexSet(integersIn: 0..<tableView.numberOfSections)
         tableView.reloadSections(sections, with: .automatic)
     }
