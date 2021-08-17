@@ -37,10 +37,8 @@ public struct Keychain {
     }
 }
 
-enum KeychainError: String, Error {
-    case get = "Get"
-    case set = "Set"
-    case delete = "Delete"
-
-    var alertText: String { "Keychain.Error.\(self.rawValue)" }
+enum KeychainError: Error {
+    case get
+    case set
+    case delete
 }

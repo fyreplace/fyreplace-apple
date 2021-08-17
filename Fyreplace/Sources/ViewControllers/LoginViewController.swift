@@ -73,10 +73,6 @@ extension LoginViewController: LoginViewModelDelegate {
     }
 
     func onFailure(_ error: Error) {
-        if let error = error as? KeychainError {
-            presentBasicAlert(text: error.alertText, feedback: .error)
-        }
-
         guard let status = error as? GRPCStatus else {
             return presentBasicAlert(text: "Error", feedback: .error)
         }

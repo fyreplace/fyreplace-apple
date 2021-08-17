@@ -9,21 +9,13 @@
 "Error.Validation.Title" = "Validation error";
 "Error.Validation.Message" = "Please ensure the information you wrote is correct.";
 
-"Keychain.Error.Get.Title" = "Keychain error";
-"Keychain.Error.Get.Message" = "Could not retrieve an item.";
-"Keychain.Error.Set.Title" = "Keychain error";
-"Keychain.Error.Set.Message" = "Could not store an item.";
-"Keychain.Error.Delete.Title" = "Keychain error";
-"Keychain.Error.Delete.Message" = "Could not remove an item.";
+"Keychain.Error.Title" = "Keychain error";
+"Keychain.Error.Message" = "Could not operate on the Keychain.";
 
 "Main.AccountActivated.Title" = "Account activated";
 "Main.AccountActivated.Message" = "Congratulations!\nYour account has been successfully activated.";
 "Main.Error.MalformedUrl.Title" = "Cannot open URL";
 "Main.Error.MalformedUrl.Message" = "The URL is malformed and cannot be used.";
-"Main.Error.SaveToken.Title" = "Could not login";
-"Main.Error.SaveToken.Message" = "The login token could not be saved.";
-"Main.Error.DeleteToken.Title" = "Could not logout";
-"Main.Error.DeleteToken.Message" = "The login token could not be deleted.";
 "Main.Error.TimestampExceeded.Title" = "Outdated URL";
 "Main.Error.TimestampExceeded.Message" = "This URL has expired.";
 "Main.Error.InvalidToken.Title" = "Invalid token";
