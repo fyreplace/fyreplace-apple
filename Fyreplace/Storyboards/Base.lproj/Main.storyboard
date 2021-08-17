@@ -76,7 +76,7 @@
         <scene sceneID="Notifications-Navigation">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Notifications-Navigation-Notifications-Navigation" userLabel="Notifications Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" enabled="NO" title="Notifications" image="bell.fill" catalog="system" id="Notifications-Navigation-Notifications-Navigation-Notifications"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Notifications" image="bell.fill" catalog="system" id="Notifications-Navigation-Notifications-Navigation-Notifications"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Notifications-Navigation-Notifications-Navigation-navigationBar">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -111,7 +111,7 @@
         <scene sceneID="Archive-Navigation">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Archive-Navigation-Archive-Navigation" userLabel="Archive Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" enabled="NO" title="Archive" image="clock.fill" catalog="system" id="Archive-Navigation-Archive-Navigation-Archive"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Archive" image="clock.fill" catalog="system" id="Archive-Navigation-Archive-Navigation-Archive"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Archive-Navigation-Archive-Navigation-navigationBar">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -146,7 +146,7 @@
         <scene sceneID="Drafts-Navigation">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Drafts-Navigation-Drafts-Navigation" userLabel="Drafts Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" enabled="NO" title="Drafts" image="doc.text.fill" catalog="system" id="Drafts-Navigation-Drafts-Navigation-Drafts"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Drafts" image="doc.text.fill" catalog="system" id="Drafts-Navigation-Drafts-Navigation-Drafts"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Drafts-Navigation-Drafts-Navigation-navigationBar">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>

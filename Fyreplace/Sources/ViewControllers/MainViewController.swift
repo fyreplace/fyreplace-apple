@@ -1,4 +1,5 @@
 import UIKit
+import ReactiveSwift
 import GRPC
 
 class MainViewController: UITabBarController {
@@ -7,10 +8,23 @@ class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         NotificationCenter.default.reactive
             .notifications(forName: AppDelegate.urlOpenedNotification)
             .take(during: reactive.lifetime)
             .observeValues { [unowned self] in onUrlOpened($0) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: FPBUser.userConnectedNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] _ in toggleAuthenticatedTabs(enabled: true) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: FPBUser.userDisconnectedNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] _ in toggleAuthenticatedTabs(enabled: false) }
     }
 
     private func onUrlOpened(_ notification: Notification) {
@@ -28,6 +42,10 @@ class MainViewController: UITabBarController {
         default:
             presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
         }
+    }
+
+    private func toggleAuthenticatedTabs(enabled: Bool) {
+        tabBar.items?.filter { $0.tag == 1 }.forEach { $0.isEnabled = enabled }
     }
 }
 
