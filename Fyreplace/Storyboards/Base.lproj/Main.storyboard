@@ -344,7 +344,7 @@
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView">
-                                        <rect key="frame" x="20" y="40" width="350" height="352"/>
+                                        <rect key="frame" x="20" y="40" width="350" height="360"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Logo">
                                                 <rect key="frame" x="135" y="0.0" width="80" height="80"/>
@@ -383,7 +383,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Login" customClass="FatButton" customModule="Fyreplace" customModuleProvider="target">
-                                                <rect key="frame" x="153.66666666666666" y="262" width="43" height="33"/>
+                                                <rect key="frame" x="138.66666666666666" y="262" width="73" height="41"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -393,7 +393,7 @@
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-activityIndicatorView">
-                                                <rect key="frame" x="156.66666666666666" y="315" width="37" height="37"/>
+                                                <rect key="frame" x="156.66666666666666" y="323" width="37" height="37"/>
                                             </activityIndicatorView>
                                         </subviews>
                                         <constraints>
@@ -453,7 +453,7 @@
     </scenes>
     <designables>
         <designable name="Login-Login-view-scrollView-stackView-Login">
-            <size key="intrinsicContentSize" width="43" height="33"/>
+            <size key="intrinsicContentSize" width="73" height="41"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
