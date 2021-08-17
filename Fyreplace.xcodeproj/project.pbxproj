@@ -119,9 +119,9 @@
 			children = (
 				4D0040EA268EEDE800AF89FD /* Fyreplace */,
 				4D7C984A2691254B00819E3F /* protos */,
-				4D0040E9268EEDE800AF89FD /* Products */,
-				C65EB2DEC8380D9ABD7483E6 /* Pods */,
 				958BE3377F98F9B27CCC6D2D /* Frameworks */,
+				C65EB2DEC8380D9ABD7483E6 /* Pods */,
+				4D0040E9268EEDE800AF89FD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,13 +156,14 @@
 		4D00411C268FB4B500AF89FD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4DFAAD1F269F626E00DFAB5F /* Extensions */,
-				4D28875E26A7495700D6D3CB /* Data */,
-				4DFAAD27269F7CA600DFAB5F /* ViewModels */,
-				4D22185C2693AE50007D8CFF /* ViewControllers */,
-				4D36CC2F26964B4000BA1675 /* Views */,
 				4D0040EB268EEDE800AF89FD /* AppDelegate.swift */,
 				4D0040ED268EEDE800AF89FD /* SceneDelegate.swift */,
+				4D36CC2F26964B4000BA1675 /* Views */,
+				4D22185C2693AE50007D8CFF /* ViewControllers */,
+				4DFAAD27269F7CA600DFAB5F /* ViewModels */,
+				4D28875E26A7495700D6D3CB /* Data */,
+				4DBFC78A26CC30BD00766882 /* gRPC */,
+				4DFAAD1F269F626E00DFAB5F /* Extensions */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -181,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				4D3AEDA826C5185200C93DFF /* Keychain.swift */,
-				4D28876126A74F7200D6D3CB /* Rpc.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -217,6 +217,14 @@
 				4DFAAD23269F6D1F00DFAB5F /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4DBFC78A26CC30BD00766882 /* gRPC */ = {
+			isa = PBXGroup;
+			children = (
+				4D28876126A74F7200D6D3CB /* Rpc.swift */,
+			);
+			path = gRPC;
 			sourceTree = "<group>";
 		};
 		4DFAAD1F269F626E00DFAB5F /* Extensions */ = {
