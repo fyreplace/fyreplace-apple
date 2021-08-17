@@ -28,7 +28,7 @@ class LoginViewModel: ViewModel {
         isLoading.value = true
         let response = accountService.create(userCreation).response
         response.whenSuccess { _ in self.delegate.onRegister() }
-        response.whenFailure { self.delegate.onFailure($0) }
+        response.whenFailure { self.delegate.onError($0) }
         response.whenComplete { _ in self.isLoading.value = false }
     }
 
@@ -42,7 +42,7 @@ class LoginViewModel: ViewModel {
         isLoading.value = true
         let response = accountService.connect(credentials).response
         response.whenSuccess { self.onLogin(token: $0.token) }
-        response.whenFailure { self.delegate.onFailure($0) }
+        response.whenFailure { self.delegate.onError($0) }
         response.whenComplete { _ in self.isLoading.value = false }
     }
 
@@ -51,7 +51,7 @@ class LoginViewModel: ViewModel {
             NotificationCenter.default.post(name: FPBUser.userConnectedNotification, object: self)
             delegate.onLogin()
         } else {
-            delegate.onFailure(KeychainError.set)
+            delegate.onError(KeychainError.set)
         }
     }
 }

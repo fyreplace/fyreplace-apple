@@ -20,7 +20,7 @@
 		4D3AEDA926C5185200C93DFF /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3AEDA826C5185200C93DFF /* Keychain.swift */; };
 		4D3EB6DA26C42DA10034B6FB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3EB6D926C42DA10034B6FB /* MainViewController.swift */; };
 		4D3F816226C6C53500764763 /* CallOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816126C6C53500764763 /* CallOptions.swift */; };
-		4D3F816426C6D0D000764763 /* ViewModel+FPBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816326C6D0D000764763 /* ViewModel+FPBUser.swift */; };
+		4D3F816426C6D0D000764763 /* NSObjectProtocol+FPBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */; };
 		4D3F816826C6E57900764763 /* UserDefaults+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816726C6E57900764763 /* UserDefaults+Message.swift */; };
 		4D75EC6826B9BA2E00684537 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75EC6726B9BA2E00684537 /* UIViewController.swift */; };
 		4D7C987126912ABA00819E3F /* comment.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98532691254B00819E3F /* comment.proto */; };
@@ -77,7 +77,7 @@
 		4D3AEDA826C5185200C93DFF /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		4D3EB6D926C42DA10034B6FB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4D3F816126C6C53500764763 /* CallOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallOptions.swift; sourceTree = "<group>"; };
-		4D3F816326C6D0D000764763 /* ViewModel+FPBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+FPBUser.swift"; sourceTree = "<group>"; };
+		4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+FPBUser.swift"; sourceTree = "<group>"; };
 		4D3F816726C6E57900764763 /* UserDefaults+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Message.swift"; sourceTree = "<group>"; };
 		4D75EC6726B9BA2E00684537 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		4D7C984C2691254B00819E3F /* pagination.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = pagination.proto; sourceTree = "<group>"; };
@@ -223,11 +223,12 @@
 			isa = PBXGroup;
 			children = (
 				4DFAAD20269F628200DFAB5F /* String.swift */,
-				4D75EC6726B9BA2E00684537 /* UIViewController.swift */,
+				4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */,
 				4D3F816726C6E57900764763 /* UserDefaults+Message.swift */,
 				4D3F816126C6C53500764763 /* CallOptions.swift */,
 				4D3AEDA626C5157D00C93DFF /* FPBClient.swift */,
 				4DAF29E426C7BE67005612C9 /* FPBUser.swift */,
+				4D75EC6726B9BA2E00684537 /* UIViewController.swift */,
 				4DAF29E826C7CA3E005612C9 /* UIImage.swift */,
 			);
 			path = Extensions;
@@ -237,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */,
-				4D3F816326C6D0D000764763 /* ViewModel+FPBUser.swift */,
 				4D3AEDA226C512F100C93DFF /* MainViewModel.swift */,
 				4DAF29E626C7C062005612C9 /* SettingsViewModel.swift */,
 				4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */,
@@ -398,7 +398,7 @@
 			files = (
 				4D96BF652697A2B800ED9355 /* KeyboardDodgingConstraint.swift in Sources */,
 				4D7C987326912ABF00819E3F /* image.proto in Sources */,
-				4D3F816426C6D0D000764763 /* ViewModel+FPBUser.swift in Sources */,
+				4D3F816426C6D0D000764763 /* NSObjectProtocol+FPBUser.swift in Sources */,
 				4D36CC3126964B5D00BA1675 /* FatButton.swift in Sources */,
 				4D3F816826C6E57900764763 /* UserDefaults+Message.swift in Sources */,
 				4D7C987126912ABA00819E3F /* comment.proto in Sources */,

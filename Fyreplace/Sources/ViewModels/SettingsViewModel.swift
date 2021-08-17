@@ -23,7 +23,7 @@ class SettingsViewModel: ViewModel {
     func logout() {
         let response = accountService.disconnect(FPBIntId(), callOptions: .authenticated).response
         response.whenSuccess { _ in self.onLogout() }
-        response.whenFailure { self.delegate.onFailure($0) }
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     private func onLogout() {
@@ -32,7 +32,7 @@ class SettingsViewModel: ViewModel {
             NotificationCenter.default.post(name: FPBUser.userDisconnectedNotification, object: self)
             delegate.onLogout()
         } else {
-            delegate.onFailure(KeychainError.delete)
+            delegate.onError(KeychainError.delete)
         }
     }
 }

@@ -18,13 +18,15 @@ class MainViewController: UITabBarController {
             .notifications(forName: FPBUser.userConnectedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in toggleAuthenticatedTabs(enabled: true) }
+            .observeValues { [unowned self] in onUserConnected($0) }
 
         NotificationCenter.default.reactive
             .notifications(forName: FPBUser.userDisconnectedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in toggleAuthenticatedTabs(enabled: false) }
+            .observeValues { [unowned self] in onUserDisconnected($0) }
+
+        toggleAuthenticatedTabs(enabled: vm.getUser() != nil)
     }
 
     private func onUrlOpened(_ notification: Notification) {
@@ -41,6 +43,18 @@ class MainViewController: UITabBarController {
 
         default:
             presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
+        }
+    }
+
+    private func onUserConnected(_ notification: Notification) {
+        toggleAuthenticatedTabs(enabled: true)
+    }
+
+    private func onUserDisconnected(_ notification: Notification) {
+        toggleAuthenticatedTabs(enabled: false)
+
+        if tabBar.selectedItem?.tag == 1 {
+            selectedIndex = (tabBar.items?.count ?? 1) - 1
         }
     }
 

@@ -30,13 +30,13 @@ class MainViewModel: ViewModel {
         }
         let response = accountService.confirmActivation(request).response
         response.whenSuccess { self.onConfirmActivation(token: $0.token) }
-        response.whenFailure { self.delegate.onFailure($0) }
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func retrieveMe() {
         let response = userService.retrieveMe(Google_Protobuf_Empty(), callOptions: .authenticated).response
         response.whenSuccess { self.onRetrieveMe(me: $0) }
-        response.whenFailure { self.delegate.onFailure($0) }
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     private func onConfirmActivation(token: String) {
@@ -44,7 +44,7 @@ class MainViewModel: ViewModel {
             NotificationCenter.default.post(name: FPBUser.userConnectedNotification, object: self)
             delegate.onConfirmActivation()
         } else {
-            delegate.onFailure(KeychainError.set)
+            delegate.onError(KeychainError.set)
         }
     }
 

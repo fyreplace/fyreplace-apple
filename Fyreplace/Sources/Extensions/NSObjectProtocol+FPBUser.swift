@@ -1,6 +1,6 @@
 import Foundation
 
-extension ViewModel {
+extension NSObjectProtocol {
     func getUser() -> FPBUser? {
         return UserDefaults.standard.message(forKey: "auth:user")
     }
