@@ -12,8 +12,7 @@ extension SceneDelegate: UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         for context in URLContexts {
-            let userInfo = ["url": context.url]
-            NotificationCenter.default.post(Notification(name: AppDelegate.urlOpenedNotification, userInfo: userInfo))
+            NotificationCenter.default.post(name: AppDelegate.urlOpenedNotification, object: self, userInfo: ["url": context.url])
         }
     }
 }

@@ -8,18 +8,16 @@ class AppDelegate: UIResponder {
 
 extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window?.tintColor = UIColor(named: "AccentColor")
 
-        for window in application.windows {
-            window.tintColor = UIColor(named: "AccentColor")
+        for window in application.windows + [window] {
+            window?.tintColor = UIColor(named: "AccentColor")
         }
 
         return true
     }
 
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        let userInfo = ["url": url]
-        NotificationCenter.default.post(Notification(name: AppDelegate.urlOpenedNotification, userInfo: userInfo))
+        NotificationCenter.default.post(name: Self.urlOpenedNotification, object: self, userInfo: ["url": url])
         return true
     }
 
