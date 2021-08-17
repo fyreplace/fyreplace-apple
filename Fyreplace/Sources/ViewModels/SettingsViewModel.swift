@@ -10,8 +10,8 @@ class SettingsViewModel: ViewModel {
     private lazy var accountService = FPBAccountServiceClient(channel: Self.rpc.channel)
     private let authToken = Keychain.authToken
 
-    override init() {
-        super.init()
+    override func awakeFromNib() {
+        super.awakeFromNib()
         user.value = getUser()
         NotificationCenter.default.reactive
             .notifications(forName: FPBUser.userChangedNotification)

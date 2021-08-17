@@ -10,8 +10,8 @@ class MainViewModel: ViewModel {
     private lazy var userService = FPBUserServiceClient(channel: Self.rpc.channel)
     private let authToken = Keychain.authToken
 
-    override init() {
-        super.init()
+    override func awakeFromNib() {
+        super.awakeFromNib()
         NotificationCenter.default.reactive
             .notifications(forName: FPBUser.userConnectedNotification)
             .take(during: reactive.lifetime)
