@@ -16,6 +16,10 @@ extension AppDelegate: UIApplicationDelegate {
         return true
     }
 
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        return userActivity.sendNotification()
+    }
+
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         NotificationCenter.default.post(name: Self.urlOpenedNotification, object: self, userInfo: ["url": url])
         return true

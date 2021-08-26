@@ -8,6 +8,12 @@ class SceneDelegate: UIResponder {
 extension SceneDelegate: UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         window?.tintColor = UIColor(named: "AccentColor")
+        guard let userActivity = connectionOptions.userActivities.first else { return }
+        _ = userActivity.sendNotification()
+    }
+
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        _ = userActivity.sendNotification()
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {

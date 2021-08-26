@@ -33,9 +33,6 @@ class MainViewController: UITabBarController {
         guard let url = notification.userInfo?["url"] as? URL else {
             return presentBasicAlert(text: "Error", feedback: .error)
         }
-        guard url.scheme == "fyreplace", url.host?.isEmpty ?? true else {
-            return presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
-        }
 
         switch url.path {
         case "/AccountService.ConfirmActivation":

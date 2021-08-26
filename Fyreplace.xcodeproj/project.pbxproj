@@ -22,6 +22,7 @@
 		4D3F816226C6C53500764763 /* CallOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816126C6C53500764763 /* CallOptions.swift */; };
 		4D3F816426C6D0D000764763 /* NSObjectProtocol+FPBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */; };
 		4D3F816826C6E57900764763 /* UserDefaults+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816726C6E57900764763 /* UserDefaults+Message.swift */; };
+		4D4520FA26D8203300FCFEE0 /* NSUserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4520F926D8203300FCFEE0 /* NSUserActivity.swift */; };
 		4D75EC6826B9BA2E00684537 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75EC6726B9BA2E00684537 /* UIViewController.swift */; };
 		4D7C987126912ABA00819E3F /* comment.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98532691254B00819E3F /* comment.proto */; };
 		4D7C987226912ABD00819E3F /* id.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98512691254B00819E3F /* id.proto */; };
@@ -71,6 +72,7 @@
 		4D0040F9268EEDE900AF89FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4D28876126A74F7200D6D3CB /* Rpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rpc.swift; sourceTree = "<group>"; };
+		4D35B1A726D7A60600077811 /* Fyreplace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fyreplace.entitlements; sourceTree = "<group>"; };
 		4D36CC3026964B5D00BA1675 /* FatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatButton.swift; sourceTree = "<group>"; };
 		4D3AEDA226C512F100C93DFF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4D3AEDA626C5157D00C93DFF /* FPBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPBClient.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		4D3F816126C6C53500764763 /* CallOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallOptions.swift; sourceTree = "<group>"; };
 		4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+FPBUser.swift"; sourceTree = "<group>"; };
 		4D3F816726C6E57900764763 /* UserDefaults+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Message.swift"; sourceTree = "<group>"; };
+		4D4520F926D8203300FCFEE0 /* NSUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUserActivity.swift; sourceTree = "<group>"; };
 		4D75EC6726B9BA2E00684537 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		4D7C984C2691254B00819E3F /* pagination.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = pagination.proto; sourceTree = "<group>"; };
 		4D7C984D2691254B00819E3F /* post.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = post.proto; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				4D0040F9268EEDE900AF89FD /* Info.plist */,
+				4D35B1A726D7A60600077811 /* Fyreplace.entitlements */,
 				4DB316DD26906A940000BDC3 /* Resources */,
 				4D00411B268FB49B00AF89FD /* Storyboards */,
 				4D00411C268FB4B500AF89FD /* Sources */,
@@ -232,6 +236,7 @@
 			children = (
 				4DFAAD20269F628200DFAB5F /* String.swift */,
 				4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */,
+				4D4520F926D8203300FCFEE0 /* NSUserActivity.swift */,
 				4D3F816726C6E57900764763 /* UserDefaults+Message.swift */,
 				4D3F816126C6C53500764763 /* CallOptions.swift */,
 				4D3AEDA626C5157D00C93DFF /* FPBClient.swift */,
@@ -409,6 +414,7 @@
 				4D3F816426C6D0D000764763 /* NSObjectProtocol+FPBUser.swift in Sources */,
 				4D36CC3126964B5D00BA1675 /* FatButton.swift in Sources */,
 				4D3F816826C6E57900764763 /* UserDefaults+Message.swift in Sources */,
+				4D4520FA26D8203300FCFEE0 /* NSUserActivity.swift in Sources */,
 				4D7C987126912ABA00819E3F /* comment.proto in Sources */,
 				4DFAAD21269F628200DFAB5F /* String.swift in Sources */,
 				4D3AEDA926C5185200C93DFF /* Keychain.swift in Sources */,
@@ -588,6 +594,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.0.1;
 				DEVELOPMENT_TEAM = T4HRKJYDTW;
@@ -612,6 +619,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0.0.1;
 				DEVELOPMENT_TEAM = T4HRKJYDTW;
