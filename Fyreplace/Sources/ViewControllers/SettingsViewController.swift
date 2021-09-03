@@ -46,6 +46,7 @@ class SettingsViewController: UITableViewController {
     }
 
     private func updateTable() {
+        guard tableView.superview != nil else { return }
         let sections = IndexSet(integersIn: 0..<tableView.numberOfSections)
         tableView.reloadSections(sections, with: .automatic)
     }
