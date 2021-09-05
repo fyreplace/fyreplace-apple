@@ -69,19 +69,57 @@ extension SettingsViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if vm.user.value != nil && indexPath.section == numberOfSections(in: tableView) - 1 {
-            tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let isLastSection = indexPath.section == numberOfSections(in: tableView) - 1
+        guard vm.user.value != nil && isLastSection else { return }
+
+        if indexPath.row == 0 {
             vm.logout()
+        } else {
+            let alert = UIAlertController(title: .tr("Settings.AccountDeletion.Title"), message: .tr("Settings.AccountDeletion.Message"), preferredStyle: .actionSheet)
+            let deleteText = String.tr("Settings.AccountDeletion.Action.Delete")
+            let delete = UIAlertAction(title: deleteText, style: .destructive) { [unowned self] _ in
+                vm.delete()
+            }
+            let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
+
+            delete.isEnabled = false
+            var secondsLeft = 3
+
+            func count() {
+                if secondsLeft > 0 {
+                    delete.setValue("\(deleteText) (\(secondsLeft))", forKey: "title")
+                    secondsLeft -= 1
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { count() }
+                } else {
+                    delete.setValue(deleteText, forKey: "title")
+                    delete.isEnabled = true
+                }
+            }
+
+            count()
+            alert.addAction(delete)
+            alert.addAction(cancel)
+            present(alert, animated: true)
         }
     }
 }
 
 extension SettingsViewController: SettingsViewModelDelegate {
     func onLogout() {
-        DispatchQueue.main.async { self.tableView.reloadData() }
+        reloadTable()
+    }
+
+    func onDelete() {
+        reloadTable()
+        presentBasicAlert(text: "Settings.AccountDeletion.Success")
     }
 
     func onFailure(_ error: Error) {
         presentBasicAlert(text: "Error", feedback: .error)
+    }
+
+    private func reloadTable() {
+        DispatchQueue.main.async { self.tableView.reloadData() }
     }
 }

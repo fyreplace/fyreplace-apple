@@ -1,5 +1,6 @@
 import Foundation
 import ReactiveSwift
+import SwiftProtobuf
 
 class SettingsViewModel: ViewModel {
     @IBOutlet
@@ -26,6 +27,12 @@ class SettingsViewModel: ViewModel {
         response.whenFailure { self.delegate.onError($0) }
     }
 
+    func delete() {
+        let response = accountService.delete(Google_Protobuf_Empty(), callOptions: .authenticated).response
+        response.whenSuccess { _ in self.onDelete() }
+        response.whenFailure { self.delegate.onError($0) }
+    }
+
     private func onLogout() {
         if authToken.delete() {
             setUser(nil)
@@ -35,9 +42,21 @@ class SettingsViewModel: ViewModel {
             delegate.onError(KeychainError.delete)
         }
     }
+
+    private func onDelete() {
+        if authToken.delete() {
+            setUser(nil)
+            NotificationCenter.default.post(name: FPBUser.userDisconnectedNotification, object: self)
+            delegate.onDelete()
+        } else {
+            delegate.onError(KeychainError.delete)
+        }
+    }
 }
 
 @objc
 protocol SettingsViewModelDelegate: ViewModelDelegate {
     func onLogout()
+
+    func onDelete()
 }
