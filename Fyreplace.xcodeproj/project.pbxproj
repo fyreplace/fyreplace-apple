@@ -624,7 +624,7 @@
 				CURRENT_PROJECT_VERSION = 0.0.1;
 				DEVELOPMENT_TEAM = T4HRKJYDTW;
 				FYREPLACE_API_HOST = api.fyreplace.app;
-				FYREPLACE_API_PORT = 443;
+				FYREPLACE_API_PORT = 50051;
 				INFOPLIST_FILE = Fyreplace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
