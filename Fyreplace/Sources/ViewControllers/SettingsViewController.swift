@@ -70,34 +70,35 @@ extension SettingsViewController {
         guard vm.user.value != nil && isLastSection else { return }
 
         if indexPath.row == 0 {
-            vm.logout()
-        } else {
-            let alert = UIAlertController(title: .tr("Settings.AccountDeletion.Title"), message: .tr("Settings.AccountDeletion.Message"), preferredStyle: .actionSheet)
-            let deleteText = String.tr("Settings.AccountDeletion.Action.Delete")
-            let delete = UIAlertAction(title: deleteText, style: .destructive) { [unowned self] _ in
-                vm.delete()
-            }
-            let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
-
-            delete.isEnabled = false
-            var secondsLeft = 3
-
-            func count() {
-                if secondsLeft > 0 {
-                    delete.setValue("\(deleteText) (\(secondsLeft))", forKey: "title")
-                    secondsLeft -= 1
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { count() }
-                } else {
-                    delete.setValue(deleteText, forKey: "title")
-                    delete.isEnabled = true
-                }
-            }
-
-            count()
-            alert.addAction(delete)
-            alert.addAction(cancel)
-            present(alert, animated: true)
+            return vm.logout()
         }
+
+        let alert = UIAlertController(title: .tr("Settings.AccountDeletion.Title"), message: .tr("Settings.AccountDeletion.Message"), preferredStyle: .actionSheet)
+        let deleteText = String.tr("Settings.AccountDeletion.Action.Delete")
+        let delete = UIAlertAction(title: deleteText, style: .destructive) { [unowned self] _ in
+            vm.delete()
+        }
+        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
+
+        delete.isEnabled = false
+        var secondsLeft = 3
+
+        func count() {
+            if secondsLeft > 0 {
+                let text = String.tr("Settings.AccountDeletion.Action.Delete.Countdown")
+                delete.setValue(String.localizedStringWithFormat(text, secondsLeft), forKey: "title")
+                secondsLeft -= 1
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) { count() }
+            } else {
+                delete.setValue(deleteText, forKey: "title")
+                delete.isEnabled = true
+            }
+        }
+
+        count()
+        alert.addAction(delete)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
 }
 
