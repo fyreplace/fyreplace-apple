@@ -15,6 +15,12 @@ class MainViewController: UITabBarController {
             .observeValues { [unowned self] in onUrlOpened($0) }
 
         NotificationCenter.default.reactive
+            .notifications(forName: FPBUser.userRegisteredNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onUserRegistered($0) }
+
+        NotificationCenter.default.reactive
             .notifications(forName: FPBUser.userConnectedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
@@ -41,6 +47,10 @@ class MainViewController: UITabBarController {
         default:
             presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
         }
+    }
+
+    private func onUserRegistered(_ notification: Notification) {
+        presentBasicAlert(text: "Main.AccountCreated")
     }
 
     private func onUserConnected(_ notification: Notification) {

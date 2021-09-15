@@ -62,10 +62,8 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewModelDelegate {
     func onRegister() {
-        DispatchQueue.main.async { [self] in
-            navigationController?.popViewController(animated: true)
-            presentBasicAlert(text: "Login.Register")
-        }
+        NotificationCenter.default.post(name: FPBUser.userRegisteredNotification, object: self)
+        DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
     }
 
     func onLogin() {

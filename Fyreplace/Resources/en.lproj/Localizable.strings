@@ -12,6 +12,8 @@
 "Keychain.Error.Title" = "Keychain error";
 "Keychain.Error.Message" = "Could not operate on the Keychain.";
 
+"Main.AccountCreated.Title" = "Check your email";
+"Main.AccountCreated.Message" = "A confirmation email has been sent to your address. It contains a link that will allow you to confirm your registration.";
 "Main.AccountActivated.Title" = "Account activated";
 "Main.AccountActivated.Message" = "Congratulations!\nYour account has been successfully activated.";
 "Main.Error.MalformedUrl.Title" = "Cannot open URL";
@@ -32,8 +34,6 @@
 
 "Login.Login" = "Login";
 "Login.Register" = "Register";
-"Login.Register.Title" = "Check your email";
-"Login.Register.Message" = "A confirmation email has been sent to your address. It contains a link that will allow you to confirm your registration.";
 "Login.Error.ExistingEmail.Title" = "Email taken";
 "Login.Error.ExistingEmail.Message" = "This email is already used in another account.";
 "Login.Error.ExistingUsername.Title" = "Username taken";
