@@ -31,11 +31,6 @@ class SettingsViewController: UITableViewController {
         }
     }
 
-    @IBAction
-    private func onLogoutSelected() {
-        vm.logout()
-    }
-
     private func onAvatarURLChanged(_ event: Signal<String?, Never>.Event) {
         let defaultImage = UIImage(called: "person.crop.circle")
 
