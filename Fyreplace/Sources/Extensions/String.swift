@@ -2,7 +2,7 @@ import Foundation
 
 public extension String {
     static func tr(_ key: String) -> String {
-        NSLocalizedString(key, comment: "")
+        return NSLocalizedString(key, comment: "")
     }
 
     var pascalized: String {
