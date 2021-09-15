@@ -208,7 +208,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Avatar" userLabel="Avatar">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Avatar" userLabel="Avatar" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
                                     <rect key="frame" x="155" y="21" width="80" height="78.666666666666671"/>
                                     <color key="tintColor" systemColor="labelColor"/>
                                     <constraints>

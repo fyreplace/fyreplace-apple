@@ -13,6 +13,7 @@
 		4D0040F5268EEDE900AF89FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F4268EEDE900AF89FD /* Assets.xcassets */; };
 		4D0040F8268EEDE900AF89FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F6268EEDE900AF89FD /* LaunchScreen.storyboard */; };
 		4D0A8D6D26A7FAF8007691C9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */; };
+		4D0C6F1D26F247E500C4271C /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C6F1C26F247E500C4271C /* RoundImageView.swift */; };
 		4D28876226A74F7200D6D3CB /* Rpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28876126A74F7200D6D3CB /* Rpc.swift */; };
 		4D36CC3126964B5D00BA1675 /* FatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36CC3026964B5D00BA1675 /* FatButton.swift */; };
 		4D3AEDA326C512F100C93DFF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3AEDA226C512F100C93DFF /* MainViewModel.swift */; };
@@ -71,6 +72,7 @@
 		4D0040F7268EEDE900AF89FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D0040F9268EEDE900AF89FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		4D0C6F1C26F247E500C4271C /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		4D28876126A74F7200D6D3CB /* Rpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rpc.swift; sourceTree = "<group>"; };
 		4D35B1A726D7A60600077811 /* Fyreplace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fyreplace.entitlements; sourceTree = "<group>"; };
 		4D36CC3026964B5D00BA1675 /* FatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatButton.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */,
 				4D36CC3026964B5D00BA1675 /* FatButton.swift */,
+				4D0C6F1C26F247E500C4271C /* RoundImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				4DFAAD21269F628200DFAB5F /* String.swift in Sources */,
 				4D3AEDA926C5185200C93DFF /* Keychain.swift in Sources */,
 				4D3AEDA726C5157D00C93DFF /* FPBClient.swift in Sources */,
+				4D0C6F1D26F247E500C4271C /* RoundImageView.swift in Sources */,
 				4D3EB6DA26C42DA10034B6FB /* MainViewController.swift in Sources */,
 				4DAF29E526C7BE67005612C9 /* FPBUser.swift in Sources */,
 				4D7C987426912AC200819E3F /* notification.proto in Sources */,

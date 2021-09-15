@@ -12,6 +12,7 @@ class SettingsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        avatar.sd_imageTransition = .fade
         username.reactive.text <~ vm.user.map { $0?.username ?? .tr("Settings.Username") }
         vm.user.map(\.?.avatar.url).producer.start(onAvatarURLChanged(_:))
         vm.user.producer.start { [unowned self] _ in self.updateTable() }
