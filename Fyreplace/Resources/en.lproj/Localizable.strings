@@ -27,11 +27,11 @@
 
 "Settings.Username" = "Guest";
 "Settings.AccountDeletion.Title" = "Account deletion";
-"Settings.AccountDeletion.Message" = "Deleting your account is a permanent action. You will not be able to restore your account afterwards.\nAre you sure you want to go through with this?";
+"Settings.AccountDeletion.Message" = "Deleting your account is a permanent action. You will not be able to restore your account afterwards.\n\nAre you sure you want to go through with this?";
 "Settings.AccountDeletion.Action.Delete" = "Delete account";
 "Settings.AccountDeletion.Action.Delete.Countdown" = "Delete account (%d)";
 "Settings.AccountDeletion.Success.Title" = "Account deleted";
-"Settings.AccountDeletion.Success.Message" = "Your account has been deleted, your posts and comments will be fully removed as well within the next minutes.\nGoodbye! 👋";
+"Settings.AccountDeletion.Success.Message" = "Your account has been deleted, your posts and comments will be fully removed as well within the next minutes.\n\nGoodbye! 👋";
 
 "Login.Login" = "Login";
 "Login.Register" = "Register";
