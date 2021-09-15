@@ -59,7 +59,7 @@ public class KeyboardDodgingConstraint: NSLayoutConstraint {
         let curve = info?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
 
         UIView.animate(
-            withDuration: .init(duration?.doubleValue ?? TimeInterval(0.25)),
+            withDuration: duration?.doubleValue ?? 0.25,
             delay: 0,
             options: .init(rawValue: curve?.uintValue ?? UInt(UIView.AnimationCurve.easeOut.rawValue)),
             animations: {
