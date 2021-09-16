@@ -16,6 +16,8 @@
 "Main.AccountCreated.Message" = "A confirmation email has been sent to your address. It contains a link that will allow you to confirm your registration.";
 "Main.AccountActivated.Title" = "Account activated";
 "Main.AccountActivated.Message" = "Congratulations!\nYour account has been successfully activated.";
+"Main.EmailChanged.Title" = "Email changed";
+"Main.EmailChanged.Message" = "Your email has been successfully updated.";
 "Main.Error.MalformedUrl.Title" = "Cannot open URL";
 "Main.Error.MalformedUrl.Message" = "The URL is malformed and cannot be used.";
 "Main.Error.TimestampExceeded.Title" = "Outdated URL";
@@ -26,6 +28,11 @@
 "Main.Error.UserNotPending.Message" = "This account has already been activated.";
 
 "Settings.Username" = "Guest";
+"Settings.EmailChange.Title" = "Email change";
+"Settings.EmailChange.Message" = "What's your new email address?";
+"Settings.EmailChange.TextField.Placeholder" = "email@example.org";
+"Settings.EmailChange.Success.Title" = "Email change requested";
+"Settings.EmailChange.Success.Message" = "A confirmation email has been sen to your new address.";
 "Settings.AccountDeletion.Title" = "Account deletion";
 "Settings.AccountDeletion.Message" = "Deleting your account is a permanent action. You will not be able to restore your account afterwards.\n\nAre you sure you want to go through with this?";
 "Settings.AccountDeletion.Action.Delete" = "Delete account";

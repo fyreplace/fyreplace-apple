@@ -168,7 +168,7 @@ def get_id(node: etree.Element) -> Tuple[Id, bool]:
     elif node.tag == "barButtonItem" and label is None:
         label = node.attrib.get("systemItem")
 
-    if label is None and node.tag.endswith("Cell") and len(id_counters) > 0:
+    if label is None and (node.tag.endswith("Cell") or node.tag.endswith("Section")) and len(id_counters) > 0:
         label = node.tag + "-{:02x}".format(id_counters[-1])
         id_counters[-1] += 1
 

@@ -33,6 +33,13 @@ class MainViewModel: ViewModel {
         response.whenFailure(delegate.onError(_:))
     }
 
+    func confirmEmailUpdate(with token: String) {
+        let request = FPBToken.with { $0.token = token }
+        let response = userService.confirmEmailUpdate(request, callOptions: .authenticated).response
+        response.whenSuccess { _ in self.onConfirmEmailUpdate() }
+        response.whenFailure(delegate.onError(_:))
+    }
+
     func retrieveMe() {
         let response = userService.retrieveMe(Google_Protobuf_Empty(), callOptions: .authenticated).response
         response.whenSuccess { self.setUser($0) }
@@ -47,9 +54,16 @@ class MainViewModel: ViewModel {
             delegate.onError(KeychainError.set)
         }
     }
+
+    private func onConfirmEmailUpdate() {
+        retrieveMe()
+        delegate.onConfirmEmailUpdate()
+    }
 }
 
 @objc
 protocol MainViewModelDelegate: ViewModelDelegate {
     func onConfirmActivation()
+
+    func onConfirmEmailUpdate()
 }

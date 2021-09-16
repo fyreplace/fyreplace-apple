@@ -44,6 +44,9 @@ class MainViewController: UITabBarController {
         case "/AccountService.ConfirmActivation":
             vm.confirmActivation(with: url.fragment ?? "")
 
+        case "/UserService.ConfirmEmailUpdate":
+            vm.confirmEmailUpdate(with: url.fragment ?? "")
+
         default:
             presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
         }
@@ -73,6 +76,10 @@ class MainViewController: UITabBarController {
 extension MainViewController: MainViewModelDelegate {
     func onConfirmActivation() {
         presentBasicAlert(text: "Main.AccountActivated")
+    }
+
+    func onConfirmEmailUpdate() {
+        presentBasicAlert(text: "Main.EmailChanged")
     }
 
     func onFailure(_ error: Error) {

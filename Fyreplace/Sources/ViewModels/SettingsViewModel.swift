@@ -9,6 +9,7 @@ class SettingsViewModel: ViewModel {
     let user = MutableProperty<FPBUser?>(nil)
 
     private lazy var accountService = FPBAccountServiceClient(channel: Self.rpc.channel)
+    private lazy var userService = FPBUserServiceClient(channel: Self.rpc.channel)
     private let authToken = Keychain.authToken
 
     override func awakeFromNib() {
@@ -19,6 +20,13 @@ class SettingsViewModel: ViewModel {
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in user.value = getUser() }
+    }
+
+    func sendEmailUpdateEmail(address: String) {
+        let request = FPBEmail.with { $0.email = address }
+        let response = userService.sendEmailUpdateEmail(request, callOptions: .authenticated).response
+        response.whenSuccess { _ in self.delegate.onSendEmailUpdateEmail() }
+        response.whenFailure(delegate.onError(_:))
     }
 
     func logout() {
@@ -56,6 +64,8 @@ class SettingsViewModel: ViewModel {
 
 @objc
 protocol SettingsViewModelDelegate: ViewModelDelegate {
+    func onSendEmailUpdateEmail()
+
     func onLogout()
 
     func onDelete()
