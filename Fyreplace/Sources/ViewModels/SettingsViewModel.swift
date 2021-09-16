@@ -24,13 +24,13 @@ class SettingsViewModel: ViewModel {
     func logout() {
         let response = accountService.disconnect(FPBIntId(), callOptions: .authenticated).response
         response.whenSuccess { _ in self.onLogout() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure(delegate.onError(_:))
     }
 
     func delete() {
         let response = accountService.delete(Google_Protobuf_Empty(), callOptions: .authenticated).response
         response.whenSuccess { _ in self.onDelete() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure(delegate.onError(_:))
     }
 
     private func onLogout() {

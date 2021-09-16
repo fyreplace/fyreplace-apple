@@ -30,13 +30,13 @@ class MainViewModel: ViewModel {
         }
         let response = accountService.confirmActivation(request).response
         response.whenSuccess { self.onConfirmActivation(token: $0.token) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure(delegate.onError(_:))
     }
 
     func retrieveMe() {
         let response = userService.retrieveMe(Google_Protobuf_Empty(), callOptions: .authenticated).response
-        response.whenSuccess { self.onRetrieveMe(me: $0) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { self.setUser($0) }
+        response.whenFailure(delegate.onError(_:))
     }
 
     private func onConfirmActivation(token: String) {
@@ -46,10 +46,6 @@ class MainViewModel: ViewModel {
         } else {
             delegate.onError(KeychainError.set)
         }
-    }
-
-    private func onRetrieveMe(me: FPBUser) {
-        setUser(me)
     }
 }
 

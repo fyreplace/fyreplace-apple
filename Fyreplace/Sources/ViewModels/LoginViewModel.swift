@@ -28,7 +28,7 @@ class LoginViewModel: ViewModel {
         isLoading.value = true
         let response = accountService.create(userCreation).response
         response.whenSuccess { _ in self.delegate.onRegister() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure(delegate.onError(_:))
         response.whenComplete { _ in self.isLoading.value = false }
     }
 
@@ -42,7 +42,7 @@ class LoginViewModel: ViewModel {
         isLoading.value = true
         let response = accountService.connect(credentials).response
         response.whenSuccess { self.onLogin(token: $0.token) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure(delegate.onError(_:))
         response.whenComplete { _ in self.isLoading.value = false }
     }
 
