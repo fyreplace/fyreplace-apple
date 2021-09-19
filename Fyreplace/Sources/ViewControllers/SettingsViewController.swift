@@ -63,6 +63,10 @@ class SettingsViewController: UITableViewController {
     private func onEmailChanged(_ event: Signal<String?, Never>.Event) {
         email.text = event.value ?? nil
     }
+
+    private func reloadTable() {
+        DispatchQueue.main.async { self.tableView.reloadData() }
+    }
 }
 
 extension SettingsViewController {
@@ -184,9 +188,5 @@ extension SettingsViewController: SettingsViewModelDelegate {
         }
 
         presentBasicAlert(text: key, feedback: .error)
-    }
-
-    private func reloadTable() {
-        DispatchQueue.main.async { self.tableView.reloadData() }
     }
 }
