@@ -118,6 +118,7 @@ extension SettingsViewController {
             $0.placeholder = .tr("Settings.EmailChange.TextField.Placeholder")
             $0.textContentType = .emailAddress
             $0.keyboardType = .emailAddress
+            $0.returnKeyType = .done
             $0.reactive.continuousTextValues.observeValues { update.isEnabled = $0.count > 0 }
         }
         alert.addAction(update)
