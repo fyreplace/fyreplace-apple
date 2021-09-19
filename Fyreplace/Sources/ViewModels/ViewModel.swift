@@ -10,16 +10,24 @@ protocol ViewModelDelegate: NSObjectProtocol {
     func onFailure(_ error: Error)
 }
 
-extension ViewModelDelegate {
+extension ViewModelDelegate where Self: UIViewController {
     func onError(_ error: Error) {
-        guard let status = error as? GRPCStatus,
-              status.code == .unauthenticated,
-              !["timestamp_exceeded", "invalid_token"].contains(status.message),
-              Keychain.authToken.get() != nil else {
-            return onFailure(error)
-        }
+        guard let status = error as? GRPCStatus else { return onFailure(error) }
 
-        setUser(nil)
-        NotificationCenter.default.post(name: FPBUser.userDisconnectedNotification, object: self)
+        switch status.code {
+        case .unavailable:
+            presentBasicAlert(text: "Error.Unavailable", feedback: .error)
+
+        case .unauthenticated:
+            if !["timestamp_exceeded", "invalid_token"].contains(status.message) && Keychain.authToken.get() != nil {
+                setUser(nil)
+                NotificationCenter.default.post(name: FPBUser.userDisconnectedNotification, object: self)
+            } else {
+                onFailure(status)
+            }
+
+        default:
+            onFailure(status)
+        }
     }
 }

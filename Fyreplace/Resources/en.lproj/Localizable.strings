@@ -2,6 +2,8 @@
 "Cancel" = "Cancel";
 "Error.Title" = "Error";
 "Error.Message" = "Something, somewhere, went wrong... 😓";
+"Error.Unavailable.Title" = "Service unavailable";
+"Error.Unavailable.Message" = "The Fyreplace server is currently unavailable. It's probably undergoing maintenance, come back later!";
 "Error.Authentication.Title" = "Authentication error";
 "Error.Authentication.Message" = "You are not authenticated.";
 "Error.Permission.Title" = "Permission error";

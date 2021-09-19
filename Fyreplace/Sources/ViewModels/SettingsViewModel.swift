@@ -63,7 +63,7 @@ class SettingsViewModel: ViewModel {
 }
 
 @objc
-protocol SettingsViewModelDelegate: ViewModelDelegate {
+protocol SettingsViewModelDelegate: ViewModelDelegate where Self: UIViewController {
     func onSendEmailUpdateEmail()
 
     func onLogout()

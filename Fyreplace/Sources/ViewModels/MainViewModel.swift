@@ -62,7 +62,7 @@ class MainViewModel: ViewModel {
 }
 
 @objc
-protocol MainViewModelDelegate: ViewModelDelegate {
+protocol MainViewModelDelegate: ViewModelDelegate where Self: UIViewController {
     func onConfirmActivation()
 
     func onConfirmEmailUpdate()
