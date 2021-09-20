@@ -71,18 +71,22 @@ class SettingsViewController: UITableViewController {
 
 extension SettingsViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return vm.user.value != nil ? super.numberOfSections(in: tableView) - 1 : 1
+        let count = super.numberOfSections(in: tableView)
+        return vm.user.value != nil ? count - 1 : count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let rowCount = vm.user.value != nil ? section + 1 : section
-        return super.tableView(tableView, numberOfRowsInSection: rowCount)
+        return shouldHide(section: section) ? 0 : super.tableView(tableView, numberOfRowsInSection: section)
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = indexPath.section + (vm.user.value != nil ? 1 : 0)
-        let path = IndexPath(row: indexPath.row, section: section)
-        return super.tableView(tableView, cellForRowAt: path)
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let hide = shouldHide(section: section) || shouldHide(section: section - 1)
+        return hide ? 0.1 : super.tableView(tableView, heightForHeaderInSection: section)
+    }
+
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        let hide = shouldHide(section: section) || shouldHide(section: section + 1)
+        return hide ? 0.1 : super.tableView(tableView, heightForFooterInSection: section)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -102,6 +106,11 @@ extension SettingsViewController {
         default:
             return
         }
+    }
+
+    private func shouldHide(section: Int) -> Bool {
+        guard section >= 0, section < tableView.numberOfSections else { return true }
+        return (vm.user.value == nil) && (section != tableView.numberOfSections - 1)
     }
 
     private func changeEmail() {
