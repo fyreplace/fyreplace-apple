@@ -80,27 +80,34 @@ extension SettingsViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let hide = shouldHide(section: section) || shouldHide(section: section - 1)
-        return hide ? 0.1 : super.tableView(tableView, heightForHeaderInSection: section)
+        return shouldHide(section: section) ? 0.1 : super.tableView(tableView, heightForHeaderInSection: section)
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        let hide = shouldHide(section: section) || shouldHide(section: section + 1)
-        return hide ? 0.1 : super.tableView(tableView, heightForFooterInSection: section)
+        return shouldHide(section: section) ? 0.1 : super.tableView(tableView, heightForFooterInSection: section)
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return shouldHide(section: section) ? nil : super.tableView(tableView, titleForHeaderInSection: section)
+    }
+
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return shouldHide(section: section) ? nil : super.tableView(tableView, titleForFooterInSection: section)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard vm.user.value != nil else { return }
+        let cell = tableView.cellForRow(at: indexPath)
 
-        switch indexPath {
-        case .init(row: 1, section: 0):
+        switch cell?.tag {
+        case 1:
             changeEmail()
 
-        case .init(row: 0, section: 1):
+        case 2:
             vm.logout()
 
-        case .init(row: 1, section: 1):
+        case 3:
             deleteAccount()
 
         default:
@@ -109,7 +116,7 @@ extension SettingsViewController {
     }
 
     private func shouldHide(section: Int) -> Bool {
-        guard section >= 0, section < tableView.numberOfSections else { return true }
+        guard section >= 0, section < tableView.numberOfSections else { return false }
         return (vm.user.value == nil) && (section != tableView.numberOfSections - 1)
     }
 

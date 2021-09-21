@@ -216,7 +216,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Guest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Username" userLabel="Username">
-                                    <rect key="frame" x="162.66666666666666" y="128" width="64.666666666666657" height="30"/>
+                                    <rect key="frame" x="162.66666666666666" y="128" width="65" height="30"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -244,24 +244,24 @@
                             </constraints>
                         </view>
                         <sections>
-                            <tableViewSection id="Settings-Settings-view-tableViewSection-00">
+                            <tableViewSection headerTitle="Profile" id="Settings-Settings-view-Profile">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Joined" detailTextLabel="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-label" style="IBUITableViewCellStyleValue1" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00">
-                                        <rect key="frame" x="20" y="198" width="350" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="Settings-Settings-view-Profile-tableViewCell-00-contentView-Joined" detailTextLabel="Settings-Settings-view-Profile-tableViewCell-00-contentView-label" style="IBUITableViewCellStyleValue1" id="Settings-Settings-view-Profile-tableViewCell-00">
+                                        <rect key="frame" x="20" y="211.66666603088379" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-00-tableViewCell-00" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Profile-tableViewCell-00" id="Settings-Settings-view-Profile-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Joined" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Joined">
-                                                    <rect key="frame" x="20.000000000000004" y="15" width="43.333333333333336" height="17"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Joined" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Profile-tableViewCell-00-contentView-Joined">
+                                                    <rect key="frame" x="20.000000000000004" y="14" width="43.333333333333336" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-label">
-                                                    <rect key="frame" x="286.33333333333331" y="11.999999999999998" width="43.666666666666664" height="20.333333333333332"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Profile-tableViewCell-00-contentView-label">
+                                                    <rect key="frame" x="292.66666666666669" y="14" width="37.333333333333336" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -270,25 +270,67 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-00-tableViewCell-01-contentView-Email" detailTextLabel="Settings-Settings-view-tableViewSection-00-tableViewCell-01-contentView-label" style="IBUITableViewCellStyleValue1" id="Settings-Settings-view-tableViewSection-00-tableViewCell-01">
-                                        <rect key="frame" x="20" y="241.66666793823242" width="350" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Profile-tableViewCell-01-contentView-Email" detailTextLabel="Settings-Settings-view-Profile-tableViewCell-01-contentView-label" style="IBUITableViewCellStyleValue1" id="Settings-Settings-view-Profile-tableViewCell-01">
+                                        <rect key="frame" x="20" y="255.33333396911621" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-00-tableViewCell-01" id="Settings-Settings-view-tableViewSection-00-tableViewCell-01-contentView">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Profile-tableViewCell-01" id="Settings-Settings-view-Profile-tableViewCell-01-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="320.33333333333331" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-00-tableViewCell-01-contentView-Email">
-                                                    <rect key="frame" x="19.999999999999996" y="15" width="34.666666666666664" height="17"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Profile-tableViewCell-01-contentView-Email">
+                                                    <rect key="frame" x="19.999999999999996" y="14" width="34.666666666666664" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-00-tableViewCell-01-contentView-label">
-                                                    <rect key="frame" x="268.66666666666663" y="11.999999999999998" width="43.666666666666664" height="20.333333333333332"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Profile-tableViewCell-01-contentView-label">
+                                                    <rect key="frame" x="275" y="14" width="37.333333333333336" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="Settings-Settings-view-tableViewSection-00">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Logout" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00">
+                                        <rect key="frame" x="20" y="335.00000190734863" width="350" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-00-tableViewCell-00" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Logout">
+                                                    <rect key="frame" x="20" y="0.0" width="310" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" systemColor="systemRedColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Danger zone" id="Settings-Settings-view-Danger-zone">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" tag="3" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-Danger-zone-tableViewCell-00-contentView-Delete-account" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Danger-zone-tableViewCell-00">
+                                        <rect key="frame" x="20" y="428.33333587646484" width="350" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Danger-zone-tableViewCell-00" id="Settings-Settings-view-Danger-zone-tableViewCell-00-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Delete account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Danger-zone-tableViewCell-00-contentView-Delete-account">
+                                                    <rect key="frame" x="20" y="0.0" width="310" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" systemColor="systemRedColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -298,52 +340,14 @@
                             </tableViewSection>
                             <tableViewSection id="Settings-Settings-view-tableViewSection-01">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView-Logout" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00">
-                                        <rect key="frame" x="20" y="321.33333587646484" width="350" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView-Register" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00">
+                                        <rect key="frame" x="20" y="508.00000381469727" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-01-tableViewCell-00" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView-Logout">
-                                                    <rect key="frame" x="20" y="0.0" width="310" height="43.666667938232422"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <color key="textColor" systemColor="systemRedColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView-Delete-account" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01">
-                                        <rect key="frame" x="20" y="365.00000381469727" width="350" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-01-tableViewCell-01" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Delete account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView-Delete-account">
-                                                    <rect key="frame" x="20" y="0.0" width="310" height="43.666667938232422"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <color key="textColor" systemColor="systemRedColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="Settings-Settings-view-tableViewSection-02">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-02-tableViewCell-00-contentView-Register" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-02-tableViewCell-00">
-                                        <rect key="frame" x="20" y="444.66667175292969" width="350" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-02-tableViewCell-00" id="Settings-Settings-view-tableViewSection-02-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="320.33333333333331" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-02-tableViewCell-00-contentView-Register">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView-Register">
                                                     <rect key="frame" x="20" y="0.0" width="292.33333333333331" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -353,17 +357,17 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Login-Login" kind="show" identifier="Register" id="Settings-Settings-view-tableViewSection-02-tableViewCell-00--S-Login-Login"/>
+                                            <segue destination="Login-Login" kind="show" identifier="Register" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00--S-Login-Login"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-02-tableViewCell-01-contentView-Login" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-02-tableViewCell-01">
-                                        <rect key="frame" x="20" y="488.33333969116211" width="350" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView-Login" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01">
+                                        <rect key="frame" x="20" y="551.66667175292969" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-02-tableViewCell-01" id="Settings-Settings-view-tableViewSection-02-tableViewCell-01-contentView">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-01-tableViewCell-01" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="320.33333333333331" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-02-tableViewCell-01-contentView-Login">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView-Login">
                                                     <rect key="frame" x="20" y="0.0" width="292.33333333333331" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -373,7 +377,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Login-Login" kind="show" identifier="Login" id="Settings-Settings-view-tableViewSection-02-tableViewCell-01--S-Login-Login"/>
+                                            <segue destination="Login-Login" kind="show" identifier="Login" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01--S-Login-Login"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -387,8 +391,8 @@
                     <navigationItem key="navigationItem" title="Settings" id="Settings-Settings-Settings"/>
                     <connections>
                         <outlet property="avatar" destination="Settings-Settings-view-tableHeaderView-Avatar" id="Settings-Settings--O-avatar"/>
-                        <outlet property="dateJoined" destination="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-label" id="Settings-Settings--O-dateJoined"/>
-                        <outlet property="email" destination="Settings-Settings-view-tableViewSection-00-tableViewCell-01-contentView-label" id="Settings-Settings--O-email"/>
+                        <outlet property="dateJoined" destination="Settings-Settings-view-Profile-tableViewCell-00-contentView-label" id="Settings-Settings--O-dateJoined"/>
+                        <outlet property="email" destination="Settings-Settings-view-Profile-tableViewCell-01-contentView-label" id="Settings-Settings--O-email"/>
                         <outlet property="username" destination="Settings-Settings-view-tableHeaderView-Username" id="Settings-Settings--O-username"/>
                         <outlet property="vm" destination="Settings-SettingsViewModel" id="Settings-Settings--O-vm"/>
                     </connections>
@@ -530,7 +534,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Settings-Settings-view-tableViewSection-02-tableViewCell-01--S-Login-Login"/>
+        <segue reference="Settings-Settings-view-tableViewSection-01-tableViewCell-01--S-Login-Login"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>
