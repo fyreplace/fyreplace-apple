@@ -30,7 +30,7 @@ class SettingsViewModel: ViewModel {
     }
 
     func logout() {
-        let response = accountService.disconnect(FPBIntId(), callOptions: .authenticated).response
+        let response = accountService.disconnect(FPBStringId(), callOptions: .authenticated).response
         response.whenSuccess { _ in self.onLogout() }
         response.whenFailure(delegate.onError(_:))
     }
