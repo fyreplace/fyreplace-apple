@@ -44,19 +44,21 @@ PODS:
   - SwiftNIOFoundationCompat (2.32.3):
     - SwiftNIO (= 2.32.3)
     - SwiftNIOCore (= 2.32.3)
-  - SwiftNIOHPACK (1.18.2):
+  - SwiftNIOHPACK (1.18.3):
     - SwiftNIO (< 3, >= 2.32.0)
     - SwiftNIOConcurrencyHelpers (< 3, >= 2.32.0)
+    - SwiftNIOCore (< 3, >= 2.32.0)
     - SwiftNIOHTTP1 (< 3, >= 2.32.0)
   - SwiftNIOHTTP1 (2.32.3):
     - CNIOHTTPParser (= 2.32.3)
     - SwiftNIO (= 2.32.3)
     - SwiftNIOConcurrencyHelpers (= 2.32.3)
     - SwiftNIOCore (= 2.32.3)
-  - SwiftNIOHTTP2 (1.18.2):
+  - SwiftNIOHTTP2 (1.18.3):
     - SwiftNIO (< 3, >= 2.32.0)
     - SwiftNIOConcurrencyHelpers (< 3, >= 2.32.0)
-    - SwiftNIOHPACK (= 1.18.2)
+    - SwiftNIOCore (< 3, >= 2.32.0)
+    - SwiftNIOHPACK (= 1.18.3)
     - SwiftNIOHTTP1 (< 3, >= 2.32.0)
     - SwiftNIOTLS (< 3, >= 2.32.0)
   - SwiftNIOPosix (2.32.3):
@@ -143,9 +145,9 @@ SPEC CHECKSUMS:
   SwiftNIOEmbedded: b7ccf12b402dff35a5d4356990a6253621e4337d
   SwiftNIOExtras: 70f09aa8eca3ab6baeaf1993da9c855b6e95e97f
   SwiftNIOFoundationCompat: d3b888766e7c67354a4e4e145d38edf9586efa0c
-  SwiftNIOHPACK: cbebd30039bcd0bfa26d050228ebd772b22fbf54
+  SwiftNIOHPACK: e2fc784ce453bec4c058b21071e89fb7e542ac30
   SwiftNIOHTTP1: 349a16aae363250cd49f430a9fdb93cff518adfa
-  SwiftNIOHTTP2: 5b95d3f463ca672901b74afd41ce439d549ab601
+  SwiftNIOHTTP2: a0322f3dcecd949e03df65f4dac106411df0f12c
   SwiftNIOPosix: e4988a8dcfd5a6319bde219d7a3d0acc5fbe7a89
   SwiftNIOSSL: 7c2ddcbcbb2a8188468b7fe9c2bc6124df4b3772
   SwiftNIOTLS: 1b8290ec775238ccc714ed842d929494df95a2c2
