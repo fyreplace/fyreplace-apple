@@ -40,7 +40,7 @@ class SettingsViewController: UITableViewController {
     }
 
     private func onAvatarURLChanged(_ event: Signal<String?, Never>.Event) {
-        let defaultImage = UIImage(called: "person.crop.circle")
+        let defaultImage = UIImage(called: "person.crop.circle.fill")
 
         if let url = event.value ?? nil {
             avatar.sd_setImage(with: URL(string: url), placeholderImage: defaultImage)
