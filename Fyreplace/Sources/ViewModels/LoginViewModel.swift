@@ -19,28 +19,28 @@ class LoginViewModel: ViewModel {
     private let authToken = Keychain.authToken
 
     func register() {
-        let userCreation = FPBUserCreation.with {
+        let request = FPBUserCreation.with {
             $0.email = email.value
             $0.username = username.value
             $0.password = password.value
         }
 
         isLoading.value = true
-        let response = accountService.create(userCreation).response
+        let response = accountService.create(request).response
         response.whenSuccess { _ in self.delegate.onRegister() }
         response.whenFailure(delegate.onError(_:))
         response.whenComplete { _ in self.isLoading.value = false }
     }
 
     func login() {
-        let credentials = FPBCredentials.with {
+        let request = FPBCredentials.with {
             $0.identifier = username.value
             $0.password = password.value
             $0.client = .default
         }
 
         isLoading.value = true
-        let response = accountService.connect(credentials).response
+        let response = accountService.connect(request).response
         response.whenSuccess { self.onLogin(token: $0.token) }
         response.whenFailure(delegate.onError(_:))
         response.whenComplete { _ in self.isLoading.value = false }
