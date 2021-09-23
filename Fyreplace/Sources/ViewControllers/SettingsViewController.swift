@@ -15,6 +15,8 @@ class SettingsViewController: UITableViewController {
     private var dateJoined: UILabel!
     @IBOutlet
     private var email: UILabel!
+    @IBOutlet
+    private var bio: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,7 @@ class SettingsViewController: UITableViewController {
         vm.user.map(\.?.avatar.url).producer.start(onAvatarURLChanged(_:))
         vm.user.map(\.?.dateJoined).producer.start(onDateJoinedChanged(_:))
         vm.user.map(\.?.email).producer.start(onEmailChanged(_:))
+        vm.user.map(\.?.bio).producer.start(onBioChanged(_:))
         vm.user.producer.start { [unowned self] _ in reloadTable() }
     }
 
@@ -62,6 +65,11 @@ class SettingsViewController: UITableViewController {
 
     private func onEmailChanged(_ event: Signal<String?, Never>.Event) {
         email.text = event.value ?? nil
+    }
+
+    private func onBioChanged(_ event: Signal<String?, Never>.Event) {
+        let text = (event.value ?? "") ?? ""
+        bio.text = text.count == 0 ? .tr("Settings.Bio") : text
     }
 
     private func reloadTable() {

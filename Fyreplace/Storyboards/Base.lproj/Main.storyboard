@@ -294,12 +294,41 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Profile-tableViewCell-02-contentView-Bio" detailTextLabel="Settings-Settings-view-Profile-tableViewCell-02-contentView-label" style="IBUITableViewCellStyleValue1" id="Settings-Settings-view-Profile-tableViewCell-02">
+                                        <rect key="frame" x="20" y="299.00000190734863" width="350" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Profile-tableViewCell-02" id="Settings-Settings-view-Profile-tableViewCell-02-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="320.33333333333331" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Profile-tableViewCell-02-contentView-Bio">
+                                                    <rect key="frame" x="20" y="14" width="20.666666666666668" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Profile-tableViewCell-02-contentView-label">
+                                                    <rect key="frame" x="275" y="14" width="37.333333333333336" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Bio-Navigation-Bio-Navigation" kind="popoverPresentation" popoverAnchorView="Settings-Settings-view-Profile-tableViewCell-02" id="Settings-Settings-view-Profile-tableViewCell-02--S-Bio-Navigation-Bio-Navigation">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="Settings-Settings-view-tableViewSection-00">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Logout" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00">
-                                        <rect key="frame" x="20" y="335.00000190734863" width="350" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="378.66666984558105" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-00-tableViewCell-00" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
@@ -320,7 +349,7 @@
                             <tableViewSection headerTitle="Danger zone" id="Settings-Settings-view-Danger-zone">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" tag="3" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-Danger-zone-tableViewCell-00-contentView-Delete-account" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Danger-zone-tableViewCell-00">
-                                        <rect key="frame" x="20" y="428.33333587646484" width="350" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="472.00000381469727" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Danger-zone-tableViewCell-00" id="Settings-Settings-view-Danger-zone-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
@@ -341,7 +370,7 @@
                             <tableViewSection id="Settings-Settings-view-tableViewSection-01">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView-Register" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00">
-                                        <rect key="frame" x="20" y="508.00000381469727" width="350" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="551.66667175292969" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-01-tableViewCell-00" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="320.33333333333331" height="43.666667938232422"/>
@@ -361,7 +390,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView-Login" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01">
-                                        <rect key="frame" x="20" y="551.66667175292969" width="350" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="595.33333969116211" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-01-tableViewCell-01" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="320.33333333333331" height="43.666667938232422"/>
@@ -391,6 +420,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="Settings-Settings-Settings"/>
                     <connections>
                         <outlet property="avatar" destination="Settings-Settings-view-tableHeaderView-Avatar" id="Settings-Settings--O-avatar"/>
+                        <outlet property="bio" destination="Settings-Settings-view-Profile-tableViewCell-02-contentView-label" id="Settings-Settings--O-bio"/>
                         <outlet property="dateJoined" destination="Settings-Settings-view-Profile-tableViewCell-00-contentView-label" id="Settings-Settings--O-dateJoined"/>
                         <outlet property="email" destination="Settings-Settings-view-Profile-tableViewCell-01-contentView-label" id="Settings-Settings--O-email"/>
                         <outlet property="username" destination="Settings-Settings-view-tableHeaderView-Username" id="Settings-Settings--O-username"/>
@@ -405,6 +435,120 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="1500" y="750"/>
+        </scene>
+        <!--Bio Navigation-->
+        <scene sceneID="Bio-Navigation">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bio-Navigation-Bio-Navigation" userLabel="Bio Navigation" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bio-Navigation-Bio-Navigation-navigationBar">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bio-Bio" kind="relationship" relationship="rootViewController" id="Bio-Navigation-Bio-Navigation--S-Bio-Bio"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bio-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2250" y="750"/>
+        </scene>
+        <!--Bio-->
+        <scene sceneID="Bio">
+            <objects>
+                <viewController id="Bio-Bio" userLabel="Bio" customClass="BioViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bio-Bio-view">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-view-textView">
+                                <rect key="frame" x="10" y="56" width="370" height="734"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bio-Bio-view-safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="bottom" secondItem="Bio-Bio-view" secondAttribute="bottom" id="Bio-Bio-view--C-Bio-Bio-view-textView-bottom-Bio-Bio-view-bottom" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
+                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="leading" secondItem="Bio-Bio-view-safeArea" secondAttribute="leading" constant="10" id="Bio-Bio-view--C-Bio-Bio-view-textView-leading-Bio-Bio-view-safeArea-leading"/>
+                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="top" secondItem="Bio-Bio-view-safeArea" secondAttribute="top" id="Bio-Bio-view--C-Bio-Bio-view-textView-top-Bio-Bio-view-safeArea-top"/>
+                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="trailing" secondItem="Bio-Bio-view-safeArea" secondAttribute="trailing" constant="-10" id="Bio-Bio-view--C-Bio-Bio-view-textView-trailing-Bio-Bio-view-safeArea-trailing"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bio-Bio-navigationItem">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Bio-Bio-navigationItem-cancel">
+                            <connections>
+                                <action selector="onCancelPressed" destination="Bio-Bio" id="Bio-Bio-navigationItem-cancel--A-Bio-Bio-onCancelPressed"/>
+                            </connections>
+                        </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="Bio-Bio-navigationItem-titleView">
+                            <rect key="frame" x="195" y="28" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-navigationItem-titleView-Length">
+                                    <rect key="frame" x="-26.666666666666668" y="-10.333333333333334" width="53.333333333333336" height="20.666666666666668"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="Bio-Bio-navigationItem-titleView-Length" firstAttribute="centerX" secondItem="Bio-Bio-navigationItem-titleView" secondAttribute="centerX" id="Bio-Bio-navigationItem-titleView--C-Bio-Bio-navigationItem-titleView-Length-centerX-Bio-Bio-navigationItem-titleView-centerX"/>
+                                <constraint firstItem="Bio-Bio-navigationItem-titleView-Length" firstAttribute="centerY" secondItem="Bio-Bio-navigationItem-titleView" secondAttribute="centerY" id="Bio-Bio-navigationItem-titleView--C-Bio-Bio-navigationItem-titleView-Length-centerY-Bio-Bio-navigationItem-titleView-centerY"/>
+                            </constraints>
+                        </view>
+                        <rightBarButtonItems>
+                            <barButtonItem style="done" systemItem="done" id="Bio-Bio-navigationItem-done">
+                                <connections>
+                                    <action selector="onDonePressed" destination="Bio-Bio" id="Bio-Bio-navigationItem-done--A-Bio-Bio-onDonePressed"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem id="Bio-Bio-navigationItem-barButtonItem">
+                                <view key="customView" contentMode="scaleToFill" id="Bio-Bio-navigationItem-barButtonItem-customView">
+                                    <rect key="frame" x="238.33333333333337" y="7" width="86" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView">
+                                            <rect key="frame" x="0.0" y="11" width="86" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerX" secondItem="Bio-Bio-navigationItem-barButtonItem-customView" secondAttribute="centerX">
+                                            <string key="id">Bio-Bio-Bio-barButtonItem-customView--C-Bio-Bio-Bio-barButtonItem-customView-activityIndicatorView-centerX-Bio-Bio-Bio-barButtonItem-customView-centerX</string>
+                                        </constraint>
+                                        <constraint firstItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerY" secondItem="Bio-Bio-navigationItem-barButtonItem-customView" secondAttribute="centerY">
+                                            <string key="id">Bio-Bio-Bio-barButtonItem-customView--C-Bio-Bio-Bio-barButtonItem-customView-activityIndicatorView-centerY-Bio-Bio-Bio-barButtonItem-customView-centerY</string>
+                                        </constraint>
+                                        <constraint firstAttribute="width" secondItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" secondAttribute="width">
+                                            <string key="id">Bio-Bio-navigationItem-barButtonItem-customView--C-width-Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView-width</string>
+                                        </constraint>
+                                    </constraints>
+                                </view>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bio" destination="Bio-Bio-view-textView" id="Bio-Bio--O-bio"/>
+                        <outlet property="done" destination="Bio-Bio-navigationItem-done" id="Bio-Bio--O-done"/>
+                        <outlet property="length" destination="Bio-Bio-navigationItem-titleView-Length" id="Bio-Bio--O-length"/>
+                        <outlet property="loader" destination="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" id="Bio-Bio--O-loader"/>
+                        <outlet property="vm" destination="Bio-BioViewModel" id="Bio-Bio--O-vm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bio-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Bio-BioViewModel" customClass="BioViewModel" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Bio-Bio" id="Bio-BioViewModel--O-delegate"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="2250" y="1500"/>
         </scene>
         <!--Login-->
         <scene sceneID="Login">

@@ -35,12 +35,17 @@
 "Settings.EmailChange.TextField.Placeholder" = "email@example.org";
 "Settings.EmailChange.Success.Title" = "Email change requested";
 "Settings.EmailChange.Success.Message" = "A confirmation email has been sen to your new address.";
+"Settings.Bio" = "Empty";
 "Settings.AccountDeletion.Title" = "Account deletion";
 "Settings.AccountDeletion.Message" = "Deleting your account is a permanent action. You will not be able to restore your account afterwards.\n\nAre you sure you want to go through with this?";
 "Settings.AccountDeletion.Action.Delete" = "Delete account";
 "Settings.AccountDeletion.Action.Delete.Countdown" = "Delete account (%d)";
 "Settings.AccountDeletion.Success.Title" = "Account deleted";
 "Settings.AccountDeletion.Success.Message" = "Your account has been deleted, your posts and comments will be fully removed as well within the next minutes.\n\nGoodbye! 👋";
+
+"Bio.Length" = "%d/%d";
+"Bio.Error.TooLong.Title" = "Invalid bio";
+"Bio.Error.TooLong.Message" = "Your bio is too long.";
 
 "Login.Login" = "Login";
 "Login.Register" = "Register";
