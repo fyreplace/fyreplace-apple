@@ -12,7 +12,7 @@ protocol ViewModelDelegate: NSObjectProtocol {
 
 extension ViewModelDelegate where Self: UIViewController {
     func onError(_ error: Error) {
-        guard let status = error as? GRPCStatus else { return onFailure(error) }
+        guard let status = error as? GRPCStatus else { return onFailureAsync(error) }
 
         switch status.code {
         case .unavailable:
@@ -23,11 +23,15 @@ extension ViewModelDelegate where Self: UIViewController {
                 setUser(nil)
                 NotificationCenter.default.post(name: FPBUser.userDisconnectedNotification, object: self)
             } else {
-                onFailure(status)
+                onFailureAsync(status)
             }
 
         default:
-            onFailure(status)
+            onFailureAsync(status)
         }
+    }
+
+    private func onFailureAsync(_ error: Error) {
+        DispatchQueue.main.async { self.onFailure(error) }
     }
 }
