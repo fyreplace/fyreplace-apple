@@ -15,7 +15,7 @@
 		4D0A8D6D26A7FAF8007691C9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */; };
 		4D0C6F1D26F247E500C4271C /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C6F1C26F247E500C4271C /* RoundImageView.swift */; };
 		4D28876226A74F7200D6D3CB /* Rpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28876126A74F7200D6D3CB /* Rpc.swift */; };
-		4D36CC3126964B5D00BA1675 /* FatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36CC3026964B5D00BA1675 /* FatButton.swift */; };
+		4D36CC3126964B5D00BA1675 /* LargeFilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36CC3026964B5D00BA1675 /* LargeFilledButton.swift */; };
 		4D3AEDA326C512F100C93DFF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3AEDA226C512F100C93DFF /* MainViewModel.swift */; };
 		4D3AEDA726C5157D00C93DFF /* FPBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3AEDA626C5157D00C93DFF /* FPBClient.swift */; };
 		4D3AEDA926C5185200C93DFF /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3AEDA826C5185200C93DFF /* Keychain.swift */; };
@@ -77,7 +77,7 @@
 		4D0C6F1C26F247E500C4271C /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		4D28876126A74F7200D6D3CB /* Rpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rpc.swift; sourceTree = "<group>"; };
 		4D35B1A726D7A60600077811 /* Fyreplace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fyreplace.entitlements; sourceTree = "<group>"; };
-		4D36CC3026964B5D00BA1675 /* FatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatButton.swift; sourceTree = "<group>"; };
+		4D36CC3026964B5D00BA1675 /* LargeFilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFilledButton.swift; sourceTree = "<group>"; };
 		4D3AEDA226C512F100C93DFF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4D3AEDA626C5157D00C93DFF /* FPBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPBClient.swift; sourceTree = "<group>"; };
 		4D3AEDA826C5185200C93DFF /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */,
-				4D36CC3026964B5D00BA1675 /* FatButton.swift */,
+				4D36CC3026964B5D00BA1675 /* LargeFilledButton.swift */,
 				4D0C6F1C26F247E500C4271C /* RoundImageView.swift */,
 			);
 			path = Views;
@@ -421,7 +421,7 @@
 				4D96BF652697A2B800ED9355 /* KeyboardDodgingConstraint.swift in Sources */,
 				4D7C987326912ABF00819E3F /* image.proto in Sources */,
 				4D3F816426C6D0D000764763 /* NSObjectProtocol+FPBUser.swift in Sources */,
-				4D36CC3126964B5D00BA1675 /* FatButton.swift in Sources */,
+				4D36CC3126964B5D00BA1675 /* LargeFilledButton.swift in Sources */,
 				4D3F816826C6E57900764763 /* UserDefaults+Message.swift in Sources */,
 				4D4520FA26D8203300FCFEE0 /* NSUserActivity.swift in Sources */,
 				4D7C987126912ABA00819E3F /* comment.proto in Sources */,
