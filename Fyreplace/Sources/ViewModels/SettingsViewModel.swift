@@ -22,6 +22,13 @@ class SettingsViewModel: ViewModel {
             .observeValues { [unowned self] _ in user.value = getUser() }
     }
 
+    func updatePassword(password: String) {
+        let request = FPBPassword.with { $0.password = password }
+        let response = userService.updatePassword(request, callOptions: .authenticated).response
+        response.whenSuccess { _ in self.delegate.onUpdatePassword() }
+        response.whenFailure(delegate.onError(_:))
+    }
+
     func sendEmailUpdateEmail(address: String) {
         let request = FPBEmail.with { $0.email = address }
         let response = userService.sendEmailUpdateEmail(request, callOptions: .authenticated).response
@@ -64,6 +71,8 @@ class SettingsViewModel: ViewModel {
 
 @objc
 protocol SettingsViewModelDelegate: ViewModelDelegate where Self: UIViewController {
+    func onUpdatePassword()
+
     func onSendEmailUpdateEmail()
 
     func onLogout()

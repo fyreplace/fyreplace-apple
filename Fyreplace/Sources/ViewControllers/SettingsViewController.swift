@@ -110,12 +110,15 @@ extension SettingsViewController {
 
         switch cell?.tag {
         case 1:
-            changeEmail()
+            changePassword()
 
         case 2:
-            vm.logout()
+            changeEmail()
 
         case 3:
+            vm.logout()
+
+        case 4:
             deleteAccount()
 
         default:
@@ -128,8 +131,37 @@ extension SettingsViewController {
         return (vm.user.value == nil) && (section != tableView.numberOfSections - 1)
     }
 
+    private func changePassword() {
+        let alert = UIAlertController(
+            title: .tr("Settings.PasswordChange.Title"),
+            message: .tr("Settings.PasswordChange.Message"),
+            preferredStyle: .alert
+        )
+        var newPassword: UITextField?
+        let update = UIAlertAction(title: .tr("Ok"), style: .default) { [unowned self] _ in
+            guard let password = newPassword?.text else { return }
+            vm.updatePassword(password: password)
+        }
+        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
+
+        alert.addTextField {
+            newPassword = $0
+            $0.isSecureTextEntry = true
+            $0.textContentType = .newPassword
+            $0.returnKeyType = .done
+            $0.reactive.continuousTextValues.observeValues { update.isEnabled = $0.count > 0 }
+        }
+        alert.addAction(update)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+    }
+
     private func changeEmail() {
-        let alert = UIAlertController(title: .tr("Settings.EmailChange.Title"), message: .tr("Settings.EmailChange.Message"), preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: .tr("Settings.EmailChange.Title"),
+            message: .tr("Settings.EmailChange.Message"),
+            preferredStyle: .alert
+        )
         var newEmail: UITextField?
         let update = UIAlertAction(title: .tr("Ok"), style: .default) { [unowned self] _ in
             guard let address = newEmail?.text else { return }
@@ -181,6 +213,10 @@ extension SettingsViewController {
 }
 
 extension SettingsViewController: SettingsViewModelDelegate {
+    func onUpdatePassword() {
+        presentBasicAlert(text: "Settings.PasswordChange.Success")
+    }
+
     func onSendEmailUpdateEmail() {
         presentBasicAlert(text: "Settings.EmailChange.Success")
     }
@@ -206,7 +242,16 @@ extension SettingsViewController: SettingsViewModelDelegate {
             key = "Login.Error.ExistingEmail"
 
         case .invalidArgument:
-            key = "Login.Error.InvalidEmail"
+            switch status.description {
+            case "invalid_email":
+                key = "Login.Error.InvalidEmail"
+
+            case "invalid_password":
+                key = "Login.Error.InvalidPassword"
+
+            default:
+                key = "Error.Validation"
+            }
 
         default:
             key = "Error"

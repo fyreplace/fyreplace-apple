@@ -35,6 +35,10 @@
 "Settings.EmailChange.TextField.Placeholder" = "email@example.org";
 "Settings.EmailChange.Success.Title" = "Email change requested";
 "Settings.EmailChange.Success.Message" = "A confirmation email has been sen to your new address.";
+"Settings.PasswordChange.Title" = "Password change";
+"Settings.PasswordChange.Message" = "What's your new password?";
+"Settings.PasswordChange.Success.Title" = "Password changed";
+"Settings.PasswordChange.Success.Message" = "Your password has been successfully updated.";
 "Settings.Bio" = "Empty";
 "Settings.AccountDeletion.Title" = "Account deletion";
 "Settings.AccountDeletion.Message" = "Deleting your account is a permanent action. You will not be able to restore your account afterwards.\n\nAre you sure you want to go through with this?";
