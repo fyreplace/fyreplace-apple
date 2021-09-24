@@ -24,6 +24,20 @@ class BioViewController: UIViewController {
         length.reactive.text <~ vm.bio.map {
             String.localizedStringWithFormat(.tr("Bio.Length"), $0.count, BioViewController.maxBioLength)
         }
+        length.reactive.textColor <~ vm.bio
+            .map { $0.count <= BioViewController.maxBioLength }
+            .skipRepeats()
+            .map {
+                let normalColor: UIColor
+
+                if #available(iOS 13.0, *) {
+                    normalColor = .label
+                } else {
+                    normalColor = .black
+                }
+
+                return $0 ? normalColor : .systemRed
+            }
         vm.bio <~ bio.reactive.continuousTextValues
         bio.becomeFirstResponder()
     }
