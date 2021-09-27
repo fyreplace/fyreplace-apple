@@ -36,7 +36,7 @@
         <scene sceneID="Feed-Navigation">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Feed-Navigation-Feed-Navigation" userLabel="Feed Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title=" " image="square.fill.on.square.fill" catalog="system" id="Feed-Navigation-Feed-Navigation-Feed" userLabel="Feed"/>
+                    <tabBarItem key="tabBarItem" title=" " image="square.grid.2x2.fill" catalog="system" id="Feed-Navigation-Feed-Navigation-Feed" userLabel="Feed"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Feed-Navigation-Feed-Navigation-navigationBar">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -138,7 +138,7 @@
         <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="square.fill.on.square.fill" catalog="system" width="128" height="113"/>
+        <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.58399999141693115" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
