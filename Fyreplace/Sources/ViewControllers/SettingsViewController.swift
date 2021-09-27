@@ -18,14 +18,23 @@ class SettingsViewController: UITableViewController {
     @IBOutlet
     private var bio: UILabel!
 
+    private var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        return formatter
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         avatar.sd_imageTransition = .fade
         username.reactive.text <~ vm.user.map { $0?.username ?? .tr("Settings.Username") }
+        dateJoined.reactive.text <~ vm.user.map(\.?.dateJoined).map { [unowned self] in
+            $0 != nil ? dateFormatter.string(from: $0!.date) : ""
+        }
+        email.reactive.text <~ vm.user.map(\.?.email)
+        bio.reactive.text <~ vm.user.map { ($0?.bio.count ?? 0) > 0 ? $0!.bio : .tr("Settings.Bio") }
         vm.user.map(\.?.avatar.url).producer.start(onAvatarURLChanged(_:))
-        vm.user.map(\.?.dateJoined).producer.start(onDateJoinedChanged(_:))
-        vm.user.map(\.?.email).producer.start(onEmailChanged(_:))
-        vm.user.map(\.?.bio).producer.start(onBioChanged(_:))
         vm.user.producer.start { [unowned self] _ in reloadTable() }
     }
 
@@ -50,26 +59,6 @@ class SettingsViewController: UITableViewController {
         } else {
             avatar.image = defaultImage
         }
-    }
-
-    private func onDateJoinedChanged(_ event: Signal<Google_Protobuf_Timestamp?, Never>.Event) {
-        if let timestamp = event.value ?? nil {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .long
-            formatter.timeStyle = .none
-            dateJoined.text = formatter.string(from: timestamp.date)
-        } else {
-            dateJoined.text = nil
-        }
-    }
-
-    private func onEmailChanged(_ event: Signal<String?, Never>.Event) {
-        email.text = event.value ?? nil
-    }
-
-    private func onBioChanged(_ event: Signal<String?, Never>.Event) {
-        let text = (event.value ?? "") ?? ""
-        bio.text = text.count == 0 ? .tr("Settings.Bio") : text
     }
 
     private func reloadTable() {
