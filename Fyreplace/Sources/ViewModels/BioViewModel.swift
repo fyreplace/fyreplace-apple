@@ -16,12 +16,6 @@ class BioViewModel: ViewModel {
         bio.value = getUser()?.bio ?? ""
     }
 
-    func retrieveMe() {
-        let response = userService.retrieveMe(Google_Protobuf_Empty(), callOptions: .authenticated).response
-        response.whenSuccess { self.setUser($0) }
-        response.whenFailure(onError(_:))
-    }
-
     func updateBio() {
         isLoading.value = true
         let request = FPBBio.with { $0.bio = bio.value }
@@ -32,7 +26,7 @@ class BioViewModel: ViewModel {
 
     private func onUpdateBio() {
         delegate.onUpdateBio()
-        retrieveMe()
+        NotificationCenter.default.post(name: FPBUser.shouldReloadUserNotification, object: self)
     }
 
     private func onError(_ error: Error) {

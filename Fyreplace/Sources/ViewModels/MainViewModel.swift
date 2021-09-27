@@ -12,8 +12,15 @@ class MainViewModel: ViewModel {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
         NotificationCenter.default.reactive
             .notifications(forName: FPBUser.userConnectedNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] _ in retrieveMe() }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: FPBUser.shouldReloadUserNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
