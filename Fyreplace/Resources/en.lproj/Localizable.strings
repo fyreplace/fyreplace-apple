@@ -73,3 +73,9 @@
 "Login.Error.InvalidUsername.Message" = "This username is not valid. Usernames can contain letters, numbers, and @/./+/-/_ characters.";
 "Login.Error.InvalidPassword.Title" = "Weak password";
 "Login.Error.InvalidPassword.Message" = "This password is too weak.";
+
+"ImageSelector.ChooseSource.Action.Library" = "Pick an image";
+"ImageSelector.ChooseSource.Action.Camera" = "Take a picture";
+"ImageSelector.ChooseSource.Action.Remove" = "Remove";
+"ImageSelector.Error.Size.Title" = "Invalid image";
+"ImageSelector.Error.Size.Message" = "This picture is too large.";

@@ -209,10 +209,14 @@
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Avatar" userLabel="Avatar" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
                                     <rect key="frame" x="145" y="21.000000000000007" width="100" height="98.666666666666686"/>
                                     <color key="tintColor" systemColor="labelColor"/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="Settings-Settings-view-tableHeaderView-Avatar--C-width"/>
                                         <constraint firstAttribute="width" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="height" multiplier="1:1" id="Settings-Settings-view-tableHeaderView-Avatar--C-width-Settings-Settings-view-tableHeaderView-Avatar-height"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="Settings-tapGestureRecognizer" appends="YES" id="Settings-Settings-view-tableHeaderView-Avatar-outletCollection"/>
+                                    </connections>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Guest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Username" userLabel="Username">
                                     <rect key="frame" x="162.66666666666666" y="128" width="65" height="30"/>
@@ -446,6 +450,7 @@
                         <outlet property="bio" destination="Settings-Settings-view-Profile-tableViewCell-03-contentView-label" id="Settings-Settings--O-bio"/>
                         <outlet property="dateJoined" destination="Settings-Settings-view-Profile-tableViewCell-00-contentView-label" id="Settings-Settings--O-dateJoined"/>
                         <outlet property="email" destination="Settings-Settings-view-Profile-tableViewCell-02-contentView-label" id="Settings-Settings--O-email"/>
+                        <outlet property="imageSelector" destination="Settings-ImageSelector" id="Settings-Settings--O-imageSelector"/>
                         <outlet property="username" destination="Settings-Settings-view-tableHeaderView-Username" id="Settings-Settings--O-username"/>
                         <outlet property="vm" destination="Settings-SettingsViewModel" id="Settings-Settings--O-vm"/>
                     </connections>
@@ -456,6 +461,16 @@
                         <outlet property="delegate" destination="Settings-Settings" id="Settings-SettingsViewModel--O-delegate"/>
                     </connections>
                 </customObject>
+                <customObject id="Settings-ImageSelector" customClass="ImageSelector" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Settings-Settings" id="Settings-ImageSelector--O-delegate"/>
+                    </connections>
+                </customObject>
+                <tapGestureRecognizer id="Settings-tapGestureRecognizer">
+                    <connections>
+                        <action selector="onAvatarPressed" destination="Settings-Settings" id="Settings-tapGestureRecognizer--A-Settings-Settings-onAvatarPressed"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1500" y="750"/>
         </scene>

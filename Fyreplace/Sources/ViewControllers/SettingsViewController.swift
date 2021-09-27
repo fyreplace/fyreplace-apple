@@ -8,6 +8,8 @@ class SettingsViewController: UITableViewController {
     @IBOutlet
     private var vm: SettingsViewModel!
     @IBOutlet
+    private var imageSelector: ImageSelector!
+    @IBOutlet
     private var avatar: UIImageView!
     @IBOutlet
     private var username: UILabel!
@@ -28,6 +30,7 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         avatar.sd_imageTransition = .fade
+        avatar.reactive.isUserInteractionEnabled <~ vm.user.map { $0 != nil }
         username.reactive.text <~ vm.user.map { $0?.username ?? .tr("Settings.Username") }
         dateJoined.reactive.text <~ vm.user.map(\.?.dateJoined).map { [unowned self] in
             $0 != nil ? dateFormatter.string(from: $0!.date) : ""
@@ -49,6 +52,11 @@ class SettingsViewController: UITableViewController {
         if let loginViewController = segue.destination as? LoginViewController {
             loginViewController.isRegistering = segue.identifier == "Register"
         }
+    }
+
+    @IBAction
+    private func onAvatarPressed() {
+        imageSelector.selectImage(canRemove: true)
     }
 
     private func onAvatarURLChanged(_ event: Signal<String?, Never>.Event) {
@@ -202,6 +210,9 @@ extension SettingsViewController {
 }
 
 extension SettingsViewController: SettingsViewModelDelegate {
+    func onUpdateAvatar() {
+    }
+
     func onUpdatePassword() {
         presentBasicAlert(text: "Settings.PasswordChange.Success")
     }
@@ -247,5 +258,17 @@ extension SettingsViewController: SettingsViewModelDelegate {
         }
 
         presentBasicAlert(text: key, feedback: .error)
+    }
+}
+
+extension SettingsViewController: ImageSelectorDelegate {
+    static let maxImageSize: Float = 0.5
+
+    func onImageSelected(_ image: Data) {
+        vm.updateAvatar(image: image)
+    }
+
+    func onImageRemoved() {
+        vm.updateAvatar(image: nil)
     }
 }

@@ -22,6 +22,13 @@ class SettingsViewModel: ViewModel {
             .observeValues { [unowned self] _ in user.value = getUser() }
     }
 
+    func updateAvatar(image: Data?) {
+        let stream = userService.updateAvatar(callOptions: .authenticated)
+        stream.response.whenSuccess { _ in self.onUpdateAvatar() }
+        stream.response.whenFailure(delegate.onError(_:))
+        stream.upload(image: image)
+    }
+
     func updatePassword(password: String) {
         let request = FPBPassword.with { $0.password = password }
         let response = userService.updatePassword(request, callOptions: .authenticated).response
@@ -48,6 +55,11 @@ class SettingsViewModel: ViewModel {
         response.whenFailure(delegate.onError(_:))
     }
 
+    private func onUpdateAvatar() {
+        delegate.onUpdateAvatar()
+        NotificationCenter.default.post(name: FPBUser.shouldReloadUserNotification, object: self)
+    }
+
     private func onLogout() {
         if authToken.delete() {
             setUser(nil)
@@ -71,6 +83,8 @@ class SettingsViewModel: ViewModel {
 
 @objc
 protocol SettingsViewModelDelegate: ViewModelDelegate where Self: UIViewController {
+    func onUpdateAvatar()
+
     func onUpdatePassword()
 
     func onSendEmailUpdateEmail()
