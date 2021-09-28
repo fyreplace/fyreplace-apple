@@ -15,11 +15,11 @@ class LoginViewModel: ViewModel {
     lazy var canProceed = isRegistering.negate().or(isEmailValid).and(isUsernameValid).and(isPasswordValid)
     let isLoading = MutableProperty(false)
 
-    private lazy var accountService = FPBAccountServiceClient(channel: Self.rpc.channel)
+    private lazy var accountService = FPAccountServiceClient(channel: Self.rpc.channel)
     private let authToken = Keychain.authToken
 
     func register() {
-        let request = FPBUserCreation.with {
+        let request = FPUserCreation.with {
             $0.email = email.value
             $0.username = username.value
             $0.password = password.value
@@ -33,7 +33,7 @@ class LoginViewModel: ViewModel {
     }
 
     func login() {
-        let request = FPBCredentials.with {
+        let request = FPCredentials.with {
             $0.identifier = username.value
             $0.password = password.value
             $0.client = .default
@@ -48,7 +48,7 @@ class LoginViewModel: ViewModel {
 
     private func onLogin(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
-            NotificationCenter.default.post(name: FPBUser.userConnectedNotification, object: self)
+            NotificationCenter.default.post(name: FPUser.userConnectedNotification, object: self)
             delegate.onLogin()
         } else {
             delegate.onError(KeychainError.set)

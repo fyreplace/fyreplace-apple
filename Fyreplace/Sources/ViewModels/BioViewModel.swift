@@ -9,7 +9,7 @@ class BioViewModel: ViewModel {
     let isLoading = MutableProperty(false)
     let bio = MutableProperty("")
 
-    private lazy var userService = FPBUserServiceClient(channel: Self.rpc.channel)
+    private lazy var userService = FPUserServiceClient(channel: Self.rpc.channel)
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,7 +18,7 @@ class BioViewModel: ViewModel {
 
     func updateBio() {
         isLoading.value = true
-        let request = FPBBio.with { $0.bio = bio.value }
+        let request = FPBio.with { $0.bio = bio.value }
         let response = userService.updateBio(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onUpdateBio() }
         response.whenFailure(onError(_:))
@@ -26,7 +26,7 @@ class BioViewModel: ViewModel {
 
     private func onUpdateBio() {
         delegate.onUpdateBio()
-        NotificationCenter.default.post(name: FPBUser.shouldReloadUserNotification, object: self)
+        NotificationCenter.default.post(name: FPUser.shouldReloadUserNotification, object: self)
     }
 
     private func onError(_ error: Error) {

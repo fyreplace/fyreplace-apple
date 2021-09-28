@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewModelDelegate {
     func onRegister() {
-        NotificationCenter.default.post(name: FPBUser.userRegisteredNotification, object: self)
+        NotificationCenter.default.post(name: FPUser.userRegisteredNotification, object: self)
         DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
     }
 

@@ -15,19 +15,19 @@ class MainViewController: UITabBarController {
             .observeValues { [unowned self] in onUrlOpened($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPBUser.userRegisteredNotification)
+            .notifications(forName: FPUser.userRegisteredNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onUserRegistered($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPBUser.userConnectedNotification)
+            .notifications(forName: FPUser.userConnectedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onUserConnected($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPBUser.userDisconnectedNotification)
+            .notifications(forName: FPUser.userDisconnectedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onUserDisconnected($0) }

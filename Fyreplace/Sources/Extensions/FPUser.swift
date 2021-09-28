@@ -1,6 +1,6 @@
 import Foundation
 
-extension FPBUser {
+extension FPUser {
     static let userRegisteredNotification = Notification.Name("userRegistered")
     static let userConnectedNotification = Notification.Name("userConnected")
     static let userDisconnectedNotification = Notification.Name("userDisconnected")

@@ -21,7 +21,7 @@ extension ViewModelDelegate where Self: UIViewController {
         case .unauthenticated:
             if !["timestamp_exceeded", "invalid_token"].contains(status.message) && Keychain.authToken.get() != nil {
                 setUser(nil)
-                NotificationCenter.default.post(name: FPBUser.userDisconnectedNotification, object: self)
+                NotificationCenter.default.post(name: FPUser.userDisconnectedNotification, object: self)
             } else {
                 onFailureAsync(status)
             }

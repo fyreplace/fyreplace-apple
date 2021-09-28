@@ -6,21 +6,21 @@ class MainViewModel: ViewModel {
     @IBOutlet
     private weak var delegate: MainViewModelDelegate!
 
-    private lazy var accountService = FPBAccountServiceClient(channel: Self.rpc.channel)
-    private lazy var userService = FPBUserServiceClient(channel: Self.rpc.channel)
+    private lazy var accountService = FPAccountServiceClient(channel: Self.rpc.channel)
+    private lazy var userService = FPUserServiceClient(channel: Self.rpc.channel)
     private let authToken = Keychain.authToken
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPBUser.userConnectedNotification)
+            .notifications(forName: FPUser.userConnectedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPBUser.shouldReloadUserNotification)
+            .notifications(forName: FPUser.shouldReloadUserNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
@@ -31,7 +31,7 @@ class MainViewModel: ViewModel {
     }
 
     func confirmActivation(with token: String) {
-        let request = FPBConnectionToken.with {
+        let request = FPConnectionToken.with {
             $0.token = token
             $0.client = .default
         }
@@ -41,7 +41,7 @@ class MainViewModel: ViewModel {
     }
 
     func confirmEmailUpdate(with token: String) {
-        let request = FPBToken.with { $0.token = token }
+        let request = FPToken.with { $0.token = token }
         let response = userService.confirmEmailUpdate(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onConfirmEmailUpdate() }
         response.whenFailure(delegate.onError(_:))
@@ -55,7 +55,7 @@ class MainViewModel: ViewModel {
 
     private func onConfirmActivation(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
-            NotificationCenter.default.post(name: FPBUser.userConnectedNotification, object: self)
+            NotificationCenter.default.post(name: FPUser.userConnectedNotification, object: self)
             delegate.onConfirmActivation()
         } else {
             delegate.onError(KeychainError.set)
