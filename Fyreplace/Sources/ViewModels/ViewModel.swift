@@ -6,11 +6,11 @@ class ViewModel: NSObject {
 }
 
 @objc
-protocol ViewModelDelegate: NSObjectProtocol {
+protocol ViewModelDelegate where Self: UIViewController {
     func onFailure(_ error: Error)
 }
 
-extension ViewModelDelegate where Self: UIViewController {
+extension ViewModelDelegate {
     func onError(_ error: Error) {
         guard let status = error as? GRPCStatus else { return onFailureAsync(error) }
 

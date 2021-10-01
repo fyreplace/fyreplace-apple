@@ -36,6 +36,6 @@ class BioViewModel: ViewModel {
 }
 
 @objc
-protocol BioViewModelDelegate: ViewModelDelegate where Self: UIViewController {
+protocol BioViewModelDelegate: ViewModelDelegate {
     func onUpdateBio()
 }

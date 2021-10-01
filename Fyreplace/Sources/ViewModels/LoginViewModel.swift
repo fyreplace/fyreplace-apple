@@ -57,7 +57,7 @@ class LoginViewModel: ViewModel {
 }
 
 @objc
-protocol LoginViewModelDelegate: ViewModelDelegate where Self: UIViewController {
+protocol LoginViewModelDelegate: ViewModelDelegate {
     func onRegister()
 
     func onLogin()

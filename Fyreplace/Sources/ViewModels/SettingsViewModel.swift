@@ -82,7 +82,7 @@ class SettingsViewModel: ViewModel {
 }
 
 @objc
-protocol SettingsViewModelDelegate: ViewModelDelegate where Self: UIViewController {
+protocol SettingsViewModelDelegate: ViewModelDelegate {
     func onUpdateAvatar()
 
     func onUpdatePassword()
