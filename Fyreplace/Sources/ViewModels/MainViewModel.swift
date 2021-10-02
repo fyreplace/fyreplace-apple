@@ -4,7 +4,7 @@ import ReactiveSwift
 
 class MainViewModel: ViewModel {
     @IBOutlet
-    private weak var delegate: MainViewModelDelegate!
+    weak var delegate: MainViewModelDelegate!
 
     private lazy var accountService = FPAccountServiceClient(channel: Self.rpc.channel)
     private lazy var userService = FPUserServiceClient(channel: Self.rpc.channel)

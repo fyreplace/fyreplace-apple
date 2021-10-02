@@ -4,15 +4,15 @@ import GRPC
 
 class BioViewController: UIViewController {
     @IBOutlet
-    private var vm: BioViewModel!
+    var vm: BioViewModel!
     @IBOutlet
-    private var done: UIBarButtonItem!
+    var done: UIBarButtonItem!
     @IBOutlet
-    private var loader: UIActivityIndicatorView!
+    var loader: UIActivityIndicatorView!
     @IBOutlet
-    private var length: UILabel!
+    var length: UILabel!
     @IBOutlet
-    private var bio: UITextView!
+    var bio: UITextView!
 
     private static let maxBioLength = 3000
 

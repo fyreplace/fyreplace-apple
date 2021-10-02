@@ -4,7 +4,7 @@ import GRPC
 
 class MainViewController: UITabBarController {
     @IBOutlet
-    private var vm: MainViewModel!
+    var vm: MainViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

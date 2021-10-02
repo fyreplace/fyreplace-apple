@@ -4,7 +4,7 @@ import SwiftProtobuf
 
 class BioViewModel: ViewModel {
     @IBOutlet
-    private weak var delegate: BioViewModelDelegate!
+    weak var delegate: BioViewModelDelegate!
 
     let isLoading = MutableProperty(false)
     let bio = MutableProperty("")

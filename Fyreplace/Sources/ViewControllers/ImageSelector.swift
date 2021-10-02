@@ -7,7 +7,7 @@ class ImageSelector: NSObject {
     static let imageChunkSize = 100 * 1024
 
     @IBOutlet
-    private weak var delegate: ImageSelectorDelegate!
+    weak var delegate: ImageSelectorDelegate!
 
     func selectImage(canRemove: Bool) {
         let choice = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

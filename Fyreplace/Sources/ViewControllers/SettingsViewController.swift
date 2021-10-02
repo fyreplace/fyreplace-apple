@@ -6,19 +6,19 @@ import SDWebImage
 
 class SettingsViewController: UITableViewController {
     @IBOutlet
-    private var vm: SettingsViewModel!
+    var vm: SettingsViewModel!
     @IBOutlet
-    private var imageSelector: ImageSelector!
+    var imageSelector: ImageSelector!
     @IBOutlet
-    private var avatar: UIImageView!
+    var avatar: UIImageView!
     @IBOutlet
-    private var username: UILabel!
+    var username: UILabel!
     @IBOutlet
-    private var dateJoined: UILabel!
+    var dateJoined: UILabel!
     @IBOutlet
-    private var email: UILabel!
+    var email: UILabel!
     @IBOutlet
-    private var bio: UILabel!
+    var bio: UILabel!
 
     private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()

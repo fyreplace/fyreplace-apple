@@ -5,17 +5,17 @@ import GRPC
 
 class LoginViewController: UIViewController {
     @IBOutlet
-    private var vm: LoginViewModel!
+    var vm: LoginViewModel!
     @IBOutlet
-    private var email: UITextField!
+    var email: UITextField!
     @IBOutlet
-    private var username: UITextField!
+    var username: UITextField!
     @IBOutlet
-    private var password: UITextField!
+    var password: UITextField!
     @IBOutlet
-    private var button: UIButton!
+    var button: UIButton!
     @IBOutlet
-    private var loader: UIActivityIndicatorView!
+    var loader: UIActivityIndicatorView!
 
     public var isRegistering = true
 

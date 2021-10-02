@@ -3,7 +3,7 @@ import ReactiveSwift
 
 class LoginViewModel: ViewModel {
     @IBOutlet
-    private weak var delegate: LoginViewModelDelegate!
+    weak var delegate: LoginViewModelDelegate!
 
     let isRegistering = MutableProperty(true)
     let email = MutableProperty("")

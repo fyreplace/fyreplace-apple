@@ -4,7 +4,7 @@ import SwiftProtobuf
 
 class SettingsViewModel: ViewModel {
     @IBOutlet
-    private weak var delegate: SettingsViewModelDelegate!
+    weak var delegate: SettingsViewModelDelegate!
 
     let user = MutableProperty<FPUser?>(nil)
 
