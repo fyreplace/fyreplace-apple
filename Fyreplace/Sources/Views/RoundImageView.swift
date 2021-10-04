@@ -13,7 +13,6 @@ class RoundImageView: UIImageView {
     }
 
     private func setupView() {
-        clipsToBounds = true
         let size = min(bounds.width, bounds.height)
         layer.cornerRadius = size / 2
     }
