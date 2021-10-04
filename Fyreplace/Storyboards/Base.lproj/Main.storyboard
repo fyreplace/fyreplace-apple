@@ -112,8 +112,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Archive-Navigation-Archive-Navigation" userLabel="Archive Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Archive" image="clock.fill" catalog="system" id="Archive-Navigation-Archive-Navigation-Archive"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Archive-Navigation-Archive-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Archive-Navigation-Archive-Navigation-navigationBar">
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -128,16 +128,208 @@
         <!--Archive-->
         <scene sceneID="Archive">
             <objects>
-                <viewController id="Archive-Archive" userLabel="Archive" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Archive-Archive-view">
+                <tableViewController id="Archive-Archive" userLabel="Archive" customClass="ArchiveViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" estimatedRowHeight="140" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Archive-Archive-view">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Archive-Archive-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Text" id="Archive-Archive-view-Text" customClass="TextItemTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Archive-Archive-view-Text" id="Archive-Archive-view-Text-contentView">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Text-contentView-label">
+                                            <rect key="frame" x="20" y="11" width="195" height="118"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Text-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
+                                            <rect key="frame" x="330" y="12" width="40" height="38.666666666666671"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="Archive-Archive-view-Text-contentView-person-crop-circle-fill--C-width"/>
+                                                <constraint firstAttribute="width" secondItem="Archive-Archive-view-Text-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1">
+                                                    <string key="id">Archive-Archive-view-Text-contentView-person-crop-circle-fill--C-width-Archive-Archive-view-Text-contentView-person-crop-circle-fill-height</string>
+                                                </constraint>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Text-contentView-Username">
+                                            <rect key="frame" x="223" y="55" width="147" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Text-contentView-Date">
+                                            <rect key="frame" x="223" y="114.66666666666667" width="147" height="14.333333333333329"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Date" firstAttribute="bottom" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="bottomMargin">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Date-bottom-Archive-Archive-view-Text-contentView-bottom</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Date" firstAttribute="leading" secondItem="Archive-Archive-view-Text-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Date-leading-Archive-Archive-view-Text-contentView-label-trailing</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Date" firstAttribute="trailing" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="trailingMargin">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Date-trailing-Archive-Archive-view-Text-contentView-trailing</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Username" firstAttribute="leading" secondItem="Archive-Archive-view-Text-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Username-leading-Archive-Archive-view-Text-contentView-label-trailing</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Username" firstAttribute="top" secondItem="Archive-Archive-view-Text-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="4">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Username-top-Archive-Archive-view-Text-contentView-person-crop-circle-fill-bottom</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Username" firstAttribute="trailing" secondItem="Archive-Archive-view-Text-contentView-person-crop-circle-fill" secondAttribute="trailing">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Username-trailing-Archive-Archive-view-Text-contentView-person-crop-circle-fill-trailing</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-label" firstAttribute="bottom" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="bottomMargin">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-label-bottom-Archive-Archive-view-Text-contentView-bottomMargin</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-label" firstAttribute="leading" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="leadingMargin">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-label-leading-Archive-Archive-view-Text-contentView-leadingMargin</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-label" firstAttribute="top" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="topMargin">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-label-top-Archive-Archive-view-Text-contentView-topMargin</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-label" firstAttribute="width" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="width" multiplier="1:2">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-label-width-Archive-Archive-view-Text-contentView-width</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="topMargin">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-person-crop-circle-fill-top-Archive-Archive-view-Text-contentView-topMargin</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Text-contentView-person-crop-circle-fill" firstAttribute="trailing" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="trailingMargin">
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-person-crop-circle-fill-trailing-Archive-Archive-view-Text-contentView-trailingMargin</string>
+                                        </constraint>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatar" destination="Archive-Archive-view-Text-contentView-person-crop-circle-fill" id="Archive-Archive-view-Text--O-avatar"/>
+                                    <outlet property="date" destination="Archive-Archive-view-Text-contentView-Date" id="Archive-Archive-view-Text--O-date"/>
+                                    <outlet property="preview" destination="Archive-Archive-view-Text-contentView-label" id="Archive-Archive-view-Text--O-preview"/>
+                                    <outlet property="username" destination="Archive-Archive-view-Text-contentView-Username" id="Archive-Archive-view-Text--O-username"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image" id="Archive-Archive-view-Image" customClass="ImageItemTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="184.66666603088379" width="390" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Archive-Archive-view-Image" id="Archive-Archive-view-Image-contentView">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Image-contentView-imageView">
+                                            <rect key="frame" x="20" y="11" width="195" height="118"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Image-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
+                                            <rect key="frame" x="330" y="12" width="40" height="38.666666666666671"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="Archive-Archive-view-Image-contentView-person-crop-circle-fill--C-width"/>
+                                                <constraint firstAttribute="width" secondItem="Archive-Archive-view-Image-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1">
+                                                    <string key="id">Archive-Archive-view-Image-contentView-person-crop-circle-fill--C-width-Archive-Archive-view-Image-contentView-person-crop-circle-fill-height</string>
+                                                </constraint>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Image-contentView-Username">
+                                            <rect key="frame" x="223" y="55" width="147" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Image-contentView-Date">
+                                            <rect key="frame" x="223" y="114.66666666666667" width="147" height="14.333333333333329"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Date" firstAttribute="bottom" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="bottomMargin">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-Date-bottom-Archive-Archive-view-Image-contentView-bottomMargin</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Date" firstAttribute="leading" secondItem="Archive-Archive-view-Image-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-Date-leading-Archive-Archive-view-Image-contentView-imageView-trailing</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Date" firstAttribute="trailing" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="trailingMargin">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-Date-trailing-Archive-Archive-view-Image-contentView-trailingMargin</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Username" firstAttribute="leading" secondItem="Archive-Archive-view-Image-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-Username-leading-Archive-Archive-view-Image-contentView-imageView-trailing</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Username" firstAttribute="top" secondItem="Archive-Archive-view-Image-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="4">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-Username-top-Archive-Archive-view-Image-contentView-person-crop-circle-fill-bottom</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Username" firstAttribute="trailing" secondItem="Archive-Archive-view-Image-contentView-person-crop-circle-fill" secondAttribute="trailing">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-Username-trailing-Archive-Archive-view-Image-contentView-person-crop-circle-fill-trailing</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-imageView" firstAttribute="bottom" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="bottomMargin">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-imageView-bottom-Archive-Archive-view-Image-contentView-bottomMargin</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-imageView" firstAttribute="leading" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="leadingMargin">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-imageView-leading-Archive-Archive-view-Image-contentView-leadingMargin</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-imageView" firstAttribute="top" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="topMargin">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-imageView-top-Archive-Archive-view-Image-contentView-topMargin</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-imageView" firstAttribute="width" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="width" multiplier="1:2">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-imageView-width-Archive-Archive-view-Image-contentView-width</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="topMargin">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-person-crop-circle-fill-top-Archive-Archive-view-Image-contentView-topMargin</string>
+                                        </constraint>
+                                        <constraint firstItem="Archive-Archive-view-Image-contentView-person-crop-circle-fill" firstAttribute="trailing" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="trailingMargin">
+                                            <string key="id">Archive-Archive-view-Image-contentView--C-Archive-Archive-view-Image-contentView-person-crop-circle-fill-trailing-Archive-Archive-view-Image-contentView-trailingMargin</string>
+                                        </constraint>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatar" destination="Archive-Archive-view-Image-contentView-person-crop-circle-fill" id="Archive-Archive-view-Image--O-avatar"/>
+                                    <outlet property="date" destination="Archive-Archive-view-Image-contentView-Date" id="Archive-Archive-view-Image--O-date"/>
+                                    <outlet property="preview" destination="Archive-Archive-view-Image-contentView-imageView" id="Archive-Archive-view-Image--O-preview"/>
+                                    <outlet property="username" destination="Archive-Archive-view-Image-contentView-Username" id="Archive-Archive-view-Image--O-username"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Archive-Archive" id="Archive-Archive-view--O-dataSource"/>
+                            <outlet property="delegate" destination="Archive-Archive" id="Archive-Archive-view--O-delegate"/>
+                        </connections>
+                    </tableView>
                     <navigationItem key="navigationItem" title="Archive" id="Archive-Archive-Archive"/>
-                </viewController>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Archive-Archive-refreshControl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="emptyPlaceholder" destination="Archive-No-subscribed-posts" id="Archive-Archive--O-emptyPlaceholder"/>
+                        <outlet property="listDelegate" destination="Archive-ArchiveViewModel" id="Archive-Archive--O-listDelegate"/>
+                        <outlet property="vm" destination="Archive-ArchiveViewModel" id="Archive-Archive--O-vm"/>
+                    </connections>
+                </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Archive-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No subscribed posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Archive-No-subscribed-posts">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                    <color key="textColor" systemColor="placeholderTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <customObject id="Archive-ArchiveViewModel" customClass="ArchiveViewModel" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Archive-Archive" id="Archive-ArchiveViewModel--O-delegate"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="0.0" y="750"/>
         </scene>
@@ -281,14 +473,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Profile-tableViewCell-01-contentView-Password">
-                                                    <rect key="frame" x="20.000000000000004" y="15" width="62.333333333333336" height="17"/>
+                                                    <rect key="frame" x="20.000000000000004" y="14" width="62.333333333333336" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="**********" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Profile-tableViewCell-01-contentView-----------">
-                                                    <rect key="frame" x="236.33333333333331" y="11.999999999999998" width="76" height="20.333333333333332"/>
+                                                    <rect key="frame" x="247.6666666666666" y="14" width="64.666666666666671" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -527,7 +719,7 @@
                             <rect key="frame" x="195" y="28" width="0.0" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-navigationItem-titleView-Length">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-navigationItem-titleView-Length">
                                     <rect key="frame" x="-26.666666666666668" y="-10.333333333333334" width="53.333333333333336" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -706,6 +898,12 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="Archive-Archive-view-Image-contentView-person-crop-circle-fill">
+            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
+        </designable>
+        <designable name="Archive-Archive-view-Text-contentView-person-crop-circle-fill">
+            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
+        </designable>
         <designable name="Login-Login-view-scrollView-stackView-Button">
             <size key="intrinsicContentSize" width="59.333333333333336" height="31"/>
         </designable>
@@ -729,6 +927,9 @@
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

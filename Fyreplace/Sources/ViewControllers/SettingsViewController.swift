@@ -60,13 +60,7 @@ class SettingsViewController: UITableViewController {
     }
 
     private func onAvatarURLChanged(_ event: Signal<String?, Never>.Event) {
-        let defaultImage = UIImage(called: "person.crop.circle.fill")
-
-        if let url = event.value ?? nil {
-            avatar.sd_setImage(with: URL(string: url), placeholderImage: defaultImage)
-        } else {
-            avatar.image = defaultImage
-        }
+        avatar.setAvatar(event.value ?? nil)
     }
 
     private func reloadTable() {
@@ -85,11 +79,11 @@ extension SettingsViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return shouldHide(section: section) ? 0.1 : super.tableView(tableView, heightForHeaderInSection: section)
+        return shouldHide(section: section) ? .leastNonzeroMagnitude : super.tableView(tableView, heightForHeaderInSection: section)
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return shouldHide(section: section) ? 0.1 : super.tableView(tableView, heightForFooterInSection: section)
+        return shouldHide(section: section) ? .leastNonzeroMagnitude : super.tableView(tableView, heightForFooterInSection: section)
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
