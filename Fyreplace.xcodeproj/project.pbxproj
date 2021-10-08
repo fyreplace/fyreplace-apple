@@ -48,6 +48,7 @@
 		4DAF29E526C7BE67005612C9 /* FPUser+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAF29E426C7BE67005612C9 /* FPUser+Notification.swift */; };
 		4DAF29E726C7C062005612C9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAF29E626C7C062005612C9 /* SettingsViewModel.swift */; };
 		4DAF29E926C7CA3E005612C9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAF29E826C7CA3E005612C9 /* UIImage.swift */; };
+		4DB06E1527103E7800A65198 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB06E1427103E7800A65198 /* UIFont.swift */; };
 		4DC1739526FA4BC2002F9EDB /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1739426FA4BC2002F9EDB /* BioViewController.swift */; };
 		4DC1739726FA573F002F9EDB /* BioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1739626FA573F002F9EDB /* BioViewModel.swift */; };
 		4DC225F427036539007BD7A0 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC225F327036539007BD7A0 /* ArchiveViewController.swift */; };
@@ -124,6 +125,7 @@
 		4DAF29E426C7BE67005612C9 /* FPUser+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPUser+Notification.swift"; sourceTree = "<group>"; };
 		4DAF29E626C7C062005612C9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		4DAF29E826C7CA3E005612C9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		4DB06E1427103E7800A65198 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		4DC1739426FA4BC2002F9EDB /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
 		4DC1739626FA573F002F9EDB /* BioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewModel.swift; sourceTree = "<group>"; };
 		4DC225F327036539007BD7A0 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */,
 				4D4520F926D8203300FCFEE0 /* NSUserActivity.swift */,
 				4D3F816726C6E57900764763 /* UserDefaults+Message.swift */,
+				4DB06E1427103E7800A65198 /* UIFont.swift */,
 				4DAF29E826C7CA3E005612C9 /* UIImage.swift */,
 				4D8BFDB327090BF100CAD2B5 /* UIImageView.swift */,
 				4D75EC6726B9BA2E00684537 /* UIViewController.swift */,
@@ -459,6 +462,7 @@
 			files = (
 				4D96BF652697A2B800ED9355 /* KeyboardDodgingConstraint.swift in Sources */,
 				4D1FF61327086E9300445793 /* FPPosts+ItemBundle.swift in Sources */,
+				4DB06E1527103E7800A65198 /* UIFont.swift in Sources */,
 				4D7C987326912ABF00819E3F /* image.proto in Sources */,
 				4D3F816426C6D0D000764763 /* NSObjectProtocol+FPBUser.swift in Sources */,
 				4D36CC3126964B5D00BA1675 /* LargeFilledButton.swift in Sources */,
