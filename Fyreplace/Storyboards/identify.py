@@ -5,7 +5,6 @@ import glob
 import os
 import re
 import sys
-
 from collections import OrderedDict
 from os.path import basename, dirname, realpath, splitext
 from typing import Dict, List, Optional, Text, Tuple
@@ -13,10 +12,10 @@ from xml.etree import ElementTree as etree
 
 
 class TreeBuilder(etree.TreeBuilder):
-   def comment(self, data: Text):
-       self.start(etree.Comment, {})
-       self.data(data)
-       self.end(etree.Comment)
+    def comment(self, data: Text):
+        self.start(etree.Comment, {})
+        self.data(data)
+        self.end(etree.Comment)
 
 
 class IdPartType(enum.Enum):
@@ -66,7 +65,7 @@ def process(storyboard: Text):
                     for end in ['"', "."]:
                         data = data.replace(
                             old_prefix + old_id + end,
-                            new_prefix + new_id + end
+                            new_prefix + new_id + end,
                         )
 
             return data
@@ -151,15 +150,17 @@ def get_id(node: etree.Element) -> Tuple[Id, bool]:
             if value is not None:
                 return value
 
-    label = try_attributes([
-        "userLabel",
-        "title",
-        "headerTitle",
-        "reuseIdentifier",
-        "text",
-        "placeholder",
-        "image",
-    ])
+    label = try_attributes(
+        [
+            "userLabel",
+            "title",
+            "headerTitle",
+            "reuseIdentifier",
+            "text",
+            "placeholder",
+            "image",
+        ]
+    )
 
     if node.tag == "button":
         for child in node:
@@ -168,15 +169,15 @@ def get_id(node: etree.Element) -> Tuple[Id, bool]:
     elif node.tag == "barButtonItem" and label is None:
         label = node.attrib.get("systemItem")
 
-    if label is None and (node.tag.endswith("Cell") or node.tag.endswith("Section")) and len(id_counters) > 0:
+    if (
+        label is None
+        and (node.tag.endswith("Cell") or node.tag.endswith("Section"))
+        and len(id_counters) > 0
+    ):
         label = node.tag + "-{:02x}".format(id_counters[-1])
         id_counters[-1] += 1
 
-    label = label or try_attributes([
-        "customClass",
-        "key",
-    ])
-
+    label = label or try_attributes(["customClass", "key"])
     return ([(IdPartType.STRING, label or node.tag)], True)
 
 
@@ -211,7 +212,7 @@ def mapping_items(mapping: Mapping) -> Dict[Text, Text]:
             goes_deeper = True
 
         if not goes_deeper:
-            counters = counters[0:len(new_id)]
+            counters = counters[0 : len(new_id)]
             counters[-1] += 1
 
         new_id_string = resolve_id(mapping, new_id) # if keep else shrink_id(new_id, counters)
@@ -252,7 +253,11 @@ def shrink_id(identifier: Id, counters: List[int]) -> Text:
         if part_type == IdPartType.SEPARATOR:
             result += part_value
         else:
-            result += part_value if part_type == IdPartType.NAME else "{:02x}".format(counters[i])
+            result += (
+                part_value
+                if part_type == IdPartType.NAME
+                else "{:02x}".format(counters[i])
+            )
 
     return result
 
