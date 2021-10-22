@@ -23,15 +23,9 @@ class ItemTableViewCell: UITableViewCell {
     func setup(at date: Date, from profile: FPProfile) {
         avatar.setAvatar(profile.avatar.url)
         self.date.text = dateFormatter.string(from: date)
-
-        if profile.username.count == 0 {
-            let anonymous = NSAttributedString(
-                string: .tr("Anonymous"),
-                attributes: [.font: username.font.withTraits(.traitItalic)]
-            )
-            username.attributedText = anonymous
-        } else {
-            username.text = profile.username
-        }
+        let anonymous = profile.username.count == 0
+        let name = anonymous ? .tr("Anonymous") : profile.username
+        let attributes = anonymous ? [NSAttributedString.Key.font: username.font.withTraits(.traitItalic)] : nil
+        username.attributedText = NSAttributedString(string: name, attributes: attributes)
     }
 }
