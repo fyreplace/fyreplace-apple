@@ -82,7 +82,7 @@ extension LoginViewController: LoginViewModelDelegate {
             key = "Login.Error.Existing\(status.message == "email_taken" ? "Email" : "Username")"
 
         case .permissionDenied:
-            key = ["caller_pending", "caller_deleted", "caller_banned"].contains(status.message)
+            key = ["caller_pending", "caller_deleted", "caller_banned", "username_reserved"].contains(status.message)
                 ? "Login.Error.\(status.message!.pascalized)"
                 : "Error.Permission"
 
