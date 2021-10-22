@@ -209,13 +209,13 @@
 		4D22185C2693AE50007D8CFF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4D3EB6D926C42DA10034B6FB /* MainViewController.swift */,
+				4D5FC3EE2701FECC00AE1F73 /* ImageSelector.swift */,
 				4D1FF60C270793BF00445793 /* ListViewController.swift */,
+				4D3EB6D926C42DA10034B6FB /* MainViewController.swift */,
 				4DC225F327036539007BD7A0 /* ArchiveViewController.swift */,
 				4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */,
 				4DC1739426FA4BC2002F9EDB /* BioViewController.swift */,
 				4D96BF662697A4E700ED9355 /* LoginViewController.swift */,
-				4D5FC3EE2701FECC00AE1F73 /* ImageSelector.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
