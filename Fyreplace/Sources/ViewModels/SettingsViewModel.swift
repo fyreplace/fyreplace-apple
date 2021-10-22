@@ -63,7 +63,6 @@ class SettingsViewModel: ViewModel {
     private func onLogout() {
         if authToken.delete() {
             setUser(nil)
-            NotificationCenter.default.post(name: FPUser.userDisconnectedNotification, object: self)
             delegate.onLogout()
         } else {
             delegate.onError(KeychainError.delete)
@@ -73,7 +72,6 @@ class SettingsViewModel: ViewModel {
     private func onDelete() {
         if authToken.delete() {
             setUser(nil)
-            NotificationCenter.default.post(name: FPUser.userDisconnectedNotification, object: self)
             delegate.onDelete()
         } else {
             delegate.onError(KeychainError.delete)
