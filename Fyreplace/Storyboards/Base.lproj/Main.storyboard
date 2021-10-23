@@ -212,6 +212,7 @@
                                 <connections>
                                     <outlet property="avatar" destination="Archive-Archive-view-Text-contentView-person-crop-circle-fill" id="Archive-Archive-view-Text--O-avatar"/>
                                     <outlet property="date" destination="Archive-Archive-view-Text-contentView-Date" id="Archive-Archive-view-Text--O-date"/>
+                                    <outlet property="dateFormat" destination="Archive-DateFormat" id="Archive-Archive-view-Text--O-dateFormat"/>
                                     <outlet property="preview" destination="Archive-Archive-view-Text-contentView-label" id="Archive-Archive-view-Text--O-preview"/>
                                     <outlet property="username" destination="Archive-Archive-view-Text-contentView-Username" id="Archive-Archive-view-Text--O-username"/>
                                 </connections>
@@ -301,6 +302,7 @@
                                 <connections>
                                     <outlet property="avatar" destination="Archive-Archive-view-Image-contentView-person-crop-circle-fill" id="Archive-Archive-view-Image--O-avatar"/>
                                     <outlet property="date" destination="Archive-Archive-view-Image-contentView-Date" id="Archive-Archive-view-Image--O-date"/>
+                                    <outlet property="dateFormat" destination="Archive-DateFormat" id="Archive-Archive-view-Image--O-dateFormat"/>
                                     <outlet property="preview" destination="Archive-Archive-view-Image-contentView-imageView" id="Archive-Archive-view-Image--O-preview"/>
                                     <outlet property="username" destination="Archive-Archive-view-Image-contentView-Username" id="Archive-Archive-view-Image--O-username"/>
                                 </connections>
@@ -335,6 +337,7 @@
                         <outlet property="delegate" destination="Archive-Archive" id="Archive-ArchiveViewModel--O-delegate"/>
                     </connections>
                 </customObject>
+                <customObject id="Archive-DateFormat" customClass="DateFormat" customModule="Fyreplace" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="750"/>
         </scene>

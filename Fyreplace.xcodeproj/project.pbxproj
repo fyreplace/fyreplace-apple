@@ -54,6 +54,8 @@
 		4DC225F427036539007BD7A0 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC225F327036539007BD7A0 /* ArchiveViewController.swift */; };
 		4DC225F627045734007BD7A0 /* ArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC225F527045734007BD7A0 /* ArchiveViewModel.swift */; };
 		4DCD910926A46F3F0010F8B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */; };
+		4DF9D08E272413DF003D610D /* UIlabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9D08D272413DF003D610D /* UIlabel.swift */; };
+		4DF9D0902724228A003D610D /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9D08F2724228A003D610D /* DateFormat.swift */; };
 		4DFAAD21269F628200DFAB5F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAAD20269F628200DFAB5F /* String.swift */; };
 		4DFAAD25269F6D1F00DFAB5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAAD23269F6D1F00DFAB5F /* Localizable.strings */; };
 		4DFAAD29269F7CB800DFAB5F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */; };
@@ -131,6 +133,8 @@
 		4DC225F327036539007BD7A0 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		4DC225F527045734007BD7A0 /* ArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewModel.swift; sourceTree = "<group>"; };
 		4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4DF9D08D272413DF003D610D /* UIlabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIlabel.swift; sourceTree = "<group>"; };
+		4DF9D08F2724228A003D610D /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		4DFAAD20269F628200DFAB5F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4DFAAD24269F6D1F00DFAB5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DFAAD26269F6D4800DFAB5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 				4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */,
 				4D36CC3026964B5D00BA1675 /* LargeFilledButton.swift */,
 				4D0C6F1C26F247E500C4271C /* RoundImageView.swift */,
+				4DF9D08F2724228A003D610D /* DateFormat.swift */,
 				4D1FF6162708B8C100445793 /* ItemTableViewCell.swift */,
 				4D8BFDB7270B062600CAD2B5 /* TextItemTableViewCell.swift */,
 				4D8BFDB9270B37F900CAD2B5 /* ImageItemTableViewCell.swift */,
@@ -283,6 +288,7 @@
 				4D4520F926D8203300FCFEE0 /* NSUserActivity.swift */,
 				4D3F816726C6E57900764763 /* UserDefaults+Message.swift */,
 				4DB06E1427103E7800A65198 /* UIFont.swift */,
+				4DF9D08D272413DF003D610D /* UIlabel.swift */,
 				4DAF29E826C7CA3E005612C9 /* UIImage.swift */,
 				4D8BFDB327090BF100CAD2B5 /* UIImageView.swift */,
 				4D75EC6726B9BA2E00684537 /* UIViewController.swift */,
@@ -489,6 +495,7 @@
 				4DAF29E926C7CA3E005612C9 /* UIImage.swift in Sources */,
 				4DC1739526FA4BC2002F9EDB /* BioViewController.swift in Sources */,
 				4D0A8D6D26A7FAF8007691C9 /* ViewModel.swift in Sources */,
+				4DF9D08E272413DF003D610D /* UIlabel.swift in Sources */,
 				4D7C987226912ABD00819E3F /* id.proto in Sources */,
 				4D7C987726912ACC00819E3F /* user.proto in Sources */,
 				4D8BFDBA270B37F900CAD2B5 /* ImageItemTableViewCell.swift in Sources */,
@@ -505,6 +512,7 @@
 				4D8BFDB427090BF100CAD2B5 /* UIImageView.swift in Sources */,
 				4D1FF61527086EE300445793 /* FPPostServiceClient+ItemListerService.swift in Sources */,
 				4D1FF6172708B8C100445793 /* ItemTableViewCell.swift in Sources */,
+				4DF9D0902724228A003D610D /* DateFormat.swift in Sources */,
 				4DAF29E726C7C062005612C9 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
