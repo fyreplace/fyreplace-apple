@@ -843,7 +843,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                                 <connections>
-                                                    <action selector="onLoginPressed" destination="Login-Login" eventType="touchUpInside" id="Login-Login-view-scrollView-stackView-Button--A-touchUpInside-Login-Login-onLoginPressed"/>
+                                                    <action selector="onLoginPressed" destination="Login-Login" eventType="primaryActionTriggered" id="Login-Login-view-scrollView-stackView-Button--A-primaryActionTriggered-Login-Login-onLoginPressed"/>
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-activityIndicatorView">
