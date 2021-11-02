@@ -2,6 +2,9 @@ import UIKit
 
 @IBDesignable
 class RoundImageView: UIImageView {
+    override var frame: CGRect { didSet { setupView() } }
+    override var bounds: CGRect { didSet { setupView() } }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
