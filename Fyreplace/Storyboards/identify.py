@@ -45,7 +45,7 @@ def process(storyboard: Text):
     walk(tree.find("scenes"), mapping, [])
 
     for name in [storyboard] + glob.glob(f"**/{storyboard_name}.strings"):
-        old_to_new = mapping_items(mapping)
+        old_to_new = [(old, new) for old, new in mapping_items(mapping) if old != new]
 
         if len(old_to_new) == 0:
             break
@@ -53,12 +53,22 @@ def process(storyboard: Text):
         with open(name, "r") as f:
             data = f.read()
 
-        def do_replace(data: Text, first_step: bool) -> Text:
-            old_prefix = '"' if first_step else '"='
-            new_prefix = '"=' if first_step else '"'
+        def do_replace(first_step: bool) -> Text:
+            nonlocal data
 
-            for old_id, new_id in old_to_new:
-                if old_id != new_id:
+            for id_attr in (
+                "sceneID",
+                "id",
+                "reference",
+                "destination",
+                "firstItem",
+                "secondItem",
+                "AnchorView"
+            ):
+                old_prefix = f'{id_attr}="' if first_step else '"='
+                new_prefix = f'{id_attr}="=' if first_step else '"'
+
+                for old_id, new_id in old_to_new:
                     if not first_step:
                         old_id = new_id
 
@@ -68,10 +78,23 @@ def process(storyboard: Text):
                             new_prefix + new_id + end,
                         )
 
+            old_prefix = '>' if first_step else '>='
+            new_prefix = '>=' if first_step else '>'
+            end = '<'
+
+            for old_id, new_id in old_to_new:
+                if not first_step:
+                    old_id = new_id
+
+                data = data.replace(
+                    old_prefix + old_id + end,
+                    new_prefix + new_id + end,
+                )
+
             return data
 
-        data = do_replace(data, first_step=True)
-        data = do_replace(data, first_step=False)
+        data = do_replace(first_step=True)
+        data = do_replace(first_step=False)
 
         with open(name, "w") as f:
             f.write(data)
@@ -92,6 +115,13 @@ def walk(node: etree.Element, mapping: Mapping, prefix: Id):
         identifier = make_id(*prefix, *node_id)
         mapping[node.attrib["id"]] = (identifier, keep)
         prefix = identifier
+    else:
+        for child in node:
+            if child.tag == "string" and child.attrib.get("key") == "id":
+                node_id, keep = get_id(node)
+                identifier = make_id(*prefix, *node_id)
+                mapping[child.text] = (identifier, keep)
+                prefix = identifier
 
     id_counters.append(0)
 
@@ -131,6 +161,15 @@ def get_id(node: etree.Element) -> Tuple[Id, bool]:
             make_id(
                 (IdPartType.NAME, "-O"),
                 (IdPartType.STRING, node.attrib.get("property")),
+            ),
+            False,
+        )
+    elif node.tag == "outletCollection":
+        return (
+            make_id(
+                (IdPartType.NAME, "-O"),
+                (IdPartType.STRING, node.attrib.get("property")),
+                (IdPartType.STRING, node.attrib.get("destination")),
             ),
             False,
         )
@@ -197,7 +236,7 @@ def make_id(*parts: IdPart) -> Id:
     return result
 
 
-def mapping_items(mapping: Mapping) -> Dict[Text, Text]:
+def mapping_items(mapping: Mapping) -> List[Tuple[Text, Text]]:
     items = sorted(mapping.items(), key=lambda i: resolve_id(mapping, i[1][0]))
     counters = list()
     result = dict()

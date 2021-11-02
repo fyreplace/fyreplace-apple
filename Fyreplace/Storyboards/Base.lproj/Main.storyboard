@@ -172,13 +172,13 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Archive-Archive-view-Text-contentView-Date" firstAttribute="bottom" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="bottomMargin">
-                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Date-bottom-Archive-Archive-view-Text-contentView-bottom</string>
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Date-bottom-Archive-Archive-view-Text-contentView-bottomMargin</string>
                                         </constraint>
                                         <constraint firstItem="Archive-Archive-view-Text-contentView-Date" firstAttribute="leading" secondItem="Archive-Archive-view-Text-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES">
                                             <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Date-leading-Archive-Archive-view-Text-contentView-label-trailing</string>
                                         </constraint>
                                         <constraint firstItem="Archive-Archive-view-Text-contentView-Date" firstAttribute="trailing" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="trailingMargin">
-                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Date-trailing-Archive-Archive-view-Text-contentView-trailing</string>
+                                            <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Date-trailing-Archive-Archive-view-Text-contentView-trailingMargin</string>
                                         </constraint>
                                         <constraint firstItem="Archive-Archive-view-Text-contentView-Username" firstAttribute="leading" secondItem="Archive-Archive-view-Text-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES">
                                             <string key="id">Archive-Archive-view-Text-contentView--C-Archive-Archive-view-Text-contentView-Username-leading-Archive-Archive-view-Text-contentView-label-trailing</string>
@@ -415,7 +415,7 @@
                                         <constraint firstAttribute="width" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="height" multiplier="1:1" id="Settings-Settings-view-tableHeaderView-Avatar--C-width-Settings-Settings-view-tableHeaderView-Avatar-height"/>
                                     </constraints>
                                     <connections>
-                                        <outletCollection property="gestureRecognizers" destination="Settings-tapGestureRecognizer" appends="YES" id="Settings-Settings-view-tableHeaderView-Avatar-outletCollection"/>
+                                        <outletCollection property="gestureRecognizers" destination="Settings-tapGestureRecognizer" appends="YES" id="Settings-Settings-view-tableHeaderView-Avatar--O-gestureRecognizers-Settings-tapGestureRecognizer"/>
                                     </connections>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Guest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Username" userLabel="Username">
@@ -758,10 +758,10 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerX" secondItem="Bio-Bio-navigationItem-barButtonItem-customView" secondAttribute="centerX">
-                                            <string key="id">Bio-Bio-Bio-barButtonItem-customView--C-Bio-Bio-Bio-barButtonItem-customView-activityIndicatorView-centerX-Bio-Bio-Bio-barButtonItem-customView-centerX</string>
+                                            <string key="id">Bio-Bio-navigationItem-barButtonItem-customView--C-Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView-centerX-Bio-Bio-navigationItem-barButtonItem-customView-centerX</string>
                                         </constraint>
                                         <constraint firstItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerY" secondItem="Bio-Bio-navigationItem-barButtonItem-customView" secondAttribute="centerY">
-                                            <string key="id">Bio-Bio-Bio-barButtonItem-customView--C-Bio-Bio-Bio-barButtonItem-customView-activityIndicatorView-centerY-Bio-Bio-Bio-barButtonItem-customView-centerY</string>
+                                            <string key="id">Bio-Bio-navigationItem-barButtonItem-customView--C-Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView-centerY-Bio-Bio-navigationItem-barButtonItem-customView-centerY</string>
                                         </constraint>
                                         <constraint firstAttribute="width" secondItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" secondAttribute="width">
                                             <string key="id">Bio-Bio-navigationItem-barButtonItem-customView--C-width-Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView-width</string>
