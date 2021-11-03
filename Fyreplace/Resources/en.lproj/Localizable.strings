@@ -1,5 +1,7 @@
 "Ok" = "Ok";
 "Cancel" = "Cancel";
+"Yes" = "Yes";
+"No" = "No";
 "Anonymous" = "Anonymous";
 
 "Error.Title" = "Error";
@@ -30,6 +32,14 @@
 "Main.Error.InvalidToken.Message" = "The token in the URL is not correctly formed.";
 "Main.Error.UserNotPending.Title" = "Account already activated";
 "Main.Error.UserNotPending.Message" = "This account has already been activated.";
+
+"Post.Menu.Action.Subscribe" = "Subscribe";
+"Post.Menu.Action.Unsubscribe" = "Unsubscribe";
+"Post.Report.Title" = "Post reported";
+"Post.Report.Message" = "This post has been reported and will be examined as soon as possible.";
+"Post.Delete.Title" = "Delete this post?";
+"Post.Delete.Message" = "This action cannot be undone.";
+"Post.Comments.Title" = "Comments";
 
 "Settings.Username" = "Guest";
 "Settings.EmailChange.Title" = "Email change";

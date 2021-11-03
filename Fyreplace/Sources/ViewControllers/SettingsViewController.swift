@@ -54,7 +54,7 @@ class SettingsViewController: UITableViewController {
     }
 
     @IBAction
-    private func onAvatarPressed() {
+    func onAvatarPressed() {
         imageSelector.selectImage(canRemove: vm.user.value?.hasAvatar ?? false)
     }
 

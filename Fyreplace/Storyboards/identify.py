@@ -254,7 +254,7 @@ def mapping_items(mapping: Mapping) -> List[Tuple[Text, Text]]:
             counters = counters[0 : len(new_id)]
             counters[-1] += 1
 
-        new_id_string = resolve_id(mapping, new_id) # if keep else shrink_id(new_id, counters)
+        new_id_string = resolve_id(mapping, new_id) if keep else shrink_id(new_id, counters)
 
         if new_id_string != old_id:
             result[old_id] = new_id_string

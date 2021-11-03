@@ -34,22 +34,22 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction
-    private func onEmailDidEndOnExit() {
+    func onEmailDidEndOnExit() {
         username.becomeFirstResponder()
     }
 
     @IBAction
-    private func onUsernameDidEndOnExit() {
+    func onUsernameDidEndOnExit() {
         password.becomeFirstResponder()
     }
 
     @IBAction
-    private func onPasswordDidEndOnExit() {
+    func onPasswordDidEndOnExit() {
         onLoginPressed()
     }
 
     @IBAction
-    private func onLoginPressed() {
+    func onLoginPressed() {
         password.resignFirstResponder()
 
         if isRegistering {

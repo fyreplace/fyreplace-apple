@@ -43,12 +43,12 @@ class BioViewController: UIViewController {
     }
 
     @IBAction
-    private func onCancelPressed() {
+    func onCancelPressed() {
         dismiss(animated: true)
     }
 
     @IBAction
-    private func onDonePressed() {
+    func onDonePressed() {
         vm.updateBio()
     }
 }

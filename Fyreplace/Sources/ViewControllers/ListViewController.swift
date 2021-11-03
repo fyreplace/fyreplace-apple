@@ -1,4 +1,5 @@
 import UIKit
+import ReactiveSwift
 
 class ListViewController: UITableViewController {
     @IBOutlet
@@ -12,6 +13,12 @@ class ListViewController: UITableViewController {
         super.viewDidLoad()
         tableView.backgroundView = emptyPlaceholder
         refreshControl?.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+
+        NotificationCenter.default.reactive
+            .notifications(forName: Self.itemDeletedNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onItemDeleted($0) }
     }
 
     deinit {
@@ -38,6 +45,12 @@ class ListViewController: UITableViewController {
         listDelegate.lister.reset()
         tableView.reloadData()
         listDelegate.lister.fetchMore()
+    }
+
+    private func onItemDeleted(_ notification: Notification) {
+        guard let itemPosition = notification.userInfo?["itemPosition"] as? Int else { return }
+        listDelegate.lister.remove(at: itemPosition)
+        tableView.deleteRows(at: [IndexPath(row: itemPosition, section: 0)], with: .automatic)
     }
 
     private func fetchMoreIfNeeded() {

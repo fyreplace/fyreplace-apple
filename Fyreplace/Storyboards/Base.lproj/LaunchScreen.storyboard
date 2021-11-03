@@ -11,7 +11,7 @@
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
-        <scene sceneID="Tab-Bar-Controller">
+        <scene sceneID="06">
             <objects>
                 <tabBarController id="Tab-Bar-Controller-tabBarController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tab-Bar-Controller-tabBarController-tabBar">
@@ -21,11 +21,11 @@
                         <color key="selectedImageTintColor" name="AccentColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Feed-Navigation-Feed-Navigation" kind="relationship" relationship="viewControllers" id="Tab-Bar-Controller-tabBarController--S-Feed-Navigation-Feed-Navigation"/>
-                        <segue destination="Notifications-Notifications" kind="relationship" relationship="viewControllers" id="Tab-Bar-Controller-tabBarController--S-Notifications-Notifications"/>
-                        <segue destination="Archive-Archive" kind="relationship" relationship="viewControllers" id="Tab-Bar-Controller-tabBarController--S-Archive-Archive"/>
-                        <segue destination="Drafts-Drafts" kind="relationship" relationship="viewControllers" id="Tab-Bar-Controller-tabBarController--S-Drafts-Drafts"/>
-                        <segue destination="Settings-Settings" kind="relationship" relationship="viewControllers" id="Tab-Bar-Controller-tabBarController--S-Settings-Settings"/>
+                        <segue destination="Feed-Navigation-Feed-Navigation" kind="relationship" relationship="viewControllers" id="06-01--S-02"/>
+                        <segue destination="Notifications-Notifications" kind="relationship" relationship="viewControllers" id="06-01--S-03"/>
+                        <segue destination="Archive-Archive" kind="relationship" relationship="viewControllers" id="06-01--S-00"/>
+                        <segue destination="Drafts-Drafts" kind="relationship" relationship="viewControllers" id="06-01--S-01"/>
+                        <segue destination="Settings-Settings" kind="relationship" relationship="viewControllers" id="06-01--S-04"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tab-Bar-Controller-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -33,7 +33,7 @@
             <point key="canvasLocation" x="0.0" y="-750"/>
         </scene>
         <!--Feed Navigation-->
-        <scene sceneID="Feed-Navigation">
+        <scene sceneID="03">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Feed-Navigation-Feed-Navigation" userLabel="Feed Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title=" " image="square.grid.2x2.fill" catalog="system" id="Feed-Navigation-Feed-Navigation-Feed" userLabel="Feed"/>
@@ -44,7 +44,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Feed-Feed" kind="relationship" relationship="rootViewController" id="Feed-Navigation-Feed-Navigation--S-Feed-Feed"/>
+                        <segue destination="Feed-Feed" kind="relationship" relationship="rootViewController" id="03-00--S-00"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Feed-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -52,7 +52,7 @@
             <point key="canvasLocation" x="-1500" y="0.0"/>
         </scene>
         <!--Feed-->
-        <scene sceneID="Feed">
+        <scene sceneID="02">
             <objects>
                 <viewController title="Feed" id="Feed-Feed" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Feed-Feed-view">
@@ -68,7 +68,7 @@
             <point key="canvasLocation" x="-1500" y="750"/>
         </scene>
         <!--Notifications-->
-        <scene sceneID="Notifications">
+        <scene sceneID="04">
             <objects>
                 <viewController id="Notifications-Notifications" userLabel="Notifications" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Notifications-Notifications-view">
@@ -84,7 +84,7 @@
             <point key="canvasLocation" x="-750" y="0.0"/>
         </scene>
         <!--Archive-->
-        <scene sceneID="Archive">
+        <scene sceneID="00">
             <objects>
                 <viewController id="Archive-Archive" userLabel="Archive" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Archive-Archive-view">
@@ -100,7 +100,7 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
         <!--Drafts-->
-        <scene sceneID="Drafts">
+        <scene sceneID="01">
             <objects>
                 <viewController id="Drafts-Drafts" userLabel="Drafts" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Drafts-Drafts-view">
@@ -116,7 +116,7 @@
             <point key="canvasLocation" x="750" y="0.0"/>
         </scene>
         <!--Settings-->
-        <scene sceneID="Settings">
+        <scene sceneID="05">
             <objects>
                 <viewController id="Settings-Settings" userLabel="Settings" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Settings-Settings-view">

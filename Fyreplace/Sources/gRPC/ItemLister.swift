@@ -14,6 +14,8 @@ protocol ItemListerProtocol {
     func reset()
 
     func fetchMore()
+
+    func remove(at index: Int)
 }
 
 class ItemLister<Item, Items, Service>: ItemListerProtocol
@@ -26,7 +28,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     private let delegate: ItemListerDelegate
     private let service: Service
     private var stream: BidirectionalStreamingCall<FPPage, Items>?
-    private var nextCursor: FPCursor?
+    private var nextCursor = FPCursor.with { $0.isNext = true }
     private var fetching = false
 
     init(delegatingTo delegate: ItemListerDelegate, using service: Service) {
@@ -53,14 +55,17 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
 
     func reset() {
         items.removeAll()
-        nextCursor = nil
+        nextCursor = .with { $0.isNext = true }
     }
 
     func fetchMore() {
         guard let stream = stream, !fetching else { return }
         fetching = true
-        let cursor = nextCursor ?? .with { $0.isNext = true }
-        _ = stream.sendMessage(.with { $0.cursor = cursor })
+        _ = stream.sendMessage(.with { $0.cursor = nextCursor })
+    }
+
+    func remove(at index: Int) {
+        items.remove(at: index)
     }
 
     private func onFetch(items: Items) {

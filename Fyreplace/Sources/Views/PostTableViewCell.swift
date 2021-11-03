@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 import SDWebImage
 
 protocol PostTableViewCell {
@@ -18,7 +18,7 @@ extension PostTableViewCell where Self: ItemTableViewCell {
 extension TextItemTableViewCell: PostTableViewCell {
     func setup(with chapter: FPChapter) {
         preview.text = chapter.text
-        preview.font = .preferredFont(forTextStyle: chapter.isTitle ? .title1 : .body)
+        preview.font = chapter.preferredFont
     }
 }
 
