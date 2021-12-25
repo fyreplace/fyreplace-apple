@@ -1,6 +1,6 @@
 PODS:
   - _NIODataStructures (2.32.3)
-  - CGRPCZlib (1.5.0)
+  - CGRPCZlib (1.6.1)
   - CNIOAtomics (2.32.3)
   - CNIOBoringSSL (2.15.1)
   - CNIOBoringSSLShims (2.15.1):
@@ -9,8 +9,8 @@ PODS:
   - CNIOHTTPParser (2.32.3)
   - CNIOLinux (2.32.3)
   - CNIOWindows (2.32.3)
-  - gRPC-Swift (1.5.0):
-    - CGRPCZlib (= 1.5.0)
+  - gRPC-Swift (1.6.1):
+    - CGRPCZlib (= 1.6.1)
     - Logging (< 2.0.0, >= 1.4.0)
     - SwiftNIO (< 3.0.0, >= 2.32.0)
     - SwiftNIOExtras (< 2.0.0, >= 1.4.0)
@@ -18,8 +18,8 @@ PODS:
     - SwiftNIOSSL (< 3.0.0, >= 2.14.0)
     - SwiftNIOTransportServices (< 2.0.0, >= 1.11.1)
     - SwiftProtobuf (< 2.0.0, >= 1.9.0)
-  - gRPC-Swift-Plugins (1.5.0):
-    - gRPC-Swift (= 1.5.0)
+  - gRPC-Swift-Plugins (1.6.1):
+    - gRPC-Swift (= 1.6.1)
   - Logging (1.4.0)
   - ReactiveCocoa (11.2.2):
     - ReactiveSwift (~> 6.6)
@@ -125,7 +125,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   _NIODataStructures: e2077c7dc7c1d6c93e698c85fe04d663a17f53a4
-  CGRPCZlib: db324e4e4e71262d48faceb86b52dd7d4f71ff62
+  CGRPCZlib: 85aa377bf9000ab80ff54f12aa5b0075e1e732fd
   CNIOAtomics: 4dde57e1838a29a9b23ef91617505f34751cdbe5
   CNIOBoringSSL: c99129423da079a9eb74bcfc7cfec41a6775cf94
   CNIOBoringSSLShims: 902ae35fea0b6be5eefb4fdce906751886cfa46f
@@ -133,8 +133,8 @@ SPEC CHECKSUMS:
   CNIOHTTPParser: f7a6816f7ddbe7dfa57a74cd36dc2db2c53b56e8
   CNIOLinux: 5921dfefbc4bbe017380b34c510855622147ea41
   CNIOWindows: f5aa9dfb401b440a7b4c9cd911e53e981a787193
-  gRPC-Swift: 8942047451bf81413077e6b94bf4213e47b181cc
-  gRPC-Swift-Plugins: 6646fb217cdd25636a5f2ebc39555283db72ec47
+  gRPC-Swift: 4336e01aad8ec517734d79b2c7f64c6db9ab35e3
+  gRPC-Swift-Plugins: 06f0b1741265fa06021c54ba3d9101209a84c1dd
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
   ReactiveCocoa: e539cd41c523c8c80851b88e9723235c933b024b
   ReactiveSwift: 208201d6ecc9734196d147aa76bc1f24b1b821fe
