@@ -37,8 +37,7 @@ class SettingsViewController: UITableViewController {
         }
         email.reactive.text <~ vm.user.map(\.?.email)
         bio.reactive.text <~ vm.user.map { ($0?.bio.count ?? 0) > 0 ? $0!.bio : .tr("Settings.Bio") }
-        vm.user.map(\.?.avatar.url).producer.start(onAvatarURLChanged(_:))
-        vm.user.producer.start { [unowned self] _ in reloadTable() }
+        vm.user.producer.startWithValues(onUserChanged(_:))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -59,8 +58,9 @@ class SettingsViewController: UITableViewController {
         imageSelector.selectImage(canRemove: vm.user.value?.hasAvatar ?? false)
     }
 
-    private func onAvatarURLChanged(_ event: Signal<String?, Never>.Event) {
-        avatar.setAvatar(event.value ?? nil)
+    private func onUserChanged(_ user: FPUser?) {
+        DispatchQueue.main.async { self.avatar.setAvatar(user?.avatar.url) }
+        reloadTable()
     }
 
     private func reloadTable() {
