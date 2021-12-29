@@ -36,7 +36,7 @@
 "Settings.EmailChange.Message" = "What's your new email address?";
 "Settings.EmailChange.TextField.Placeholder" = "email@example.org";
 "Settings.EmailChange.Success.Title" = "Email change requested";
-"Settings.EmailChange.Success.Message" = "A confirmation email has been sen to your new address.";
+"Settings.EmailChange.Success.Message" = "A confirmation email has been sent to your new address.";
 "Settings.PasswordChange.Title" = "Password change";
 "Settings.PasswordChange.Message" = "What's your new password?";
 "Settings.PasswordChange.Success.Title" = "Password changed";
