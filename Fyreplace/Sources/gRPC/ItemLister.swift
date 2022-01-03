@@ -3,6 +3,8 @@ import GRPC
 
 @objc
 protocol ItemListerProtocol {
+    var pageSize: UInt32 { get }
+
     var itemCount: Int { get }
 
     func startListing()
@@ -18,6 +20,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     where Items: ItemBundle, Item == Items.Item,
           Service: ItemListerService, Item == Service.Item,
           Items == Service.Items {
+    let pageSize: UInt32 = 12
     var itemCount: Int { items.count }
     private(set) var items: [Item] = []
     private let delegate: ItemListerDelegate
@@ -25,7 +28,6 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     private var stream: BidirectionalStreamingCall<FPPage, Items>?
     private var nextCursor: FPCursor?
     private var fetching = false
-    private let pageSize: UInt32 = 12
 
     init(delegatingTo delegate: ItemListerDelegate, using service: Service) {
         self.delegate = delegate

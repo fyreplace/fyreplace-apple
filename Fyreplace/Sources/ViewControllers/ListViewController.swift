@@ -60,7 +60,7 @@ extension ListViewController {
     }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if listDelegate.lister.itemCount - indexPath.row == 1 {
+        if listDelegate.lister.itemCount - indexPath.row < listDelegate.lister.pageSize {
             fetchMoreIfNeeded()
         }
     }
