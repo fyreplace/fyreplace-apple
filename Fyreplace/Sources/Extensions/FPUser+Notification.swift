@@ -1,9 +1,9 @@
 import Foundation
 
 extension FPUser {
-    static let userRegisteredNotification = Notification.Name("userRegistered")
-    static let userConnectedNotification = Notification.Name("userConnected")
-    static let userDisconnectedNotification = Notification.Name("userDisconnected")
-    static let userChangedNotification = Notification.Name("userChanged")
-    static let shouldReloadUserNotification = Notification.Name("shouldReloadUser")
+    static let userRegisteredNotification = Notification.Name("FPUser.userRegistered")
+    static let userConnectedNotification = Notification.Name("FPUser.userConnected")
+    static let userDisconnectedNotification = Notification.Name("FPUser.userDisconnected")
+    static let userChangedNotification = Notification.Name("FPUser.userChanged")
+    static let shouldReloadUserNotification = Notification.Name("FPUser.shouldReloadUser")
 }

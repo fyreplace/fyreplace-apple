@@ -2,7 +2,7 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder {
-    static let urlOpenedNotification = Notification.Name("urlOpened")
+    static let urlOpenedNotification = Notification.Name("AppDelegate.urlOpened")
     var window: UIWindow?
 }
 
