@@ -216,10 +216,12 @@ extension SettingsViewController: SettingsViewModelDelegate {
     }
 
     func onLogout() {
+        clearImageCache()
         reloadTable()
     }
 
     func onDelete() {
+        clearImageCache()
         reloadTable()
         presentBasicAlert(text: "Settings.AccountDeletion.Success")
     }
@@ -252,6 +254,11 @@ extension SettingsViewController: SettingsViewModelDelegate {
         }
 
         presentBasicAlert(text: key, feedback: .error)
+    }
+
+    private func clearImageCache() {
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk(onCompletion: nil)
     }
 }
 
