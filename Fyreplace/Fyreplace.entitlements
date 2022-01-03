@@ -5,7 +5,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:fyreplace.link</string>
-		<string>webcredentials:fyreplace.link</string>
+		<string>webcredentials:fyreplace.app</string>
 	</array>
 </dict>
 </plist>
