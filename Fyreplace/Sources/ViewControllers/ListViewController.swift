@@ -99,10 +99,6 @@ extension ListViewController: ItemListerDelegate {
         let indexPaths = (currentCount..<currentCount + count).map { IndexPath(row: $0, section: 0) }
         tableView.insertRows(at: indexPaths, with: .automatic)
 
-        if endReached {
-            endReached = true
-        }
-
         if tableView.visibleCells.count == listDelegate.lister.itemCount {
             fetchMoreIfNeeded()
         }
