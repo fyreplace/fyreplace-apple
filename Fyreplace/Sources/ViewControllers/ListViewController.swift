@@ -7,8 +7,6 @@ class ListViewController: UITableViewController {
     @IBOutlet
     var emptyPlaceholder: UILabel!
 
-    private var endReached = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundView = emptyPlaceholder
@@ -41,7 +39,6 @@ class ListViewController: UITableViewController {
 
     @objc
     private func onRefresh() {
-        endReached = false
         listDelegate.lister.reset()
         tableView.reloadData()
         listDelegate.lister.fetchMore()
@@ -51,12 +48,6 @@ class ListViewController: UITableViewController {
         guard let itemPosition = notification.userInfo?["itemPosition"] as? Int else { return }
         listDelegate.lister.remove(at: itemPosition)
         tableView.deleteRows(at: [IndexPath(row: itemPosition, section: 0)], with: .automatic)
-    }
-
-    private func fetchMoreIfNeeded() {
-        if !endReached {
-            listDelegate.lister.fetchMore()
-        }
     }
 }
 
@@ -74,7 +65,7 @@ extension ListViewController {
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if listDelegate.lister.itemCount - indexPath.row < listDelegate.lister.pageSize {
-            fetchMoreIfNeeded()
+            listDelegate.lister.fetchMore()
         }
     }
 
@@ -98,14 +89,6 @@ extension ListViewController: ItemListerDelegate {
         let currentCount = tableView.numberOfRows(inSection: 0)
         let indexPaths = (currentCount..<currentCount + count).map { IndexPath(row: $0, section: 0) }
         tableView.insertRows(at: indexPaths, with: .automatic)
-
-        if tableView.visibleCells.count == listDelegate.lister.itemCount {
-            fetchMoreIfNeeded()
-        }
-    }
-
-    func onEnd() {
-        endReached = true
     }
 }
 
