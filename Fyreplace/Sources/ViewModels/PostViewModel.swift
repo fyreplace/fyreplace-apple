@@ -10,10 +10,10 @@ class PostViewModel: ViewModel {
 
     private lazy var postService = FPPostServiceClient(channel: Self.rpc.channel)
 
-    func retrievePost(id: String) {
+    func retrieve(id: String) {
         let request = FPStringId.with { $0.id = id }
         let response = postService.retrieve(request, callOptions: .authenticated).response
-        response.whenSuccess(onRetrievePost(_:))
+        response.whenSuccess(onRetrieve(_:))
         response.whenFailure(delegate.onError(_:))
     }
     
@@ -41,7 +41,7 @@ class PostViewModel: ViewModel {
         response.whenFailure(delegate.onError(_:))
     }
 
-    private func onRetrievePost(_ post: FPPost) {
+    private func onRetrieve(_ post: FPPost) {
         self.post.value = post
         subscribed.value = post.isSubscribed
     }

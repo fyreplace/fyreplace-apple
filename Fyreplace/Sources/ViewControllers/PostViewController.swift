@@ -33,7 +33,7 @@ class PostViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        vm.retrievePost(id: post.id)
+        vm.retrieve(id: post.id)
         vm.post.producer.startWithValues(onPostChanged(_:))
         vm.subscribed.producer.startWithValues(onSubscriptionChanged(subscribed:))
     }
