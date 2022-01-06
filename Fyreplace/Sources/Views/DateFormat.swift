@@ -7,6 +7,10 @@ class DateFormat: DateFormatter {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupStyle()
+
+        if let lang = Bundle.main.localizations.first {
+            locale = .init(identifier: lang)
+        }
     }
 
     private func setupStyle() {
