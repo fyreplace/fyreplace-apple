@@ -57,19 +57,12 @@ class PostViewController: UITableViewController {
 
     @IBAction
     func onReportPressed() {
-        vm.report()
+        presentChoiceAlert(text: "Post.Report") { _ in self.vm.report() }
     }
 
     @IBAction
     func onDeletePressed() {
-        let alert = UIAlertController(
-            title: .tr("Post.Delete.Title"),
-            message: .tr("Post.Delete.Message"),
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: .tr("Yes"), style: .destructive) { _ in self.vm.delete() })
-        alert.addAction(UIAlertAction(title: .tr("No"), style: .cancel))
-        present(alert, animated: true)
+        presentChoiceAlert(text: "Post.Delete") { _ in self.vm.delete() }
     }
     
     private func onPostChanged(_ post: FPPost?) {
@@ -116,7 +109,7 @@ extension PostViewController {
 
 extension PostViewController: PostViewModelDelegate {
     func onReport() {
-        presentBasicAlert(text: "Post.Report")
+        presentBasicAlert(text: "Post.Report.Success")
     }
 
     func onDelete() {

@@ -35,8 +35,10 @@
 
 "Post.Menu.Action.Subscribe" = "Subscribe";
 "Post.Menu.Action.Unsubscribe" = "Unsubscribe";
-"Post.Report.Title" = "Post reported";
-"Post.Report.Message" = "This post has been reported and will be examined as soon as possible.";
+"Post.Report.Title" = "Report post?";
+"Post.Report.Message" = "";
+"Post.Report.Success.Title" = "Post reported";
+"Post.Report.Success.Message" = "This post has been reported and will be examined as soon as possible.";
 "Post.Delete.Title" = "Delete this post?";
 "Post.Delete.Message" = "This action cannot be undone.";
 "Post.Comments.Title" = "Comments";
