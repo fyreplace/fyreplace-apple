@@ -34,8 +34,8 @@ class PostViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.retrieve(id: post.id)
-        vm.post.producer.startWithValues(onPostChanged(_:))
-        vm.subscribed.producer.startWithValues(onSubscriptionChanged(subscribed:))
+        vm.post.producer.startWithValues { [weak self] in self?.onPost($0) }
+        vm.subscribed.producer.startWithValues { [weak self] in self?.onSubscribed($0) }
         avatar.isHidden = !post.author.isAvailable
         avatar.setAvatar(post.isAnonymous ? "" : post.author.avatar.url)
         username.isEnabled = post.author.isAvailable
@@ -80,7 +80,7 @@ class PostViewController: UITableViewController {
         presentChoiceAlert(text: "Post.Delete") { _ in self.vm.delete() }
     }
     
-    private func onPostChanged(_ post: FPPost?) {
+    private func onPost(_ post: FPPost?) {
         guard let post = post else { return }
         DispatchQueue.main.async { [self] in
             tableHeader.setup(with: post)
@@ -88,7 +88,7 @@ class PostViewController: UITableViewController {
         }
     }
     
-    private func onSubscriptionChanged(subscribed: Bool) {
+    private func onSubscribed(_ subscribed: Bool) {
         let userOwnsPost = vm.post.value?.hasAuthor ?? false && vm.post.value?.author.id == currentUserId
         DispatchQueue.main.async { [self] in
             subscribe.isHidden = subscribed

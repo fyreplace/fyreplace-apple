@@ -23,7 +23,7 @@ class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.retrieve(id: profile.id)
-        vm.user.producer.startWithValues(onUser(_:))
+        vm.user.producer.startWithValues { [weak self] in self?.onUser($0) }
         navigationItem.title = profile.username
         report.isHidden = profile.id == currentUserId
         menu.reload()
