@@ -357,7 +357,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="Post-Post-navigationItem">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Post-Post-navigationItem-leftBarButtonItem">
+                        <barButtonItem key="leftBarButtonItem" id="Post-Post-navigationItem-leftBarButtonItem">
                             <view key="customView" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView">
                                 <rect key="frame" x="50" y="6" width="220" height="32"/>
                                 <subviews>
@@ -446,7 +446,7 @@
                                 </constraints>
                             </view>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" style="plain" id="Post-Post-navigationItem-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                        <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" id="Post-Post-navigationItem-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                             <connections>
                                 <outlet property="controller" destination="Post-Post" id="0c-03-01-00--O-01"/>
                                 <outletCollection property="actions" destination="Post-Share" collectionClass="NSMutableArray" id="0c-03-01-00--O-00-02"/>
@@ -477,22 +477,22 @@
                         <outlet property="delegate" destination="Post-Post" id="0c-04--O-00"/>
                     </connections>
                 </customObject>
-                <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" style="plain" id="Post-Share" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="Post-Share" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
                         <action selector="onSharePressed" destination="Post-Post" id="0c-06--A-00-00"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem title="Subscribe" image="bell" catalog="system" style="plain" id="Post-Subscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                <barButtonItem title="Subscribe" image="bell" catalog="system" id="Post-Subscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
                         <action selector="onSubscribePressed" destination="Post-Post" id="0c-07--A-00-00"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem title="Unsubscribe" image="bell.slash" catalog="system" style="plain" id="Post-Unsubscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                <barButtonItem title="Unsubscribe" image="bell.slash" catalog="system" id="Post-Unsubscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
                         <action selector="onUnsubscribePressed" destination="Post-Post" id="0c-08--A-00-00"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" style="plain" id="Post-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" id="Post-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -500,7 +500,7 @@
                         <action selector="onReportPressed" destination="Post-Post" id="0c-05--A-00-00"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem title="Delete" image="trash" catalog="system" style="plain" id="Post-Delete" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                <barButtonItem title="Delete" image="trash" catalog="system" id="Post-Delete" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -643,7 +643,7 @@
                                 <action selector="onOkPressed" destination="User-User" id="10-03-01-01--A-00-00"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" style="plain" id="User-User-Username-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                        <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" id="User-User-Username-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                             <connections>
                                 <outlet property="controller" destination="User-User" id="10-03-01-00--O-01"/>
                                 <outletCollection property="actions" destination="User-Report" collectionClass="NSMutableArray" id="10-03-01-00--O-00-00"/>
@@ -666,7 +666,7 @@
                         <outlet property="delegate" destination="User-User" id="10-04--O-00"/>
                     </connections>
                 </customObject>
-                <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" style="plain" id="User-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" id="User-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -1043,7 +1043,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Bio-Bio-navigationItem">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Bio-Bio-navigationItem-cancel">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Bio-Bio-navigationItem-cancel">
                             <connections>
                                 <action selector="onCancelPressed" destination="Bio-Bio" id="02-00-01-01--A-00-00"/>
                             </connections>
@@ -1071,7 +1071,7 @@
                                     <action selector="onDonePressed" destination="Bio-Bio" id="02-00-01-02--A-00-00"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem style="plain" id="Bio-Bio-navigationItem-barButtonItem">
+                            <barButtonItem id="Bio-Bio-navigationItem-barButtonItem">
                                 <view key="customView" contentMode="scaleToFill" id="Bio-Bio-navigationItem-barButtonItem-customView">
                                     <rect key="frame" x="238.33333333333337" y="12" width="86" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
