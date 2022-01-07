@@ -22,6 +22,6 @@ class ItemTableViewCell: UITableViewCell {
     func setup(at date: Date, from profile: FPProfile) {
         avatar.setAvatar(profile.avatar.url)
         self.date.text = dateFormat.string(from: date)
-        username.setUsername(profile.username)
+        username.setUsername(profile)
     }
 }

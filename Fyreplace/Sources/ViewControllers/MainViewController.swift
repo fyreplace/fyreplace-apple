@@ -32,7 +32,7 @@ class MainViewController: UITabBarController {
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onUserDisconnected($0) }
 
-        toggleAuthenticatedTabs(enabled: vm.getUser() != nil)
+        toggleAuthenticatedTabs(enabled: vm.getCurrentUser() != nil)
     }
 
     private func onUrlOpened(_ notification: Notification) {

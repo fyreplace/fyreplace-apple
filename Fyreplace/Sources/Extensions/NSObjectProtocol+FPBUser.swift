@@ -1,11 +1,11 @@
 import Foundation
 
 extension NSObjectProtocol {
-    func getUser() -> FPUser? {
+    func getCurrentUser() -> FPUser? {
         return UserDefaults.standard.message(forKey: "auth:user")
     }
 
-    func setUser(_ user: FPUser?) {
+    func setCurrentUser(_ user: FPUser?) {
         if let user = user {
             UserDefaults.standard.setValue(user, forKey: "auth:user")
         } else {

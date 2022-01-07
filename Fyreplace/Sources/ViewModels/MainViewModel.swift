@@ -49,7 +49,7 @@ class MainViewModel: ViewModel {
 
     func retrieveMe() {
         let response = userService.retrieveMe(Google_Protobuf_Empty(), callOptions: .authenticated).response
-        response.whenSuccess { self.setUser($0) }
+        response.whenSuccess { self.setCurrentUser($0) }
         response.whenFailure(delegate.onError(_:))
     }
 

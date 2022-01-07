@@ -2,7 +2,9 @@
 "Cancel" = "Cancel";
 "Yes" = "Yes";
 "No" = "No";
+"Menu" = "Menu";
 "Anonymous" = "Anonymous";
+"Banned" = "Banned user";
 
 "Error.Title" = "Error";
 "Error.Message" = "Something, somewhere, went wrong... 😓";
@@ -42,6 +44,14 @@
 "Post.Delete.Title" = "Delete this post?";
 "Post.Delete.Message" = "This action cannot be undone.";
 "Post.Comments.Title" = "Comments";
+
+"User.Rank.Superuser" = "Fyreplace team member";
+"User.Rank.Staff" = "Moderator";
+"User.DateJoined" = "Joined on\n%@";
+"User.Report.Title" = "Report user?";
+"User.Report.Message" = "";
+"User.Report.Success.Title" = "User reported";
+"User.Report.Success.Message" = "This user has been reported and will be examined as soon as possible.";
 
 "Settings.Username" = "Guest";
 "Settings.EmailChange.Title" = "Email change";

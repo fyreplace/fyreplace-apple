@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -313,19 +312,19 @@
                                         </activityIndicatorView>
                                     </subviews>
                                     <connections>
-                                        <outlet property="delegate" destination="Post-Post" id="0c-04-02-02-01--O-00"/>
+                                        <outlet property="delegate" destination="Post-Post" id="0c-03-02-02-01--O-00"/>
                                     </connections>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="bottom" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="bottom" constant="-20" id="0c-04-02-02--C-00-00-00-00"/>
-                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="leading" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="leading" id="0c-04-02-02--C-00-00-00-01"/>
-                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="trailing" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="trailing" id="0c-04-02-02--C-00-00-00-02"/>
+                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="bottom" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="bottom" constant="-20" id="0c-03-02-02--C-00-00-00-00"/>
+                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="leading" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="leading" id="0c-03-02-02--C-00-00-00-01"/>
+                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="trailing" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="trailing" id="0c-03-02-02--C-00-00-00-02"/>
                             </constraints>
                             <connections>
-                                <outlet property="bottom" destination="0c-04-02-02--C-00-00-00-00" id="0c-04-02-02--O-01"/>
-                                <outlet property="content" destination="Post-Post-view-PostTableHeaderView-DynamicStackView" id="0c-04-02-02--O-02"/>
+                                <outlet property="bottom" destination="0c-03-02-02--C-00-00-00-00" id="0c-03-02-02--O-01"/>
+                                <outlet property="content" destination="Post-Post-view-PostTableHeaderView-DynamicStackView" id="0c-03-02-02--O-02"/>
                             </connections>
                         </view>
                         <prototypes>
@@ -344,167 +343,171 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="bottom" secondItem="Post-Post-view-Comment-contentView" secondAttribute="bottomMargin" id="0c-04-02-01-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView" secondAttribute="leadingMargin" id="0c-04-02-01-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView" secondAttribute="topMargin" id="0c-04-02-01-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView" secondAttribute="trailingMargin" id="0c-04-02-01-00--C-00-00-00-03"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="bottom" secondItem="Post-Post-view-Comment-contentView" secondAttribute="bottomMargin" id="0c-03-02-01-00--C-00-00-00-00"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView" secondAttribute="leadingMargin" id="0c-03-02-01-00--C-00-00-00-01"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView" secondAttribute="topMargin" id="0c-03-02-01-00--C-00-00-00-02"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView" secondAttribute="trailingMargin" id="0c-03-02-01-00--C-00-00-00-03"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Post-Post" id="0c-04-02--O-00"/>
-                            <outlet property="delegate" destination="Post-Post" id="0c-04-02--O-01"/>
+                            <outlet property="dataSource" destination="Post-Post" id="0c-03-02--O-00"/>
+                            <outlet property="delegate" destination="Post-Post" id="0c-03-02--O-01"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="Post-Post-navigationItem">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Post-Post-navigationItem-leftBarButtonItem">
-                            <view key="customView" contentMode="scaleToFill" id="Post-Post-navigationItem-leftBarButtonItem-customView">
-                                <rect key="frame" x="50" y="22" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view key="customView" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView">
+                                <rect key="frame" x="50" y="6" width="220" height="32"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView">
-                                        <rect key="frame" x="0.0" y="-20" width="220" height="40"/>
+                                        <rect key="frame" x="0.0" y="-4" width="220" height="40"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1" width="40" height="38.666666666666671"/>
-                                                <color key="tintColor" systemColor="labelColor"/>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" customClass="RoundButton" customModule="Fyreplace" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="0c-04-01-01-00-01-01--C-00">
+                                                    <constraint firstAttribute="width" constant="40" id="0c-03-01-01-00-01-01--C-00">
                                                         <variation key="heightClass=compact" constant="30"/>
                                                     </constraint>
-                                                    <constraint firstAttribute="width" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="0c-04-01-01-00-01-01--C-00-00-00"/>
+                                                    <constraint firstAttribute="width" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" secondAttribute="height" multiplier="1:1" id="0c-03-01-01-00-01-01--C-00-00-00"/>
                                                 </constraints>
-                                            </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView">
-                                                <rect key="frame" x="48" y="4.3333333333333339" width="172" height="31.333333333333329"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="person.crop.circle.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large">
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                    </preferredSymbolConfiguration>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0c-03-01-01-00-01-01--S-01">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView">
+                                                <rect key="frame" x="48" y="0.0" width="172" height="40"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Username">
-                                                        <rect key="frame" x="0.0" y="0.0" width="172" height="17"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="20.666666666666668"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date">
-                                                        <rect key="frame" x="0.0" y="17" width="172" height="14.333333333333336"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0c-03-01-01-00-01-02-01--S-00">
+                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                            </segue>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created">
+                                                        <rect key="frame" x="0.0" y="20.666666666666671" width="75" height="19.333333333333329"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Date Created">
+                                                            <color key="titleColor" systemColor="secondaryLabelColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0c-03-01-01-00-01-02-00--S-00">
+                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                            </segue>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="220" id="0c-04-01-01-00-01--C-00"/>
+                                            <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" secondAttribute="height" id="0c-03-01-01-00-01--C-00-00-00-00"/>
+                                            <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" secondAttribute="height" id="0c-03-01-01-00-01--C-00-00-00-01"/>
+                                            <constraint firstAttribute="width" constant="220" id="0c-03-01-01-00-01--C-01"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="0c-04-01-01-00-01--C-00"/>
+                                                <exclude reference="0c-03-01-01-00-01--C-01"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
-                                                <include reference="0c-04-01-01-00-01--C-00"/>
+                                                <include reference="0c-03-01-01-00-01--C-01"/>
                                             </mask>
                                         </variation>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="centerY" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="centerY" id="0c-04-01-01-00--C-00-00-00-00"/>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="leading" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="leading" id="0c-04-01-01-00--C-00-00-00-01"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="centerX" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="centerX" id="0c-03-01-01-00--C-00-00-00-00"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="centerY" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="centerY" id="0c-03-01-01-00--C-00-00-00-01"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="height" multiplier="1.25" id="0c-03-01-01-00--C-00-00-00-02"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="leading" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="leading" id="0c-03-01-01-00--C-00-00-00-03"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="trailing" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="trailing" id="0c-03-01-01-00--C-00-00-00-04"/>
                                 </constraints>
                             </view>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" style="plain" id="Post-Post-navigationItem-Menu"/>
+                        <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" style="plain" id="Post-Post-navigationItem-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                            <connections>
+                                <outlet property="controller" destination="Post-Post" id="0c-03-01-00--O-01"/>
+                                <outletCollection property="actions" destination="Post-Share" collectionClass="NSMutableArray" id="0c-03-01-00--O-00-02"/>
+                                <outletCollection property="actions" destination="Post-Subscribe" collectionClass="NSMutableArray" id="0c-03-01-00--O-00-03"/>
+                                <outletCollection property="actions" destination="Post-Unsubscribe" collectionClass="NSMutableArray" id="0c-03-01-00--O-00-04"/>
+                                <outletCollection property="actions" destination="Post-Report" collectionClass="NSMutableArray" id="0c-03-01-00--O-00-01"/>
+                                <outletCollection property="actions" destination="Post-Delete" collectionClass="NSMutableArray" id="0c-03-01-00--O-00-00"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="avatar" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-person-crop-circle-fill" id="0c-04--O-00"/>
-                        <outlet property="dateCreated" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date" id="0c-04--O-01"/>
-                        <outlet property="dateFormat" destination="Post-DateFormat" id="0c-04--O-02"/>
-                        <outlet property="delete" destination="Post-Delete-Action" id="0c-04--O-03"/>
-                        <outlet property="menu" destination="Post-Menu" id="0c-04--O-04"/>
-                        <outlet property="report" destination="Post-Report-Action" id="0c-04--O-05"/>
-                        <outlet property="subscribe" destination="Post-Subscribe-Action" id="0c-04--O-06"/>
-                        <outlet property="tableHeader" destination="Post-Post-view-PostTableHeaderView" id="0c-04--O-07"/>
-                        <outlet property="unsubscribe" destination="Post-Unsubscribe-Action" id="0c-04--O-08"/>
-                        <outlet property="username" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Username" id="0c-04--O-09"/>
-                        <outlet property="vm" destination="Post-PostViewModel" id="0c-04--O-0a"/>
+                        <outlet property="avatar" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" id="0c-03--O-00"/>
+                        <outlet property="dateCreated" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created" id="0c-03--O-01"/>
+                        <outlet property="dateFormat" destination="Post-DateFormat" id="0c-03--O-02"/>
+                        <outlet property="delete" destination="Post-Delete" id="0c-03--O-03"/>
+                        <outlet property="menu" destination="Post-Post-navigationItem-Menu" id="0c-03--O-04"/>
+                        <outlet property="report" destination="Post-Report" id="0c-03--O-05"/>
+                        <outlet property="subscribe" destination="Post-Subscribe" id="0c-03--O-06"/>
+                        <outlet property="tableHeader" destination="Post-Post-view-PostTableHeaderView" id="0c-03--O-07"/>
+                        <outlet property="unsubscribe" destination="Post-Unsubscribe" id="0c-03--O-08"/>
+                        <outlet property="username" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-button" id="0c-03--O-09"/>
+                        <outlet property="vm" destination="Post-PostViewModel" id="0c-03--O-0a"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Post-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Post-PostViewModel" customClass="PostViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Post-Post" id="0c-05--O-00"/>
+                        <outlet property="delegate" destination="Post-Post" id="0c-04--O-00"/>
                     </connections>
                 </customObject>
-                <customObject id="Post-Menu" customClass="Menu" customModule="Fyreplace" customModuleProvider="target">
+                <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" style="plain" id="Post-Share" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="controller" destination="Post-Post" id="0c-03--O-01"/>
-                        <outlet property="item" destination="Post-Post-navigationItem-Menu" id="0c-03--O-02"/>
-                        <outletCollection property="actions" destination="Post-Share-Action" collectionClass="NSMutableArray" id="0c-03--O-00-02"/>
-                        <outletCollection property="actions" destination="Post-Subscribe-Action" collectionClass="NSMutableArray" id="0c-03--O-00-03"/>
-                        <outletCollection property="actions" destination="Post-Unsubscribe-Action" collectionClass="NSMutableArray" id="0c-03--O-00-04"/>
-                        <outletCollection property="actions" destination="Post-Report-Action" collectionClass="NSMutableArray" id="0c-03--O-00-01"/>
-                        <outletCollection property="actions" destination="Post-Delete-Action" collectionClass="NSMutableArray" id="0c-03--O-00-00"/>
+                        <action selector="onSharePressed" destination="Post-Post" id="0c-06--A-00-00"/>
                     </connections>
-                </customObject>
-                <customObject id="Post-Share-Action" userLabel="Share Action" customClass="Action" customModule="Fyreplace" customModuleProvider="target">
+                </barButtonItem>
+                <barButtonItem title="Subscribe" image="bell" catalog="system" style="plain" id="Post-Subscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <action selector="onSubscribePressed" destination="Post-Post" id="0c-07--A-00-00"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Unsubscribe" image="bell.slash" catalog="system" style="plain" id="Post-Unsubscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <action selector="onUnsubscribePressed" destination="Post-Post" id="0c-08--A-00-00"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" style="plain" id="Post-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="icon">
-                            <imageReference key="value" image="square.and.arrow.up" catalog="system" symbolScale="default"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Share"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onSharePressed" destination="Post-Post" eventType="primaryActionTriggered" id="0c-07--A-00-00-00"/>
+                        <action selector="onReportPressed" destination="Post-Post" id="0c-05--A-00-00"/>
                     </connections>
-                </customObject>
-                <customObject id="Post-Subscribe-Action" userLabel="Subscribe Action" customClass="Action" customModule="Fyreplace" customModuleProvider="target">
+                </barButtonItem>
+                <barButtonItem title="Delete" image="trash" catalog="system" style="plain" id="Post-Delete" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Subscribe"/>
-                        <userDefinedRuntimeAttribute type="image" keyPath="icon">
-                            <imageReference key="value" image="bell" catalog="system" symbolScale="default"/>
-                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onSubscribePressed" destination="Post-Post" eventType="primaryActionTriggered" id="0c-08--A-00-00-00"/>
+                        <action selector="onDeletePressed" destination="Post-Post" id="0c-01--A-00-00"/>
                     </connections>
-                </customObject>
-                <customObject id="Post-Unsubscribe-Action" userLabel="Unsubscribe Action" customClass="Action" customModule="Fyreplace" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Unsubscribe"/>
-                        <userDefinedRuntimeAttribute type="image" keyPath="icon">
-                            <imageReference key="value" image="bell.slash" catalog="system" symbolScale="default"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="onUnsubscribePressed" destination="Post-Post" eventType="primaryActionTriggered" id="0c-09--A-00-00-00"/>
-                    </connections>
-                </customObject>
-                <customObject id="Post-Report-Action" userLabel="Report Action" customClass="Action" customModule="Fyreplace" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Report"/>
-                        <userDefinedRuntimeAttribute type="image" keyPath="icon">
-                            <imageReference key="value" image="exclamationmark.bubble" catalog="system" symbolScale="default"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="onReportPressed" destination="Post-Post" eventType="primaryActionTriggered" id="0c-06--A-00-00-00"/>
-                    </connections>
-                </customObject>
-                <customObject id="Post-Delete-Action" userLabel="Delete Action" customClass="Action" customModule="Fyreplace" customModuleProvider="target">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Delete"/>
-                        <userDefinedRuntimeAttribute type="image" keyPath="icon">
-                            <imageReference key="value" image="trash" catalog="system" symbolScale="default"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="destructive" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="onDeletePressed" destination="Post-Post" eventType="primaryActionTriggered" id="0c-01--A-00-00-00"/>
-                    </connections>
-                </customObject>
+                </barButtonItem>
                 <customObject id="Post-DateFormat" customClass="DateFormat" customModule="Fyreplace" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="concise" value="YES"/>
@@ -512,6 +515,168 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="0.0" y="1500"/>
+        </scene>
+        <!--User Navigation-->
+        <scene sceneID="10">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="User-Navigation-User-Navigation" userLabel="User Navigation" customClass="UserNavigationViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="User-Navigation-User-Navigation-navigationBar">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="User-User" kind="relationship" relationship="rootViewController" id="10-01--S-00"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="User-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="2250"/>
+        </scene>
+        <!--User-->
+        <scene sceneID="0f">
+            <objects>
+                <viewController id="User-User" userLabel="User" customClass="UserViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="User-User-view">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView">
+                                <rect key="frame" x="0.0" y="108" width="390" height="682"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="232"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
+                                                <rect key="frame" x="145" y="21.000000000000007" width="100" height="98.666666666666686"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="10-03-02-02-03-02--C-00"/>
+                                                    <constraint firstAttribute="width" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="10-03-02-02-03-02--C-00-00-00"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Joined" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view-Date-Joined">
+                                                <rect key="frame" x="155" y="140" width="80.333333333333314" height="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view-textView">
+                                                <rect key="frame" x="20" y="177" width="350" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="400" id="10-03-02-02-03-03--C-00"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="10-03-02-02-03-03--C-00"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="widthClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="10-03-02-02-03-03--C-00"/>
+                                                    </mask>
+                                                </variation>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-03-02-02-03--C-00-00-00-00"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="top" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="bottom" constant="20" id="10-03-02-02-03--C-00-00-00-01"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-03-02-02-03--C-00-00-00-02"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" constant="20" symbolic="YES" id="10-03-02-02-03--C-00-00-00-03"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-03-02-02-03--C-00-00-00-04"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="top" secondItem="User-User-view-scrollView-view-Date-Joined" secondAttribute="bottom" constant="20" id="10-03-02-02-03--C-00-00-00-05"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="10-03-02-02-03--C-00-00-00-04"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="10-03-02-02-03--C-00-00-00-04"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view" secondAttribute="bottom" id="10-03-02-02--C-00-00-00-00"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view-textView" secondAttribute="bottom" constant="20" id="10-03-02-02--C-00-00-00-01"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="leading" secondItem="User-User-view-scrollView-view" secondAttribute="leading" id="10-03-02-02--C-00-00-00-02"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" id="10-03-02-02--C-00-00-00-03"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="trailing" secondItem="User-User-view-scrollView-view" secondAttribute="trailing" id="10-03-02-02--C-00-00-00-04"/>
+                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="leading" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="leading" constant="20" id="10-03-02-02--C-00-00-00-05"/>
+                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="trailing" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="trailing" constant="-20" id="10-03-02-02--C-00-00-00-06"/>
+                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="width" secondItem="User-User-view-scrollView-frameLayoutGuide" secondAttribute="width" id="10-03-02-02--C-00-00-00-07"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="User-User-view-scrollView-contentLayoutGuide"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="User-User-view-scrollView-frameLayoutGuide"/>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="10-03-02-02--C-00-00-00-05"/>
+                                        <exclude reference="10-03-02-02--C-00-00-00-06"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="User-User-view-safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="User-User-view-safeArea" firstAttribute="bottom" secondItem="User-User-view-scrollView" secondAttribute="bottom" id="10-03-02--C-00-00-00-00"/>
+                            <constraint firstItem="User-User-view-safeArea" firstAttribute="trailing" secondItem="User-User-view-scrollView" secondAttribute="trailing" id="10-03-02--C-00-00-00-01"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="leading" secondItem="User-User-view-safeArea" secondAttribute="leading" id="10-03-02--C-00-00-00-02"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="top" secondItem="User-User-view-safeArea" secondAttribute="top" id="10-03-02--C-00-00-00-03"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Username" id="User-User-Username">
+                        <barButtonItem key="leftBarButtonItem" title="OK" style="done" id="User-User-Username-OK">
+                            <connections>
+                                <action selector="onOkPressed" destination="User-User" id="10-03-01-01--A-00-00"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" style="plain" id="User-User-Username-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                            <connections>
+                                <outlet property="controller" destination="User-User" id="10-03-01-00--O-01"/>
+                                <outletCollection property="actions" destination="User-Report" collectionClass="NSMutableArray" id="10-03-01-00--O-00-00"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="avatar" destination="User-User-view-scrollView-view-person-crop-circle-fill" id="10-03--O-00"/>
+                        <outlet property="bio" destination="User-User-view-scrollView-view-textView" id="10-03--O-01"/>
+                        <outlet property="dateFormat" destination="User-DateFormat" id="10-03--O-02"/>
+                        <outlet property="dateJoined" destination="User-User-view-scrollView-view-Date-Joined" id="10-03--O-03"/>
+                        <outlet property="menu" destination="User-User-Username-Menu" id="10-03--O-04"/>
+                        <outlet property="report" destination="User-Report" id="10-03--O-05"/>
+                        <outlet property="vm" destination="User-UserViewModel" id="10-03--O-06"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="User-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="User-UserViewModel" customClass="UserViewModel" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="User-User" id="10-04--O-00"/>
+                    </connections>
+                </customObject>
+                <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" style="plain" id="User-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onReportPressed" destination="User-User" id="10-02--A-00-00"/>
+                    </connections>
+                </barButtonItem>
+                <customObject id="User-DateFormat" customClass="DateFormat" customModule="Fyreplace" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="3000"/>
         </scene>
         <!--Drafts Navigation-->
         <scene sceneID="05">
@@ -587,7 +752,7 @@
                                         <constraint firstAttribute="width" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="height" multiplier="1:1" id="0e-02-02-03-01--C-00-00-00"/>
                                     </constraints>
                                     <connections>
-                                        <outletCollection property="gestureRecognizers" destination="Settings-tapGestureRecognizer" appends="YES" id="0e-02-02-03-01--O-00-01"/>
+                                        <outletCollection property="gestureRecognizers" destination="Settings-Avatar-Taps" appends="YES" id="0e-02-02-03-01--O-00-01"/>
                                     </connections>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Guest" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Username" userLabel="Username">
@@ -823,12 +988,12 @@
                 </customObject>
                 <customObject id="Settings-ImageSelector" customClass="ImageSelector" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Settings-Settings" id="0d-01--O-00"/>
+                        <outlet property="delegate" destination="Settings-Settings" id="0d-02--O-00"/>
                     </connections>
                 </customObject>
-                <tapGestureRecognizer id="Settings-tapGestureRecognizer">
+                <tapGestureRecognizer id="Settings-Avatar-Taps" userLabel="Avatar Taps">
                     <connections>
-                        <action selector="onAvatarPressed" destination="Settings-Settings" id="0e-04--A-00-00"/>
+                        <action selector="onAvatarPressed" destination="Settings-Settings" id="0d-00--A-00-00"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1061,15 +1226,19 @@
         <designable name="Login-Login-view-scrollView-stackView-Button">
             <size key="intrinsicContentSize" width="59.333333333333336" height="31"/>
         </designable>
-        <designable name="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-person-crop-circle-fill">
-            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
+        <designable name="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton">
+            <size key="intrinsicContentSize" width="50.666666666666664" height="50.666666666666664"/>
         </designable>
         <designable name="Settings-Settings-view-tableHeaderView-Avatar">
             <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
         </designable>
+        <designable name="User-User-view-scrollView-view-person-crop-circle-fill">
+            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
+        </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="0e-02-02-05-01--S-00"/>
+        <segue reference="0e-02-02-05-00--S-00"/>
+        <segue reference="0c-03-01-01-00-01-02-00--S-00"/>
         <segue reference="00-00-03-02--S-05"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>

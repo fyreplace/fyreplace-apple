@@ -14,12 +14,12 @@ class SettingsViewModel: ViewModel {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        user.value = getUser()
+        user.value = getCurrentUser()
         NotificationCenter.default.reactive
             .notifications(forName: FPUser.userChangedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in user.value = getUser() }
+            .observeValues { [unowned self] _ in user.value = getCurrentUser() }
     }
 
     func updateAvatar(image: Data?) {
@@ -62,7 +62,7 @@ class SettingsViewModel: ViewModel {
 
     private func onLogout() {
         if authToken.delete() {
-            setUser(nil)
+            setCurrentUser(nil)
             delegate.onLogout()
         } else {
             delegate.onError(KeychainError.delete)
@@ -71,7 +71,7 @@ class SettingsViewModel: ViewModel {
 
     private func onDelete() {
         if authToken.delete() {
-            setUser(nil)
+            setCurrentUser(nil)
             delegate.onDelete()
         } else {
             delegate.onError(KeychainError.delete)

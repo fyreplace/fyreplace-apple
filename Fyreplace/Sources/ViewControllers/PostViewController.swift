@@ -7,27 +7,27 @@ class PostViewController: UITableViewController {
     @IBOutlet
     var vm: PostViewModel!
     @IBOutlet
-    var avatar: UIImageView!
+    var menu: MenuBarButtonItem!
     @IBOutlet
-    var username: UILabel!
+    var subscribe: ActionBarButtonItem!
     @IBOutlet
-    var dateCreated: UILabel!
+    var unsubscribe: ActionBarButtonItem!
+    @IBOutlet
+    var report: ActionBarButtonItem!
+    @IBOutlet
+    var delete: ActionBarButtonItem!
+    @IBOutlet
+    var avatar: UIButton!
+    @IBOutlet
+    var username: UIButton!
+    @IBOutlet
+    var dateCreated: UIButton!
     @IBOutlet
     var tableHeader: PostTableHeaderView!
     @IBOutlet
-    var menu: Menu!
-    @IBOutlet
-    var subscribe: Action!
-    @IBOutlet
-    var unsubscribe: Action!
-    @IBOutlet
-    var report: Action!
-    @IBOutlet
-    var delete: Action!
-    @IBOutlet
     var dateFormat: DateFormat!
 
-    var userId: String?
+    var currentUserId: String?
     var itemPosition: Int!
     var post: FPPost!
 
@@ -36,6 +36,21 @@ class PostViewController: UITableViewController {
         vm.retrieve(id: post.id)
         vm.post.producer.startWithValues(onPostChanged(_:))
         vm.subscribed.producer.startWithValues(onSubscriptionChanged(subscribed:))
+        avatar.isHidden = !post.author.isAvailable
+        avatar.setAvatar(post.isAnonymous ? "" : post.author.avatar.url)
+        username.isEnabled = post.author.isAvailable
+        username.setUsername(post.author)
+        dateCreated.isEnabled = post.author.isAvailable
+        dateCreated.setTitle(dateFormat.string(from: post.dateCreated.date), for: .normal)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        if let userNavigationController = segue.destination as? UserNavigationViewController {
+            userNavigationController.currentUserId = currentUserId
+            userNavigationController.profile = post.author
+        }
     }
 
     @IBAction
@@ -70,14 +85,11 @@ class PostViewController: UITableViewController {
         DispatchQueue.main.async { [self] in
             tableHeader.setup(with: post)
             tableView.reloadData()
-            avatar.setAvatar(post.isAnonymous ? "" : post.author.avatar.url)
-            username.setUsername(post.isAnonymous ? "" : post.author.username)
-            dateCreated.text = dateFormat.string(from: post.dateCreated.date)
         }
     }
     
     private func onSubscriptionChanged(subscribed: Bool) {
-        let userOwnsPost = vm.post.value?.hasAuthor ?? false && vm.post.value?.author.id == userId
+        let userOwnsPost = vm.post.value?.hasAuthor ?? false && vm.post.value?.author.id == currentUserId
         DispatchQueue.main.async { [self] in
             subscribe.isHidden = subscribed
             unsubscribe.isHidden = !subscribed

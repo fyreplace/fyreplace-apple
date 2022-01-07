@@ -21,7 +21,7 @@ extension ViewModelDelegate {
         case .unauthenticated:
             if !["timestamp_exceeded", "invalid_token"].contains(status.message) && Keychain.authToken.get() != nil {
                 if (Keychain.authToken.delete()) {
-                    setUser(nil)
+                    setCurrentUser(nil)
                 }
             } else {
                 onFailureAsync(status)

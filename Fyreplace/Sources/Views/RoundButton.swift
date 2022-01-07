@@ -1,7 +1,7 @@
 import UIKit
 
 @IBDesignable
-class RoundImageView: UIImageView {
+class RoundButton: UIButton {
     override var frame: CGRect { didSet { cropToCircle() } }
     override var bounds: CGRect { didSet { cropToCircle() } }
 
