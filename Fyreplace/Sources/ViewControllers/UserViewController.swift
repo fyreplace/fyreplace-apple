@@ -25,7 +25,7 @@ class UserViewController: UIViewController {
         vm.retrieve(id: profile.id)
         vm.user.producer.startWithValues { [weak self] in self?.onUser($0) }
         navigationItem.title = profile.username
-        report.isHidden = profile.id == currentUserId
+        report.isHidden = profile.rank.rawValue > FPRank.citizen.rawValue || profile.id == currentUserId
         menu.reload()
         avatar.sd_imageTransition = .fade
         avatar.setAvatar(profile.avatar.url)
