@@ -5,6 +5,6 @@ target 'Fyreplace' do
 
   pod 'gRPC-Swift', '~> 1'
   pod 'gRPC-Swift-Plugins', '~> 1'
-  pod 'ReactiveCocoa', '~> 11'
+  pod 'ReactiveCocoa', '~> 12'
   pod 'SDWebImage', '~> 5'
 end
