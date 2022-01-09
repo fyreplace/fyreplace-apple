@@ -478,16 +478,31 @@
                     </connections>
                 </customObject>
                 <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="Post-Share" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="index">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onSharePressed" destination="Post-Post" id="0c-06--A-00-00"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Subscribe" image="bell" catalog="system" id="Post-Subscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="index">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onSubscribePressed" destination="Post-Post" id="0c-07--A-00-00"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Unsubscribe" image="bell.slash" catalog="system" id="Post-Unsubscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="index">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onUnsubscribePressed" destination="Post-Post" id="0c-08--A-00-00"/>
                     </connections>
@@ -495,6 +510,9 @@
                 <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" id="Post-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="index">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onReportPressed" destination="Post-Post" id="0c-05--A-00-00"/>
@@ -503,6 +521,9 @@
                 <barButtonItem title="Delete" image="trash" catalog="system" id="Post-Delete" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="index">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onDeletePressed" destination="Post-Post" id="0c-01--A-00-00"/>
@@ -669,6 +690,9 @@
                 <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" id="User-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="index">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onReportPressed" destination="User-User" id="10-02--A-00-00"/>

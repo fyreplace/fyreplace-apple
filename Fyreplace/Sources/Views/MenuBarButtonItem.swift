@@ -2,6 +2,8 @@ import UIKit
 
 class ActionBarButtonItem: UIBarButtonItem {
     @IBInspectable
+    var index: Int = 0
+    @IBInspectable
     var isHidden: Bool = false
     @IBInspectable
     var isDestructive: Bool = false
@@ -14,7 +16,8 @@ class MenuBarButtonItem: UIBarButtonItem {
     var controller: UIViewController!
 
     private var alert: UIAlertController?
-    private var visibleActions: [ActionBarButtonItem] { actions.filter { !$0.isHidden } }
+    private lazy var orderedActions = actions.sorted { a, b in a.index < b.index }
+    private var visibleActions: [ActionBarButtonItem] { orderedActions.filter { !$0.isHidden } }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -66,7 +69,7 @@ class MenuBarButtonItem: UIBarButtonItem {
 
     @available(iOS 14.0, *)
     private func attachMenu() {
-        let elements = actions.map { action in
+        let elements = orderedActions.map { action in
             UIAction(
                 title: action.title ?? "",
                 image: action.image,
