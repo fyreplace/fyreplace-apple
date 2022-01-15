@@ -17,7 +17,7 @@ class UserViewModel: ViewModel {
     }
 
     func report() {
-        let request = FPStringId.with { $0.id = user.value!.id }
+        let request = FPStringId.with { $0.id = user.value!.profile.id }
         let response = userService.report(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onReport() }
         response.whenFailure(delegate.onError(_:))

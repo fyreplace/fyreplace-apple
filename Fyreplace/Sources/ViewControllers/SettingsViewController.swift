@@ -31,7 +31,7 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
         avatar.sd_imageTransition = .fade
         avatar.reactive.isUserInteractionEnabled <~ vm.user.map { $0 != nil }
-        username.reactive.text <~ vm.user.map { $0?.username ?? .tr("Settings.Username") }
+        username.reactive.text <~ vm.user.map { $0?.profile.username ?? .tr("Settings.Username") }
         dateJoined.reactive.text <~ vm.user.map(\.?.dateJoined).map { [unowned self] in
             $0 != nil ? dateFormatter.string(from: $0!.date) : ""
         }
@@ -55,11 +55,11 @@ class SettingsViewController: UITableViewController {
 
     @IBAction
     func onAvatarPressed() {
-        imageSelector.selectImage(canRemove: vm.user.value?.hasAvatar ?? false)
+        imageSelector.selectImage(canRemove: vm.user.value?.profile.hasAvatar ?? false)
     }
 
     private func onUser(_ user: FPUser?) {
-        DispatchQueue.main.async { self.avatar.setAvatar(user?.avatar.url) }
+        DispatchQueue.main.async { self.avatar.setAvatar(user?.profile.avatar.url) }
         reloadTable()
     }
 
