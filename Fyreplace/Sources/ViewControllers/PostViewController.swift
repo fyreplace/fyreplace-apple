@@ -83,9 +83,10 @@ class PostViewController: UITableViewController {
     
     private func onPost(_ post: FPPost?) {
         guard let post = post else { return }
-        let userOwnsPost = post.hasAuthor && post.author.id == currentProfile?.id
-        report.isHidden = userOwnsPost
-        delete.isHidden = !userOwnsPost
+        let currentUserOwnsPost = post.hasAuthor && post.author.id == currentProfile?.id
+        let currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
+        report.isHidden = currentUserOwnsPost || currentUserIsAdmin
+        delete.isHidden = !report.isHidden
 
         DispatchQueue.main.async { [self] in
             menu.reload()
