@@ -9,7 +9,7 @@ class ArchiveViewController: ListViewController {
 
         if let postController = segue.destination as? PostViewController,
            let index = tableView.indexPathForSelectedRow?.row {
-            postController.currentUserId = vm.getCurrentUser()?.profile.id
+            postController.currentProfile = vm.getCurrentUser()?.profile
             postController.itemPosition = index
             postController.post = vm.post(atIndex: index)
         }

@@ -27,7 +27,7 @@ class PostViewController: UITableViewController {
     @IBOutlet
     var dateFormat: DateFormat!
 
-    var currentUserId: String?
+    var currentProfile: FPProfile?
     var itemPosition: Int!
     var post: FPPost!
 
@@ -49,7 +49,7 @@ class PostViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
 
         if let userNavigationController = segue.destination as? UserNavigationViewController {
-            userNavigationController.currentUserId = currentUserId
+            userNavigationController.currentProfile = currentProfile
             userNavigationController.profile = post.author
         }
     }
@@ -83,7 +83,7 @@ class PostViewController: UITableViewController {
     
     private func onPost(_ post: FPPost?) {
         guard let post = post else { return }
-        let userOwnsPost = post.hasAuthor && post.author.id == currentUserId
+        let userOwnsPost = post.hasAuthor && post.author.id == currentProfile?.id
         report.isHidden = userOwnsPost
         delete.isHidden = !userOwnsPost
 
