@@ -575,8 +575,8 @@
                                                 <rect key="frame" x="145" y="21.000000000000007" width="100" height="98.666666666666686"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="10-03-02-02-03-02--C-00"/>
-                                                    <constraint firstAttribute="width" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="10-03-02-02-03-02--C-00-00-00"/>
+                                                    <constraint firstAttribute="height" constant="100" id="10-04-02-02-03-02--C-00"/>
+                                                    <constraint firstAttribute="width" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="10-04-02-02-03-02--C-00-00-00"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Joined" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view-Date-Joined">
@@ -588,7 +588,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view-textView">
                                                 <rect key="frame" x="20" y="177" width="350" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="400" id="10-03-02-02-03-03--C-00"/>
+                                                    <constraint firstAttribute="width" constant="400" id="10-04-02-02-03-03--C-00"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -601,52 +601,52 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="10-03-02-02-03-03--C-00"/>
+                                                        <exclude reference="10-04-02-02-03-03--C-00"/>
                                                     </mask>
                                                 </variation>
                                                 <variation key="widthClass=regular">
                                                     <mask key="constraints">
-                                                        <include reference="10-03-02-02-03-03--C-00"/>
+                                                        <include reference="10-04-02-02-03-03--C-00"/>
                                                     </mask>
                                                 </variation>
                                             </textView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-03-02-02-03--C-00-00-00-00"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="top" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="bottom" constant="20" id="10-03-02-02-03--C-00-00-00-01"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-03-02-02-03--C-00-00-00-02"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" constant="20" symbolic="YES" id="10-03-02-02-03--C-00-00-00-03"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-03-02-02-03--C-00-00-00-04"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="top" secondItem="User-User-view-scrollView-view-Date-Joined" secondAttribute="bottom" constant="20" id="10-03-02-02-03--C-00-00-00-05"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-04-02-02-03--C-00-00-00-00"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="top" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="bottom" constant="20" id="10-04-02-02-03--C-00-00-00-01"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-04-02-02-03--C-00-00-00-02"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" constant="20" symbolic="YES" id="10-04-02-02-03--C-00-00-00-03"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-04-02-02-03--C-00-00-00-04"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="top" secondItem="User-User-view-scrollView-view-Date-Joined" secondAttribute="bottom" constant="20" id="10-04-02-02-03--C-00-00-00-05"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="10-03-02-02-03--C-00-00-00-04"/>
+                                                <exclude reference="10-04-02-02-03--C-00-00-00-04"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=regular">
                                             <mask key="constraints">
-                                                <include reference="10-03-02-02-03--C-00-00-00-04"/>
+                                                <include reference="10-04-02-02-03--C-00-00-00-04"/>
                                             </mask>
                                         </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view" secondAttribute="bottom" id="10-03-02-02--C-00-00-00-00"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view-textView" secondAttribute="bottom" constant="20" id="10-03-02-02--C-00-00-00-01"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="leading" secondItem="User-User-view-scrollView-view" secondAttribute="leading" id="10-03-02-02--C-00-00-00-02"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" id="10-03-02-02--C-00-00-00-03"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="trailing" secondItem="User-User-view-scrollView-view" secondAttribute="trailing" id="10-03-02-02--C-00-00-00-04"/>
-                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="leading" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="leading" constant="20" id="10-03-02-02--C-00-00-00-05"/>
-                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="trailing" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="trailing" constant="-20" id="10-03-02-02--C-00-00-00-06"/>
-                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="width" secondItem="User-User-view-scrollView-frameLayoutGuide" secondAttribute="width" id="10-03-02-02--C-00-00-00-07"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view" secondAttribute="bottom" id="10-04-02-02--C-00-00-00-00"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view-textView" secondAttribute="bottom" constant="20" id="10-04-02-02--C-00-00-00-01"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="leading" secondItem="User-User-view-scrollView-view" secondAttribute="leading" id="10-04-02-02--C-00-00-00-02"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" id="10-04-02-02--C-00-00-00-03"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="trailing" secondItem="User-User-view-scrollView-view" secondAttribute="trailing" id="10-04-02-02--C-00-00-00-04"/>
+                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="leading" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="leading" constant="20" id="10-04-02-02--C-00-00-00-05"/>
+                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="trailing" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="trailing" constant="-20" id="10-04-02-02--C-00-00-00-06"/>
+                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="width" secondItem="User-User-view-scrollView-frameLayoutGuide" secondAttribute="width" id="10-04-02-02--C-00-00-00-07"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="User-User-view-scrollView-contentLayoutGuide"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="User-User-view-scrollView-frameLayoutGuide"/>
                                 <variation key="widthClass=regular">
                                     <mask key="constraints">
-                                        <exclude reference="10-03-02-02--C-00-00-00-05"/>
-                                        <exclude reference="10-03-02-02--C-00-00-00-06"/>
+                                        <exclude reference="10-04-02-02--C-00-00-00-05"/>
+                                        <exclude reference="10-04-02-02--C-00-00-00-06"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -654,46 +654,71 @@
                         <viewLayoutGuide key="safeArea" id="User-User-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="User-User-view-safeArea" firstAttribute="bottom" secondItem="User-User-view-scrollView" secondAttribute="bottom" id="10-03-02--C-00-00-00-00"/>
-                            <constraint firstItem="User-User-view-safeArea" firstAttribute="trailing" secondItem="User-User-view-scrollView" secondAttribute="trailing" id="10-03-02--C-00-00-00-01"/>
-                            <constraint firstItem="User-User-view-scrollView" firstAttribute="leading" secondItem="User-User-view-safeArea" secondAttribute="leading" id="10-03-02--C-00-00-00-02"/>
-                            <constraint firstItem="User-User-view-scrollView" firstAttribute="top" secondItem="User-User-view-safeArea" secondAttribute="top" id="10-03-02--C-00-00-00-03"/>
+                            <constraint firstItem="User-User-view-safeArea" firstAttribute="bottom" secondItem="User-User-view-scrollView" secondAttribute="bottom" id="10-04-02--C-00-00-00-00"/>
+                            <constraint firstItem="User-User-view-safeArea" firstAttribute="trailing" secondItem="User-User-view-scrollView" secondAttribute="trailing" id="10-04-02--C-00-00-00-01"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="leading" secondItem="User-User-view-safeArea" secondAttribute="leading" id="10-04-02--C-00-00-00-02"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="top" secondItem="User-User-view-safeArea" secondAttribute="top" id="10-04-02--C-00-00-00-03"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Username" id="User-User-Username">
                         <barButtonItem key="leftBarButtonItem" title="OK" style="done" id="User-User-Username-OK">
                             <connections>
-                                <action selector="onOkPressed" destination="User-User" id="10-03-01-01--A-00-00"/>
+                                <action selector="onOkPressed" destination="User-User" id="10-04-01-01--A-00-00"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" id="User-User-Username-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                             <connections>
-                                <outlet property="controller" destination="User-User" id="10-03-01-00--O-01"/>
-                                <outletCollection property="actions" destination="User-Report" collectionClass="NSMutableArray" id="10-03-01-00--O-00-00"/>
+                                <outlet property="controller" destination="User-User" id="10-04-01-00--O-01"/>
+                                <outletCollection property="actions" destination="User-Block" collectionClass="NSMutableArray" id="10-04-01-00--O-00-00"/>
+                                <outletCollection property="actions" destination="User-Unblock" collectionClass="NSMutableArray" id="10-04-01-00--O-00-02"/>
+                                <outletCollection property="actions" destination="User-Report" collectionClass="NSMutableArray" id="10-04-01-00--O-00-01"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="avatar" destination="User-User-view-scrollView-view-person-crop-circle-fill" id="10-03--O-00"/>
-                        <outlet property="bio" destination="User-User-view-scrollView-view-textView" id="10-03--O-01"/>
-                        <outlet property="dateFormat" destination="User-DateFormat" id="10-03--O-02"/>
-                        <outlet property="dateJoined" destination="User-User-view-scrollView-view-Date-Joined" id="10-03--O-03"/>
-                        <outlet property="menu" destination="User-User-Username-Menu" id="10-03--O-04"/>
-                        <outlet property="report" destination="User-Report" id="10-03--O-05"/>
-                        <outlet property="vm" destination="User-UserViewModel" id="10-03--O-06"/>
+                        <outlet property="avatar" destination="User-User-view-scrollView-view-person-crop-circle-fill" id="10-04--O-00"/>
+                        <outlet property="bio" destination="User-User-view-scrollView-view-textView" id="10-04--O-01"/>
+                        <outlet property="block" destination="User-Block" id="10-04--O-02"/>
+                        <outlet property="dateFormat" destination="User-DateFormat" id="10-04--O-03"/>
+                        <outlet property="dateJoined" destination="User-User-view-scrollView-view-Date-Joined" id="10-04--O-04"/>
+                        <outlet property="menu" destination="User-User-Username-Menu" id="10-04--O-05"/>
+                        <outlet property="report" destination="User-Report" id="10-04--O-06"/>
+                        <outlet property="unblock" destination="User-Unblock" id="10-04--O-07"/>
+                        <outlet property="vm" destination="User-UserViewModel" id="10-04--O-08"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="User-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="User-UserViewModel" customClass="UserViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="User-User" id="10-04--O-00"/>
+                        <outlet property="delegate" destination="User-User" id="10-05--O-00"/>
                     </connections>
                 </customObject>
+                <barButtonItem title="Block" image="hand.raised" catalog="system" id="User-Block" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="index">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onBlockPressed" destination="User-User" id="0f-00--A-00-00"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Unblock" image="hand.raised.slash" catalog="system" id="User-Unblock" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="index">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHidden" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onUnblockPressed" destination="User-User" id="10-03--A-00-00"/>
+                    </connections>
+                </barButtonItem>
                 <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" id="User-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="index">
-                            <integer key="value" value="1"/>
+                            <integer key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -1277,6 +1302,8 @@
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="exclamationmark.bubble" catalog="system" width="128" height="110"/>
+        <image name="hand.raised" catalog="system" width="128" height="128"/>
+        <image name="hand.raised.slash" catalog="system" width="128" height="128"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>

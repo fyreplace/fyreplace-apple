@@ -7,6 +7,10 @@ class UserViewController: UIViewController {
     @IBOutlet
     var menu: MenuBarButtonItem!
     @IBOutlet
+    var block: ActionBarButtonItem!
+    @IBOutlet
+    var unblock: ActionBarButtonItem!
+    @IBOutlet
     var report: ActionBarButtonItem!
     @IBOutlet
     var avatar: UIImageView!
@@ -24,6 +28,7 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         vm.retrieve(id: profile.id)
         vm.user.producer.startWithValues { [weak self] in self?.onUser($0) }
+        vm.blocked.producer.startWithValues { [weak self] in self?.onBlocked($0) }
         navigationItem.title = profile.username
         report.isHidden = profile.rank.rawValue > FPRank.citizen.rawValue || profile.id == currentUserId
         menu.reload()
@@ -54,6 +59,16 @@ class UserViewController: UIViewController {
     }
 
     @IBAction
+    func onBlockPressed() {
+        vm.updateBlock(blocked: true)
+    }
+
+    @IBAction
+    func onUnblockPressed() {
+        vm.updateBlock(blocked: false)
+    }
+
+    @IBAction
     func onReportPressed() {
         presentChoiceAlert(text: "User.Report") { _ in self.vm.report() }
     }
@@ -66,6 +81,14 @@ class UserViewController: UIViewController {
             dateJoined.text = .localizedStringWithFormat(.tr("User.DateJoined"), date)
             bio.text = user.bio
         }
+    }
+
+    private func onBlocked(_ blocked: Bool?) {
+        let isCurrentUser = profile.id == currentUserId
+        block.isHidden = blocked == true || isCurrentUser
+        unblock.isHidden = blocked == false || isCurrentUser
+
+        DispatchQueue.main.async { self.menu.reload() }
     }
 }
 
