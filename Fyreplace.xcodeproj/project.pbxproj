@@ -38,6 +38,7 @@
 		4D6D3AB727300A8600353913 /* DynamicStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D3AB627300A8600353913 /* DynamicStackView.swift */; };
 		4D6FD7AE272C717900E28C79 /* FPChapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FD7AD272C717900E28C79 /* FPChapter.swift */; };
 		4D75EC6826B9BA2E00684537 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75EC6726B9BA2E00684537 /* UIViewController.swift */; };
+		4D77C265279494A200F3A711 /* FPRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77C264279494A200F3A711 /* FPRank.swift */; };
 		4D7C987126912ABA00819E3F /* comment.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98532691254B00819E3F /* comment.proto */; };
 		4D7C987226912ABD00819E3F /* id.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98512691254B00819E3F /* id.proto */; };
 		4D7C987326912ABF00819E3F /* image.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C985C2691254B00819E3F /* image.proto */; };
@@ -131,6 +132,7 @@
 		4D6D3AB627300A8600353913 /* DynamicStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStackView.swift; sourceTree = "<group>"; };
 		4D6FD7AD272C717900E28C79 /* FPChapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPChapter.swift; sourceTree = "<group>"; };
 		4D75EC6726B9BA2E00684537 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		4D77C264279494A200F3A711 /* FPRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPRank.swift; sourceTree = "<group>"; };
 		4D7C984C2691254B00819E3F /* pagination.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = pagination.proto; sourceTree = "<group>"; };
 		4D7C984D2691254B00819E3F /* post.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = post.proto; sourceTree = "<group>"; };
 		4D7C984F2691254B00819E3F /* notification.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = notification.proto; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				4D3F816126C6C53500764763 /* CallOptions+Keychain.swift */,
 				4D5FC3F427021BE800AE1F73 /* ClientStreamingCall+FPImageChunk.swift */,
 				4D3AEDA626C5157D00C93DFF /* FPClient.swift */,
+				4D77C264279494A200F3A711 /* FPRank.swift */,
 				4D6FD7AD272C717900E28C79 /* FPChapter.swift */,
 				4DA43CEE278603FC0002C22A /* FPProfile.swift */,
 				4DAF29E426C7BE67005612C9 /* FPUser+Notification.swift */,
@@ -520,6 +523,7 @@
 				4D36CC3126964B5D00BA1675 /* LargeFilledButton.swift in Sources */,
 				4D6D3AB5272FF61500353913 /* PostTableHeaderView.swift in Sources */,
 				4DA43CE72785C5C80002C22A /* UIButton.swift in Sources */,
+				4D77C265279494A200F3A711 /* FPRank.swift in Sources */,
 				4D3F816826C6E57900764763 /* UserDefaults+Message.swift in Sources */,
 				4D4520FA26D8203300FCFEE0 /* NSUserActivity.swift in Sources */,
 				4D5CC7E827232BEE00D33C87 /* PostViewController.swift in Sources */,
