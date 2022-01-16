@@ -6,7 +6,7 @@ class PostViewModel: ViewModel {
     weak var delegate: PostViewModelDelegate!
 
     let post = MutableProperty<FPPost?>(nil)
-    let subscribed = MutableProperty<Bool?>(nil)
+    let subscribed = MutableProperty<Bool>(false)
 
     private lazy var postService = FPPostServiceClient(channel: Self.rpc.channel)
 

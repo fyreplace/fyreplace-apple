@@ -6,7 +6,7 @@ class UserViewModel: ViewModel {
     weak var delegate: UserViewModelDelegate!
 
     let user = MutableProperty<FPUser?>(nil)
-    let blocked = MutableProperty<Bool?>(nil)
+    let blocked = MutableProperty<Bool>(false)
 
     private lazy var userService = FPUserServiceClient(channel: Self.rpc.channel)
 

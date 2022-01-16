@@ -26,6 +26,7 @@ class UserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        vm.blocked.value = profile.isBlocked
         vm.retrieve(id: profile.id)
         vm.user.producer.startWithValues { [weak self] in self?.onUser($0) }
         vm.blocked.producer.startWithValues { [weak self] in self?.onBlocked($0) }
@@ -83,10 +84,10 @@ class UserViewController: UIViewController {
         }
     }
 
-    private func onBlocked(_ blocked: Bool?) {
+    private func onBlocked(_ blocked: Bool) {
         let isCurrentUser = profile.id == currentUserId
-        block.isHidden = blocked == true || isCurrentUser
-        unblock.isHidden = blocked == false || isCurrentUser
+        block.isHidden = blocked || isCurrentUser
+        unblock.isHidden = !blocked || isCurrentUser
 
         DispatchQueue.main.async { self.menu.reload() }
     }

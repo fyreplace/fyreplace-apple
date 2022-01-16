@@ -33,6 +33,7 @@ class PostViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        vm.subscribed.value = post.isSubscribed
         vm.retrieve(id: post.id)
         vm.post.producer.startWithValues { [weak self] in self?.onPost($0) }
         vm.subscribed.producer.startWithValues { [weak self] in self?.onSubscribed($0) }
@@ -93,9 +94,9 @@ class PostViewController: UITableViewController {
         }
     }
     
-    private func onSubscribed(_ subscribed: Bool?) {
-        subscribe.isHidden = subscribed == true
-        unsubscribe.isHidden = subscribed == false
+    private func onSubscribed(_ subscribed: Bool) {
+        subscribe.isHidden = subscribed
+        unsubscribe.isHidden = !subscribed
 
         DispatchQueue.main.async { self.menu.reload() }
     }
