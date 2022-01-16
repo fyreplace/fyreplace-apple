@@ -6,7 +6,7 @@ class PostViewModel: ViewModel {
     weak var delegate: PostViewModelDelegate!
 
     let post = MutableProperty<FPPost?>(nil)
-    let subscribed = MutableProperty<Bool>(false)
+    let subscribed = MutableProperty<Bool?>(nil)
 
     private lazy var postService = FPPostServiceClient(channel: Self.rpc.channel)
 
@@ -23,7 +23,7 @@ class PostViewModel: ViewModel {
             $0.subscribed = subscribed
         }
         let response = postService.updateSubscription(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.onUpdateSubscription(subscribed: subscribed) }
+        response.whenSuccess { _ in self.subscribed.value = subscribed }
         response.whenFailure(delegate.onError(_:))
     }
     
@@ -44,10 +44,6 @@ class PostViewModel: ViewModel {
     private func onRetrieve(_ post: FPPost) {
         self.post.value = post
         subscribed.value = post.isSubscribed
-    }
-    
-    private func onUpdateSubscription(subscribed: Bool) {
-        self.subscribed.value = subscribed
     }
 }
 

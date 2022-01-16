@@ -82,21 +82,22 @@ class PostViewController: UITableViewController {
     
     private func onPost(_ post: FPPost?) {
         guard let post = post else { return }
+        let userOwnsPost = post.hasAuthor && post.author.id == currentUserId
+        report.isHidden = userOwnsPost
+        delete.isHidden = !userOwnsPost
+
         DispatchQueue.main.async { [self] in
+            menu.reload()
             tableHeader.setup(with: post)
             tableView.reloadData()
         }
     }
     
-    private func onSubscribed(_ subscribed: Bool) {
-        let userOwnsPost = vm.post.value?.hasAuthor ?? false && vm.post.value?.author.id == currentUserId
-        DispatchQueue.main.async { [self] in
-            subscribe.isHidden = subscribed
-            unsubscribe.isHidden = !subscribed
-            report.isHidden = userOwnsPost
-            delete.isHidden = !userOwnsPost
-            menu.reload()
-        }
+    private func onSubscribed(_ subscribed: Bool?) {
+        subscribe.isHidden = subscribed == true
+        unsubscribe.isHidden = subscribed == false
+
+        DispatchQueue.main.async { self.menu.reload() }
     }
 }
 

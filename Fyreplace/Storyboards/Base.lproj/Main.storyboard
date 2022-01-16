@@ -492,6 +492,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="index">
                             <integer key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onSubscribePressed" destination="Post-Post" id="0c-07--A-00-00"/>
@@ -524,6 +525,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="index">
                             <integer key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onDeletePressed" destination="Post-Post" id="0c-01--A-00-00"/>
