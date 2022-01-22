@@ -76,12 +76,12 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
         self.nextCursor = items.next
 
         DispatchQueue.main.async { [self] in
-            fetching = false
-            delegate.onFetch(count: items.items.count)
-
             if !items.hasNext {
                 endReached = true
             }
+
+            delegate.onFetch(count: items.items.count)
+            fetching = false
         }
     }
 }
