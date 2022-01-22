@@ -37,6 +37,11 @@ class ListViewController: UITableViewController {
         listDelegate.lister.stopListing()
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        listDelegate.lister.reset()
+    }
+
     @objc
     private func onRefresh() {
         listDelegate.lister.reset()
