@@ -6,6 +6,7 @@ import os
 import re
 import sys
 from collections import OrderedDict
+from hashlib import sha256
 from os.path import basename, dirname, realpath, splitext
 from typing import Dict, List, Optional, Text, Tuple
 from xml.etree import ElementTree as etree
@@ -25,9 +26,15 @@ class IdPartType(enum.Enum):
     SEPARATOR = "separator"
 
 
+class IdForm(enum.Enum):
+    FULL = "full"
+    HASH = "hash"
+    SHRINK = "shrink"
+
+
 IdPart = Tuple[IdPartType, Text]
 Id = List[IdPart]
-Mapping = Dict[Text, Tuple[Id, bool]]
+Mapping = Dict[Text, Tuple[Id, IdForm]]
 
 
 sanitizer = re.compile("[^A-Za-z0-9-]")
@@ -108,19 +115,19 @@ def walk(node: etree.Element, mapping: Mapping, prefix: Id):
         last_comment = node.text
     elif node.tag == "scene":
         identifier = make_id(*prefix, (IdPartType.STRING, last_comment))
-        mapping[node.attrib["sceneID"]] = (identifier, False)
+        mapping[node.attrib["sceneID"]] = (identifier, IdForm.HASH)
         prefix = identifier
     elif "id" in node.attrib:
-        node_id, keep = get_id(node)
+        node_id, form = get_id(node)
         identifier = make_id(*prefix, *node_id)
-        mapping[node.attrib["id"]] = (identifier, keep)
+        mapping[node.attrib["id"]] = (identifier, form)
         prefix = identifier
     else:
         for child in node:
             if child.tag == "string" and child.attrib.get("key") == "id":
-                node_id, keep = get_id(node)
+                node_id, form = get_id(node)
                 identifier = make_id(*prefix, *node_id)
-                mapping[child.text] = (identifier, keep)
+                mapping[child.text] = (identifier, form)
                 prefix = identifier
 
     id_counters.append(0)
@@ -144,7 +151,7 @@ def get_id(node: etree.Element) -> Tuple[Id, bool]:
                 (IdPartType.REFERENCE, node.attrib.get("secondItem")),
                 (IdPartType.STRING, node.attrib.get("secondAttribute")),
             ),
-            False,
+            IdForm.SHRINK,
         )
     elif node.tag == "action":
         return (
@@ -154,7 +161,7 @@ def get_id(node: etree.Element) -> Tuple[Id, bool]:
                 (IdPartType.REFERENCE, node.attrib.get("destination")),
                 (IdPartType.STRING, node.attrib.get("selector")),
             ),
-            False,
+            IdForm.HASH,
         )
     elif node.tag == "outlet":
         return (
@@ -162,7 +169,7 @@ def get_id(node: etree.Element) -> Tuple[Id, bool]:
                 (IdPartType.NAME, "-O"),
                 (IdPartType.STRING, node.attrib.get("property")),
             ),
-            False,
+            IdForm.HASH,
         )
     elif node.tag == "outletCollection":
         return (
@@ -171,7 +178,7 @@ def get_id(node: etree.Element) -> Tuple[Id, bool]:
                 (IdPartType.STRING, node.attrib.get("property")),
                 (IdPartType.STRING, node.attrib.get("destination")),
             ),
-            False,
+            IdForm.HASH,
         )
     elif node.tag == "segue":
         return (
@@ -179,7 +186,7 @@ def get_id(node: etree.Element) -> Tuple[Id, bool]:
                 (IdPartType.NAME, "-S"),
                 (IdPartType.REFERENCE, node.attrib.get("destination")),
             ),
-            False,
+            IdForm.HASH,
         )
 
     def try_attributes(attrs: List[Text]) -> Optional[Text]:
@@ -217,7 +224,7 @@ def get_id(node: etree.Element) -> Tuple[Id, bool]:
         id_counters[-1] += 1
 
     label = label or try_attributes(["customClass", "key"])
-    return ([(IdPartType.STRING, label or node.tag)], True)
+    return ([(IdPartType.STRING, label or node.tag)], IdForm.FULL)
 
 
 def make_id(*parts: IdPart) -> Id:
@@ -243,7 +250,7 @@ def mapping_items(mapping: Mapping) -> List[Tuple[Text, Text]]:
     previous_id_string = ""
 
     for old_id, new_id_data in items:
-        new_id, keep = new_id_data
+        new_id, form = new_id_data
         goes_deeper = False
 
         while len(counters) < len(new_id):
@@ -254,13 +261,20 @@ def mapping_items(mapping: Mapping) -> List[Tuple[Text, Text]]:
             counters = counters[0 : len(new_id)]
             counters[-1] += 1
 
-        new_id_string = resolve_id(mapping, new_id) if keep else shrink_id(new_id, counters)
+        if form == IdForm.FULL:
+            new_id_string = resolve_id(mapping, new_id)
+        elif form == IdForm.HASH:
+            new_id_string = hash_id(mapping, new_id)
+        elif form == IdForm.SHRINK:
+            new_id_string = shrink_id(new_id, counters)
+        else:
+            sys.exit(f"Invalid ID form: {form}")
 
         if new_id_string != old_id:
             result[old_id] = new_id_string
 
         if new_id_string == previous_id_string:
-            sys.exit("Two objects have the same ID: " + new_id_string)
+            sys.exit(f"Two objects have the same ID: {new_id_string}")
         else:
             previous_id_string = new_id_string
 
@@ -281,6 +295,10 @@ def resolve_id_part(mapping: Mapping, part: IdPart) -> Text:
         return resolve_id(mapping, mapping[part_value][0])
     else:
         return part_value
+
+
+def hash_id(mapping: Mapping, identifier: Id) -> Text:
+    return sha256(resolve_id(mapping, identifier).encode()).hexdigest()
 
 
 def shrink_id(identifier: Id, counters: List[int]) -> Text:

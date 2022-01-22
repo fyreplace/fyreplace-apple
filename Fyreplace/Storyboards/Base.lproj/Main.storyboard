@@ -11,7 +11,7 @@
     </dependencies>
     <scenes>
         <!--Main View Controller-->
-        <scene sceneID="0a">
+        <scene sceneID="7e9f97e1f101ca6abaf840982b1b091c77d4d88948ef20cf46ea565914236a73">
             <objects>
                 <tabBarController id="Main-View-Controller-MainViewController" customClass="MainViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Main-View-Controller-MainViewController-tabBar">
@@ -20,25 +20,25 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <outlet property="vm" destination="Main-View-Controller-MainViewModel" id="0a-01--O-00"/>
-                        <segue destination="Feed-Navigation-Feed-Navigation" kind="relationship" relationship="viewControllers" id="0a-01--S-03"/>
-                        <segue destination="Notifications-Navigation-Notifications-Navigation" kind="relationship" relationship="viewControllers" id="0a-01--S-04"/>
-                        <segue destination="Archive-Navigation-Archive-Navigation" kind="relationship" relationship="viewControllers" id="0a-01--S-01"/>
-                        <segue destination="Drafts-Navigation-Drafts-Navigation" kind="relationship" relationship="viewControllers" id="0a-01--S-02"/>
-                        <segue destination="Settings-Navigation-Settings-Navigation" kind="relationship" relationship="viewControllers" id="0a-01--S-05"/>
+                        <outlet property="vm" destination="Main-View-Controller-MainViewModel" id="409c59ff190eba3aa7d322a901b8d47b4385aaa0c88fdc37f393e9fc7e8b88fa"/>
+                        <segue destination="Feed-Navigation-Feed-Navigation" kind="relationship" relationship="viewControllers" id="b588dd227d3bb81ae713d11d06e129df4f7f6c513f3328eedffcfdcb8f55d9d6"/>
+                        <segue destination="Notifications-Navigation-Notifications-Navigation" kind="relationship" relationship="viewControllers" id="623e810319d6d57ba6a1cafc0f3e2d6711c57a371f2a9951bb1b15bfc9442698"/>
+                        <segue destination="Archive-Navigation-Archive-Navigation" kind="relationship" relationship="viewControllers" id="9473c345dd7ac859268b9fe8f502409e6b6cabd6fcffac406fdb9c13ae48a87c"/>
+                        <segue destination="Drafts-Navigation-Drafts-Navigation" kind="relationship" relationship="viewControllers" id="cfe2471dd65829b40c456c5d615f2c5609240ed2b236922f272d95a65284b148"/>
+                        <segue destination="Settings-Navigation-Settings-Navigation" kind="relationship" relationship="viewControllers" id="4c1c4639bb71ea819e78e43c84e8d3f062acb69a5a24dff44a9bba8159723e06"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Main-View-Controller-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Main-View-Controller-MainViewModel" customClass="MainViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Main-View-Controller-MainViewController" id="0a-02--O-00"/>
+                        <outlet property="delegate" destination="Main-View-Controller-MainViewController" id="4619092e9384d08c45dacdf9b5047e1e313aac1d3e62530a6270da9450e07461"/>
                     </connections>
                 </customObject>
             </objects>
             <point key="canvasLocation" x="0.0" y="-750"/>
         </scene>
         <!--Feed Navigation-->
-        <scene sceneID="08">
+        <scene sceneID="5115c23b349285157b102c63979fc46608b49f2487f4a096f2c020c99ebcd2e2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Feed-Navigation-Feed-Navigation" userLabel="Feed Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="square.grid.2x2.fill" catalog="system" id="Feed-Navigation-Feed-Navigation-Feed"/>
@@ -49,7 +49,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Feed-Feed" kind="relationship" relationship="rootViewController" id="08-00--S-00"/>
+                        <segue destination="Feed-Feed" kind="relationship" relationship="rootViewController" id="86b16f2d4c8662550ab078d6ba1d0e1bbf6deeaa5a97c58597e1047983e3a088"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Feed-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -57,7 +57,7 @@
             <point key="canvasLocation" x="-1500" y="0.0"/>
         </scene>
         <!--Feed-->
-        <scene sceneID="07">
+        <scene sceneID="396c3cb18f811a18a0859bd18bf8094c9dedcbbe92651bbd3aa7a6e0e6e3aee8">
             <objects>
                 <viewController id="Feed-Feed" userLabel="Feed" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Feed-Feed-view">
@@ -73,7 +73,7 @@
             <point key="canvasLocation" x="-1500" y="750"/>
         </scene>
         <!--Notifications Navigation-->
-        <scene sceneID="0c">
+        <scene sceneID="d2b99d24bb974293997f197093470cbe153f096ba76e1b6fcd8a102a4d21dd86">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Notifications-Navigation-Notifications-Navigation" userLabel="Notifications Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Notifications" image="bell.fill" catalog="system" id="Notifications-Navigation-Notifications-Navigation-Notifications"/>
@@ -84,7 +84,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Notifications-Notifications" kind="relationship" relationship="rootViewController" id="0c-01--S-00"/>
+                        <segue destination="Notifications-Notifications" kind="relationship" relationship="rootViewController" id="2808b2a71ec7371ced6609151ae02dbae504a39b546a4e9f4fd606d790fb9c33"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Notifications-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -92,7 +92,7 @@
             <point key="canvasLocation" x="-750" y="0.0"/>
         </scene>
         <!--Notifications-->
-        <scene sceneID="0b">
+        <scene sceneID="788011833a5a0f22db90c91e8eb7bd8e9f5cd423354ff5ef8c338e7895f44ba9">
             <objects>
                 <viewController id="Notifications-Notifications" userLabel="Notifications" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Notifications-Notifications-view">
@@ -108,7 +108,7 @@
             <point key="canvasLocation" x="-750" y="750"/>
         </scene>
         <!--Archive Navigation-->
-        <scene sceneID="01">
+        <scene sceneID="5169889791b781ea2408f56b22f1d05aecbed7e1e60d11b813725b1142b2ff73">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Archive-Navigation-Archive-Navigation" userLabel="Archive Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Archive" image="clock.fill" catalog="system" id="Archive-Navigation-Archive-Navigation-Archive"/>
@@ -119,7 +119,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Archive-Archive" kind="relationship" relationship="rootViewController" id="01-00--S-00"/>
+                        <segue destination="Archive-Archive" kind="relationship" relationship="rootViewController" id="7c9319d6be30a0affba48e970041924bc41230eb6cef91f5ffd0180c95db1728"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Archive-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -127,7 +127,7 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
         <!--Archive-->
-        <scene sceneID="00">
+        <scene sceneID="66f4804ee23ddc092d1bae43cb88186aa541187fff7c1cc8a4aa17e59a9f4123">
             <objects>
                 <tableViewController id="Archive-Archive" userLabel="Archive" customClass="ArchiveViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" estimatedRowHeight="140" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Archive-Archive-view">
@@ -185,12 +185,12 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="avatar" destination="Archive-Archive-view-Text-contentView-person-crop-circle-fill" id="00-00-03-02--O-00"/>
-                                    <outlet property="date" destination="Archive-Archive-view-Text-contentView-Date" id="00-00-03-02--O-01"/>
-                                    <outlet property="dateFormat" destination="Archive-DateFormat" id="00-00-03-02--O-02"/>
-                                    <outlet property="preview" destination="Archive-Archive-view-Text-contentView-label" id="00-00-03-02--O-03"/>
-                                    <outlet property="username" destination="Archive-Archive-view-Text-contentView-Username" id="00-00-03-02--O-04"/>
-                                    <segue destination="Post-Post" kind="show" id="00-00-03-02--S-05"/>
+                                    <outlet property="avatar" destination="Archive-Archive-view-Text-contentView-person-crop-circle-fill" id="927c1774deb827fbcecc5dc9f5dad2330da55209fde29b7ee6c6f90cb954a01e"/>
+                                    <outlet property="date" destination="Archive-Archive-view-Text-contentView-Date" id="73093c3aee74fdd7568fdddc40a9070bb09c9276eec494ee015ad8ba2476f56e"/>
+                                    <outlet property="dateFormat" destination="Archive-DateFormat" id="2459554a2238e7094d2e2249b5d5e84f3122dc7d3603ca6a6865224e5fb5874d"/>
+                                    <outlet property="preview" destination="Archive-Archive-view-Text-contentView-label" id="10a1347f02d3f67a082ad5cbfcd6fa9242de3dde649d5159e59b354b33132004"/>
+                                    <outlet property="username" destination="Archive-Archive-view-Text-contentView-Username" id="77f66fc21bf0567165b5b24018da7ef60161241490e14dd3fbd9e6f2722f4cb8"/>
+                                    <segue destination="Post-Post" kind="show" id="16afa6a7a29e215df0c8aa8386d9ea45279cec0373caffe5224c32d0994442dc"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image" id="Archive-Archive-view-Image" customClass="ImageItemTableViewCell" customModule="Fyreplace" customModuleProvider="target">
@@ -248,18 +248,18 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="avatar" destination="Archive-Archive-view-Image-contentView-person-crop-circle-fill" id="00-00-03-01--O-00"/>
-                                    <outlet property="date" destination="Archive-Archive-view-Image-contentView-Date" id="00-00-03-01--O-01"/>
-                                    <outlet property="dateFormat" destination="Archive-DateFormat" id="00-00-03-01--O-02"/>
-                                    <outlet property="preview" destination="Archive-Archive-view-Image-contentView-imageView" id="00-00-03-01--O-03"/>
-                                    <outlet property="username" destination="Archive-Archive-view-Image-contentView-Username" id="00-00-03-01--O-04"/>
-                                    <segue destination="Post-Post" kind="show" id="00-00-03-01--S-05"/>
+                                    <outlet property="avatar" destination="Archive-Archive-view-Image-contentView-person-crop-circle-fill" id="fa210f1ddd0d81c3552fa7e1b3e5adf77a504747da63ee90d98e9459449620c6"/>
+                                    <outlet property="date" destination="Archive-Archive-view-Image-contentView-Date" id="2c9af23b16a93540810c759fea0f698dc9e4d5b88b987cc2edcb78f2808064d4"/>
+                                    <outlet property="dateFormat" destination="Archive-DateFormat" id="94920fdd3287e8237328814083eff90f9a1f5e9dcbff19cf8f3ad0165c8783b2"/>
+                                    <outlet property="preview" destination="Archive-Archive-view-Image-contentView-imageView" id="2a2c30353a3b054129544ea7c1114c841f959a5436f941205e57780d7da40f0d"/>
+                                    <outlet property="username" destination="Archive-Archive-view-Image-contentView-Username" id="2f9e5a2a471545bbcb52f400e5f2159d60af4dd7dac910b6904cc17c3bbd6412"/>
+                                    <segue destination="Post-Post" kind="show" id="db5d4c1481b470b3507a8309359b68fc4d4c6c828d91dbd401aa1bb37f120dac"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Archive-Archive" id="00-00-03--O-00"/>
-                            <outlet property="delegate" destination="Archive-Archive" id="00-00-03--O-01"/>
+                            <outlet property="dataSource" destination="Archive-Archive" id="8180b9f95fa52f4c0121e80556dc32010c037903f65514bcf9a32a74c863e627"/>
+                            <outlet property="delegate" destination="Archive-Archive" id="d6b4537f433949f2b43d944db03379c195585d82dcfd8caaaecc096e7fe171df"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Archive" id="Archive-Archive-Archive">
@@ -270,9 +270,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
-                        <outlet property="emptyPlaceholder" destination="Archive-No-subscribed-posts" id="00-00--O-00"/>
-                        <outlet property="listDelegate" destination="Archive-ArchiveViewModel" id="00-00--O-01"/>
-                        <outlet property="vm" destination="Archive-ArchiveViewModel" id="00-00--O-02"/>
+                        <outlet property="emptyPlaceholder" destination="Archive-No-subscribed-posts" id="dd75d4754ace7d414a368262189cd2a7fc94d474496eb26803bf1b018f350726"/>
+                        <outlet property="listDelegate" destination="Archive-ArchiveViewModel" id="7bcad236b113ff50face10092b69e2c5f097cf58d9ec2e74ff3ffb7694f75002"/>
+                        <outlet property="vm" destination="Archive-ArchiveViewModel" id="30ae82cadfb217d6ad479b8275be5391be4a191d37447ce77702f5ecb939b2e2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Archive-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -285,7 +285,7 @@
                 </label>
                 <customObject id="Archive-ArchiveViewModel" customClass="ArchiveViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Archive-Archive" id="00-01--O-00"/>
+                        <outlet property="delegate" destination="Archive-Archive" id="4ebfbe4fda90f6044b2bc00e510110328d6be60e1ce866cb1778ff24edae63bb"/>
                     </connections>
                 </customObject>
                 <customObject id="Archive-DateFormat" customClass="DateFormat" customModule="Fyreplace" customModuleProvider="target"/>
@@ -293,7 +293,7 @@
             <point key="canvasLocation" x="0.0" y="750"/>
         </scene>
         <!--Post-->
-        <scene sceneID="0d">
+        <scene sceneID="a5554622c655c7a7e470c115f374d92595fa3b1f431dc6ee3d1edfbc103846ed">
             <objects>
                 <tableViewController id="Post-Post" userLabel="Post" customClass="PostViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Post-Post-view">
@@ -312,7 +312,7 @@
                                         </activityIndicatorView>
                                     </subviews>
                                     <connections>
-                                        <outlet property="delegate" destination="Post-Post" id="0d-03-02-02-01--O-00"/>
+                                        <outlet property="delegate" destination="Post-Post" id="0642bf967f8bbe1627272eb4e4eb5f5b0dcf369a62d3d0f149e854441d78640f"/>
                                     </connections>
                                 </stackView>
                             </subviews>
@@ -323,8 +323,8 @@
                                 <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="trailing" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="trailing" id="0d-03-02-02--C-00-00-00-02"/>
                             </constraints>
                             <connections>
-                                <outlet property="bottom" destination="0d-03-02-02--C-00-00-00-00" id="0d-03-02-02--O-01"/>
-                                <outlet property="content" destination="Post-Post-view-PostTableHeaderView-DynamicStackView" id="0d-03-02-02--O-02"/>
+                                <outlet property="bottom" destination="0d-03-02-02--C-00-00-00-00" id="fa39c4adc8df1bdc29b1fe009c88e2df9c1603365e4a3e64a40198153b502c8d"/>
+                                <outlet property="content" destination="Post-Post-view-PostTableHeaderView-DynamicStackView" id="8230497d9dbc155966c2ed214d8dc040b3506d8767409a0d7bec15010c5cc545"/>
                             </connections>
                         </view>
                         <prototypes>
@@ -352,14 +352,14 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Post-Post" id="0d-03-02--O-00"/>
-                            <outlet property="delegate" destination="Post-Post" id="0d-03-02--O-01"/>
+                            <outlet property="dataSource" destination="Post-Post" id="88ea7182cd40da5d7921cc36892fcd023a4d55068c01f3ec692cda80a8a99545"/>
+                            <outlet property="delegate" destination="Post-Post" id="c80f5bfa80f9727a1c117acb2d2603617466b95936385f4b3fd49705211fa6a0"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="Post-Post-navigationItem">
                         <barButtonItem key="leftBarButtonItem" id="Post-Post-navigationItem-leftBarButtonItem">
                             <view key="customView" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView">
-                                <rect key="frame" x="0.0" y="0.0" width="220" height="32"/>
+                                <rect key="frame" x="50" y="6" width="220" height="32"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView">
                                         <rect key="frame" x="0.0" y="-4" width="220" height="40"/>
@@ -381,7 +381,7 @@
                                                     </preferredSymbolConfiguration>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0d-03-01-01-00-01-01--S-01">
+                                                    <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0033c1bdcc67de81f3a077994e035c98717fb0f88523e94f05ce92a1f25238f7">
                                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                     </segue>
                                                 </connections>
@@ -398,7 +398,7 @@
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0d-03-01-01-00-01-02-01--S-00">
+                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="4994cd755aca52576955c32cd900bfee2254dc05c91793aedb5f173f7d15eeb2">
                                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                             </segue>
                                                         </connections>
@@ -412,7 +412,7 @@
                                                             <color key="titleColor" systemColor="secondaryLabelColor"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0d-03-01-01-00-01-02-00--S-00">
+                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="a874b6660a756db33daace55335d460366cfd25570ddf4d6deefd6e69b652c3e">
                                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                             </segue>
                                                         </connections>
@@ -448,33 +448,33 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" id="Post-Post-navigationItem-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                             <connections>
-                                <outlet property="controller" destination="Post-Post" id="0d-03-01-00--O-01"/>
-                                <outletCollection property="actions" destination="Post-Share" collectionClass="NSMutableArray" id="0d-03-01-00--O-00-02"/>
-                                <outletCollection property="actions" destination="Post-Subscribe" collectionClass="NSMutableArray" id="0d-03-01-00--O-00-03"/>
-                                <outletCollection property="actions" destination="Post-Unsubscribe" collectionClass="NSMutableArray" id="0d-03-01-00--O-00-04"/>
-                                <outletCollection property="actions" destination="Post-Report" collectionClass="NSMutableArray" id="0d-03-01-00--O-00-01"/>
-                                <outletCollection property="actions" destination="Post-Delete" collectionClass="NSMutableArray" id="0d-03-01-00--O-00-00"/>
+                                <outlet property="controller" destination="Post-Post" id="fe6cc88938f0e57866493ed61993f9fb8691f398f5625f962ca340f50e062a13"/>
+                                <outletCollection property="actions" destination="Post-Share" collectionClass="NSMutableArray" id="fb1ed3794fa6824777ff074713e73ceb942dc511c43dac484872a5c6279dee81"/>
+                                <outletCollection property="actions" destination="Post-Subscribe" collectionClass="NSMutableArray" id="d778003dd53ce3bdb8fbc9d5442f5abd1049c18b10f2be8230361bcdea5bdbbc"/>
+                                <outletCollection property="actions" destination="Post-Unsubscribe" collectionClass="NSMutableArray" id="79371027ea71eb0023ceeed6b560009e165c0af297fc65d9d9982890184f2e95"/>
+                                <outletCollection property="actions" destination="Post-Report" collectionClass="NSMutableArray" id="1bc019f44651e45d006abac4d5523befbdd5e486c4808118855b5addd8af0a9d"/>
+                                <outletCollection property="actions" destination="Post-Delete" collectionClass="NSMutableArray" id="1af8bd563b65ec91e267cdece3bb6eee7dbf34b0d773129fa618a88951f88979"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="avatar" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" id="0d-03--O-00"/>
-                        <outlet property="dateCreated" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created" id="0d-03--O-01"/>
-                        <outlet property="dateFormat" destination="Post-DateFormat" id="0d-03--O-02"/>
-                        <outlet property="delete" destination="Post-Delete" id="0d-03--O-03"/>
-                        <outlet property="menu" destination="Post-Post-navigationItem-Menu" id="0d-03--O-04"/>
-                        <outlet property="report" destination="Post-Report" id="0d-03--O-05"/>
-                        <outlet property="subscribe" destination="Post-Subscribe" id="0d-03--O-06"/>
-                        <outlet property="tableHeader" destination="Post-Post-view-PostTableHeaderView" id="0d-03--O-07"/>
-                        <outlet property="unsubscribe" destination="Post-Unsubscribe" id="0d-03--O-08"/>
-                        <outlet property="username" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-button" id="0d-03--O-09"/>
-                        <outlet property="vm" destination="Post-PostViewModel" id="0d-03--O-0a"/>
+                        <outlet property="avatar" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" id="c60bcadb393e0b29be295d7b02fea3a637fba9732a15a517c359651cfc9eaa56"/>
+                        <outlet property="dateCreated" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created" id="4aa5d58fdff13cadcdf8decfb26708d03e1f3b65495f1e1f7de9efcea82e117c"/>
+                        <outlet property="dateFormat" destination="Post-DateFormat" id="2bf14b14e043f0afe26d547ddbe5d6f7e64e1df25fcde10d654ac3bd3df5c421"/>
+                        <outlet property="delete" destination="Post-Delete" id="99538391e95fcdcf705a668f4efdf6989d6ec3370f9fc5372da3568e75b49490"/>
+                        <outlet property="menu" destination="Post-Post-navigationItem-Menu" id="8f04735f671d332bcf545cc5fea606f2fae76e3c664cf09d97575837bafaa444"/>
+                        <outlet property="report" destination="Post-Report" id="3872e32847f71c0f4ec36e05c69af0b8d8de222d07e0d484ad22f37804d0f86e"/>
+                        <outlet property="subscribe" destination="Post-Subscribe" id="459044615fd0c6ef2e04205aeec94c404cd393049b30924854db219329ff5da3"/>
+                        <outlet property="tableHeader" destination="Post-Post-view-PostTableHeaderView" id="ae62783ad10c717ce9fbce363f30e0e615e9b435789c0800c800e72b3c8b0b58"/>
+                        <outlet property="unsubscribe" destination="Post-Unsubscribe" id="5187bed6bb9b49ed01c65478e67872c7944f23b0a3c91c56e99fff23cd95e53b"/>
+                        <outlet property="username" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-button" id="417650c58d7e733a89c06e335876233dca4a7fcc9af23570e8ebf7bbcc7b5d8a"/>
+                        <outlet property="vm" destination="Post-PostViewModel" id="17682a10202c2e49f2e7bb9bff56a51be0f2971cea2391c52a1e166086a1ab01"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Post-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Post-PostViewModel" customClass="PostViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Post-Post" id="0d-04--O-00"/>
+                        <outlet property="delegate" destination="Post-Post" id="2aab9755982bb7c19c4641755cfc2a518f97faf0836b457d74e982140d18aba6"/>
                     </connections>
                 </customObject>
                 <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="Post-Share" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -484,7 +484,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onSharePressed" destination="Post-Post" id="0d-06--A-00-00"/>
+                        <action selector="onSharePressed" destination="Post-Post" id="21e13c22664ba6802e7e27cdc1392c6b99c627963afe8ce3c6fbaeb249df6647"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Subscribe" image="bell" catalog="system" id="Post-Subscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -495,7 +495,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onSubscribePressed" destination="Post-Post" id="0d-07--A-00-00"/>
+                        <action selector="onSubscribePressed" destination="Post-Post" id="a8686e9df805a99c0755253c214959e6b2eaf6ea7653733dda0e22364084a237"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Unsubscribe" image="bell.slash" catalog="system" id="Post-Unsubscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -505,7 +505,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onUnsubscribePressed" destination="Post-Post" id="0d-08--A-00-00"/>
+                        <action selector="onUnsubscribePressed" destination="Post-Post" id="a139b03be89fd181f00f364fd31104e59232714b9420f3c22b092f9d1994f4c1"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" id="Post-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -516,7 +516,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onReportPressed" destination="Post-Post" id="0d-05--A-00-00"/>
+                        <action selector="onReportPressed" destination="Post-Post" id="e0be2950be547d111485b50dc13416a0047c12e01b9ccae7742b3a8a6c1232aa"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Delete" image="trash" catalog="system" id="Post-Delete" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -528,7 +528,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onDeletePressed" destination="Post-Post" id="0d-01--A-00-00"/>
+                        <action selector="onDeletePressed" destination="Post-Post" id="8fb353045ff105f66908bcdabb4664a7f5e6401ac072058ccac37286440aca0b"/>
                     </connections>
                 </barButtonItem>
                 <customObject id="Post-DateFormat" customClass="DateFormat" customModule="Fyreplace" customModuleProvider="target">
@@ -540,7 +540,7 @@
             <point key="canvasLocation" x="0.0" y="1500"/>
         </scene>
         <!--User Navigation-->
-        <scene sceneID="11">
+        <scene sceneID="f3361773c90ccb34ad426081bb65e5313ecb4f843d90498c67a13329db237be1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="User-Navigation-User-Navigation" userLabel="User Navigation" customClass="UserNavigationViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
@@ -550,7 +550,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="User-User" kind="relationship" relationship="rootViewController" id="11-01--S-00"/>
+                        <segue destination="User-User" kind="relationship" relationship="rootViewController" id="7351074baf21d992965e88e4d1da58362a0cdf9b307194b8a914e9feb35a566f"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="User-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -558,7 +558,7 @@
             <point key="canvasLocation" x="0.0" y="2250"/>
         </scene>
         <!--User-->
-        <scene sceneID="10">
+        <scene sceneID="b512d97e7cbf97c273e4db073bbb547aa65a84589227f8f3d9e4a72b9372a24d">
             <objects>
                 <viewController id="User-User" userLabel="User" customClass="UserViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="User-User-view">
@@ -663,34 +663,34 @@
                     <navigationItem key="navigationItem" title="Username" id="User-User-Username">
                         <barButtonItem key="leftBarButtonItem" title="OK" style="done" id="User-User-Username-OK">
                             <connections>
-                                <action selector="onOkPressed" destination="User-User" id="11-04-01-01--A-00-00"/>
+                                <action selector="onOkPressed" destination="User-User" id="a392d3c3b12c964fbdc591c7d60dcda5afb085486bd03b22986abf07def459d8"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" id="User-User-Username-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                             <connections>
-                                <outlet property="controller" destination="User-User" id="11-04-01-00--O-01"/>
-                                <outletCollection property="actions" destination="User-Block" collectionClass="NSMutableArray" id="11-04-01-00--O-00-00"/>
-                                <outletCollection property="actions" destination="User-Unblock" collectionClass="NSMutableArray" id="11-04-01-00--O-00-02"/>
-                                <outletCollection property="actions" destination="User-Report" collectionClass="NSMutableArray" id="11-04-01-00--O-00-01"/>
+                                <outlet property="controller" destination="User-User" id="4004daed1c69fa1a05e4535f4e25bb1552f0790a3dae0cda85d6f6a39ac46d39"/>
+                                <outletCollection property="actions" destination="User-Block" collectionClass="NSMutableArray" id="4829a7b1d693b71f66228175e7ec34907a97b9638f3687c339f2f176760f592b"/>
+                                <outletCollection property="actions" destination="User-Unblock" collectionClass="NSMutableArray" id="09c41b02ff4b5cfcdeb6d61a5b899ed934a42c4d4536efea1d9f031d1503e587"/>
+                                <outletCollection property="actions" destination="User-Report" collectionClass="NSMutableArray" id="f15aa54ae60fef78970a0282a8eb4b1696c8c80f2afad4a2e60e7a770eb27452"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="avatar" destination="User-User-view-scrollView-view-person-crop-circle-fill" id="11-04--O-00"/>
-                        <outlet property="bio" destination="User-User-view-scrollView-view-textView" id="11-04--O-01"/>
-                        <outlet property="block" destination="User-Block" id="11-04--O-02"/>
-                        <outlet property="dateFormat" destination="User-DateFormat" id="11-04--O-03"/>
-                        <outlet property="dateJoined" destination="User-User-view-scrollView-view-Date-Joined" id="11-04--O-04"/>
-                        <outlet property="menu" destination="User-User-Username-Menu" id="11-04--O-05"/>
-                        <outlet property="report" destination="User-Report" id="11-04--O-06"/>
-                        <outlet property="unblock" destination="User-Unblock" id="11-04--O-07"/>
-                        <outlet property="vm" destination="User-UserViewModel" id="11-04--O-08"/>
+                        <outlet property="avatar" destination="User-User-view-scrollView-view-person-crop-circle-fill" id="fa591b76be8869477b2ccba4e200495675e51480aa6dd08bcbc3c7d1260cd8aa"/>
+                        <outlet property="bio" destination="User-User-view-scrollView-view-textView" id="3b200d2c4fbdfb362434e4941aeb861ade6cbaf3c4da3ef480233097b57ec24a"/>
+                        <outlet property="block" destination="User-Block" id="b1ac70fe243cf0ac4b1e5652d585c25eb295ac0b4eef21cb0b91c2716ca97b65"/>
+                        <outlet property="dateFormat" destination="User-DateFormat" id="88a52de3c891cb6af0da15100a069e79ccbed8ae83573b90a57558862c023d65"/>
+                        <outlet property="dateJoined" destination="User-User-view-scrollView-view-Date-Joined" id="8e6be0e4a975739ddc695b36df5b673331db9251ded6945a511baeaf2f991d63"/>
+                        <outlet property="menu" destination="User-User-Username-Menu" id="742a79392cba1b2e00df266a01d3b551263a422168a9fca597d756d9c883b017"/>
+                        <outlet property="report" destination="User-Report" id="966775def2b09669bb2b9b42e2512261800ba1f59c6702dac8ccf50c053e3c8c"/>
+                        <outlet property="unblock" destination="User-Unblock" id="4dbd75bbd7b37dfcce0124257b5cb205074dd6b117a7aa3693026ef446b97333"/>
+                        <outlet property="vm" destination="User-UserViewModel" id="6f05146a8420316b66f6b1c7cb250de031e771f82871038fce9de4348849b634"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="User-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="User-UserViewModel" customClass="UserViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="User-User" id="11-05--O-00"/>
+                        <outlet property="delegate" destination="User-User" id="79f63ffa3854c2aba7b072e265750dc7300e720476c20244cc98e4b41700f724"/>
                     </connections>
                 </customObject>
                 <barButtonItem title="Block" image="hand.raised" catalog="system" id="User-Block" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -700,7 +700,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onBlockPressed" destination="User-User" id="10-00--A-00-00"/>
+                        <action selector="onBlockPressed" destination="User-User" id="785fc5079b0f66d605525fe978ad5fb97b1622f8b529c51f02670d56027e7a7f"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Unblock" image="hand.raised.slash" catalog="system" id="User-Unblock" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -711,7 +711,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onUnblockPressed" destination="User-User" id="11-03--A-00-00"/>
+                        <action selector="onUnblockPressed" destination="User-User" id="47329bd0251099c0cb94cc7aa0f64ceabef46bf1b2e29389d63fad6260fc4edd"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" id="User-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -722,7 +722,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onReportPressed" destination="User-User" id="11-02--A-00-00"/>
+                        <action selector="onReportPressed" destination="User-User" id="05d729c6baf43b5cf2e41e506d244c85fc0bef7929506dcdeb0de8c803954771"/>
                     </connections>
                 </barButtonItem>
                 <customObject id="User-DateFormat" customClass="DateFormat" customModule="Fyreplace" customModuleProvider="target"/>
@@ -730,7 +730,7 @@
             <point key="canvasLocation" x="0.0" y="3000"/>
         </scene>
         <!--Drafts Navigation-->
-        <scene sceneID="06">
+        <scene sceneID="7c32e21b1d2962dd71fb51dd8c7bf1fcfd70e05cf376235174301e21e06c46ad">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Drafts-Navigation-Drafts-Navigation" userLabel="Drafts Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Drafts" image="doc.text.fill" catalog="system" id="Drafts-Navigation-Drafts-Navigation-Drafts"/>
@@ -741,7 +741,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Drafts-Drafts" kind="relationship" relationship="rootViewController" id="06-00--S-00"/>
+                        <segue destination="Drafts-Drafts" kind="relationship" relationship="rootViewController" id="c89ea1db724ad813c2af77d6065262da814237779f15794fa619e5c3a3e3573d"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Drafts-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -749,7 +749,7 @@
             <point key="canvasLocation" x="750" y="0.0"/>
         </scene>
         <!--Drafts-->
-        <scene sceneID="05">
+        <scene sceneID="f592e6a4db3c6638e1c6ce47797d4919cfb9ede30ae233939e44de189f6a5347">
             <objects>
                 <viewController id="Drafts-Drafts" userLabel="Drafts" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Drafts-Drafts-view">
@@ -765,7 +765,7 @@
             <point key="canvasLocation" x="750" y="750"/>
         </scene>
         <!--Settings Navigation-->
-        <scene sceneID="0f">
+        <scene sceneID="0311e2bd1092bc983c4544dc3e5c5e7696b3d230c7898b287762ce8aeda06659">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Settings-Navigation-Settings-Navigation" userLabel="Settings Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="person.crop.circle.fill" catalog="system" id="Settings-Navigation-Settings-Navigation-Settings"/>
@@ -776,7 +776,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Settings-Settings" kind="relationship" relationship="rootViewController" id="0f-01--S-00"/>
+                        <segue destination="Settings-Settings" kind="relationship" relationship="rootViewController" id="3140d8f92471c88a2bc30191c2db14c605cee8e4f79450253ec3d2b80f02f8b5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Settings-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -784,7 +784,7 @@
             <point key="canvasLocation" x="1500" y="0.0"/>
         </scene>
         <!--Settings-->
-        <scene sceneID="0e">
+        <scene sceneID="74a883a037bc227f91891ab654a753d3a99f31ab06ae5b5d2b6e594a692b41f8">
             <objects>
                 <tableViewController id="Settings-Settings" userLabel="Settings" customClass="SettingsViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Settings-Settings-view">
@@ -803,7 +803,7 @@
                                         <constraint firstAttribute="width" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="height" multiplier="1:1" id="0f-02-02-03-01--C-00-00-00"/>
                                     </constraints>
                                     <connections>
-                                        <outletCollection property="gestureRecognizers" destination="Settings-Avatar-Taps" appends="YES" id="0f-02-02-03-01--O-00-01"/>
+                                        <outletCollection property="gestureRecognizers" destination="Settings-Avatar-Taps" appends="YES" id="8c8793ef1982f22a0549e7a4fd56a7f4853ea661942ba66e3a6a1f90ac475438"/>
                                     </connections>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Guest" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Username" userLabel="Username">
@@ -921,7 +921,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Bio-Navigation-Bio-Navigation" kind="popoverPresentation" popoverAnchorView="Settings-Settings-view-Profile-tableViewCell-03" id="0f-02-02-02-03--S-00">
+                                            <segue destination="Bio-Navigation-Bio-Navigation" kind="popoverPresentation" popoverAnchorView="Settings-Settings-view-Profile-tableViewCell-03" id="1cdd8ddcc3dfc96b52523669fc05bd712123fe8857e5ccf1cdf1dfda5c1cbf6e">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -943,7 +943,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Blocked-Users-Blocked-Users" kind="show" id="0f-02-02-02-04--S-00"/>
+                                            <segue destination="Blocked-Users-Blocked-Users" kind="show" id="ed1fb12503d43cbc427221bbf7fa693e4a994111efdc7cf7155a6419f183cbed"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1009,7 +1009,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Login-Login" kind="show" identifier="Register" id="0f-02-02-05-00--S-00"/>
+                                            <segue destination="Login-Login" kind="show" identifier="Register" id="d1c67046e4d4b6693c3bec8a576f96399d34deeaf55d152aec582f47010fa059"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView-Login" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01">
@@ -1029,49 +1029,49 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Login-Login" kind="show" identifier="Login" id="0f-02-02-05-01--S-00"/>
+                                            <segue destination="Login-Login" kind="show" identifier="Login" id="75fc7b2aec57cd6da8a9c1c1270fc91642607cac697471312f71f9c481ef23fd"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="Settings-Settings" id="0f-02-02--O-00"/>
-                            <outlet property="delegate" destination="Settings-Settings" id="0f-02-02--O-01"/>
+                            <outlet property="dataSource" destination="Settings-Settings" id="87544bb04f3c35e6e96d63a9dd627bf134e8b41355f8052c85cc649014e616ba"/>
+                            <outlet property="delegate" destination="Settings-Settings" id="9901b2b8a66dc4ed7005881b1b169ed29b82428b3f4211fca1d2b257b7912e3f"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="Settings-Settings-Settings"/>
                     <connections>
-                        <outlet property="avatar" destination="Settings-Settings-view-tableHeaderView-Avatar" id="0f-02--O-00"/>
-                        <outlet property="bio" destination="Settings-Settings-view-Profile-tableViewCell-03-contentView-label" id="0f-02--O-01"/>
-                        <outlet property="dateJoined" destination="Settings-Settings-view-Profile-tableViewCell-00-contentView-label" id="0f-02--O-02"/>
-                        <outlet property="email" destination="Settings-Settings-view-Profile-tableViewCell-02-contentView-label" id="0f-02--O-03"/>
-                        <outlet property="imageSelector" destination="Settings-ImageSelector" id="0f-02--O-04"/>
-                        <outlet property="username" destination="Settings-Settings-view-tableHeaderView-Username" id="0f-02--O-05"/>
-                        <outlet property="vm" destination="Settings-SettingsViewModel" id="0f-02--O-06"/>
+                        <outlet property="avatar" destination="Settings-Settings-view-tableHeaderView-Avatar" id="f4c1e75a616d6fb902c70b9b079f180dff7a8d097ec97b4ac91f36084b4a66cd"/>
+                        <outlet property="bio" destination="Settings-Settings-view-Profile-tableViewCell-03-contentView-label" id="bf2dea9f11e72d364904a96a4fede2132f19fbe59782ec10e32d4358987da6cc"/>
+                        <outlet property="dateJoined" destination="Settings-Settings-view-Profile-tableViewCell-00-contentView-label" id="8c2428ccee5b1c72a4936ca1f344eedae9011b8eb481e74c872cda13694622e8"/>
+                        <outlet property="email" destination="Settings-Settings-view-Profile-tableViewCell-02-contentView-label" id="cb2e4def680a59ac26930e992f56129ddd954ba80f7923f8015209bf61c159ad"/>
+                        <outlet property="imageSelector" destination="Settings-ImageSelector" id="d33d43e1f34af634a722919e720445ffb6966c046e613982b5c226df01ab6193"/>
+                        <outlet property="username" destination="Settings-Settings-view-tableHeaderView-Username" id="688f6560f4cac55a7bc1b1f9023a898ff62018b3c6ebf48d9ecfcd36d0cfc435"/>
+                        <outlet property="vm" destination="Settings-SettingsViewModel" id="eceff22410429e85bee4099e22ece4d90e1f22a6be12a358da630aa18de801cf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Settings-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Settings-SettingsViewModel" customClass="SettingsViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Settings-Settings" id="0f-03--O-00"/>
+                        <outlet property="delegate" destination="Settings-Settings" id="8ebb2dba08671028b9c3c39237ee958e4569633c733df9a349ac1fbb863c9c53"/>
                     </connections>
                 </customObject>
                 <customObject id="Settings-ImageSelector" customClass="ImageSelector" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Settings-Settings" id="0e-02--O-00"/>
+                        <outlet property="delegate" destination="Settings-Settings" id="0cf3481d705b1729af3c2ccdb439fd9325685fce354cf5613eecf88b5f30ba69"/>
                     </connections>
                 </customObject>
                 <tapGestureRecognizer id="Settings-Avatar-Taps" userLabel="Avatar Taps">
                     <connections>
-                        <action selector="onAvatarPressed" destination="Settings-Settings" id="0e-00--A-00-00"/>
+                        <action selector="onAvatarPressed" destination="Settings-Settings" id="3b763b33fa8c967f9383ede20291f19d0b5b12d3dd2c8eca887c887641400158"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1500" y="750"/>
         </scene>
         <!--Login-->
-        <scene sceneID="09">
+        <scene sceneID="9d6322c1f4d9d3f38aed8bfbe0b2bcadf66ad82c008476fa62541fa069138e94">
             <objects>
                 <viewController id="Login-Login" userLabel="Login" customClass="LoginViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Login-Login-view">
@@ -1096,7 +1096,7 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                 <connections>
-                                                    <action selector="onEmailDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="09-01-02-02-03-02--A-00-00-00"/>
+                                                    <action selector="onEmailDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="3a9d4d9366d0206a6ac8601bced845663aae01f001f987d6bdcbc9636f76b812"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Username">
@@ -1109,7 +1109,7 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                                 <connections>
-                                                    <action selector="onUsernameDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="09-01-02-02-03-05--A-00-00-00"/>
+                                                    <action selector="onUsernameDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="e5709d4d5f636b475bd9b3a702f8b7b98d77662448ab19535be2d8a7b8206a4a"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Password">
@@ -1117,7 +1117,7 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
-                                                    <action selector="onPasswordDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="09-01-02-02-03-04--A-00-00-00"/>
+                                                    <action selector="onPasswordDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="674abbd0ee8f5c317702089668971720e47df6e3d47a19fc5034b63107d98bb0"/>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Button" customClass="LargeFilledButton" customModule="Fyreplace" customModuleProvider="target">
@@ -1125,7 +1125,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                                 <connections>
-                                                    <action selector="onLoginPressed" destination="Login-Login" eventType="primaryActionTriggered" id="09-01-02-02-03-01--A-00-00-00"/>
+                                                    <action selector="onLoginPressed" destination="Login-Login" eventType="primaryActionTriggered" id="3f9a92f823bf92700435dd92c7d8ec4900ee20f4642aa7794ebc1c810f248daf"/>
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-activityIndicatorView">
@@ -1161,25 +1161,25 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" largeTitleDisplayMode="never" id="Login-Login-Login"/>
                     <connections>
-                        <outlet property="button" destination="Login-Login-view-scrollView-stackView-Button" id="09-01--O-00"/>
-                        <outlet property="email" destination="Login-Login-view-scrollView-stackView-Email" id="09-01--O-01"/>
-                        <outlet property="loader" destination="Login-Login-view-scrollView-stackView-activityIndicatorView" id="09-01--O-02"/>
-                        <outlet property="password" destination="Login-Login-view-scrollView-stackView-Password" id="09-01--O-03"/>
-                        <outlet property="username" destination="Login-Login-view-scrollView-stackView-Username" id="09-01--O-04"/>
-                        <outlet property="vm" destination="Login-LoginViewModel" id="09-01--O-05"/>
+                        <outlet property="button" destination="Login-Login-view-scrollView-stackView-Button" id="e379b08d0d5874fbd031dc74239b4ec2ef6fbe708fabad107ad4d8bffbe1863e"/>
+                        <outlet property="email" destination="Login-Login-view-scrollView-stackView-Email" id="d9ebeab3af2ce5b3fa5b80c6f47b8bbe854fadf5c3ae38b8284b057497e11c1c"/>
+                        <outlet property="loader" destination="Login-Login-view-scrollView-stackView-activityIndicatorView" id="9f59c7dbedaeced85135c8b36c94d3268dd6c362b7256bf446fa67836afd1a78"/>
+                        <outlet property="password" destination="Login-Login-view-scrollView-stackView-Password" id="8be31248faca70f4cfec9dc68163e7a69f8d5a84b2724225d428baa44508bcd9"/>
+                        <outlet property="username" destination="Login-Login-view-scrollView-stackView-Username" id="e8460bffe0a5872f8c9ab2aad867c80c92bb4a4cd937bd508170f01324323d1e"/>
+                        <outlet property="vm" destination="Login-LoginViewModel" id="34dce91158a933b81f3d9f65166af5f54bd07fdc3adf9d8a822c79ec3b07eb98"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Login-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Login-LoginViewModel" customClass="LoginViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Login-Login" id="09-02--O-00"/>
+                        <outlet property="delegate" destination="Login-Login" id="aaf5fccb4db1c357f3344e8fa331e66204b2995131692f3a1fda12c536617bb4"/>
                     </connections>
                 </customObject>
             </objects>
             <point key="canvasLocation" x="2250" y="750"/>
         </scene>
         <!--Bio Navigation-->
-        <scene sceneID="03">
+        <scene sceneID="09d632f699c73f9a3943d88591ecb425bd24e1e02c7d48fc553934b961db19b4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bio-Navigation-Bio-Navigation" userLabel="Bio Navigation" sceneMemberID="viewController">
                     <toolbarItems/>
@@ -1189,7 +1189,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Bio-Bio" kind="relationship" relationship="rootViewController" id="03-00--S-00"/>
+                        <segue destination="Bio-Bio" kind="relationship" relationship="rootViewController" id="964382145d44d4f9d6c8807da33de849906ee33784cd4f7280c5120a90942b71"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bio-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1197,7 +1197,7 @@
             <point key="canvasLocation" x="1500" y="1500"/>
         </scene>
         <!--Bio-->
-        <scene sceneID="02">
+        <scene sceneID="3933b1802161254f41c59f2909f61ac994c086e1cde03848c4c310f45b5b4999">
             <objects>
                 <viewController id="Bio-Bio" userLabel="Bio" customClass="BioViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bio-Bio-view">
@@ -1224,7 +1224,7 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Bio-Bio-navigationItem-cancel">
                             <connections>
-                                <action selector="onCancelPressed" destination="Bio-Bio" id="02-00-01-01--A-00-00"/>
+                                <action selector="onCancelPressed" destination="Bio-Bio" id="694e72263e1b375fb1354be6aefa7750bee0f9c8789acb276b325240696adad5"/>
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="Bio-Bio-navigationItem-titleView">
@@ -1247,7 +1247,7 @@
                         <rightBarButtonItems>
                             <barButtonItem style="done" systemItem="done" id="Bio-Bio-navigationItem-done">
                                 <connections>
-                                    <action selector="onDonePressed" destination="Bio-Bio" id="02-00-01-02--A-00-00"/>
+                                    <action selector="onDonePressed" destination="Bio-Bio" id="488ef09d7e95603138f71b31757524de3c2b65e343065396ef00e3541dfe360c"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem id="Bio-Bio-navigationItem-barButtonItem">
@@ -1270,24 +1270,24 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="bio" destination="Bio-Bio-view-textView" id="02-00--O-00"/>
-                        <outlet property="done" destination="Bio-Bio-navigationItem-done" id="02-00--O-01"/>
-                        <outlet property="length" destination="Bio-Bio-navigationItem-titleView-Length" id="02-00--O-02"/>
-                        <outlet property="loader" destination="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" id="02-00--O-03"/>
-                        <outlet property="vm" destination="Bio-BioViewModel" id="02-00--O-04"/>
+                        <outlet property="bio" destination="Bio-Bio-view-textView" id="462fd659a940e71e24f08282012f532542382f2453a8c9676e96ea273b138de5"/>
+                        <outlet property="done" destination="Bio-Bio-navigationItem-done" id="218da9851d06f4f58a44e643bc8c2b2c29b72ba5b4f1f550c4875d8cbdcc04d1"/>
+                        <outlet property="length" destination="Bio-Bio-navigationItem-titleView-Length" id="f1aa56e9bfb31fd5c02e5fbb129796f20e10835eeabd00bd6e7789840f65e700"/>
+                        <outlet property="loader" destination="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" id="15e764218421572460541d5eb85c5181db6d0220c1f4b08bcd35312823d4308e"/>
+                        <outlet property="vm" destination="Bio-BioViewModel" id="35b591f2f93c0e2606132d1255b7238939fc8a9ea9937b9048d667836e3ef1db"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bio-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Bio-BioViewModel" customClass="BioViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Bio-Bio" id="02-01--O-00"/>
+                        <outlet property="delegate" destination="Bio-Bio" id="014ec4196ff82f598c865ae4f0e4a08ca7412acd13dac87f8b61706dca5e7199"/>
                     </connections>
                 </customObject>
             </objects>
             <point key="canvasLocation" x="1500" y="2250"/>
         </scene>
         <!--Blocked Users-->
-        <scene sceneID="04">
+        <scene sceneID="155c5a07a41f0fc1d4fb88317593e834c4483fb7540b552f0518355cf6fec535">
             <objects>
                 <tableViewController id="Blocked-Users-Blocked-Users" userLabel="Blocked Users" customClass="BlockedUsersViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Blocked-Users-Blocked-Users-view">
@@ -1305,8 +1305,8 @@
                                             <rect key="frame" x="20" y="8.9999999999999964" width="40" height="39"/>
                                             <color key="tintColor" systemColor="labelColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="98ad754d09dc91e5747b0f31dee16e80f873c075d0b74f0109f239cd17586094"/>
-                                                <constraint firstAttribute="width" constant="40" id="b78f8d4cfd9aff91ce27eeec9f2f911c35d4d18f18701926086a72912ac3d812"/>
+                                                <constraint firstAttribute="width" constant="40" id="04-00-03-01-01-02--C-00"/>
+                                                <constraint firstAttribute="width" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="04-00-03-01-01-02--C-00-00-00"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Blocked-Users-Blocked-Users-view-Default-contentView-label">
@@ -1317,12 +1317,12 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="8" id="20e79f6c89a135cae84d146133d9097c803e801e71b7d357a86f5f8f339b64fb"/>
-                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" firstAttribute="leading" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="2568fa7b8a947c2c06af85e77416b1653e4f2f4da18f9467974cf95de0b8ca4e"/>
-                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" firstAttribute="centerY" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="centerY" id="49407643f216012c98b3d3f21e06c3ac69f92f60db83a726cb3ce25ab0ec6cc4"/>
-                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="top" constant="8" id="a21acc4ddbdf04191915fe34cd10e914dcebb98f664d7c715115ca2515231a43"/>
-                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" firstAttribute="leading" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="trailing" constant="8" symbolic="YES" id="b7bb2a214cb254df8b678853cc0f189f31f6a29b9035ed4b2b3073d0501e4bf3"/>
-                                        <constraint firstAttribute="trailing" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" secondAttribute="trailing" constant="20" symbolic="YES" id="f2d3d6c4a068d0b9a21d0eb07b6ef150541a74a5995d8c160159d8154f6fa898"/>
+                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" firstAttribute="centerY" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="centerY" id="04-00-03-01-01--C-00-00-00-00"/>
+                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" firstAttribute="leading" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-03-01-01--C-00-00-00-01"/>
+                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" firstAttribute="leading" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="04-00-03-01-01--C-00-00-00-02"/>
+                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="top" constant="8" id="04-00-03-01-01--C-00-00-00-03"/>
+                                        <constraint firstAttribute="bottom" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="8" id="04-00-03-01-01--C-00-00-01"/>
+                                        <constraint firstAttribute="trailing" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" secondAttribute="trailing" constant="20" symbolic="YES" id="04-00-03-01-01--C-00-00-02"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1332,8 +1332,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Blocked-Users-Blocked-Users" id="04-00-02--O-00"/>
-                            <outlet property="delegate" destination="Blocked-Users-Blocked-Users" id="04-00-02--O-01"/>
+                            <outlet property="dataSource" destination="Blocked-Users-Blocked-Users" id="7f0744a55c6e174989becd5e0670347ae7e00c243578ec7a156a2b21ab702f0a"/>
+                            <outlet property="delegate" destination="Blocked-Users-Blocked-Users" id="70445c478b7a15cd9a4a7c5e95f407a6122765eee86f22abbfb792749e0eb107"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Blocked users" id="Blocked-Users-Blocked-Users-Blocked-users"/>
@@ -1342,9 +1342,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
-                        <outlet property="emptyPlaceholder" destination="Blocked-Users-No-blocked-users" id="04-00--O-00"/>
-                        <outlet property="listDelegate" destination="Blocked-Users-BlockedUsersViewModel" id="04-00--O-01"/>
-                        <outlet property="vm" destination="Blocked-Users-BlockedUsersViewModel" id="04-00--O-02"/>
+                        <outlet property="emptyPlaceholder" destination="Blocked-Users-No-blocked-users" id="89dcbcb58a1276775df203f100ddde97bebf907d26880b95c304abc2268a7f21"/>
+                        <outlet property="listDelegate" destination="Blocked-Users-BlockedUsersViewModel" id="03034cc75e3245aa2ded5c24ff57e9a4e14dbfb3803565348c968f7519aee7e9"/>
+                        <outlet property="vm" destination="Blocked-Users-BlockedUsersViewModel" id="d1f3722d3fcab0eea1b091a4f184a7334beb42eb861ff0a52a830b952d06f953"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Blocked-Users-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1357,7 +1357,7 @@
                 </label>
                 <customObject id="Blocked-Users-BlockedUsersViewModel" customClass="BlockedUsersViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Blocked-Users-Blocked-Users" id="04-01--O-00"/>
+                        <outlet property="delegate" destination="Blocked-Users-Blocked-Users" id="b3fc2a155d879fbd6773d75c1116c80065b88da2b736e634f7038c4be385f6fc"/>
                     </connections>
                 </customObject>
             </objects>
@@ -1388,9 +1388,9 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="0f-02-02-05-00--S-00"/>
-        <segue reference="0d-03-01-01-00-01-02-00--S-00"/>
-        <segue reference="00-00-03-02--S-05"/>
+        <segue reference="d1c67046e4d4b6693c3bec8a576f96399d34deeaf55d152aec582f47010fa059"/>
+        <segue reference="a874b6660a756db33daace55335d460366cfd25570ddf4d6deefd6e69b652c3e"/>
+        <segue reference="16afa6a7a29e215df0c8aa8386d9ea45279cec0373caffe5224c32d0994442dc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>
