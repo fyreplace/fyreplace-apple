@@ -11,7 +11,7 @@
     </dependencies>
     <scenes>
         <!--Main View Controller-->
-        <scene sceneID="09">
+        <scene sceneID="0a">
             <objects>
                 <tabBarController id="Main-View-Controller-MainViewController" customClass="MainViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Main-View-Controller-MainViewController-tabBar">
@@ -20,25 +20,25 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <outlet property="vm" destination="Main-View-Controller-MainViewModel" id="09-01--O-00"/>
-                        <segue destination="Feed-Navigation-Feed-Navigation" kind="relationship" relationship="viewControllers" id="09-01--S-03"/>
-                        <segue destination="Notifications-Navigation-Notifications-Navigation" kind="relationship" relationship="viewControllers" id="09-01--S-04"/>
-                        <segue destination="Archive-Navigation-Archive-Navigation" kind="relationship" relationship="viewControllers" id="09-01--S-01"/>
-                        <segue destination="Drafts-Navigation-Drafts-Navigation" kind="relationship" relationship="viewControllers" id="09-01--S-02"/>
-                        <segue destination="Settings-Navigation-Settings-Navigation" kind="relationship" relationship="viewControllers" id="09-01--S-05"/>
+                        <outlet property="vm" destination="Main-View-Controller-MainViewModel" id="0a-01--O-00"/>
+                        <segue destination="Feed-Navigation-Feed-Navigation" kind="relationship" relationship="viewControllers" id="0a-01--S-03"/>
+                        <segue destination="Notifications-Navigation-Notifications-Navigation" kind="relationship" relationship="viewControllers" id="0a-01--S-04"/>
+                        <segue destination="Archive-Navigation-Archive-Navigation" kind="relationship" relationship="viewControllers" id="0a-01--S-01"/>
+                        <segue destination="Drafts-Navigation-Drafts-Navigation" kind="relationship" relationship="viewControllers" id="0a-01--S-02"/>
+                        <segue destination="Settings-Navigation-Settings-Navigation" kind="relationship" relationship="viewControllers" id="0a-01--S-05"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Main-View-Controller-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Main-View-Controller-MainViewModel" customClass="MainViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Main-View-Controller-MainViewController" id="09-02--O-00"/>
+                        <outlet property="delegate" destination="Main-View-Controller-MainViewController" id="0a-02--O-00"/>
                     </connections>
                 </customObject>
             </objects>
             <point key="canvasLocation" x="0.0" y="-750"/>
         </scene>
         <!--Feed Navigation-->
-        <scene sceneID="07">
+        <scene sceneID="08">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Feed-Navigation-Feed-Navigation" userLabel="Feed Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="square.grid.2x2.fill" catalog="system" id="Feed-Navigation-Feed-Navigation-Feed"/>
@@ -49,7 +49,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Feed-Feed" kind="relationship" relationship="rootViewController" id="07-00--S-00"/>
+                        <segue destination="Feed-Feed" kind="relationship" relationship="rootViewController" id="08-00--S-00"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Feed-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -57,7 +57,7 @@
             <point key="canvasLocation" x="-1500" y="0.0"/>
         </scene>
         <!--Feed-->
-        <scene sceneID="06">
+        <scene sceneID="07">
             <objects>
                 <viewController id="Feed-Feed" userLabel="Feed" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Feed-Feed-view">
@@ -73,7 +73,7 @@
             <point key="canvasLocation" x="-1500" y="750"/>
         </scene>
         <!--Notifications Navigation-->
-        <scene sceneID="0b">
+        <scene sceneID="0c">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Notifications-Navigation-Notifications-Navigation" userLabel="Notifications Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Notifications" image="bell.fill" catalog="system" id="Notifications-Navigation-Notifications-Navigation-Notifications"/>
@@ -84,7 +84,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Notifications-Notifications" kind="relationship" relationship="rootViewController" id="0b-01--S-00"/>
+                        <segue destination="Notifications-Notifications" kind="relationship" relationship="rootViewController" id="0c-01--S-00"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Notifications-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -92,7 +92,7 @@
             <point key="canvasLocation" x="-750" y="0.0"/>
         </scene>
         <!--Notifications-->
-        <scene sceneID="0a">
+        <scene sceneID="0b">
             <objects>
                 <viewController id="Notifications-Notifications" userLabel="Notifications" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Notifications-Notifications-view">
@@ -293,7 +293,7 @@
             <point key="canvasLocation" x="0.0" y="750"/>
         </scene>
         <!--Post-->
-        <scene sceneID="0c">
+        <scene sceneID="0d">
             <objects>
                 <tableViewController id="Post-Post" userLabel="Post" customClass="PostViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Post-Post-view">
@@ -312,19 +312,19 @@
                                         </activityIndicatorView>
                                     </subviews>
                                     <connections>
-                                        <outlet property="delegate" destination="Post-Post" id="0c-03-02-02-01--O-00"/>
+                                        <outlet property="delegate" destination="Post-Post" id="0d-03-02-02-01--O-00"/>
                                     </connections>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="bottom" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="bottom" constant="-20" id="0c-03-02-02--C-00-00-00-00"/>
-                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="leading" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="leading" id="0c-03-02-02--C-00-00-00-01"/>
-                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="trailing" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="trailing" id="0c-03-02-02--C-00-00-00-02"/>
+                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="bottom" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="bottom" constant="-20" id="0d-03-02-02--C-00-00-00-00"/>
+                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="leading" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="leading" id="0d-03-02-02--C-00-00-00-01"/>
+                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="trailing" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="trailing" id="0d-03-02-02--C-00-00-00-02"/>
                             </constraints>
                             <connections>
-                                <outlet property="bottom" destination="0c-03-02-02--C-00-00-00-00" id="0c-03-02-02--O-01"/>
-                                <outlet property="content" destination="Post-Post-view-PostTableHeaderView-DynamicStackView" id="0c-03-02-02--O-02"/>
+                                <outlet property="bottom" destination="0d-03-02-02--C-00-00-00-00" id="0d-03-02-02--O-01"/>
+                                <outlet property="content" destination="Post-Post-view-PostTableHeaderView-DynamicStackView" id="0d-03-02-02--O-02"/>
                             </connections>
                         </view>
                         <prototypes>
@@ -343,23 +343,23 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="bottom" secondItem="Post-Post-view-Comment-contentView" secondAttribute="bottomMargin" id="0c-03-02-01-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView" secondAttribute="leadingMargin" id="0c-03-02-01-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView" secondAttribute="topMargin" id="0c-03-02-01-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView" secondAttribute="trailingMargin" id="0c-03-02-01-00--C-00-00-00-03"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="bottom" secondItem="Post-Post-view-Comment-contentView" secondAttribute="bottomMargin" id="0d-03-02-01-00--C-00-00-00-00"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView" secondAttribute="leadingMargin" id="0d-03-02-01-00--C-00-00-00-01"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView" secondAttribute="topMargin" id="0d-03-02-01-00--C-00-00-00-02"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView" secondAttribute="trailingMargin" id="0d-03-02-01-00--C-00-00-00-03"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Post-Post" id="0c-03-02--O-00"/>
-                            <outlet property="delegate" destination="Post-Post" id="0c-03-02--O-01"/>
+                            <outlet property="dataSource" destination="Post-Post" id="0d-03-02--O-00"/>
+                            <outlet property="delegate" destination="Post-Post" id="0d-03-02--O-01"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="Post-Post-navigationItem">
                         <barButtonItem key="leftBarButtonItem" id="Post-Post-navigationItem-leftBarButtonItem">
                             <view key="customView" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView">
-                                <rect key="frame" x="50" y="6" width="220" height="32"/>
+                                <rect key="frame" x="0.0" y="0.0" width="220" height="32"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView">
                                         <rect key="frame" x="0.0" y="-4" width="220" height="40"/>
@@ -367,10 +367,10 @@
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" customClass="RoundButton" customModule="Fyreplace" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="0c-03-01-01-00-01-01--C-00">
+                                                    <constraint firstAttribute="width" constant="40" id="0d-03-01-01-00-01-01--C-00">
                                                         <variation key="heightClass=compact" constant="30"/>
                                                     </constraint>
-                                                    <constraint firstAttribute="width" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" secondAttribute="height" multiplier="1:1" id="0c-03-01-01-00-01-01--C-00-00-00"/>
+                                                    <constraint firstAttribute="width" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" secondAttribute="height" multiplier="1:1" id="0d-03-01-01-00-01-01--C-00-00-00"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
@@ -381,7 +381,7 @@
                                                     </preferredSymbolConfiguration>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0c-03-01-01-00-01-01--S-01">
+                                                    <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0d-03-01-01-00-01-01--S-01">
                                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                     </segue>
                                                 </connections>
@@ -398,7 +398,7 @@
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0c-03-01-01-00-01-02-01--S-00">
+                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0d-03-01-01-00-01-02-01--S-00">
                                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                             </segue>
                                                         </connections>
@@ -412,7 +412,7 @@
                                                             <color key="titleColor" systemColor="secondaryLabelColor"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0c-03-01-01-00-01-02-00--S-00">
+                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0d-03-01-01-00-01-02-00--S-00">
                                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                             </segue>
                                                         </connections>
@@ -421,60 +421,60 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" secondAttribute="height" id="0c-03-01-01-00-01--C-00-00-00-00"/>
-                                            <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" secondAttribute="height" id="0c-03-01-01-00-01--C-00-00-00-01"/>
-                                            <constraint firstAttribute="width" constant="220" id="0c-03-01-01-00-01--C-01"/>
+                                            <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" secondAttribute="height" id="0d-03-01-01-00-01--C-00-00-00-00"/>
+                                            <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" secondAttribute="height" id="0d-03-01-01-00-01--C-00-00-00-01"/>
+                                            <constraint firstAttribute="width" constant="220" id="0d-03-01-01-00-01--C-01"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="0c-03-01-01-00-01--C-01"/>
+                                                <exclude reference="0d-03-01-01-00-01--C-01"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
-                                                <include reference="0c-03-01-01-00-01--C-01"/>
+                                                <include reference="0d-03-01-01-00-01--C-01"/>
                                             </mask>
                                         </variation>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="centerX" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="centerX" id="0c-03-01-01-00--C-00-00-00-00"/>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="centerY" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="centerY" id="0c-03-01-01-00--C-00-00-00-01"/>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="height" multiplier="1.25" id="0c-03-01-01-00--C-00-00-00-02"/>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="leading" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="leading" id="0c-03-01-01-00--C-00-00-00-03"/>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="trailing" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="trailing" id="0c-03-01-01-00--C-00-00-00-04"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="centerX" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="centerX" id="0d-03-01-01-00--C-00-00-00-00"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="centerY" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="centerY" id="0d-03-01-01-00--C-00-00-00-01"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="height" multiplier="1.25" id="0d-03-01-01-00--C-00-00-00-02"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="leading" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="leading" id="0d-03-01-01-00--C-00-00-00-03"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="trailing" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="trailing" id="0d-03-01-01-00--C-00-00-00-04"/>
                                 </constraints>
                             </view>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" id="Post-Post-navigationItem-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                             <connections>
-                                <outlet property="controller" destination="Post-Post" id="0c-03-01-00--O-01"/>
-                                <outletCollection property="actions" destination="Post-Share" collectionClass="NSMutableArray" id="0c-03-01-00--O-00-02"/>
-                                <outletCollection property="actions" destination="Post-Subscribe" collectionClass="NSMutableArray" id="0c-03-01-00--O-00-03"/>
-                                <outletCollection property="actions" destination="Post-Unsubscribe" collectionClass="NSMutableArray" id="0c-03-01-00--O-00-04"/>
-                                <outletCollection property="actions" destination="Post-Report" collectionClass="NSMutableArray" id="0c-03-01-00--O-00-01"/>
-                                <outletCollection property="actions" destination="Post-Delete" collectionClass="NSMutableArray" id="0c-03-01-00--O-00-00"/>
+                                <outlet property="controller" destination="Post-Post" id="0d-03-01-00--O-01"/>
+                                <outletCollection property="actions" destination="Post-Share" collectionClass="NSMutableArray" id="0d-03-01-00--O-00-02"/>
+                                <outletCollection property="actions" destination="Post-Subscribe" collectionClass="NSMutableArray" id="0d-03-01-00--O-00-03"/>
+                                <outletCollection property="actions" destination="Post-Unsubscribe" collectionClass="NSMutableArray" id="0d-03-01-00--O-00-04"/>
+                                <outletCollection property="actions" destination="Post-Report" collectionClass="NSMutableArray" id="0d-03-01-00--O-00-01"/>
+                                <outletCollection property="actions" destination="Post-Delete" collectionClass="NSMutableArray" id="0d-03-01-00--O-00-00"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="avatar" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" id="0c-03--O-00"/>
-                        <outlet property="dateCreated" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created" id="0c-03--O-01"/>
-                        <outlet property="dateFormat" destination="Post-DateFormat" id="0c-03--O-02"/>
-                        <outlet property="delete" destination="Post-Delete" id="0c-03--O-03"/>
-                        <outlet property="menu" destination="Post-Post-navigationItem-Menu" id="0c-03--O-04"/>
-                        <outlet property="report" destination="Post-Report" id="0c-03--O-05"/>
-                        <outlet property="subscribe" destination="Post-Subscribe" id="0c-03--O-06"/>
-                        <outlet property="tableHeader" destination="Post-Post-view-PostTableHeaderView" id="0c-03--O-07"/>
-                        <outlet property="unsubscribe" destination="Post-Unsubscribe" id="0c-03--O-08"/>
-                        <outlet property="username" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-button" id="0c-03--O-09"/>
-                        <outlet property="vm" destination="Post-PostViewModel" id="0c-03--O-0a"/>
+                        <outlet property="avatar" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" id="0d-03--O-00"/>
+                        <outlet property="dateCreated" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created" id="0d-03--O-01"/>
+                        <outlet property="dateFormat" destination="Post-DateFormat" id="0d-03--O-02"/>
+                        <outlet property="delete" destination="Post-Delete" id="0d-03--O-03"/>
+                        <outlet property="menu" destination="Post-Post-navigationItem-Menu" id="0d-03--O-04"/>
+                        <outlet property="report" destination="Post-Report" id="0d-03--O-05"/>
+                        <outlet property="subscribe" destination="Post-Subscribe" id="0d-03--O-06"/>
+                        <outlet property="tableHeader" destination="Post-Post-view-PostTableHeaderView" id="0d-03--O-07"/>
+                        <outlet property="unsubscribe" destination="Post-Unsubscribe" id="0d-03--O-08"/>
+                        <outlet property="username" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-button" id="0d-03--O-09"/>
+                        <outlet property="vm" destination="Post-PostViewModel" id="0d-03--O-0a"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Post-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Post-PostViewModel" customClass="PostViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Post-Post" id="0c-04--O-00"/>
+                        <outlet property="delegate" destination="Post-Post" id="0d-04--O-00"/>
                     </connections>
                 </customObject>
                 <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="Post-Share" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -484,7 +484,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onSharePressed" destination="Post-Post" id="0c-06--A-00-00"/>
+                        <action selector="onSharePressed" destination="Post-Post" id="0d-06--A-00-00"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Subscribe" image="bell" catalog="system" id="Post-Subscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -495,7 +495,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onSubscribePressed" destination="Post-Post" id="0c-07--A-00-00"/>
+                        <action selector="onSubscribePressed" destination="Post-Post" id="0d-07--A-00-00"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Unsubscribe" image="bell.slash" catalog="system" id="Post-Unsubscribe" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -505,7 +505,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onUnsubscribePressed" destination="Post-Post" id="0c-08--A-00-00"/>
+                        <action selector="onUnsubscribePressed" destination="Post-Post" id="0d-08--A-00-00"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" id="Post-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -516,7 +516,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onReportPressed" destination="Post-Post" id="0c-05--A-00-00"/>
+                        <action selector="onReportPressed" destination="Post-Post" id="0d-05--A-00-00"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Delete" image="trash" catalog="system" id="Post-Delete" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -528,7 +528,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onDeletePressed" destination="Post-Post" id="0c-01--A-00-00"/>
+                        <action selector="onDeletePressed" destination="Post-Post" id="0d-01--A-00-00"/>
                     </connections>
                 </barButtonItem>
                 <customObject id="Post-DateFormat" customClass="DateFormat" customModule="Fyreplace" customModuleProvider="target">
@@ -540,7 +540,7 @@
             <point key="canvasLocation" x="0.0" y="1500"/>
         </scene>
         <!--User Navigation-->
-        <scene sceneID="10">
+        <scene sceneID="11">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="User-Navigation-User-Navigation" userLabel="User Navigation" customClass="UserNavigationViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
@@ -550,7 +550,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="User-User" kind="relationship" relationship="rootViewController" id="10-01--S-00"/>
+                        <segue destination="User-User" kind="relationship" relationship="rootViewController" id="11-01--S-00"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="User-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -558,7 +558,7 @@
             <point key="canvasLocation" x="0.0" y="2250"/>
         </scene>
         <!--User-->
-        <scene sceneID="0f">
+        <scene sceneID="10">
             <objects>
                 <viewController id="User-User" userLabel="User" customClass="UserViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="User-User-view">
@@ -575,8 +575,8 @@
                                                 <rect key="frame" x="145" y="21.000000000000007" width="100" height="98.666666666666686"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="10-04-02-02-03-02--C-00"/>
-                                                    <constraint firstAttribute="width" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="10-04-02-02-03-02--C-00-00-00"/>
+                                                    <constraint firstAttribute="height" constant="100" id="11-04-02-02-03-02--C-00"/>
+                                                    <constraint firstAttribute="width" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="11-04-02-02-03-02--C-00-00-00"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Joined" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view-Date-Joined">
@@ -588,7 +588,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view-textView">
                                                 <rect key="frame" x="20" y="177" width="350" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="400" id="10-04-02-02-03-03--C-00"/>
+                                                    <constraint firstAttribute="width" constant="400" id="11-04-02-02-03-03--C-00"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -601,52 +601,52 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="10-04-02-02-03-03--C-00"/>
+                                                        <exclude reference="11-04-02-02-03-03--C-00"/>
                                                     </mask>
                                                 </variation>
                                                 <variation key="widthClass=regular">
                                                     <mask key="constraints">
-                                                        <include reference="10-04-02-02-03-03--C-00"/>
+                                                        <include reference="11-04-02-02-03-03--C-00"/>
                                                     </mask>
                                                 </variation>
                                             </textView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-04-02-02-03--C-00-00-00-00"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="top" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="bottom" constant="20" id="10-04-02-02-03--C-00-00-00-01"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-04-02-02-03--C-00-00-00-02"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" constant="20" symbolic="YES" id="10-04-02-02-03--C-00-00-00-03"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="10-04-02-02-03--C-00-00-00-04"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="top" secondItem="User-User-view-scrollView-view-Date-Joined" secondAttribute="bottom" constant="20" id="10-04-02-02-03--C-00-00-00-05"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="11-04-02-02-03--C-00-00-00-00"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="top" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="bottom" constant="20" id="11-04-02-02-03--C-00-00-00-01"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="11-04-02-02-03--C-00-00-00-02"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" constant="20" symbolic="YES" id="11-04-02-02-03--C-00-00-00-03"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="11-04-02-02-03--C-00-00-00-04"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="top" secondItem="User-User-view-scrollView-view-Date-Joined" secondAttribute="bottom" constant="20" id="11-04-02-02-03--C-00-00-00-05"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="10-04-02-02-03--C-00-00-00-04"/>
+                                                <exclude reference="11-04-02-02-03--C-00-00-00-04"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=regular">
                                             <mask key="constraints">
-                                                <include reference="10-04-02-02-03--C-00-00-00-04"/>
+                                                <include reference="11-04-02-02-03--C-00-00-00-04"/>
                                             </mask>
                                         </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view" secondAttribute="bottom" id="10-04-02-02--C-00-00-00-00"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view-textView" secondAttribute="bottom" constant="20" id="10-04-02-02--C-00-00-00-01"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="leading" secondItem="User-User-view-scrollView-view" secondAttribute="leading" id="10-04-02-02--C-00-00-00-02"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" id="10-04-02-02--C-00-00-00-03"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="trailing" secondItem="User-User-view-scrollView-view" secondAttribute="trailing" id="10-04-02-02--C-00-00-00-04"/>
-                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="leading" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="leading" constant="20" id="10-04-02-02--C-00-00-00-05"/>
-                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="trailing" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="trailing" constant="-20" id="10-04-02-02--C-00-00-00-06"/>
-                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="width" secondItem="User-User-view-scrollView-frameLayoutGuide" secondAttribute="width" id="10-04-02-02--C-00-00-00-07"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view" secondAttribute="bottom" id="11-04-02-02--C-00-00-00-00"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view-textView" secondAttribute="bottom" constant="20" id="11-04-02-02--C-00-00-00-01"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="leading" secondItem="User-User-view-scrollView-view" secondAttribute="leading" id="11-04-02-02--C-00-00-00-02"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" id="11-04-02-02--C-00-00-00-03"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="trailing" secondItem="User-User-view-scrollView-view" secondAttribute="trailing" id="11-04-02-02--C-00-00-00-04"/>
+                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="leading" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="leading" constant="20" id="11-04-02-02--C-00-00-00-05"/>
+                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="trailing" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="trailing" constant="-20" id="11-04-02-02--C-00-00-00-06"/>
+                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="width" secondItem="User-User-view-scrollView-frameLayoutGuide" secondAttribute="width" id="11-04-02-02--C-00-00-00-07"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="User-User-view-scrollView-contentLayoutGuide"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="User-User-view-scrollView-frameLayoutGuide"/>
                                 <variation key="widthClass=regular">
                                     <mask key="constraints">
-                                        <exclude reference="10-04-02-02--C-00-00-00-05"/>
-                                        <exclude reference="10-04-02-02--C-00-00-00-06"/>
+                                        <exclude reference="11-04-02-02--C-00-00-00-05"/>
+                                        <exclude reference="11-04-02-02--C-00-00-00-06"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -654,43 +654,43 @@
                         <viewLayoutGuide key="safeArea" id="User-User-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="User-User-view-safeArea" firstAttribute="bottom" secondItem="User-User-view-scrollView" secondAttribute="bottom" id="10-04-02--C-00-00-00-00"/>
-                            <constraint firstItem="User-User-view-safeArea" firstAttribute="trailing" secondItem="User-User-view-scrollView" secondAttribute="trailing" id="10-04-02--C-00-00-00-01"/>
-                            <constraint firstItem="User-User-view-scrollView" firstAttribute="leading" secondItem="User-User-view-safeArea" secondAttribute="leading" id="10-04-02--C-00-00-00-02"/>
-                            <constraint firstItem="User-User-view-scrollView" firstAttribute="top" secondItem="User-User-view-safeArea" secondAttribute="top" id="10-04-02--C-00-00-00-03"/>
+                            <constraint firstItem="User-User-view-safeArea" firstAttribute="bottom" secondItem="User-User-view-scrollView" secondAttribute="bottom" id="11-04-02--C-00-00-00-00"/>
+                            <constraint firstItem="User-User-view-safeArea" firstAttribute="trailing" secondItem="User-User-view-scrollView" secondAttribute="trailing" id="11-04-02--C-00-00-00-01"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="leading" secondItem="User-User-view-safeArea" secondAttribute="leading" id="11-04-02--C-00-00-00-02"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="top" secondItem="User-User-view-safeArea" secondAttribute="top" id="11-04-02--C-00-00-00-03"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Username" id="User-User-Username">
                         <barButtonItem key="leftBarButtonItem" title="OK" style="done" id="User-User-Username-OK">
                             <connections>
-                                <action selector="onOkPressed" destination="User-User" id="10-04-01-01--A-00-00"/>
+                                <action selector="onOkPressed" destination="User-User" id="11-04-01-01--A-00-00"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" id="User-User-Username-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                             <connections>
-                                <outlet property="controller" destination="User-User" id="10-04-01-00--O-01"/>
-                                <outletCollection property="actions" destination="User-Block" collectionClass="NSMutableArray" id="10-04-01-00--O-00-00"/>
-                                <outletCollection property="actions" destination="User-Unblock" collectionClass="NSMutableArray" id="10-04-01-00--O-00-02"/>
-                                <outletCollection property="actions" destination="User-Report" collectionClass="NSMutableArray" id="10-04-01-00--O-00-01"/>
+                                <outlet property="controller" destination="User-User" id="11-04-01-00--O-01"/>
+                                <outletCollection property="actions" destination="User-Block" collectionClass="NSMutableArray" id="11-04-01-00--O-00-00"/>
+                                <outletCollection property="actions" destination="User-Unblock" collectionClass="NSMutableArray" id="11-04-01-00--O-00-02"/>
+                                <outletCollection property="actions" destination="User-Report" collectionClass="NSMutableArray" id="11-04-01-00--O-00-01"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="avatar" destination="User-User-view-scrollView-view-person-crop-circle-fill" id="10-04--O-00"/>
-                        <outlet property="bio" destination="User-User-view-scrollView-view-textView" id="10-04--O-01"/>
-                        <outlet property="block" destination="User-Block" id="10-04--O-02"/>
-                        <outlet property="dateFormat" destination="User-DateFormat" id="10-04--O-03"/>
-                        <outlet property="dateJoined" destination="User-User-view-scrollView-view-Date-Joined" id="10-04--O-04"/>
-                        <outlet property="menu" destination="User-User-Username-Menu" id="10-04--O-05"/>
-                        <outlet property="report" destination="User-Report" id="10-04--O-06"/>
-                        <outlet property="unblock" destination="User-Unblock" id="10-04--O-07"/>
-                        <outlet property="vm" destination="User-UserViewModel" id="10-04--O-08"/>
+                        <outlet property="avatar" destination="User-User-view-scrollView-view-person-crop-circle-fill" id="11-04--O-00"/>
+                        <outlet property="bio" destination="User-User-view-scrollView-view-textView" id="11-04--O-01"/>
+                        <outlet property="block" destination="User-Block" id="11-04--O-02"/>
+                        <outlet property="dateFormat" destination="User-DateFormat" id="11-04--O-03"/>
+                        <outlet property="dateJoined" destination="User-User-view-scrollView-view-Date-Joined" id="11-04--O-04"/>
+                        <outlet property="menu" destination="User-User-Username-Menu" id="11-04--O-05"/>
+                        <outlet property="report" destination="User-Report" id="11-04--O-06"/>
+                        <outlet property="unblock" destination="User-Unblock" id="11-04--O-07"/>
+                        <outlet property="vm" destination="User-UserViewModel" id="11-04--O-08"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="User-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="User-UserViewModel" customClass="UserViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="User-User" id="10-05--O-00"/>
+                        <outlet property="delegate" destination="User-User" id="11-05--O-00"/>
                     </connections>
                 </customObject>
                 <barButtonItem title="Block" image="hand.raised" catalog="system" id="User-Block" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -700,7 +700,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onBlockPressed" destination="User-User" id="0f-00--A-00-00"/>
+                        <action selector="onBlockPressed" destination="User-User" id="10-00--A-00-00"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Unblock" image="hand.raised.slash" catalog="system" id="User-Unblock" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -711,7 +711,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onUnblockPressed" destination="User-User" id="10-03--A-00-00"/>
+                        <action selector="onUnblockPressed" destination="User-User" id="11-03--A-00-00"/>
                     </connections>
                 </barButtonItem>
                 <barButtonItem title="Report" image="exclamationmark.bubble" catalog="system" id="User-Report" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
@@ -722,7 +722,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="onReportPressed" destination="User-User" id="10-02--A-00-00"/>
+                        <action selector="onReportPressed" destination="User-User" id="11-02--A-00-00"/>
                     </connections>
                 </barButtonItem>
                 <customObject id="User-DateFormat" customClass="DateFormat" customModule="Fyreplace" customModuleProvider="target"/>
@@ -730,7 +730,7 @@
             <point key="canvasLocation" x="0.0" y="3000"/>
         </scene>
         <!--Drafts Navigation-->
-        <scene sceneID="05">
+        <scene sceneID="06">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Drafts-Navigation-Drafts-Navigation" userLabel="Drafts Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Drafts" image="doc.text.fill" catalog="system" id="Drafts-Navigation-Drafts-Navigation-Drafts"/>
@@ -741,7 +741,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Drafts-Drafts" kind="relationship" relationship="rootViewController" id="05-00--S-00"/>
+                        <segue destination="Drafts-Drafts" kind="relationship" relationship="rootViewController" id="06-00--S-00"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Drafts-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -749,7 +749,7 @@
             <point key="canvasLocation" x="750" y="0.0"/>
         </scene>
         <!--Drafts-->
-        <scene sceneID="04">
+        <scene sceneID="05">
             <objects>
                 <viewController id="Drafts-Drafts" userLabel="Drafts" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Drafts-Drafts-view">
@@ -765,7 +765,7 @@
             <point key="canvasLocation" x="750" y="750"/>
         </scene>
         <!--Settings Navigation-->
-        <scene sceneID="0e">
+        <scene sceneID="0f">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Settings-Navigation-Settings-Navigation" userLabel="Settings Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="person.crop.circle.fill" catalog="system" id="Settings-Navigation-Settings-Navigation-Settings"/>
@@ -776,7 +776,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Settings-Settings" kind="relationship" relationship="rootViewController" id="0e-01--S-00"/>
+                        <segue destination="Settings-Settings" kind="relationship" relationship="rootViewController" id="0f-01--S-00"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Settings-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -784,7 +784,7 @@
             <point key="canvasLocation" x="1500" y="0.0"/>
         </scene>
         <!--Settings-->
-        <scene sceneID="0d">
+        <scene sceneID="0e">
             <objects>
                 <tableViewController id="Settings-Settings" userLabel="Settings" customClass="SettingsViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Settings-Settings-view">
@@ -799,11 +799,11 @@
                                     <color key="tintColor" systemColor="labelColor"/>
                                     <gestureRecognizers/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="0e-02-02-03-01--C-00"/>
-                                        <constraint firstAttribute="width" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="height" multiplier="1:1" id="0e-02-02-03-01--C-00-00-00"/>
+                                        <constraint firstAttribute="width" constant="100" id="0f-02-02-03-01--C-00"/>
+                                        <constraint firstAttribute="width" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="height" multiplier="1:1" id="0f-02-02-03-01--C-00-00-00"/>
                                     </constraints>
                                     <connections>
-                                        <outletCollection property="gestureRecognizers" destination="Settings-Avatar-Taps" appends="YES" id="0e-02-02-03-01--O-00-01"/>
+                                        <outletCollection property="gestureRecognizers" destination="Settings-Avatar-Taps" appends="YES" id="0f-02-02-03-01--O-00-01"/>
                                     </connections>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Guest" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Settings-Settings-view-tableHeaderView-Username" userLabel="Username">
@@ -814,12 +814,12 @@
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="0e-02-02-03--C-00-00-00-00"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="top" constant="20" symbolic="YES" id="0e-02-02-03--C-00-00-00-01"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="0e-02-02-03--C-00-00-00-02"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="leading" constant="20" symbolic="YES" id="0e-02-02-03--C-00-00-00-02-00"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="bottom" constant="8" symbolic="YES" id="0e-02-02-03--C-00-00-00-03"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="trailing" constant="20" symbolic="YES" id="0e-02-02-03--C-00-00-00-03-00"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="0f-02-02-03--C-00-00-00-00"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="top" constant="20" symbolic="YES" id="0f-02-02-03--C-00-00-00-01"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="0f-02-02-03--C-00-00-00-02"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="leading" constant="20" symbolic="YES" id="0f-02-02-03--C-00-00-00-02-00"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="bottom" constant="8" symbolic="YES" id="0f-02-02-03--C-00-00-00-03"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="trailing" constant="20" symbolic="YES" id="0f-02-02-03--C-00-00-00-03-00"/>
                             </constraints>
                         </view>
                         <sections>
@@ -921,9 +921,29 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Bio-Navigation-Bio-Navigation" kind="popoverPresentation" popoverAnchorView="Settings-Settings-view-Profile-tableViewCell-03" id="0e-02-02-02-03--S-00">
+                                            <segue destination="Bio-Navigation-Bio-Navigation" kind="popoverPresentation" popoverAnchorView="Settings-Settings-view-Profile-tableViewCell-03" id="0f-02-02-02-03--S-00">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Profile-tableViewCell-04">
+                                        <rect key="frame" x="20" y="366.33333778381348" width="350" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="Settings-Settings-view-Profile-tableViewCell-04-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Blocked users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Profile-tableViewCell-04-contentView-Blocked-users">
+                                                    <rect key="frame" x="20" y="0.0" width="293.33333333333331" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Blocked-Users-Blocked-Users" kind="show" id="0f-02-02-02-04--S-00"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -931,7 +951,7 @@
                             <tableViewSection id="Settings-Settings-view-tableViewSection-00">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" tag="3" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Logout" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00">
-                                        <rect key="frame" x="20" y="402.33333778381348" width="350" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="446.0000057220459" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-00-tableViewCell-00" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
@@ -952,7 +972,7 @@
                             <tableViewSection headerTitle="Danger zone" id="Settings-Settings-view-Danger-zone">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" tag="4" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-Danger-zone-tableViewCell-00-contentView-Delete-account" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Danger-zone-tableViewCell-00">
-                                        <rect key="frame" x="20" y="495.66667175292969" width="350" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="539.33333969116211" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Danger-zone-tableViewCell-00" id="Settings-Settings-view-Danger-zone-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
@@ -973,7 +993,7 @@
                             <tableViewSection id="Settings-Settings-view-tableViewSection-01">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView-Register" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00">
-                                        <rect key="frame" x="20" y="575.33333969116211" width="350" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="619.00000762939453" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-01-tableViewCell-00" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="43.666667938232422"/>
@@ -989,11 +1009,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Login-Login" kind="show" identifier="Register" id="0e-02-02-05-00--S-00"/>
+                                            <segue destination="Login-Login" kind="show" identifier="Register" id="0f-02-02-05-00--S-00"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView-Login" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01">
-                                        <rect key="frame" x="20" y="619.00000762939453" width="350" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="662.66667556762695" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-01-tableViewCell-01" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="43.666667938232422"/>
@@ -1009,49 +1029,49 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Login-Login" kind="show" identifier="Login" id="0e-02-02-05-01--S-00"/>
+                                            <segue destination="Login-Login" kind="show" identifier="Login" id="0f-02-02-05-01--S-00"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="Settings-Settings" id="0e-02-02--O-00"/>
-                            <outlet property="delegate" destination="Settings-Settings" id="0e-02-02--O-01"/>
+                            <outlet property="dataSource" destination="Settings-Settings" id="0f-02-02--O-00"/>
+                            <outlet property="delegate" destination="Settings-Settings" id="0f-02-02--O-01"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="Settings-Settings-Settings"/>
                     <connections>
-                        <outlet property="avatar" destination="Settings-Settings-view-tableHeaderView-Avatar" id="0e-02--O-00"/>
-                        <outlet property="bio" destination="Settings-Settings-view-Profile-tableViewCell-03-contentView-label" id="0e-02--O-01"/>
-                        <outlet property="dateJoined" destination="Settings-Settings-view-Profile-tableViewCell-00-contentView-label" id="0e-02--O-02"/>
-                        <outlet property="email" destination="Settings-Settings-view-Profile-tableViewCell-02-contentView-label" id="0e-02--O-03"/>
-                        <outlet property="imageSelector" destination="Settings-ImageSelector" id="0e-02--O-04"/>
-                        <outlet property="username" destination="Settings-Settings-view-tableHeaderView-Username" id="0e-02--O-05"/>
-                        <outlet property="vm" destination="Settings-SettingsViewModel" id="0e-02--O-06"/>
+                        <outlet property="avatar" destination="Settings-Settings-view-tableHeaderView-Avatar" id="0f-02--O-00"/>
+                        <outlet property="bio" destination="Settings-Settings-view-Profile-tableViewCell-03-contentView-label" id="0f-02--O-01"/>
+                        <outlet property="dateJoined" destination="Settings-Settings-view-Profile-tableViewCell-00-contentView-label" id="0f-02--O-02"/>
+                        <outlet property="email" destination="Settings-Settings-view-Profile-tableViewCell-02-contentView-label" id="0f-02--O-03"/>
+                        <outlet property="imageSelector" destination="Settings-ImageSelector" id="0f-02--O-04"/>
+                        <outlet property="username" destination="Settings-Settings-view-tableHeaderView-Username" id="0f-02--O-05"/>
+                        <outlet property="vm" destination="Settings-SettingsViewModel" id="0f-02--O-06"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Settings-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Settings-SettingsViewModel" customClass="SettingsViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Settings-Settings" id="0e-03--O-00"/>
+                        <outlet property="delegate" destination="Settings-Settings" id="0f-03--O-00"/>
                     </connections>
                 </customObject>
                 <customObject id="Settings-ImageSelector" customClass="ImageSelector" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Settings-Settings" id="0d-02--O-00"/>
+                        <outlet property="delegate" destination="Settings-Settings" id="0e-02--O-00"/>
                     </connections>
                 </customObject>
                 <tapGestureRecognizer id="Settings-Avatar-Taps" userLabel="Avatar Taps">
                     <connections>
-                        <action selector="onAvatarPressed" destination="Settings-Settings" id="0d-00--A-00-00"/>
+                        <action selector="onAvatarPressed" destination="Settings-Settings" id="0e-00--A-00-00"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1500" y="750"/>
         </scene>
         <!--Login-->
-        <scene sceneID="08">
+        <scene sceneID="09">
             <objects>
                 <viewController id="Login-Login" userLabel="Login" customClass="LoginViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Login-Login-view">
@@ -1067,8 +1087,8 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Logo">
                                                 <rect key="frame" x="135" y="0.0" width="80" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="08-01-02-02-03-03--C-00"/>
-                                                    <constraint firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Logo" secondAttribute="height" multiplier="1:1" id="08-01-02-02-03-03--C-00-00-00"/>
+                                                    <constraint firstAttribute="width" constant="80" id="09-01-02-02-03-03--C-00"/>
+                                                    <constraint firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Logo" secondAttribute="height" multiplier="1:1" id="09-01-02-02-03-03--C-00-00-00"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Email">
@@ -1076,20 +1096,20 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                 <connections>
-                                                    <action selector="onEmailDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="08-01-02-02-03-02--A-00-00-00"/>
+                                                    <action selector="onEmailDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="09-01-02-02-03-02--A-00-00-00"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Username">
                                                 <rect key="frame" x="55" y="154" width="240" height="34"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="240" id="08-01-02-02-03-05--C-00-01">
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="240" id="09-01-02-02-03-05--C-00-01">
                                                         <variation key="widthClass=regular" constant="300"/>
                                                     </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                                 <connections>
-                                                    <action selector="onUsernameDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="08-01-02-02-03-05--A-00-00-00"/>
+                                                    <action selector="onUsernameDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="09-01-02-02-03-05--A-00-00-00"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Password">
@@ -1097,7 +1117,7 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
-                                                    <action selector="onPasswordDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="08-01-02-02-03-04--A-00-00-00"/>
+                                                    <action selector="onPasswordDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="09-01-02-02-03-04--A-00-00-00"/>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Button" customClass="LargeFilledButton" customModule="Fyreplace" customModuleProvider="target">
@@ -1105,7 +1125,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                                 <connections>
-                                                    <action selector="onLoginPressed" destination="Login-Login" eventType="primaryActionTriggered" id="08-01-02-02-03-01--A-00-00-00"/>
+                                                    <action selector="onLoginPressed" destination="Login-Login" eventType="primaryActionTriggered" id="09-01-02-02-03-01--A-00-00-00"/>
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-activityIndicatorView">
@@ -1113,18 +1133,18 @@
                                             </activityIndicatorView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Email" firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Username" secondAttribute="width" id="08-01-02-02-03--C-00-00-00-00"/>
-                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Password" firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Username" secondAttribute="width" id="08-01-02-02-03--C-00-00-00-01"/>
-                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Username" firstAttribute="width" relation="lessThanOrEqual" secondItem="Login-Login-view-scrollView-stackView" secondAttribute="width" id="08-01-02-02-03--C-00-00-00-01-00"/>
+                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Email" firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Username" secondAttribute="width" id="09-01-02-02-03--C-00-00-00-00"/>
+                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Password" firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Username" secondAttribute="width" id="09-01-02-02-03--C-00-00-00-01"/>
+                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Username" firstAttribute="width" relation="lessThanOrEqual" secondItem="Login-Login-view-scrollView-stackView" secondAttribute="width" id="09-01-02-02-03--C-00-00-00-01-00"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="bottom" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="bottom" constant="-40" id="08-01-02-02--C-00-00-00-00"/>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="centerX" secondItem="Login-Login-view-scrollView" secondAttribute="centerX" id="08-01-02-02--C-00-00-00-01"/>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="leading" secondItem="Login-Login-view-scrollView" secondAttribute="leading" constant="20" id="08-01-02-02--C-00-00-00-02"/>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="top" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="top" constant="40" id="08-01-02-02--C-00-00-00-03"/>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="trailing" secondItem="Login-Login-view-scrollView" secondAttribute="trailing" constant="-20" id="08-01-02-02--C-00-00-00-04"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="bottom" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="bottom" constant="-40" id="09-01-02-02--C-00-00-00-00"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="centerX" secondItem="Login-Login-view-scrollView" secondAttribute="centerX" id="09-01-02-02--C-00-00-00-01"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="leading" secondItem="Login-Login-view-scrollView" secondAttribute="leading" constant="20" id="09-01-02-02--C-00-00-00-02"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="top" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="top" constant="40" id="09-01-02-02--C-00-00-00-03"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="trailing" secondItem="Login-Login-view-scrollView" secondAttribute="trailing" constant="-20" id="09-01-02-02--C-00-00-00-04"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Login-Login-view-scrollView-contentLayoutGuide"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Login-Login-view-scrollView-frameLayoutGuide"/>
@@ -1133,26 +1153,26 @@
                         <viewLayoutGuide key="safeArea" id="Login-Login-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="bottom" secondItem="Login-Login-view-safeArea" secondAttribute="bottom" id="08-01-02--C-00-00-00-00" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="leading" secondItem="Login-Login-view-safeArea" secondAttribute="leading" id="08-01-02--C-00-00-00-01"/>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="top" secondItem="Login-Login-view-safeArea" secondAttribute="top" id="08-01-02--C-00-00-00-02"/>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="trailing" secondItem="Login-Login-view-safeArea" secondAttribute="trailing" id="08-01-02--C-00-00-00-03"/>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="bottom" secondItem="Login-Login-view-safeArea" secondAttribute="bottom" id="09-01-02--C-00-00-00-00" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="leading" secondItem="Login-Login-view-safeArea" secondAttribute="leading" id="09-01-02--C-00-00-00-01"/>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="top" secondItem="Login-Login-view-safeArea" secondAttribute="top" id="09-01-02--C-00-00-00-02"/>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="trailing" secondItem="Login-Login-view-safeArea" secondAttribute="trailing" id="09-01-02--C-00-00-00-03"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" largeTitleDisplayMode="never" id="Login-Login-Login"/>
                     <connections>
-                        <outlet property="button" destination="Login-Login-view-scrollView-stackView-Button" id="08-01--O-00"/>
-                        <outlet property="email" destination="Login-Login-view-scrollView-stackView-Email" id="08-01--O-01"/>
-                        <outlet property="loader" destination="Login-Login-view-scrollView-stackView-activityIndicatorView" id="08-01--O-02"/>
-                        <outlet property="password" destination="Login-Login-view-scrollView-stackView-Password" id="08-01--O-03"/>
-                        <outlet property="username" destination="Login-Login-view-scrollView-stackView-Username" id="08-01--O-04"/>
-                        <outlet property="vm" destination="Login-LoginViewModel" id="08-01--O-05"/>
+                        <outlet property="button" destination="Login-Login-view-scrollView-stackView-Button" id="09-01--O-00"/>
+                        <outlet property="email" destination="Login-Login-view-scrollView-stackView-Email" id="09-01--O-01"/>
+                        <outlet property="loader" destination="Login-Login-view-scrollView-stackView-activityIndicatorView" id="09-01--O-02"/>
+                        <outlet property="password" destination="Login-Login-view-scrollView-stackView-Password" id="09-01--O-03"/>
+                        <outlet property="username" destination="Login-Login-view-scrollView-stackView-Username" id="09-01--O-04"/>
+                        <outlet property="vm" destination="Login-LoginViewModel" id="09-01--O-05"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Login-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Login-LoginViewModel" customClass="LoginViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
-                        <outlet property="delegate" destination="Login-Login" id="08-02--O-00"/>
+                        <outlet property="delegate" destination="Login-Login" id="09-02--O-00"/>
                     </connections>
                 </customObject>
             </objects>
@@ -1212,8 +1232,8 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-navigationItem-titleView-Length">
-                                    <rect key="frame" x="-26.666666666666668" y="-10.333333333333334" width="53.333333333333336" height="20.666666666666668"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="-23.666666666666668" y="-8.6666666666666661" width="47.333333333333336" height="17.333333333333332"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -1232,11 +1252,11 @@
                             </barButtonItem>
                             <barButtonItem id="Bio-Bio-navigationItem-barButtonItem">
                                 <view key="customView" contentMode="scaleToFill" id="Bio-Bio-navigationItem-barButtonItem-customView">
-                                    <rect key="frame" x="238.33333333333337" y="12" width="86" height="32"/>
+                                    <rect key="frame" x="292.33333333333331" y="12" width="32" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView">
-                                            <rect key="frame" x="0.0" y="6" width="86" height="20"/>
+                                            <rect key="frame" x="0.0" y="6" width="32" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1266,12 +1286,92 @@
             </objects>
             <point key="canvasLocation" x="1500" y="2250"/>
         </scene>
+        <!--Blocked Users-->
+        <scene sceneID="04">
+            <objects>
+                <tableViewController id="Blocked-Users-Blocked-Users" userLabel="Blocked Users" customClass="BlockedUsersViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Blocked-Users-Blocked-Users-view">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Default" id="Blocked-Users-Blocked-Users-view-Default" customClass="BlockedUserTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+                                <rect key="frame" x="20" y="31.666666030883789" width="350" height="56.333332061767578"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="Blocked-Users-Blocked-Users-view-Default-contentView">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="56.333332061767578"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="8.9999999999999964" width="40" height="39"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="98ad754d09dc91e5747b0f31dee16e80f873c075d0b74f0109f239cd17586094"/>
+                                                <constraint firstAttribute="width" constant="40" id="b78f8d4cfd9aff91ce27eeec9f2f911c35d4d18f18701926086a72912ac3d812"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Blocked-Users-Blocked-Users-view-Default-contentView-label">
+                                            <rect key="frame" x="68" y="28.333333333333332" width="262" height="0.0"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="8" id="20e79f6c89a135cae84d146133d9097c803e801e71b7d357a86f5f8f339b64fb"/>
+                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" firstAttribute="leading" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="2568fa7b8a947c2c06af85e77416b1653e4f2f4da18f9467974cf95de0b8ca4e"/>
+                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" firstAttribute="centerY" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="centerY" id="49407643f216012c98b3d3f21e06c3ac69f92f60db83a726cb3ce25ab0ec6cc4"/>
+                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="top" constant="8" id="a21acc4ddbdf04191915fe34cd10e914dcebb98f664d7c715115ca2515231a43"/>
+                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" firstAttribute="leading" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="trailing" constant="8" symbolic="YES" id="b7bb2a214cb254df8b678853cc0f189f31f6a29b9035ed4b2b3073d0501e4bf3"/>
+                                        <constraint firstAttribute="trailing" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" secondAttribute="trailing" constant="20" symbolic="YES" id="f2d3d6c4a068d0b9a21d0eb07b6ef150541a74a5995d8c160159d8154f6fa898"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatar" destination="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" id="7d40976167c6ca2d4019f27534478770d23091bf1a5bebc015ec182972761132"/>
+                                    <outlet property="username" destination="Blocked-Users-Blocked-Users-view-Default-contentView-label" id="572f22c1e6d2e8685a4efc661562c2c5911de7bc861299984c103fd79bca3a9b"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Blocked-Users-Blocked-Users" id="04-00-02--O-00"/>
+                            <outlet property="delegate" destination="Blocked-Users-Blocked-Users" id="04-00-02--O-01"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Blocked users" id="Blocked-Users-Blocked-Users-Blocked-users"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Blocked-Users-Blocked-Users-refreshControl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="emptyPlaceholder" destination="Blocked-Users-No-blocked-users" id="04-00--O-00"/>
+                        <outlet property="listDelegate" destination="Blocked-Users-BlockedUsersViewModel" id="04-00--O-01"/>
+                        <outlet property="vm" destination="Blocked-Users-BlockedUsersViewModel" id="04-00--O-02"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Blocked-Users-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No blocked users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Blocked-Users-No-blocked-users">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                    <color key="textColor" systemColor="placeholderTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <customObject id="Blocked-Users-BlockedUsersViewModel" customClass="BlockedUsersViewModel" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Blocked-Users-Blocked-Users" id="04-01--O-00"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="2250" y="1500"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="Archive-Archive-view-Image-contentView-person-crop-circle-fill">
             <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
         </designable>
         <designable name="Archive-Archive-view-Text-contentView-person-crop-circle-fill">
+            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
+        </designable>
+        <designable name="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill">
             <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
         </designable>
         <designable name="Login-Login-view-scrollView-stackView-Button">
@@ -1288,8 +1388,8 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="0e-02-02-05-00--S-00"/>
-        <segue reference="0c-03-01-01-00-01-02-00--S-00"/>
+        <segue reference="0f-02-02-05-00--S-00"/>
+        <segue reference="0d-03-01-01-00-01-02-00--S-00"/>
         <segue reference="00-00-03-02--S-05"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
