@@ -1050,114 +1050,6 @@
             </objects>
             <point key="canvasLocation" x="1500" y="750"/>
         </scene>
-        <!--Bio Navigation-->
-        <scene sceneID="03">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bio-Navigation-Bio-Navigation" userLabel="Bio Navigation" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bio-Navigation-Bio-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Bio-Bio" kind="relationship" relationship="rootViewController" id="03-00--S-00"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bio-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2250" y="750"/>
-        </scene>
-        <!--Bio-->
-        <scene sceneID="02">
-            <objects>
-                <viewController id="Bio-Bio" userLabel="Bio" customClass="BioViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Bio-Bio-view">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-view-textView">
-                                <rect key="frame" x="10" y="56" width="370" height="734"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Bio-Bio-view-safeArea"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="bottom" secondItem="Bio-Bio-view" secondAttribute="bottom" id="02-00-02--C-00-00-00-00" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
-                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="leading" secondItem="Bio-Bio-view-safeArea" secondAttribute="leading" constant="10" id="02-00-02--C-00-00-00-01"/>
-                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="top" secondItem="Bio-Bio-view-safeArea" secondAttribute="top" id="02-00-02--C-00-00-00-02"/>
-                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="trailing" secondItem="Bio-Bio-view-safeArea" secondAttribute="trailing" constant="-10" id="02-00-02--C-00-00-00-03"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Bio-Bio-navigationItem">
-                        <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Bio-Bio-navigationItem-cancel">
-                            <connections>
-                                <action selector="onCancelPressed" destination="Bio-Bio" id="02-00-01-01--A-00-00"/>
-                            </connections>
-                        </barButtonItem>
-                        <view key="titleView" contentMode="scaleToFill" id="Bio-Bio-navigationItem-titleView">
-                            <rect key="frame" x="195" y="28" width="0.0" height="0.0"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-navigationItem-titleView-Length">
-                                    <rect key="frame" x="-26.666666666666668" y="-10.333333333333334" width="53.333333333333336" height="20.666666666666668"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="Bio-Bio-navigationItem-titleView-Length" firstAttribute="centerX" secondItem="Bio-Bio-navigationItem-titleView" secondAttribute="centerX" id="02-00-01-03--C-00-00-00-00"/>
-                                <constraint firstItem="Bio-Bio-navigationItem-titleView-Length" firstAttribute="centerY" secondItem="Bio-Bio-navigationItem-titleView" secondAttribute="centerY" id="02-00-01-03--C-00-00-00-01"/>
-                            </constraints>
-                        </view>
-                        <rightBarButtonItems>
-                            <barButtonItem style="done" systemItem="done" id="Bio-Bio-navigationItem-done">
-                                <connections>
-                                    <action selector="onDonePressed" destination="Bio-Bio" id="02-00-01-02--A-00-00"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem id="Bio-Bio-navigationItem-barButtonItem">
-                                <view key="customView" contentMode="scaleToFill" id="Bio-Bio-navigationItem-barButtonItem-customView">
-                                    <rect key="frame" x="238.33333333333337" y="12" width="86" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView">
-                                            <rect key="frame" x="0.0" y="6" width="86" height="20"/>
-                                        </activityIndicatorView>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerX" secondItem="Bio-Bio-navigationItem-barButtonItem-customView" secondAttribute="centerX" id="02-00-01-00-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerY" secondItem="Bio-Bio-navigationItem-barButtonItem-customView" secondAttribute="centerY" id="02-00-01-00-00--C-00-00-00-01"/>
-                                        <constraint firstAttribute="width" secondItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" secondAttribute="width" id="02-00-01-00-00--C-00-00-01"/>
-                                    </constraints>
-                                </view>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="bio" destination="Bio-Bio-view-textView" id="02-00--O-00"/>
-                        <outlet property="done" destination="Bio-Bio-navigationItem-done" id="02-00--O-01"/>
-                        <outlet property="length" destination="Bio-Bio-navigationItem-titleView-Length" id="02-00--O-02"/>
-                        <outlet property="loader" destination="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" id="02-00--O-03"/>
-                        <outlet property="vm" destination="Bio-BioViewModel" id="02-00--O-04"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bio-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="Bio-BioViewModel" customClass="BioViewModel" customModule="Fyreplace" customModuleProvider="target">
-                    <connections>
-                        <outlet property="delegate" destination="Bio-Bio" id="02-01--O-00"/>
-                    </connections>
-                </customObject>
-            </objects>
-            <point key="canvasLocation" x="2250" y="1500"/>
-        </scene>
         <!--Login-->
         <scene sceneID="08">
             <objects>
@@ -1264,7 +1156,115 @@
                     </connections>
                 </customObject>
             </objects>
+            <point key="canvasLocation" x="2250" y="750"/>
+        </scene>
+        <!--Bio Navigation-->
+        <scene sceneID="03">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bio-Navigation-Bio-Navigation" userLabel="Bio Navigation" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bio-Navigation-Bio-Navigation-navigationBar">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bio-Bio" kind="relationship" relationship="rootViewController" id="03-00--S-00"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bio-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="1500" y="1500"/>
+        </scene>
+        <!--Bio-->
+        <scene sceneID="02">
+            <objects>
+                <viewController id="Bio-Bio" userLabel="Bio" customClass="BioViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bio-Bio-view">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-view-textView">
+                                <rect key="frame" x="10" y="56" width="370" height="734"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bio-Bio-view-safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="bottom" secondItem="Bio-Bio-view" secondAttribute="bottom" id="02-00-02--C-00-00-00-00" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
+                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="leading" secondItem="Bio-Bio-view-safeArea" secondAttribute="leading" constant="10" id="02-00-02--C-00-00-00-01"/>
+                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="top" secondItem="Bio-Bio-view-safeArea" secondAttribute="top" id="02-00-02--C-00-00-00-02"/>
+                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="trailing" secondItem="Bio-Bio-view-safeArea" secondAttribute="trailing" constant="-10" id="02-00-02--C-00-00-00-03"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bio-Bio-navigationItem">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Bio-Bio-navigationItem-cancel">
+                            <connections>
+                                <action selector="onCancelPressed" destination="Bio-Bio" id="02-00-01-01--A-00-00"/>
+                            </connections>
+                        </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="Bio-Bio-navigationItem-titleView">
+                            <rect key="frame" x="195" y="28" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-navigationItem-titleView-Length">
+                                    <rect key="frame" x="-26.666666666666668" y="-10.333333333333334" width="53.333333333333336" height="20.666666666666668"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="Bio-Bio-navigationItem-titleView-Length" firstAttribute="centerX" secondItem="Bio-Bio-navigationItem-titleView" secondAttribute="centerX" id="02-00-01-03--C-00-00-00-00"/>
+                                <constraint firstItem="Bio-Bio-navigationItem-titleView-Length" firstAttribute="centerY" secondItem="Bio-Bio-navigationItem-titleView" secondAttribute="centerY" id="02-00-01-03--C-00-00-00-01"/>
+                            </constraints>
+                        </view>
+                        <rightBarButtonItems>
+                            <barButtonItem style="done" systemItem="done" id="Bio-Bio-navigationItem-done">
+                                <connections>
+                                    <action selector="onDonePressed" destination="Bio-Bio" id="02-00-01-02--A-00-00"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem id="Bio-Bio-navigationItem-barButtonItem">
+                                <view key="customView" contentMode="scaleToFill" id="Bio-Bio-navigationItem-barButtonItem-customView">
+                                    <rect key="frame" x="238.33333333333337" y="12" width="86" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView">
+                                            <rect key="frame" x="0.0" y="6" width="86" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerX" secondItem="Bio-Bio-navigationItem-barButtonItem-customView" secondAttribute="centerX" id="02-00-01-00-00--C-00-00-00-00"/>
+                                        <constraint firstItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerY" secondItem="Bio-Bio-navigationItem-barButtonItem-customView" secondAttribute="centerY" id="02-00-01-00-00--C-00-00-00-01"/>
+                                        <constraint firstAttribute="width" secondItem="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" secondAttribute="width" id="02-00-01-00-00--C-00-00-01"/>
+                                    </constraints>
+                                </view>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bio" destination="Bio-Bio-view-textView" id="02-00--O-00"/>
+                        <outlet property="done" destination="Bio-Bio-navigationItem-done" id="02-00--O-01"/>
+                        <outlet property="length" destination="Bio-Bio-navigationItem-titleView-Length" id="02-00--O-02"/>
+                        <outlet property="loader" destination="Bio-Bio-navigationItem-barButtonItem-customView-activityIndicatorView" id="02-00--O-03"/>
+                        <outlet property="vm" destination="Bio-BioViewModel" id="02-00--O-04"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bio-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Bio-BioViewModel" customClass="BioViewModel" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Bio-Bio" id="02-01--O-00"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="1500" y="2250"/>
         </scene>
     </scenes>
     <designables>
