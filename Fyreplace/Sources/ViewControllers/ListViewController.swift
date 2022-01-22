@@ -23,7 +23,7 @@ class ListViewController: UITableViewController {
         refreshControl?.removeTarget(self, action: #selector(onRefresh), for: .valueChanged)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         listDelegate.lister.startListing()
 
@@ -32,7 +32,7 @@ class ListViewController: UITableViewController {
         }
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         listDelegate.lister.stopListing()
     }
