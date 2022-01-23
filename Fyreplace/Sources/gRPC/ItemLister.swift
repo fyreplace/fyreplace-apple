@@ -29,8 +29,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     private let service: Service
     private var stream: BidirectionalStreamingCall<FPPage, Items>?
     private var nextCursor = FPCursor.with { $0.isNext = true }
-    private var fetching = false
-    private var endReached = false
+    private var state = ItemsState.incomplete
 
     init(delegatingTo delegate: ItemListerDelegate, using service: Service) {
         self.delegate = delegate
@@ -57,13 +56,12 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     func reset() {
         items.removeAll()
         nextCursor = .with { $0.isNext = true }
-        fetching = false
-        endReached = false
+        state = .incomplete
     }
 
     func fetchMore() {
-        guard !endReached, !fetching, let stream = stream else { return }
-        fetching = true
+        guard state == .incomplete, let stream = stream else { return }
+        state = .fetching
         _ = stream.sendMessage(.with { $0.cursor = nextCursor })
     }
 
@@ -76,14 +74,16 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
         self.nextCursor = items.next
 
         DispatchQueue.main.async { [self] in
-            if !items.hasNext {
-                endReached = true
-            }
-
             delegate.onFetch(count: items.items.count)
-            fetching = false
+            state = items.hasNext ? .incomplete : .complete
         }
     }
+}
+
+enum ItemsState {
+    case incomplete
+    case complete
+    case fetching
 }
 
 protocol ItemBundle {
