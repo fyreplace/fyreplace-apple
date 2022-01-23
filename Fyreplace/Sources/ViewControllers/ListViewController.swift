@@ -13,6 +13,12 @@ class ListViewController: UITableViewController {
         refreshControl?.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
 
         NotificationCenter.default.reactive
+            .notifications(forName: FPUser.userDisconnectedNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onUserDisconnected($0) }
+
+        NotificationCenter.default.reactive
             .notifications(forName: Self.itemDeletedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
@@ -46,6 +52,10 @@ class ListViewController: UITableViewController {
     private func onRefresh() {
         reset()
         listDelegate.lister.fetchMore()
+    }
+
+    private func onUserDisconnected(_ notification: Notification) {
+        reset()
     }
 
     private func onItemDeleted(_ notification: Notification) {
