@@ -6,7 +6,8 @@ class BlockedUsersViewModel: ViewModel {
 
     private lazy var blockedUserLister = ItemLister<FPProfile, FPProfiles, FPUserServiceClient>(
         delegatingTo: delegate,
-        using: FPUserServiceClient(channel: Self.rpc.channel)
+        using: FPUserServiceClient(channel: Self.rpc.channel),
+        forward: true
     )
 
     func blockedUser(at index: Int) -> FPProfile {

@@ -6,7 +6,8 @@ class ArchiveViewModel: ViewModel {
 
     private lazy var postLister = ItemLister<FPPost, FPPosts, FPPostServiceClient>(
         delegatingTo: delegate,
-        using: FPPostServiceClient(channel: Self.rpc.channel)
+        using: FPPostServiceClient(channel: Self.rpc.channel),
+        forward: false
     )
 
     func post(atIndex index: Int) -> FPPost {

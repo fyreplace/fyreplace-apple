@@ -27,14 +27,16 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     private(set) var items: [Item] = []
     private let delegate: ItemListerDelegate
     private let service: Service
+    private let forward: Bool
     private var stream: BidirectionalStreamingCall<FPPage, Items>?
     private var nextCursor = FPCursor.with { $0.isNext = true }
     private var state = ItemsState.incomplete
     private var residualFetch = false
 
-    init(delegatingTo delegate: ItemListerDelegate, using service: Service) {
+    init(delegatingTo delegate: ItemListerDelegate, using service: Service, forward: Bool) {
         self.delegate = delegate
         self.service = service
+        self.forward = forward
     }
 
     deinit {
@@ -44,7 +46,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     func startListing() {
         stream = service.listItems(handler: onFetch(items:))
         let header = FPHeader.with {
-            $0.forward = false
+            $0.forward = self.forward
             $0.size = pageSize
         }
         _ = stream?.sendMessage(.with { $0.header = header })
