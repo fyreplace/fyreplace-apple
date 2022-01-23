@@ -39,13 +39,12 @@ class ListViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        listDelegate.lister.reset()
+        reset()
     }
 
     @objc
     private func onRefresh() {
-        listDelegate.lister.reset()
-        tableView.reloadData()
+        reset()
         listDelegate.lister.fetchMore()
     }
 
@@ -53,6 +52,11 @@ class ListViewController: UITableViewController {
         guard let itemPosition = notification.userInfo?["itemPosition"] as? Int else { return }
         listDelegate.lister.remove(at: itemPosition)
         tableView.deleteRows(at: [IndexPath(row: itemPosition, section: 0)], with: .automatic)
+    }
+
+    private func reset() {
+        listDelegate.lister.reset()
+        tableView.reloadData()
     }
 }
 
