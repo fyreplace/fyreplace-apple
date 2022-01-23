@@ -359,7 +359,7 @@
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="Post-Post-navigationItem">
                         <barButtonItem key="leftBarButtonItem" id="Post-Post-navigationItem-leftBarButtonItem">
                             <view key="customView" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView">
-                                <rect key="frame" x="50" y="6" width="220" height="32"/>
+                                <rect key="frame" x="0.0" y="0.0" width="220" height="32"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView">
                                         <rect key="frame" x="0.0" y="-4" width="220" height="40"/>
@@ -1301,8 +1301,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="56.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="8.9999999999999964" width="40" height="39"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="8" width="40" height="40"/>
                                             <color key="tintColor" systemColor="labelColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="04-00-03-01-01-02--C-00"/>
@@ -1320,9 +1320,9 @@
                                         <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" firstAttribute="centerY" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="centerY" id="04-00-03-01-01--C-00-00-00-00"/>
                                         <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" firstAttribute="leading" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-03-01-01--C-00-00-00-01"/>
                                         <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" firstAttribute="leading" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="04-00-03-01-01--C-00-00-00-02"/>
-                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="top" constant="8" id="04-00-03-01-01--C-00-00-00-03"/>
-                                        <constraint firstAttribute="bottom" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="8" id="04-00-03-01-01--C-00-00-01"/>
-                                        <constraint firstAttribute="trailing" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" secondAttribute="trailing" constant="20" symbolic="YES" id="04-00-03-01-01--C-00-00-02"/>
+                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="top" constant="8" id="04-00-03-01-01--C-00-00-00-02-00"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="8" id="04-00-03-01-01--C-00-00-00-03"/>
+                                        <constraint firstAttribute="trailing" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" secondAttribute="trailing" constant="20" symbolic="YES" id="04-00-03-01-01--C-00-00-01"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
