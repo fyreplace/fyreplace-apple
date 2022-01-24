@@ -3,6 +3,16 @@ import UIKit
 class BlockedUsersViewController: ListViewController {
     @IBOutlet
     var vm: BlockedUsersViewModel!
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        if let userNavigationController = segue.destination as? UserNavigationViewController,
+           let cell = sender as? BlockedUserTableViewCell,
+           let indexPath = tableView.indexPath(for: cell) {
+            userNavigationController.profile = vm.blockedUser(at: indexPath.row)
+        }
+    }
 }
 
 extension BlockedUsersViewController {

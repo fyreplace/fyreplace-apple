@@ -360,7 +360,7 @@
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="Post-Post-navigationItem">
                         <barButtonItem key="leftBarButtonItem" id="Post-Post-navigationItem-leftBarButtonItem">
                             <view key="customView" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView">
-                                <rect key="frame" x="0.0" y="0.0" width="220" height="32"/>
+                                <rect key="frame" x="50" y="6" width="220" height="32"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView">
                                         <rect key="frame" x="0.0" y="-4" width="220" height="40"/>
@@ -382,9 +382,7 @@
                                                     </preferredSymbolConfiguration>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="0033c1bdcc67de81f3a077994e035c98717fb0f88523e94f05ce92a1f25238f7">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
+                                                    <segue destination="User-Navigation-User-Navigation" kind="presentation" id="0033c1bdcc67de81f3a077994e035c98717fb0f88523e94f05ce92a1f25238f7"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView">
@@ -399,9 +397,7 @@
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="4994cd755aca52576955c32cd900bfee2254dc05c91793aedb5f173f7d15eeb2">
-                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                            </segue>
+                                                            <segue destination="User-Navigation-User-Navigation" kind="presentation" id="4994cd755aca52576955c32cd900bfee2254dc05c91793aedb5f173f7d15eeb2"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created">
@@ -413,9 +409,7 @@
                                                             <color key="titleColor" systemColor="secondaryLabelColor"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorBarButtonItem="Post-Post-navigationItem-leftBarButtonItem" id="a874b6660a756db33daace55335d460366cfd25570ddf4d6deefd6e69b652c3e">
-                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                            </segue>
+                                                            <segue destination="User-Navigation-User-Navigation" kind="presentation" id="a874b6660a756db33daace55335d460366cfd25570ddf4d6deefd6e69b652c3e"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1291,7 +1285,7 @@
         <scene sceneID="155c5a07a41f0fc1d4fb88317593e834c4483fb7540b552f0518355cf6fec535">
             <objects>
                 <tableViewController id="Blocked-Users-Blocked-Users" userLabel="Blocked Users" customClass="BlockedUsersViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Blocked-Users-Blocked-Users-view">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Blocked-Users-Blocked-Users-view">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
@@ -1329,6 +1323,7 @@
                                 <connections>
                                     <outlet property="avatar" destination="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" id="7d40976167c6ca2d4019f27534478770d23091bf1a5bebc015ec182972761132"/>
                                     <outlet property="username" destination="Blocked-Users-Blocked-Users-view-Default-contentView-label" id="572f22c1e6d2e8685a4efc661562c2c5911de7bc861299984c103fd79bca3a9b"/>
+                                    <segue destination="User-Navigation-User-Navigation" kind="presentation" id="7793e6149e900cb5fc63c3d354fc73023280da9147c1f456b94c29aed15da6a4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1391,8 +1386,8 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="d1c67046e4d4b6693c3bec8a576f96399d34deeaf55d152aec582f47010fa059"/>
-        <segue reference="a874b6660a756db33daace55335d460366cfd25570ddf4d6deefd6e69b652c3e"/>
-        <segue reference="16afa6a7a29e215df0c8aa8386d9ea45279cec0373caffe5224c32d0994442dc"/>
+        <segue reference="4994cd755aca52576955c32cd900bfee2254dc05c91793aedb5f173f7d15eeb2"/>
+        <segue reference="db5d4c1481b470b3507a8309359b68fc4d4c6c828d91dbd401aa1bb37f120dac"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>
