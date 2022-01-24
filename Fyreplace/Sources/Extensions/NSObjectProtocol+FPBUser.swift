@@ -15,4 +15,8 @@ extension NSObjectProtocol {
 
         NotificationCenter.default.post(name: FPUser.userChangedNotification, object: self)
     }
+
+    func getCurrentProfile() -> FPProfile? {
+        return getCurrentUser()?.profile
+    }
 }

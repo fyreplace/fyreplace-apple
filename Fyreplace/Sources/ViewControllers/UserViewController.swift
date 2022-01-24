@@ -21,7 +21,6 @@ class UserViewController: UIViewController {
     @IBOutlet
     var dateFormat: DateFormat!
 
-    var currentProfile: FPProfile?
     var profile: FPProfile!
 
     override func viewDidLoad() {
@@ -31,7 +30,7 @@ class UserViewController: UIViewController {
         vm.user.producer.startWithValues { [weak self] in self?.onUser($0) }
         vm.blocked.producer.startWithValues { [weak self] in self?.onBlocked($0) }
         navigationItem.title = profile.username
-        report.isHidden = profile.rank > FPRank.citizen || profile.id == currentProfile?.id
+        report.isHidden = profile.rank > FPRank.citizen || profile.id == getCurrentProfile()?.id
         menu.reload()
         avatar.sd_imageTransition = .fade
         avatar.setAvatar(profile.avatar.url)
@@ -85,7 +84,7 @@ class UserViewController: UIViewController {
     }
 
     private func onBlocked(_ blocked: Bool) {
-        let isCurrentUser = profile.id == currentProfile?.id
+        let isCurrentUser = profile.id == getCurrentProfile()?.id
         block.isHidden = blocked || isCurrentUser
         unblock.isHidden = !blocked || isCurrentUser
 
