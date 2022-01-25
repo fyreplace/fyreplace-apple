@@ -4,13 +4,21 @@ class BlockedUsersViewController: ListViewController {
     @IBOutlet
     var vm: BlockedUsersViewModel!
 
+    override class var additionNotification: Notification.Name? {
+        Self.userBlockedNotification
+    }
+    override class var deletionNotification: Notification.Name {
+        Self.userUnblockedNotification
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
         if let userNavigationController = segue.destination as? UserNavigationViewController,
            let cell = sender as? BlockedUserTableViewCell,
-           let indexPath = tableView.indexPath(for: cell) {
-            userNavigationController.profile = vm.blockedUser(at: indexPath.row)
+           let index = tableView.indexPath(for: cell)?.row {
+            userNavigationController.itemPosition = index
+            userNavigationController.profile = vm.blockedUser(at: index)
         }
     }
 }

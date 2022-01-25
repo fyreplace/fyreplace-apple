@@ -7,6 +7,9 @@ class ListViewController: UITableViewController {
     @IBOutlet
     var emptyPlaceholder: UILabel!
 
+    open class var additionNotification: Notification.Name? { nil }
+    open class var deletionNotification: Notification.Name? { nil }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundView = emptyPlaceholder
@@ -19,7 +22,13 @@ class ListViewController: UITableViewController {
             .observeValues { [unowned self] in onUserDisconnected($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: Self.itemDeletedNotification)
+            .notifications(forName: Self.additionNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onItemAdded($0) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: Self.deletionNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onItemDeleted($0) }
@@ -58,10 +67,19 @@ class ListViewController: UITableViewController {
         reset()
     }
 
+    private func onItemAdded(_ notification: Notification) {
+        guard let info = notification.userInfo,
+            let position = info["position"] as? Int,
+            let item = info["item"]
+        else { return }
+        listDelegate.lister.insert(item, at: position)
+        tableView.insertRows(at: [IndexPath(row: position, section: 0)], with: .automatic)
+    }
+
     private func onItemDeleted(_ notification: Notification) {
-        guard let itemPosition = notification.userInfo?["itemPosition"] as? Int else { return }
-        listDelegate.lister.remove(at: itemPosition)
-        tableView.deleteRows(at: [IndexPath(row: itemPosition, section: 0)], with: .automatic)
+        guard let position = notification.userInfo?["position"] as? Int else { return }
+        listDelegate.lister.remove(at: position)
+        tableView.deleteRows(at: [IndexPath(row: position, section: 0)], with: .automatic)
     }
 
     private func reset() {

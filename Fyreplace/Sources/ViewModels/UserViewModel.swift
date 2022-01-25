@@ -23,7 +23,7 @@ class UserViewModel: ViewModel {
             $0.blocked = blocked
         }
         let response = userService.updateBlock(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.blocked.value = blocked }
+        response.whenSuccess { _ in self.onBlockUpdate(blocked) }
         response.whenFailure(delegate.onError(_:))
     }
 
@@ -38,9 +38,16 @@ class UserViewModel: ViewModel {
         self.user.value = user
         self.blocked.value = user.profile.isBlocked
     }
+
+    private func onBlockUpdate(_ blocked: Bool) {
+        self.blocked.value = blocked
+        self.delegate.onBlockUpdate(blocked)
+    }
 }
 
 @objc
 protocol UserViewModelDelegate: ViewModelDelegate {
+    func onBlockUpdate(_ blocked: Bool)
+
     func onReport()
 }

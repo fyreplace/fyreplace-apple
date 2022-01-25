@@ -21,6 +21,7 @@ class UserViewController: UIViewController {
     @IBOutlet
     var dateFormat: DateFormat!
 
+    var itemPosition: Int?
     var profile: FPProfile!
 
     override func viewDidLoad() {
@@ -93,6 +94,20 @@ class UserViewController: UIViewController {
 }
 
 extension UserViewController: UserViewModelDelegate {
+    func onBlockUpdate(_ blocked: Bool) {
+        guard let position = itemPosition else { return }
+        let notification = blocked
+            ? BlockedUsersViewController.userBlockedNotification
+            : BlockedUsersViewController.userUnblockedNotification
+        var info: [String: Any] = ["position": position]
+
+        if blocked {
+            info["item"] = profile
+        }
+
+        NotificationCenter.default.post(name: notification, object: self, userInfo: info)
+    }
+
     func onReport() {
         presentBasicAlert(text: "User.Report")
     }

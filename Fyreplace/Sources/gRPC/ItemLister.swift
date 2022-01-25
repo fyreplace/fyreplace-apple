@@ -15,6 +15,8 @@ protocol ItemListerProtocol {
 
     func fetchMore()
 
+    func insert(_ item: Any, at index: Int)
+
     func remove(at index: Int)
 }
 
@@ -67,6 +69,10 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
         guard state == .incomplete, let stream = stream else { return }
         state = .fetching
         _ = stream.sendMessage(.with { $0.cursor = nextCursor })
+    }
+
+    func insert(_ item: Any, at index: Int) {
+        items.insert(item as! Item, at: index)
     }
 
     func remove(at index: Int) {

@@ -32,7 +32,6 @@
 		4D3AEDA726C5157D00C93DFF /* FPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3AEDA626C5157D00C93DFF /* FPClient.swift */; };
 		4D3AEDA926C5185200C93DFF /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3AEDA826C5185200C93DFF /* Keychain.swift */; };
 		4D3EB6DA26C42DA10034B6FB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3EB6D926C42DA10034B6FB /* MainViewController.swift */; };
-		4D3EEB49277E05D100BA71F1 /* ListViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3EEB48277E05D100BA71F1 /* ListViewController+Notification.swift */; };
 		4D3F816226C6C53500764763 /* CallOptions+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816126C6C53500764763 /* CallOptions+Keychain.swift */; };
 		4D3F816426C6D0D000764763 /* NSObjectProtocol+FPBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */; };
 		4D3F816826C6E57900764763 /* UserDefaults+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816726C6E57900764763 /* UserDefaults+Message.swift */; };
@@ -76,6 +75,8 @@
 		4DC225F427036539007BD7A0 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC225F327036539007BD7A0 /* ArchiveViewController.swift */; };
 		4DC225F627045734007BD7A0 /* ArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC225F527045734007BD7A0 /* ArchiveViewModel.swift */; };
 		4DCD910926A46F3F0010F8B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */; };
+		4DF3579727A0859000AE9845 /* ArchiveViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */; };
+		4DF3579927A088B700AE9845 /* BlockedUsersViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */; };
 		4DF9D08E272413DF003D610D /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9D08D272413DF003D610D /* UILabel.swift */; };
 		4DF9D0902724228A003D610D /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9D08F2724228A003D610D /* DateFormat.swift */; };
 		4DFAAD21269F628200DFAB5F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAAD20269F628200DFAB5F /* String.swift */; };
@@ -132,7 +133,6 @@
 		4D3AEDA626C5157D00C93DFF /* FPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPClient.swift; sourceTree = "<group>"; };
 		4D3AEDA826C5185200C93DFF /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		4D3EB6D926C42DA10034B6FB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		4D3EEB48277E05D100BA71F1 /* ListViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+Notification.swift"; sourceTree = "<group>"; };
 		4D3F816126C6C53500764763 /* CallOptions+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CallOptions+Keychain.swift"; sourceTree = "<group>"; };
 		4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+FPBUser.swift"; sourceTree = "<group>"; };
 		4D3F816726C6E57900764763 /* UserDefaults+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Message.swift"; sourceTree = "<group>"; };
@@ -177,6 +177,8 @@
 		4DC225F327036539007BD7A0 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		4DC225F527045734007BD7A0 /* ArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewModel.swift; sourceTree = "<group>"; };
 		4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArchiveViewController+Notification.swift"; sourceTree = "<group>"; };
+		4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlockedUsersViewController+Notification.swift"; sourceTree = "<group>"; };
 		4DF9D08D272413DF003D610D /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		4DF9D08F2724228A003D610D /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		4DFAAD20269F628200DFAB5F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -360,7 +362,8 @@
 				4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */,
 				4D22461B279C284300D35430 /* FPUserServiceClient+ItemListerService.swift */,
 				4D1FF61427086EE300445793 /* FPPostServiceClient+ItemListerService.swift */,
-				4D3EEB48277E05D100BA71F1 /* ListViewController+Notification.swift */,
+				4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */,
+				4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				4D0C6F1D26F247E500C4271C /* RoundImageView.swift in Sources */,
 				4D3EB6DA26C42DA10034B6FB /* MainViewController.swift in Sources */,
 				4DAF29E526C7BE67005612C9 /* FPUser+Notification.swift in Sources */,
+				4DF3579927A088B700AE9845 /* BlockedUsersViewController+Notification.swift in Sources */,
 				4DC225F427036539007BD7A0 /* ArchiveViewController.swift in Sources */,
 				4D224616279C23DB00D35430 /* BlockedUsersViewController.swift in Sources */,
 				4D7C987426912AC200819E3F /* notification.proto in Sources */,
@@ -567,7 +571,6 @@
 				4DC1739726FA573F002F9EDB /* BioViewModel.swift in Sources */,
 				4DA43CEF278603FC0002C22A /* FPProfile.swift in Sources */,
 				4DFAAD29269F7CB800DFAB5F /* LoginViewModel.swift in Sources */,
-				4D3EEB49277E05D100BA71F1 /* ListViewController+Notification.swift in Sources */,
 				4DAF29E926C7CA3E005612C9 /* UIImage.swift in Sources */,
 				4DC1739526FA4BC2002F9EDB /* BioViewController.swift in Sources */,
 				4D0A8D6D26A7FAF8007691C9 /* ViewModel.swift in Sources */,
@@ -579,6 +582,7 @@
 				4D8BFDBA270B37F900CAD2B5 /* ImageItemTableViewCell.swift in Sources */,
 				4D6FD7AE272C717900E28C79 /* FPChapter.swift in Sources */,
 				4D1FF61127085F9600445793 /* ItemLister.swift in Sources */,
+				4DF3579727A0859000AE9845 /* ArchiveViewController+Notification.swift in Sources */,
 				4D8BFDB8270B062600CAD2B5 /* TextItemTableViewCell.swift in Sources */,
 				4D87F45C27889F0900A82AFF /* UIBarButtonItem.swift in Sources */,
 				4D224620279CBBD800D35430 /* AvatarTableViewCell.swift in Sources */,

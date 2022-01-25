@@ -4,6 +4,10 @@ class ArchiveViewController: ListViewController {
     @IBOutlet
     var vm: ArchiveViewModel!
 
+    override class var deletionNotification: Notification.Name {
+        Self.postDeletedNotification
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 

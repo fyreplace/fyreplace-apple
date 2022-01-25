@@ -127,7 +127,12 @@ extension PostViewController: PostViewModelDelegate {
     }
 
     func onDelete() {
-        NotificationCenter.default.post(name: ListViewController.itemDeletedNotification, object: self, userInfo: ["itemPosition": itemPosition as Any])
+        NotificationCenter.default.post(
+            name: ArchiveViewController.postDeletedNotification,
+            object: self,
+            userInfo: ["position": itemPosition as Any]
+        )
+
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
         }
