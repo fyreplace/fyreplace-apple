@@ -36,9 +36,10 @@ public class KeyboardDodgingConstraint: NSLayoutConstraint {
     }
 
     private func onKeyboardWillShow(_ notification: Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        let frameValue = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)
-        guard let keyboardSize = frameValue?.cgRectValue.size else { return }
+        guard let userInfo = notification.userInfo,
+              let frameValue = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)
+        else { return }
+        let keyboardSize = frameValue.cgRectValue.size
 
         if originalConstant == nil {
             originalConstant = constant
