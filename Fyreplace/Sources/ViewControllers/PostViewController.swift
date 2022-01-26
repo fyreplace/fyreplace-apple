@@ -122,6 +122,20 @@ extension PostViewController {
 }
 
 extension PostViewController: PostViewModelDelegate {
+    func onUpdateSubscription(_ subscribed: Bool) {
+        guard let position = itemPosition else { return }
+        let notification = subscribed
+            ? ArchiveViewController.postAddedNotification
+            : ArchiveViewController.postDeletedNotification
+        var info: [String: Any] = ["position": position]
+
+        if subscribed {
+            info["item"] = post
+        }
+
+        NotificationCenter.default.post(name: notification, object: self, userInfo: info)
+    }
+
     func onReport() {
         presentBasicAlert(text: "Post.Report.Success")
     }

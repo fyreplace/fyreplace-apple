@@ -23,7 +23,7 @@ class PostViewModel: ViewModel {
             $0.subscribed = subscribed
         }
         let response = postService.updateSubscription(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.subscribed.value = subscribed }
+        response.whenSuccess { _ in self.onUpdateSubscription(subscribed) }
         response.whenFailure(delegate.onError(_:))
     }
     
@@ -45,10 +45,17 @@ class PostViewModel: ViewModel {
         self.post.value = post
         subscribed.value = post.isSubscribed
     }
+
+    private func onUpdateSubscription(_ subscribed: Bool) {
+        self.subscribed.value = subscribed
+        delegate.onUpdateSubscription(subscribed)
+    }
 }
 
 @objc
 protocol PostViewModelDelegate: ViewModelDelegate {
+    func onUpdateSubscription(_ subscribed: Bool)
+
     func onReport()
 
     func onDelete()
