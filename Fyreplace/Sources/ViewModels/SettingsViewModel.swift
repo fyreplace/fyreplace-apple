@@ -7,6 +7,7 @@ class SettingsViewModel: ViewModel {
     weak var delegate: SettingsViewModelDelegate!
 
     let user = MutableProperty<FPUser?>(nil)
+    let blockedUsers = MutableProperty<Int32>(0)
 
     private lazy var accountService = FPAccountServiceClient(channel: Self.rpc.channel)
     private lazy var userService = FPUserServiceClient(channel: Self.rpc.channel)
@@ -15,11 +16,25 @@ class SettingsViewModel: ViewModel {
     override func awakeFromNib() {
         super.awakeFromNib()
         user.value = getCurrentUser()
+        blockedUsers.value = user.value?.blockedUsers ?? 0
+
         NotificationCenter.default.reactive
             .notifications(forName: FPUser.userChangedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in user.value = getCurrentUser() }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: BlockedUsersViewController.userBlockedNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] _ in blockedUsers.value += 1 }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: BlockedUsersViewController.userUnblockedNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] _ in blockedUsers.value -= 1 }
     }
 
     func updateAvatar(image: Data?) {

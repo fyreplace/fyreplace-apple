@@ -921,18 +921,25 @@
                                             </segue>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Profile-tableViewCell-04">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Profile-tableViewCell-04-contentView-Blocked-users" detailTextLabel="Settings-Settings-view-Profile-tableViewCell-04-contentView-label" style="IBUITableViewCellStyleValue1" id="Settings-Settings-view-Profile-tableViewCell-04">
                                         <rect key="frame" x="20" y="366.33333778381348" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="Settings-Settings-view-Profile-tableViewCell-04-contentView">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Profile-tableViewCell-04" id="Settings-Settings-view-Profile-tableViewCell-04-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Blocked users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Profile-tableViewCell-04-contentView-Blocked-users">
-                                                    <rect key="frame" x="20" y="0.0" width="293.33333333333331" height="43.666667938232422"/>
+                                                    <rect key="frame" x="20" y="14" width="91" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Profile-tableViewCell-04-contentView-label">
+                                                    <rect key="frame" x="276" y="14" width="37.333333333333336" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1039,6 +1046,7 @@
                     <connections>
                         <outlet property="avatar" destination="Settings-Settings-view-tableHeaderView-Avatar" id="f4c1e75a616d6fb902c70b9b079f180dff7a8d097ec97b4ac91f36084b4a66cd"/>
                         <outlet property="bio" destination="Settings-Settings-view-Profile-tableViewCell-03-contentView-label" id="bf2dea9f11e72d364904a96a4fede2132f19fbe59782ec10e32d4358987da6cc"/>
+                        <outlet property="blockedUsers" destination="Settings-Settings-view-Profile-tableViewCell-04-contentView-label" id="a317171565e13beb73a5eace6730e233c5f7c21467aa0ee70c20bdff683080f1"/>
                         <outlet property="dateJoined" destination="Settings-Settings-view-Profile-tableViewCell-00-contentView-label" id="8c2428ccee5b1c72a4936ca1f344eedae9011b8eb481e74c872cda13694622e8"/>
                         <outlet property="email" destination="Settings-Settings-view-Profile-tableViewCell-02-contentView-label" id="cb2e4def680a59ac26930e992f56129ddd954ba80f7923f8015209bf61c159ad"/>
                         <outlet property="imageSelector" destination="Settings-ImageSelector" id="d33d43e1f34af634a722919e720445ffb6966c046e613982b5c226df01ab6193"/>

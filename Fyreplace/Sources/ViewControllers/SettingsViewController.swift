@@ -19,6 +19,8 @@ class SettingsViewController: UITableViewController {
     var email: UILabel!
     @IBOutlet
     var bio: UILabel!
+    @IBOutlet
+    var blockedUsers: UILabel!
 
     private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -37,6 +39,7 @@ class SettingsViewController: UITableViewController {
         }
         email.reactive.text <~ vm.user.map(\.?.email)
         bio.reactive.text <~ vm.user.map { ($0?.bio.count ?? 0) > 0 ? $0!.bio : .tr("Settings.Bio") }
+        blockedUsers.reactive.text <~ vm.blockedUsers.map { String($0) }
         vm.user.producer.startWithValues { [weak self] in self?.onUser($0) }
     }
 

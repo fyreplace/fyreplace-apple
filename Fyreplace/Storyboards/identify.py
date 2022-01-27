@@ -70,7 +70,9 @@ def process(storyboard: Text):
                 "destination",
                 "firstItem",
                 "secondItem",
-                "AnchorView"
+                "AnchorView",
+                "ViewCell",
+                "Label"
             ):
                 old_prefix = f'{id_attr}="' if first_step else '"='
                 new_prefix = f'{id_attr}="=' if first_step else '"'
