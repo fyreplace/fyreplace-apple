@@ -25,6 +25,18 @@ class MainViewModel: ViewModel {
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
 
+        NotificationCenter.default.reactive
+            .notifications(forName: BlockedUsersViewController.userBlockedNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] _ in retrieveMe() }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: BlockedUsersViewController.userUnblockedNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] _ in retrieveMe() }
+
         if authToken.get() != nil {
             retrieveMe()
         }
