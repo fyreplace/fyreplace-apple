@@ -88,8 +88,8 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
 
             self.items.append(contentsOf: items.items)
             nextCursor = items.next
-            delegate.onFetch(count: items.items.count)
             state = items.hasNext ? .incomplete : .complete
+            delegate.onFetch(count: items.items.count)
         }
     }
 }
