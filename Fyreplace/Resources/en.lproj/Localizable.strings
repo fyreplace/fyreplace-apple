@@ -75,10 +75,6 @@
 "Settings.AccountDeletion.Success.Title" = "Account deleted";
 "Settings.AccountDeletion.Success.Message" = "Your account has been deleted, your posts and comments will be fully removed as well within the next minutes.\n\nGoodbye! 👋";
 
-"Bio.Length" = "%d/%d";
-"Bio.Error.TooLong.Title" = "Invalid bio";
-"Bio.Error.TooLong.Message" = "Your bio is too long.";
-
 "Login.Login" = "Login";
 "Login.Register" = "Register";
 "Login.Error.ExistingEmail.Title" = "Email taken";
@@ -101,6 +97,12 @@
 "Login.Error.InvalidUsername.Message" = "This username is not valid. Usernames can contain letters, numbers, and @/./+/-/_ characters.";
 "Login.Error.InvalidPassword.Title" = "Weak password";
 "Login.Error.InvalidPassword.Message" = "This password is too weak.";
+
+"Bio.Length" = "%d/%d";
+"Bio.Error.TooLong.Title" = "Invalid bio";
+"Bio.Error.TooLong.Message" = "Your bio is too long.";
+
+"BlockedUsers.Swipe.Unblock" = "Unblock";
 
 "ImageSelector.ChooseSource.Action.Library" = "Pick an image";
 "ImageSelector.ChooseSource.Action.Camera" = "Take a picture";

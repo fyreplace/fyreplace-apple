@@ -61,17 +61,26 @@ class UserViewController: UIViewController {
 
     @IBAction
     func onBlockPressed() {
-        presentChoiceAlert(text: "User.Block", dangerous: false) { _ in self.vm.updateBlock(blocked: true) }
+        presentChoiceAlert(text: "User.Block", dangerous: false) { yes in
+            guard yes else { return }
+            self.vm.updateBlock(blocked: true)
+        }
     }
 
     @IBAction
     func onUnblockPressed() {
-        presentChoiceAlert(text: "User.Unblock", dangerous: false) { _ in self.vm.updateBlock(blocked: false) }
+        presentChoiceAlert(text: "User.Unblock", dangerous: false) { yes in
+            guard yes else { return }
+            self.vm.updateBlock(blocked: false)
+        }
     }
 
     @IBAction
     func onReportPressed() {
-        presentChoiceAlert(text: "User.Report", dangerous: true) { _ in self.vm.report() }
+        presentChoiceAlert(text: "User.Report", dangerous: true) { yes in
+            guard yes else { return }
+            self.vm.report()
+        }
     }
 
     private func onUser(_ user: FPUser?) {

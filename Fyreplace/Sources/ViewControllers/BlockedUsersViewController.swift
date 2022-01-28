@@ -29,6 +29,34 @@ extension BlockedUsersViewController {
         guard let cell = cell as? BlockedUserTableViewCell else { return }
         cell.setup(with: vm.blockedUser(at: indexPath.row))
     }
+
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let profile = vm.blockedUser(at: indexPath.row)
+        let unblockAction = UIContextualAction(
+            style: .destructive,
+            title: .tr("BlockedUsers.Swipe.Unblock")
+        ) { [unowned self] action, view, completion in
+            presentChoiceAlert(text: "User.Unblock", dangerous: false) { yes in
+                guard yes else { return completion(false) }
+                vm.unblock(userId: profile.id, at: indexPath.row)
+            }
+        }
+
+        return UISwipeActionsConfiguration(actions: [unblockAction])
+    }
 }
 
-extension BlockedUsersViewController: BlockedUsersViewModelDelegate {}
+extension BlockedUsersViewController: BlockedUsersViewModelDelegate {
+    func onUnblock(at index: Int) {
+        DispatchQueue.main.async { [self] in
+            vm.lister.remove(at: index)
+            tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        }
+
+        NotificationCenter.default.post(
+            name: Self.userUnblockedNotification,
+            object: self,
+            userInfo: ["position": index]
+        )
+    }
+}
