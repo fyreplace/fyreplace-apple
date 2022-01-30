@@ -4,7 +4,7 @@ class BlockedUsersViewController: ListViewController {
     @IBOutlet
     var vm: BlockedUsersViewModel!
 
-    override class var additionNotification: Notification.Name? {
+    override class var additionNotification: Notification.Name {
         Self.userBlockedNotification
     }
     override class var deletionNotification: Notification.Name {
