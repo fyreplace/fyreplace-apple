@@ -15,14 +15,13 @@ class SettingsViewModel: ViewModel {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        user.value = getCurrentUser()
-        blockedUsers.value = user.value?.blockedUsers ?? 0
+        reloadUser()
 
         NotificationCenter.default.reactive
             .notifications(forName: FPUser.userChangedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in user.value = getCurrentUser() }
+            .observeValues { [unowned self] _ in reloadUser() }
 
         NotificationCenter.default.reactive
             .notifications(forName: BlockedUsersViewController.userBlockedNotification)
@@ -68,6 +67,12 @@ class SettingsViewModel: ViewModel {
         let response = accountService.delete(Google_Protobuf_Empty(), callOptions: .authenticated).response
         response.whenSuccess { _ in self.onDelete() }
         response.whenFailure(delegate.onError(_:))
+    }
+
+    private func reloadUser() {
+        let newUser = getCurrentUser()
+        self.user.value = newUser
+        blockedUsers.value = newUser?.blockedUsers ?? 0
     }
 
     private func onUpdateAvatar() {
