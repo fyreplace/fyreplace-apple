@@ -1340,19 +1340,32 @@
                             <outlet property="delegate" destination="Blocked-Users-Blocked-Users" id="70445c478b7a15cd9a4a7c5e95f407a6122765eee86f22abbfb792749e0eb107"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Blocked users" id="Blocked-Users-Blocked-Users-Blocked-users"/>
+                    <navigationItem key="navigationItem" title="Blocked users" id="Blocked-Users-Blocked-Users-Blocked-users">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Blocked-Users-Blocked-Users-Blocked-users-edit">
+                            <connections>
+                                <action selector="onEditPressed" destination="Blocked-Users-Blocked-Users" id="a0b42f41122551aedcbf76c4e935e552ee1aa3343782b2392a071e516663436c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Blocked-Users-Blocked-Users-refreshControl">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="labelColor"/>
                     </refreshControl>
                     <connections>
+                        <outlet property="done" destination="Blocked-Users-done" id="f5588a0e2ba14d15d07ee250dc51c03315a0caa92b41b2cddb171693d18b1847"/>
+                        <outlet property="edit" destination="Blocked-Users-Blocked-Users-Blocked-users-edit" id="31a95ff23aac31b0f9e3700457c7e97fa7a5665e501a36694c19078120a2e958"/>
                         <outlet property="emptyPlaceholder" destination="Blocked-Users-No-blocked-users" id="89dcbcb58a1276775df203f100ddde97bebf907d26880b95c304abc2268a7f21"/>
                         <outlet property="listDelegate" destination="Blocked-Users-BlockedUsersViewModel" id="03034cc75e3245aa2ded5c24ff57e9a4e14dbfb3803565348c968f7519aee7e9"/>
                         <outlet property="vm" destination="Blocked-Users-BlockedUsersViewModel" id="d1f3722d3fcab0eea1b091a4f184a7334beb42eb861ff0a52a830b952d06f953"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Blocked-Users-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <barButtonItem style="done" systemItem="done" id="Blocked-Users-done">
+                    <connections>
+                        <action selector="onDonePressed" destination="Blocked-Users-Blocked-Users" id="fb8ba7aa3b1db18068566142a60383d4dae980ec50f47947cd37823c1188f639"/>
+                    </connections>
+                </barButtonItem>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No blocked users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Blocked-Users-No-blocked-users">
                     <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

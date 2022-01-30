@@ -5,6 +5,10 @@ class BlockedUsersViewController: ListViewController {
 
     @IBOutlet
     var vm: BlockedUsersViewModel!
+    @IBOutlet
+    var edit: UIBarButtonItem!
+    @IBOutlet
+    var done: UIBarButtonItem!
 
     override class var additionNotification: Notification.Name {
         Self.userBlockedNotification
@@ -34,9 +38,27 @@ class BlockedUsersViewController: ListViewController {
             userNavigationController.profile = vm.blockedUser(at: index)
         }
     }
+
+    @IBAction
+    func onEditPressed() {
+        tableView.setEditing(true, animated: true)
+        navigationItem.rightBarButtonItem = done
+    }
+
+    @IBAction
+    func onDonePressed() {
+        tableView.setEditing(false, animated: true)
+        navigationItem.rightBarButtonItem = edit
+    }
 }
 
 extension BlockedUsersViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let count = super.tableView(tableView, numberOfRowsInSection: section)
+        edit.isEnabled = count > 0
+        return count
+    }
+
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         super.tableView(tableView, willDisplay: cell, forRowAt: indexPath)
         guard let cell = cell as? BlockedUserTableViewCell else { return }
