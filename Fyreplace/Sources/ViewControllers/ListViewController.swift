@@ -70,14 +70,20 @@ class ListViewController: UITableViewController {
     private func onItemAdded(_ notification: Notification) {
         guard let info = notification.userInfo,
             let position = info["position"] as? Int,
-            let item = info["item"]
+            let item = info["item"],
+            info["changeHandled"] as? Bool != true
         else { return }
+
         listDelegate.lister.insert(item, at: position)
         tableView.insertRows(at: [IndexPath(row: position, section: 0)], with: .automatic)
     }
 
     private func onItemDeleted(_ notification: Notification) {
-        guard let position = notification.userInfo?["position"] as? Int else { return }
+        guard let info = notification.userInfo,
+              let position = info["position"] as? Int,
+              info["changeHandled"] as? Bool != true
+        else { return }
+
         listDelegate.lister.remove(at: position)
         tableView.deleteRows(at: [IndexPath(row: position, section: 0)], with: .automatic)
     }

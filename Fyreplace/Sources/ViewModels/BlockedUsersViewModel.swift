@@ -15,13 +15,13 @@ class BlockedUsersViewModel: ViewModel {
         return blockedUserLister.items[index]
     }
 
-    func unblock(userId: String, at index: Int) {
+    func updateBlock(userId: String, blocked: Bool, at index: Int) {
         let request = FPBlock.with {
             $0.id = userId
-            $0.blocked = false
+            $0.blocked = blocked
         }
         let response = userService.updateBlock(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onUnblock(at: index) }
+        response.whenSuccess { _ in self.delegate.onUpdateBlock(blocked, at: index) }
         response.whenFailure(delegate.onError(_:))
     }
 }
@@ -36,5 +36,5 @@ extension BlockedUsersViewModel: ListViewDelegate {
 
 @objc
 protocol BlockedUsersViewModelDelegate: ViewModelDelegate, ItemListerDelegate {
-    func onUnblock(at index: Int)
+    func onUpdateBlock(_ blocked: Bool, at index: Int)
 }

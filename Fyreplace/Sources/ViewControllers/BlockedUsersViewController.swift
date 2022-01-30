@@ -1,6 +1,8 @@
 import UIKit
 
 class BlockedUsersViewController: ListViewController {
+    override var canBecomeFirstResponder: Bool { true }
+
     @IBOutlet
     var vm: BlockedUsersViewModel!
 
@@ -9,6 +11,17 @@ class BlockedUsersViewController: ListViewController {
     }
     override class var deletionNotification: Notification.Name {
         Self.userUnblockedNotification
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        becomeFirstResponder()
+        undoManager?.removeAllActions()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        resignFirstResponder()
+        super.viewDidDisappear(animated)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,33 +43,52 @@ extension BlockedUsersViewController {
         cell.setup(with: vm.blockedUser(at: indexPath.row))
     }
 
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
         let profile = vm.blockedUser(at: indexPath.row)
-        let unblockAction = UIContextualAction(
-            style: .destructive,
-            title: .tr("BlockedUsers.Swipe.Unblock")
-        ) { [unowned self] action, view, completion in
-            presentChoiceAlert(text: "User.Unblock", dangerous: false) { yes in
-                guard yes else { return completion(false) }
-                vm.unblock(userId: profile.id, at: indexPath.row)
+        unblock(profile: profile, at: indexPath)
+        setupUndo(for: profile, at: indexPath)
+    }
+
+    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return .tr("BlockedUsers.Swipe.Unblock")
+    }
+
+    private func block(profile: FPProfile, at indexPath: IndexPath) {
+        vm.updateBlock(userId: profile.id, blocked: true, at: indexPath.row)
+        vm.lister.insert(profile, at: indexPath.row)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+
+    private func unblock(profile: FPProfile, at indexPath: IndexPath) {
+        vm.updateBlock(userId: profile.id, blocked: false, at: indexPath.row)
+        vm.lister.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+
+    private func setupUndo(for profile: FPProfile, at indexPath: IndexPath) {
+        guard let undoer = undoManager else { return }
+        undoer.setActionName(.tr("BlockedUsers.Swipe.Unblock"))
+        undoer.registerUndo(withTarget: self) { [unowned undoer] target in
+            target.block(profile: profile, at: indexPath)
+            undoer.registerUndo(withTarget: target) { target in
+                target.unblock(profile: profile, at: indexPath)
+                target.setupUndo(for: profile, at: indexPath)
             }
         }
-
-        return UISwipeActionsConfiguration(actions: [unblockAction])
     }
 }
 
 extension BlockedUsersViewController: BlockedUsersViewModelDelegate {
-    func onUnblock(at index: Int) {
-        DispatchQueue.main.async { [self] in
-            vm.lister.remove(at: index)
-            tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-        }
-
+    func onUpdateBlock(_ blocked: Bool, at index: Int) {
         NotificationCenter.default.post(
-            name: Self.userUnblockedNotification,
+            name: blocked ? Self.userBlockedNotification : Self.userUnblockedNotification,
             object: self,
-            userInfo: ["position": index]
+            userInfo: ["position": index, "changeHandled": true]
         )
     }
 }
