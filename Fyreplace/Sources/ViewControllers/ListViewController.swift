@@ -39,7 +39,7 @@ class ListViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewWillAppear(animated)
         listDelegate.lister.startListing()
 
         if listDelegate.lister.itemCount == 0 {
@@ -48,7 +48,7 @@ class ListViewController: UITableViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+        super.viewWillDisappear(animated)
         listDelegate.lister.stopListing()
     }
 
