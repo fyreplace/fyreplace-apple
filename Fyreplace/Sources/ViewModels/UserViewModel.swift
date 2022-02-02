@@ -10,8 +10,8 @@ class UserViewModel: ViewModel {
 
     private lazy var userService = FPUserServiceClient(channel: Self.rpc.channel)
 
-    func retrieve(id: String) {
-        let request = FPStringId.with { $0.id = id }
+    func retrieve(id: Data) {
+        let request = FPId.with { $0.id = id }
         let response = userService.retrieve(request, callOptions: .authenticated).response
         response.whenSuccess(onRetrieve(_:))
         response.whenFailure(delegate.onError(_:))
@@ -28,7 +28,7 @@ class UserViewModel: ViewModel {
     }
 
     func report() {
-        let request = FPStringId.with { $0.id = user.value!.profile.id }
+        let request = FPId.with { $0.id = user.value!.profile.id }
         let response = userService.report(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onReport() }
         response.whenFailure(delegate.onError(_:))

@@ -15,7 +15,7 @@ class BlockedUsersViewModel: ViewModel {
         return blockedUserLister.items[index]
     }
 
-    func updateBlock(userId: String, blocked: Bool, at index: Int) {
+    func updateBlock(userId: Data, blocked: Bool, at index: Int) {
         let request = FPBlock.with {
             $0.id = userId
             $0.blocked = blocked
