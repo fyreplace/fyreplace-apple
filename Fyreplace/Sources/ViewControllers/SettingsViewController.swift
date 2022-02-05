@@ -104,15 +104,12 @@ extension SettingsViewController {
 
         switch cell?.tag {
         case 1:
-            changePassword()
-
-        case 2:
             changeEmail()
 
-        case 3:
+        case 2:
             vm.logout()
 
-        case 4:
+        case 3:
             deleteAccount()
 
         default:
@@ -123,31 +120,6 @@ extension SettingsViewController {
     private func shouldHide(section: Int) -> Bool {
         guard section >= 0, section < tableView.numberOfSections else { return false }
         return (vm.user.value == nil) && (section != tableView.numberOfSections - 1)
-    }
-
-    private func changePassword() {
-        let alert = UIAlertController(
-            title: .tr("Settings.PasswordChange.Title"),
-            message: .tr("Settings.PasswordChange.Message"),
-            preferredStyle: .alert
-        )
-        var newPassword: UITextField?
-        let update = UIAlertAction(title: .tr("Ok"), style: .default) { [unowned self] _ in
-            guard let password = newPassword?.text else { return }
-            vm.updatePassword(password: password)
-        }
-        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
-
-        alert.addTextField {
-            newPassword = $0
-            $0.isSecureTextEntry = true
-            $0.textContentType = .newPassword
-            $0.returnKeyType = .done
-            $0.reactive.continuousTextValues.observeValues { update.isEnabled = $0.count > 0 }
-        }
-        alert.addAction(update)
-        alert.addAction(cancel)
-        present(alert, animated: true)
     }
 
     private func changeEmail() {
@@ -210,10 +182,6 @@ extension SettingsViewController: SettingsViewModelDelegate {
     func onUpdateAvatar() {
     }
 
-    func onUpdatePassword() {
-        presentBasicAlert(text: "Settings.PasswordChange.Success")
-    }
-
     func onSendEmailUpdateEmail() {
         presentBasicAlert(text: "Settings.EmailChange.Success")
     }
@@ -238,15 +206,12 @@ extension SettingsViewController: SettingsViewModelDelegate {
 
         switch status.code {
         case .alreadyExists:
-            key = "Login.Error.ExistingEmail"
+            key = "Login.Error.EmailAlreadyExists"
 
         case .invalidArgument:
             switch status.description {
             case "invalid_email":
                 key = "Login.Error.InvalidEmail"
-
-            case "invalid_password":
-                key = "Login.Error.InvalidPassword"
 
             default:
                 key = "Error.Validation"

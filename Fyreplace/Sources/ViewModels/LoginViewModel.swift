@@ -8,24 +8,20 @@ class LoginViewModel: ViewModel {
     let isRegistering = MutableProperty(true)
     let email = MutableProperty("")
     let username = MutableProperty("")
-    let password = MutableProperty("")
     lazy var isEmailValid = email.map { $0.count.between(3, 100) }
     lazy var isUsernameValid = username.map { $0.count.between(3, 50) }
-    lazy var isPasswordValid = password.map { $0.count.between(8, 100) }
-    lazy var canProceed = isRegistering.negate().or(isEmailValid).and(isUsernameValid).and(isPasswordValid)
+    lazy var canProceed = isRegistering.negate().or(isUsernameValid).and(isEmailValid)
     let isLoading = MutableProperty(false)
 
     private lazy var accountService = FPAccountServiceClient(channel: Self.rpc.channel)
     private let authToken = Keychain.authToken
 
     func register() {
+        isLoading.value = true
         let request = FPUserCreation.with {
             $0.email = email.value
             $0.username = username.value
-            $0.password = password.value
         }
-
-        isLoading.value = true
         let response = accountService.create(request).response
         response.whenSuccess { _ in self.delegate.onRegister() }
         response.whenFailure(delegate.onError(_:))
@@ -33,26 +29,12 @@ class LoginViewModel: ViewModel {
     }
 
     func login() {
-        let request = FPCredentials.with {
-            $0.identifier = username.value
-            $0.password = password.value
-            $0.client = .default
-        }
-
         isLoading.value = true
-        let response = accountService.connect(request).response
-        response.whenSuccess { self.onLogin(token: $0.token) }
+        let request = FPEmail.with { $0.email = email.value }
+        let response = accountService.sendConnectionEmail(request).response
+        response.whenSuccess { _ in self.delegate.onLogin() }
         response.whenFailure(delegate.onError(_:))
         response.whenComplete { _ in self.isLoading.value = false }
-    }
-
-    private func onLogin(token: String) {
-        if authToken.set(token.data(using: .utf8)!) {
-            NotificationCenter.default.post(name: FPUser.userConnectedNotification, object: self)
-            delegate.onLogin()
-        } else {
-            delegate.onError(KeychainError.set)
-        }
     }
 }
 

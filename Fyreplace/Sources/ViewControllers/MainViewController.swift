@@ -15,10 +15,16 @@ class MainViewController: UITabBarController {
             .observeValues { [unowned self] in onUrlOpened($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.userRegisteredNotification)
+            .notifications(forName: FPUser.userRegistrationEmailNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onUserRegistered($0) }
+            .observeValues { [unowned self] in onUserRegistrationEmail($0) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: FPUser.userConnectionEmailNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onUserConnectionEmail($0) }
 
         NotificationCenter.default.reactive
             .notifications(forName: FPUser.userConnectedNotification)
@@ -36,24 +42,31 @@ class MainViewController: UITabBarController {
     }
 
     private func onUrlOpened(_ notification: Notification) {
-        guard let url = notification.userInfo?["url"] as? URL else {
-            return presentBasicAlert(text: "Error", feedback: .error)
-        }
+        guard let url = notification.userInfo?["url"] as? URL,
+              let fragment = url.fragment
+        else { return presentBasicAlert(text: "Error", feedback: .error) }
 
         switch url.path {
         case "/AccountService.ConfirmActivation":
-            vm.confirmActivation(with: url.fragment ?? "")
+            vm.confirmActivation(with: fragment)
+
+        case "/AccountService.ConfirmConnection":
+            vm.confirmConnection(with: fragment)
 
         case "/UserService.ConfirmEmailUpdate":
-            vm.confirmEmailUpdate(with: url.fragment ?? "")
+            vm.confirmEmailUpdate(with: fragment)
 
         default:
             presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
         }
     }
 
-    private func onUserRegistered(_ notification: Notification) {
+    private func onUserRegistrationEmail(_ notification: Notification) {
         presentBasicAlert(text: "Main.AccountCreated")
+    }
+
+    private func onUserConnectionEmail(_ notification: Notification) {
+        presentBasicAlert(text: "Main.Connection")
     }
 
     private func onUserConnected(_ notification: Notification) {

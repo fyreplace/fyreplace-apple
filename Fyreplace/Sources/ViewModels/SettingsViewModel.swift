@@ -43,13 +43,6 @@ class SettingsViewModel: ViewModel {
         stream.upload(image: image)
     }
 
-    func updatePassword(password: String) {
-        let request = FPPassword.with { $0.password = password }
-        let response = userService.updatePassword(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onUpdatePassword() }
-        response.whenFailure(delegate.onError(_:))
-    }
-
     func sendEmailUpdateEmail(address: String) {
         let request = FPEmail.with { $0.email = address }
         let response = userService.sendEmailUpdateEmail(request, callOptions: .authenticated).response
@@ -102,8 +95,6 @@ class SettingsViewModel: ViewModel {
 @objc
 protocol SettingsViewModelDelegate: ViewModelDelegate {
     func onUpdateAvatar()
-
-    func onUpdatePassword()
 
     func onSendEmailUpdateEmail()
 

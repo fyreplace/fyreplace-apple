@@ -48,7 +48,17 @@ class MainViewModel: ViewModel {
             $0.client = .default
         }
         let response = accountService.confirmActivation(request).response
-        response.whenSuccess { self.onConfirmActivation(token: $0.token) }
+        response.whenSuccess { self.onConfirmConnection(token: $0.token, activated: true) }
+        response.whenFailure(delegate.onError(_:))
+    }
+
+    func confirmConnection(with token: String) {
+        let request = FPConnectionToken.with {
+            $0.token = token
+            $0.client = .default
+        }
+        let response = accountService.confirmConnection(request).response
+        response.whenSuccess { self.onConfirmConnection(token: $0.token, activated: false) }
         response.whenFailure(delegate.onError(_:))
     }
 
@@ -65,10 +75,12 @@ class MainViewModel: ViewModel {
         response.whenFailure(delegate.onError(_:))
     }
 
-    private func onConfirmActivation(token: String) {
+    private func onConfirmConnection(token: String, activated: Bool) {
         if authToken.set(token.data(using: .utf8)!) {
             NotificationCenter.default.post(name: FPUser.userConnectedNotification, object: self)
-            delegate.onConfirmActivation()
+            if activated {
+                delegate.onConfirmActivation()
+            }
         } else {
             delegate.onError(KeychainError.set)
         }

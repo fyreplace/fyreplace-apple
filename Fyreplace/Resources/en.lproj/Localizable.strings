@@ -24,6 +24,8 @@
 "Main.AccountCreated.Message" = "A confirmation email has been sent to your address. It contains a link that will allow you to confirm your registration.";
 "Main.AccountActivated.Title" = "Account activated";
 "Main.AccountActivated.Message" = "Congratulations!\nYour account has been successfully activated.";
+"Main.Connection.Title" = "Check your email";
+"Main.Connection.Message" = "A connection email has been sent to your address. It contains a link to connect to your account.";
 "Main.EmailChanged.Title" = "Email changed";
 "Main.EmailChanged.Message" = "Your email has been successfully updated.";
 "Main.Error.MalformedUrl.Title" = "Cannot open URL";
@@ -63,10 +65,6 @@
 "Settings.EmailChange.TextField.Placeholder" = "email@example.org";
 "Settings.EmailChange.Success.Title" = "Email change requested";
 "Settings.EmailChange.Success.Message" = "A confirmation email has been sent to your new address.";
-"Settings.PasswordChange.Title" = "Password change";
-"Settings.PasswordChange.Message" = "What's your new password?";
-"Settings.PasswordChange.Success.Title" = "Password changed";
-"Settings.PasswordChange.Success.Message" = "Your password has been successfully updated.";
 "Settings.Bio" = "Empty";
 "Settings.AccountDeletion.Title" = "Account deletion";
 "Settings.AccountDeletion.Message" = "Deleting your account is a permanent action. You will not be able to restore your account afterwards.\n\nAre you sure you want to go through with this?";
@@ -77,26 +75,26 @@
 
 "Login.Login" = "Login";
 "Login.Register" = "Register";
-"Login.Error.ExistingEmail.Title" = "Email taken";
-"Login.Error.ExistingEmail.Message" = "This email is already used in another account.";
-"Login.Error.ExistingUsername.Title" = "Username taken";
-"Login.Error.ExistingUsername.Message" = "This username is already used in another account.";
+"Login.Error.EmailNotFound.Title" = "Incorrect email";
+"Login.Error.EmailNotFound.Message" = "This email is not associated to any account.";
+"Login.Error.EmailAlreadyExists.Title" = "Email taken";
+"Login.Error.EmailAlreadyExists.Message" = "This email is already used in another account.";
+"Login.Error.UsernameAlreadyExists.Title" = "Username taken";
+"Login.Error.UsernameAlreadyExists.Message" = "This username is already used in another account.";
 "Login.Error.CallerPending.Title" = "Account not activated";
 "Login.Error.CallerPending.Message" = "You have not yet activated your account. Have you checked your email for an activation link?";
 "Login.Error.CallerDeleted.Title" = "Account deleted";
 "Login.Error.CallerDeleted.Message" = "This account has been deleted. You cannot use a deleted account, and it cannot be recovered.";
 "Login.Error.CallerBanned.Title" = "Account banned";
-"Login.Error.CallerBanned.Message" = "This account has been banned permanently.";
+"Login.Error.CallerBanned.Message" = "This account has been banned temporarily.";
+"Login.Error.CallerBannedPermanently.Title" = "Account banned";
+"Login.Error.CallerBannedPermanently.Message" = "This account has been banned permanently.";
 "Login.Error.UsernameReserved.Title" = "Username unavailable";
 "Login.Error.UsernameReserved.Message" = "This username is not available.";
-"Login.Error.InvalidCredentials.Title" = "Invalid credentials";
-"Login.Error.InvalidCredentials.Message" = "Username or password incorrect.";
 "Login.Error.InvalidEmail.Title" = "Invalid email address";
 "Login.Error.InvalidEmail.Message" = "This email address is not valid.";
 "Login.Error.InvalidUsername.Title" = "Invalid username";
 "Login.Error.InvalidUsername.Message" = "This username is not valid. Usernames can contain letters, numbers, and @/./+/-/_ characters.";
-"Login.Error.InvalidPassword.Title" = "Weak password";
-"Login.Error.InvalidPassword.Message" = "This password is too weak.";
 
 "Bio.Length" = "%d/%d";
 "Bio.Error.TooLong.Title" = "Invalid bio";
