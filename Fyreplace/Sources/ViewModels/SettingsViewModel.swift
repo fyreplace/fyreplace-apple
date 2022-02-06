@@ -7,7 +7,7 @@ class SettingsViewModel: ViewModel {
     weak var delegate: SettingsViewModelDelegate!
 
     let user = MutableProperty<FPUser?>(nil)
-    let blockedUsers = MutableProperty<Int32>(0)
+    let blockedUsers = MutableProperty<UInt32>(0)
 
     private lazy var accountService = FPAccountServiceClient(channel: Self.rpc.channel)
     private lazy var userService = FPUserServiceClient(channel: Self.rpc.channel)
