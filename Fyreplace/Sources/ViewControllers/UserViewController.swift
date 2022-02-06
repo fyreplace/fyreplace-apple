@@ -118,7 +118,7 @@ extension UserViewController: UserViewModelDelegate {
     }
 
     func onReport() {
-        presentBasicAlert(text: "User.Report")
+        presentBasicAlert(text: "User.Report.Success")
     }
 
     func onFailure(_ error: Error) {
