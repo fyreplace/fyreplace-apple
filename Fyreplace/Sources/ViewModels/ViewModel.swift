@@ -1,5 +1,5 @@
-import Foundation
 import GRPC
+import UIKit
 
 class ViewModel: NSObject {
     internal static let rpc = Rpc()
