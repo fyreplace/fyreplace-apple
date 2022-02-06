@@ -1107,13 +1107,18 @@
                                             <constraint firstItem="Login-Login-view-scrollView-stackView-Email" firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Username" secondAttribute="width" id="09-01-02-02-03--C-00-00-00-00"/>
                                             <constraint firstItem="Login-Login-view-scrollView-stackView-Username" firstAttribute="width" relation="lessThanOrEqual" secondItem="Login-Login-view-scrollView-stackView" secondAttribute="width" id="09-01-02-02-03--C-00-00-00-00-00"/>
                                         </constraints>
+                                        <variation key="heightClass=compact" spacing="20"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="bottom" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="bottom" constant="-40" id="09-01-02-02--C-00-00-00-00"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="bottom" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="bottom" constant="-60" id="09-01-02-02--C-00-00-00-00">
+                                        <variation key="heightClass=compact" constant="-30"/>
+                                    </constraint>
                                     <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="centerX" secondItem="Login-Login-view-scrollView" secondAttribute="centerX" id="09-01-02-02--C-00-00-00-01"/>
                                     <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="leading" secondItem="Login-Login-view-scrollView" secondAttribute="leading" constant="20" id="09-01-02-02--C-00-00-00-02"/>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="top" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="top" constant="60" id="09-01-02-02--C-00-00-00-03"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="top" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="top" constant="60" id="09-01-02-02--C-00-00-00-03">
+                                        <variation key="heightClass=compact" constant="30"/>
+                                    </constraint>
                                     <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="trailing" secondItem="Login-Login-view-scrollView" secondAttribute="trailing" constant="-20" id="09-01-02-02--C-00-00-00-04"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Login-Login-view-scrollView-contentLayoutGuide"/>
