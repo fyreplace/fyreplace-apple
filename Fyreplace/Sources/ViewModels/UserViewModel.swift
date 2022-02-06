@@ -36,12 +36,12 @@ class UserViewModel: ViewModel {
 
     private func onRetrieve(_ user: FPUser) {
         self.user.value = user
-        self.blocked.value = user.profile.isBlocked
+        blocked.value = user.profile.isBlocked
     }
 
     private func onBlockUpdate(_ blocked: Bool) {
         self.blocked.value = blocked
-        self.delegate.onBlockUpdate(blocked)
+        delegate.onBlockUpdate(blocked)
     }
 }
 

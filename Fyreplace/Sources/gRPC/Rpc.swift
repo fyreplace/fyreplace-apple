@@ -10,9 +10,9 @@ class Rpc {
         let port = Bundle.main.infoDictionary!["FPApiPort"] as! String
 
         #if DEBUG
-        let builder = ClientConnection.insecure(group: group)
+            let builder = ClientConnection.insecure(group: group)
         #else
-        let builder = ClientConnection.usingPlatformAppropriateTLS(for: group)
+            let builder = ClientConnection.usingPlatformAppropriateTLS(for: group)
         #endif
 
         channel = builder.connect(host: host, port: Int(port)!)

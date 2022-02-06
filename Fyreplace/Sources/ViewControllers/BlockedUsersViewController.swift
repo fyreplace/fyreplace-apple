@@ -13,6 +13,7 @@ class BlockedUsersViewController: ListViewController {
     override class var additionNotification: Notification.Name {
         Self.userBlockedNotification
     }
+
     override class var deletionNotification: Notification.Name {
         Self.userUnblockedNotification
     }
@@ -33,7 +34,8 @@ class BlockedUsersViewController: ListViewController {
 
         if let userNavigationController = segue.destination as? UserNavigationViewController,
            let cell = sender as? BlockedUserTableViewCell,
-           let index = tableView.indexPath(for: cell)?.row {
+           let index = tableView.indexPath(for: cell)?.row
+        {
             userNavigationController.itemPosition = index
             userNavigationController.profile = vm.blockedUser(at: index)
         }

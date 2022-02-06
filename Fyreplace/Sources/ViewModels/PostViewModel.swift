@@ -16,7 +16,7 @@ class PostViewModel: ViewModel {
         response.whenSuccess(onRetrieve(_:))
         response.whenFailure(delegate.onError(_:))
     }
-    
+
     func updateSubscription(subscribed: Bool) {
         let request = FPSubscription.with {
             $0.id = post.value!.id
@@ -26,7 +26,7 @@ class PostViewModel: ViewModel {
         response.whenSuccess { _ in self.onUpdateSubscription(subscribed) }
         response.whenFailure(delegate.onError(_:))
     }
-    
+
     func report() {
         let request = FPId.with { $0.id = post.value!.id }
         let response = postService.report(request, callOptions: .authenticated).response

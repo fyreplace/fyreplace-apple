@@ -1,5 +1,5 @@
-import UIKit
 import ReactiveSwift
+import UIKit
 
 class ListViewController: UITableViewController {
     @IBOutlet
@@ -69,9 +69,9 @@ class ListViewController: UITableViewController {
 
     private func onItemAdded(_ notification: Notification) {
         guard let info = notification.userInfo,
-            let position = info["position"] as? Int,
-            let item = info["item"],
-            info["changeHandled"] as? Bool != true
+              let position = info["position"] as? Int,
+              let item = info["item"],
+              info["changeHandled"] as? Bool != true
         else { return }
 
         listDelegate.lister.insert(item, at: position)

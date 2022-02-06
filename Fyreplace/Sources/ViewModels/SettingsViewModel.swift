@@ -64,7 +64,7 @@ class SettingsViewModel: ViewModel {
 
     private func reloadUser() {
         let newUser = getCurrentUser()
-        self.user.value = newUser
+        user.value = newUser
         blockedUsers.value = newUser?.blockedUsers ?? 0
     }
 

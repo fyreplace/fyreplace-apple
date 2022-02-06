@@ -1,5 +1,5 @@
-import UIKit
 import SDWebImage
+import UIKit
 
 class ImageItemTableViewCell: ItemTableViewCell {
     @IBOutlet

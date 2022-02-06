@@ -19,8 +19,8 @@ extension ViewModelDelegate {
             presentBasicAlert(text: "Error.Unavailable", feedback: .error)
 
         case .unauthenticated:
-            if !["timestamp_exceeded", "invalid_token"].contains(status.message) && Keychain.authToken.get() != nil {
-                if (Keychain.authToken.delete()) {
+            if !["timestamp_exceeded", "invalid_token"].contains(status.message), Keychain.authToken.get() != nil {
+                if Keychain.authToken.delete() {
                     setCurrentUser(nil)
                 }
             } else {

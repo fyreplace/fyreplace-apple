@@ -19,7 +19,7 @@ extension AppDelegate: UIApplicationDelegate {
         return userActivity.sendNotification()
     }
 
-    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         NotificationCenter.default.post(name: Self.urlOpenedNotification, object: self, userInfo: ["url": url])
         return true
     }

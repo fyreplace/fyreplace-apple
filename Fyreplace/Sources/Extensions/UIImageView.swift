@@ -1,5 +1,5 @@
-import UIKit
 import SDWebImage
+import UIKit
 
 extension UIImageView {
     func setAvatar(_ url: String?) {

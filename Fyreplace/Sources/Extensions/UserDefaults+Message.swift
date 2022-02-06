@@ -12,4 +12,3 @@ extension UserDefaults {
         return try? M(serializedData: data)
     }
 }
-

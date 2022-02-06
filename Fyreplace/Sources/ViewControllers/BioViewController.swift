@@ -1,6 +1,6 @@
-import UIKit
-import ReactiveSwift
 import GRPC
+import ReactiveSwift
+import UIKit
 
 class BioViewController: UIViewController {
     @IBOutlet

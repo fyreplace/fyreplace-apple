@@ -9,7 +9,7 @@ class ItemTableViewCell: AvatarTableViewCell {
     var dateFormat: DateFormat!
 
     func setup(at date: Date, with profile: FPProfile) {
-        self.setup(with: profile)
+        setup(with: profile)
         self.date.text = dateFormat.string(from: date)
         username.setUsername(profile)
     }

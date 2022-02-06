@@ -1,5 +1,5 @@
-import UIKit
 import GRPC
+import UIKit
 
 class UserViewController: UIViewController {
     @IBOutlet

@@ -99,7 +99,7 @@
 				"$(INPUT_FILE_DIR)/$(INPUT_FILE_BASE).grpc.swift",
 			);
 			runOncePerArchitecture = 0;
-			script = "PATH=\"$PATH:./Pods/gRPC-Swift-Plugins/bin\"\nprotoc --swift_out=. --grpc-swift_out=. protos/$INPUT_FILE_NAME\ntouch protos/$INPUT_FILE_BASE.pb.swift\ntouch protos/$INPUT_FILE_BASE.grpc.swift\n";
+			script = "PATH=\"$PODS_ROOT/gRPC-Swift-Plugins/bin:$PATH\"\nprotoc --swift_out=. --grpc-swift_out=. protos/$INPUT_FILE_NAME\ntouch protos/$INPUT_FILE_BASE.pb.swift\ntouch protos/$INPUT_FILE_BASE.grpc.swift\n";
 		};
 /* End PBXBuildRule section */
 
@@ -410,6 +410,7 @@
 			buildPhases = (
 				E5C729B894B38231F2E0EBFF /* [CP] Check Pods Manifest.lock */,
 				4D0F86D826C3CB0E00B1586D /* ShellScript */,
+				4DDB346527AFE5C600622AFF /* ShellScript */,
 				4D0040E4268EEDE800AF89FD /* Sources */,
 				4D0040E5268EEDE800AF89FD /* Frameworks */,
 				4D0040E6268EEDE800AF89FD /* Resources */,
@@ -488,6 +489,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "python3 Fyreplace/Storyboards/identify.py\n";
+		};
+		4DDB346527AFE5C600622AFF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH=\"$PODS_ROOT/SwiftFormat/CommandLineTool:$PATH\"\nswiftformat --semicolons never --stripunusedargs closure-only $SOURCE_ROOT/$PROJECT\n";
 		};
 		854DB3A2B34738C63CD0812A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

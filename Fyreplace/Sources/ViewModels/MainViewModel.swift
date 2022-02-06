@@ -1,6 +1,6 @@
 import Foundation
-import SwiftProtobuf
 import ReactiveSwift
+import SwiftProtobuf
 
 class MainViewModel: ViewModel {
     @IBOutlet

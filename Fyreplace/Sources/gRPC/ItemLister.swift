@@ -22,8 +22,9 @@ protocol ItemListerProtocol {
 
 class ItemLister<Item, Items, Service>: ItemListerProtocol
     where Items: ItemBundle, Item == Items.Item,
-          Service: ItemListerService, Item == Service.Item,
-          Items == Service.Items {
+    Service: ItemListerService, Item == Service.Item,
+    Items == Service.Items
+{
     let pageSize: UInt32 = 12
     var itemCount: Int { items.count }
     private(set) var items: [Item] = []

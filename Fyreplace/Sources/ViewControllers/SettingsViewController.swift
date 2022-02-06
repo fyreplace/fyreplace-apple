@@ -1,8 +1,8 @@
-import UIKit
-import ReactiveSwift
-import SwiftProtobuf
 import GRPC
+import ReactiveSwift
 import SDWebImage
+import SwiftProtobuf
+import UIKit
 
 class SettingsViewController: UITableViewController {
     @IBOutlet
@@ -179,8 +179,7 @@ extension SettingsViewController {
 }
 
 extension SettingsViewController: SettingsViewModelDelegate {
-    func onUpdateAvatar() {
-    }
+    func onUpdateAvatar() {}
 
     func onSendEmailUpdateEmail() {
         presentBasicAlert(text: "Settings.EmailChange.Success")

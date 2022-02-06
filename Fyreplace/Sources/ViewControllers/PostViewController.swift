@@ -1,7 +1,7 @@
-import UIKit
-import ReactiveSwift
 import GRPC
+import ReactiveSwift
 import SDWebImage
+import UIKit
 
 class PostViewController: UITableViewController {
     @IBOutlet
@@ -63,7 +63,7 @@ class PostViewController: UITableViewController {
     func onSubscribePressed() {
         vm.updateSubscription(subscribed: true)
     }
-    
+
     @IBAction
     func onUnsubscribePressed() {
         vm.updateSubscription(subscribed: false)
@@ -84,7 +84,7 @@ class PostViewController: UITableViewController {
             self.vm.delete()
         }
     }
-    
+
     private func onPost(_ post: FPPost?) {
         guard let post = post else { return }
         let currentProfile = getCurrentProfile()
@@ -99,7 +99,7 @@ class PostViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
+
     private func onSubscribed(_ subscribed: Bool) {
         subscribe.isHidden = subscribed
         unsubscribe.isHidden = !subscribed

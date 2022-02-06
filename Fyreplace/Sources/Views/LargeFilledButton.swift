@@ -1,6 +1,6 @@
-import UIKit
-import ReactiveSwift
 import ReactiveCocoa
+import ReactiveSwift
+import UIKit
 
 @IBDesignable
 class LargeFilledButton: UIButton {

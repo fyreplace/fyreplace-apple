@@ -1,5 +1,5 @@
-import SwiftProtobuf
 import GRPC
+import SwiftProtobuf
 
 extension ClientStreamingCall where RequestPayload == FPImageChunk, ResponsePayload == Google_Protobuf_Empty {
     func upload(image: Data?) {
@@ -11,10 +11,10 @@ extension ClientStreamingCall where RequestPayload == FPImageChunk, ResponsePayl
         let totalSize = image.count
         let chunkCount = Int(ceil(Float(totalSize) / Float(ImageSelector.imageChunkSize)))
 
-        for i in 0..<chunkCount {
+        for i in 0 ..< chunkCount {
             let start = i * ImageSelector.imageChunkSize
             let end = min(start + ImageSelector.imageChunkSize, totalSize)
-            _ = sendMessage(FPImageChunk.with { $0.data = image.subdata(in: start..<end) })
+            _ = sendMessage(FPImageChunk.with { $0.data = image.subdata(in: start ..< end) })
         }
 
         _ = sendEnd()

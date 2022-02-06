@@ -1,5 +1,5 @@
-import UIKit
 import SDWebImage
+import UIKit
 
 extension UIButton {
     func setUsername(_ profile: FPProfile) {

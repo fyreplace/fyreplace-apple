@@ -1,5 +1,5 @@
-import UIKit
 import SDWebImage
+import UIKit
 
 class PostTableHeaderView: UIView {
     @IBOutlet
@@ -21,11 +21,11 @@ class PostTableHeaderView: UIView {
 
     func resize() {
         let height = content.bounds.height + 2 * abs(bottom.constant)
-        var theFrame = self.frame
+        var theFrame = frame
 
         if theFrame.height != height {
             theFrame.size.height = height
-            self.frame = theFrame
+            frame = theFrame
         }
     }
 

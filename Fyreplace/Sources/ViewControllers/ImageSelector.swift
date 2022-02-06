@@ -1,6 +1,6 @@
-import UIKit
 import PhotosUI
 import SDWebImage
+import UIKit
 
 class ImageSelector: NSObject {
     static let imageMaxArea = 1920 * 1080
