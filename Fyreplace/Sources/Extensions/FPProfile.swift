@@ -12,8 +12,7 @@ extension FPProfile {
         } else if anonymous {
             name = .tr("Anonymous")
         } else {
-            name = username
-            return NSAttributedString(string: name)
+            return NSAttributedString(string: username)
         }
 
         let attributes = [NSAttributedString.Key.font: font.withTraits(.traitItalic)]

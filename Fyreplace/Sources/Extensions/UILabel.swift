@@ -2,10 +2,11 @@ import UIKit
 
 extension UILabel {
     func setUsername(_ profile: FPProfile) {
-        guard !profile.isAvailable else {
-            return text = profile.username
+        if profile.isAvailable {
+            attributedText = nil
+            text = profile.username
+        } else {
+            attributedText = profile.getNormalizedUsername(with: font)
         }
-
-        attributedText = profile.getNormalizedUsername(with: font)
     }
 }
