@@ -11,20 +11,15 @@ extension UIViewController {
         }
     }
 
-    func presentChoiceAlert(text: String, dangerous: Bool, handler: @escaping (Bool) -> Void) {
+    func presentChoiceAlert(text: String, dangerous: Bool, handler: @escaping () -> Void) {
         let alert = UIAlertController(title: .tr("\(text).Title"), message: .tr("\(text).Message"), preferredStyle: .alert)
         alert.addAction(
             UIAlertAction(
                 title: .tr("Yes"),
                 style: dangerous ? .destructive : .default
-            ) { _ in handler(true) }
+            ) { _ in handler() }
         )
-        alert.addAction(
-            UIAlertAction(
-                title: .tr("No"),
-                style: .cancel
-            ) { _ in handler(false) }
-        )
+        alert.addAction(UIAlertAction(title: .tr("No"), style: .cancel))
         DispatchQueue.main.async { self.present(alert, animated: true) }
     }
 }

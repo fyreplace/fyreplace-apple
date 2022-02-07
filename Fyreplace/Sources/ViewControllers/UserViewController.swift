@@ -62,26 +62,17 @@ class UserViewController: UIViewController {
 
     @IBAction
     func onBlockPressed() {
-        presentChoiceAlert(text: "User.Block", dangerous: false) { yes in
-            guard yes else { return }
-            self.vm.updateBlock(blocked: true)
-        }
+        presentChoiceAlert(text: "User.Block", dangerous: false) { self.vm.updateBlock(blocked: true) }
     }
 
     @IBAction
     func onUnblockPressed() {
-        presentChoiceAlert(text: "User.Unblock", dangerous: false) { yes in
-            guard yes else { return }
-            self.vm.updateBlock(blocked: false)
-        }
+        presentChoiceAlert(text: "User.Unblock", dangerous: false) { self.vm.updateBlock(blocked: false) }
     }
 
     @IBAction
     func onReportPressed() {
-        presentChoiceAlert(text: "User.Report", dangerous: true) { yes in
-            guard yes else { return }
-            self.vm.report()
-        }
+        presentChoiceAlert(text: "User.Report", dangerous: true) { self.vm.report() }
     }
 
     @IBAction
@@ -98,10 +89,7 @@ class UserViewController: UIViewController {
             self.vm.ban(for: .month)
         })
         alert.addAction(UIAlertAction(title: .tr("User.Ban.Action.Permanently"), style: .destructive) { _ in
-            self.presentChoiceAlert(text: .tr("User.Ban.Permanently"), dangerous: true) { yes in
-                guard yes else { return }
-                self.vm.ban(for: .ever)
-            }
+            self.presentChoiceAlert(text: .tr("User.Ban.Permanently"), dangerous: true) { self.vm.ban(for: .ever) }
         })
         alert.addAction(UIAlertAction(title: .tr("Cancel"), style: .cancel))
         present(alert, animated: true)

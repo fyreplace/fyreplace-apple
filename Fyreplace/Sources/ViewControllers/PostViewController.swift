@@ -71,18 +71,12 @@ class PostViewController: UITableViewController {
 
     @IBAction
     func onReportPressed() {
-        presentChoiceAlert(text: "Post.Report", dangerous: true) { yes in
-            guard yes else { return }
-            self.vm.report()
-        }
+        presentChoiceAlert(text: "Post.Report", dangerous: true) { self.vm.report() }
     }
 
     @IBAction
     func onDeletePressed() {
-        presentChoiceAlert(text: "Post.Delete", dangerous: true) { yes in
-            guard yes else { return }
-            self.vm.delete()
-        }
+        presentChoiceAlert(text: "Post.Delete", dangerous: true) { self.vm.delete() }
     }
 
     private func onPost(_ post: FPPost?) {
