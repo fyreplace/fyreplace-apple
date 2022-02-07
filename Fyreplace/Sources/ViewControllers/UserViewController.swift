@@ -13,6 +13,8 @@ class UserViewController: UIViewController {
     @IBOutlet
     var report: ActionBarButtonItem!
     @IBOutlet
+    var ban: ActionBarButtonItem!
+    @IBOutlet
     var avatar: UIImageView!
     @IBOutlet
     var dateJoined: UILabel!
@@ -30,9 +32,15 @@ class UserViewController: UIViewController {
         vm.retrieve(id: profile.id)
         vm.user.producer.startWithValues { [weak self] in self?.onUser($0) }
         vm.blocked.producer.startWithValues { [weak self] in self?.onBlocked($0) }
-        navigationItem.title = profile.username
-        report.isHidden = profile.rank > FPRank.citizen || profile.id == getCurrentProfile()?.id
+        vm.banned.producer.startWithValues { [weak self] in self?.onBanned($0) }
+
+        let isCurrentUser = profile.id == getCurrentProfile()?.id
+        let currentRank = getCurrentProfile()?.rank ?? .unspecified
+        report.isHidden = profile.rank != currentRank || isCurrentUser
+        ban.isHidden = profile.rank >= currentRank || isCurrentUser
         menu.reload()
+
+        navigationItem.title = profile.username
         avatar.sd_imageTransition = .fade
         avatar.setAvatar(profile.avatar.url)
 
@@ -83,6 +91,29 @@ class UserViewController: UIViewController {
         }
     }
 
+    @IBAction
+    func onBanPressed() {
+        let alert = UIAlertController(
+            title: .tr("User.Ban.Title"),
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+        alert.addAction(UIAlertAction(title: .tr("User.Ban.Action.Week"), style: .default) { _ in
+            self.vm.ban(for: .week)
+        })
+        alert.addAction(UIAlertAction(title: .tr("User.Ban.Action.Month"), style: .default) { _ in
+            self.vm.ban(for: .month)
+        })
+        alert.addAction(UIAlertAction(title: .tr("User.Ban.Action.Permanently"), style: .destructive) { _ in
+            self.presentChoiceAlert(text: .tr("User.Ban.Permanently"), dangerous: true) { yes in
+                guard yes else { return }
+                self.vm.ban(for: .ever)
+            }
+        })
+        alert.addAction(UIAlertAction(title: .tr("Cancel"), style: .cancel))
+        present(alert, animated: true)
+    }
+
     private func onUser(_ user: FPUser?) {
         guard let user = user else { return }
         let date = dateFormat.string(from: user.dateJoined.date)
@@ -97,28 +128,37 @@ class UserViewController: UIViewController {
         let isCurrentUser = profile.id == getCurrentProfile()?.id
         block.isHidden = blocked || isCurrentUser
         unblock.isHidden = !blocked || isCurrentUser
+        DispatchQueue.main.async { self.menu.reload() }
+    }
 
+    private func onBanned(_ banned: Bool) {
+        ban.isHidden = banned
         DispatchQueue.main.async { self.menu.reload() }
     }
 }
 
 extension UserViewController: UserViewModelDelegate {
     func onBlockUpdate(_ blocked: Bool) {
+        profile.isBlocked = blocked
         guard let position = itemPosition else { return }
         let notification = blocked
             ? BlockedUsersViewController.userBlockedNotification
             : BlockedUsersViewController.userUnblockedNotification
-        var info: [String: Any] = ["position": position]
-
-        if blocked {
-            info["item"] = profile
-        }
-
+        let info: [String: Any] = ["position": position, "item": profile as Any]
         NotificationCenter.default.post(name: notification, object: self, userInfo: info)
     }
 
     func onReport() {
         presentBasicAlert(text: "User.Report.Success")
+    }
+
+    func onBan() {
+        profile.isBanned = true
+        presentBasicAlert(text: "User.Ban.Success")
+        guard let position = itemPosition else { return }
+        var info: [String: Any] = ["position": position]
+        info["item"] = profile
+        NotificationCenter.default.post(name: BlockedUsersViewController.userBannedNotification, object: self, userInfo: info)
     }
 
     func onFailure(_ error: Error) {

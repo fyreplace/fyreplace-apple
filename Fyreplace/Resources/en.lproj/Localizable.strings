@@ -58,6 +58,14 @@
 "User.Report.Message" = "";
 "User.Report.Success.Title" = "User reported";
 "User.Report.Success.Message" = "This user has been reported and will be examined as soon as possible.";
+"User.Ban.Title" = "Ban user for:";
+"User.Ban.Action.Week" = "A week";
+"User.Ban.Action.Month" = "A month";
+"User.Ban.Action.Permanently" = "Permanently";
+"User.Ban.Permanently.Title" = "Ban user permanently?";
+"User.Ban.Permanently.Message" = "";
+"User.Ban.Success.Title" = "User banned";
+"User.Ban.Success.Message" = "";
 
 "Settings.Username" = "Guest";
 "Settings.EmailChange.Title" = "Email change";

@@ -8,6 +8,7 @@ class ListViewController: UITableViewController {
     var emptyPlaceholder: UILabel!
 
     open class var additionNotification: Notification.Name? { nil }
+    open class var updateNotification: Notification.Name? { nil }
     open class var deletionNotification: Notification.Name? { nil }
 
     override func viewDidLoad() {
@@ -26,6 +27,12 @@ class ListViewController: UITableViewController {
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onItemAdded($0) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: Self.updateNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onItemUpdated($0) }
 
         NotificationCenter.default.reactive
             .notifications(forName: Self.deletionNotification)
@@ -76,6 +83,17 @@ class ListViewController: UITableViewController {
 
         listDelegate.lister.insert(item, at: position)
         tableView.insertRows(at: [IndexPath(row: position, section: 0)], with: .automatic)
+    }
+
+    private func onItemUpdated(_ notification: Notification) {
+        guard let info = notification.userInfo,
+              let position = info["position"] as? Int,
+              let item = info["item"],
+              info["changeHandled"] as? Bool != true
+        else { return }
+
+        listDelegate.lister.update(item, at: position)
+        tableView.reloadRows(at: [IndexPath(row: position, section: 0)], with: .automatic)
     }
 
     private func onItemDeleted(_ notification: Notification) {

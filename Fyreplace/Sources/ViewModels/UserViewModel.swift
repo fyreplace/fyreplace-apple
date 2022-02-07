@@ -7,6 +7,7 @@ class UserViewModel: ViewModel {
 
     let user = MutableProperty<FPUser?>(nil)
     let blocked = MutableProperty<Bool>(false)
+    let banned = MutableProperty<Bool>(false)
 
     private lazy var userService = FPUserServiceClient(channel: Self.rpc.channel)
 
@@ -34,14 +35,35 @@ class UserViewModel: ViewModel {
         response.whenFailure(delegate.onError(_:))
     }
 
+    func ban(for sentence: BanSentence) {
+        let request = FPBanSentence.with {
+            $0.id = user.value!.profile.id
+
+            switch sentence {
+            case .week: $0.days = 7
+            case .month: $0.days = 30
+            case .ever: break
+            }
+        }
+        let response = userService.ban(request, callOptions: .authenticated).response
+        response.whenSuccess { _ in self.onBan() }
+        response.whenFailure(delegate.onError(_:))
+    }
+
     private func onRetrieve(_ user: FPUser) {
         self.user.value = user
         blocked.value = user.profile.isBlocked
+        banned.value = user.profile.isBanned
     }
 
     private func onBlockUpdate(_ blocked: Bool) {
         self.blocked.value = blocked
         delegate.onBlockUpdate(blocked)
+    }
+
+    private func onBan() {
+        banned.value = true
+        delegate.onBan()
     }
 }
 
@@ -50,4 +72,12 @@ protocol UserViewModelDelegate: ViewModelDelegate {
     func onBlockUpdate(_ blocked: Bool)
 
     func onReport()
+
+    func onBan()
+}
+
+enum BanSentence {
+    case week
+    case month
+    case ever
 }

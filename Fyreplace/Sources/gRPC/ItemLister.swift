@@ -17,6 +17,8 @@ protocol ItemListerProtocol {
 
     func insert(_ item: Any, at index: Int)
 
+    func update(_ item: Any, at index: Int)
+
     func remove(at index: Int)
 }
 
@@ -74,6 +76,10 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
 
     func insert(_ item: Any, at index: Int) {
         items.insert(item as! Item, at: index)
+    }
+
+    func update(_ item: Any, at index: Int) {
+        items[index] = item as! Item
     }
 
     func remove(at index: Int) {

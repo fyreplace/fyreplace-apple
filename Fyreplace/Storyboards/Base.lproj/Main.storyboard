@@ -667,11 +667,13 @@
                                 <outletCollection property="actions" destination="User-Block" collectionClass="NSMutableArray" id="4829a7b1d693b71f66228175e7ec34907a97b9638f3687c339f2f176760f592b"/>
                                 <outletCollection property="actions" destination="User-Unblock" collectionClass="NSMutableArray" id="09c41b02ff4b5cfcdeb6d61a5b899ed934a42c4d4536efea1d9f031d1503e587"/>
                                 <outletCollection property="actions" destination="User-Report" collectionClass="NSMutableArray" id="f15aa54ae60fef78970a0282a8eb4b1696c8c80f2afad4a2e60e7a770eb27452"/>
+                                <outletCollection property="actions" destination="User-Ban" collectionClass="NSMutableArray" id="d6225a603406f25187d260eb9b5c58bafd48d5e3bb492fae6cf7bdca93a78908"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="avatar" destination="User-User-view-scrollView-view-person-crop-circle-fill" id="fa591b76be8869477b2ccba4e200495675e51480aa6dd08bcbc3c7d1260cd8aa"/>
+                        <outlet property="ban" destination="User-Ban" id="751356616161ab1450e11bb10f0e4b8eeb12bd297a15aa58a23aeee07f1e7733"/>
                         <outlet property="bio" destination="User-User-view-scrollView-view-textView" id="3b200d2c4fbdfb362434e4941aeb861ade6cbaf3c4da3ef480233097b57ec24a"/>
                         <outlet property="block" destination="User-Block" id="b1ac70fe243cf0ac4b1e5652d585c25eb295ac0b4eef21cb0b91c2716ca97b65"/>
                         <outlet property="dateFormat" destination="User-DateFormat" id="88a52de3c891cb6af0da15100a069e79ccbed8ae83573b90a57558862c023d65"/>
@@ -718,6 +720,18 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onReportPressed" destination="User-User" id="05d729c6baf43b5cf2e41e506d244c85fc0bef7929506dcdeb0de8c803954771"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Ban" image="hammer" catalog="system" id="User-Ban" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="index">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHidden" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onBanPressed" destination="User-User" id="e5723669b3e08b1c4fabc5f6025f0f86510d8f2332341023b4e5a008b04894ac"/>
                     </connections>
                 </barButtonItem>
                 <customObject id="User-DateFormat" customClass="DateFormat" customModule="Fyreplace" customModuleProvider="target"/>
@@ -1391,6 +1405,7 @@
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="exclamationmark.bubble" catalog="system" width="128" height="110"/>
+        <image name="hammer" catalog="system" width="128" height="117"/>
         <image name="hand.raised" catalog="system" width="128" height="128"/>
         <image name="hand.raised.slash" catalog="system" width="128" height="128"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>

@@ -14,6 +14,10 @@ class BlockedUsersViewController: ListViewController {
         Self.userBlockedNotification
     }
 
+    override class var updateNotification: Notification.Name {
+        Self.userBannedNotification
+    }
+
     override class var deletionNotification: Notification.Name {
         Self.userUnblockedNotification
     }
