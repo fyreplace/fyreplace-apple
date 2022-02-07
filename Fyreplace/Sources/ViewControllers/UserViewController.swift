@@ -44,21 +44,14 @@ class UserViewController: UIViewController {
         avatar.sd_imageTransition = .fade
         avatar.setAvatar(profile.avatar.url)
 
-        let prompt: String?
-
         switch profile.rank {
         case .superuser:
-            prompt = "User.Rank.Superuser"
+            navigationItem.prompt = .tr("User.Rank.Superuser")
 
         case .staff:
-            prompt = "User.Rank.Staff"
+            navigationItem.prompt = .tr("User.Rank.Staff")
 
-        default:
-            prompt = nil
-        }
-
-        if let prompt = prompt {
-            navigationItem.prompt = .tr(prompt)
+        default: break
         }
     }
 
