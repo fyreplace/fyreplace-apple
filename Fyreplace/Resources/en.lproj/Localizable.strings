@@ -34,6 +34,8 @@
 "Main.Error.TimestampExceeded.Message" = "This URL has expired.";
 "Main.Error.InvalidToken.Title" = "Invalid token";
 "Main.Error.InvalidToken.Message" = "The token in the URL is not correctly formed.";
+"Main.Error.InvalidConnectionToken.Title" = "Invalid connection token";
+"Main.Error.InvalidConnectionToken.Message" = "The connection token is not valid; maybe it has already been used.";
 "Main.Error.UserNotPending.Title" = "Account already activated";
 "Main.Error.UserNotPending.Message" = "This account has already been activated.";
 

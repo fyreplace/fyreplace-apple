@@ -109,7 +109,9 @@ extension MainViewController: MainViewModelDelegate {
                 : "Error.Authentication"
 
         case .permissionDenied:
-            key = status.message == "user_not_pending" ? "Main.Error.UserNotPending" : "Error.Permission"
+            key = ["user_not_pending", "invalid_connection_token"].contains(status.message)
+                ? "Main.Error.\(status.message!.pascalized)"
+                : "Error.Permission"
 
         default:
             key = "Error"
