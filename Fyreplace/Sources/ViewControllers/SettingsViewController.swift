@@ -1,6 +1,6 @@
 import GRPC
+import Kingfisher
 import ReactiveSwift
-import SDWebImage
 import SwiftProtobuf
 import UIKit
 
@@ -31,7 +31,6 @@ class SettingsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        avatar.sd_imageTransition = .fade
         avatar.reactive.isUserInteractionEnabled <~ vm.user.map { $0 != nil }
         username.reactive.text <~ vm.user.map { $0?.profile.username ?? .tr("Settings.Username") }
         dateJoined.reactive.text <~ vm.user.map(\.?.dateJoined).map { [unowned self] in
@@ -224,8 +223,8 @@ extension SettingsViewController: SettingsViewModelDelegate {
     }
 
     private func clearImageCache() {
-        SDImageCache.shared.clearMemory()
-        SDImageCache.shared.clearDisk(onCompletion: nil)
+        KingfisherManager.shared.cache.clearMemoryCache()
+        KingfisherManager.shared.cache.clearDiskCache()
     }
 }
 

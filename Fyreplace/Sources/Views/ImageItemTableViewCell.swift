@@ -1,4 +1,4 @@
-import SDWebImage
+import Kingfisher
 import UIKit
 
 class ImageItemTableViewCell: ItemTableViewCell {
@@ -7,7 +7,6 @@ class ImageItemTableViewCell: ItemTableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        preview.sd_imageTransition = .fade
-        preview.sd_imageIndicator = SDWebImageActivityIndicator.large
+        preview.kf.indicatorType = .activity
     }
 }

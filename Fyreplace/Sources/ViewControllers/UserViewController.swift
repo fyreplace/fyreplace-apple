@@ -41,7 +41,6 @@ class UserViewController: UIViewController {
         menu.reload()
 
         navigationItem.title = profile.username
-        avatar.sd_imageTransition = .fade
         avatar.setAvatar(profile.avatar.url)
 
         switch profile.rank {

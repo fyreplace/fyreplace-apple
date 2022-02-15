@@ -1,4 +1,4 @@
-import SDWebImage
+import Kingfisher
 import UIKit
 
 extension UIImageView {
@@ -6,7 +6,11 @@ extension UIImageView {
         let defaultImage = UIImage(called: "person.crop.circle.fill")
 
         if let url = url {
-            sd_setImage(with: URL(string: url), placeholderImage: defaultImage)
+            kf.setImage(
+                with: URL(string: url),
+                placeholder: defaultImage,
+                options: [.transition(.fade(0.3))]
+            )
         } else {
             image = defaultImage
         }

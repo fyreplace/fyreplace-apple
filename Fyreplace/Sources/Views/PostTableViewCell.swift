@@ -1,5 +1,5 @@
 import Foundation
-import SDWebImage
+import Kingfisher
 
 protocol PostTableViewCell {
     func setup(with post: FPPost)
@@ -24,6 +24,9 @@ extension TextItemTableViewCell: PostTableViewCell {
 
 extension ImageItemTableViewCell: PostTableViewCell {
     func setup(with chapter: FPChapter) {
-        preview.sd_setImage(with: URL(string: chapter.image.url))
+        preview.kf.setImage(
+            with: URL(string: chapter.image.url),
+            options: [.transition(.fade(0.3))]
+        )
     }
 }

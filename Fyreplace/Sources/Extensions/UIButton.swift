@@ -1,4 +1,4 @@
-import SDWebImage
+import Kingfisher
 import UIKit
 
 extension UIButton {
@@ -15,7 +15,7 @@ extension UIButton {
         let defaultImage = UIImage(called: "person.crop.circle.fill")
 
         if let url = url {
-            sd_setImage(with: URL(string: url), for: .normal, placeholderImage: defaultImage)
+            kf.setImage(with: URL(string: url), for: .normal, placeholder: defaultImage)
         } else {
             setImage(defaultImage, for: .normal)
         }

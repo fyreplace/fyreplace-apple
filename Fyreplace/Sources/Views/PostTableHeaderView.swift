@@ -1,4 +1,4 @@
-import SDWebImage
+import Kingfisher
 import UIKit
 
 class PostTableHeaderView: UIView {
@@ -52,9 +52,11 @@ class PostTableHeaderView: UIView {
         let ratio = CGFloat(chapter.image.height) / CGFloat(chapter.image.width)
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.sd_imageTransition = .fade
-        imageView.sd_imageIndicator = SDWebImageProgressIndicator.default
-        imageView.sd_setImage(with: URL(string: chapter.image.url))
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(
+            with: URL(string: chapter.image.url),
+            options: [.transition(.fade(0.3))]
+        )
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: ratio).isActive = true
         return imageView
     }

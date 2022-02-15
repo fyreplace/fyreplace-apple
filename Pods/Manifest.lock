@@ -20,13 +20,11 @@ PODS:
     - SwiftProtobuf (< 2.0.0, >= 1.9.0)
   - gRPC-Swift-Plugins (1.7.1):
     - gRPC-Swift (= 1.7.1)
+  - Kingfisher (7.1.2)
   - Logging (1.4.0)
   - ReactiveCocoa (12.0.0):
     - ReactiveSwift (~> 7.0)
   - ReactiveSwift (7.0.0)
-  - SDWebImage (5.12.3):
-    - SDWebImage/Core (= 5.12.3)
-  - SDWebImage/Core (5.12.3)
   - SwiftFormat/CLI (0.49.4)
   - SwiftNIO (2.32.3):
     - SwiftNIOCore (= 2.32.3)
@@ -89,8 +87,8 @@ PODS:
 DEPENDENCIES:
   - gRPC-Swift (~> 1)
   - gRPC-Swift-Plugins (~> 1)
+  - Kingfisher (~> 7)
   - ReactiveCocoa (~> 12)
-  - SDWebImage (~> 5)
   - SwiftFormat/CLI (~> 0)
 
 SPEC REPOS:
@@ -106,10 +104,10 @@ SPEC REPOS:
     - CNIOWindows
     - gRPC-Swift
     - gRPC-Swift-Plugins
+    - Kingfisher
     - Logging
     - ReactiveCocoa
     - ReactiveSwift
-    - SDWebImage
     - SwiftFormat
     - SwiftNIO
     - SwiftNIOConcurrencyHelpers
@@ -138,10 +136,10 @@ SPEC CHECKSUMS:
   CNIOWindows: f5aa9dfb401b440a7b4c9cd911e53e981a787193
   gRPC-Swift: c5541e5fed500f45d31bf1369cecec753d1007e2
   gRPC-Swift-Plugins: c01c4685a24c3b02ff4b2d9ff5b0010f402d010e
+  Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
   ReactiveCocoa: 5d10386f0ce09f922006efbf784881c5fade27c5
   ReactiveSwift: 48c4b9d3b497e8dd20b10300bb1a28ff93550f13
-  SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
   SwiftFormat: 8acc16efcecb563206cbe90b4cb047cfdf9aafdb
   SwiftNIO: bb336ceef32850e9671d3fa0e0cc2b9add3b5948
   SwiftNIOConcurrencyHelpers: ca2594e10749655f42baf5468212be83d2f94fe3
@@ -158,6 +156,6 @@ SPEC CHECKSUMS:
   SwiftNIOTransportServices: 1fbbdb58510af3c53a838a1dbea98f18132dc952
   SwiftProtobuf: c3c12645230d9b09c72267e0de89468c5543bd86
 
-PODFILE CHECKSUM: 694172f9ea7c4af50d4a09cf0cf0e5a7ea3b24e3
+PODFILE CHECKSUM: abc10d2eb006bcd0e7f12085a6a4a80a68884ffb
 
 COCOAPODS: 1.11.2

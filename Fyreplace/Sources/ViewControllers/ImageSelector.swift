@@ -1,5 +1,5 @@
+import Kingfisher
 import PhotosUI
-import SDWebImage
 import UIKit
 
 class ImageSelector: NSObject {
@@ -117,7 +117,7 @@ extension ImageSelector: PHPickerViewControllerDelegate {
             }
 
             DispatchQueue.global(qos: .userInitiated).async {
-                self.extractImageData(image: image, isPng: image.sd_imageFormat == .PNG)
+                self.extractImageData(image: image, isPng: false)
             }
         }
     }
