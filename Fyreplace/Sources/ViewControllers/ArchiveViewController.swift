@@ -21,10 +21,14 @@ class ArchiveViewController: ListViewController {
 }
 
 extension ArchiveViewController {
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        super.tableView(tableView, willDisplay: cell, forRowAt: indexPath)
-        guard let cell = cell as? PostTableViewCell else { return }
-        cell.setup(with: vm.post(atIndex: indexPath.row))
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+
+        if let cell = cell as? PostTableViewCell {
+            cell.setup(with: vm.post(atIndex: indexPath.row))
+        }
+
+        return cell
     }
 }
 
