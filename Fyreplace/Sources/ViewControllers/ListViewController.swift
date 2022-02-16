@@ -148,8 +148,7 @@ extension ListViewController: ItemListerDelegate {
         }
 
         let currentCount = tableView.numberOfRows(inSection: 0)
-        let indexPaths = (currentCount ..< currentCount + count).map { IndexPath(row: $0, section: 0) }
-        tableView.insertRows(at: indexPaths, with: .automatic)
+        tableView.insertRows(at: .init(rows: currentCount ..< currentCount + count, section: 0), with: .automatic)
     }
 }
 

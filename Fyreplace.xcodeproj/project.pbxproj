@@ -40,6 +40,7 @@
 		4D5CC7E827232BEE00D33C87 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5CC7E727232BEE00D33C87 /* PostViewController.swift */; };
 		4D5FC3EF2701FECC00AE1F73 /* ImageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5FC3EE2701FECC00AE1F73 /* ImageSelector.swift */; };
 		4D5FC3F527021BE800AE1F73 /* ClientStreamingCall+FPImageChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5FC3F427021BE800AE1F73 /* ClientStreamingCall+FPImageChunk.swift */; };
+		4D6CFE8A27B64E7F00CA50BD /* Array+IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6CFE8927B64E7F00CA50BD /* Array+IndexPath.swift */; };
 		4D6D3AB5272FF61500353913 /* PostTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D3AB4272FF61500353913 /* PostTableHeaderView.swift */; };
 		4D6D3AB727300A8600353913 /* DynamicStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D3AB627300A8600353913 /* DynamicStackView.swift */; };
 		4D6FD7AE272C717900E28C79 /* FPChapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FD7AD272C717900E28C79 /* FPChapter.swift */; };
@@ -142,6 +143,7 @@
 		4D5CC7E727232BEE00D33C87 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4D5FC3EE2701FECC00AE1F73 /* ImageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelector.swift; sourceTree = "<group>"; };
 		4D5FC3F427021BE800AE1F73 /* ClientStreamingCall+FPImageChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientStreamingCall+FPImageChunk.swift"; sourceTree = "<group>"; };
+		4D6CFE8927B64E7F00CA50BD /* Array+IndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+IndexPath.swift"; sourceTree = "<group>"; };
 		4D6D3AB4272FF61500353913 /* PostTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableHeaderView.swift; sourceTree = "<group>"; };
 		4D6D3AB627300A8600353913 /* DynamicStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStackView.swift; sourceTree = "<group>"; };
 		4D6FD7AD272C717900E28C79 /* FPChapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPChapter.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				4D1FF61427086EE300445793 /* FPPostServiceClient+ItemListerService.swift */,
 				4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */,
 				4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */,
+				4D6CFE8927B64E7F00CA50BD /* Array+IndexPath.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				4D7C987126912ABA00819E3F /* comment.proto in Sources */,
 				4DA2B9202784905100BD05BF /* UserViewModel.swift in Sources */,
 				4D1FF60D270793BF00445793 /* ListViewController.swift in Sources */,
+				4D6CFE8A27B64E7F00CA50BD /* Array+IndexPath.swift in Sources */,
 				4DFAAD21269F628200DFAB5F /* String.swift in Sources */,
 				4D8BFDBF270B3F3000CAD2B5 /* PostTableViewCell.swift in Sources */,
 				4D3AEDA926C5185200C93DFF /* Keychain.swift in Sources */,
