@@ -30,35 +30,38 @@ class PostTableHeaderView: UIView {
     }
 
     private func makeView(from chapter: FPChapter) -> UIView {
-        return chapter.hasImage ? makeImageView(from: chapter) : makeLabel(from: chapter)
+        return chapter.hasImage ? makeImage(from: chapter) : makeText(from: chapter)
     }
 
-    private func makeLabel(from chapter: FPChapter) -> UIView {
+    private func makeText(from chapter: FPChapter) -> UIView {
         let container = UIView()
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.text = chapter.text
-        label.font = chapter.preferredFont
-        container.addSubview(label)
-        label.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
-        label.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
+        let text = CompactTextView()
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.textAlignment = .center
+        text.text = chapter.text
+        text.font = chapter.preferredFont
+        text.isScrollEnabled = false
+        text.isEditable = false
+        text.isSelectable = true
+        container.addSubview(text)
+        text.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+        text.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        text.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
+        text.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
         return container
     }
 
-    private func makeImageView(from chapter: FPChapter) -> UIView {
+    private func makeImage(from chapter: FPChapter) -> UIView {
         let ratio = CGFloat(chapter.image.height) / CGFloat(chapter.image.width)
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.kf.indicatorType = .activity
+        image.kf.setImage(
             with: URL(string: chapter.image.url),
             options: [.transition(.fade(0.3))]
         )
-        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: ratio).isActive = true
-        return imageView
+        image.heightAnchor.constraint(equalTo: image.widthAnchor, multiplier: ratio).isActive = true
+        return image
     }
 }
 
