@@ -12,6 +12,7 @@
 		4D0040F3268EEDE800AF89FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F1268EEDE800AF89FD /* Main.storyboard */; };
 		4D0040F5268EEDE900AF89FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F4268EEDE900AF89FD /* Assets.xcassets */; };
 		4D0040F8268EEDE900AF89FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F6268EEDE900AF89FD /* LaunchScreen.storyboard */; };
+		4D01C6EA27BD9434003E3091 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D01C6E927BD9434003E3091 /* UIColor.swift */; };
 		4D0A8D6D26A7FAF8007691C9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */; };
 		4D0C6F1D26F247E500C4271C /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C6F1C26F247E500C4271C /* RoundImageView.swift */; };
 		4D1FF60D270793BF00445793 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF60C270793BF00445793 /* ListViewController.swift */; };
@@ -112,6 +113,7 @@
 		4D0040F4268EEDE900AF89FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D0040F7268EEDE900AF89FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D0040F9268EEDE900AF89FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D01C6E927BD9434003E3091 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4D0C6F1C26F247E500C4271C /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		4D1FF60C270793BF00445793 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */,
 				4D4520F926D8203300FCFEE0 /* NSUserActivity.swift */,
 				4D3F816726C6E57900764763 /* UserDefaults+Message.swift */,
+				4D01C6E927BD9434003E3091 /* UIColor.swift */,
 				4DB06E1427103E7800A65198 /* UIFont.swift */,
 				4DAF29E826C7CA3E005612C9 /* UIImage.swift */,
 				4DA43CEA2785EBEF0002C22A /* UIView.swift */,
@@ -596,6 +599,7 @@
 				4D7C987226912ABD00819E3F /* id.proto in Sources */,
 				4D7C987726912ACC00819E3F /* user.proto in Sources */,
 				4D6D3AB727300A8600353913 /* DynamicStackView.swift in Sources */,
+				4D01C6EA27BD9434003E3091 /* UIColor.swift in Sources */,
 				4DA43CEB2785EBEF0002C22A /* UIView.swift in Sources */,
 				4D8BFDBA270B37F900CAD2B5 /* ImageItemTableViewCell.swift in Sources */,
 				4D6FD7AE272C717900E28C79 /* FPChapter.swift in Sources */,

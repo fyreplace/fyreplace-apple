@@ -27,17 +27,7 @@ class BioViewController: UIViewController {
         length.reactive.textColor <~ vm.bio
             .map { $0.count <= BioViewController.maxBioLength }
             .skipRepeats()
-            .map {
-                let normalColor: UIColor
-
-                if #available(iOS 13.0, *) {
-                    normalColor = .label
-                } else {
-                    normalColor = .black
-                }
-
-                return $0 ? normalColor : .systemRed
-            }
+            .map { $0 ? .labelCompat : .systemRed }
         vm.bio <~ bio.reactive.continuousTextValues
         bio.becomeFirstResponder()
     }
