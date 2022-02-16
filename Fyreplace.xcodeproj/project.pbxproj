@@ -15,6 +15,8 @@
 		4D01C6EA27BD9434003E3091 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D01C6E927BD9434003E3091 /* UIColor.swift */; };
 		4D0A8D6D26A7FAF8007691C9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */; };
 		4D0C6F1D26F247E500C4271C /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C6F1C26F247E500C4271C /* RoundImageView.swift */; };
+		4D15D5B027B82B660015AD4E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */; };
+		4D15D5B227B837CB0015AD4E /* CompactTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15D5B127B837CB0015AD4E /* CompactTextView.swift */; };
 		4D1FF60D270793BF00445793 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF60C270793BF00445793 /* ListViewController.swift */; };
 		4D1FF61127085F9600445793 /* ItemLister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF61027085F9600445793 /* ItemLister.swift */; };
 		4D1FF61327086E9300445793 /* FPPosts+ItemBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */; };
@@ -76,6 +78,9 @@
 		4DC1739726FA573F002F9EDB /* BioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1739626FA573F002F9EDB /* BioViewModel.swift */; };
 		4DC225F427036539007BD7A0 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC225F327036539007BD7A0 /* ArchiveViewController.swift */; };
 		4DC225F627045734007BD7A0 /* ArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC225F527045734007BD7A0 /* ArchiveViewModel.swift */; };
+		4DC88FA127B4550E00F06921 /* ItemRandomAccessLister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC88FA027B4550E00F06921 /* ItemRandomAccessLister.swift */; };
+		4DC88FA327B4574300F06921 /* FPComments+ItemRandomAccessBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC88FA227B4574300F06921 /* FPComments+ItemRandomAccessBundle.swift */; };
+		4DC88FA727B461F600F06921 /* FPCommentServiceClient+ItemRandomAccessListerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC88FA627B461F600F06921 /* FPCommentServiceClient+ItemRandomAccessListerService.swift */; };
 		4DCD910926A46F3F0010F8B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */; };
 		4DF3579727A0859000AE9845 /* ArchiveViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */; };
 		4DF3579927A088B700AE9845 /* BlockedUsersViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */; };
@@ -117,6 +122,8 @@
 		4D01C6E927BD9434003E3091 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4D0C6F1C26F247E500C4271C /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		4D15D5B127B837CB0015AD4E /* CompactTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactTextView.swift; sourceTree = "<group>"; };
 		4D1FF60C270793BF00445793 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		4D1FF61027085F9600445793 /* ItemLister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLister.swift; sourceTree = "<group>"; };
 		4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPPosts+ItemBundle.swift"; sourceTree = "<group>"; };
@@ -180,6 +187,9 @@
 		4DC1739626FA573F002F9EDB /* BioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewModel.swift; sourceTree = "<group>"; };
 		4DC225F327036539007BD7A0 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		4DC225F527045734007BD7A0 /* ArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewModel.swift; sourceTree = "<group>"; };
+		4DC88FA027B4550E00F06921 /* ItemRandomAccessLister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRandomAccessLister.swift; sourceTree = "<group>"; };
+		4DC88FA227B4574300F06921 /* FPComments+ItemRandomAccessBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPComments+ItemRandomAccessBundle.swift"; sourceTree = "<group>"; };
+		4DC88FA627B461F600F06921 /* FPCommentServiceClient+ItemRandomAccessListerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPCommentServiceClient+ItemRandomAccessListerService.swift"; sourceTree = "<group>"; };
 		4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArchiveViewController+Notification.swift"; sourceTree = "<group>"; };
 		4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlockedUsersViewController+Notification.swift"; sourceTree = "<group>"; };
@@ -294,6 +304,7 @@
 				4DA43CE82785EBB90002C22A /* RoundButton.swift */,
 				4D0C6F1C26F247E500C4271C /* RoundImageView.swift */,
 				4D6D3AB627300A8600353913 /* DynamicStackView.swift */,
+				4D15D5B127B837CB0015AD4E /* CompactTextView.swift */,
 				4D87F45727888FBB00A82AFF /* MenuBarButtonItem.swift */,
 				4DF9D08F2724228A003D610D /* DateFormat.swift */,
 				4D22461F279CBBD800D35430 /* AvatarTableViewCell.swift */,
@@ -302,6 +313,7 @@
 				4D8BFDB9270B37F900CAD2B5 /* ImageItemTableViewCell.swift */,
 				4D8BFDBE270B3F3000CAD2B5 /* PostTableViewCell.swift */,
 				4D6D3AB4272FF61500353913 /* PostTableHeaderView.swift */,
+				4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */,
 				4D22461D279CBAA500D35430 /* BlockedUserTableViewCell.swift */,
 			);
 			path = Views;
@@ -336,6 +348,7 @@
 			children = (
 				4D28876126A74F7200D6D3CB /* Rpc.swift */,
 				4D1FF61027085F9600445793 /* ItemLister.swift */,
+				4DC88FA027B4550E00F06921 /* ItemRandomAccessLister.swift */,
 			);
 			path = gRPC;
 			sourceTree = "<group>";
@@ -365,10 +378,12 @@
 				4DAF29E426C7BE67005612C9 /* FPUser+Notification.swift */,
 				4D224619279C27D800D35430 /* FPProfiles+ItemBundle.swift */,
 				4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */,
+				4DC88FA227B4574300F06921 /* FPComments+ItemRandomAccessBundle.swift */,
 				4D22461B279C284300D35430 /* FPUserServiceClient+ItemListerService.swift */,
 				4D1FF61427086EE300445793 /* FPPostServiceClient+ItemListerService.swift */,
 				4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */,
 				4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */,
+				4DC88FA627B461F600F06921 /* FPCommentServiceClient+ItemRandomAccessListerService.swift */,
 				4D6CFE8927B64E7F00CA50BD /* Array+IndexPath.swift */,
 			);
 			path = Extensions;
@@ -570,11 +585,13 @@
 				4DA43CE72785C5C80002C22A /* UIButton.swift in Sources */,
 				4D77C265279494A200F3A711 /* FPRank.swift in Sources */,
 				4D3F816826C6E57900764763 /* UserDefaults+Message.swift in Sources */,
+				4D15D5B027B82B660015AD4E /* CommentTableViewCell.swift in Sources */,
 				4D22461A279C27D800D35430 /* FPProfiles+ItemBundle.swift in Sources */,
 				4D4520FA26D8203300FCFEE0 /* NSUserActivity.swift in Sources */,
 				4D5CC7E827232BEE00D33C87 /* PostViewController.swift in Sources */,
 				4D7C987126912ABA00819E3F /* comment.proto in Sources */,
 				4DA2B9202784905100BD05BF /* UserViewModel.swift in Sources */,
+				4D15D5B227B837CB0015AD4E /* CompactTextView.swift in Sources */,
 				4D1FF60D270793BF00445793 /* ListViewController.swift in Sources */,
 				4D6CFE8A27B64E7F00CA50BD /* Array+IndexPath.swift in Sources */,
 				4DFAAD21269F628200DFAB5F /* String.swift in Sources */,
@@ -586,6 +603,7 @@
 				4DAF29E526C7BE67005612C9 /* FPUser+Notification.swift in Sources */,
 				4DF3579927A088B700AE9845 /* BlockedUsersViewController+Notification.swift in Sources */,
 				4DC225F427036539007BD7A0 /* ArchiveViewController.swift in Sources */,
+				4DC88FA327B4574300F06921 /* FPComments+ItemRandomAccessBundle.swift in Sources */,
 				4D224616279C23DB00D35430 /* BlockedUsersViewController.swift in Sources */,
 				4D7C987426912AC200819E3F /* notification.proto in Sources */,
 				4D3F816226C6C53500764763 /* CallOptions+Keychain.swift in Sources */,
@@ -601,6 +619,7 @@
 				4D0A8D6D26A7FAF8007691C9 /* ViewModel.swift in Sources */,
 				4DF9D08E272413DF003D610D /* UILabel.swift in Sources */,
 				4D7C987226912ABD00819E3F /* id.proto in Sources */,
+				4DC88FA727B461F600F06921 /* FPCommentServiceClient+ItemRandomAccessListerService.swift in Sources */,
 				4D7C987726912ACC00819E3F /* user.proto in Sources */,
 				4D6D3AB727300A8600353913 /* DynamicStackView.swift in Sources */,
 				4D01C6EA27BD9434003E3091 /* UIColor.swift in Sources */,
@@ -621,6 +640,7 @@
 				4DA43CED2785EFD90002C22A /* UserNavigationViewController.swift in Sources */,
 				4D5FC3F527021BE800AE1F73 /* ClientStreamingCall+FPImageChunk.swift in Sources */,
 				4D22461C279C284300D35430 /* FPUserServiceClient+ItemListerService.swift in Sources */,
+				4DC88FA127B4550E00F06921 /* ItemRandomAccessLister.swift in Sources */,
 				4D28876226A74F7200D6D3CB /* Rpc.swift in Sources */,
 				4DA2B91E27848F4D00BD05BF /* UserViewController.swift in Sources */,
 				4D5FC3EF2701FECC00AE1F73 /* ImageSelector.swift in Sources */,

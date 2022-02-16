@@ -48,6 +48,7 @@
 "Post.Delete.Title" = "Delete this post?";
 "Post.Delete.Message" = "This action cannot be undone.";
 "Post.Comments.Title" = "Comments";
+"Post.Comments.Empty.Title" = "No comments yet";
 
 "User.Rank.Superuser" = "Fyreplace team member";
 "User.Rank.Staff" = "Moderator";

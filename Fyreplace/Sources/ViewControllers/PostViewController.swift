@@ -44,6 +44,20 @@ class PostViewController: UITableViewController {
         dateCreated.setTitle(dateFormat.string(from: post.dateCreated.date), for: .normal)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        vm.lister.startListing()
+
+        if vm.lister.itemCount == 0 {
+            vm.lister.fetch(at: 0)
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        vm.lister.stopListing()
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
@@ -108,16 +122,31 @@ extension PostViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: comment count
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "Comment", for: indexPath)
+        return vm.commentCount
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return .tr("Post.Comments.Title")
+        return .tr(vm.lister.itemCount > 0 ? "Post.Comments.Title" : "Post.Comments.Empty.Title")
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let comment = vm.comment(atIndex: indexPath.row)
+        let identifier = comment == nil ? "Loader" : "Comment"
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+
+        if let cell = cell as? CommentTableViewCell,
+           let comment = vm.comment(atIndex: indexPath.row)
+        {
+            cell.setup(with: comment, isPostAuthor: post.author.id == comment.author.id)
+        }
+
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if vm.comment(atIndex: indexPath.row) == nil {
+            vm.lister.fetch(at: indexPath.row - indexPath.row % Int(vm.lister.pageSize))
+        }
     }
 }
 
@@ -165,6 +194,16 @@ extension PostViewController: PostViewModelDelegate {
         }
 
         presentBasicAlert(text: key, feedback: .error)
+    }
+}
+
+extension PostViewController {
+    func onFetch(count: Int, at index: Int) {
+        if tableView.numberOfRows(inSection: 0) == 0 {
+            tableView.reloadSections(.init(integer: 0), with: .automatic)
+        } else {
+            tableView.reloadRows(at: .init(rows: index ..< index + count, section: 0), with: .automatic)
+        }
     }
 }
 
