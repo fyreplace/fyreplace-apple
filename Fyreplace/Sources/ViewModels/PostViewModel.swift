@@ -8,7 +8,6 @@ class PostViewModel: ViewModel {
     let post = MutableProperty<FPPost?>(nil)
     let subscribed = MutableProperty<Bool>(false)
     var lister: ItemRandomAccessListerProtocol { commentLister }
-    var commentCount: Int { commentLister.totalCount }
 
     private var postId: Data!
     private lazy var postService = FPPostServiceClient(channel: Self.rpc.channel)
@@ -62,6 +61,16 @@ class PostViewModel: ViewModel {
     private func onUpdateSubscription(_ subscribed: Bool) {
         self.subscribed.value = subscribed
         delegate.onUpdateSubscription(subscribed)
+    }
+}
+
+extension PostViewModel: ItemRandomAccessListViewDelegate {
+    func itemPreviewType(atIndex index: Int) -> String {
+        return hasItem(atIndex: index) ? "Comment" : "Loader"
+    }
+
+    func hasItem(atIndex index: Int) -> Bool {
+        return comment(atIndex: index) != nil
     }
 }
 

@@ -3,7 +3,7 @@ import Kingfisher
 import ReactiveSwift
 import UIKit
 
-class PostViewController: UITableViewController {
+class PostViewController: ItemRandomAccessListViewController {
     @IBOutlet
     var vm: PostViewModel!
     @IBOutlet
@@ -117,22 +117,12 @@ class PostViewController: UITableViewController {
 }
 
 extension PostViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vm.commentCount
-    }
-
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return .tr(vm.lister.itemCount > 0 ? "Post.Comments.Title" : "Post.Comments.Empty.Title")
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let comment = vm.comment(atIndex: indexPath.row)
-        let identifier = comment == nil ? "Loader" : "Comment"
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
 
         if let cell = cell as? CommentTableViewCell,
            let comment = vm.comment(atIndex: indexPath.row)
@@ -141,12 +131,6 @@ extension PostViewController {
         }
 
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if vm.comment(atIndex: indexPath.row) == nil {
-            vm.lister.fetch(at: indexPath.row - indexPath.row % Int(vm.lister.pageSize))
-        }
     }
 }
 
@@ -194,16 +178,6 @@ extension PostViewController: PostViewModelDelegate {
         }
 
         presentBasicAlert(text: key, feedback: .error)
-    }
-}
-
-extension PostViewController {
-    func onFetch(count: Int, at index: Int) {
-        if tableView.numberOfRows(inSection: 0) == 0 {
-            tableView.reloadSections(.init(integer: 0), with: .automatic)
-        } else {
-            tableView.reloadRows(at: .init(rows: index ..< index + count, section: 0), with: .automatic)
-        }
     }
 }
 

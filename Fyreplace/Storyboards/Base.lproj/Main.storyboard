@@ -509,6 +509,7 @@
                         <outlet property="dateCreated" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created" id="4aa5d58fdff13cadcdf8decfb26708d03e1f3b65495f1e1f7de9efcea82e117c"/>
                         <outlet property="dateFormat" destination="Post-DateFormat" id="2bf14b14e043f0afe26d547ddbe5d6f7e64e1df25fcde10d654ac3bd3df5c421"/>
                         <outlet property="delete" destination="Post-Delete" id="99538391e95fcdcf705a668f4efdf6989d6ec3370f9fc5372da3568e75b49490"/>
+                        <outlet property="listDelegate" destination="Post-PostViewModel" id="4831c8e4dc9058bd3a7ec06a1cfb384a50532b43ceeaa3674b336c929650110c"/>
                         <outlet property="menu" destination="Post-Post-navigationItem-Menu" id="8f04735f671d332bcf545cc5fea606f2fae76e3c664cf09d97575837bafaa444"/>
                         <outlet property="report" destination="Post-Report" id="3872e32847f71c0f4ec36e05c69af0b8d8de222d07e0d484ad22f37804d0f86e"/>
                         <outlet property="subscribe" destination="Post-Subscribe" id="459044615fd0c6ef2e04205aeec94c404cd393049b30924854db219329ff5da3"/>

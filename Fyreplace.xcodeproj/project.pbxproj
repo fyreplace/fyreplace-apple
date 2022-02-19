@@ -63,6 +63,7 @@
 		4D8BFDBF270B3F3000CAD2B5 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BFDBE270B3F3000CAD2B5 /* PostTableViewCell.swift */; };
 		4D96BF652697A2B800ED9355 /* KeyboardDodgingConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */; };
 		4D96BF672697A4E700ED9355 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96BF662697A4E700ED9355 /* LoginViewController.swift */; };
+		4D97474F27C042E600422023 /* ItemRandomAccessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D97474E27C042E600422023 /* ItemRandomAccessListViewController.swift */; };
 		4DA2B91E27848F4D00BD05BF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA2B91D27848F4D00BD05BF /* UserViewController.swift */; };
 		4DA2B9202784905100BD05BF /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA2B91F2784905100BD05BF /* UserViewModel.swift */; };
 		4DA43CE72785C5C80002C22A /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA43CE62785C5C80002C22A /* UIButton.swift */; };
@@ -172,6 +173,7 @@
 		4D8BFDBE270B3F3000CAD2B5 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDodgingConstraint.swift; sourceTree = "<group>"; };
 		4D96BF662697A4E700ED9355 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4D97474E27C042E600422023 /* ItemRandomAccessListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRandomAccessListViewController.swift; sourceTree = "<group>"; };
 		4DA2B91D27848F4D00BD05BF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		4DA2B91F2784905100BD05BF /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		4DA43CE62785C5C80002C22A /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			children = (
 				4D5FC3EE2701FECC00AE1F73 /* ImageSelector.swift */,
 				4D1FF60C270793BF00445793 /* ItemListViewController.swift */,
+				4D97474E27C042E600422023 /* ItemRandomAccessListViewController.swift */,
 				4D3EB6D926C42DA10034B6FB /* MainViewController.swift */,
 				4DC225F327036539007BD7A0 /* ArchiveViewController.swift */,
 				4D5CC7E727232BEE00D33C87 /* PostViewController.swift */,
@@ -652,6 +655,7 @@
 				4DA43CE92785EBB90002C22A /* RoundButton.swift in Sources */,
 				4D224618279C271300D35430 /* BlockedUsersViewModel.swift in Sources */,
 				4DAF29E726C7C062005612C9 /* SettingsViewModel.swift in Sources */,
+				4D97474F27C042E600422023 /* ItemRandomAccessListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

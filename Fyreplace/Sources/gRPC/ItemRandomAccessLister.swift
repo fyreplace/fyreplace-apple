@@ -7,6 +7,8 @@ protocol ItemRandomAccessListerProtocol {
 
     var itemCount: Int { get }
 
+    var totalCount: Int { get }
+
     func startListing()
 
     func stopListing()
