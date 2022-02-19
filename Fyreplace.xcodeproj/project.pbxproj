@@ -17,7 +17,7 @@
 		4D0C6F1D26F247E500C4271C /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C6F1C26F247E500C4271C /* RoundImageView.swift */; };
 		4D15D5B027B82B660015AD4E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */; };
 		4D15D5B227B837CB0015AD4E /* CompactTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15D5B127B837CB0015AD4E /* CompactTextView.swift */; };
-		4D1FF60D270793BF00445793 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF60C270793BF00445793 /* ListViewController.swift */; };
+		4D1FF60D270793BF00445793 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF60C270793BF00445793 /* ItemListViewController.swift */; };
 		4D1FF61127085F9600445793 /* ItemLister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF61027085F9600445793 /* ItemLister.swift */; };
 		4D1FF61327086E9300445793 /* FPPosts+ItemBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */; };
 		4D1FF61527086EE300445793 /* FPPostServiceClient+ItemListerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF61427086EE300445793 /* FPPostServiceClient+ItemListerService.swift */; };
@@ -124,7 +124,7 @@
 		4D0C6F1C26F247E500C4271C /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		4D15D5B127B837CB0015AD4E /* CompactTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactTextView.swift; sourceTree = "<group>"; };
-		4D1FF60C270793BF00445793 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		4D1FF60C270793BF00445793 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		4D1FF61027085F9600445793 /* ItemLister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLister.swift; sourceTree = "<group>"; };
 		4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPPosts+ItemBundle.swift"; sourceTree = "<group>"; };
 		4D1FF61427086EE300445793 /* FPPostServiceClient+ItemListerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPPostServiceClient+ItemListerService.swift"; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				4D5FC3EE2701FECC00AE1F73 /* ImageSelector.swift */,
-				4D1FF60C270793BF00445793 /* ListViewController.swift */,
+				4D1FF60C270793BF00445793 /* ItemListViewController.swift */,
 				4D3EB6D926C42DA10034B6FB /* MainViewController.swift */,
 				4DC225F327036539007BD7A0 /* ArchiveViewController.swift */,
 				4D5CC7E727232BEE00D33C87 /* PostViewController.swift */,
@@ -592,7 +592,7 @@
 				4D7C987126912ABA00819E3F /* comment.proto in Sources */,
 				4DA2B9202784905100BD05BF /* UserViewModel.swift in Sources */,
 				4D15D5B227B837CB0015AD4E /* CompactTextView.swift in Sources */,
-				4D1FF60D270793BF00445793 /* ListViewController.swift in Sources */,
+				4D1FF60D270793BF00445793 /* ItemListViewController.swift in Sources */,
 				4D6CFE8A27B64E7F00CA50BD /* Array+IndexPath.swift in Sources */,
 				4DFAAD21269F628200DFAB5F /* String.swift in Sources */,
 				4D8BFDBF270B3F3000CAD2B5 /* PostTableViewCell.swift in Sources */,

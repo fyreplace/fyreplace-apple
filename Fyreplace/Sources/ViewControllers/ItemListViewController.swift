@@ -1,9 +1,9 @@
 import ReactiveSwift
 import UIKit
 
-class ListViewController: UITableViewController {
+class ItemListViewController: UITableViewController {
     @IBOutlet
-    weak var listDelegate: ListViewDelegate!
+    weak var listDelegate: ItemListViewDelegate!
     @IBOutlet
     var emptyPlaceholder: UILabel!
 
@@ -112,7 +112,7 @@ class ListViewController: UITableViewController {
     }
 }
 
-extension ListViewController {
+extension ItemListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = listDelegate.lister.itemCount
         tableView.backgroundView?.isHidden = count > 0
@@ -135,13 +135,13 @@ extension ListViewController {
     }
 }
 
-extension ListViewController: ViewModelDelegate {
+extension ItemListViewController: ViewModelDelegate {
     func onFailure(_ error: Error) {
         presentBasicAlert(text: "Error", feedback: .error)
     }
 }
 
-extension ListViewController: ItemListerDelegate {
+extension ItemListViewController: ItemListerDelegate {
     func onFetch(count: Int) {
         if refreshControl?.isRefreshing ?? false {
             refreshControl?.endRefreshing()
@@ -153,7 +153,7 @@ extension ListViewController: ItemListerDelegate {
 }
 
 @objc
-protocol ListViewDelegate: NSObjectProtocol {
+protocol ItemListViewDelegate: NSObjectProtocol {
     var lister: ItemListerProtocol { get }
 
     func itemPreviewType(atIndex index: Int) -> String

@@ -26,7 +26,7 @@ class BlockedUsersViewModel: ViewModel {
     }
 }
 
-extension BlockedUsersViewModel: ListViewDelegate {
+extension BlockedUsersViewModel: ItemListViewDelegate {
     var lister: ItemListerProtocol { blockedUserLister }
 
     func itemPreviewType(atIndex index: Int) -> String {

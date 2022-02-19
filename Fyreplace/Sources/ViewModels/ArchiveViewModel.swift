@@ -15,7 +15,7 @@ class ArchiveViewModel: ViewModel {
     }
 }
 
-extension ArchiveViewModel: ListViewDelegate {
+extension ArchiveViewModel: ItemListViewDelegate {
     var lister: ItemListerProtocol { postLister }
 
     func itemPreviewType(atIndex index: Int) -> String {

@@ -1,6 +1,6 @@
 import UIKit
 
-class ArchiveViewController: ListViewController {
+class ArchiveViewController: ItemListViewController {
     @IBOutlet
     var vm: ArchiveViewModel!
 

@@ -1,6 +1,6 @@
 import UIKit
 
-class BlockedUsersViewController: ListViewController {
+class BlockedUsersViewController: ItemListViewController {
     override var canBecomeFirstResponder: Bool { true }
 
     @IBOutlet
