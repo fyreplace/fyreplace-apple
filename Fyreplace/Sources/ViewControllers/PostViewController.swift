@@ -44,20 +44,6 @@ class PostViewController: ItemRandomAccessListViewController {
         dateCreated.setTitle(dateFormat.string(from: post.dateCreated.date), for: .normal)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        vm.lister.startListing()
-
-        if vm.lister.itemCount == 0 {
-            vm.lister.fetch(at: 0)
-        }
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        vm.lister.stopListing()
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 

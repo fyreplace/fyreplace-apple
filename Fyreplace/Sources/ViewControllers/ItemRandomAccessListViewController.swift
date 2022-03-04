@@ -3,6 +3,20 @@ import UIKit
 class ItemRandomAccessListViewController: UITableViewController {
     @IBOutlet
     weak var listDelegate: ItemRandomAccessListViewDelegate!
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        listDelegate.lister.startListing()
+
+        if listDelegate.lister.itemCount == 0 {
+            listDelegate.lister.fetch(around: 0)
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        listDelegate.lister.stopListing()
+    }
 }
 
 extension ItemRandomAccessListViewController {
@@ -21,7 +35,7 @@ extension ItemRandomAccessListViewController {
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if !listDelegate.hasItem(atIndex: indexPath.row) {
-            listDelegate.lister.fetch(at: indexPath.row - indexPath.row % Int(listDelegate.lister.pageSize))
+            listDelegate.lister.fetch(around: indexPath.row - indexPath.row % Int(listDelegate.lister.pageSize))
         }
     }
 }

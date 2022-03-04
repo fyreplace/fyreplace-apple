@@ -13,7 +13,7 @@ protocol ItemRandomAccessListerProtocol {
 
     func stopListing()
 
-    func fetch(at index: Int)
+    func fetch(around index: Int)
 
     func insert(_ item: Any)
 
@@ -56,8 +56,9 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
         _ = stream?.sendEnd()
     }
 
-    func fetch(at index: Int) {
+    func fetch(around index: Int) {
         guard state == .incomplete, let stream = stream else { return }
+        let index = index - (index % 12)
         state = .fetching
         indexes.append(index)
         _ = stream.sendMessage(.with { $0.offset = UInt32(index) })
