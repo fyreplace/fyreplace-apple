@@ -156,6 +156,7 @@
 		4D6D3AB627300A8600353913 /* DynamicStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStackView.swift; sourceTree = "<group>"; };
 		4D6FD7AD272C717900E28C79 /* FPChapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPChapter.swift; sourceTree = "<group>"; };
 		4D75EC6726B9BA2E00684537 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		4D77941027DE4BEF0068F4E7 /* Info.plist.template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist.template.plist; sourceTree = "<group>"; };
 		4D77C264279494A200F3A711 /* FPRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPRank.swift; sourceTree = "<group>"; };
 		4D7C984C2691254B00819E3F /* pagination.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = pagination.proto; sourceTree = "<group>"; };
 		4D7C984D2691254B00819E3F /* post.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = post.proto; sourceTree = "<group>"; };
@@ -239,6 +240,7 @@
 		4D0040EA268EEDE800AF89FD /* Fyreplace */ = {
 			isa = PBXGroup;
 			children = (
+				4D77941027DE4BEF0068F4E7 /* Info.plist.template.plist */,
 				4D0040F9268EEDE900AF89FD /* Info.plist */,
 				4D35B1A726D7A60600077811 /* Fyreplace.entitlements */,
 				4DB316DD26906A940000BDC3 /* Resources */,
@@ -435,6 +437,7 @@
 				E5C729B894B38231F2E0EBFF /* [CP] Check Pods Manifest.lock */,
 				4D0F86D826C3CB0E00B1586D /* ShellScript */,
 				4DDB346527AFE5C600622AFF /* ShellScript */,
+				4D77940D27DE47CE0068F4E7 /* ShellScript */,
 				4D0040E4268EEDE800AF89FD /* Sources */,
 				4D0040E5268EEDE800AF89FD /* Frameworks */,
 				4D0040E6268EEDE800AF89FD /* Resources */,
@@ -512,7 +515,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "python3 Fyreplace/Storyboards/identify.py\n";
+			shellScript = "python3 $PROJECT/Storyboards/identify.py\n";
+		};
+		4D77940D27DE47CE0068F4E7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -f $INFOPLIST_FILE.template.plist $INFOPLIST_FILE\n\nbranch_type=$(git rev-parse --abbrev-ref HEAD | cut -d/ -f1)\n\ncase $branch_type in\n    'develop')\n        version_number_suffix=0;;\n    'hotfix')\n        version_number_suffix=1;;\n    'release')\n        version_number_suffix=2;;\n    *)\n        version_number_suffix=3;;\nesac\n\nversion_number=$(git rev-list --count HEAD).$version_number_suffix\nversion_string=$(git describe --tags --dirty)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $version_number\" $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString ${version_string:1:999}\" $INFOPLIST_FILE\n";
 		};
 		4DDB346527AFE5C600622AFF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -815,7 +835,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.1;
+				CURRENT_PROJECT_VERSION = 0.1;
 				DEVELOPMENT_TEAM = T4HRKJYDTW;
 				FYREPLACE_API_HOST = localhost;
 				FYREPLACE_API_PORT = 50051;
@@ -824,7 +844,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -841,7 +861,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.1;
+				CURRENT_PROJECT_VERSION = 0.1;
 				DEVELOPMENT_TEAM = T4HRKJYDTW;
 				FYREPLACE_API_HOST = api.fyreplace.app;
 				FYREPLACE_API_PORT = 50051;
@@ -850,7 +870,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
