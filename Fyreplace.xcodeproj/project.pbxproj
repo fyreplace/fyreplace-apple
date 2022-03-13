@@ -257,6 +257,7 @@
 		4D75EC6726B9BA2E00684537 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		4D77941027DE4BEF0068F4E7 /* Info.plist.template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist.template.plist; sourceTree = "<group>"; };
 		4D77947327DE654B0068F4E7 /* Fyreplace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fyreplace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D77947527DE9B460068F4E7 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4D77C264279494A200F3A711 /* FPRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPRank.swift; sourceTree = "<group>"; };
 		4D7C984C2691254B00819E3F /* pagination.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = pagination.proto; sourceTree = "<group>"; };
 		4D7C984D2691254B00819E3F /* post.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = post.proto; sourceTree = "<group>"; };
@@ -329,6 +330,7 @@
 		4D0040DF268EEDE800AF89FD = {
 			isa = PBXGroup;
 			children = (
+				4D77947527DE9B460068F4E7 /* .gitignore */,
 				4D0040EA268EEDE800AF89FD /* Fyreplace */,
 				4D7C984A2691254B00819E3F /* protos */,
 				958BE3377F98F9B27CCC6D2D /* Frameworks */,
