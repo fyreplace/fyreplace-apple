@@ -14,6 +14,7 @@ workflows:
         - include: true
           pattern: release/*
     environment:
+      xcode: latest
       groups:
         - app-store-connect
     scripts:
