@@ -28,6 +28,8 @@ workflows:
         script: keychain add-certificates
       - name: Set up code signing
         script: xcode-project use-profiles
+      - name: Prepare files
+        script: pod install
       - name: Install dependencies
         script: pod install
       - name: Build IPA
