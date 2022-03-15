@@ -38,3 +38,9 @@ workflows:
         script: xcode-project build-ipa --workspace Fyreplace.xcworkspace --scheme "Fyreplace Main"
     artifacts:
       - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        submit_to_testflight: true
