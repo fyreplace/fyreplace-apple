@@ -210,7 +210,7 @@ def get_id(node: etree.Element) -> Tuple[Id, bool]:
         ]
     )
 
-    if node.tag == "button":
+    if node.tag == "button" and not label:
         for child in node:
             if child.tag == "state" and child.attrib.get("key") == "normal":
                 label = child.attrib.get("title")
