@@ -106,9 +106,15 @@ extension SettingsViewController {
             changeEmail()
 
         case 2:
-            vm.logout()
+            URL(string: .tr("Legal.PrivacyPolicy.Url"))?.browse()
 
         case 3:
+            URL(string: .tr("Legal.TermsOfService.Url"))?.browse()
+
+        case 4:
+            vm.logout()
+
+        case 5:
             deleteAccount()
 
         default:

@@ -14,6 +14,10 @@ class LoginViewController: UIViewController {
     var button: UIButton!
     @IBOutlet
     var loader: UIActivityIndicatorView!
+    @IBOutlet
+    var privacyPolicy: UIButton!
+    @IBOutlet
+    var termsOfService: UIButton!
 
     public var isRegistering = true
 
@@ -25,6 +29,8 @@ class LoginViewController: UIViewController {
         button.reactive.isEnabled <~ vm.canProceed
         button.reactive.isHidden <~ vm.isLoading
         loader.reactive.isAnimating <~ vm.isLoading
+        privacyPolicy.isHidden = !isRegistering
+        termsOfService.isHidden = !isRegistering
         navigationItem.title = .tr("Login." + (isRegistering ? "Register" : "Login"))
         username.isHidden = !isRegistering
         button.setTitle(navigationItem.title, for: .normal)
@@ -53,6 +59,16 @@ class LoginViewController: UIViewController {
         } else {
             vm.login()
         }
+    }
+
+    @IBAction
+    func onPrivacyPolicyPressed() {
+        URL(string: .tr("Legal.PrivacyPolicy.Url"))?.browse()
+    }
+
+    @IBAction
+    func onTermsOfServicePressed() {
+        URL(string: .tr("Legal.TermsOfService.Url"))?.browse()
     }
 }
 

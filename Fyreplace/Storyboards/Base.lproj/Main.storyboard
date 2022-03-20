@@ -347,10 +347,10 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Comment" id="Post-Post-view-Comment" customClass="CommentTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="168.33333396911621" width="390" height="66"/>
+                                <rect key="frame" x="0.0" y="168.33333396911621" width="390" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Post-Post-view-Comment" id="Post-Post-view-Comment-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="66"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
@@ -861,8 +861,8 @@
                                     <color key="tintColor" systemColor="labelColor"/>
                                     <gestureRecognizers/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="0f-02-02-03-01--C-00"/>
-                                        <constraint firstAttribute="width" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="height" multiplier="1:1" id="0f-02-02-03-01--C-00-00-00"/>
+                                        <constraint firstAttribute="width" constant="100" id="0f-02-02-04-01--C-00"/>
+                                        <constraint firstAttribute="width" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="height" multiplier="1:1" id="0f-02-02-04-01--C-00-00-00"/>
                                     </constraints>
                                     <connections>
                                         <outletCollection property="gestureRecognizers" destination="Settings-Avatar-Taps" appends="YES" id="8c8793ef1982f22a0549e7a4fd56a7f4853ea661942ba66e3a6a1f90ac475438"/>
@@ -876,12 +876,12 @@
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="0f-02-02-03--C-00-00-00-00"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="top" constant="20" symbolic="YES" id="0f-02-02-03--C-00-00-00-01"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="0f-02-02-03--C-00-00-00-02"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="leading" constant="20" symbolic="YES" id="0f-02-02-03--C-00-00-00-02-00"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="bottom" constant="8" symbolic="YES" id="0f-02-02-03--C-00-00-00-03"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="trailing" constant="20" symbolic="YES" id="0f-02-02-03--C-00-00-00-03-00"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="0f-02-02-04--C-00-00-00-00"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="top" constant="20" symbolic="YES" id="0f-02-02-04--C-00-00-00-01"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="0f-02-02-04--C-00-00-00-02"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="leading" constant="20" symbolic="YES" id="0f-02-02-04--C-00-00-00-02-00"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="bottom" constant="8" symbolic="YES" id="0f-02-02-04--C-00-00-00-03"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="trailing" constant="20" symbolic="YES" id="0f-02-02-04--C-00-00-00-03-00"/>
                             </constraints>
                         </view>
                         <sections>
@@ -993,16 +993,54 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="Settings-Settings-view-tableViewSection-00">
+                            <tableViewSection headerTitle="Information" id="Settings-Settings-view-Information">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Logout" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00">
-                                        <rect key="frame" x="20" y="401.33333778381348" width="350" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Information-tableViewCell-00-contentView-Privacy-policy" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Information-tableViewCell-00">
+                                        <rect key="frame" x="20" y="415.33333778381348" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-00-tableViewCell-00" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Information-tableViewCell-00" id="Settings-Settings-view-Information-tableViewCell-00-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Privacy policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Information-tableViewCell-00-contentView-Privacy-policy">
+                                                    <rect key="frame" x="20" y="0.0" width="293.33333333333331" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" tag="3" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-Information-tableViewCell-01-contentView-Terms-of-service" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Information-tableViewCell-01">
+                                        <rect key="frame" x="20" y="459.0000057220459" width="350" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Information-tableViewCell-01" id="Settings-Settings-view-Information-tableViewCell-01-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Terms of service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Information-tableViewCell-01-contentView-Terms-of-service">
+                                                    <rect key="frame" x="20" y="0.0" width="293.33333333333331" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Account" id="Settings-Settings-view-Account">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" tag="4" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-Account-tableViewCell-00-contentView-Logout" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Account-tableViewCell-00">
+                                        <rect key="frame" x="20" y="551.66667366027832" width="350" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Account-tableViewCell-00" id="Settings-Settings-view-Account-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Logout">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Account-tableViewCell-00-contentView-Logout">
                                                     <rect key="frame" x="20" y="0.0" width="310" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -1014,16 +1052,16 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Danger zone" id="Settings-Settings-view-Danger-zone">
+                            <tableViewSection id="Settings-Settings-view-tableViewSection-00">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" tag="3" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-Danger-zone-tableViewCell-00-contentView-Delete-account" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Danger-zone-tableViewCell-00">
-                                        <rect key="frame" x="20" y="494.0000057220459" width="350" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" tag="5" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Delete-account" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00">
+                                        <rect key="frame" x="20" y="630.33334159851074" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Danger-zone-tableViewCell-00" id="Settings-Settings-view-Danger-zone-tableViewCell-00-contentView">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-00-tableViewCell-00" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Delete account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-Danger-zone-tableViewCell-00-contentView-Delete-account">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Delete account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Delete-account">
                                                     <rect key="frame" x="20" y="0.0" width="310" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -1038,7 +1076,7 @@
                             <tableViewSection id="Settings-Settings-view-tableViewSection-01">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView-Register" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00">
-                                        <rect key="frame" x="20" y="572.66667366027832" width="350" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="709.00000953674316" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-01-tableViewCell-00" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="43.666667938232422"/>
@@ -1058,7 +1096,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView-Login" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01">
-                                        <rect key="frame" x="20" y="616.33334159851074" width="350" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="752.66667747497559" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-01-tableViewCell-01" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="43.666667938232422"/>
@@ -1128,7 +1166,7 @@
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView">
-                                        <rect key="frame" x="20" y="60" width="350" height="336"/>
+                                        <rect key="frame" x="20" y="60" width="350" height="395"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Logo">
                                                 <rect key="frame" x="135" y="0.0" width="80" height="80"/>
@@ -1169,6 +1207,29 @@
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-activityIndicatorView">
                                                 <rect key="frame" x="156.66666666666666" y="299" width="37" height="37"/>
                                             </activityIndicatorView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-stackView">
+                                                <rect key="frame" x="66.666666666666686" y="366" width="217" height="29"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-stackView-Privacy-policy">
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="29"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Privacy policy"/>
+                                                        <connections>
+                                                            <action selector="onPrivacyPolicyPressed" destination="Login-Login" eventType="primaryActionTriggered" id="dd82bef2b1d0748cff2cc517d63380917371d294784addd0fe9c654356e6954d"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-stackView-Terms-of-service">
+                                                        <rect key="frame" x="110" y="0.0" width="107" height="29"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Terms of service"/>
+                                                        <connections>
+                                                            <action selector="onTermsOfServicePressed" destination="Login-Login" eventType="primaryActionTriggered" id="68bb38bd1985e22ed4b63c9077ccf5a6b41348e487cb8722d8fc5a666b04ba06"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Login-Login-view-scrollView-stackView-Email" firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Username" secondAttribute="width" id="09-00-02-02-03--C-00-00-00-00"/>
@@ -1206,6 +1267,8 @@
                         <outlet property="button" destination="Login-Login-view-scrollView-stackView-Button" id="e379b08d0d5874fbd031dc74239b4ec2ef6fbe708fabad107ad4d8bffbe1863e"/>
                         <outlet property="email" destination="Login-Login-view-scrollView-stackView-Email" id="d9ebeab3af2ce5b3fa5b80c6f47b8bbe854fadf5c3ae38b8284b057497e11c1c"/>
                         <outlet property="loader" destination="Login-Login-view-scrollView-stackView-activityIndicatorView" id="9f59c7dbedaeced85135c8b36c94d3268dd6c362b7256bf446fa67836afd1a78"/>
+                        <outlet property="privacyPolicy" destination="Login-Login-view-scrollView-stackView-stackView-Privacy-policy" id="3d1ea592e5451f667413b6bda2c0949e9c0669515f11bea649b727d9ad707cdc"/>
+                        <outlet property="termsOfService" destination="Login-Login-view-scrollView-stackView-stackView-Terms-of-service" id="1318d2c4eaf7fb0a24a77e3d7a282a1349bfb8beb7d015830af9b8f20d64cc90"/>
                         <outlet property="username" destination="Login-Login-view-scrollView-stackView-Username" id="e8460bffe0a5872f8c9ab2aad867c80c92bb4a4cd937bd508170f01324323d1e"/>
                         <outlet property="vm" destination="Login-LoginViewModel" id="34dce91158a933b81f3d9f65166af5f54bd07fdc3adf9d8a822c79ec3b07eb98"/>
                     </connections>
