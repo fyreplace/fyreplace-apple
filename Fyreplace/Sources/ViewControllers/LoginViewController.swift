@@ -77,19 +77,20 @@ class LoginViewController: UIViewController {
             message: nil,
             preferredStyle: .alert
         )
-        var password: UITextField?
+        var password = ""
         let ok = UIAlertAction(title: .tr("Ok"), style: .default) { [unowned self] _ in
-            guard let value = password?.text else { return }
-            vm.login(with: value)
+            vm.login(with: password)
         }
         let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
 
         alert.addTextField {
-            password = $0
             $0.textContentType = .password
             $0.returnKeyType = .done
             $0.isSecureTextEntry = true
-            $0.reactive.continuousTextValues.observeValues { ok.isEnabled = $0.count > 0 }
+            $0.reactive.continuousTextValues.observeValues {
+                ok.isEnabled = $0.count > 0
+                password = $0
+            }
         }
         alert.addAction(ok)
         alert.addAction(cancel)

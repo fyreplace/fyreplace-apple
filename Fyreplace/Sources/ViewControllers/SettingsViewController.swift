@@ -133,20 +133,21 @@ extension SettingsViewController {
             message: .tr("Settings.EmailChange.Message"),
             preferredStyle: .alert
         )
-        var newEmail: UITextField?
+        var newEmail = ""
         let update = UIAlertAction(title: .tr("Ok"), style: .default) { [unowned self] _ in
-            guard let address = newEmail?.text else { return }
-            vm.sendEmailUpdateEmail(address: address)
+            vm.sendEmailUpdateEmail(address: newEmail)
         }
         let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
 
         alert.addTextField {
-            newEmail = $0
             $0.placeholder = .tr("Settings.EmailChange.TextField.Placeholder")
             $0.textContentType = .emailAddress
             $0.keyboardType = .emailAddress
             $0.returnKeyType = .done
-            $0.reactive.continuousTextValues.observeValues { update.isEnabled = $0.count > 0 }
+            $0.reactive.continuousTextValues.observeValues {
+                update.isEnabled = $0.count > 0
+                newEmail = $0
+            }
         }
         alert.addAction(update)
         alert.addAction(cancel)
