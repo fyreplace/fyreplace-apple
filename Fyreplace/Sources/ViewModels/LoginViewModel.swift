@@ -32,9 +32,32 @@ class LoginViewModel: ViewModel {
         isLoading.value = true
         let request = FPEmail.with { $0.email = email.value }
         let response = accountService.sendConnectionEmail(request).response
-        response.whenSuccess { _ in self.delegate.onLogin() }
+        response.whenSuccess { _ in self.delegate.onLogin(withPassword: false) }
         response.whenFailure(delegate.onError(_:))
         response.whenComplete { _ in self.isLoading.value = false }
+    }
+
+    func login(with password: String) {
+        isLoading.value = true
+        let request = FPConnectionCredentials.with {
+            $0.email = email.value
+            $0.password = password
+            $0.client = .default
+        }
+        let response = accountService.connect(request).response
+        response.whenSuccess { self.onLogin(token: $0.token) }
+        response.whenFailure(delegate.onError(_:))
+        response.whenComplete { _ in self.isLoading.value = false }
+    }
+
+    private func onLogin(token: String) {
+        if authToken.set(token.data(using: .utf8)!) {
+            NotificationCenter.default.post(name: FPUser.userConnectedNotification, object: self)
+        } else {
+            delegate.onError(KeychainError.set)
+        }
+
+        delegate.onLogin(withPassword: true)
     }
 }
 
@@ -42,7 +65,7 @@ class LoginViewModel: ViewModel {
 protocol LoginViewModelDelegate: ViewModelDelegate {
     func onRegister()
 
-    func onLogin()
+    func onLogin(withPassword: Bool)
 }
 
 private extension Int {

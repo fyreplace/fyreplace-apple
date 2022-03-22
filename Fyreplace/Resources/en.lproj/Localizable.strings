@@ -88,6 +88,7 @@
 
 "Login.Login" = "Login";
 "Login.Register" = "Register";
+"Login.Password.Title" = "Password";
 "Login.Error.EmailNotFound.Title" = "Incorrect email";
 "Login.Error.EmailNotFound.Message" = "This email is not associated to any account.";
 "Login.Error.EmailAlreadyExists.Title" = "Email taken";
@@ -108,6 +109,8 @@
 "Login.Error.InvalidEmail.Message" = "This email address is not valid.";
 "Login.Error.InvalidUsername.Title" = "Invalid username";
 "Login.Error.InvalidUsername.Message" = "This username is not valid. Usernames can contain letters, numbers, and @/./+/-/_ characters.";
+"Login.Error.InvalidPassword.Title" = "Invalid password";
+"Login.Error.InvalidPassword.Message" = "This password does not match the email.";
 
 "Bio.Length" = "%d/%d";
 "Bio.Error.TooLong.Title" = "Invalid bio";

@@ -70,6 +70,31 @@ class LoginViewController: UIViewController {
     func onTermsOfServicePressed() {
         URL(string: .tr("Legal.TermsOfService.Url"))?.browse()
     }
+
+    private func askPassword() {
+        let alert = UIAlertController(
+            title: .tr("Login.Password.Title"),
+            message: nil,
+            preferredStyle: .alert
+        )
+        var password: UITextField?
+        let ok = UIAlertAction(title: .tr("Ok"), style: .default) { [unowned self] _ in
+            guard let value = password?.text else { return }
+            vm.login(with: value)
+        }
+        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
+
+        alert.addTextField {
+            password = $0
+            $0.textContentType = .password
+            $0.returnKeyType = .done
+            $0.isSecureTextEntry = true
+            $0.reactive.continuousTextValues.observeValues { ok.isEnabled = $0.count > 0 }
+        }
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+    }
 }
 
 extension LoginViewController: LoginViewModelDelegate {
@@ -78,8 +103,11 @@ extension LoginViewController: LoginViewModelDelegate {
         DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
     }
 
-    func onLogin() {
-        NotificationCenter.default.post(name: FPUser.userConnectionEmailNotification, object: self)
+    func onLogin(withPassword: Bool) {
+        if !withPassword {
+            NotificationCenter.default.post(name: FPUser.userConnectionEmailNotification, object: self)
+        }
+
         DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
     }
 
@@ -91,6 +119,9 @@ extension LoginViewController: LoginViewModelDelegate {
         let key: String
 
         switch status.code {
+        case .cancelled:
+            return askPassword()
+
         case .notFound:
             key = "Login.Error.EmailNotFound"
 
@@ -103,7 +134,7 @@ extension LoginViewController: LoginViewModelDelegate {
                 : "Error.Permission"
 
         case .invalidArgument:
-            key = ["invalid_credentials", "invalid_email", "invalid_username"].contains(status.message)
+            key = ["invalid_credentials", "invalid_email", "invalid_username", "invalid_password"].contains(status.message)
                 ? "Login.Error.\(status.message!.pascalized)"
                 : "Error.Validation"
 
