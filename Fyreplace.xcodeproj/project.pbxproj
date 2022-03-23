@@ -670,7 +670,7 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
+			shellPath = /bin/bash;
 			shellScript = "python3 $PROJECT/Storyboards/identify.py\n";
 		};
 		4D77940D27DE47CE0068F4E7 /* ShellScript */ = {
@@ -687,7 +687,7 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
+			shellPath = /bin/bash;
 			shellScript = "cp -f $INFOPLIST_FILE.template.plist $INFOPLIST_FILE\n\nbranch_type=$(git rev-parse --abbrev-ref HEAD | cut -d/ -f1)\n\ncase $branch_type in\n    'develop')\n        version_number_suffix=0;;\n    'hotfix')\n        version_number_suffix=1;;\n    'release')\n        version_number_suffix=2;;\n    *)\n        version_number_suffix=3;;\nesac\n\nversion_number=$(git rev-list --count HEAD).$version_number_suffix\nversion_string=$(git describe --tags --abbrev=0)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $version_number\" $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString ${version_string:1:999}\" $INFOPLIST_FILE\n";
 		};
 		4D77941327DE654B0068F4E7 /* [CP] Check Pods Manifest.lock */ = {
@@ -726,7 +726,7 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
+			shellPath = /bin/bash;
 			shellScript = "python3 $PROJECT/Storyboards/identify.py\n";
 		};
 		4D77941527DE654B0068F4E7 /* ShellScript */ = {
@@ -743,7 +743,7 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
+			shellPath = /bin/bash;
 			shellScript = "PATH=\"$PODS_ROOT/SwiftFormat/CommandLineTool:$PATH\"\nswiftformat --semicolons never --stripunusedargs closure-only $SOURCE_ROOT/$PROJECT\n";
 		};
 		4D77941627DE654B0068F4E7 /* ShellScript */ = {
@@ -760,7 +760,7 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
+			shellPath = /bin/bash;
 			shellScript = "cp -f $INFOPLIST_FILE.template.plist $INFOPLIST_FILE\n\nbranch_type=$(git rev-parse --abbrev-ref HEAD | cut -d/ -f1)\n\ncase $branch_type in\n    'develop')\n        version_number_suffix=0;;\n    'hotfix')\n        version_number_suffix=1;;\n    'release')\n        version_number_suffix=2;;\n    *)\n        version_number_suffix=3;;\nesac\n\nversion_number=$(git rev-list --count HEAD).$version_number_suffix\nversion_string=$(git describe --tags --abbrev=0)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $version_number\" $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString ${version_string:1:999}\" $INFOPLIST_FILE\n";
 		};
 		4D77946E27DE654B0068F4E7 /* [CP] Embed Pods Frameworks */ = {
@@ -794,7 +794,7 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
+			shellPath = /bin/bash;
 			shellScript = "PATH=\"$PODS_ROOT/SwiftFormat/CommandLineTool:$PATH\"\nswiftformat --semicolons never --stripunusedargs closure-only $SOURCE_ROOT/$PROJECT\n";
 		};
 		854DB3A2B34738C63CD0812A /* [CP] Embed Pods Frameworks */ = {
