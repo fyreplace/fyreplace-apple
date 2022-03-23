@@ -17,6 +17,9 @@ workflows:
       xcode: latest
       groups:
         - app-store-connect
+    cache:
+      cache_paths:
+        - ~/Library/Caches/CocoaPods
     scripts:
       - name: Unshallow repository
         script: git fetch --unshallow
