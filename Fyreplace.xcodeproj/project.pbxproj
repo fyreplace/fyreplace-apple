@@ -131,6 +131,8 @@
 		4D77946C27DE654B0068F4E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F6268EEDE900AF89FD /* LaunchScreen.storyboard */; };
 		4D77946D27DE654B0068F4E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F1268EEDE800AF89FD /* Main.storyboard */; };
 		4D77C265279494A200F3A711 /* FPRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77C264279494A200F3A711 /* FPRank.swift */; };
+		4D7B186F27EBC43A00FE31A0 /* identify.py in Resources */ = {isa = PBXBuildFile; fileRef = 4D7B186E27EBC43A00FE31A0 /* identify.py */; };
+		4D7B187127EBC45000FE31A0 /* version.py in Resources */ = {isa = PBXBuildFile; fileRef = 4D7B187027EBC45000FE31A0 /* version.py */; };
 		4D7C987126912ABA00819E3F /* comment.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98532691254B00819E3F /* comment.proto */; };
 		4D7C987226912ABD00819E3F /* id.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C98512691254B00819E3F /* id.proto */; };
 		4D7C987326912ABF00819E3F /* image.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C985C2691254B00819E3F /* image.proto */; };
@@ -260,6 +262,8 @@
 		4D77947327DE654B0068F4E7 /* Fyreplace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fyreplace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D77947527DE9B460068F4E7 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4D77C264279494A200F3A711 /* FPRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPRank.swift; sourceTree = "<group>"; };
+		4D7B186E27EBC43A00FE31A0 /* identify.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = identify.py; sourceTree = "<group>"; };
+		4D7B187027EBC45000FE31A0 /* version.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = version.py; sourceTree = "<group>"; };
 		4D7C984C2691254B00819E3F /* pagination.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = pagination.proto; sourceTree = "<group>"; };
 		4D7C984D2691254B00819E3F /* post.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = post.proto; sourceTree = "<group>"; };
 		4D7C984F2691254B00819E3F /* notification.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = notification.proto; sourceTree = "<group>"; };
@@ -360,6 +364,7 @@
 				4D77941027DE4BEF0068F4E7 /* Info.plist.template.plist */,
 				4D0040F9268EEDE900AF89FD /* Info.plist */,
 				4D35B1A726D7A60600077811 /* Fyreplace.entitlements */,
+				4D7B187027EBC45000FE31A0 /* version.py */,
 				4DB316DD26906A940000BDC3 /* Resources */,
 				4D00411B268FB49B00AF89FD /* Storyboards */,
 				4D00411C268FB4B500AF89FD /* Sources */,
@@ -372,6 +377,7 @@
 			children = (
 				4D0040F6268EEDE900AF89FD /* LaunchScreen.storyboard */,
 				4D0040F1268EEDE800AF89FD /* Main.storyboard */,
+				4D7B186E27EBC43A00FE31A0 /* identify.py */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -635,6 +641,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7B186F27EBC43A00FE31A0 /* identify.py in Resources */,
+				4D7B187127EBC45000FE31A0 /* version.py in Resources */,
 				4D0040F5268EEDE900AF89FD /* Assets.xcassets in Resources */,
 				4DFAAD25269F6D1F00DFAB5F /* Localizable.strings in Resources */,
 				4D0040F8268EEDE900AF89FD /* LaunchScreen.storyboard in Resources */,
@@ -688,7 +696,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "cp -f $INFOPLIST_FILE.template.plist $INFOPLIST_FILE\n\nbranch_type=$(git rev-parse --abbrev-ref HEAD | cut -d/ -f1)\n\ncase $branch_type in\n    'develop')\n        version_number_suffix=0;;\n    'hotfix')\n        version_number_suffix=1;;\n    'release')\n        version_number_suffix=2;;\n    *)\n        version_number_suffix=3;;\nesac\n\nversion_number=$(git rev-list --count HEAD).$version_number_suffix\nversion_string=$(git describe --tags --abbrev=0)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $version_number\" $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString ${version_string:1:999}\" $INFOPLIST_FILE\n";
+			shellScript = "cp -f $INFOPLIST_FILE.template.plist $INFOPLIST_FILE\n\nbranch_type=$(git rev-parse --abbrev-ref HEAD | cut -d/ -f1)\n\ncase $branch_type in\n    'develop')\n        version_number_suffix=0;;\n    'hotfix')\n        version_number_suffix=1;;\n    'release')\n        version_number_suffix=2;;\n    *)\n        version_number_suffix=3;;\nesac\n\nversion_number=$(git rev-list --count HEAD).$version_number_suffix\nversion_string=$(python3 $PROJECT/version.py)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $version_number\" $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $version_string\" $INFOPLIST_FILE\n";
 		};
 		4D77941327DE654B0068F4E7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -761,7 +769,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "cp -f $INFOPLIST_FILE.template.plist $INFOPLIST_FILE\n\nbranch_type=$(git rev-parse --abbrev-ref HEAD | cut -d/ -f1)\n\ncase $branch_type in\n    'develop')\n        version_number_suffix=0;;\n    'hotfix')\n        version_number_suffix=1;;\n    'release')\n        version_number_suffix=2;;\n    *)\n        version_number_suffix=3;;\nesac\n\nversion_number=$(git rev-list --count HEAD).$version_number_suffix\nversion_string=$(git describe --tags --abbrev=0)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $version_number\" $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString ${version_string:1:999}\" $INFOPLIST_FILE\n";
+			shellScript = "cp -f $INFOPLIST_FILE.template.plist $INFOPLIST_FILE\n\nbranch_type=$(git rev-parse --abbrev-ref HEAD | cut -d/ -f1)\n\ncase $branch_type in\n    'develop')\n        version_number_suffix=0;;\n    'hotfix')\n        version_number_suffix=1;;\n    'release')\n        version_number_suffix=2;;\n    *)\n        version_number_suffix=3;;\nesac\n\nversion_number=$(git rev-list --count HEAD).$version_number_suffix\nversion_string=$(python3 $PROJECT/version.py)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $version_number\" $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $version_string\" $INFOPLIST_FILE\n";
 		};
 		4D77946E27DE654B0068F4E7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
