@@ -20,6 +20,7 @@ workflows:
     cache:
       cache_paths:
         - ~/Library/Caches/CocoaPods
+        - ~/Library/Caches/Homebrew
     scripts:
       - name: Unshallow repository
         script: git fetch --unshallow
