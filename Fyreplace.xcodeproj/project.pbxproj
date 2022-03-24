@@ -845,7 +845,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1;
 				DEVELOPMENT_TEAM = T4HRKJYDTW;
 				FYREPLACE_API_HOST = localhost;
 				FYREPLACE_API_PORT = 50051;
@@ -854,7 +853,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
 				PRODUCT_NAME = "$(PROJECT)";
 				SWIFT_VERSION = 5.0;
@@ -871,7 +869,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1;
 				DEVELOPMENT_TEAM = T4HRKJYDTW;
 				FYREPLACE_API_HOST = dev.api.fyreplace.app;
 				FYREPLACE_API_PORT = 50051;
@@ -880,7 +877,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
 				PRODUCT_NAME = "$(PROJECT)";
 				SWIFT_VERSION = 5.0;
@@ -952,7 +948,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.1;
 				DEVELOPMENT_TEAM = T4HRKJYDTW;
 				FYREPLACE_API_HOST = api.fyreplace.app;
 				FYREPLACE_API_PORT = 50051;
@@ -961,7 +956,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
 				PRODUCT_NAME = "$(PROJECT)";
 				SWIFT_VERSION = 5.0;
