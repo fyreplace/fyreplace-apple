@@ -1,6 +1,6 @@
 PODS:
   - _NIODataStructures (2.38.0)
-  - CGRPCZlib (1.7.1)
+  - CGRPCZlib (1.7.2)
   - CNIOAtomics (2.38.0)
   - CNIOBoringSSL (2.15.1)
   - CNIOBoringSSLShims (2.15.1):
@@ -9,8 +9,8 @@ PODS:
   - CNIOHTTPParser (2.38.0)
   - CNIOLinux (2.38.0)
   - CNIOWindows (2.38.0)
-  - gRPC-Swift (1.7.1):
-    - CGRPCZlib (= 1.7.1)
+  - gRPC-Swift (1.7.2):
+    - CGRPCZlib (= 1.7.2)
     - Logging (< 2.0.0, >= 1.4.0)
     - SwiftNIO (< 3.0.0, >= 2.32.0)
     - SwiftNIOExtras (< 2.0.0, >= 1.4.0)
@@ -18,14 +18,14 @@ PODS:
     - SwiftNIOSSL (< 3.0.0, >= 2.14.0)
     - SwiftNIOTransportServices (< 2.0.0, >= 1.11.1)
     - SwiftProtobuf (< 2.0.0, >= 1.9.0)
-  - gRPC-Swift-Plugins (1.7.1):
-    - gRPC-Swift (= 1.7.1)
+  - gRPC-Swift-Plugins (1.7.2):
+    - gRPC-Swift (= 1.7.2)
   - Kingfisher (7.2.0)
   - Logging (1.4.0)
   - ReactiveCocoa (12.0.0):
     - ReactiveSwift (~> 7.0)
   - ReactiveSwift (7.0.0)
-  - SwiftFormat/CLI (0.49.5)
+  - SwiftFormat/CLI (0.49.6)
   - SwiftNIO (2.38.0):
     - SwiftNIOCore (= 2.38.0)
     - SwiftNIOEmbedded (= 2.38.0)
@@ -126,7 +126,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   _NIODataStructures: d8175e5ca5a34ec19b7ff21de298dd2a4d30818d
-  CGRPCZlib: 8b4c1074399f6ba2db3361862d4340d57d7b77f0
+  CGRPCZlib: 290fba348cc0c620ebb461f82c1c2d05bb7b9075
   CNIOAtomics: 00b638e1b0dac91d06d4bb089ea9126c117c6650
   CNIOBoringSSL: c99129423da079a9eb74bcfc7cfec41a6775cf94
   CNIOBoringSSLShims: 902ae35fea0b6be5eefb4fdce906751886cfa46f
@@ -134,13 +134,13 @@ SPEC CHECKSUMS:
   CNIOHTTPParser: f3bd2955c9c8669ea2ae0f1f4f03df1fea2ed90d
   CNIOLinux: f8801300bb296d16dee59a82aba1613a08cfbe23
   CNIOWindows: 1cc6fb2af1d445f52f2d39cecf7069873f7d5b0d
-  gRPC-Swift: c5541e5fed500f45d31bf1369cecec753d1007e2
-  gRPC-Swift-Plugins: c01c4685a24c3b02ff4b2d9ff5b0010f402d010e
+  gRPC-Swift: 8426019a9c56401ee1b9ef00f15fb5530eb8cdd2
+  gRPC-Swift-Plugins: 40b00060f66d39c361bdf84b5c3ee28af064ef7a
   Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
   ReactiveCocoa: 5d10386f0ce09f922006efbf784881c5fade27c5
   ReactiveSwift: 48c4b9d3b497e8dd20b10300bb1a28ff93550f13
-  SwiftFormat: 803e5a44e083cf414b3072381db0e9e65f4c0d0d
+  SwiftFormat: e40542bcf76fdaa006d0dc26a9ca8278ca028d76
   SwiftNIO: 9bc23fada7254a38f1417533a4514aabdcb7cf31
   SwiftNIOConcurrencyHelpers: ec57adfc490604a341904994fbf98de61a8b5497
   SwiftNIOCore: 156fd84c03dc877a5f22d0ba575745cafe4a83ca
@@ -158,4 +158,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 95aeb16776556307e0f1dfcbeffe6244fafdf028
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
