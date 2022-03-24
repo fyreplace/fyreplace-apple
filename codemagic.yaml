@@ -39,7 +39,7 @@ workflows:
           brew install protobuf
           pod install
       - name: Build IPA
-        script: xcode-project build-ipa --workspace Fyreplace.xcworkspace --target Fyreplace --config Main
+        script: xcode-project build-ipa --workspace Fyreplace.xcworkspace --scheme Fyreplace
     artifacts:
       - build/ios/ipa/*.ipa
     publishing:
