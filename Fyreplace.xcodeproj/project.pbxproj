@@ -845,7 +845,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T4HRKJYDTW;
+				DEVELOPMENT_TEAM = "";
 				FYREPLACE_API_HOST = localhost;
 				FYREPLACE_API_PORT = 50051;
 				INFOPLIST_FILE = Fyreplace/Info.plist;
@@ -869,7 +869,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T4HRKJYDTW;
+				DEVELOPMENT_TEAM = "";
 				FYREPLACE_API_HOST = dev.api.fyreplace.app;
 				FYREPLACE_API_PORT = 50051;
 				INFOPLIST_FILE = Fyreplace/Info.plist;
@@ -948,7 +948,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T4HRKJYDTW;
+				DEVELOPMENT_TEAM = "";
 				FYREPLACE_API_HOST = api.fyreplace.app;
 				FYREPLACE_API_PORT = 50051;
 				INFOPLIST_FILE = Fyreplace/Info.plist;
