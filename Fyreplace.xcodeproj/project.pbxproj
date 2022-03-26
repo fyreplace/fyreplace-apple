@@ -113,7 +113,6 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
-		1A37744C5995A9CD2BED1C3E /* Pods-Fyreplace.main.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.main.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.main.xcconfig"; sourceTree = "<group>"; };
 		4D0040EB268EEDE800AF89FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D0040ED268EEDE800AF89FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4D0040F2268EEDE800AF89FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -208,9 +207,10 @@
 		4DFAAD26269F6D4800DFAB5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4EEF1E1AED80FAA9662C9671 /* Pods_Fyreplace_Dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fyreplace_Dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		565A4BC57F55F2665D1CBABB /* Pods-Fyreplace.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.dev.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.dev.xcconfig"; sourceTree = "<group>"; };
 		768E622B14C754E0E2E56E55 /* Pods_Fyreplace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fyreplace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E9070E128AC718239C58F29 /* Pods-Fyreplace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.debug.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.debug.xcconfig"; sourceTree = "<group>"; };
+		77A689A5EE61A54C28A60BC0 /* Pods-Fyreplace.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.production.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.production.xcconfig"; sourceTree = "<group>"; };
+		7DD124F0F741B2029331A9FA /* Pods-Fyreplace.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.development.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.development.xcconfig"; sourceTree = "<group>"; };
+		8CEA6295C4B2A8874C83348B /* Pods-Fyreplace.local.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.local.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.local.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,9 +433,9 @@
 		C65EB2DEC8380D9ABD7483E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9E9070E128AC718239C58F29 /* Pods-Fyreplace.debug.xcconfig */,
-				565A4BC57F55F2665D1CBABB /* Pods-Fyreplace.dev.xcconfig */,
-				1A37744C5995A9CD2BED1C3E /* Pods-Fyreplace.main.xcconfig */,
+				8CEA6295C4B2A8874C83348B /* Pods-Fyreplace.local.xcconfig */,
+				7DD124F0F741B2029331A9FA /* Pods-Fyreplace.development.xcconfig */,
+				77A689A5EE61A54C28A60BC0 /* Pods-Fyreplace.production.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -838,7 +838,7 @@
 		};
 		4D77947127DE654B0068F4E7 /* Local */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E9070E128AC718239C58F29 /* Pods-Fyreplace.debug.xcconfig */;
+			baseConfigurationReference = 8CEA6295C4B2A8874C83348B /* Pods-Fyreplace.local.xcconfig */;
 			buildSettings = {
 				APP_NAME = Fyredev;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -862,7 +862,7 @@
 		};
 		4D77947227DE654B0068F4E7 /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 565A4BC57F55F2665D1CBABB /* Pods-Fyreplace.dev.xcconfig */;
+			baseConfigurationReference = 7DD124F0F741B2029331A9FA /* Pods-Fyreplace.development.xcconfig */;
 			buildSettings = {
 				APP_NAME = "$(PRODUCT_NAME)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -941,7 +941,7 @@
 		};
 		4D7B187727ED22AB00FE31A0 /* Production */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A37744C5995A9CD2BED1C3E /* Pods-Fyreplace.main.xcconfig */;
+			baseConfigurationReference = 77A689A5EE61A54C28A60BC0 /* Pods-Fyreplace.production.xcconfig */;
 			buildSettings = {
 				APP_NAME = "$(PRODUCT_NAME)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
