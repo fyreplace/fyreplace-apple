@@ -67,7 +67,7 @@ class MenuBarButtonItem: UIBarButtonItem {
         }
     }
 
-    @available(iOS 14.0, *)
+    @available(iOS 14, *)
     private func attachMenu() {
         let elements = orderedActions.map { action in
             UIAction(
