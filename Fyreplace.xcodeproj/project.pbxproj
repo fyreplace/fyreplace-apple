@@ -580,7 +580,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "cp -f $INFOPLIST_FILE.template.plist $INFOPLIST_FILE\n\nbranch_type=$(git rev-parse --abbrev-ref HEAD | cut -d/ -f1)\n\ncase $branch_type in\n    'develop')\n        version_number_suffix=0;;\n    'hotfix')\n        version_number_suffix=1;;\n    'release')\n        version_number_suffix=2;;\n    *)\n        version_number_suffix=3;;\nesac\n\nversion_number=$(git rev-list --count HEAD).$version_number_suffix\nversion_string=$(python3 $PROJECT/version.py)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $version_number\" $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $version_string\" $INFOPLIST_FILE\n";
+			shellScript = "cp -f $INFOPLIST_FILE.template.plist $INFOPLIST_FILE\nversion_number=$(python3 $PROJECT/version.py)\nversion_string=$(python3 $PROJECT/version.py string)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $version_number\" $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $version_string\" $INFOPLIST_FILE\n";
 		};
 		4D77946E27DE654B0068F4E7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
