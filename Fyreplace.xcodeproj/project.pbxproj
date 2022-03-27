@@ -389,8 +389,8 @@
 				4D5FC3F427021BE800AE1F73 /* ClientStreamingCall+FPImageChunk.swift */,
 				4D3AEDA626C5157D00C93DFF /* FPClient.swift */,
 				4D77C264279494A200F3A711 /* FPRank.swift */,
-				4D6FD7AD272C717900E28C79 /* FPChapter.swift */,
 				4DA43CEE278603FC0002C22A /* FPProfile.swift */,
+				4D6FD7AD272C717900E28C79 /* FPChapter.swift */,
 				4DAF29E426C7BE67005612C9 /* FPUser+Notification.swift */,
 				4D224619279C27D800D35430 /* FPProfiles+ItemBundle.swift */,
 				4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */,
@@ -848,6 +848,7 @@
 				DEVELOPMENT_TEAM = "";
 				FYREPLACE_API_HOST = localhost;
 				FYREPLACE_API_PORT = 50051;
+				FYREPLACE_LINK_HOST = fyreplace.link;
 				INFOPLIST_FILE = Fyreplace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -872,6 +873,7 @@
 				DEVELOPMENT_TEAM = "";
 				FYREPLACE_API_HOST = dev.api.fyreplace.app;
 				FYREPLACE_API_PORT = 50051;
+				FYREPLACE_LINK_HOST = fyreplace.link;
 				INFOPLIST_FILE = Fyreplace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -951,6 +953,7 @@
 				DEVELOPMENT_TEAM = "";
 				FYREPLACE_API_HOST = api.fyreplace.app;
 				FYREPLACE_API_PORT = 50051;
+				FYREPLACE_LINK_HOST = fyreplace.link;
 				INFOPLIST_FILE = Fyreplace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
