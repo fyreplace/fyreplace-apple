@@ -44,7 +44,7 @@ class MainViewController: UITabBarController {
     private func onUrlOpened(_ notification: Notification) {
         guard let url = notification.userInfo?["url"] as? URL,
               let fragment = url.fragment
-        else { return presentBasicAlert(text: "Error", feedback: .error) }
+        else { return presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error) }
 
         switch url.path {
         case "/AccountService.ConfirmActivation":
