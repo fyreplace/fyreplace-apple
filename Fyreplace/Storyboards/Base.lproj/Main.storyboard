@@ -347,10 +347,10 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Comment" id="Post-Post-view-Comment" customClass="CommentTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="168.33333396911621" width="390" height="74"/>
+                                <rect key="frame" x="0.0" y="168.33333396911621" width="390" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Post-Post-view-Comment" id="Post-Post-view-Comment-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="74"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
@@ -412,7 +412,7 @@
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="Post-Post-navigationItem">
                         <barButtonItem key="leftBarButtonItem" id="Post-Post-navigationItem-leftBarButtonItem">
                             <view key="customView" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView">
-                                <rect key="frame" x="50" y="6" width="220" height="32"/>
+                                <rect key="frame" x="0.0" y="0.0" width="220" height="32"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView">
                                         <rect key="frame" x="0.0" y="-4" width="220" height="40"/>
