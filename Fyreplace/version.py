@@ -12,7 +12,7 @@ def main():
     version = os.popen("git describe --tags").read().strip()[1:]
     version_parts = version.split("-")
 
-    if len(branch_parts) > 1:
+    if len(branch_parts) > 1 and branch_parts[0] in ["hotfix", "release"]:
         if should_output_string:
             print(branch_parts[1])
         else:
