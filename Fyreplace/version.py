@@ -16,7 +16,7 @@ def main():
         if should_output_string:
             print(branch_parts[1])
         else:
-            build_suffix = 2 if branch_parts[0] == "release" else 1
+            build_suffix = 1 if branch_parts[0] == "release" else 2
             print(f"{commit_count}.{build_suffix}")
     elif len(version_parts) == 1:
         if should_output_string:
