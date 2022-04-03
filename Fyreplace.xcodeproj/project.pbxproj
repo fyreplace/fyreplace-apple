@@ -720,7 +720,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4D004110268EEDE900AF89FD /* Local */ = {
+		4D004110268EEDE900AF89FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -779,7 +779,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Local;
+			name = Debug;
 		};
 		4D004111268EEDE900AF89FD /* Development */ = {
 			isa = XCBuildConfiguration;
@@ -836,7 +836,7 @@
 			};
 			name = Development;
 		};
-		4D77947127DE654B0068F4E7 /* Local */ = {
+		4D77947127DE654B0068F4E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8CEA6295C4B2A8874C83348B /* Pods-Fyreplace.local.xcconfig */;
 			buildSettings = {
@@ -859,7 +859,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Local;
+			name = Debug;
 		};
 		4D77947227DE654B0068F4E7 /* Development */ = {
 			isa = XCBuildConfiguration;
@@ -886,7 +886,7 @@
 			};
 			name = Development;
 		};
-		4D7B187627ED22AB00FE31A0 /* Production */ = {
+		4D7B187627ED22AB00FE31A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -939,9 +939,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Production;
+			name = Release;
 		};
-		4D7B187727ED22AB00FE31A0 /* Production */ = {
+		4D7B187727ED22AB00FE31A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77A689A5EE61A54C28A60BC0 /* Pods-Fyreplace.production.xcconfig */;
 			buildSettings = {
@@ -965,7 +965,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Production;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -973,22 +973,22 @@
 		4D0040E3268EEDE800AF89FD /* Build configuration list for PBXProject "Fyreplace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4D004110268EEDE900AF89FD /* Local */,
+				4D004110268EEDE900AF89FD /* Debug */,
 				4D004111268EEDE900AF89FD /* Development */,
-				4D7B187627ED22AB00FE31A0 /* Production */,
+				4D7B187627ED22AB00FE31A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Production;
+			defaultConfigurationName = Release;
 		};
 		4D77947027DE654B0068F4E7 /* Build configuration list for PBXNativeTarget "Fyreplace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4D77947127DE654B0068F4E7 /* Local */,
+				4D77947127DE654B0068F4E7 /* Debug */,
 				4D77947227DE654B0068F4E7 /* Development */,
-				4D7B187727ED22AB00FE31A0 /* Production */,
+				4D7B187727ED22AB00FE31A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Production;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
