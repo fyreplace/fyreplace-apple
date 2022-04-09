@@ -322,14 +322,7 @@
 				4D15D5B127B837CB0015AD4E /* CompactTextView.swift */,
 				4D87F45727888FBB00A82AFF /* MenuBarButtonItem.swift */,
 				4DF9D08F2724228A003D610D /* DateFormat.swift */,
-				4D22461F279CBBD800D35430 /* AvatarTableViewCell.swift */,
-				4D1FF6162708B8C100445793 /* ItemTableViewCell.swift */,
-				4D8BFDB7270B062600CAD2B5 /* TextItemTableViewCell.swift */,
-				4D8BFDB9270B37F900CAD2B5 /* ImageItemTableViewCell.swift */,
-				4D8BFDBE270B3F3000CAD2B5 /* PostTableViewCell.swift */,
-				4D6D3AB4272FF61500353913 /* PostTableHeaderView.swift */,
-				4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */,
-				4D22461D279CBAA500D35430 /* BlockedUserTableViewCell.swift */,
+				4DF63A072801AD0B00DF8460 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -366,6 +359,21 @@
 				4DC88FA027B4550E00F06921 /* ItemRandomAccessLister.swift */,
 			);
 			path = gRPC;
+			sourceTree = "<group>";
+		};
+		4DF63A072801AD0B00DF8460 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4D22461F279CBBD800D35430 /* AvatarTableViewCell.swift */,
+				4D1FF6162708B8C100445793 /* ItemTableViewCell.swift */,
+				4D8BFDB7270B062600CAD2B5 /* TextItemTableViewCell.swift */,
+				4D8BFDB9270B37F900CAD2B5 /* ImageItemTableViewCell.swift */,
+				4D8BFDBE270B3F3000CAD2B5 /* PostTableViewCell.swift */,
+				4D6D3AB4272FF61500353913 /* PostTableHeaderView.swift */,
+				4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */,
+				4D22461D279CBAA500D35430 /* BlockedUserTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		4DFAAD1F269F626E00DFAB5F /* Extensions */ = {
