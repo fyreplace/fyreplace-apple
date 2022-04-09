@@ -22,6 +22,12 @@
 "Keychain.Error.Title" = "Keychain error";
 "Keychain.Error.Message" = "Could not operate on the Keychain.";
 
+"ImageSelector.ChooseSource.Action.Library" = "Pick an image";
+"ImageSelector.ChooseSource.Action.Camera" = "Take a picture";
+"ImageSelector.ChooseSource.Action.Remove" = "Remove";
+"ImageSelector.Error.Size.Title" = "Invalid image";
+"ImageSelector.Error.Size.Message" = "This picture is too large.";
+
 "Main.AccountCreated.Title" = "Check your email";
 "Main.AccountCreated.Message" = "A confirmation email has been sent to your address. It contains a link that will allow you to confirm your registration.";
 "Main.AccountActivated.Title" = "Account activated";
@@ -40,6 +46,22 @@
 "Main.Error.InvalidConnectionToken.Message" = "The connection token is not valid; maybe it has already been used.";
 "Main.Error.UserNotPending.Title" = "Account already activated";
 "Main.Error.UserNotPending.Message" = "This account has already been activated.";
+
+"Drafts.Parts" = "%d part(s)";
+
+"Settings.Username" = "Guest";
+"Settings.EmailChange.Title" = "Email change";
+"Settings.EmailChange.Message" = "What's your new email address?";
+"Settings.EmailChange.TextField.Placeholder" = "email@example.org";
+"Settings.EmailChange.Success.Title" = "Email change requested";
+"Settings.EmailChange.Success.Message" = "A confirmation email has been sent to your new address.";
+"Settings.Bio" = "Empty";
+"Settings.AccountDeletion.Title" = "Account deletion";
+"Settings.AccountDeletion.Message" = "Deleting your account is a permanent action. You will not be able to restore your account afterwards.\n\nAre you sure you want to go through with this?";
+"Settings.AccountDeletion.Action.Delete" = "Delete account";
+"Settings.AccountDeletion.Action.Delete.Countdown" = "Delete account (%d)";
+"Settings.AccountDeletion.Success.Title" = "Account deleted";
+"Settings.AccountDeletion.Success.Message" = "Your account has been deleted, your posts and comments will be fully removed as well within the next minutes.\n\nGoodbye! 👋";
 
 "Post.Menu.Action.Subscribe" = "Subscribe";
 "Post.Menu.Action.Unsubscribe" = "Unsubscribe";
@@ -72,20 +94,6 @@
 "User.Ban.Success.Title" = "User banned";
 "User.Ban.Success.Message" = "";
 
-"Settings.Username" = "Guest";
-"Settings.EmailChange.Title" = "Email change";
-"Settings.EmailChange.Message" = "What's your new email address?";
-"Settings.EmailChange.TextField.Placeholder" = "email@example.org";
-"Settings.EmailChange.Success.Title" = "Email change requested";
-"Settings.EmailChange.Success.Message" = "A confirmation email has been sent to your new address.";
-"Settings.Bio" = "Empty";
-"Settings.AccountDeletion.Title" = "Account deletion";
-"Settings.AccountDeletion.Message" = "Deleting your account is a permanent action. You will not be able to restore your account afterwards.\n\nAre you sure you want to go through with this?";
-"Settings.AccountDeletion.Action.Delete" = "Delete account";
-"Settings.AccountDeletion.Action.Delete.Countdown" = "Delete account (%d)";
-"Settings.AccountDeletion.Success.Title" = "Account deleted";
-"Settings.AccountDeletion.Success.Message" = "Your account has been deleted, your posts and comments will be fully removed as well within the next minutes.\n\nGoodbye! 👋";
-
 "Login.Login" = "Login";
 "Login.Register" = "Register";
 "Login.Password.Title" = "Password";
@@ -117,9 +125,3 @@
 "Bio.Error.TooLong.Message" = "Your bio is too long.";
 
 "BlockedUsers.Swipe.Unblock" = "Unblock";
-
-"ImageSelector.ChooseSource.Action.Library" = "Pick an image";
-"ImageSelector.ChooseSource.Action.Camera" = "Take a picture";
-"ImageSelector.ChooseSource.Action.Remove" = "Remove";
-"ImageSelector.Error.Size.Title" = "Invalid image";
-"ImageSelector.Error.Size.Message" = "This picture is too large.";

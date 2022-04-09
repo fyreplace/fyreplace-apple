@@ -57,11 +57,11 @@
 		4D77944727DE654B0068F4E7 /* DynamicStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D3AB627300A8600353913 /* DynamicStackView.swift */; };
 		4D77944827DE654B0068F4E7 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D01C6E927BD9434003E3091 /* UIColor.swift */; };
 		4D77944927DE654B0068F4E7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA43CEA2785EBEF0002C22A /* UIView.swift */; };
-		4D77944A27DE654B0068F4E7 /* ImageItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BFDB9270B37F900CAD2B5 /* ImageItemTableViewCell.swift */; };
+		4D77944A27DE654B0068F4E7 /* ImagePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BFDB9270B37F900CAD2B5 /* ImagePostTableViewCell.swift */; };
 		4D77944B27DE654B0068F4E7 /* FPChapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FD7AD272C717900E28C79 /* FPChapter.swift */; };
 		4D77944C27DE654B0068F4E7 /* ItemLister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF61027085F9600445793 /* ItemLister.swift */; };
 		4D77944D27DE654B0068F4E7 /* ArchiveViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */; };
-		4D77944E27DE654B0068F4E7 /* TextItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BFDB7270B062600CAD2B5 /* TextItemTableViewCell.swift */; };
+		4D77944E27DE654B0068F4E7 /* TextPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BFDB7270B062600CAD2B5 /* TextPostTableViewCell.swift */; };
 		4D77944F27DE654B0068F4E7 /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87F45B27889F0900A82AFF /* UIBarButtonItem.swift */; };
 		4D77945027DE654B0068F4E7 /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22461F279CBBD800D35430 /* AvatarTableViewCell.swift */; };
 		4D77945127DE654B0068F4E7 /* ArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC225F527045734007BD7A0 /* ArchiveViewModel.swift */; };
@@ -91,6 +91,10 @@
 		4D77946C27DE654B0068F4E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F6268EEDE900AF89FD /* LaunchScreen.storyboard */; };
 		4D77946D27DE654B0068F4E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F1268EEDE800AF89FD /* Main.storyboard */; };
 		4D893B2327E7483200380CF2 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D893B2127E7483200380CF2 /* URL.swift */; };
+		4DF63A0427FF0C2000DF8460 /* DraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF63A0327FF0C2000DF8460 /* DraftsViewController.swift */; };
+		4DF63A0627FF0C6F00DF8460 /* DraftsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF63A0527FF0C6F00DF8460 /* DraftsViewModel.swift */; };
+		4DF63A092801BC9700DF8460 /* TextDraftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF63A082801BC9700DF8460 /* TextDraftTableViewCell.swift */; };
+		4DF63A0B2801FEE300DF8460 /* ImageDraftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF63A0A2801FEE300DF8460 /* ImageDraftTableViewCell.swift */; };
 		73BD19A7C9039A10208B520B /* Pods_Fyreplace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768E622B14C754E0E2E56E55 /* Pods_Fyreplace.framework */; };
 /* End PBXBuildFile section */
 
@@ -173,8 +177,8 @@
 		4D87F45B27889F0900A82AFF /* UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		4D893B2127E7483200380CF2 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		4D8BFDB327090BF100CAD2B5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		4D8BFDB7270B062600CAD2B5 /* TextItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextItemTableViewCell.swift; sourceTree = "<group>"; };
-		4D8BFDB9270B37F900CAD2B5 /* ImageItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItemTableViewCell.swift; sourceTree = "<group>"; };
+		4D8BFDB7270B062600CAD2B5 /* TextPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPostTableViewCell.swift; sourceTree = "<group>"; };
+		4D8BFDB9270B37F900CAD2B5 /* ImagePostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostTableViewCell.swift; sourceTree = "<group>"; };
 		4D8BFDBE270B3F3000CAD2B5 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDodgingConstraint.swift; sourceTree = "<group>"; };
 		4D96BF662697A4E700ED9355 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +204,10 @@
 		4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArchiveViewController+Notification.swift"; sourceTree = "<group>"; };
 		4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlockedUsersViewController+Notification.swift"; sourceTree = "<group>"; };
+		4DF63A0327FF0C2000DF8460 /* DraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewController.swift; sourceTree = "<group>"; };
+		4DF63A0527FF0C6F00DF8460 /* DraftsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewModel.swift; sourceTree = "<group>"; };
+		4DF63A082801BC9700DF8460 /* TextDraftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDraftTableViewCell.swift; sourceTree = "<group>"; };
+		4DF63A0A2801FEE300DF8460 /* ImageDraftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDraftTableViewCell.swift; sourceTree = "<group>"; };
 		4DF9D08D272413DF003D610D /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		4DF9D08F2724228A003D610D /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		4DFAAD20269F628200DFAB5F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -292,10 +300,11 @@
 				4D97474E27C042E600422023 /* ItemRandomAccessListViewController.swift */,
 				4D3EB6D926C42DA10034B6FB /* MainViewController.swift */,
 				4DC225F327036539007BD7A0 /* ArchiveViewController.swift */,
+				4DF63A0327FF0C2000DF8460 /* DraftsViewController.swift */,
+				4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */,
 				4D5CC7E727232BEE00D33C87 /* PostViewController.swift */,
 				4DA43CEC2785EFD90002C22A /* UserNavigationViewController.swift */,
 				4DA2B91D27848F4D00BD05BF /* UserViewController.swift */,
-				4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */,
 				4D96BF662697A4E700ED9355 /* LoginViewController.swift */,
 				4DC1739426FA4BC2002F9EDB /* BioViewController.swift */,
 				4D224615279C23DB00D35430 /* BlockedUsersViewController.swift */,
@@ -366,9 +375,11 @@
 			children = (
 				4D22461F279CBBD800D35430 /* AvatarTableViewCell.swift */,
 				4D1FF6162708B8C100445793 /* ItemTableViewCell.swift */,
-				4D8BFDB7270B062600CAD2B5 /* TextItemTableViewCell.swift */,
-				4D8BFDB9270B37F900CAD2B5 /* ImageItemTableViewCell.swift */,
 				4D8BFDBE270B3F3000CAD2B5 /* PostTableViewCell.swift */,
+				4D8BFDB7270B062600CAD2B5 /* TextPostTableViewCell.swift */,
+				4D8BFDB9270B37F900CAD2B5 /* ImagePostTableViewCell.swift */,
+				4DF63A082801BC9700DF8460 /* TextDraftTableViewCell.swift */,
+				4DF63A0A2801FEE300DF8460 /* ImageDraftTableViewCell.swift */,
 				4D6D3AB4272FF61500353913 /* PostTableHeaderView.swift */,
 				4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */,
 				4D22461D279CBAA500D35430 /* BlockedUserTableViewCell.swift */,
@@ -419,9 +430,10 @@
 				4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */,
 				4D3AEDA226C512F100C93DFF /* MainViewModel.swift */,
 				4DC225F527045734007BD7A0 /* ArchiveViewModel.swift */,
+				4DF63A0527FF0C6F00DF8460 /* DraftsViewModel.swift */,
+				4DAF29E626C7C062005612C9 /* SettingsViewModel.swift */,
 				4D350CEF27235A6E00D40BE2 /* PostViewModel.swift */,
 				4DA2B91F2784905100BD05BF /* UserViewModel.swift */,
-				4DAF29E626C7C062005612C9 /* SettingsViewModel.swift */,
 				4DC1739626FA573F002F9EDB /* BioViewModel.swift */,
 				4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */,
 				4D224617279C271300D35430 /* BlockedUsersViewModel.swift */,
@@ -614,6 +626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DF63A0627FF0C6F00DF8460 /* DraftsViewModel.swift in Sources */,
 				4D77941827DE654B0068F4E7 /* PostViewModel.swift in Sources */,
 				4D77941927DE654B0068F4E7 /* KeyboardDodgingConstraint.swift in Sources */,
 				4D77941A27DE654B0068F4E7 /* FPPosts+ItemBundle.swift in Sources */,
@@ -622,6 +635,7 @@
 				4D77941D27DE654B0068F4E7 /* NSObjectProtocol+FPBUser.swift in Sources */,
 				4D77941E27DE654B0068F4E7 /* LargeFilledButton.swift in Sources */,
 				4D77941F27DE654B0068F4E7 /* PostTableHeaderView.swift in Sources */,
+				4DF63A0427FF0C2000DF8460 /* DraftsViewController.swift in Sources */,
 				4D77942027DE654B0068F4E7 /* UIButton.swift in Sources */,
 				4D77942127DE654B0068F4E7 /* FPRank.swift in Sources */,
 				4D77942227DE654B0068F4E7 /* UserDefaults+Message.swift in Sources */,
@@ -646,6 +660,7 @@
 				4D77943527DE654B0068F4E7 /* FPComments+ItemRandomAccessBundle.swift in Sources */,
 				4D77943627DE654B0068F4E7 /* BlockedUsersViewController.swift in Sources */,
 				4D77943727DE654B0068F4E7 /* notification.proto in Sources */,
+				4DF63A092801BC9700DF8460 /* TextDraftTableViewCell.swift in Sources */,
 				4D77943827DE654B0068F4E7 /* CallOptions+Keychain.swift in Sources */,
 				4D77943927DE654B0068F4E7 /* post.proto in Sources */,
 				4D77943A27DE654B0068F4E7 /* SettingsViewController.swift in Sources */,
@@ -654,6 +669,7 @@
 				4D77943D27DE654B0068F4E7 /* BioViewModel.swift in Sources */,
 				4D77943E27DE654B0068F4E7 /* FPProfile.swift in Sources */,
 				4D77943F27DE654B0068F4E7 /* LoginViewModel.swift in Sources */,
+				4DF63A0B2801FEE300DF8460 /* ImageDraftTableViewCell.swift in Sources */,
 				4D77944027DE654B0068F4E7 /* UIImage.swift in Sources */,
 				4D77944127DE654B0068F4E7 /* BioViewController.swift in Sources */,
 				4D77944227DE654B0068F4E7 /* ViewModel.swift in Sources */,
@@ -664,11 +680,11 @@
 				4D77944727DE654B0068F4E7 /* DynamicStackView.swift in Sources */,
 				4D77944827DE654B0068F4E7 /* UIColor.swift in Sources */,
 				4D77944927DE654B0068F4E7 /* UIView.swift in Sources */,
-				4D77944A27DE654B0068F4E7 /* ImageItemTableViewCell.swift in Sources */,
+				4D77944A27DE654B0068F4E7 /* ImagePostTableViewCell.swift in Sources */,
 				4D77944B27DE654B0068F4E7 /* FPChapter.swift in Sources */,
 				4D77944C27DE654B0068F4E7 /* ItemLister.swift in Sources */,
 				4D77944D27DE654B0068F4E7 /* ArchiveViewController+Notification.swift in Sources */,
-				4D77944E27DE654B0068F4E7 /* TextItemTableViewCell.swift in Sources */,
+				4D77944E27DE654B0068F4E7 /* TextPostTableViewCell.swift in Sources */,
 				4D893B2327E7483200380CF2 /* URL.swift in Sources */,
 				4D77944F27DE654B0068F4E7 /* UIBarButtonItem.swift in Sources */,
 				4D77945027DE654B0068F4E7 /* AvatarTableViewCell.swift in Sources */,

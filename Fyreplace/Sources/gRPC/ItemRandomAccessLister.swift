@@ -32,17 +32,19 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
     private let delegate: ItemRandomAccessListerDelegate
     private let service: Service
     private let contextId: Data
+    private let type: Int
     private var stream: BidirectionalStreamingCall<FPPage, Items>?
     private var state = ItemsState.incomplete
 
-    init(delegatingTo delegate: ItemRandomAccessListerDelegate, using service: Service, contextId: Data) {
+    init(delegatingTo delegate: ItemRandomAccessListerDelegate, using service: Service, contextId: Data, type: Int = 0) {
         self.delegate = delegate
         self.service = service
         self.contextId = contextId
+        self.type = type
     }
 
     func startListing() {
-        stream = service.listItems(handler: onFetch(items:))
+        stream = service.listItems(type: type, handler: onFetch(items:))
         _ = stream?.sendMessage(.with {
             $0.header = .with {
                 $0.forward = true

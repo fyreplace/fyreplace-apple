@@ -32,15 +32,17 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     private let delegate: ItemListerDelegate
     private let service: Service
     private let forward: Bool
+    private let type: Int
     private var stream: BidirectionalStreamingCall<FPPage, Items>?
     private var nextCursor = FPCursor.with { $0.isNext = true }
     private var state = ItemsState.incomplete
     private var residualFetch = false
 
-    init(delegatingTo delegate: ItemListerDelegate, using service: Service, forward: Bool) {
+    init(delegatingTo delegate: ItemListerDelegate, using service: Service, forward: Bool, type: Int = 0) {
         self.delegate = delegate
         self.service = service
         self.forward = forward
+        self.type = type
     }
 
     deinit {
@@ -48,7 +50,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     }
 
     func startListing() {
-        stream = service.listItems(handler: onFetch(items:))
+        stream = service.listItems(type: type, handler: onFetch(items:))
         let header = FPHeader.with {
             $0.forward = self.forward
             $0.size = pageSize
@@ -120,7 +122,7 @@ protocol ItemListerService {
     associatedtype Item
     associatedtype Items
 
-    func listItems(handler: @escaping (Items) -> Void) -> BidirectionalStreamingCall<FPPage, Items>
+    func listItems(type: Int, handler: @escaping (Items) -> Void) -> BidirectionalStreamingCall<FPPage, Items>
 }
 
 @objc
