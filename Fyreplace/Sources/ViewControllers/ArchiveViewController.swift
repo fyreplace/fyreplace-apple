@@ -4,6 +4,10 @@ class ArchiveViewController: ItemListViewController {
     @IBOutlet
     var vm: ArchiveViewModel!
 
+    override class var additionNotification: Notification.Name {
+        Self.postAddedNotification
+    }
+
     override class var deletionNotification: Notification.Name {
         Self.postDeletedNotification
     }
