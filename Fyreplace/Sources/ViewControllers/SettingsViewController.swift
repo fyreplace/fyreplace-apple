@@ -236,7 +236,7 @@ extension SettingsViewController: SettingsViewModelDelegate {
 }
 
 extension SettingsViewController: ImageSelectorDelegate {
-    static let maxImageSize: Float = 0.5
+    static let maxImageSize: Float = 1
 
     func onImageSelected(_ image: Data) {
         vm.updateAvatar(image: image)
