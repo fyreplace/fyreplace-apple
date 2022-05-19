@@ -2,7 +2,7 @@ import Foundation
 import GRPC
 import SwiftProtobuf
 
-extension ClientStreamingCall where RequestPayload == FPImageChunk, ResponsePayload == Google_Protobuf_Empty {
+extension ClientStreamingCall where RequestPayload == FPImageChunk, ResponsePayload == FPImage {
     func upload(image: Data?) {
         guard let image = image else {
             _ = sendEnd()

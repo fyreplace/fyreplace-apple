@@ -38,7 +38,7 @@ class SettingsViewModel: ViewModel {
 
     func updateAvatar(image: Data?) {
         let stream = userService.updateAvatar(callOptions: .authenticated)
-        stream.response.whenSuccess { _ in self.onUpdateAvatar() }
+        stream.response.whenSuccess { self.onUpdateAvatar($0) }
         stream.response.whenFailure(delegate.onError(_:))
         stream.upload(image: image)
     }
@@ -68,8 +68,9 @@ class SettingsViewModel: ViewModel {
         blockedUsers.value = newUser?.blockedUsers ?? 0
     }
 
-    private func onUpdateAvatar() {
+    private func onUpdateAvatar(_ image: FPImage) {
         delegate.onUpdateAvatar()
+        user.modify { $0?.profile.avatar = image }
         NotificationCenter.default.post(name: FPUser.shouldReloadUserNotification, object: self)
     }
 
