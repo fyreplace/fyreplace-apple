@@ -1,6 +1,5 @@
 import Foundation
 import ReactiveSwift
-import SwiftProtobuf
 
 class BioViewModel: ViewModel {
     @IBOutlet

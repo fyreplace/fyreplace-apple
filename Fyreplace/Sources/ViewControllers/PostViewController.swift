@@ -27,7 +27,7 @@ class PostViewController: ItemRandomAccessListViewController {
     @IBOutlet
     var dateFormat: DateFormat!
 
-    var itemPosition: Int!
+    var itemPosition: Int?
     var post: FPPost!
 
     override func viewDidLoad() {

@@ -87,10 +87,12 @@ class LoginViewController: UIViewController {
             $0.textContentType = .password
             $0.returnKeyType = .done
             $0.isSecureTextEntry = true
-            $0.reactive.continuousTextValues.observeValues {
-                ok.isEnabled = $0.count > 0
-                password = $0
-            }
+            $0.reactive.continuousTextValues
+                .take(during: $0.reactive.lifetime)
+                .observeValues {
+                    ok.isEnabled = $0.count > 0
+                    password = $0
+                }
         }
         alert.addAction(ok)
         alert.addAction(cancel)

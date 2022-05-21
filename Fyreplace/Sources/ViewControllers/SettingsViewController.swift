@@ -144,10 +144,12 @@ extension SettingsViewController {
             $0.textContentType = .emailAddress
             $0.keyboardType = .emailAddress
             $0.returnKeyType = .done
-            $0.reactive.continuousTextValues.observeValues {
-                update.isEnabled = $0.count > 0
-                newEmail = $0
-            }
+            $0.reactive.continuousTextValues
+                .take(during: $0.reactive.lifetime)
+                .observeValues {
+                    update.isEnabled = $0.count > 0
+                    newEmail = $0
+                }
         }
         alert.addAction(update)
         alert.addAction(cancel)
@@ -155,7 +157,11 @@ extension SettingsViewController {
     }
 
     private func deleteAccount() {
-        let alert = UIAlertController(title: .tr("Settings.AccountDeletion.Title"), message: .tr("Settings.AccountDeletion.Message"), preferredStyle: .actionSheet)
+        let alert = UIAlertController(
+            title: .tr("Settings.AccountDeletion.Title"),
+            message: .tr("Settings.AccountDeletion.Message"),
+            preferredStyle: .actionSheet
+        )
         let deleteText = String.tr("Settings.AccountDeletion.Action.Delete")
         let delete = UIAlertAction(title: deleteText, style: .destructive) { [unowned self] _ in
             vm.delete()
@@ -245,4 +251,6 @@ extension SettingsViewController: ImageSelectorDelegate {
     func onImageRemoved() {
         vm.updateAvatar(image: nil)
     }
+
+    func onImageSelectionCancelled() {}
 }

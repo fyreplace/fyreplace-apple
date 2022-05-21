@@ -64,6 +64,21 @@ class ItemListViewController: UITableViewController {
         reset()
     }
 
+    func addItem(_ item: Any, at indexPath: IndexPath) {
+        listDelegate.lister.insert(item, at: indexPath.row)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+
+    func updateItem(_ item: Any, at indexPath: IndexPath) {
+        listDelegate.lister.update(item, at: indexPath.row)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
+    func deleteItem(at indexPath: IndexPath) {
+        listDelegate.lister.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+
     @objc
     private func onRefresh() {
         reset()
@@ -77,33 +92,27 @@ class ItemListViewController: UITableViewController {
     private func onItemAdded(_ notification: Notification) {
         guard let info = notification.userInfo,
               let position = info["position"] as? Int,
-              let item = info["item"],
-              info["changeHandled"] as? Bool != true
+              let item = info["item"]
         else { return }
 
-        listDelegate.lister.insert(item, at: position)
-        tableView.insertRows(at: [IndexPath(row: position, section: 0)], with: .automatic)
+        addItem(item, at: IndexPath(row: position, section: 0))
     }
 
     private func onItemUpdated(_ notification: Notification) {
         guard let info = notification.userInfo,
               let position = info["position"] as? Int,
-              let item = info["item"],
-              info["changeHandled"] as? Bool != true
+              let item = info["item"]
         else { return }
 
-        listDelegate.lister.update(item, at: position)
-        tableView.reloadRows(at: [IndexPath(row: position, section: 0)], with: .automatic)
+        updateItem(item, at: IndexPath(row: position, section: 0))
     }
 
     private func onItemDeleted(_ notification: Notification) {
         guard let info = notification.userInfo,
-              let position = info["position"] as? Int,
-              info["changeHandled"] as? Bool != true
+              let position = info["position"] as? Int
         else { return }
 
-        listDelegate.lister.remove(at: position)
-        tableView.deleteRows(at: [IndexPath(row: position, section: 0)], with: .automatic)
+        deleteItem(at: IndexPath(row: position, section: 0))
     }
 
     private func reset() {

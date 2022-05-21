@@ -37,7 +37,7 @@ class BlockedUsersViewController: ItemListViewController {
         super.prepare(for: segue, sender: sender)
 
         if let userNavigationController = segue.destination as? UserNavigationViewController,
-           let cell = sender as? BlockedUserTableViewCell,
+           let cell = sender as? UITableViewCell,
            let index = tableView.indexPath(for: cell)?.row
         {
             userNavigationController.itemPosition = index
@@ -67,11 +67,7 @@ extension BlockedUsersViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-
-        if let cell = cell as? BlockedUserTableViewCell {
-            cell.setup(with: vm.blockedUser(at: indexPath.row))
-        }
-
+        (cell as? BlockedUserTableViewCell)?.setup(with: vm.blockedUser(at: indexPath.row))
         return cell
     }
 
@@ -92,14 +88,12 @@ extension BlockedUsersViewController {
 
     private func block(profile: FPProfile, at indexPath: IndexPath) {
         vm.updateBlock(userId: profile.id, blocked: true, at: indexPath.row)
-        vm.lister.insert(profile, at: indexPath.row)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        addItem(profile, at: indexPath)
     }
 
     private func unblock(profile: FPProfile, at indexPath: IndexPath) {
         vm.updateBlock(userId: profile.id, blocked: false, at: indexPath.row)
-        vm.lister.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .automatic)
+        deleteItem(at: indexPath)
     }
 
     private func setupUndo(for profile: FPProfile, at indexPath: IndexPath) {
@@ -116,11 +110,5 @@ extension BlockedUsersViewController {
 }
 
 extension BlockedUsersViewController: BlockedUsersViewModelDelegate {
-    func onUpdateBlock(_ blocked: Bool, at index: Int) {
-        NotificationCenter.default.post(
-            name: blocked ? Self.userBlockedNotification : Self.userUnblockedNotification,
-            object: self,
-            userInfo: ["position": index, "changeHandled": true]
-        )
-    }
+    func onUpdateBlock(_ blocked: Bool, at index: Int) {}
 }

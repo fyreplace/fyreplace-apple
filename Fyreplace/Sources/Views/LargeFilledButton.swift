@@ -9,9 +9,9 @@ class LargeFilledButton: UIButton {
 
         if #available(iOS 15.0, *) {
             return baseSize
+        } else {
+            return CGSize(width: baseSize.width + 24, height: baseSize.height)
         }
-
-        return CGSize(width: baseSize.width + 24, height: baseSize.height)
     }
 
     override func awakeFromNib() {
