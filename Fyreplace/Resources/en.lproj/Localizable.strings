@@ -74,6 +74,11 @@
 "Post.Comments.Title" = "Comments";
 "Post.Comments.Empty.Title" = "No comments yet";
 
+"Draft.Delete.Title" = "Delete this draft?";
+"Draft.Delete.Message" = "This action cannot be undone.";
+"Draft.AddText.Title" = "Add text";
+"Draft.UpdateText.Title" = "Update text";
+
 "User.Rank.Superuser" = "Fyreplace team member";
 "User.Rank.Staff" = "Moderator";
 "User.DateJoined" = "Joined on\n%@";

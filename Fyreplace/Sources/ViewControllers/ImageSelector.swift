@@ -34,7 +34,10 @@ class ImageSelector: NSObject {
             choice.addAction(remove)
         }
 
-        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
+        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel) { _ in
+            self.delegate.onImageSelectionCancelled()
+        }
+
         choice.addAction(cancel)
         delegate.present(choice, animated: true)
     }
@@ -130,6 +133,8 @@ protocol ImageSelectorDelegate where Self: UIViewController {
     func onImageSelected(_ image: Data)
 
     func onImageRemoved()
+
+    func onImageSelectionCancelled()
 }
 
 private extension ImageSelectorDelegate {

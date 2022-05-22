@@ -8,4 +8,12 @@ extension UIColor {
             return .black
         }
     }
+
+    static var placeholderTextCompat: UIColor {
+        if #available(iOS 13.0, *) {
+            return .placeholderText
+        } else {
+            return .gray
+        }
+    }
 }

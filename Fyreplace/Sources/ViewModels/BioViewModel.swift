@@ -1,10 +1,11 @@
 import Foundation
 import ReactiveSwift
 
-class BioViewModel: ViewModel {
+class BioViewModel: ViewModel, TextInputViewModel {
     @IBOutlet
     weak var delegate: BioViewModelDelegate!
 
+    var text: MutableProperty<String> { bio }
     let isLoading = MutableProperty(false)
     let bio = MutableProperty("")
 

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D06E4DF2804B7D800863E60 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D06E4DE2804B7D800863E60 /* DraftViewController.swift */; };
+		4D06E4E12804C49100863E60 /* DraftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D06E4E02804C49100863E60 /* DraftViewModel.swift */; };
+		4D10CEAC28108994009C1CE2 /* DraftsViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D10CEAB28108994009C1CE2 /* DraftsViewController+Notification.swift */; };
+		4D1DB9D928311B130057D236 /* DraftViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DB9D828311B130057D236 /* DraftViewController+Notification.swift */; };
+		4D46E0B82827E67E00572465 /* TextChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0B72827E67E00572465 /* TextChapterViewController.swift */; };
+		4D46E0BA28293AD700572465 /* TextInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0B928293AD700572465 /* TextInputViewModel.swift */; };
+		4D46E0BC28293D0600572465 /* TextChapterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0BB28293D0600572465 /* TextChapterViewModel.swift */; };
+		4D46E0BE2829A9E300572465 /* TextChapterNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0BD2829A9E300572465 /* TextChapterNavigationViewController.swift */; };
 		4D77941827DE654B0068F4E7 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D350CEF27235A6E00D40BE2 /* PostViewModel.swift */; };
 		4D77941927DE654B0068F4E7 /* KeyboardDodgingConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */; };
 		4D77941A27DE654B0068F4E7 /* FPPosts+ItemBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */; };
@@ -57,11 +65,9 @@
 		4D77944727DE654B0068F4E7 /* DynamicStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D3AB627300A8600353913 /* DynamicStackView.swift */; };
 		4D77944827DE654B0068F4E7 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D01C6E927BD9434003E3091 /* UIColor.swift */; };
 		4D77944927DE654B0068F4E7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA43CEA2785EBEF0002C22A /* UIView.swift */; };
-		4D77944A27DE654B0068F4E7 /* ImagePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BFDB9270B37F900CAD2B5 /* ImagePostTableViewCell.swift */; };
 		4D77944B27DE654B0068F4E7 /* FPChapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FD7AD272C717900E28C79 /* FPChapter.swift */; };
 		4D77944C27DE654B0068F4E7 /* ItemLister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF61027085F9600445793 /* ItemLister.swift */; };
 		4D77944D27DE654B0068F4E7 /* ArchiveViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */; };
-		4D77944E27DE654B0068F4E7 /* TextPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BFDB7270B062600CAD2B5 /* TextPostTableViewCell.swift */; };
 		4D77944F27DE654B0068F4E7 /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87F45B27889F0900A82AFF /* UIBarButtonItem.swift */; };
 		4D77945027DE654B0068F4E7 /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22461F279CBBD800D35430 /* AvatarTableViewCell.swift */; };
 		4D77945127DE654B0068F4E7 /* ArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC225F527045734007BD7A0 /* ArchiveViewModel.swift */; };
@@ -91,10 +97,13 @@
 		4D77946C27DE654B0068F4E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F6268EEDE900AF89FD /* LaunchScreen.storyboard */; };
 		4D77946D27DE654B0068F4E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F1268EEDE800AF89FD /* Main.storyboard */; };
 		4D893B2327E7483200380CF2 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D893B2127E7483200380CF2 /* URL.swift */; };
+		4DCAAEB12826952500D4427C /* Data+FPImageChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB02826952500D4427C /* Data+FPImageChunk.swift */; };
+		4DCAAEB32826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB22826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift */; };
+		4DCAAEB72827DF5D00D4427C /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB62827DF5D00D4427C /* TextInputViewController.swift */; };
+		4DE97C5B2815C2AA0024362D /* ChapterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE97C5A2815C2AA0024362D /* ChapterTableViewCell.swift */; };
+		4DE97C5D2815C3310024362D /* DraftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE97C5C2815C3310024362D /* DraftTableViewCell.swift */; };
 		4DF63A0427FF0C2000DF8460 /* DraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF63A0327FF0C2000DF8460 /* DraftsViewController.swift */; };
 		4DF63A0627FF0C6F00DF8460 /* DraftsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF63A0527FF0C6F00DF8460 /* DraftsViewModel.swift */; };
-		4DF63A092801BC9700DF8460 /* TextDraftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF63A082801BC9700DF8460 /* TextDraftTableViewCell.swift */; };
-		4DF63A0B2801FEE300DF8460 /* ImageDraftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF63A0A2801FEE300DF8460 /* ImageDraftTableViewCell.swift */; };
 		73BD19A7C9039A10208B520B /* Pods_Fyreplace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768E622B14C754E0E2E56E55 /* Pods_Fyreplace.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,10 +133,14 @@
 		4D0040F7268EEDE900AF89FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D0040F9268EEDE900AF89FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D01C6E927BD9434003E3091 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		4D06E4DE2804B7D800863E60 /* DraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewController.swift; sourceTree = "<group>"; };
+		4D06E4E02804C49100863E60 /* DraftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewModel.swift; sourceTree = "<group>"; };
 		4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4D0C6F1C26F247E500C4271C /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		4D10CEAB28108994009C1CE2 /* DraftsViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DraftsViewController+Notification.swift"; sourceTree = "<group>"; };
 		4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		4D15D5B127B837CB0015AD4E /* CompactTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactTextView.swift; sourceTree = "<group>"; };
+		4D1DB9D828311B130057D236 /* DraftViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DraftViewController+Notification.swift"; sourceTree = "<group>"; };
 		4D1FF60C270793BF00445793 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		4D1FF61027085F9600445793 /* ItemLister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLister.swift; sourceTree = "<group>"; };
 		4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPPosts+ItemBundle.swift"; sourceTree = "<group>"; };
@@ -151,6 +164,10 @@
 		4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+FPBUser.swift"; sourceTree = "<group>"; };
 		4D3F816726C6E57900764763 /* UserDefaults+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Message.swift"; sourceTree = "<group>"; };
 		4D4520F926D8203300FCFEE0 /* NSUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUserActivity.swift; sourceTree = "<group>"; };
+		4D46E0B72827E67E00572465 /* TextChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChapterViewController.swift; sourceTree = "<group>"; };
+		4D46E0B928293AD700572465 /* TextInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewModel.swift; sourceTree = "<group>"; };
+		4D46E0BB28293D0600572465 /* TextChapterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChapterViewModel.swift; sourceTree = "<group>"; };
+		4D46E0BD2829A9E300572465 /* TextChapterNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChapterNavigationViewController.swift; sourceTree = "<group>"; };
 		4D5CC7E727232BEE00D33C87 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4D5FC3EE2701FECC00AE1F73 /* ImageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelector.swift; sourceTree = "<group>"; };
 		4D5FC3F427021BE800AE1F73 /* ClientStreamingCall+FPImageChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientStreamingCall+FPImageChunk.swift"; sourceTree = "<group>"; };
@@ -177,8 +194,6 @@
 		4D87F45B27889F0900A82AFF /* UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		4D893B2127E7483200380CF2 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		4D8BFDB327090BF100CAD2B5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		4D8BFDB7270B062600CAD2B5 /* TextPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPostTableViewCell.swift; sourceTree = "<group>"; };
-		4D8BFDB9270B37F900CAD2B5 /* ImagePostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostTableViewCell.swift; sourceTree = "<group>"; };
 		4D8BFDBE270B3F3000CAD2B5 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDodgingConstraint.swift; sourceTree = "<group>"; };
 		4D96BF662697A4E700ED9355 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -201,13 +216,16 @@
 		4DC88FA027B4550E00F06921 /* ItemRandomAccessLister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRandomAccessLister.swift; sourceTree = "<group>"; };
 		4DC88FA227B4574300F06921 /* FPComments+ItemRandomAccessBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPComments+ItemRandomAccessBundle.swift"; sourceTree = "<group>"; };
 		4DC88FA627B461F600F06921 /* FPCommentServiceClient+ItemRandomAccessListerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPCommentServiceClient+ItemRandomAccessListerService.swift"; sourceTree = "<group>"; };
+		4DCAAEB02826952500D4427C /* Data+FPImageChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+FPImageChunk.swift"; sourceTree = "<group>"; };
+		4DCAAEB22826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientStreamingCall+FPChapterImageUpdate.swift"; sourceTree = "<group>"; };
+		4DCAAEB62827DF5D00D4427C /* TextInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
 		4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4DE97C5A2815C2AA0024362D /* ChapterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewCell.swift; sourceTree = "<group>"; };
+		4DE97C5C2815C3310024362D /* DraftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftTableViewCell.swift; sourceTree = "<group>"; };
 		4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArchiveViewController+Notification.swift"; sourceTree = "<group>"; };
 		4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlockedUsersViewController+Notification.swift"; sourceTree = "<group>"; };
 		4DF63A0327FF0C2000DF8460 /* DraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewController.swift; sourceTree = "<group>"; };
 		4DF63A0527FF0C6F00DF8460 /* DraftsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewModel.swift; sourceTree = "<group>"; };
-		4DF63A082801BC9700DF8460 /* TextDraftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDraftTableViewCell.swift; sourceTree = "<group>"; };
-		4DF63A0A2801FEE300DF8460 /* ImageDraftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDraftTableViewCell.swift; sourceTree = "<group>"; };
 		4DF9D08D272413DF003D610D /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		4DF9D08F2724228A003D610D /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		4DFAAD20269F628200DFAB5F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -296,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				4D5FC3EE2701FECC00AE1F73 /* ImageSelector.swift */,
+				4DCAAEB62827DF5D00D4427C /* TextInputViewController.swift */,
 				4D1FF60C270793BF00445793 /* ItemListViewController.swift */,
 				4D97474E27C042E600422023 /* ItemRandomAccessListViewController.swift */,
 				4D3EB6D926C42DA10034B6FB /* MainViewController.swift */,
@@ -303,8 +322,11 @@
 				4DF63A0327FF0C2000DF8460 /* DraftsViewController.swift */,
 				4DCD910826A46F3F0010F8B1 /* SettingsViewController.swift */,
 				4D5CC7E727232BEE00D33C87 /* PostViewController.swift */,
+				4D06E4DE2804B7D800863E60 /* DraftViewController.swift */,
 				4DA43CEC2785EFD90002C22A /* UserNavigationViewController.swift */,
 				4DA2B91D27848F4D00BD05BF /* UserViewController.swift */,
+				4D46E0BD2829A9E300572465 /* TextChapterNavigationViewController.swift */,
+				4D46E0B72827E67E00572465 /* TextChapterViewController.swift */,
 				4D96BF662697A4E700ED9355 /* LoginViewController.swift */,
 				4DC1739426FA4BC2002F9EDB /* BioViewController.swift */,
 				4D224615279C23DB00D35430 /* BlockedUsersViewController.swift */,
@@ -331,6 +353,7 @@
 				4D15D5B127B837CB0015AD4E /* CompactTextView.swift */,
 				4D87F45727888FBB00A82AFF /* MenuBarButtonItem.swift */,
 				4DF9D08F2724228A003D610D /* DateFormat.swift */,
+				4D6D3AB4272FF61500353913 /* PostTableHeaderView.swift */,
 				4DF63A072801AD0B00DF8460 /* Cells */,
 			);
 			path = Views;
@@ -376,12 +399,9 @@
 				4D22461F279CBBD800D35430 /* AvatarTableViewCell.swift */,
 				4D1FF6162708B8C100445793 /* ItemTableViewCell.swift */,
 				4D8BFDBE270B3F3000CAD2B5 /* PostTableViewCell.swift */,
-				4D8BFDB7270B062600CAD2B5 /* TextPostTableViewCell.swift */,
-				4D8BFDB9270B37F900CAD2B5 /* ImagePostTableViewCell.swift */,
-				4DF63A082801BC9700DF8460 /* TextDraftTableViewCell.swift */,
-				4DF63A0A2801FEE300DF8460 /* ImageDraftTableViewCell.swift */,
-				4D6D3AB4272FF61500353913 /* PostTableHeaderView.swift */,
+				4DE97C5C2815C3310024362D /* DraftTableViewCell.swift */,
 				4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */,
+				4DE97C5A2815C2AA0024362D /* ChapterTableViewCell.swift */,
 				4D22461D279CBAA500D35430 /* BlockedUserTableViewCell.swift */,
 			);
 			path = Cells;
@@ -390,6 +410,8 @@
 		4DFAAD1F269F626E00DFAB5F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4D6CFE8927B64E7F00CA50BD /* Array+IndexPath.swift */,
+				4DCAAEB02826952500D4427C /* Data+FPImageChunk.swift */,
 				4DFAAD20269F628200DFAB5F /* String.swift */,
 				4D893B2127E7483200380CF2 /* URL.swift */,
 				4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */,
@@ -406,6 +428,7 @@
 				4D75EC6726B9BA2E00684537 /* UIViewController.swift */,
 				4D3F816126C6C53500764763 /* CallOptions+Keychain.swift */,
 				4D5FC3F427021BE800AE1F73 /* ClientStreamingCall+FPImageChunk.swift */,
+				4DCAAEB22826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift */,
 				4D3AEDA626C5157D00C93DFF /* FPClient.swift */,
 				4D77C264279494A200F3A711 /* FPRank.swift */,
 				4DA43CEE278603FC0002C22A /* FPProfile.swift */,
@@ -416,10 +439,11 @@
 				4DC88FA227B4574300F06921 /* FPComments+ItemRandomAccessBundle.swift */,
 				4D22461B279C284300D35430 /* FPUserServiceClient+ItemListerService.swift */,
 				4D1FF61427086EE300445793 /* FPPostServiceClient+ItemListerService.swift */,
-				4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */,
-				4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */,
 				4DC88FA627B461F600F06921 /* FPCommentServiceClient+ItemRandomAccessListerService.swift */,
-				4D6CFE8927B64E7F00CA50BD /* Array+IndexPath.swift */,
+				4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */,
+				4D10CEAB28108994009C1CE2 /* DraftsViewController+Notification.swift */,
+				4D1DB9D828311B130057D236 /* DraftViewController+Notification.swift */,
+				4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -428,14 +452,17 @@
 			isa = PBXGroup;
 			children = (
 				4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */,
+				4D46E0B928293AD700572465 /* TextInputViewModel.swift */,
 				4D3AEDA226C512F100C93DFF /* MainViewModel.swift */,
 				4DC225F527045734007BD7A0 /* ArchiveViewModel.swift */,
 				4DF63A0527FF0C6F00DF8460 /* DraftsViewModel.swift */,
 				4DAF29E626C7C062005612C9 /* SettingsViewModel.swift */,
 				4D350CEF27235A6E00D40BE2 /* PostViewModel.swift */,
+				4D06E4E02804C49100863E60 /* DraftViewModel.swift */,
+				4D46E0BB28293D0600572465 /* TextChapterViewModel.swift */,
 				4DA2B91F2784905100BD05BF /* UserViewModel.swift */,
-				4DC1739626FA573F002F9EDB /* BioViewModel.swift */,
 				4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */,
+				4DC1739626FA573F002F9EDB /* BioViewModel.swift */,
 				4D224617279C271300D35430 /* BlockedUsersViewModel.swift */,
 			);
 			path = ViewModels;
@@ -630,9 +657,11 @@
 				4D77941827DE654B0068F4E7 /* PostViewModel.swift in Sources */,
 				4D77941927DE654B0068F4E7 /* KeyboardDodgingConstraint.swift in Sources */,
 				4D77941A27DE654B0068F4E7 /* FPPosts+ItemBundle.swift in Sources */,
+				4D06E4E12804C49100863E60 /* DraftViewModel.swift in Sources */,
 				4D77941B27DE654B0068F4E7 /* UIFont.swift in Sources */,
 				4D77941C27DE654B0068F4E7 /* image.proto in Sources */,
 				4D77941D27DE654B0068F4E7 /* NSObjectProtocol+FPBUser.swift in Sources */,
+				4D10CEAC28108994009C1CE2 /* DraftsViewController+Notification.swift in Sources */,
 				4D77941E27DE654B0068F4E7 /* LargeFilledButton.swift in Sources */,
 				4D77941F27DE654B0068F4E7 /* PostTableHeaderView.swift in Sources */,
 				4DF63A0427FF0C2000DF8460 /* DraftsViewController.swift in Sources */,
@@ -645,6 +674,7 @@
 				4D77942627DE654B0068F4E7 /* PostViewController.swift in Sources */,
 				4D77942727DE654B0068F4E7 /* comment.proto in Sources */,
 				4D77942827DE654B0068F4E7 /* UserViewModel.swift in Sources */,
+				4D46E0B82827E67E00572465 /* TextChapterViewController.swift in Sources */,
 				4D77942927DE654B0068F4E7 /* CompactTextView.swift in Sources */,
 				4D77942A27DE654B0068F4E7 /* ItemListViewController.swift in Sources */,
 				4D77942B27DE654B0068F4E7 /* Array+IndexPath.swift in Sources */,
@@ -658,46 +688,52 @@
 				4D77943327DE654B0068F4E7 /* BlockedUsersViewController+Notification.swift in Sources */,
 				4D77943427DE654B0068F4E7 /* ArchiveViewController.swift in Sources */,
 				4D77943527DE654B0068F4E7 /* FPComments+ItemRandomAccessBundle.swift in Sources */,
+				4D46E0BE2829A9E300572465 /* TextChapterNavigationViewController.swift in Sources */,
 				4D77943627DE654B0068F4E7 /* BlockedUsersViewController.swift in Sources */,
 				4D77943727DE654B0068F4E7 /* notification.proto in Sources */,
-				4DF63A092801BC9700DF8460 /* TextDraftTableViewCell.swift in Sources */,
 				4D77943827DE654B0068F4E7 /* CallOptions+Keychain.swift in Sources */,
 				4D77943927DE654B0068F4E7 /* post.proto in Sources */,
+				4D46E0BC28293D0600572465 /* TextChapterViewModel.swift in Sources */,
 				4D77943A27DE654B0068F4E7 /* SettingsViewController.swift in Sources */,
 				4D77943B27DE654B0068F4E7 /* pagination.proto in Sources */,
 				4D77943C27DE654B0068F4E7 /* UIViewController.swift in Sources */,
 				4D77943D27DE654B0068F4E7 /* BioViewModel.swift in Sources */,
 				4D77943E27DE654B0068F4E7 /* FPProfile.swift in Sources */,
 				4D77943F27DE654B0068F4E7 /* LoginViewModel.swift in Sources */,
-				4DF63A0B2801FEE300DF8460 /* ImageDraftTableViewCell.swift in Sources */,
 				4D77944027DE654B0068F4E7 /* UIImage.swift in Sources */,
+				4DE97C5D2815C3310024362D /* DraftTableViewCell.swift in Sources */,
 				4D77944127DE654B0068F4E7 /* BioViewController.swift in Sources */,
 				4D77944227DE654B0068F4E7 /* ViewModel.swift in Sources */,
 				4D77944327DE654B0068F4E7 /* UILabel.swift in Sources */,
 				4D77944427DE654B0068F4E7 /* id.proto in Sources */,
+				4DCAAEB32826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift in Sources */,
 				4D77944527DE654B0068F4E7 /* FPCommentServiceClient+ItemRandomAccessListerService.swift in Sources */,
 				4D77944627DE654B0068F4E7 /* user.proto in Sources */,
 				4D77944727DE654B0068F4E7 /* DynamicStackView.swift in Sources */,
 				4D77944827DE654B0068F4E7 /* UIColor.swift in Sources */,
 				4D77944927DE654B0068F4E7 /* UIView.swift in Sources */,
-				4D77944A27DE654B0068F4E7 /* ImagePostTableViewCell.swift in Sources */,
+				4DCAAEB12826952500D4427C /* Data+FPImageChunk.swift in Sources */,
 				4D77944B27DE654B0068F4E7 /* FPChapter.swift in Sources */,
+				4D06E4DF2804B7D800863E60 /* DraftViewController.swift in Sources */,
 				4D77944C27DE654B0068F4E7 /* ItemLister.swift in Sources */,
 				4D77944D27DE654B0068F4E7 /* ArchiveViewController+Notification.swift in Sources */,
-				4D77944E27DE654B0068F4E7 /* TextPostTableViewCell.swift in Sources */,
 				4D893B2327E7483200380CF2 /* URL.swift in Sources */,
 				4D77944F27DE654B0068F4E7 /* UIBarButtonItem.swift in Sources */,
 				4D77945027DE654B0068F4E7 /* AvatarTableViewCell.swift in Sources */,
 				4D77945127DE654B0068F4E7 /* ArchiveViewModel.swift in Sources */,
+				4D46E0BA28293AD700572465 /* TextInputViewModel.swift in Sources */,
 				4D77945227DE654B0068F4E7 /* MainViewModel.swift in Sources */,
 				4D77945327DE654B0068F4E7 /* AppDelegate.swift in Sources */,
 				4D77945427DE654B0068F4E7 /* SceneDelegate.swift in Sources */,
+				4DCAAEB72827DF5D00D4427C /* TextInputViewController.swift in Sources */,
 				4D77945527DE654B0068F4E7 /* MenuBarButtonItem.swift in Sources */,
+				4D1DB9D928311B130057D236 /* DraftViewController+Notification.swift in Sources */,
 				4D77945627DE654B0068F4E7 /* LoginViewController.swift in Sources */,
 				4D77945727DE654B0068F4E7 /* UserNavigationViewController.swift in Sources */,
 				4D77945827DE654B0068F4E7 /* ClientStreamingCall+FPImageChunk.swift in Sources */,
 				4D77945927DE654B0068F4E7 /* FPUserServiceClient+ItemListerService.swift in Sources */,
 				4D77945A27DE654B0068F4E7 /* ItemRandomAccessLister.swift in Sources */,
+				4DE97C5B2815C2AA0024362D /* ChapterTableViewCell.swift in Sources */,
 				4D77945B27DE654B0068F4E7 /* Rpc.swift in Sources */,
 				4D77945C27DE654B0068F4E7 /* UserViewController.swift in Sources */,
 				4D77945D27DE654B0068F4E7 /* ImageSelector.swift in Sources */,

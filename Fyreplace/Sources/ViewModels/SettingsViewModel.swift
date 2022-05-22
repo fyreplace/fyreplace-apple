@@ -40,7 +40,7 @@ class SettingsViewModel: ViewModel {
         let stream = userService.updateAvatar(callOptions: .authenticated)
         stream.response.whenSuccess { self.onUpdateAvatar($0) }
         stream.response.whenFailure(delegate.onError(_:))
-        stream.upload(image: image)
+        stream.upload(image)
     }
 
     func sendEmailUpdateEmail(address: String) {
