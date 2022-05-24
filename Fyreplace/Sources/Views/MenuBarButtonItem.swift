@@ -13,7 +13,7 @@ class MenuBarButtonItem: UIBarButtonItem {
     @IBOutlet
     var actions: [ActionBarButtonItem] = []
     @IBOutlet
-    var controller: UIViewController!
+    weak var navigationDelegate: UIViewController!
 
     private var alert: UIAlertController?
     private lazy var orderedActions = actions.sorted { a, b in a.index < b.index }
@@ -26,9 +26,9 @@ class MenuBarButtonItem: UIBarButtonItem {
 
     func reload() {
         if visibleActions.isEmpty {
-            controller.navigationItem.rightBarButtonItems?.removeAll { $0 == self }
+            navigationDelegate.navigationItem.rightBarButtonItems?.removeAll { $0 == self }
         } else {
-            controller.navigationItem.rightBarButtonItem = self
+            navigationDelegate.navigationItem.rightBarButtonItem = self
         }
 
         if visibleActions.count == 1 {
@@ -50,15 +50,15 @@ class MenuBarButtonItem: UIBarButtonItem {
     }
 
     private func attachNoAction() {
-        controller.navigationItem.rightBarButtonItems?.removeAll { $0 == self }
+        navigationDelegate.navigationItem.rightBarButtonItems?.removeAll { $0 == self }
     }
 
     private func attachSingleAction() {
-        controller.navigationItem.rightBarButtonItem = visibleActions.first
+        navigationDelegate.navigationItem.rightBarButtonItem = visibleActions.first
     }
 
     private func attachMultipleActions() {
-        controller.navigationItem.rightBarButtonItem = self
+        navigationDelegate.navigationItem.rightBarButtonItem = self
 
         if #available(iOS 14.0, *) {
             attachMenu()
@@ -104,6 +104,6 @@ class MenuBarButtonItem: UIBarButtonItem {
     @objc
     private func showAlert() {
         guard let alert = alert else { return }
-        controller.present(alert, animated: true)
+        navigationDelegate.present(alert, animated: true)
     }
 }

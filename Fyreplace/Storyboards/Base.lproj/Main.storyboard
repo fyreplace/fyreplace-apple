@@ -983,7 +983,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" id="Post-Post-navigationItem-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                             <connections>
-                                <outlet property="controller" destination="Post-Post" id="fe6cc88938f0e57866493ed61993f9fb8691f398f5625f962ca340f50e062a13"/>
+                                <outlet property="navigationDelegate" destination="Post-Post" id="dc9cfb844ad399ca58584affa87cfc1ca5150f60678d4a69f56edd21239d2a9b"/>
                                 <outletCollection property="actions" destination="Post-Share" collectionClass="NSMutableArray" id="fb1ed3794fa6824777ff074713e73ceb942dc511c43dac484872a5c6279dee81"/>
                                 <outletCollection property="actions" destination="Post-Subscribe" collectionClass="NSMutableArray" id="d778003dd53ce3bdb8fbc9d5442f5abd1049c18b10f2be8230361bcdea5bdbbc"/>
                                 <outletCollection property="actions" destination="Post-Unsubscribe" collectionClass="NSMutableArray" id="79371027ea71eb0023ceeed6b560009e165c0af297fc65d9d9982890184f2e95"/>
@@ -1204,7 +1204,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" id="User-User-Username-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                             <connections>
-                                <outlet property="controller" destination="User-User" id="4004daed1c69fa1a05e4535f4e25bb1552f0790a3dae0cda85d6f6a39ac46d39"/>
+                                <outlet property="navigationDelegate" destination="User-User" id="5bd21ada853d65a8ee6365778aa68f7ee33987f378e44a7a97390f4bf866da6f"/>
                                 <outletCollection property="actions" destination="User-Block" collectionClass="NSMutableArray" id="4829a7b1d693b71f66228175e7ec34907a97b9638f3687c339f2f176760f592b"/>
                                 <outletCollection property="actions" destination="User-Unblock" collectionClass="NSMutableArray" id="09c41b02ff4b5cfcdeb6d61a5b899ed934a42c4d4536efea1d9f031d1503e587"/>
                                 <outletCollection property="actions" destination="User-Report" collectionClass="NSMutableArray" id="f15aa54ae60fef78970a0282a8eb4b1696c8c80f2afad4a2e60e7a770eb27452"/>
