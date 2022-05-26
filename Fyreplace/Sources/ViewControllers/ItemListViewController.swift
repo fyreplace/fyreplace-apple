@@ -22,23 +22,29 @@ class ItemListViewController: UITableViewController {
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onUserDisconnected($0) }
 
-        NotificationCenter.default.reactive
-            .notifications(forName: Self.additionNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onItemAdded($0) }
+        if let additionNotification = Self.additionNotification {
+            NotificationCenter.default.reactive
+                .notifications(forName: additionNotification)
+                .take(during: reactive.lifetime)
+                .observe(on: UIScheduler())
+                .observeValues { [unowned self] in onItemAdded($0) }
+        }
 
-        NotificationCenter.default.reactive
-            .notifications(forName: Self.updateNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onItemUpdated($0) }
+        if let updateNotification = Self.updateNotification {
+            NotificationCenter.default.reactive
+                .notifications(forName: updateNotification)
+                .take(during: reactive.lifetime)
+                .observe(on: UIScheduler())
+                .observeValues { [unowned self] in onItemUpdated($0) }
+        }
 
-        NotificationCenter.default.reactive
-            .notifications(forName: Self.deletionNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onItemDeleted($0) }
+        if let deletionNotification = Self.deletionNotification {
+            NotificationCenter.default.reactive
+                .notifications(forName: deletionNotification)
+                .take(during: reactive.lifetime)
+                .observe(on: UIScheduler())
+                .observeValues { [unowned self] in onItemDeleted($0) }
+        }
     }
 
     deinit {
