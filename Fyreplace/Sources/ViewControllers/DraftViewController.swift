@@ -8,7 +8,9 @@ class DraftViewController: UITableViewController {
     @IBOutlet
     var imageSelector: ImageSelector!
     @IBOutlet
-    var menu: UIBarButtonItem!
+    var edit: UIBarButtonItem!
+    @IBOutlet
+    var delete: UIBarButtonItem!
     @IBOutlet
     var done: UIBarButtonItem!
     @IBOutlet
@@ -25,6 +27,7 @@ class DraftViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.post.producer.startWithValues { [weak self] in self?.onPost($0) }
+        vm.editingStatus.producer.startWithValues { [weak self] in self?.onEditingStatus($0) }
         vm.retrieve(id: post.id)
         addText.reactive.isEnabled <~ vm.canAddChapter
         addImage.reactive.isEnabled <~ vm.canAddChapter
@@ -45,8 +48,7 @@ class DraftViewController: UITableViewController {
 
     @IBAction
     func onEditPressed() {
-        tableView.setEditing(true, animated: true)
-        navigationItem.rightBarButtonItem = done
+        vm.updateEditingStatus(.isEditing)
     }
 
     @IBAction
@@ -56,8 +58,7 @@ class DraftViewController: UITableViewController {
 
     @IBAction
     func onDonePressed() {
-        tableView.setEditing(false, animated: true)
-        navigationItem.rightBarButtonItem = menu
+        vm.updateEditingStatus(.canEdit)
     }
 
     @IBAction
@@ -71,8 +72,34 @@ class DraftViewController: UITableViewController {
     }
 
     private func onPost(_ post: FPPost?) {
+        guard let chapterCount = post?.chapterCount else { return }
+        let editingStatus: EditingStatus = chapterCount > 1 ? .canEdit : .cannotEdit
+
+        if vm.editingStatus.value != .isEditing, editingStatus != vm.editingStatus.value {
+            vm.updateEditingStatus(editingStatus)
+        }
+
         postUpdateNotification()
-        chapterCount = Int(post?.chapterCount ?? 0)
+        self.chapterCount = Int(chapterCount)
+    }
+
+    private func onEditingStatus(_ editingStatus: EditingStatus) {
+        let shouldBeEditing = editingStatus == .isEditing
+
+        DispatchQueue.main.async { [self] in
+            if shouldBeEditing != tableView.isEditing {
+                tableView.setEditing(shouldBeEditing, animated: true)
+            }
+
+            switch editingStatus {
+            case .canEdit:
+                navigationItem.rightBarButtonItems = [delete, edit]
+            case .cannotEdit:
+                navigationItem.rightBarButtonItems = [delete]
+            case .isEditing:
+                navigationItem.rightBarButtonItems = [done]
+            }
+        }
     }
 
     private func postUpdateNotification() {

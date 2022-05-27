@@ -10,6 +10,7 @@ class DraftViewModel: ViewModel {
     lazy var canAddChapter = post
         .combineLatest(with: isLoading)
         .map { post, loading in post?.chapterCount ?? 0 < 10 && !loading }
+    let editingStatus = MutableProperty<EditingStatus>(.cannotEdit)
 
     private var postId: Data!
     private lazy var postService = FPPostServiceClient(channel: Self.rpc.channel)
@@ -80,6 +81,10 @@ class DraftViewModel: ViewModel {
         response.whenFailure(delegate.onError(_:))
     }
 
+    func updateEditingStatus(_ editingStatus: EditingStatus) {
+        self.editingStatus.value = editingStatus
+    }
+
     private func onChapterUpdated(_ notification: Notification) {
         guard let info = notification.userInfo,
               let position = info["position"] as? Int,
@@ -144,4 +149,10 @@ protocol DraftViewModelDelegate: ViewModelDelegate {
 enum ChapterType {
     case text
     case image
+}
+
+enum EditingStatus {
+    case canEdit
+    case cannotEdit
+    case isEditing
 }
