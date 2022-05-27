@@ -1209,23 +1209,11 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Draft-Draft-navigationItem">
                         <rightBarButtonItems>
                             <barButtonItem title="Delete" image="trash" catalog="system" id="Draft-Draft-navigationItem-Delete">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="index">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onDeletePressed" destination="Draft-Draft" id="a5285800d022dcbdb46108b509be0a05fe7a01a2d8ff4a2691f2c09dbe204efd"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="edit" id="Draft-Draft-navigationItem-edit">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="index">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHidden" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onEditPressed" destination="Draft-Draft" id="d645a9cdee51d11e72c99e09b55d9bd4a3d13185414aef9d1f816a32b8ff6237"/>
                                 </connections>
