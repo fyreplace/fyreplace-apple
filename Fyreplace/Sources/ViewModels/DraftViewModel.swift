@@ -126,6 +126,7 @@ class DraftViewModel: ViewModel {
         post.modify {
             guard var chapters = $0?.chapters else { return }
             chapters.insert(chapters.remove(at: fromPosition), at: toPosition)
+            $0?.chapters = chapters
         }
         delegate.onMoveChapter(fromPosition, toPosition)
     }
