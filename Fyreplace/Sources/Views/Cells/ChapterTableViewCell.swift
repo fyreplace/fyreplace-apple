@@ -9,23 +9,6 @@ protocol ChapterTableViewCell {
 class TextChapterTableViewCell: UITableViewCell {
     @IBOutlet
     var content: UILabel!
-
-    private weak var tableView: UITableView!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        tableView = findTableView()
-    }
-
-    private func findTableView() -> UITableView? {
-        var view = superview
-
-        while view != nil, view?.isKind(of: UITableView.self) != true {
-            view = view?.superview
-        }
-
-        return view as? UITableView
-    }
 }
 
 extension TextChapterTableViewCell: ChapterTableViewCell {
