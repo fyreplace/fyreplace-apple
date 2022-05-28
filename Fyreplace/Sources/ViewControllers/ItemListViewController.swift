@@ -65,11 +65,6 @@ class ItemListViewController: UITableViewController {
         listDelegate.lister.stopListing()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        reset()
-    }
-
     func addItem(_ item: Any, at indexPath: IndexPath) {
         listDelegate.lister.insert(item, at: indexPath.row)
         tableView.insertRows(at: [indexPath], with: .automatic)
