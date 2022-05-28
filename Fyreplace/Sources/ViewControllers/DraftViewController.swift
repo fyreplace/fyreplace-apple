@@ -35,14 +35,11 @@ class DraftViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        let indexPath = IndexPath(row: currentChapterPosition, section: 0)
 
-        if let controller = segue.destination as? TextChapterNavigationViewController,
-           let cell = tableView.cellForRow(at: indexPath) as? TextChapterTableViewCell
-        {
+        if let controller = segue.destination as? TextChapterNavigationViewController {
             controller.postId = post.id
             controller.position = currentChapterPosition
-            controller.text = cell.content.text
+            controller.text = vm.post.value?.chapters[currentChapterPosition].text
         }
     }
 

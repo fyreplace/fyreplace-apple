@@ -15,7 +15,7 @@ extension TextChapterTableViewCell: ChapterTableViewCell {
     func setup(with chapter: FPChapter) {
         content.font = chapter.preferredFont
         content.textColor = chapter.text.isEmpty ? .placeholderTextCompat : .labelCompat
-        content.text = chapter.text
+        content.text = chapter.text.isEmpty ? .tr("Draft.Empty") : chapter.text
     }
 }
 
