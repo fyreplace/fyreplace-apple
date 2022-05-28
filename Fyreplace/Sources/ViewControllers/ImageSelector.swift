@@ -143,10 +143,11 @@ private extension ImageSelectorDelegate {
 
 private extension UIImage {
     func downscaled() -> UIImage? {
-        let factor = (size.width * size.height) / CGFloat(ImageSelector.imageMaxArea)
-        guard factor > 1 else { return self }
-        let newWidth = size.width / factor
-        let newHeight = size.height / factor
+        let surfaceFactor = (size.width * size.height) / CGFloat(ImageSelector.imageMaxArea)
+        guard surfaceFactor > 1 else { return self }
+        let sideFactor = sqrt(surfaceFactor)
+        let newWidth = size.width / sideFactor
+        let newHeight = size.height / sideFactor
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
         draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
