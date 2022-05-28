@@ -521,7 +521,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1340;
 			};
 			buildConfigurationList = 4D0040E3268EEDE800AF89FD /* Build configuration list for PBXProject "Fyreplace" */;
 			compatibilityVersion = "Xcode 13.0";
