@@ -26,6 +26,7 @@ class DraftViewModel: ViewModel {
     }
 
     func retrieve(id: Data) {
+        isLoading.value = true
         postId = id
         let request = FPId.with { $0.id = id }
         let response = postService.retrieve(request, callOptions: .authenticated).response
@@ -53,6 +54,7 @@ class DraftViewModel: ViewModel {
     }
 
     func deleteChapter(at position: Int) {
+        isLoading.value = true
         let request = FPChapterLocation.with {
             $0.postID = postId
             $0.position = UInt32(position)
@@ -96,6 +98,7 @@ class DraftViewModel: ViewModel {
     }
 
     private func onRetrieve(_ post: FPPost) {
+        isLoading.value = false
         self.post.value = post
         delegate.onRetrieve()
     }
@@ -109,6 +112,7 @@ class DraftViewModel: ViewModel {
     }
 
     private func onDeleteChapter(_ position: Int) {
+        isLoading.value = false
         post.modify {
             $0?.chapters.remove(at: position)
             $0?.chapterCount -= 1

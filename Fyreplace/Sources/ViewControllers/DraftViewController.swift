@@ -72,15 +72,15 @@ class DraftViewController: UITableViewController {
     }
 
     private func onPost(_ post: FPPost?) {
-        guard let chapterCount = post?.chapterCount else { return }
-        let editingStatus: EditingStatus = chapterCount > 1 ? .canEdit : .cannotEdit
+        guard let post = post else { return }
+        let editingStatus: EditingStatus = post.chapterCount > 1 ? .canEdit : .cannotEdit
 
         if vm.editingStatus.value != .isEditing, editingStatus != vm.editingStatus.value {
             vm.updateEditingStatus(editingStatus)
         }
 
-        postUpdateNotification()
-        self.chapterCount = Int(chapterCount)
+        postUpdateNotification(post)
+        chapterCount = Int(post.chapterCount)
     }
 
     private func onEditingStatus(_ editingStatus: EditingStatus) {
@@ -102,10 +102,10 @@ class DraftViewController: UITableViewController {
         }
     }
 
-    private func postUpdateNotification() {
+    private func postUpdateNotification(_ post: FPPost) {
         guard let position = itemPosition else { return }
         var info: [String: Any] = ["position": position]
-        info["item"] = vm.post.value
+        info["item"] = post
         NotificationCenter.default.post(name: DraftsViewController.draftUpdatedNotification, object: self, userInfo: info)
     }
 
@@ -145,17 +145,17 @@ extension DraftViewController {
             : super.tableView(tableView, heightForRowAt: indexPath)
     }
 
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        currentChapterPosition = indexPath.row
+        return indexPath
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         if tableView.cellForRow(at: indexPath) is ImageChapterTableViewCell {
-            imageSelector.selectImage(canRemove: false)
+            imageSelector.selectImage(canRemove: true)
         }
-    }
-
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        currentChapterPosition = indexPath.row
-        return indexPath
     }
 
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -239,7 +239,9 @@ extension DraftViewController: ImageSelectorDelegate {
         vm.updateImageChapter(image, at: currentChapterPosition)
     }
 
-    func onImageRemoved() {}
+    func onImageRemoved() {
+        deleteChapter(at: currentChapterPosition)
+    }
 
     func onImageSelectionCancelled() {
         if vm.post.value?.chapters[currentChapterPosition].hasImage == false {
