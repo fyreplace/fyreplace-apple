@@ -39,6 +39,8 @@ extension TextChapterViewController: TextChapterViewModelDelegate {
         let key: String
 
         switch status.code {
+        case .invalidArgument:
+            key = "TextChapter.Error.ChapterTooLong"
         default:
             key = "Error"
         }

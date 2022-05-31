@@ -100,6 +100,9 @@
 "User.Ban.Success.Title" = "User banned";
 "User.Ban.Success.Message" = "";
 
+"TextChapter.Error.ChapterTooLong.Title" = "Invalid text";
+"TextChapter.Error.ChapterTooLong.Message" = "This text is too long.";
+
 "Login.Login" = "Login";
 "Login.Register" = "Register";
 "Login.Password.Title" = "Password";
