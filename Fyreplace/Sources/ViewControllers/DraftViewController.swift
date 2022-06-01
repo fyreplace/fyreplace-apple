@@ -213,19 +213,8 @@ extension DraftViewController: DraftViewModelDelegate {
 
     func onMoveChapter(_ fromPosition: Int, _ toPosition: Int) {}
 
-    func onFailure(_ error: Error) {
-        guard let status = error as? GRPCStatus else {
-            return presentBasicAlert(text: "Error", feedback: .error)
-        }
-
-        let key: String
-
-        switch status.code {
-        default:
-            key = "Error"
-        }
-
-        presentBasicAlert(text: key, feedback: .error)
+    func errorKey(for code: Int, with message: String?) -> String? {
+        return "Error"
     }
 }
 

@@ -141,18 +141,7 @@ extension UserViewController: UserViewModelDelegate {
         NotificationCenter.default.post(name: BlockedUsersViewController.userBannedNotification, object: self, userInfo: info)
     }
 
-    func onFailure(_ error: Error) {
-        guard let status = error as? GRPCStatus else {
-            return presentBasicAlert(text: "Error", feedback: .error)
-        }
-
-        let key: String
-
-        switch status.code {
-        default:
-            key = "Error"
-        }
-
-        presentBasicAlert(text: key, feedback: .error)
+    func errorKey(for code: Int, with message: String?) -> String? {
+        return "Error"
     }
 }

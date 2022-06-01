@@ -95,28 +95,20 @@ extension MainViewController: MainViewModelDelegate {
         presentBasicAlert(text: "Main.EmailChanged")
     }
 
-    func onFailure(_ error: Error) {
-        guard let status = error as? GRPCStatus else {
-            return presentBasicAlert(text: "Error", feedback: .error)
-        }
-
-        let key: String
-
-        switch status.code {
+    func errorKey(for code: Int, with message: String?) -> String? {
+        switch GRPCStatus.Code(rawValue: code)! {
         case .unauthenticated:
-            key = ["timestamp_exceeded", "invalid_token"].contains(status.message)
-                ? "Main.Error.\(status.message!.pascalized)"
+            return ["timestamp_exceeded", "invalid_token"].contains(message)
+                ? "Main.Error.\(message!.pascalized)"
                 : "Error.Authentication"
 
         case .permissionDenied:
-            key = ["user_not_pending", "invalid_connection_token"].contains(status.message)
-                ? "Main.Error.\(status.message!.pascalized)"
+            return ["user_not_pending", "invalid_connection_token"].contains(message)
+                ? "Main.Error.\(message!.pascalized)"
                 : "Error.Permission"
 
         default:
-            key = "Error"
+            return "Error"
         }
-
-        presentBasicAlert(text: key, feedback: .error)
     }
 }

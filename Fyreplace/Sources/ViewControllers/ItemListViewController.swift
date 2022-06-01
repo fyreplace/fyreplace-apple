@@ -146,8 +146,8 @@ extension ItemListViewController {
 }
 
 extension ItemListViewController: ViewModelDelegate {
-    func onFailure(_ error: Error) {
-        presentBasicAlert(text: "Error", feedback: .error)
+    func errorKey(for code: Int, with message: String?) -> String? {
+        return "Error"
     }
 }
 

@@ -25,23 +25,15 @@ extension BioViewController: BioViewModelDelegate {
         DispatchQueue.main.async { self.dismiss(animated: true) }
     }
 
-    func onFailure(_ error: Error) {
-        guard let status = error as? GRPCStatus else {
-            return presentBasicAlert(text: "Error", feedback: .error)
-        }
-
-        let key: String
-
-        switch status.code {
+    func errorKey(for code: Int, with message: String?) -> String? {
+        switch GRPCStatus.Code(rawValue: code)! {
         case .invalidArgument:
-            key = content.text.count > maxContentLength
+            return content.text.count > maxContentLength
                 ? "Bio.Error.TooLong"
                 : "Error.Validation"
 
         default:
-            key = "Error"
+            return "Error"
         }
-
-        presentBasicAlert(text: key, feedback: .error)
     }
 }

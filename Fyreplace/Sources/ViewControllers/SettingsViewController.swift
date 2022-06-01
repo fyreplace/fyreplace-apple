@@ -188,6 +188,11 @@ extension SettingsViewController {
         alert.addAction(cancel)
         present(alert, animated: true)
     }
+
+    private func clearImageCache() {
+        KingfisherManager.shared.cache.clearMemoryCache()
+        KingfisherManager.shared.cache.clearDiskCache()
+    }
 }
 
 extension SettingsViewController: SettingsViewModelDelegate {
@@ -208,36 +213,23 @@ extension SettingsViewController: SettingsViewModelDelegate {
         presentBasicAlert(text: "Settings.AccountDeletion.Success")
     }
 
-    func onFailure(_ error: Error) {
-        guard let status = error as? GRPCStatus else {
-            return presentBasicAlert(text: "Error", feedback: .error)
-        }
-
-        let key: String
-
-        switch status.code {
+    func errorKey(for code: Int, with message: String?) -> String? {
+        switch GRPCStatus.Code(rawValue: code)! {
         case .alreadyExists:
-            key = "Login.Error.EmailAlreadyExists"
+            return "Login.Error.EmailAlreadyExists"
 
         case .invalidArgument:
-            switch status.description {
+            switch message {
             case "invalid_email":
-                key = "Login.Error.InvalidEmail"
+                return "Login.Error.InvalidEmail"
 
             default:
-                key = "Error.Validation"
+                return "Error.Validation"
             }
 
         default:
-            key = "Error"
+            return "Error"
         }
-
-        presentBasicAlert(text: key, feedback: .error)
-    }
-
-    private func clearImageCache() {
-        KingfisherManager.shared.cache.clearMemoryCache()
-        KingfisherManager.shared.cache.clearDiskCache()
     }
 }
 

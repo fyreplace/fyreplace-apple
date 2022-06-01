@@ -114,37 +114,30 @@ extension LoginViewController: LoginViewModelDelegate {
         DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
     }
 
-    func onFailure(_ error: Error) {
-        guard let status = error as? GRPCStatus else {
-            return presentBasicAlert(text: "Error", feedback: .error)
-        }
-
-        let key: String
-
-        switch status.code {
+    func errorKey(for code: Int, with message: String?) -> String? {
+        switch GRPCStatus.Code(rawValue: code)! {
         case .cancelled:
-            return askPassword()
+            DispatchQueue.main.async { self.askPassword() }
+            return nil
 
         case .notFound:
-            key = "Login.Error.EmailNotFound"
+            return "Login.Error.EmailNotFound"
 
         case .alreadyExists:
-            key = "Login.Error.\(status.message == "email_taken" ? "Email" : "Username")AlreadyExists"
+            return "Login.Error.\(message == "email_taken" ? "Email" : "Username")AlreadyExists"
 
         case .permissionDenied:
-            key = ["caller_pending", "caller_deleted", "caller_banned", "username_reserved"].contains(status.message)
-                ? "Login.Error.\(status.message!.pascalized)"
+            return ["caller_pending", "caller_deleted", "caller_banned", "username_reserved"].contains(message)
+                ? "Login.Error.\(message!.pascalized)"
                 : "Error.Permission"
 
         case .invalidArgument:
-            key = ["invalid_credentials", "invalid_email", "invalid_username", "invalid_password"].contains(status.message)
-                ? "Login.Error.\(status.message!.pascalized)"
+            return ["invalid_credentials", "invalid_email", "invalid_username", "invalid_password"].contains(message)
+                ? "Login.Error.\(message!.pascalized)"
                 : "Error.Validation"
 
         default:
-            key = "Error"
+            return "Error"
         }
-
-        presentBasicAlert(text: key, feedback: .error)
     }
 }

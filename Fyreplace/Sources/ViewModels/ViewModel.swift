@@ -7,32 +7,39 @@ class ViewModel: NSObject {
 
 @objc
 protocol ViewModelDelegate where Self: UIViewController {
-    func onFailure(_ error: Error)
+    func errorKey(for code: Int, with message: String?) -> String?
 }
 
 extension ViewModelDelegate {
     func onError(_ error: Error) {
-        guard let status = error as? GRPCStatus else { return onFailureAsync(error) }
+        let key: String?
+        guard let status = error as? GRPCStatus else { return showAlert("Error") }
 
         switch status.code {
         case .unavailable:
-            presentBasicAlert(text: "Error.Unavailable", feedback: .error)
+            key = "Error.Unavailable"
 
         case .unauthenticated:
             if !["timestamp_exceeded", "invalid_token"].contains(status.message), Keychain.authToken.get() != nil {
+                key = nil
+
                 if Keychain.authToken.delete() {
                     setCurrentUser(nil)
                 }
             } else {
-                onFailureAsync(status)
+                key = errorKey(for: status.code.rawValue, with: status.message)
             }
 
         default:
-            onFailureAsync(status)
+            key = errorKey(for: status.code.rawValue, with: status.message)
+        }
+
+        if let key = key {
+            showAlert(key)
         }
     }
 
-    private func onFailureAsync(_ error: Error) {
-        DispatchQueue.main.async { self.onFailure(error) }
+    private func showAlert(_ key: String) {
+        DispatchQueue.main.async { self.presentBasicAlert(text: key, feedback: .error) }
     }
 }
