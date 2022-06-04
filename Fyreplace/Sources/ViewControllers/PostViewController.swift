@@ -54,8 +54,8 @@ class PostViewController: ItemRandomAccessListViewController {
 
     @IBAction
     func onSharePressed() {
-        let postUrl = URL(for: "p", id: post.id)
-        let activityController = UIActivityViewController(activityItems: [postUrl as Any], applicationActivities: nil)
+        let provider = PostActivityItemProvider(post: post)
+        let activityController = UIActivityViewController(activityItems: [provider], applicationActivities: nil)
         present(activityController, animated: true)
     }
 

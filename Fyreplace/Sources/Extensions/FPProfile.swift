@@ -3,7 +3,7 @@ import UIKit
 extension FPProfile {
     var isAvailable: Bool { !isBanned && !username.isEmpty }
 
-    func getNormalizedUsername(with font: UIFont) -> NSAttributedString {
+    func getNormalizedUsername(with font: UIFont?) -> NSAttributedString {
         let anonymous = username.count == 0
         let name: String
 
@@ -15,7 +15,7 @@ extension FPProfile {
             return NSAttributedString(string: username)
         }
 
-        let attributes = [NSAttributedString.Key.font: font.withTraits(.traitItalic)]
+        let attributes = (font != nil) ? [NSAttributedString.Key.font: font!.withTraits(.traitItalic)] : nil
         return NSAttributedString(string: name, attributes: attributes)
     }
 }

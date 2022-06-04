@@ -96,6 +96,8 @@
 		4D77946B27DE654B0068F4E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAAD23269F6D1F00DFAB5F /* Localizable.strings */; };
 		4D77946C27DE654B0068F4E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F6268EEDE900AF89FD /* LaunchScreen.storyboard */; };
 		4D77946D27DE654B0068F4E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F1268EEDE800AF89FD /* Main.storyboard */; };
+		4D862789284B6D4D00A9320D /* URLActivityItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D862788284B6D4D00A9320D /* URLActivityItemProvider.swift */; };
+		4D86278B284B747500A9320D /* PostActivityItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86278A284B747500A9320D /* PostActivityItemProvider.swift */; };
 		4D893B2327E7483200380CF2 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D893B2127E7483200380CF2 /* URL.swift */; };
 		4DCAAEB12826952500D4427C /* Data+FPImageChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB02826952500D4427C /* Data+FPImageChunk.swift */; };
 		4DCAAEB32826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB22826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift */; };
@@ -190,6 +192,8 @@
 		4D7C98532691254B00819E3F /* comment.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = comment.proto; sourceTree = "<group>"; };
 		4D7C985C2691254B00819E3F /* image.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = image.proto; sourceTree = "<group>"; };
 		4D7C985D2691254B00819E3F /* user.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = user.proto; sourceTree = "<group>"; };
+		4D862788284B6D4D00A9320D /* URLActivityItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLActivityItemProvider.swift; sourceTree = "<group>"; };
+		4D86278A284B747500A9320D /* PostActivityItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActivityItemProvider.swift; sourceTree = "<group>"; };
 		4D87F45727888FBB00A82AFF /* MenuBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarButtonItem.swift; sourceTree = "<group>"; };
 		4D87F45B27889F0900A82AFF /* UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		4D893B2127E7483200380CF2 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -338,6 +342,8 @@
 			isa = PBXGroup;
 			children = (
 				4D3AEDA826C5185200C93DFF /* Keychain.swift */,
+				4D862788284B6D4D00A9320D /* URLActivityItemProvider.swift */,
+				4D86278A284B747500A9320D /* PostActivityItemProvider.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -677,6 +683,7 @@
 				4D46E0B82827E67E00572465 /* TextChapterViewController.swift in Sources */,
 				4D77942927DE654B0068F4E7 /* CompactTextView.swift in Sources */,
 				4D77942A27DE654B0068F4E7 /* ItemListViewController.swift in Sources */,
+				4D862789284B6D4D00A9320D /* URLActivityItemProvider.swift in Sources */,
 				4D77942B27DE654B0068F4E7 /* Array+IndexPath.swift in Sources */,
 				4D77942C27DE654B0068F4E7 /* String.swift in Sources */,
 				4D77942D27DE654B0068F4E7 /* PostTableViewCell.swift in Sources */,
@@ -721,6 +728,7 @@
 				4D77944F27DE654B0068F4E7 /* UIBarButtonItem.swift in Sources */,
 				4D77945027DE654B0068F4E7 /* AvatarTableViewCell.swift in Sources */,
 				4D77945127DE654B0068F4E7 /* ArchiveViewModel.swift in Sources */,
+				4D86278B284B747500A9320D /* PostActivityItemProvider.swift in Sources */,
 				4D46E0BA28293AD700572465 /* TextInputViewModel.swift in Sources */,
 				4D77945227DE654B0068F4E7 /* MainViewModel.swift in Sources */,
 				4D77945327DE654B0068F4E7 /* AppDelegate.swift in Sources */,

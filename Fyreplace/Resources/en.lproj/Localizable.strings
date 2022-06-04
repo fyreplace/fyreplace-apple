@@ -65,6 +65,7 @@
 
 "Post.Menu.Action.Subscribe" = "Subscribe";
 "Post.Menu.Action.Unsubscribe" = "Unsubscribe";
+"Post.Share.Title" = "Post by %@";
 "Post.Report.Title" = "Report post?";
 "Post.Report.Message" = "";
 "Post.Report.Success.Title" = "Post reported";
