@@ -32,28 +32,29 @@ class PostViewController: ItemRandomAccessListViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        vm.post.value = post
         vm.subscribed.value = post.isSubscribed
-        vm.retrieve(id: post.id)
         vm.post.producer.startWithValues { [weak self] in self?.onPost($0) }
         vm.subscribed.producer.startWithValues { [weak self] in self?.onSubscribed($0) }
-        avatar.isHidden = !post.author.isAvailable
-        avatar.setAvatar(post.isAnonymous ? "" : post.author.avatar.url)
-        username.isEnabled = post.author.isAvailable
-        username.setUsername(post.author)
-        dateCreated.isEnabled = post.author.isAvailable
-        dateCreated.setTitle(dateFormat.string(from: post.dateCreated.date), for: .normal)
+
+        if post.isPreview || post.chapterCount == 0 {
+            vm.retrieve(id: post.id)
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        if let userNavigationController = segue.destination as? UserNavigationViewController {
+        if let userNavigationController = segue.destination as? UserNavigationViewController,
+           let post = vm.post.value
+        {
             userNavigationController.profile = post.author
         }
     }
 
     @IBAction
     func onSharePressed() {
+        let post = vm.post.value ?? post!
         let provider = PostActivityItemProvider(post: post)
         let activityController = UIActivityViewController(activityItems: [provider], applicationActivities: nil)
         present(activityController, animated: true)
@@ -88,7 +89,14 @@ class PostViewController: ItemRandomAccessListViewController {
         delete.isHidden = !report.isHidden
 
         DispatchQueue.main.async { [self] in
+            let author = post.isAnonymous ? FPProfile() : post.author
             menu.reload()
+            avatar.isHidden = !author.isAvailable
+            avatar.setAvatar(post.isAnonymous ? "" : post.author.avatar.url)
+            username.isEnabled = author.isAvailable
+            username.setUsername(author)
+            dateCreated.isEnabled = author.isAvailable
+            dateCreated.setTitle(dateFormat.string(from: post.dateCreated.date), for: .normal)
             tableHeader.setup(with: post)
             tableView.reloadData()
         }
@@ -97,7 +105,6 @@ class PostViewController: ItemRandomAccessListViewController {
     private func onSubscribed(_ subscribed: Bool) {
         subscribe.isHidden = subscribed
         unsubscribe.isHidden = !subscribed
-
         DispatchQueue.main.async { self.menu.reload() }
     }
 }
@@ -111,7 +118,8 @@ extension PostViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
 
         if let cell = cell as? CommentTableViewCell,
-           let comment = vm.comment(atIndex: indexPath.row)
+           let comment = vm.comment(atIndex: indexPath.row),
+           let post = vm.post.value
         {
             cell.setup(with: comment, isPostAuthor: post.author.id == comment.author.id)
         }
@@ -128,7 +136,7 @@ extension PostViewController: PostViewModelDelegate {
             : ArchiveViewController.postDeletedNotification
         var info: [String: Any] = ["position": position]
 
-        if subscribed {
+        if subscribed, let post = vm.post.value {
             info["item"] = post
         }
 

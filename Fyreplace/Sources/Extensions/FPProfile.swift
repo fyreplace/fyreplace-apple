@@ -4,18 +4,25 @@ extension FPProfile {
     var isAvailable: Bool { !isBanned && !username.isEmpty }
 
     func getNormalizedUsername(with font: UIFont?) -> NSAttributedString {
-        let anonymous = username.count == 0
+        let isAnonymous = username.count == 0
         let name: String
 
         if isBanned {
             name = .tr("Banned")
-        } else if anonymous {
+        } else if isAnonymous {
             name = .tr("Anonymous")
         } else {
-            return NSAttributedString(string: username)
+            name = username
         }
 
-        let attributes = (font != nil) ? [NSAttributedString.Key.font: font!.withTraits(.traitItalic)] : nil
+        let attributes: [NSAttributedString.Key: Any]?
+
+        if let font = font, isBanned || isAnonymous {
+            attributes = [NSAttributedString.Key.font: font.withTraits(.traitItalic)]
+        } else {
+            attributes = nil
+        }
+
         return NSAttributedString(string: name, attributes: attributes)
     }
 }

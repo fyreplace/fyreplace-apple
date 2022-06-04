@@ -98,6 +98,7 @@
 		4D77946D27DE654B0068F4E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0040F1268EEDE800AF89FD /* Main.storyboard */; };
 		4D862789284B6D4D00A9320D /* URLActivityItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D862788284B6D4D00A9320D /* URLActivityItemProvider.swift */; };
 		4D86278B284B747500A9320D /* PostActivityItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86278A284B747500A9320D /* PostActivityItemProvider.swift */; };
+		4D86278D284BC18E00A9320D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86278C284BC18E00A9320D /* Data.swift */; };
 		4D893B2327E7483200380CF2 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D893B2127E7483200380CF2 /* URL.swift */; };
 		4D93AD26284FE92200ECDF8F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93AD25284FE92200ECDF8F /* UIApplication.swift */; };
 		4DCAAEB12826952500D4427C /* Data+FPImageChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB02826952500D4427C /* Data+FPImageChunk.swift */; };
@@ -195,6 +196,7 @@
 		4D7C985D2691254B00819E3F /* user.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = user.proto; sourceTree = "<group>"; };
 		4D862788284B6D4D00A9320D /* URLActivityItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLActivityItemProvider.swift; sourceTree = "<group>"; };
 		4D86278A284B747500A9320D /* PostActivityItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActivityItemProvider.swift; sourceTree = "<group>"; };
+		4D86278C284BC18E00A9320D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		4D87F45727888FBB00A82AFF /* MenuBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarButtonItem.swift; sourceTree = "<group>"; };
 		4D87F45B27889F0900A82AFF /* UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		4D893B2127E7483200380CF2 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				4D6CFE8927B64E7F00CA50BD /* Array+IndexPath.swift */,
+				4D86278C284BC18E00A9320D /* Data.swift */,
 				4DCAAEB02826952500D4427C /* Data+FPImageChunk.swift */,
 				4DFAAD20269F628200DFAB5F /* String.swift */,
 				4D893B2127E7483200380CF2 /* URL.swift */,
@@ -694,6 +697,7 @@
 				4D77942E27DE654B0068F4E7 /* Keychain.swift in Sources */,
 				4D77942F27DE654B0068F4E7 /* FPClient.swift in Sources */,
 				4D77943027DE654B0068F4E7 /* RoundImageView.swift in Sources */,
+				4D86278D284BC18E00A9320D /* Data.swift in Sources */,
 				4D77943127DE654B0068F4E7 /* MainViewController.swift in Sources */,
 				4D77943227DE654B0068F4E7 /* FPUser+Notification.swift in Sources */,
 				4D77943327DE654B0068F4E7 /* BlockedUsersViewController+Notification.swift in Sources */,

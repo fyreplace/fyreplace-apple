@@ -6,6 +6,8 @@ class MainViewController: UITabBarController {
     @IBOutlet
     var vm: MainViewModel!
 
+    private var navigationBackTitles: [UIViewController: String?] = [:]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -80,23 +82,38 @@ class MainViewController: UITabBarController {
     }
 
     private func handle(url: URL) {
-        guard let fragment = url.fragment else {
-            return presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
-        }
+        if let token = url.fragment {
+            switch url.path {
+            case "/AccountService.ConfirmActivation":
+                vm.confirmActivation(with: token)
 
-        switch url.path {
-        case "/AccountService.ConfirmActivation":
-            vm.confirmActivation(with: fragment)
+            case "/AccountService.ConfirmConnection":
+                vm.confirmConnection(with: token)
 
-        case "/AccountService.ConfirmConnection":
-            vm.confirmConnection(with: fragment)
+            case "/UserService.ConfirmEmailUpdate":
+                vm.confirmEmailUpdate(with: token)
 
-        case "/UserService.ConfirmEmailUpdate":
-            vm.confirmEmailUpdate(with: fragment)
-
-        default:
+            default:
+                presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
+            }
+        } else if url.path.hasPrefix("/p/") {
+            presentPost(id: String(url.path.dropFirst(3)))
+        } else {
             presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
         }
+    }
+
+    private func presentPost(id postIdShortString: String) {
+        guard let navigationController = selectedViewController as? UINavigationController,
+              let postId = Data(base64ShortString: postIdShortString),
+              let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as? PostViewController
+        else { return }
+        postController.post = .with { $0.id = postId }
+        guard let currentController = navigationController.topViewController else { return }
+        navigationBackTitles.updateValue(navigationController.navigationItem.backButtonTitle, forKey: currentController)
+        currentController.navigationItem.backButtonTitle = " "
+        navigationController.delegate = self
+        navigationController.pushViewController(postController, animated: true)
     }
 }
 
@@ -124,5 +141,12 @@ extension MainViewController: MainViewModelDelegate {
         default:
             return "Error"
         }
+    }
+}
+
+extension MainViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let backTitle = navigationBackTitles.removeValue(forKey: viewController) else { return }
+        viewController.navigationItem.backButtonTitle = backTitle
     }
 }

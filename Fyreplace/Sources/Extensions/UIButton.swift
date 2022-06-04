@@ -3,12 +3,7 @@ import UIKit
 
 extension UIButton {
     func setUsername(_ profile: FPProfile) {
-        guard !profile.isAvailable, let font = titleLabel?.font else {
-            setAttributedTitle(nil, for: .normal)
-            return setTitle(profile.username, for: .normal)
-        }
-
-        setAttributedTitle(profile.getNormalizedUsername(with: font), for: .normal)
+        setAttributedTitle(profile.getNormalizedUsername(with: titleLabel?.font), for: .normal)
     }
 
     func setAvatar(_ url: String?) {
