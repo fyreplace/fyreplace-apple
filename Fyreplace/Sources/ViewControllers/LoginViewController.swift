@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet
     var termsOfService: UIButton!
 
-    public var isRegistering = true
+    var isRegistering = true
 
     override func viewDidLoad() {
         super.viewDidLoad()

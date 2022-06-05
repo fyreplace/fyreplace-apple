@@ -1,12 +1,12 @@
 import ReactiveSwift
 import UIKit
 
-public class KeyboardDodgingConstraint: NSLayoutConstraint {
+class KeyboardDodgingConstraint: NSLayoutConstraint {
     private var originalConstant: CGFloat?
     private var lastOrientation: UIDeviceOrientation?
     private var keyboardHeight: CGFloat = 0
 
-    override public func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
 
         NotificationCenter.default.reactive

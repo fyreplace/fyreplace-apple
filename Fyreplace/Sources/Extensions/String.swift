@@ -1,6 +1,6 @@
 import Foundation
 
-public extension String {
+extension String {
     static func tr(_ key: String) -> String {
         return NSLocalizedString(key, comment: "")
     }

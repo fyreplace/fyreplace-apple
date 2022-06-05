@@ -1,8 +1,8 @@
 import Foundation
 import Security
 
-public struct Keychain {
-    public static var authToken: Keychain {
+struct Keychain {
+    static var authToken: Keychain {
         Keychain(securityClass: kSecClassGenericPassword, service: "auth:token")
     }
 
@@ -17,7 +17,7 @@ public struct Keychain {
         self.service = service
     }
 
-    public func get() -> Data? {
+    func get() -> Data? {
         var info = query
         info[kSecReturnData] = true
         var data: CFTypeRef?
@@ -25,14 +25,14 @@ public struct Keychain {
         return data as? Data
     }
 
-    public func set(_ data: Data) -> Bool {
+    func set(_ data: Data) -> Bool {
         var info = query
         info[kSecValueData] = data
         _ = delete()
         return SecItemAdd(info as CFDictionary, nil) == errSecSuccess
     }
 
-    public func delete() -> Bool {
+    func delete() -> Bool {
         SecItemDelete(query as CFDictionary) == errSecSuccess
     }
 }
