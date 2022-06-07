@@ -39,26 +39,20 @@ class MainViewController: UITabBarController {
             .observeValues { [unowned self] in onUserDisconnected($0) }
 
         toggleAuthenticatedTabs(enabled: getCurrentUser() != nil)
+
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+           let url = appDelegate.activityUrl
+        {
+            handle(url: url)
+        }
     }
 
     private func onUrlOpened(_ notification: Notification) {
-        guard let url = notification.userInfo?["url"] as? URL,
-              let fragment = url.fragment
-        else { return presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error) }
-
-        switch url.path {
-        case "/AccountService.ConfirmActivation":
-            vm.confirmActivation(with: fragment)
-
-        case "/AccountService.ConfirmConnection":
-            vm.confirmConnection(with: fragment)
-
-        case "/UserService.ConfirmEmailUpdate":
-            vm.confirmEmailUpdate(with: fragment)
-
-        default:
-            presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
+        guard let url = notification.userInfo?["url"] as? URL else {
+            return presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
         }
+
+        handle(url: url)
     }
 
     private func onUserRegistrationEmail(_ notification: Notification) {
@@ -83,6 +77,26 @@ class MainViewController: UITabBarController {
 
     private func toggleAuthenticatedTabs(enabled: Bool) {
         tabBar.items?.filter { $0.tag == 1 }.forEach { $0.isEnabled = enabled }
+    }
+
+    private func handle(url: URL) {
+        guard let fragment = url.fragment else {
+            return presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
+        }
+
+        switch url.path {
+        case "/AccountService.ConfirmActivation":
+            vm.confirmActivation(with: fragment)
+
+        case "/AccountService.ConfirmConnection":
+            vm.confirmConnection(with: fragment)
+
+        case "/UserService.ConfirmEmailUpdate":
+            vm.confirmEmailUpdate(with: fragment)
+
+        default:
+            presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
+        }
     }
 }
 

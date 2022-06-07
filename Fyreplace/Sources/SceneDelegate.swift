@@ -2,14 +2,25 @@ import UIKit
 
 class SceneDelegate: UIResponder {
     var window: UIWindow?
+
+    @available(iOS 13.0, *)
+    private func handle(urlContexts: Set<UIOpenURLContext>) {
+        for context in urlContexts {
+            UIApplication.shared.open(url: context.url)
+        }
+    }
 }
 
 @available(iOS 13, *)
 extension SceneDelegate: UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         window?.tintColor = .init(named: "AccentColor")
-        guard let userActivity = connectionOptions.userActivities.first else { return }
-        _ = userActivity.sendNotification()
+
+        if let userActivity = connectionOptions.userActivities.first {
+            _ = userActivity.sendNotification()
+        } else {
+            handle(urlContexts: connectionOptions.urlContexts)
+        }
     }
 
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
@@ -17,8 +28,6 @@ extension SceneDelegate: UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        for context in URLContexts {
-            NotificationCenter.default.post(name: AppDelegate.urlOpenedNotification, object: self, userInfo: ["url": context.url])
-        }
+        handle(urlContexts: URLContexts)
     }
 }

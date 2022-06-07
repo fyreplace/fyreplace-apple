@@ -4,10 +4,16 @@ import UIKit
 class AppDelegate: UIResponder {
     static let urlOpenedNotification = Notification.Name("AppDelegate.urlOpened")
     var window: UIWindow?
+    var activityUrl: URL?
+
+    func open(url: URL) {
+        activityUrl = url
+        NotificationCenter.default.post(name: Self.urlOpenedNotification, object: self, userInfo: ["url": url])
+    }
 }
 
 extension AppDelegate: UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         for case let window? in application.windows + [window] {
             window.tintColor = .init(named: "AccentColor")
         }
@@ -20,7 +26,7 @@ extension AppDelegate: UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        NotificationCenter.default.post(name: Self.urlOpenedNotification, object: self, userInfo: ["url": url])
+        open(url: url)
         return true
     }
 
