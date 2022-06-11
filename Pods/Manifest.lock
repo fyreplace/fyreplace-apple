@@ -20,7 +20,7 @@ PODS:
     - SwiftProtobuf (< 2.0.0, >= 1.9.0)
   - gRPC-Swift-Plugins (1.7.3):
     - gRPC-Swift (= 1.7.3)
-  - Kingfisher (7.2.2)
+  - Kingfisher (7.2.3)
   - Logging (1.4.0)
   - ReactiveCocoa (12.0.0):
     - ReactiveSwift (~> 7.0)
@@ -210,7 +210,7 @@ SPEC CHECKSUMS:
   CNIOWindows: 3047f2d8165848a3936a0a755fee27c6b5ee479b
   gRPC-Swift: 910b685f0527f496c39751d1f1add981287e8b9d
   gRPC-Swift-Plugins: 3cb82d3fab6ba243b84e95bf6e2dfe46e6aefe31
-  Kingfisher: 184d4d1a8c36666e663caf8e08abe87898595c53
+  Kingfisher: 8c2cbe0c11ea4d481542895112682a99e058468e
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
   ReactiveCocoa: 5d10386f0ce09f922006efbf784881c5fade27c5
   ReactiveSwift: 48c4b9d3b497e8dd20b10300bb1a28ff93550f13
