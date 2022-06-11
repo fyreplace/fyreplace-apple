@@ -1,3 +1,4 @@
+import Kingfisher
 import UIKit
 
 extension FPChapter {
@@ -12,6 +13,7 @@ extension FPChapter {
     func toText() -> UIView {
         let container = UIView()
         let text = CompactTextView()
+        text.translatesAutoresizingMaskIntoConstraints = false
         text.font = preferredFont
         text.textAlignment = .center
         text.text = self.text

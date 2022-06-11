@@ -1,4 +1,3 @@
-import Kingfisher
 import UIKit
 
 class PostTableHeaderView: UIView {
@@ -14,7 +13,6 @@ class PostTableHeaderView: UIView {
 
         for chapter in post.chapters {
             let chapterView = chapter.toView()
-            chapterView.translatesAutoresizingMaskIntoConstraints = false
             content.addArrangedSubview(chapterView)
         }
     }
@@ -29,5 +27,3 @@ class PostTableHeaderView: UIView {
         }
     }
 }
-
-struct InvalidChapterViewError: Error {}
