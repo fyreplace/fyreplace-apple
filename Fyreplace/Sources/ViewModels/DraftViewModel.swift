@@ -92,7 +92,6 @@ class DraftViewModel: ViewModel {
               let position = info["position"] as? Int,
               let text = info["text"] as? String
         else { return }
-        isLoading.value = false
         post.modify { $0?.chapters[position].text = text }
         delegate.onUpdateChapter(position)
     }
@@ -104,6 +103,7 @@ class DraftViewModel: ViewModel {
     }
 
     private func onCreateChapter(_ position: Int, _ type: ChapterType) {
+        isLoading.value = false
         post.modify {
             $0?.chapters.insert(.init(), at: position)
             $0?.chapterCount += 1
