@@ -8,9 +8,9 @@ class DraftViewController: UITableViewController {
     @IBOutlet
     var imageSelector: ImageSelector!
     @IBOutlet
-    var edit: UIBarButtonItem!
+    var menu: MenuBarButtonItem!
     @IBOutlet
-    var delete: UIBarButtonItem!
+    var publish: UIBarButtonItem!
     @IBOutlet
     var done: UIBarButtonItem!
     @IBOutlet
@@ -22,13 +22,13 @@ class DraftViewController: UITableViewController {
     var post: FPPost!
 
     private var currentChapterPosition = -1
-    private var chapterCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.post.producer.startWithValues { [weak self] in self?.onPost($0) }
         vm.editingStatus.producer.startWithValues { [weak self] in self?.onEditingStatus($0) }
         vm.retrieve(id: post.id)
+        publish.reactive.isEnabled <~ vm.chapterCount.map { $0 > 0 }
         addText.reactive.isEnabled <~ vm.canAddChapter
         addImage.reactive.isEnabled <~ vm.canAddChapter
     }
@@ -41,6 +41,28 @@ class DraftViewController: UITableViewController {
             controller.position = currentChapterPosition
             controller.text = vm.post.value?.chapters[currentChapterPosition].text
         }
+    }
+
+    @IBAction
+    func onPublishPressed() {
+        let alert = UIAlertController(
+            title: .tr("Draft.Publish.Title"),
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+        let publishPublicly = UIAlertAction(
+            title: .tr("Draft.Publish.Action.Public"),
+            style: .default
+        ) { [self] _ in vm.publish(anonymous: false) }
+        let publishAnonymously = UIAlertAction(
+            title: .tr("Draft.Publish.Action.Anonymous"),
+            style: .default
+        ) { [self] _ in vm.publish(anonymous: true) }
+        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
+        alert.addAction(publishPublicly)
+        alert.addAction(publishAnonymously)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
 
     @IBAction
@@ -77,7 +99,6 @@ class DraftViewController: UITableViewController {
         }
 
         postUpdateNotification(post)
-        chapterCount = Int(post.chapterCount)
     }
 
     private func onEditingStatus(_ editingStatus: EditingStatus) {
@@ -88,14 +109,9 @@ class DraftViewController: UITableViewController {
                 tableView.setEditing(shouldBeEditing, animated: true)
             }
 
-            switch editingStatus {
-            case .canEdit:
-                navigationItem.rightBarButtonItems = [delete, edit]
-            case .cannotEdit:
-                navigationItem.rightBarButtonItems = [delete]
-            case .isEditing:
-                navigationItem.rightBarButtonItems = [done]
-            }
+            navigationItem.rightBarButtonItems = editingStatus == .isEditing
+                ? [done]
+                : [menu, publish]
         }
     }
 
@@ -107,12 +123,10 @@ class DraftViewController: UITableViewController {
     }
 
     private func createChapter(_ type: ChapterType) {
-        chapterCount += 1
         vm.createChapter(type)
     }
 
     private func deleteChapter(at position: Int) {
-        chapterCount -= 1
         vm.deleteChapter(at: position)
         tableView.deleteRows(at: [.init(row: position, section: 0)], with: .automatic)
     }
@@ -124,7 +138,7 @@ extension DraftViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chapterCount
+        return vm.chapterCount.value
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -190,6 +204,15 @@ extension DraftViewController: DraftViewModelDelegate {
         }
     }
 
+    func onPublish() {
+        NotificationCenter.default.post(
+            name: ArchiveViewController.postAddedNotification,
+            object: self,
+            userInfo: ["position": 0, "item": vm.makePreview()]
+        )
+        onDelete()
+    }
+
     func onCreateChapter(_ position: Int, _ isText: Bool) {
         DispatchQueue.main.async { [self] in
             tableView.insertRows(at: [.init(row: position, section: 0)], with: .automatic)
@@ -214,7 +237,15 @@ extension DraftViewController: DraftViewModelDelegate {
     func onMoveChapter(_ fromPosition: Int, _ toPosition: Int) {}
 
     func errorKey(for code: Int, with message: String?) -> String? {
-        return "Error"
+        switch GRPCStatus.Code(rawValue: code)! {
+        case .invalidArgument:
+            return ["chapter_empty", "post_empty"].contains(message)
+                ? "Draft.Error.\(message!.pascalized)"
+                : "Error.Validation"
+
+        default:
+            return "Error"
+        }
     }
 }
 

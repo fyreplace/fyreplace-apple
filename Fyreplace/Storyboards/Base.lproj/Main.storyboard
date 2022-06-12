@@ -1146,9 +1146,9 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="centerX" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="centerX" id="05-00-02-03--C-00-00-00-00"/>
-                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="centerY" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="centerY" id="05-00-02-03--C-00-00-00-01"/>
-                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="height" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="height" id="05-00-02-03--C-00-00-00-02"/>
+                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="centerX" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="centerX" id="05-01-02-03--C-00-00-00-00"/>
+                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="centerY" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="centerY" id="05-01-02-03--C-00-00-00-01"/>
+                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="height" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="height" id="05-01-02-03--C-00-00-00-02"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -1167,10 +1167,10 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Draft-Draft-view-Text-contentView-Empty" firstAttribute="leading" secondItem="Draft-Draft-view-Text-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="05-00-02-02-01--C-00-00-00-00"/>
-                                        <constraint firstItem="Draft-Draft-view-Text-contentView-Empty" firstAttribute="top" secondItem="Draft-Draft-view-Text-contentView" secondAttribute="top" constant="20" symbolic="YES" id="05-00-02-02-01--C-00-00-00-01"/>
-                                        <constraint firstAttribute="bottom" secondItem="Draft-Draft-view-Text-contentView-Empty" secondAttribute="bottom" constant="20" symbolic="YES" id="05-00-02-02-01--C-00-00-01"/>
-                                        <constraint firstAttribute="trailing" secondItem="Draft-Draft-view-Text-contentView-Empty" secondAttribute="trailing" constant="20" symbolic="YES" id="05-00-02-02-01--C-00-00-02"/>
+                                        <constraint firstItem="Draft-Draft-view-Text-contentView-Empty" firstAttribute="leading" secondItem="Draft-Draft-view-Text-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="05-01-02-02-01--C-00-00-00-00"/>
+                                        <constraint firstItem="Draft-Draft-view-Text-contentView-Empty" firstAttribute="top" secondItem="Draft-Draft-view-Text-contentView" secondAttribute="top" constant="20" symbolic="YES" id="05-01-02-02-01--C-00-00-00-01"/>
+                                        <constraint firstAttribute="bottom" secondItem="Draft-Draft-view-Text-contentView-Empty" secondAttribute="bottom" constant="20" symbolic="YES" id="05-01-02-02-01--C-00-00-01"/>
+                                        <constraint firstAttribute="trailing" secondItem="Draft-Draft-view-Text-contentView-Empty" secondAttribute="trailing" constant="20" symbolic="YES" id="05-01-02-02-01--C-00-00-02"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1190,10 +1190,10 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="bottom" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="bottom" id="05-00-02-01-01--C-00-00-00-00"/>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="leading" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="leading" id="05-00-02-01-01--C-00-00-00-01"/>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="top" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="top" id="05-00-02-01-01--C-00-00-00-02"/>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="trailing" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="trailing" id="05-00-02-01-01--C-00-00-00-03"/>
+                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="bottom" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="bottom" id="05-01-02-01-01--C-00-00-00-00"/>
+                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="leading" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="leading" id="05-01-02-01-01--C-00-00-00-01"/>
+                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="top" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="top" id="05-01-02-01-01--C-00-00-00-02"/>
+                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="trailing" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="trailing" id="05-01-02-01-01--C-00-00-00-03"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1208,14 +1208,16 @@
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Draft-Draft-navigationItem">
                         <rightBarButtonItems>
-                            <barButtonItem title="Delete" image="trash" catalog="system" id="Draft-Draft-navigationItem-Delete">
+                            <barButtonItem title="Menu" image="ellipsis.circle" catalog="system" id="Draft-Draft-navigationItem-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
                                 <connections>
-                                    <action selector="onDeletePressed" destination="Draft-Draft" id="a5285800d022dcbdb46108b509be0a05fe7a01a2d8ff4a2691f2c09dbe204efd"/>
+                                    <outlet property="navigationDelegate" destination="Draft-Draft" id="4d99ae5072f301f2ed573a7b8b7cabcd60238bf7144df6112bfa80d6cb83714f"/>
+                                    <outletCollection property="actions" destination="Draft-Edit" collectionClass="NSMutableArray" id="f6b3055e6a4b63cdac9d0aa70dbe5843f428fb74797e31b09539bb5ddd1a21ee"/>
+                                    <outletCollection property="actions" destination="Draft-Delete" collectionClass="NSMutableArray" id="2ba606d0d77bac0438534d25062a25e3dd8be2bbd52a6a14ccc84a327069d80a"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="edit" id="Draft-Draft-navigationItem-edit">
+                            <barButtonItem title="Publish" id="Draft-Draft-navigationItem-Publish">
                                 <connections>
-                                    <action selector="onEditPressed" destination="Draft-Draft" id="d645a9cdee51d11e72c99e09b55d9bd4a3d13185414aef9d1f816a32b8ff6237"/>
+                                    <action selector="onPublishPressed" destination="Draft-Draft" id="44990dd236b14a67e99b2b9e87e9892ee840f7ac2c8a62ca5ca61b3c9b3dd134"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -1223,14 +1225,35 @@
                     <connections>
                         <outlet property="addImage" destination="Draft-Draft-view-tableFooterView-stackView-Image" id="fe7c6fb4b5c80c579924f0f871004cd93e41d29f251378bd97ad7eec5fe4825e"/>
                         <outlet property="addText" destination="Draft-Draft-view-tableFooterView-stackView-Text" id="b938c9314bbac66560d8de0ced4b70373846e90ac28addd3f96bf7f552dc59d3"/>
-                        <outlet property="delete" destination="Draft-Draft-navigationItem-Delete" id="9334b19f38d1f86d5a4d8a6f311430941d4cb64a282cdc2334f3acecc5451b03"/>
                         <outlet property="done" destination="Draft-done" id="fc17fb6833b6c5dd84dcfb69805637f9944773755dd956216985e8ae83dea789"/>
-                        <outlet property="edit" destination="Draft-Draft-navigationItem-edit" id="c1d2db093206aa5dc2daaa35d0a7891a029dea7a0a57982f3d250f938f0623a4"/>
                         <outlet property="imageSelector" destination="Draft-ImageSelector" id="73fc259ecd68f1cc06110c3e6e73de1a190c49a63b599f88590ef56118e2a0d8"/>
+                        <outlet property="menu" destination="Draft-Draft-navigationItem-Menu" id="91be3b09fcf1186979350e364396a74c3d3dd6fb6c01bb64e3226e6efafbb37b"/>
+                        <outlet property="publish" destination="Draft-Draft-navigationItem-Publish" id="d2d1cef751c7017a7b4ba152ddf79466e57472c874166b05396bea7664b2db40"/>
                         <outlet property="vm" destination="Draft-DraftViewModel" id="6b3fea78f7ec897219f67ce6ca366db92eaeb613a81470b202893bb967a56a8a"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Draft-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Edit" image="pencil" catalog="system" id="Draft-Edit" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="index">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onEditPressed" destination="Draft-Draft" id="d94b73820dccd0213bcdbba5dd330a8fa2e7a2d42ae772c594c215b8169b13a8"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Delete" image="trash" catalog="system" id="Draft-Delete" customClass="ActionBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="index">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onDeletePressed" destination="Draft-Draft" id="360a26d0b19402ba56487fbf1c62740d0ef36390fa4343334e65d0ea235d59eb"/>
+                    </connections>
+                </barButtonItem>
                 <barButtonItem style="done" systemItem="done" id="Draft-done">
                     <connections>
                         <action selector="onDonePressed" destination="Draft-Draft" id="37981441e7cda981d2596dbfbb6b6e6e237611a2e1d78b39bc289f2ec3413bf1"/>
@@ -1939,6 +1962,7 @@
         <image name="hammer" catalog="system" width="128" height="117"/>
         <image name="hand.raised" catalog="system" width="128" height="128"/>
         <image name="hand.raised.slash" catalog="system" width="128" height="128"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>

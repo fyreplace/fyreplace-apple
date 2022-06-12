@@ -6,6 +6,7 @@ class DraftViewModel: ViewModel {
     weak var delegate: DraftViewModelDelegate!
 
     let post = MutableProperty<FPPost?>(nil)
+    let chapterCount = MutableProperty<Int>(0)
     let isLoading = MutableProperty<Bool>(false)
     lazy var canAddChapter = post
         .combineLatest(with: isLoading)
@@ -31,18 +32,31 @@ class DraftViewModel: ViewModel {
         let request = FPId.with { $0.id = id }
         let response = postService.retrieve(request, callOptions: .authenticated).response
         response.whenSuccess(onRetrieve(_:))
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure(onError(_:))
     }
 
     func delete() {
+        isLoading.value = true
         let request = FPId.with { $0.id = postId }
         let response = postService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onDelete() }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure(onError(_:))
+    }
+
+    func publish(anonymous: Bool) {
+        isLoading.value = true
+        let request = FPPublication.with {
+            $0.id = postId
+            $0.anonymous = anonymous
+        }
+        let response = postService.publish(request, callOptions: .authenticated).response
+        response.whenSuccess { _ in self.delegate.onPublish() }
+        response.whenFailure(onError(_:))
     }
 
     func createChapter(_ type: ChapterType) {
         guard let position = post.value?.chapters.count else { return }
+        chapterCount.value += 1
         isLoading.value = true
         let request = FPChapterLocation.with {
             $0.postID = postId
@@ -50,10 +64,11 @@ class DraftViewModel: ViewModel {
         }
         let response = chapterService.create(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onCreateChapter(position, type) }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure(onError(_:))
     }
 
     func deleteChapter(at position: Int) {
+        chapterCount.value -= 1
         isLoading.value = true
         let request = FPChapterLocation.with {
             $0.postID = postId
@@ -61,14 +76,14 @@ class DraftViewModel: ViewModel {
         }
         let response = chapterService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onDeleteChapter(position) }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure(onError(_:))
     }
 
     func updateImageChapter(_ image: Data, at position: Int) {
         isLoading.value = true
         let stream = chapterService.updateImage(callOptions: .authenticated)
         stream.response.whenSuccess { self.onUpdateImageChapter(position, $0) }
-        stream.response.whenFailure(delegate.onError(_:))
+        stream.response.whenFailure(onError(_:))
         stream.upload(image, for: postId, at: position)
     }
 
@@ -87,6 +102,12 @@ class DraftViewModel: ViewModel {
         self.editingStatus.value = editingStatus
     }
 
+    func makePreview() -> FPPost {
+        var post = post.value!
+        post.isPreview = true
+        return post
+    }
+
     private func onChapterUpdated(_ notification: Notification) {
         guard let info = notification.userInfo,
               let position = info["position"] as? Int,
@@ -97,6 +118,7 @@ class DraftViewModel: ViewModel {
     }
 
     private func onRetrieve(_ post: FPPost) {
+        chapterCount.value = Int(post.chapterCount)
         isLoading.value = false
         self.post.value = post
         delegate.onRetrieve()
@@ -134,6 +156,11 @@ class DraftViewModel: ViewModel {
         }
         delegate.onMoveChapter(fromPosition, toPosition)
     }
+
+    private func onError(_ error: Error) {
+        isLoading.value = false
+        delegate.onError(error)
+    }
 }
 
 @objc
@@ -141,6 +168,8 @@ protocol DraftViewModelDelegate: ViewModelDelegate {
     func onRetrieve()
 
     func onDelete()
+
+    func onPublish()
 
     func onCreateChapter(_ position: Int, _ isText: Bool)
 

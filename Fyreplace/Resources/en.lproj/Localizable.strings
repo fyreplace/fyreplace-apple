@@ -75,11 +75,18 @@
 "Post.Comments.Title" = "Comments";
 "Post.Comments.Empty.Title" = "No comments yet";
 
+"Draft.Publish.Title" = "Publish this post...";
+"Draft.Publish.Action.Public" = "Publicly";
+"Draft.Publish.Action.Anonymous" = "Anonymously";
 "Draft.Empty" = "Enter some text...";
 "Draft.Delete.Title" = "Delete this draft?";
 "Draft.Delete.Message" = "This action cannot be undone.";
 "Draft.AddText.Title" = "Add text";
 "Draft.UpdateText.Title" = "Update text";
+"Draft.Error.ChapterEmpty.Title" = "Empty text section";
+"Draft.Error.ChapterEmpty.Message" = "Posts can't have text section left empty.";
+"Draft.Error.PostEmpty.Title" = "Empty post";
+"Draft.Error.PostEmpty.Message" = "Empty posts can't be published.";
 
 "User.Rank.Superuser" = "Fyreplace team member";
 "User.Rank.Staff" = "Moderator";
