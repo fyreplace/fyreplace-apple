@@ -75,6 +75,7 @@
 "Post.Comments.Title" = "Comments";
 "Post.Comments.Empty.Title" = "No comments yet";
 
+"Draft.Length" = "%d/10 items";
 "Draft.Publish.Title" = "Publish this post...";
 "Draft.Publish.Action.Public" = "Publicly";
 "Draft.Publish.Action.Anonymous" = "Anonymously";

@@ -1,4 +1,5 @@
 import GRPC
+import ReactiveCocoa
 import ReactiveSwift
 import UIKit
 
@@ -26,6 +27,7 @@ class DraftViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.post.producer.startWithValues { [weak self] in self?.onPost($0) }
+        vm.chapterCount.producer.startWithValues { [weak self] in self?.onChapterCount($0) }
         vm.editingStatus.producer.startWithValues { [weak self] in self?.onEditingStatus($0) }
         vm.retrieve(id: post.id)
         publish.reactive.isEnabled <~ vm.chapterCount.map { $0 > 0 }
@@ -99,6 +101,12 @@ class DraftViewController: UITableViewController {
         }
 
         postUpdateNotification(post)
+    }
+
+    private func onChapterCount(_ chapterCount: Int) {
+        DispatchQueue.main.async {
+            self.navigationItem.title = .localizedStringWithFormat(.tr("Draft.Length"), chapterCount)
+        }
     }
 
     private func onEditingStatus(_ editingStatus: EditingStatus) {
