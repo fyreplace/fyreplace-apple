@@ -40,6 +40,12 @@ class MainViewController: UITabBarController {
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onUserDisconnected($0) }
 
+        NotificationCenter.default.reactive
+            .notifications(forName: FPPost.notFoundNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onPostNotFound($0) }
+
         toggleAuthenticatedTabs(enabled: getCurrentUser() != nil)
 
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
@@ -74,6 +80,13 @@ class MainViewController: UITabBarController {
 
         if tabBar.selectedItem?.tag == 1 {
             selectedIndex = (tabBar.items?.count ?? 1) - 1
+        }
+    }
+
+    private func onPostNotFound(_ notification: Notification) {
+        DispatchQueue.main.async {
+            guard let navigationController = self.selectedViewController as? UINavigationController else { return }
+            navigationController.popViewController(animated: true)
         }
     }
 

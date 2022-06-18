@@ -74,6 +74,8 @@
 "Post.Delete.Message" = "This action cannot be undone.";
 "Post.Comments.Title" = "Comments";
 "Post.Comments.Empty.Title" = "No comments yet";
+"Post.Error.NotFound.Title" = "Post not found";
+"Post.Error.NotFound.Message" = "This post does not exist, or it has been deleted.";
 
 "Draft.Length" = "%d/10 items";
 "Draft.Publish.Title" = "Publish this post...";

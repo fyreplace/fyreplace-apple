@@ -29,6 +29,7 @@ class PostViewController: ItemRandomAccessListViewController {
 
     var itemPosition: Int?
     var post: FPPost!
+    private var errored = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,7 +161,17 @@ extension PostViewController: PostViewModelDelegate {
     }
 
     func errorKey(for code: Int, with message: String?) -> String? {
-        return "Error"
+        guard !errored else { return nil }
+        errored = true
+
+        switch GRPCStatus.Code(rawValue: code)! {
+        case .invalidArgument, .notFound:
+            NotificationCenter.default.post(name: FPPost.notFoundNotification, object: self)
+            return "Post.Error.NotFound"
+
+        default:
+            return "Error"
+        }
     }
 }
 

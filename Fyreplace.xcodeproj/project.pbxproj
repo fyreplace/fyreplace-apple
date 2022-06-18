@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D020222285E5A5800D85B79 /* FPPost+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D020221285E5A5800D85B79 /* FPPost+Notification.swift */; };
 		4D06E4DF2804B7D800863E60 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D06E4DE2804B7D800863E60 /* DraftViewController.swift */; };
 		4D06E4E12804C49100863E60 /* DraftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D06E4E02804C49100863E60 /* DraftViewModel.swift */; };
 		4D10CEAC28108994009C1CE2 /* DraftsViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D10CEAB28108994009C1CE2 /* DraftsViewController+Notification.swift */; };
@@ -137,6 +138,7 @@
 		4D0040F7268EEDE900AF89FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D0040F9268EEDE900AF89FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D01C6E927BD9434003E3091 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		4D020221285E5A5800D85B79 /* FPPost+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPPost+Notification.swift"; sourceTree = "<group>"; };
 		4D06E4DE2804B7D800863E60 /* DraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewController.swift; sourceTree = "<group>"; };
 		4D06E4E02804C49100863E60 /* DraftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewModel.swift; sourceTree = "<group>"; };
 		4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				4DA43CEE278603FC0002C22A /* FPProfile.swift */,
 				4D6FD7AD272C717900E28C79 /* FPChapter.swift */,
 				4DAF29E426C7BE67005612C9 /* FPUser+Notification.swift */,
+				4D020221285E5A5800D85B79 /* FPPost+Notification.swift */,
 				4D224619279C27D800D35430 /* FPProfiles+ItemBundle.swift */,
 				4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */,
 				4DC88FA227B4574300F06921 /* FPComments+ItemRandomAccessBundle.swift */,
@@ -689,6 +692,7 @@
 				4D77942827DE654B0068F4E7 /* UserViewModel.swift in Sources */,
 				4D46E0B82827E67E00572465 /* TextChapterViewController.swift in Sources */,
 				4D77942927DE654B0068F4E7 /* CompactTextView.swift in Sources */,
+				4D020222285E5A5800D85B79 /* FPPost+Notification.swift in Sources */,
 				4D77942A27DE654B0068F4E7 /* ItemListViewController.swift in Sources */,
 				4D862789284B6D4D00A9320D /* URLActivityItemProvider.swift in Sources */,
 				4D77942B27DE654B0068F4E7 /* Array+IndexPath.swift in Sources */,
