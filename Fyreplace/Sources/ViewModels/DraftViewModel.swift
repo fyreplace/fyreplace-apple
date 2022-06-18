@@ -105,6 +105,7 @@ class DraftViewModel: ViewModel {
     func makePreview() -> FPPost {
         var post = post.value!
         post.isPreview = true
+        post.chapters = post.chapterCount > 0 ? [post.chapters.first!] : []
         return post
     }
 
