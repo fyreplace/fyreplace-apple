@@ -25,18 +25,6 @@ class MenuBarButtonItem: UIBarButtonItem {
     }
 
     func reload() {
-        if visibleActions.isEmpty {
-            navigationDelegate.navigationItem.rightBarButtonItems?.removeAll { $0 == self }
-        } else {
-            navigationDelegate.navigationItem.rightBarButtonItem = self
-        }
-
-        if visibleActions.count == 1 {
-            attachSingleAction()
-        } else {
-            attachMultipleActions()
-        }
-
         switch visibleActions.count {
         case 0:
             attachNoAction()

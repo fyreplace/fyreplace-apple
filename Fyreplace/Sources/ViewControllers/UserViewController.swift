@@ -112,7 +112,11 @@ class UserViewController: UIViewController {
     }
 
     private func onBanned(_ banned: Bool) {
-        ban.isHidden = banned
+        if banned {
+            report.isHidden = true
+            ban.isHidden = true
+        }
+
         DispatchQueue.main.async { self.menu.reload() }
     }
 }
