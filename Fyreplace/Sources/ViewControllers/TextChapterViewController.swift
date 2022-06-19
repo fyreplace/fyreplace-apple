@@ -17,7 +17,7 @@ class TextChapterViewController: TextInputViewController {
         super.viewDidLoad()
         content.text = text
         vm.setInitialChapterText(text)
-        vm.chapterText <~ content.reactive.continuousTextValues
+        vm.chapterText <~ content.reactive.continuousTextValues.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
     }
 
     override func onDonePressed() {

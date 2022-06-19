@@ -12,7 +12,7 @@ class BioViewController: TextInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         content.text = vm.bio.value
-        vm.bio <~ content.reactive.continuousTextValues
+        vm.bio <~ content.reactive.continuousTextValues.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
     }
 
     override func onDonePressed() {
