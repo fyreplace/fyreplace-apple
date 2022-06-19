@@ -16,6 +16,7 @@
 		4D46E0BA28293AD700572465 /* TextInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0B928293AD700572465 /* TextInputViewModel.swift */; };
 		4D46E0BC28293D0600572465 /* TextChapterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0BB28293D0600572465 /* TextChapterViewModel.swift */; };
 		4D46E0BE2829A9E300572465 /* TextChapterNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0BD2829A9E300572465 /* TextChapterNavigationViewController.swift */; };
+		4D6D9D69285F33ED003FD1F8 /* LinkTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D9D68285F33ED003FD1F8 /* LinkTextView.swift */; };
 		4D77941827DE654B0068F4E7 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D350CEF27235A6E00D40BE2 /* PostViewModel.swift */; };
 		4D77941927DE654B0068F4E7 /* KeyboardDodgingConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */; };
 		4D77941A27DE654B0068F4E7 /* FPPosts+ItemBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */; };
@@ -180,6 +181,7 @@
 		4D6CFE8927B64E7F00CA50BD /* Array+IndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+IndexPath.swift"; sourceTree = "<group>"; };
 		4D6D3AB4272FF61500353913 /* PostTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableHeaderView.swift; sourceTree = "<group>"; };
 		4D6D3AB627300A8600353913 /* DynamicStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStackView.swift; sourceTree = "<group>"; };
+		4D6D9D68285F33ED003FD1F8 /* LinkTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTextView.swift; sourceTree = "<group>"; };
 		4D6FD7AD272C717900E28C79 /* FPChapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPChapter.swift; sourceTree = "<group>"; };
 		4D75EC6726B9BA2E00684537 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		4D77941027DE4BEF0068F4E7 /* Info.plist.template.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist.template.plist; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				4DA43CE82785EBB90002C22A /* RoundButton.swift */,
 				4D0C6F1C26F247E500C4271C /* RoundImageView.swift */,
 				4D6D3AB627300A8600353913 /* DynamicStackView.swift */,
+				4D6D9D68285F33ED003FD1F8 /* LinkTextView.swift */,
 				4D15D5B127B837CB0015AD4E /* CompactTextView.swift */,
 				4D87F45727888FBB00A82AFF /* MenuBarButtonItem.swift */,
 				4DF9D08F2724228A003D610D /* DateFormat.swift */,
@@ -724,6 +727,7 @@
 				4D77944127DE654B0068F4E7 /* BioViewController.swift in Sources */,
 				4D77944227DE654B0068F4E7 /* ViewModel.swift in Sources */,
 				4D77944327DE654B0068F4E7 /* UILabel.swift in Sources */,
+				4D6D9D69285F33ED003FD1F8 /* LinkTextView.swift in Sources */,
 				4D77944427DE654B0068F4E7 /* id.proto in Sources */,
 				4DCAAEB32826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift in Sources */,
 				4D77944527DE654B0068F4E7 /* FPCommentServiceClient+ItemRandomAccessListerService.swift in Sources */,

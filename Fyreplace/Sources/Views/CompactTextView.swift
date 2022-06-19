@@ -1,7 +1,7 @@
 import UIKit
 
 @IBDesignable
-class CompactTextView: UITextView {
+class CompactTextView: LinkTextView {
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -12,7 +12,8 @@ class CompactTextView: UITextView {
         setup()
     }
 
-    private func setup() {
+    override func setup() {
+        super.setup()
         textContainerInset = .zero
         textContainer.lineFragmentPadding = 0
     }
