@@ -1,6 +1,6 @@
 import GRPC
 
-extension FPUserServiceClient: ItemListerService {
+extension FPUserServiceNIOClient: ItemListerService {
     typealias Item = FPProfile
     typealias Items = FPProfiles
 

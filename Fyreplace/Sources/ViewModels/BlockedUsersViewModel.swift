@@ -4,8 +4,8 @@ class BlockedUsersViewModel: ViewModel {
     @IBOutlet
     weak var delegate: BlockedUsersViewModelDelegate!
 
-    private lazy var userService = FPUserServiceClient(channel: Self.rpc.channel)
-    private lazy var blockedUserLister = ItemLister<FPProfile, FPProfiles, FPUserServiceClient>(
+    private lazy var userService = FPUserServiceNIOClient(channel: Self.rpc.channel)
+    private lazy var blockedUserLister = ItemLister<FPProfile, FPProfiles, FPUserServiceNIOClient>(
         delegatingTo: delegate,
         using: userService,
         forward: true

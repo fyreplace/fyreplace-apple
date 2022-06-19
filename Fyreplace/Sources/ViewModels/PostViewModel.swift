@@ -10,10 +10,10 @@ class PostViewModel: ViewModel {
     var lister: ItemRandomAccessListerProtocol { commentLister }
 
     private var postId: Data!
-    private lazy var postService = FPPostServiceClient(channel: Self.rpc.channel)
-    private lazy var commentLister = ItemRandomAccessLister<FPComment, FPComments, FPCommentServiceClient>(
+    private lazy var postService = FPPostServiceNIOClient(channel: Self.rpc.channel)
+    private lazy var commentLister = ItemRandomAccessLister<FPComment, FPComments, FPCommentServiceNIOClient>(
         delegatingTo: delegate,
-        using: FPCommentServiceClient(channel: Self.rpc.channel),
+        using: FPCommentServiceNIOClient(channel: Self.rpc.channel),
         contextId: postId
     )
 

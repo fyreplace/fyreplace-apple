@@ -1,6 +1,6 @@
 import GRPC
 
-extension FPCommentServiceClient: ItemListerService {
+extension FPCommentServiceNIOClient: ItemListerService {
     typealias Item = FPComment
     typealias Items = FPComments
 

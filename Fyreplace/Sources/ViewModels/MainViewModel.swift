@@ -6,8 +6,8 @@ class MainViewModel: ViewModel {
     @IBOutlet
     weak var delegate: MainViewModelDelegate!
 
-    private lazy var accountService = FPAccountServiceClient(channel: Self.rpc.channel)
-    private lazy var userService = FPUserServiceClient(channel: Self.rpc.channel)
+    private lazy var accountService = FPAccountServiceNIOClient(channel: Self.rpc.channel)
+    private lazy var userService = FPUserServiceNIOClient(channel: Self.rpc.channel)
     private let authToken = Keychain.authToken
 
     override func awakeFromNib() {

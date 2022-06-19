@@ -13,7 +13,7 @@ class LoginViewModel: ViewModel {
     lazy var canProceed = isRegistering.negate().or(isUsernameValid).and(isEmailValid)
     let isLoading = MutableProperty(false)
 
-    private lazy var accountService = FPAccountServiceClient(channel: Self.rpc.channel)
+    private lazy var accountService = FPAccountServiceNIOClient(channel: Self.rpc.channel)
     private let authToken = Keychain.authToken
 
     func register() {

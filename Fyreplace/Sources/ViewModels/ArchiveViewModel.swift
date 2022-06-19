@@ -4,9 +4,9 @@ class ArchiveViewModel: ViewModel {
     @IBOutlet
     weak var delegate: ArchiveViewModelDelegate!
 
-    private lazy var postLister = ItemLister<FPPost, FPPosts, FPPostServiceClient>(
+    private lazy var postLister = ItemLister<FPPost, FPPosts, FPPostServiceNIOClient>(
         delegatingTo: delegate,
-        using: FPPostServiceClient(channel: Self.rpc.channel),
+        using: FPPostServiceNIOClient(channel: Self.rpc.channel),
         forward: false
     )
 
