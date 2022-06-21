@@ -131,7 +131,7 @@ extension PostViewController {
 
 extension PostViewController: PostViewModelDelegate {
     func onUpdateSubscription(_ subscribed: Bool) {
-        guard let position = itemPosition else { return }
+        let position = itemPosition ?? 0
         let notification = subscribed
             ? ArchiveViewController.postAddedNotification
             : ArchiveViewController.postDeletedNotification
