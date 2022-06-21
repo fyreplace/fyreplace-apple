@@ -7,6 +7,7 @@ class MainViewController: UITabBarController {
     var vm: MainViewModel!
 
     private var navigationBackTitles: [UIViewController: String?] = [:]
+    private var urlHandled = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,12 +48,17 @@ class MainViewController: UITabBarController {
             .observeValues { [unowned self] in onPostNotFound($0) }
 
         toggleAuthenticatedTabs(enabled: getCurrentUser() != nil)
+    }
 
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
-           let url = appDelegate.activityUrl
-        {
-            handle(url: url)
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard !urlHandled,
+              let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+              let url = appDelegate.activityUrl
+        else { return }
+
+        urlHandled = true
+        handle(url: url)
     }
 
     private func onUrlOpened(_ notification: Notification) {
