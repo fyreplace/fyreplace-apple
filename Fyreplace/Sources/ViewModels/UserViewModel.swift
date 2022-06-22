@@ -15,7 +15,7 @@ class UserViewModel: ViewModel {
         let request = FPId.with { $0.id = id }
         let response = userService.retrieve(request, callOptions: .authenticated).response
         response.whenSuccess(onRetrieve(_:))
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func updateBlock(blocked: Bool) {
@@ -25,14 +25,14 @@ class UserViewModel: ViewModel {
         }
         let response = userService.updateBlock(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onBlockUpdate(blocked) }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func report() {
         let request = FPId.with { $0.id = user.value!.profile.id }
         let response = userService.report(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onReport() }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func ban(for sentence: BanSentence) {
@@ -47,7 +47,7 @@ class UserViewModel: ViewModel {
         }
         let response = userService.ban(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onBan() }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     private func onRetrieve(_ user: FPUser) {

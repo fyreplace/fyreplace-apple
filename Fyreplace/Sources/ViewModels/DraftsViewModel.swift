@@ -25,14 +25,14 @@ class DraftsViewModel: ViewModel {
         let request = Google_Protobuf_Empty()
         let response = postService.create(request, callOptions: .authenticated).response
         response.whenSuccess { self.onCreate($0) }
-        response.whenFailure(onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func delete(_ postId: Data) {
         let request = FPId.with { $0.id = postId }
         let response = postService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onDelete() }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     private func onCreate(_ postId: FPId) {

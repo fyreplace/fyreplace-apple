@@ -22,7 +22,7 @@ class PostViewModel: ViewModel {
         let request = FPId.with { $0.id = id }
         let response = postService.retrieve(request, callOptions: .authenticated).response
         response.whenSuccess(onRetrieve(_:))
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func updateSubscription(subscribed: Bool) {
@@ -32,21 +32,21 @@ class PostViewModel: ViewModel {
         }
         let response = postService.updateSubscription(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onUpdateSubscription(subscribed) }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func report() {
         let request = FPId.with { $0.id = postId }
         let response = postService.report(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onReport() }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func delete() {
         let request = FPId.with { $0.id = postId }
         let response = postService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onDelete() }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func comment(atIndex index: Int) -> FPComment? {

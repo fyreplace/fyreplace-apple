@@ -22,7 +22,7 @@ class BlockedUsersViewModel: ViewModel {
         }
         let response = userService.updateBlock(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onUpdateBlock(blocked, at: index) }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 }
 

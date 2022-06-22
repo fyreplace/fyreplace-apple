@@ -26,7 +26,7 @@ class TextChapterViewModel: ViewModel, TextInputViewModel {
         }
         let response = chapterService.updateText(request, callOptions: .authenticated).response
         response.whenSuccess { [self] _ in delegate.onUpdateChapter(chapterText.value) }
-        response.whenFailure(onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     private func onError(_ error: Error) {

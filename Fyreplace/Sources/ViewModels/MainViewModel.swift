@@ -49,7 +49,7 @@ class MainViewModel: ViewModel {
         }
         let response = accountService.confirmActivation(request).response
         response.whenSuccess { self.onConfirmConnection(token: $0.token, activated: true) }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0, canAutoDisconnect: false) }
     }
 
     func confirmConnection(with token: String) {
@@ -59,20 +59,20 @@ class MainViewModel: ViewModel {
         }
         let response = accountService.confirmConnection(request).response
         response.whenSuccess { self.onConfirmConnection(token: $0.token, activated: false) }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0, canAutoDisconnect: false) }
     }
 
     func confirmEmailUpdate(with token: String) {
         let request = FPToken.with { $0.token = token }
         let response = userService.confirmEmailUpdate(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onConfirmEmailUpdate() }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0, canAutoDisconnect: false) }
     }
 
     func retrieveMe() {
         let response = userService.retrieveMe(Google_Protobuf_Empty(), callOptions: .authenticated).response
         response.whenSuccess { self.setCurrentUser($0) }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     private func onConfirmConnection(token: String, activated: Bool) {

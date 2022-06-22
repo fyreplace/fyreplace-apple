@@ -32,7 +32,7 @@ class DraftViewModel: ViewModel {
         let request = FPId.with { $0.id = id }
         let response = postService.retrieve(request, callOptions: .authenticated).response
         response.whenSuccess(onRetrieve(_:))
-        response.whenFailure(onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func delete() {
@@ -40,7 +40,7 @@ class DraftViewModel: ViewModel {
         let request = FPId.with { $0.id = postId }
         let response = postService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onDelete() }
-        response.whenFailure(onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func publish(anonymous: Bool) {
@@ -51,7 +51,7 @@ class DraftViewModel: ViewModel {
         }
         let response = postService.publish(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onPublish() }
-        response.whenFailure(onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func createChapter(_ type: ChapterType) {
@@ -64,7 +64,7 @@ class DraftViewModel: ViewModel {
         }
         let response = chapterService.create(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onCreateChapter(position, type) }
-        response.whenFailure(onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func deleteChapter(at position: Int) {
@@ -76,14 +76,14 @@ class DraftViewModel: ViewModel {
         }
         let response = chapterService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onDeleteChapter(position) }
-        response.whenFailure(onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func updateImageChapter(_ image: Data, at position: Int) {
         isLoading.value = true
         let stream = chapterService.updateImage(callOptions: .authenticated)
         stream.response.whenSuccess { self.onUpdateImageChapter(position, $0) }
-        stream.response.whenFailure(onError(_:))
+        stream.response.whenFailure { self.delegate.onError($0) }
         stream.upload(image, for: postId, at: position)
     }
 
@@ -95,7 +95,7 @@ class DraftViewModel: ViewModel {
         }
         let response = chapterService.move(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onMoveChapter(fromPosition, toPosition) }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func updateEditingStatus(_ editingStatus: EditingStatus) {

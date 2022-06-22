@@ -21,7 +21,7 @@ class BioViewModel: ViewModel, TextInputViewModel {
         let request = FPBio.with { $0.bio = bio.value }
         let response = userService.updateBio(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onUpdateBio() }
-        response.whenFailure(onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     private func onUpdateBio() {

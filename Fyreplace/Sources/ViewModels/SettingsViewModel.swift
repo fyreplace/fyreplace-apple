@@ -39,7 +39,7 @@ class SettingsViewModel: ViewModel {
     func updateAvatar(image: Data?) {
         let stream = userService.updateAvatar(callOptions: .authenticated)
         stream.response.whenSuccess { self.onUpdateAvatar($0) }
-        stream.response.whenFailure(delegate.onError(_:))
+        stream.response.whenFailure { self.delegate.onError($0) }
         stream.upload(image)
     }
 
@@ -47,19 +47,19 @@ class SettingsViewModel: ViewModel {
         let request = FPEmail.with { $0.email = address }
         let response = userService.sendEmailUpdateEmail(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onSendEmailUpdateEmail() }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func logout() {
         let response = accountService.disconnect(FPId(), callOptions: .authenticated).response
         response.whenSuccess { _ in self.onLogout() }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     func delete() {
         let response = accountService.delete(Google_Protobuf_Empty(), callOptions: .authenticated).response
         response.whenSuccess { _ in self.onDelete() }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
     }
 
     private func reloadUser() {

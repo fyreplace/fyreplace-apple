@@ -24,7 +24,7 @@ class LoginViewModel: ViewModel {
         }
         let response = accountService.create(request).response
         response.whenSuccess { _ in self.delegate.onRegister() }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
         response.whenComplete { _ in self.isLoading.value = false }
     }
 
@@ -33,7 +33,7 @@ class LoginViewModel: ViewModel {
         let request = FPEmail.with { $0.email = email.value }
         let response = accountService.sendConnectionEmail(request).response
         response.whenSuccess { _ in self.delegate.onLogin(withPassword: false) }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
         response.whenComplete { _ in self.isLoading.value = false }
     }
 
@@ -46,7 +46,7 @@ class LoginViewModel: ViewModel {
         }
         let response = accountService.connect(request).response
         response.whenSuccess { self.onLogin(token: $0.token) }
-        response.whenFailure(delegate.onError(_:))
+        response.whenFailure { self.delegate.onError($0) }
         response.whenComplete { _ in self.isLoading.value = false }
     }
 

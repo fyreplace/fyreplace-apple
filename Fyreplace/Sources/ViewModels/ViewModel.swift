@@ -11,7 +11,7 @@ protocol ViewModelDelegate where Self: UIViewController {
 }
 
 extension ViewModelDelegate {
-    func onError(_ error: Error) {
+    func onError(_ error: Error, canAutoDisconnect autoDisconnect: Bool = true) {
         let key: String?
         guard let status = error as? GRPCStatus else { return showAlert("Error") }
 
@@ -20,7 +20,7 @@ extension ViewModelDelegate {
             key = "Error.Unavailable"
 
         case .unauthenticated:
-            if !["timestamp_exceeded", "invalid_token"].contains(status.message), Keychain.authToken.get() != nil {
+            if autoDisconnect, Keychain.authToken.get() != nil {
                 key = nil
 
                 if Keychain.authToken.delete() {
