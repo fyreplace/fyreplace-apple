@@ -41,6 +41,10 @@ class PostViewController: ItemRandomAccessListViewController {
         if post.isPreview || post.chapterCount == 0 {
             vm.retrieve(id: post.id)
         }
+
+        if itemPosition == nil, !post.isSubscribed {
+            itemPosition = 0
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -131,7 +135,7 @@ extension PostViewController {
 
 extension PostViewController: PostViewModelDelegate {
     func onUpdateSubscription(_ subscribed: Bool) {
-        let position = itemPosition ?? 0
+        guard let position = itemPosition else { return }
         let notification = subscribed
             ? ArchiveViewController.postAddedNotification
             : ArchiveViewController.postDeletedNotification
@@ -149,10 +153,12 @@ extension PostViewController: PostViewModelDelegate {
     }
 
     func onDelete() {
+        guard let position = itemPosition else { return }
+
         NotificationCenter.default.post(
             name: ArchiveViewController.postDeletedNotification,
             object: self,
-            userInfo: ["position": itemPosition as Any]
+            userInfo: ["position": position]
         )
 
         DispatchQueue.main.async {
