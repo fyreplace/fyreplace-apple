@@ -14,7 +14,7 @@ class CommentTableViewCell: UITableViewCell {
     var dateFormat: DateFormat!
 
     func setup(with comment: FPComment, at position: Int, isPostAuthor: Bool) {
-        avatar.setAvatar(comment.author.avatar.url)
+        avatar.setAvatar(from: comment.author)
         avatar.tag = position
         username.tintColor = isPostAuthor ? .init(named: "AccentColor") : .labelCompat
         username.setUsername(comment.author)

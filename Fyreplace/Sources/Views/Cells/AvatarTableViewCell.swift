@@ -5,6 +5,6 @@ class AvatarTableViewCell: UITableViewCell {
     var avatar: UIImageView?
 
     func setup(with profile: FPProfile) {
-        avatar?.setAvatar(profile.avatar.url)
+        avatar?.setAvatar(from: profile)
     }
 }

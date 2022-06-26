@@ -2,12 +2,12 @@ import Kingfisher
 import UIKit
 
 extension UIImageView {
-    func setAvatar(_ url: String?) {
+    func setAvatar(from profile: FPProfile?) {
         let defaultImage = UIImage(called: "person.crop.circle.fill")
 
-        if let url = url {
+        if let profile = profile, !profile.isBanned {
             kf.setImage(
-                with: URL(string: url),
+                with: URL(string: profile.avatar.url),
                 placeholder: defaultImage,
                 options: [.transition(.fade(0.3))]
             )

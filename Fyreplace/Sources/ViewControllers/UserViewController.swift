@@ -40,8 +40,8 @@ class UserViewController: UIViewController {
         ban.isHidden = profile.rank >= currentRank || isCurrentUser
         menu.reload()
 
-        navigationItem.title = profile.username
-        avatar.setAvatar(profile.avatar.url)
+        navigationItem.title = profile.getNormalizedUsername(with: nil).string
+        avatar.setAvatar(from: profile)
 
         switch profile.rank {
         case .superuser:

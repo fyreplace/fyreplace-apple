@@ -102,7 +102,7 @@ class PostViewController: ItemRandomAccessListViewController {
             let author = post.isAnonymous ? FPProfile() : post.author
             menu.reload()
             avatar.isHidden = !author.isAvailable
-            avatar.setAvatar(post.isAnonymous ? "" : post.author.avatar.url)
+            avatar.setAvatar(from: post.isAnonymous ? nil : post.author)
             username.isEnabled = author.isAvailable
             username.setUsername(author)
             dateCreated.isEnabled = author.isAvailable

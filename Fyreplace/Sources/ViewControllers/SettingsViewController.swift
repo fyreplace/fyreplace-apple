@@ -61,7 +61,7 @@ class SettingsViewController: UITableViewController {
     }
 
     private func onUser(_ user: FPUser?) {
-        DispatchQueue.main.async { self.avatar.setAvatar(user?.profile.avatar.url) }
+        DispatchQueue.main.async { self.avatar.setAvatar(from: user?.profile) }
         reloadTable()
     }
 

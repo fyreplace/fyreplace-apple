@@ -6,11 +6,15 @@ extension UIButton {
         setAttributedTitle(profile.getNormalizedUsername(with: titleLabel?.font), for: .normal)
     }
 
-    func setAvatar(_ url: String?) {
+    func setAvatar(from profile: FPProfile?) {
         let defaultImage = UIImage(called: "person.crop.circle.fill")
 
-        if let url = url {
-            kf.setImage(with: URL(string: url), for: .normal, placeholder: defaultImage)
+        if let profile = profile, !profile.isBanned {
+            kf.setImage(
+                with: URL(string: profile.avatar.url),
+                for: .normal,
+                placeholder: defaultImage
+            )
         } else {
             setImage(defaultImage, for: .normal)
         }
