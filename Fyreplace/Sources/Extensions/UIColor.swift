@@ -9,6 +9,14 @@ extension UIColor {
         }
     }
 
+    static var secondaryLabelCompat: UIColor {
+        if #available(iOS 13.0, *) {
+            return .secondaryLabel
+        } else {
+            return .black
+        }
+    }
+
     static var placeholderTextCompat: UIColor {
         if #available(iOS 13.0, *) {
             return .placeholderText

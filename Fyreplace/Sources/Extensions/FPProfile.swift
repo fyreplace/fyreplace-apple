@@ -8,9 +8,9 @@ extension FPProfile {
         let name: String
 
         if isBanned {
-            name = .tr("Banned")
+            name = .tr("User.Banned")
         } else if isAnonymous {
-            name = .tr("Anonymous")
+            name = .tr("User.Anonymous")
         } else {
             name = username
         }

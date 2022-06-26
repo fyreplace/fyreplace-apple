@@ -16,6 +16,8 @@
 		4D46E0BA28293AD700572465 /* TextInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0B928293AD700572465 /* TextInputViewModel.swift */; };
 		4D46E0BC28293D0600572465 /* TextChapterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0BB28293D0600572465 /* TextChapterViewModel.swift */; };
 		4D46E0BE2829A9E300572465 /* TextChapterNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0BD2829A9E300572465 /* TextChapterNavigationViewController.swift */; };
+		4D480C84286868DD009C14A8 /* FPComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D480C83286868DD009C14A8 /* FPComment.swift */; };
+		4D480C8628686CA9009C14A8 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D480C8528686CA9009C14A8 /* UITextView.swift */; };
 		4D6D9D69285F33ED003FD1F8 /* LinkTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D9D68285F33ED003FD1F8 /* LinkTextView.swift */; };
 		4D77941827DE654B0068F4E7 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D350CEF27235A6E00D40BE2 /* PostViewModel.swift */; };
 		4D77941927DE654B0068F4E7 /* KeyboardDodgingConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */; };
@@ -175,6 +177,8 @@
 		4D46E0B928293AD700572465 /* TextInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewModel.swift; sourceTree = "<group>"; };
 		4D46E0BB28293D0600572465 /* TextChapterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChapterViewModel.swift; sourceTree = "<group>"; };
 		4D46E0BD2829A9E300572465 /* TextChapterNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChapterNavigationViewController.swift; sourceTree = "<group>"; };
+		4D480C83286868DD009C14A8 /* FPComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPComment.swift; sourceTree = "<group>"; };
+		4D480C8528686CA9009C14A8 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		4D5CC7E727232BEE00D33C87 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4D5FC3EE2701FECC00AE1F73 /* ImageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelector.swift; sourceTree = "<group>"; };
 		4D5FC3F427021BE800AE1F73 /* ClientStreamingCall+FPImageChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientStreamingCall+FPImageChunk.swift"; sourceTree = "<group>"; };
@@ -439,6 +443,7 @@
 				4DAF29E826C7CA3E005612C9 /* UIImage.swift */,
 				4DA43CEA2785EBEF0002C22A /* UIView.swift */,
 				4DF9D08D272413DF003D610D /* UILabel.swift */,
+				4D480C8528686CA9009C14A8 /* UITextView.swift */,
 				4DA43CE62785C5C80002C22A /* UIButton.swift */,
 				4D8BFDB327090BF100CAD2B5 /* UIImageView.swift */,
 				4D87F45B27889F0900A82AFF /* UIBarButtonItem.swift */,
@@ -450,6 +455,7 @@
 				4D77C264279494A200F3A711 /* FPRank.swift */,
 				4DA43CEE278603FC0002C22A /* FPProfile.swift */,
 				4D6FD7AD272C717900E28C79 /* FPChapter.swift */,
+				4D480C83286868DD009C14A8 /* FPComment.swift */,
 				4DAF29E426C7BE67005612C9 /* FPUser+Notification.swift */,
 				4D020221285E5A5800D85B79 /* FPPost+Notification.swift */,
 				4D224619279C27D800D35430 /* FPProfiles+ItemBundle.swift */,
@@ -694,6 +700,7 @@
 				4D77942727DE654B0068F4E7 /* comment.proto in Sources */,
 				4D77942827DE654B0068F4E7 /* UserViewModel.swift in Sources */,
 				4D46E0B82827E67E00572465 /* TextChapterViewController.swift in Sources */,
+				4D480C84286868DD009C14A8 /* FPComment.swift in Sources */,
 				4D77942927DE654B0068F4E7 /* CompactTextView.swift in Sources */,
 				4D020222285E5A5800D85B79 /* FPPost+Notification.swift in Sources */,
 				4D77942A27DE654B0068F4E7 /* ItemListViewController.swift in Sources */,
@@ -762,6 +769,7 @@
 				4D77945C27DE654B0068F4E7 /* UserViewController.swift in Sources */,
 				4D77945D27DE654B0068F4E7 /* ImageSelector.swift in Sources */,
 				4D77945E27DE654B0068F4E7 /* BlockedUserTableViewCell.swift in Sources */,
+				4D480C8628686CA9009C14A8 /* UITextView.swift in Sources */,
 				4D77945F27DE654B0068F4E7 /* UIImageView.swift in Sources */,
 				4D77946027DE654B0068F4E7 /* FPPostServiceNIOClient+ItemListerService.swift in Sources */,
 				4D77946127DE654B0068F4E7 /* ItemTableViewCell.swift in Sources */,

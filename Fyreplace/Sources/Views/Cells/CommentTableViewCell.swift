@@ -19,7 +19,7 @@ class CommentTableViewCell: UITableViewCell {
         username.tintColor = isPostAuthor ? .init(named: "AccentColor") : .labelCompat
         username.setUsername(comment.author)
         username.tag = position
-        content.text = comment.text
+        content.setComment(comment)
         date.text = dateFormat.string(from: comment.dateCreated.date)
     }
 }

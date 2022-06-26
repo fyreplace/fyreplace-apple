@@ -3,10 +3,14 @@
 "Yes" = "Yes";
 "No" = "No";
 "Menu" = "Menu";
-"Anonymous" = "Anonymous";
-"Banned" = "Banned user";
+
 "Legal.PrivacyPolicy.Url" = "https://fyreplace.app/privacy-policy";
 "Legal.TermsOfService.Url" = "https://fyreplace.app/terms-of-service";
+
+"User.Anonymous" = "Anonymous";
+"User.Banned" = "User banned";
+
+"Comment.Deleted" = "Comment deleted";
 
 "Error.Title" = "Error";
 "Error.Message" = "Something, somewhere, went wrong... 😓";
