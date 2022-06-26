@@ -50,11 +50,16 @@ class PostViewController: ItemRandomAccessListViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        if let userNavigationController = segue.destination as? UserNavigationViewController,
-           let post = vm.post.value
-        {
-            userNavigationController.profile = post.author
-        }
+        guard let sender = sender as? UIView,
+              let userNavigationController = segue.destination as? UserNavigationViewController,
+              let post = vm.post.value
+        else { return }
+
+        let profile = [avatar, username, dateCreated].contains(sender)
+            ? post.author
+            : vm.comment(atIndex: sender.tag)?.author
+
+        userNavigationController.profile = profile
     }
 
     @IBAction
@@ -126,7 +131,11 @@ extension PostViewController {
            let comment = vm.comment(atIndex: indexPath.row),
            let post = vm.post.value
         {
-            cell.setup(with: comment, isPostAuthor: post.author.id == comment.author.id)
+            cell.setup(
+                with: comment,
+                at: indexPath.row,
+                isPostAuthor: post.author.id == comment.author.id
+            )
         }
 
         return cell
