@@ -47,6 +47,12 @@ class PostViewController: ItemRandomAccessListViewController {
         }
     }
 
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard [avatar, username, dateCreated].contains(sender as? UIView) else { return true }
+        let author = post.isAnonymous ? FPProfile() : post.author
+        return author.isAvailable
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
@@ -103,9 +109,7 @@ class PostViewController: ItemRandomAccessListViewController {
             menu.reload()
             avatar.isHidden = !author.isAvailable
             avatar.setAvatar(from: post.isAnonymous ? nil : post.author)
-            username.isEnabled = author.isAvailable
             username.setUsername(author)
-            dateCreated.isEnabled = author.isAvailable
             dateCreated.setTitle(dateFormat.string(from: post.dateCreated.date), for: .normal)
             tableHeader.setup(with: post)
             tableView.reloadData()
