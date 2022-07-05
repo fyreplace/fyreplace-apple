@@ -63,9 +63,8 @@ class SettingsViewModel: ViewModel {
     }
 
     private func reloadUser() {
-        let newUser = getCurrentUser()
-        user.value = newUser
-        blockedUsers.value = newUser?.blockedUsers ?? 0
+        user.value = currentUser
+        blockedUsers.value = user.value?.blockedUsers ?? 0
     }
 
     private func onUpdateAvatar(_ image: FPImage) {

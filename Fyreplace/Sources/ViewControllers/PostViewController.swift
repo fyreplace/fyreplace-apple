@@ -98,7 +98,6 @@ class PostViewController: ItemRandomAccessListViewController {
 
     private func onPost(_ post: FPPost?) {
         guard let post = post else { return }
-        let currentProfile = getCurrentProfile()
         let currentUserOwnsPost = post.hasAuthor && post.author.id == currentProfile?.id
         let currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
         report.isHidden = currentUserOwnsPost || currentUserIsAdmin

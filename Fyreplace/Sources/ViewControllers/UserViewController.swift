@@ -34,8 +34,8 @@ class UserViewController: UIViewController {
         vm.blocked.producer.startWithValues { [weak self] in self?.onBlocked($0) }
         vm.banned.producer.startWithValues { [weak self] in self?.onBanned($0) }
 
-        let isCurrentUser = profile.id == getCurrentProfile()?.id
-        let currentRank = getCurrentProfile()?.rank ?? .unspecified
+        let isCurrentUser = profile.id == currentProfile?.id
+        let currentRank = currentProfile?.rank ?? .unspecified
         report.isHidden = profile.rank != currentRank || isCurrentUser
         ban.isHidden = profile.rank >= currentRank || isCurrentUser
         menu.reload()
@@ -105,7 +105,7 @@ class UserViewController: UIViewController {
     }
 
     private func onBlocked(_ blocked: Bool) {
-        let isCurrentUser = profile.id == getCurrentProfile()?.id
+        let isCurrentUser = profile.id == currentProfile?.id
         block.isHidden = blocked || isCurrentUser
         unblock.isHidden = !blocked || isCurrentUser
         DispatchQueue.main.async { self.menu.reload() }

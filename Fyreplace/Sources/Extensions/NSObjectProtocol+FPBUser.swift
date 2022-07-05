@@ -1,9 +1,8 @@
 import Foundation
 
 extension NSObjectProtocol {
-    func getCurrentUser() -> FPUser? {
-        return UserDefaults.standard.message(forKey: "auth:user")
-    }
+    var currentUser: FPUser? { UserDefaults.standard.message(forKey: "auth:user") }
+    var currentProfile: FPProfile? { currentUser?.profile }
 
     func setCurrentUser(_ user: FPUser?) {
         if let user = user {
@@ -14,9 +13,5 @@ extension NSObjectProtocol {
         }
 
         NotificationCenter.default.post(name: FPUser.userChangedNotification, object: self)
-    }
-
-    func getCurrentProfile() -> FPProfile? {
-        return getCurrentUser()?.profile
     }
 }

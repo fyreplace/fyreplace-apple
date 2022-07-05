@@ -13,7 +13,7 @@ class BioViewModel: ViewModel, TextInputViewModel {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        bio.value = getCurrentUser()?.bio ?? ""
+        bio.value = currentUser?.bio ?? ""
     }
 
     func updateBio() {

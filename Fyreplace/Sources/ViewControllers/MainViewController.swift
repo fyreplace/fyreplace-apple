@@ -47,7 +47,7 @@ class MainViewController: UITabBarController {
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onPostNotFound($0) }
 
-        toggleAuthenticatedTabs(enabled: getCurrentUser() != nil)
+        toggleAuthenticatedTabs(enabled: currentUser != nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
