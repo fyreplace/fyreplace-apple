@@ -30,6 +30,7 @@ class PostViewController: ItemRandomAccessListViewController {
     var itemPosition: Int?
     var post: FPPost!
     private var errored = false
+    private lazy var currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +100,6 @@ class PostViewController: ItemRandomAccessListViewController {
     private func onPost(_ post: FPPost?) {
         guard let post = post else { return }
         let currentUserOwnsPost = post.hasAuthor && post.author.id == currentProfile?.id
-        let currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
         report.isHidden = currentUserOwnsPost || currentUserIsAdmin
         delete.isHidden = !report.isHidden
 
@@ -143,6 +143,29 @@ extension PostViewController {
 
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let comment = vm.comment(atIndex: indexPath.row),
+              !comment.isDeleted
+        else { return nil }
+
+        let canDelete = currentUserIsAdmin || comment.author.id == currentProfile?.id
+        let title = "Post.Comment.\(canDelete ? "Delete" : "Report")"
+        let actOnComment = { [self] in
+            if canDelete {
+                vm.deleteComment(at: indexPath.row)
+            } else {
+                vm.reportComment(at: indexPath.row)
+            }
+        }
+
+        return .init(actions: [
+            .init(style: .destructive, title: .tr(title)) { [self] _, _, completion in
+                presentChoiceAlert(text: title, dangerous: true, handler: actOnComment)
+                completion(true)
+            },
+        ])
+    }
 }
 
 extension PostViewController: PostViewModelDelegate {
@@ -175,6 +198,17 @@ extension PostViewController: PostViewModelDelegate {
 
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
+        }
+    }
+
+    func onReportComment(_ position: Int) {
+        presentBasicAlert(text: "Post.Comment.Report.Success")
+    }
+
+    func onDeleteComment(_ position: Int) {
+        guard let comment = vm.makeDeletedComment(fromPosition: position) else { return }
+        DispatchQueue.main.async {
+            self.updateItem(comment, at: .init(row: position, section: 0))
         }
     }
 

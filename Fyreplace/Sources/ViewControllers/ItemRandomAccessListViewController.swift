@@ -17,6 +17,11 @@ class ItemRandomAccessListViewController: UITableViewController {
         super.viewWillDisappear(animated)
         listDelegate.lister.stopListing()
     }
+
+    func updateItem(_ item: Any, at indexPath: IndexPath) {
+        listDelegate.lister.update(item, at: indexPath.row)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }
 
 extension ItemRandomAccessListViewController {

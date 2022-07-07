@@ -78,6 +78,14 @@
 "Post.Delete.Message" = "This action cannot be undone.";
 "Post.Comments.Title" = "Comments";
 "Post.Comments.Empty.Title" = "No comments yet";
+"Post.Comment.Report" = "Report";
+"Post.Comment.Delete" = "Delete";
+"Post.Comment.Report.Title" = "Report this comment?";
+"Post.Comment.Report.Message" = "";
+"Post.Comment.Report.Success.Title" = "Comment reported";
+"Post.Comment.Report.Success.Message" = "This comment has been reported and will be examined as soon as possible.";
+"Post.Comment.Delete.Title" = "Delete this comment?";
+"Post.Comment.Delete.Message" = "This action cannot be undone.";
 "Post.Error.NotFound.Title" = "Post not found";
 "Post.Error.NotFound.Message" = "This post does not exist, or it has been deleted.";
 

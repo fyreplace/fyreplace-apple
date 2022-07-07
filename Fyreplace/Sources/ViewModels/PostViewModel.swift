@@ -11,9 +11,10 @@ class PostViewModel: ViewModel {
 
     private var postId: Data!
     private lazy var postService = FPPostServiceNIOClient(channel: Self.rpc.channel)
+    private lazy var commentService = FPCommentServiceNIOClient(channel: Self.rpc.channel)
     private lazy var commentLister = ItemRandomAccessLister<FPComment, FPComments, FPCommentServiceNIOClient>(
         delegatingTo: delegate,
-        using: FPCommentServiceNIOClient(channel: Self.rpc.channel),
+        using: self.commentService,
         contextId: postId
     )
 
@@ -49,8 +50,31 @@ class PostViewModel: ViewModel {
         response.whenFailure { self.delegate.onError($0) }
     }
 
+    func reportComment(at position: Int) {
+        guard let comment = comment(atIndex: position) else { return }
+        let request = FPId.with { $0.id = comment.id }
+        let response = commentService.report(request, callOptions: .authenticated).response
+        response.whenSuccess { _ in self.delegate.onReportComment(position) }
+        response.whenFailure { self.delegate.onError($0) }
+    }
+
+    func deleteComment(at position: Int) {
+        guard let comment = comment(atIndex: position) else { return }
+        let request = FPId.with { $0.id = comment.id }
+        let response = commentService.delete(request, callOptions: .authenticated).response
+        response.whenSuccess { _ in self.delegate.onDeleteComment(position) }
+        response.whenFailure { self.delegate.onError($0) }
+    }
+
     func comment(atIndex index: Int) -> FPComment? {
         return commentLister.items[index]
+    }
+
+    func makeDeletedComment(fromPosition position: Int) -> FPComment? {
+        guard var comment = comment(atIndex: position) else { return nil }
+        comment.isDeleted = true
+        comment.text = ""
+        return comment
     }
 
     private func onRetrieve(_ post: FPPost) {
@@ -81,4 +105,8 @@ protocol PostViewModelDelegate: ViewModelDelegate, ItemRandomAccessListerDelegat
     func onReport()
 
     func onDelete()
+
+    func onReportComment(_ position: Int)
+
+    func onDeleteComment(_ position: Int)
 }
