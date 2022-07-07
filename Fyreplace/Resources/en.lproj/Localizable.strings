@@ -70,7 +70,7 @@
 "Post.Menu.Action.Subscribe" = "Subscribe";
 "Post.Menu.Action.Unsubscribe" = "Unsubscribe";
 "Post.Share.Title" = "Post by %@";
-"Post.Report.Title" = "Report post?";
+"Post.Report.Title" = "Report this post?";
 "Post.Report.Message" = "";
 "Post.Report.Success.Title" = "Post reported";
 "Post.Report.Success.Message" = "This post has been reported and will be examined as soon as possible.";
@@ -98,11 +98,11 @@
 "User.Rank.Superuser" = "Fyreplace team member";
 "User.Rank.Staff" = "Moderator";
 "User.DateJoined" = "Joined on\n%@";
-"User.Block.Title" = "Block user?";
+"User.Block.Title" = "Block this user?";
 "User.Block.Message" = "";
-"User.Unblock.Title" = "Unblock user?";
+"User.Unblock.Title" = "Unblock this user?";
 "User.Unblock.Message" = "";
-"User.Report.Title" = "Report user?";
+"User.Report.Title" = "Report this user?";
 "User.Report.Message" = "";
 "User.Report.Success.Title" = "User reported";
 "User.Report.Success.Message" = "This user has been reported and will be examined as soon as possible.";
@@ -110,7 +110,7 @@
 "User.Ban.Action.Week" = "A week";
 "User.Ban.Action.Month" = "A month";
 "User.Ban.Action.Permanently" = "Permanently";
-"User.Ban.Permanently.Title" = "Ban user permanently?";
+"User.Ban.Permanently.Title" = "Ban this user permanently?";
 "User.Ban.Permanently.Message" = "";
 "User.Ban.Success.Title" = "User banned";
 "User.Ban.Success.Message" = "";
