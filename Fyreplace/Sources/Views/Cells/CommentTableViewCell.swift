@@ -13,13 +13,20 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet
     var dateFormat: DateFormat!
 
+    private var originalFont: UIFont?
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        originalFont = content.font
+    }
+
     func setup(with comment: FPComment, at position: Int, isPostAuthor: Bool) {
         avatar.setAvatar(from: comment.author)
         avatar.tag = position
         username.tintColor = isPostAuthor ? .init(named: "AccentColor") : .labelCompat
         username.setUsername(comment.author)
         username.tag = position
-        content.setComment(comment)
+        content.setComment(comment, font: originalFont)
         date.text = dateFormat.string(from: comment.dateCreated.date)
     }
 }
