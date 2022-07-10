@@ -25,7 +25,7 @@ class TextChapterViewModel: ViewModel, TextInputViewModel {
             $0.text = chapterText.value
         }
         let response = chapterService.updateText(request, callOptions: .authenticated).response
-        response.whenSuccess { [self] _ in delegate.onUpdateChapter(chapterText.value) }
+        response.whenSuccess { _ in self.delegate.onUpdateChapter(self.chapterText.value) }
         response.whenFailure { self.delegate.onError($0) }
     }
 

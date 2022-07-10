@@ -104,8 +104,7 @@ class DraftViewController: UITableViewController {
     }
 
     private func onChapterCount(_ chapterCount: Int) {
-        let navigationItem = navigationItem
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
             navigationItem.title = .localizedStringWithFormat(.tr("Draft.Length"), chapterCount)
         }
     }
@@ -128,7 +127,11 @@ class DraftViewController: UITableViewController {
         guard let position = itemPosition else { return }
         var info: [String: Any] = ["position": position]
         info["item"] = post
-        NotificationCenter.default.post(name: DraftsViewController.draftUpdatedNotification, object: nil, userInfo: info)
+        NotificationCenter.default.post(
+            name: DraftsViewController.draftUpdatedNotification,
+            object: self,
+            userInfo: info
+        )
     }
 
     private func createChapter(_ type: ChapterType) {
@@ -198,25 +201,25 @@ extension DraftViewController {
 
 extension DraftViewController: DraftViewModelDelegate {
     func onRetrieve() {
-        guard let tableView = tableView else { return }
-        DispatchQueue.main.async { tableView.reloadData() }
+        DispatchQueue.main.async { [unowned self] in tableView.reloadData() }
     }
 
     func onDelete() {
         NotificationCenter.default.post(
             name: DraftsViewController.draftDeletedNotification,
-            object: nil,
+            object: self,
             userInfo: ["position": itemPosition as Any]
         )
 
-        guard let controller = navigationController else { return }
-        DispatchQueue.main.async { controller.popViewController(animated: true) }
+        DispatchQueue.main.async { [unowned self] in
+            navigationController?.popViewController(animated: true)
+        }
     }
 
     func onPublish() {
         NotificationCenter.default.post(
             name: ArchiveViewController.postAddedNotification,
-            object: nil,
+            object: self,
             userInfo: ["position": 0, "item": vm.makePreview()]
         )
         onDelete()

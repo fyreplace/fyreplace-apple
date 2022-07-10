@@ -40,6 +40,8 @@ extension ViewModelDelegate {
     }
 
     private func showAlert(_ key: String) {
-        DispatchQueue.main.async { self.presentBasicAlert(text: key, feedback: .error) }
+        DispatchQueue.main.async { [unowned self] in
+            presentBasicAlert(text: key, feedback: .error)
+        }
     }
 }

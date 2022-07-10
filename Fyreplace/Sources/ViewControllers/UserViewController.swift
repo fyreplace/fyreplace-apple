@@ -120,8 +120,7 @@ class UserViewController: UIViewController {
         let isCurrentUser = profile.id == currentProfile?.id
         block.isHidden = blocked || isCurrentUser
         unblock.isHidden = !blocked || isCurrentUser
-        guard let menu = menu else { return }
-        DispatchQueue.main.async { menu.reload() }
+        DispatchQueue.main.async { [unowned self] in menu.reload() }
     }
 
     private func onBanned(_ banned: Bool) {
@@ -130,8 +129,7 @@ class UserViewController: UIViewController {
             ban.isHidden = true
         }
 
-        guard let menu = menu else { return }
-        DispatchQueue.main.async { menu.reload() }
+        DispatchQueue.main.async { [unowned self] in menu.reload() }
     }
 }
 
@@ -143,7 +141,7 @@ extension UserViewController: UserViewModelDelegate {
             ? BlockedUsersViewController.userBlockedNotification
             : BlockedUsersViewController.userUnblockedNotification
         let info: [String: Any] = ["position": position, "item": profile as Any]
-        NotificationCenter.default.post(name: notification, object: nil, userInfo: info)
+        NotificationCenter.default.post(name: notification, object: self, userInfo: info)
     }
 
     func onReport() {
@@ -156,7 +154,7 @@ extension UserViewController: UserViewModelDelegate {
         guard let position = itemPosition else { return }
         var info: [String: Any] = ["position": position]
         info["item"] = profile
-        NotificationCenter.default.post(name: BlockedUsersViewController.userBannedNotification, object: nil, userInfo: info)
+        NotificationCenter.default.post(name: BlockedUsersViewController.userBannedNotification, object: self, userInfo: info)
     }
 
     func errorKey(for code: Int, with message: String?) -> String? {

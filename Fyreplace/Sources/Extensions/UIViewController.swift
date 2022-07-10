@@ -9,9 +9,9 @@ extension UIViewController {
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: .tr("Ok"), style: .default))
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
             feedbackGenerator.notificationOccurred(feedback)
-            self.present(alert, animated: true)
+            present(alert, animated: true)
         }
     }
 
@@ -28,6 +28,6 @@ extension UIViewController {
             ) { _ in handler() }
         )
         alert.addAction(UIAlertAction(title: .tr("No"), style: .cancel))
-        DispatchQueue.main.async { self.present(alert, animated: true) }
+        DispatchQueue.main.async { [unowned self] in present(alert, animated: true) }
     }
 }

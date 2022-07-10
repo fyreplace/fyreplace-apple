@@ -69,8 +69,7 @@ class SettingsViewController: UITableViewController {
     }
 
     private func reloadTable() {
-        guard let tableView = tableView else { return }
-        DispatchQueue.main.async { tableView.reloadData() }
+        DispatchQueue.main.async { [unowned self] in tableView.reloadData() }
     }
 }
 

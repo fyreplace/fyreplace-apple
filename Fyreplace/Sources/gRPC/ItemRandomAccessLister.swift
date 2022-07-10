@@ -44,7 +44,7 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
     }
 
     func startListing() {
-        stream = service.listItems(type: type, handler: onFetch(items:))
+        stream = service.listItems(type: type) { [unowned self] in onFetch(items: $0) }
         _ = stream?.sendMessage(.with {
             $0.header = .with {
                 $0.forward = true
@@ -78,7 +78,7 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
     }
 
     private func onFetch(items: Items) {
-        DispatchQueue.main.async { [self] in
+        DispatchQueue.main.async { [unowned self] in
             let index = indexes.firstObject as! Int
             indexes.removeObject(at: 0)
 

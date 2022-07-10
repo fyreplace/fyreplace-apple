@@ -124,8 +124,7 @@ class PostViewController: ItemRandomAccessListViewController {
     private func onSubscribed(_ subscribed: Bool) {
         subscribe.isHidden = subscribed
         unsubscribe.isHidden = !subscribed
-        guard let menu = menu else { return }
-        DispatchQueue.main.async { menu.reload() }
+        DispatchQueue.main.async { [unowned self] in menu.reload() }
     }
 }
 
@@ -231,7 +230,7 @@ extension PostViewController: PostViewModelDelegate {
             info["item"] = post
         }
 
-        NotificationCenter.default.post(name: notification, object: nil, userInfo: info)
+        NotificationCenter.default.post(name: notification, object: self, userInfo: info)
     }
 
     func onReport() {
@@ -243,12 +242,13 @@ extension PostViewController: PostViewModelDelegate {
 
         NotificationCenter.default.post(
             name: ArchiveViewController.postDeletedNotification,
-            object: nil,
+            object: self,
             userInfo: ["position": position]
         )
 
-        guard let controller = navigationController else { return }
-        DispatchQueue.main.async { controller.popViewController(animated: true) }
+        DispatchQueue.main.async { [unowned self] in
+            navigationController?.popViewController(animated: true)
+        }
     }
 
     func onReportComment(_ position: Int) {
@@ -268,7 +268,7 @@ extension PostViewController: PostViewModelDelegate {
 
         switch GRPCStatus.Code(rawValue: code)! {
         case .invalidArgument, .notFound:
-            NotificationCenter.default.post(name: FPPost.notFoundNotification, object: nil)
+            NotificationCenter.default.post(name: FPPost.notFoundNotification, object: self)
             return "Post.Error.NotFound"
 
         default:
