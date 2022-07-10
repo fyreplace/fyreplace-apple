@@ -28,7 +28,7 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
     var itemCount: Int { items.count }
     private(set) var items: [Int: Item] = [:]
     private(set) var totalCount = 0
-    private var indexes: [Int] = []
+    private var indexes = NSMutableOrderedSet()
     private let delegate: ItemRandomAccessListerDelegate
     private let service: Service
     private let contextId: Data
@@ -59,11 +59,14 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
     }
 
     func fetch(around index: Int) {
-        guard state == .incomplete, let stream = stream else { return }
-        let index = index - (index % 12)
-        state = .fetching
-        indexes.append(index)
-        _ = stream.sendMessage(.with { $0.offset = UInt32(index) })
+        guard state != .complete, let stream = stream else { return }
+        let index = index - (index % Int(pageSize))
+        indexes.add(index)
+
+        if state == .incomplete {
+            state = .fetching
+            _ = stream.sendMessage(.with { $0.offset = UInt32(index) })
+        }
     }
 
     func insert(_ item: Any) {
@@ -76,14 +79,21 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
 
     private func onFetch(items: Items) {
         DispatchQueue.main.async { [self] in
-            let index = indexes.removeFirst()
+            let index = indexes.firstObject as! Int
+            indexes.removeObject(at: 0)
 
             for (i, item) in items.items.enumerated() {
                 self.items[index + i] = item
             }
 
             totalCount = Int(items.count)
-            state = itemCount < totalCount ? .incomplete : .complete
+
+            if let index = indexes.firstObject as? Int {
+                _ = stream!.sendMessage(.with { $0.offset = UInt32(index) })
+            } else {
+                state = itemCount < totalCount ? .incomplete : .complete
+            }
+
             delegate.onFetch(count: items.items.count, at: index)
         }
     }

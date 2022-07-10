@@ -12,7 +12,6 @@ class PostActivityItemProvider: URLActivityItemProvider {
     override func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
         let metadata = super.activityViewControllerLinkMetadata(activityViewController)
         let author = post.author.getNormalizedUsername(with: nil).string
-        print(author)
         metadata?.title = .localizedStringWithFormat(.tr("Post.Share.Title"), author)
         return metadata
     }

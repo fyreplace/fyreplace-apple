@@ -40,7 +40,7 @@ class LargeFilledButton: UIButton {
                 disabled = .init(named: "ButtonBackgroundDisabledColor")!
             }
 
-            return $0 ? .init(named: "AccentColor")! : disabled
+            return $0 ? .accent : disabled
         }
         reactive.tintColor <~ isEnabledSignal.map {
             let disabled: UIColor

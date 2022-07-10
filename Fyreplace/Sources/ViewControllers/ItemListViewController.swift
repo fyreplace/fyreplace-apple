@@ -130,14 +130,12 @@ extension ItemListViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = listDelegate.itemPreviewType(atIndex: indexPath.row)
-        return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-    }
-
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if listDelegate.lister.itemCount - indexPath.row < listDelegate.lister.pageSize {
             listDelegate.lister.fetchMore()
         }
+
+        let identifier = listDelegate.itemPreviewType(atIndex: indexPath.row)
+        return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

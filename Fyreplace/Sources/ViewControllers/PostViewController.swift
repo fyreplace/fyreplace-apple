@@ -29,7 +29,9 @@ class PostViewController: ItemRandomAccessListViewController {
 
     var itemPosition: Int?
     var post: FPPost!
+    var commentPosition: Int? { didSet { shouldScrollToComment = commentPosition != nil } }
     private var errored = false
+    private var shouldScrollToComment = false
     private lazy var currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
 
     override func viewDidLoad() {
@@ -137,21 +139,45 @@ extension PostViewController {
             cell.setup(
                 with: comment,
                 at: indexPath.row,
-                isPostAuthor: post.author.id == comment.author.id
+                isPostAuthor: post.author.id == comment.author.id,
+                isSelected: indexPath.row == commentPosition
             )
         }
 
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard shouldScrollToComment, indexPath.row == commentPosition else { return }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
+
+        if vm.hasItem(atIndex: indexPath.row) {
+            shouldScrollToComment = false
+        }
+    }
+
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard let comment = vm.comment(atIndex: indexPath.row),
               !comment.isDeleted
-        else { return nil }
+        else { return .init(actions: []) }
+
+        let share = UIContextualAction(
+            style: .normal,
+            title: .tr("Post.Comment.Menu.Action.Share")
+        ) { [unowned self] _, _, completion in
+            guard let post = vm.post.value ?? post else { return completion(false) }
+            let provider = CommentActivityItemProvider(post: post, comment: comment, at: indexPath.row)
+            let activityController = UIActivityViewController(activityItems: [provider], applicationActivities: nil)
+            present(activityController, animated: true)
+            completion(true)
+        }
 
         let canDelete = currentUserIsAdmin || comment.author.id == currentProfile?.id
-        let title = "Post.Comment.\(canDelete ? "Delete" : "Report")"
-        let actOnComment = { [self] in
+        let reportOrDeleteText = canDelete ? "Delete" : "Report"
+        let reportOrDeleteComment = { [unowned self] in
             if canDelete {
                 vm.deleteComment(at: indexPath.row)
             } else {
@@ -159,16 +185,36 @@ extension PostViewController {
             }
         }
 
-        return .init(actions: [
-            .init(style: .destructive, title: .tr(title)) { [self] _, _, completion in
-                presentChoiceAlert(text: title, dangerous: true, handler: actOnComment)
-                completion(true)
-            },
-        ])
+        let reportOrDelete = UIContextualAction(
+            style: .destructive,
+            title: .tr("Post.Comment.Menu.Action.\(reportOrDeleteText)")
+        ) { [self] _, _, completion in
+            presentChoiceAlert(
+                text: "Post.Comment.\(reportOrDeleteText)",
+                dangerous: true,
+                handler: reportOrDeleteComment
+            )
+            completion(true)
+        }
+
+        share.image = .init(called: "square.and.arrow.up.fill")
+        reportOrDelete.image = .init(called: canDelete ? "trash.fill" : "exclamationmark.bubble.fill")
+        return .init(actions: [share, reportOrDelete])
     }
 }
 
 extension PostViewController: PostViewModelDelegate {
+    override func onFetch(count: Int, at index: Int) {
+        super.onFetch(count: count, at: index)
+
+        if shouldScrollToComment,
+           let position = commentPosition,
+           position < tableView.numberOfRows(inSection: 0)
+        {
+            tableView.scrollToRow(at: .init(row: position, section: 0), at: .top, animated: false)
+        }
+    }
+
     func onUpdateSubscription(_ subscribed: Bool) {
         guard let position = itemPosition else { return }
         let notification = subscribed

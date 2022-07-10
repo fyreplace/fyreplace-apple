@@ -116,18 +116,20 @@ class MainViewController: UITabBarController {
                 presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
             }
         } else if url.path.hasPrefix("/p/") {
-            presentPost(id: String(url.path.dropFirst(3)))
+            let parts = url.path.dropFirst(3).split(separator: "/")
+            presentPost(id: String(parts.first!), at: .init(parts.last ?? ""))
         } else {
             presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
         }
     }
 
-    private func presentPost(id postIdShortString: String) {
+    private func presentPost(id postIdShortString: String, at commentPosition: Int? = nil) {
         guard let navigationController = selectedViewController as? UINavigationController,
               let postId = Data(base64ShortString: postIdShortString),
               let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as? PostViewController
         else { return }
         postController.post = .with { $0.id = postId }
+        postController.commentPosition = commentPosition
         guard let currentController = navigationController.topViewController else { return }
         navigationBackTitles.updateValue(navigationController.navigationItem.backButtonTitle, forKey: currentController)
         currentController.navigationItem.backButtonTitle = " "

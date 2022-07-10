@@ -24,4 +24,8 @@ extension UIColor {
             return .gray
         }
     }
+
+    static var accent: UIColor {
+        return .init(named: "AccentColor")!
+    }
 }

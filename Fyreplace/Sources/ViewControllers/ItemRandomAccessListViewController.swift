@@ -34,14 +34,12 @@ extension ItemRandomAccessListViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if !listDelegate.hasItem(atIndex: indexPath.row) {
+            listDelegate.lister.fetch(around: indexPath.row)
+        }
+
         let identifier = listDelegate.itemPreviewType(atIndex: indexPath.row)
         return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-    }
-
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if !listDelegate.hasItem(atIndex: indexPath.row) {
-            listDelegate.lister.fetch(around: indexPath.row - indexPath.row % Int(listDelegate.lister.pageSize))
-        }
     }
 }
 

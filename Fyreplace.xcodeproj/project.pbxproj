@@ -12,6 +12,7 @@
 		4D06E4E12804C49100863E60 /* DraftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D06E4E02804C49100863E60 /* DraftViewModel.swift */; };
 		4D10CEAC28108994009C1CE2 /* DraftsViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D10CEAB28108994009C1CE2 /* DraftsViewController+Notification.swift */; };
 		4D1DB9D928311B130057D236 /* DraftViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DB9D828311B130057D236 /* DraftViewController+Notification.swift */; };
+		4D41605928797FF0008584FC /* CommentActivityItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D41605828797FEF008584FC /* CommentActivityItemProvider.swift */; };
 		4D46E0B82827E67E00572465 /* TextChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0B72827E67E00572465 /* TextChapterViewController.swift */; };
 		4D46E0BA28293AD700572465 /* TextInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0B928293AD700572465 /* TextInputViewModel.swift */; };
 		4D46E0BC28293D0600572465 /* TextChapterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0BB28293D0600572465 /* TextChapterViewModel.swift */; };
@@ -172,6 +173,7 @@
 		4D3F816126C6C53500764763 /* CallOptions+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CallOptions+Keychain.swift"; sourceTree = "<group>"; };
 		4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+FPBUser.swift"; sourceTree = "<group>"; };
 		4D3F816726C6E57900764763 /* UserDefaults+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Message.swift"; sourceTree = "<group>"; };
+		4D41605828797FEF008584FC /* CommentActivityItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentActivityItemProvider.swift; sourceTree = "<group>"; };
 		4D4520F926D8203300FCFEE0 /* NSUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUserActivity.swift; sourceTree = "<group>"; };
 		4D46E0B72827E67E00572465 /* TextChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChapterViewController.swift; sourceTree = "<group>"; };
 		4D46E0B928293AD700572465 /* TextInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewModel.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				4D3AEDA826C5185200C93DFF /* Keychain.swift */,
 				4D862788284B6D4D00A9320D /* URLActivityItemProvider.swift */,
 				4D86278A284B747500A9320D /* PostActivityItemProvider.swift */,
+				4D41605828797FEF008584FC /* CommentActivityItemProvider.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				4DCAAEB32826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift in Sources */,
 				4D77944527DE654B0068F4E7 /* FPCommentServiceNIOClient+ItemRandomAccessListerService.swift in Sources */,
 				4D77944627DE654B0068F4E7 /* user.proto in Sources */,
+				4D41605928797FF0008584FC /* CommentActivityItemProvider.swift in Sources */,
 				4D77944727DE654B0068F4E7 /* DynamicStackView.swift in Sources */,
 				4D77944827DE654B0068F4E7 /* UIColor.swift in Sources */,
 				4D77944927DE654B0068F4E7 /* UIView.swift in Sources */,

@@ -15,7 +15,7 @@ class AppDelegate: UIResponder {
 extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         for case let window? in application.windows + [window] {
-            window.tintColor = .init(named: "AccentColor")
+            window.tintColor = .accent
         }
 
         return true

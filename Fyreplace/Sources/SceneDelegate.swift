@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder {
 @available(iOS 13, *)
 extension SceneDelegate: UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        window?.tintColor = .init(named: "AccentColor")
+        window?.tintColor = .accent
 
         if let userActivity = connectionOptions.userActivities.first {
             _ = userActivity.sendNotification()

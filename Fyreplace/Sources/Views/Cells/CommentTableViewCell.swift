@@ -20,10 +20,11 @@ class CommentTableViewCell: UITableViewCell {
         originalFont = content.font
     }
 
-    func setup(with comment: FPComment, at position: Int, isPostAuthor: Bool) {
+    func setup(with comment: FPComment, at position: Int, isPostAuthor: Bool, isSelected: Bool) {
+        backgroundColor = isSelected ? .accent.withAlphaComponent(0.3) : nil
         avatar.setAvatar(from: comment.author)
         avatar.tag = position
-        username.tintColor = isPostAuthor ? .init(named: "AccentColor") : .labelCompat
+        username.tintColor = isPostAuthor ? .accent : .labelCompat
         username.setUsername(comment.author)
         username.tag = position
         content.setComment(comment, font: originalFont)
