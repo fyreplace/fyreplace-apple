@@ -39,7 +39,7 @@ class SettingsViewController: UITableViewController {
         email.reactive.text <~ vm.user.map(\.?.email)
         bio.reactive.text <~ vm.user.map { ($0?.bio.count ?? 0) > 0 ? $0!.bio : .tr("Settings.Bio") }
         blockedUsers.reactive.text <~ vm.blockedUsers.map { String($0) }
-        vm.user.producer.startWithValues { [weak self] in self?.onUser($0) }
+        vm.user.producer.startWithValues { [unowned self] in onUser($0) }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,12 +61,16 @@ class SettingsViewController: UITableViewController {
     }
 
     private func onUser(_ user: FPUser?) {
-        DispatchQueue.main.async { self.avatar.setAvatar(from: user?.profile) }
+        if let avatar = avatar {
+            DispatchQueue.main.async { avatar.setAvatar(from: user?.profile) }
+        }
+
         reloadTable()
     }
 
     private func reloadTable() {
-        DispatchQueue.main.async { self.tableView.reloadData() }
+        guard let tableView = tableView else { return }
+        DispatchQueue.main.async { tableView.reloadData() }
     }
 }
 

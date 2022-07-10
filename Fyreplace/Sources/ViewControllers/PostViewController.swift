@@ -38,8 +38,8 @@ class PostViewController: ItemRandomAccessListViewController {
         super.viewDidLoad()
         vm.post.value = post
         vm.subscribed.value = post.isSubscribed
-        vm.post.producer.startWithValues { [weak self] in self?.onPost($0) }
-        vm.subscribed.producer.startWithValues { [weak self] in self?.onSubscribed($0) }
+        vm.post.producer.startWithValues { [unowned self] in onPost($0) }
+        vm.subscribed.producer.startWithValues { [unowned self] in onSubscribed($0) }
 
         if post.isPreview || post.chapterCount == 0 {
             vm.retrieve(id: post.id)
@@ -91,12 +91,16 @@ class PostViewController: ItemRandomAccessListViewController {
 
     @IBAction
     func onReportPressed() {
-        presentChoiceAlert(text: "Post.Report", dangerous: true) { self.vm.report() }
+        presentChoiceAlert(text: "Post.Report", dangerous: true) { [unowned self] in
+            vm.report()
+        }
     }
 
     @IBAction
     func onDeletePressed() {
-        presentChoiceAlert(text: "Post.Delete", dangerous: true) { self.vm.delete() }
+        presentChoiceAlert(text: "Post.Delete", dangerous: true) { [unowned self] in
+            vm.delete()
+        }
     }
 
     private func onPost(_ post: FPPost?) {
@@ -105,7 +109,7 @@ class PostViewController: ItemRandomAccessListViewController {
         report.isHidden = currentUserOwnsPost || currentUserIsAdmin
         delete.isHidden = !report.isHidden
 
-        DispatchQueue.main.async { [self] in
+        DispatchQueue.main.async { [unowned self] in
             let author = post.isAnonymous ? FPProfile() : post.author
             menu.reload()
             avatar.isHidden = !author.isAvailable
@@ -120,7 +124,8 @@ class PostViewController: ItemRandomAccessListViewController {
     private func onSubscribed(_ subscribed: Bool) {
         subscribe.isHidden = subscribed
         unsubscribe.isHidden = !subscribed
-        DispatchQueue.main.async { self.menu.reload() }
+        guard let menu = menu else { return }
+        DispatchQueue.main.async { menu.reload() }
     }
 }
 
@@ -151,7 +156,7 @@ extension PostViewController {
         guard shouldScrollToComment, indexPath.row == commentPosition else { return }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
 
         if vm.hasItem(atIndex: indexPath.row) {
@@ -188,7 +193,7 @@ extension PostViewController {
         let reportOrDelete = UIContextualAction(
             style: .destructive,
             title: .tr("Post.Comment.Menu.Action.\(reportOrDeleteText)")
-        ) { [self] _, _, completion in
+        ) { [unowned self] _, _, completion in
             presentChoiceAlert(
                 text: "Post.Comment.\(reportOrDeleteText)",
                 dangerous: true,
@@ -226,7 +231,7 @@ extension PostViewController: PostViewModelDelegate {
             info["item"] = post
         }
 
-        NotificationCenter.default.post(name: notification, object: self, userInfo: info)
+        NotificationCenter.default.post(name: notification, object: nil, userInfo: info)
     }
 
     func onReport() {
@@ -238,13 +243,12 @@ extension PostViewController: PostViewModelDelegate {
 
         NotificationCenter.default.post(
             name: ArchiveViewController.postDeletedNotification,
-            object: self,
+            object: nil,
             userInfo: ["position": position]
         )
 
-        DispatchQueue.main.async {
-            self.navigationController?.popViewController(animated: true)
-        }
+        guard let controller = navigationController else { return }
+        DispatchQueue.main.async { controller.popViewController(animated: true) }
     }
 
     func onReportComment(_ position: Int) {
@@ -253,8 +257,8 @@ extension PostViewController: PostViewModelDelegate {
 
     func onDeleteComment(_ position: Int) {
         guard let comment = vm.makeDeletedComment(fromPosition: position) else { return }
-        DispatchQueue.main.async {
-            self.updateItem(comment, at: .init(row: position, section: 0))
+        DispatchQueue.main.async { [unowned self] in
+            updateItem(comment, at: .init(row: position, section: 0))
         }
     }
 
@@ -264,7 +268,7 @@ extension PostViewController: PostViewModelDelegate {
 
         switch GRPCStatus.Code(rawValue: code)! {
         case .invalidArgument, .notFound:
-            NotificationCenter.default.post(name: FPPost.notFoundNotification, object: self)
+            NotificationCenter.default.post(name: FPPost.notFoundNotification, object: nil)
             return "Post.Error.NotFound"
 
         default:

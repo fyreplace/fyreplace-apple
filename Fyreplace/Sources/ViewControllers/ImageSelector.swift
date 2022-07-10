@@ -13,14 +13,12 @@ class ImageSelector: NSObject {
         let choice = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let library = UIAlertAction(
             title: .tr("ImageSelector.ChooseSource.Action.Library"),
-            style: .default,
-            handler: { _ in self.selectImage(from: .photoLibrary) }
-        )
+            style: .default
+        ) { [unowned self] _ in selectImage(from: .photoLibrary) }
         let camera = UIAlertAction(
             title: .tr("ImageSelector.ChooseSource.Action.Camera"),
-            style: .default,
-            handler: { _ in self.selectImage(from: .camera) }
-        )
+            style: .default
+        ) { [unowned self] _ in selectImage(from: .camera) }
 
         choice.addAction(library)
         choice.addAction(camera)
@@ -28,14 +26,13 @@ class ImageSelector: NSObject {
         if canRemove {
             let remove = UIAlertAction(
                 title: .tr("ImageSelector.ChooseSource.Action.Remove"),
-                style: .destructive,
-                handler: { _ in self.delegate.onImageRemoved() }
-            )
+                style: .destructive
+            ) { [unowned self] _ in delegate.onImageRemoved() }
             choice.addAction(remove)
         }
 
-        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel) { _ in
-            self.delegate.onImageSelectionCancelled()
+        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel) { [unowned self] _ in
+            delegate.onImageSelectionCancelled()
         }
 
         choice.addAction(cancel)
@@ -79,13 +76,11 @@ class ImageSelector: NSObject {
         }
 
         guard data.count < delegate.maxImageBytes else {
-            delegate.presentBasicAlert(text: "ImageSelector.Error.Size", feedback: .error)
-            return
+            return delegate.presentBasicAlert(text: "ImageSelector.Error.Size", feedback: .error)
         }
 
-        DispatchQueue.main.async {
-            self.delegate.onImageSelected(data)
-        }
+        guard let delegate = delegate else { return }
+        DispatchQueue.main.async { delegate.onImageSelected(data) }
     }
 }
 
@@ -99,8 +94,8 @@ extension ImageSelector: UINavigationControllerDelegate, UIImagePickerController
         guard let image = (info[.editedImage] ?? info[.originalImage]) as? UIImage else { return }
         let url = info[.imageURL] as? NSURL
 
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.extractImageData(image: image, isPng: url?.pathExtension == "png")
+        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+            extractImageData(image: image, isPng: url?.pathExtension == "png")
         }
     }
 }
@@ -115,12 +110,11 @@ extension ImageSelector: PHPickerViewControllerDelegate {
 
         provider.loadObject(ofClass: UIImage.self) { image, error in
             guard let image = image as? UIImage, error == nil else {
-                self.delegate.presentBasicAlert(text: "Error", feedback: .error)
-                return
+                return self.delegate.presentBasicAlert(text: "Error", feedback: .error)
             }
 
-            DispatchQueue.global(qos: .userInitiated).async {
-                self.extractImageData(image: image, isPng: false)
+            DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+                extractImageData(image: image, isPng: false)
             }
         }
     }

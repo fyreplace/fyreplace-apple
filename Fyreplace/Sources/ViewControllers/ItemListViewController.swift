@@ -14,7 +14,11 @@ class ItemListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundView = emptyPlaceholder
-        refreshControl?.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+
+        refreshControl?.reactive.controlEvents(.valueChanged)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] _ in onRefresh() }
 
         NotificationCenter.default.reactive
             .notifications(forName: FPUser.userDisconnectedNotification)
@@ -45,10 +49,6 @@ class ItemListViewController: UITableViewController {
                 .observe(on: UIScheduler())
                 .observeValues { [unowned self] in onItemDeleted($0) }
         }
-    }
-
-    deinit {
-        refreshControl?.removeTarget(self, action: #selector(onRefresh), for: .valueChanged)
     }
 
     override func viewWillAppear(_ animated: Bool) {

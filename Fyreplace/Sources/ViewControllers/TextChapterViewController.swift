@@ -27,8 +27,8 @@ class TextChapterViewController: TextInputViewController {
 
 extension TextChapterViewController: TextChapterViewModelDelegate {
     func onUpdateChapter(_ text: String) {
-        NotificationCenter.default.post(name: DraftViewController.chapterUpdated, object: self, userInfo: ["position": position ?? 0, "text": text])
-        DispatchQueue.main.async { self.dismiss(animated: true) }
+        NotificationCenter.default.post(name: DraftViewController.chapterUpdated, object: nil, userInfo: ["position": position ?? 0, "text": text])
+        DispatchQueue.main.async { [unowned self] in dismiss(animated: true) }
     }
 
     func errorKey(for code: Int, with message: String?) -> String? {

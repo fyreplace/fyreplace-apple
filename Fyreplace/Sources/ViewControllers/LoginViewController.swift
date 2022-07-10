@@ -102,22 +102,24 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewModelDelegate {
     func onRegister() {
-        NotificationCenter.default.post(name: FPUser.userRegistrationEmailNotification, object: self)
-        DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
+        NotificationCenter.default.post(name: FPUser.userRegistrationEmailNotification, object: nil)
+        guard let controller = navigationController else { return }
+        DispatchQueue.main.async { controller.popViewController(animated: true) }
     }
 
     func onLogin(withPassword: Bool) {
         if !withPassword {
-            NotificationCenter.default.post(name: FPUser.userConnectionEmailNotification, object: self)
+            NotificationCenter.default.post(name: FPUser.userConnectionEmailNotification, object: nil)
         }
 
-        DispatchQueue.main.async { self.navigationController?.popViewController(animated: true) }
+        guard let controller = navigationController else { return }
+        DispatchQueue.main.async { controller.popViewController(animated: true) }
     }
 
     func errorKey(for code: Int, with message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {
         case .cancelled:
-            DispatchQueue.main.async { self.askPassword() }
+            DispatchQueue.main.async { [unowned self] in askPassword() }
             return nil
 
         case .notFound:

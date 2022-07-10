@@ -18,8 +18,8 @@ class TextInputViewController: UIViewController {
         super.viewDidLoad()
         done.reactive.isEnabled <~ textInputViewModel.isLoading.negate()
         loader.reactive.isAnimating <~ textInputViewModel.isLoading
-        length.reactive.text <~ textInputViewModel.text.map {
-            String.localizedStringWithFormat(.tr("Bio.Length"), $0.count, self.maxContentLength)
+        length.reactive.text <~ textInputViewModel.text.map { [unowned self] in
+            String.localizedStringWithFormat(.tr("Bio.Length"), $0.count, maxContentLength)
         }
         length.reactive.textColor <~ textInputViewModel.text
             .map { $0.count <= self.maxContentLength }

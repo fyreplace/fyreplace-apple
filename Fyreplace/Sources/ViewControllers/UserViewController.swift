@@ -30,9 +30,9 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         vm.blocked.value = profile.isBlocked
         vm.retrieve(id: profile.id)
-        vm.user.producer.startWithValues { [weak self] in self?.onUser($0) }
-        vm.blocked.producer.startWithValues { [weak self] in self?.onBlocked($0) }
-        vm.banned.producer.startWithValues { [weak self] in self?.onBanned($0) }
+        vm.user.producer.startWithValues { [unowned self] in onUser($0) }
+        vm.blocked.producer.startWithValues { [unowned self] in onBlocked($0) }
+        vm.banned.producer.startWithValues { [unowned self] in onBanned($0) }
 
         let isCurrentUser = profile.id == currentProfile?.id
         let currentRank = currentProfile?.rank ?? .unspecified
@@ -61,17 +61,19 @@ class UserViewController: UIViewController {
 
     @IBAction
     func onBlockPressed() {
-        presentChoiceAlert(text: "User.Block", dangerous: false) { self.vm.updateBlock(blocked: true) }
+        presentChoiceAlert(text: "User.Block", dangerous: false) { [unowned self] in vm.updateBlock(blocked: true) }
     }
 
     @IBAction
     func onUnblockPressed() {
-        presentChoiceAlert(text: "User.Unblock", dangerous: false) { self.vm.updateBlock(blocked: false) }
+        presentChoiceAlert(text: "User.Unblock", dangerous: false) { [unowned self] in vm.updateBlock(blocked: false) }
     }
 
     @IBAction
     func onReportPressed() {
-        presentChoiceAlert(text: "User.Report", dangerous: true) { self.vm.report() }
+        presentChoiceAlert(text: "User.Report", dangerous: true) { [unowned self] in
+            vm.report()
+        }
     }
 
     @IBAction
@@ -81,24 +83,34 @@ class UserViewController: UIViewController {
             message: nil,
             preferredStyle: .actionSheet
         )
-        alert.addAction(UIAlertAction(title: .tr("User.Ban.Action.Week"), style: .default) { _ in
-            self.vm.ban(for: .week)
-        })
-        alert.addAction(UIAlertAction(title: .tr("User.Ban.Action.Month"), style: .default) { _ in
-            self.vm.ban(for: .month)
-        })
-        alert.addAction(UIAlertAction(title: .tr("User.Ban.Action.Permanently"), style: .destructive) { _ in
-            self.presentChoiceAlert(text: .tr("User.Ban.Permanently"), dangerous: true) { self.vm.ban(for: .ever) }
+        alert.addAction(UIAlertAction(
+            title: .tr("User.Ban.Action.Week"),
+            style: .default
+        ) { [unowned self] _ in vm.ban(for: .week) })
+        alert.addAction(UIAlertAction(
+            title: .tr("User.Ban.Action.Month"),
+            style: .default
+        ) { [unowned self] _ in vm.ban(for: .month) })
+        alert.addAction(UIAlertAction(
+            title: .tr("User.Ban.Action.Permanently"),
+            style: .destructive
+        ) { [unowned self] _ in
+            presentChoiceAlert(text: .tr("User.Ban.Permanently"), dangerous: true) { [unowned self] in
+                vm.ban(for: .ever)
+            }
         })
         alert.addAction(UIAlertAction(title: .tr("Cancel"), style: .cancel))
         present(alert, animated: true)
     }
 
     private func onUser(_ user: FPUser?) {
-        guard let user = user else { return }
+        guard let user = user,
+              let dateJoined = dateJoined,
+              let bio = bio
+        else { return }
         let date = dateFormat.string(from: user.dateJoined.date)
 
-        DispatchQueue.main.async { [self] in
+        DispatchQueue.main.async {
             dateJoined.text = .localizedStringWithFormat(.tr("User.DateJoined"), date)
             bio.text = user.bio
         }
@@ -108,7 +120,8 @@ class UserViewController: UIViewController {
         let isCurrentUser = profile.id == currentProfile?.id
         block.isHidden = blocked || isCurrentUser
         unblock.isHidden = !blocked || isCurrentUser
-        DispatchQueue.main.async { self.menu.reload() }
+        guard let menu = menu else { return }
+        DispatchQueue.main.async { menu.reload() }
     }
 
     private func onBanned(_ banned: Bool) {
@@ -117,7 +130,8 @@ class UserViewController: UIViewController {
             ban.isHidden = true
         }
 
-        DispatchQueue.main.async { self.menu.reload() }
+        guard let menu = menu else { return }
+        DispatchQueue.main.async { menu.reload() }
     }
 }
 
@@ -129,7 +143,7 @@ extension UserViewController: UserViewModelDelegate {
             ? BlockedUsersViewController.userBlockedNotification
             : BlockedUsersViewController.userUnblockedNotification
         let info: [String: Any] = ["position": position, "item": profile as Any]
-        NotificationCenter.default.post(name: notification, object: self, userInfo: info)
+        NotificationCenter.default.post(name: notification, object: nil, userInfo: info)
     }
 
     func onReport() {
@@ -142,7 +156,7 @@ extension UserViewController: UserViewModelDelegate {
         guard let position = itemPosition else { return }
         var info: [String: Any] = ["position": position]
         info["item"] = profile
-        NotificationCenter.default.post(name: BlockedUsersViewController.userBannedNotification, object: self, userInfo: info)
+        NotificationCenter.default.post(name: BlockedUsersViewController.userBannedNotification, object: nil, userInfo: info)
     }
 
     func errorKey(for code: Int, with message: String?) -> String? {

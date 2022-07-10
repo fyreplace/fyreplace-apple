@@ -90,10 +90,8 @@ class MainViewController: UITabBarController {
     }
 
     private func onPostNotFound(_ notification: Notification) {
-        DispatchQueue.main.async {
-            guard let navigationController = self.selectedViewController as? UINavigationController else { return }
-            navigationController.popViewController(animated: true)
-        }
+        guard let controller = selectedViewController as? UINavigationController else { return }
+        DispatchQueue.main.async { controller.popViewController(animated: true) }
     }
 
     private func toggleAuthenticatedTabs(enabled: Bool) {
