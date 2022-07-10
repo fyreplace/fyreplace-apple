@@ -29,7 +29,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     let pageSize: UInt32 = 12
     var itemCount: Int { items.count }
     private(set) var items: [Item] = []
-    private let delegate: ItemListerDelegate
+    private weak var delegate: ItemListerDelegate!
     private let service: Service
     private let forward: Bool
     private let type: Int

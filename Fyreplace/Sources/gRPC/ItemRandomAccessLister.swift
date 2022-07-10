@@ -29,7 +29,7 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
     private(set) var items: [Int: Item] = [:]
     private(set) var totalCount = 0
     private var indexes = NSMutableOrderedSet()
-    private let delegate: ItemRandomAccessListerDelegate
+    private weak var delegate: ItemRandomAccessListerDelegate!
     private let service: Service
     private let contextId: Data
     private let type: Int
