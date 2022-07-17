@@ -815,7 +815,7 @@
         <!--Post-->
         <scene sceneID="a5554622c655c7a7e470c115f374d92595fa3b1f431dc6ee3d1edfbc103846ed">
             <objects>
-                <tableViewController storyboardIdentifier="Post" id="Post-Post" userLabel="Post" customClass="PostViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Post" hidesBottomBarWhenPushed="YES" id="Post-Post" userLabel="Post" customClass="PostViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Post-Post-view">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1121,7 +1121,7 @@
         <!--Draft-->
         <scene sceneID="ebf12ef47cf575b3ba9a3cc019c5310146fdac88f6d1be6618d6e91158c2f174">
             <objects>
-                <tableViewController storyboardIdentifier="Draft" id="Draft-Draft" userLabel="Draft" customClass="DraftViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Draft" hidesBottomBarWhenPushed="YES" id="Draft-Draft" userLabel="Draft" customClass="DraftViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="100" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Draft-Draft-view">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1600,13 +1600,13 @@
         <!--Login-->
         <scene sceneID="9d6322c1f4d9d3f38aed8bfbe0b2bcadf66ad82c008476fa62541fa069138e94">
             <objects>
-                <viewController storyboardIdentifier="Login" id="Login-Login" userLabel="Login" customClass="LoginViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" hidesBottomBarWhenPushed="YES" id="Login-Login" userLabel="Login" customClass="LoginViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Login-Login-view">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView">
-                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView">
                                         <rect key="frame" x="20" y="60" width="350" height="395"/>
@@ -1836,7 +1836,7 @@
         <!--Blocked Users-->
         <scene sceneID="155c5a07a41f0fc1d4fb88317593e834c4483fb7540b552f0518355cf6fec535">
             <objects>
-                <tableViewController storyboardIdentifier="Blocked Users" id="Blocked-Users-Blocked-Users" userLabel="Blocked Users" customClass="BlockedUsersViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Blocked Users" hidesBottomBarWhenPushed="YES" id="Blocked-Users-Blocked-Users" userLabel="Blocked Users" customClass="BlockedUsersViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Blocked-Users-Blocked-Users-view">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
