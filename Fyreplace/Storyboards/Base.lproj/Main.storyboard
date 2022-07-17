@@ -875,7 +875,7 @@
                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-Button" customClass="RoundButton" customModule="Fyreplace" customModuleProvider="target">
                                             <rect key="frame" x="20" y="10" width="40" height="40"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="0e-02-02-01-01-01--C-00"/>
+                                                <constraint firstAttribute="height" constant="40" id="0e-02-02-01-01-01--C-00"/>
                                                 <constraint firstAttribute="width" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="height" multiplier="1:1" id="0e-02-02-01-01-01--C-00-00-00"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
