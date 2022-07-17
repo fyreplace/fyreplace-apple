@@ -7,7 +7,7 @@ class MainViewController: UITabBarController {
     var vm: MainViewModel!
 
     private var navigationBackTitles: [UIViewController: String?] = [:]
-    private var urlHandled = false
+    private var lastHandledUrl: URL?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +52,11 @@ class MainViewController: UITabBarController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard !urlHandled,
-              let appDelegate = UIApplication.shared.delegate as? AppDelegate,
-              let url = appDelegate.activityUrl
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+              let url = appDelegate.activityUrl,
+              url != lastHandledUrl
         else { return }
 
-        urlHandled = true
         handle(url: url)
     }
 
@@ -98,6 +97,8 @@ class MainViewController: UITabBarController {
     }
 
     private func handle(url: URL) {
+        lastHandledUrl = url
+
         if let token = url.fragment {
             switch url.path {
             case "/AccountService.ConfirmActivation":
