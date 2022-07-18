@@ -12,8 +12,16 @@ protocol ViewModelDelegate where Self: UIViewController {
 
 extension ViewModelDelegate {
     func onError(_ error: Error, canAutoDisconnect autoDisconnect: Bool = true) {
+        DispatchQueue.main.async { [unowned self] in
+            onFailure(error, canAutoDisconnect: autoDisconnect)
+        }
+    }
+
+    func onFailure(_ error: Error, canAutoDisconnect autoDisconnect: Bool) {
         let key: String?
-        guard let status = error as? GRPCStatus else { return showAlert("Error") }
+        guard let status = error as? GRPCStatus else {
+            return presentBasicAlert(text: "Error", feedback: .error)
+        }
 
         switch status.code {
         case .unavailable:
@@ -35,12 +43,6 @@ extension ViewModelDelegate {
         }
 
         if let key = key {
-            showAlert(key)
-        }
-    }
-
-    private func showAlert(_ key: String) {
-        DispatchQueue.main.async { [unowned self] in
             presentBasicAlert(text: key, feedback: .error)
         }
     }
