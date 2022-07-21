@@ -71,6 +71,7 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
 
     func insert(_ item: Any) {
         items[totalCount] = (item as! Item)
+        totalCount += 1
     }
 
     func update(_ item: Any, at index: Int) {

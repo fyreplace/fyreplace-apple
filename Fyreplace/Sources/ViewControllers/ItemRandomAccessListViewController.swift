@@ -1,8 +1,32 @@
+import ReactiveSwift
 import UIKit
 
 class ItemRandomAccessListViewController: UITableViewController {
     @IBOutlet
     weak var listDelegate: ItemRandomAccessListViewDelegate!
+
+    open class var additionNotification: Notification.Name? { nil }
+    open class var updateNotification: Notification.Name? { nil }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if let additionNotification = Self.additionNotification {
+            NotificationCenter.default.reactive
+                .notifications(forName: additionNotification)
+                .take(during: reactive.lifetime)
+                .observe(on: UIScheduler())
+                .observeValues { [unowned self] in onItemAdded($0) }
+        }
+
+        if let updateNotification = Self.updateNotification {
+            NotificationCenter.default.reactive
+                .notifications(forName: updateNotification)
+                .take(during: reactive.lifetime)
+                .observe(on: UIScheduler())
+                .observeValues { [unowned self] in onItemUpdated($0) }
+        }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -18,9 +42,34 @@ class ItemRandomAccessListViewController: UITableViewController {
         listDelegate.lister.stopListing()
     }
 
+    func addItem(_ item: Any) {
+        listDelegate.lister.insert(item)
+        tableView.insertRows(
+            at: [.init(row: listDelegate.lister.totalCount - 1, section: 0)],
+            with: .automatic
+        )
+    }
+
     func updateItem(_ item: Any, at indexPath: IndexPath) {
         listDelegate.lister.update(item, at: indexPath.row)
         tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
+    private func onItemAdded(_ notification: Notification) {
+        guard let info = notification.userInfo,
+              let item = info["item"]
+        else { return }
+
+        addItem(item)
+    }
+
+    private func onItemUpdated(_ notification: Notification) {
+        guard let info = notification.userInfo,
+              let position = info["position"] as? Int,
+              let item = info["item"]
+        else { return }
+
+        updateItem(item, at: IndexPath(row: position, section: 0))
     }
 }
 

@@ -23,6 +23,8 @@ class PostViewController: ItemRandomAccessListViewController {
     @IBOutlet
     var dateCreated: UIButton!
     @IBOutlet
+    var comment: UIBarButtonItem!
+    @IBOutlet
     var tableHeader: PostTableHeaderView!
     @IBOutlet
     var dateFormat: DateFormat!
@@ -33,6 +35,10 @@ class PostViewController: ItemRandomAccessListViewController {
     private var errored = false
     private var shouldScrollToComment = false
     private lazy var currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
+
+    override class var additionNotification: Notification.Name {
+        Self.commentAddedNotification
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +56,16 @@ class PostViewController: ItemRandomAccessListViewController {
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setToolbarHidden(false)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        setToolbarHidden(true)
+        super.viewWillDisappear(animated)
+    }
+
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard [avatar, username, dateCreated].contains(sender as? UIView),
               let post = vm.post.value
@@ -61,17 +77,18 @@ class PostViewController: ItemRandomAccessListViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+        guard let post = vm.post.value else { return }
 
-        guard let sender = sender as? UIView,
-              let userNavigationController = segue.destination as? UserNavigationViewController,
-              let post = vm.post.value
-        else { return }
-
-        let profile = [avatar, username, dateCreated].contains(sender)
-            ? post.author
-            : vm.comment(atIndex: sender.tag)?.author
-
-        userNavigationController.profile = profile
+        if let sender = sender as? UIView,
+           let userNavigationController = segue.destination as? UserNavigationViewController,
+           let profile = [avatar, username, dateCreated].contains(sender)
+           ? post.author
+           : vm.comment(atIndex: sender.tag)?.author
+        {
+            userNavigationController.profile = profile
+        } else if let commentNavigationController = segue.destination as? CommentNavigationViewController {
+            commentNavigationController.postId = post.id
+        }
     }
 
     @IBAction
@@ -128,6 +145,13 @@ class PostViewController: ItemRandomAccessListViewController {
         subscribe.isHidden = subscribed
         unsubscribe.isHidden = !subscribed
         DispatchQueue.main.async { [unowned self] in menu.reload() }
+    }
+
+    private func setToolbarHidden(_ hidden: Bool) {
+        guard let navigationController = navigationController else { return }
+        navigationController.setToolbarHidden(hidden, animated: true)
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        setToolbarItems(hidden ? nil : [space, comment, space], animated: false)
     }
 }
 

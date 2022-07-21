@@ -336,8 +336,8 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Drafts-Drafts-view-Empty-contentView-Empty" firstAttribute="centerX" secondItem="Drafts-Drafts-view-Empty-contentView" secondAttribute="centerX" id="06-00-03-01-01--C-00-00-00-00"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Empty-contentView-Empty" firstAttribute="centerY" secondItem="Drafts-Drafts-view-Empty-contentView" secondAttribute="centerY" id="06-00-03-01-01--C-00-00-00-01"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Empty-contentView-Empty" firstAttribute="centerX" secondItem="Drafts-Drafts-view-Empty-contentView" secondAttribute="centerX" id="08-00-03-01-01--C-00-00-00-00"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Empty-contentView-Empty" firstAttribute="centerY" secondItem="Drafts-Drafts-view-Empty-contentView" secondAttribute="centerY" id="08-00-03-01-01--C-00-00-00-01"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -366,13 +366,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="bottom" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="bottomMargin" id="06-00-03-03-01--C-00-00-00-00"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="leading" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="leadingMargin" id="06-00-03-03-01--C-00-00-00-01"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="top" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="topMargin" id="06-00-03-03-01--C-00-00-00-02"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="width" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="width" multiplier="1:2" id="06-00-03-03-01--C-00-00-00-03"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-parts" firstAttribute="centerY" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="centerY" id="06-00-03-03-01--C-00-00-00-04"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-parts" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Drafts-Drafts-view-Text-contentView-Preview" secondAttribute="trailing" constant="8" symbolic="YES" id="06-00-03-03-01--C-00-00-00-04-00"/>
-                                        <constraint firstAttribute="trailing" secondItem="Drafts-Drafts-view-Text-contentView-parts" secondAttribute="trailing" constant="20" symbolic="YES" id="06-00-03-03-01--C-00-00-01"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="bottom" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="bottomMargin" id="08-00-03-03-01--C-00-00-00-00"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="leading" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="leadingMargin" id="08-00-03-03-01--C-00-00-00-01"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="top" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="topMargin" id="08-00-03-03-01--C-00-00-00-02"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="width" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="width" multiplier="1:2" id="08-00-03-03-01--C-00-00-00-03"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-parts" firstAttribute="centerY" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="centerY" id="08-00-03-03-01--C-00-00-00-04"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-parts" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Drafts-Drafts-view-Text-contentView-Preview" secondAttribute="trailing" constant="8" symbolic="YES" id="08-00-03-03-01--C-00-00-00-04-00"/>
+                                        <constraint firstAttribute="trailing" secondItem="Drafts-Drafts-view-Text-contentView-parts" secondAttribute="trailing" constant="20" symbolic="YES" id="08-00-03-03-01--C-00-00-01"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -391,7 +391,7 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Drafts-Drafts-view-Image-contentView-imageView">
                                             <rect key="frame" x="20" y="11" width="195" height="118"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="Drafts-Drafts-view-Image-contentView-imageView" secondAttribute="height" multiplier="16:9" id="06-00-03-02-01-01--C-00-00-00-00"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="Drafts-Drafts-view-Image-contentView-imageView" secondAttribute="height" multiplier="16:9" id="08-00-03-02-01-01--C-00-00-00-00"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -407,13 +407,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="bottom" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="bottomMargin" id="06-00-03-02-01--C-00-00-00-00"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="leading" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="leadingMargin" id="06-00-03-02-01--C-00-00-00-01"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="top" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="topMargin" id="06-00-03-02-01--C-00-00-00-02"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="width" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="width" multiplier="1:2" priority="750" id="06-00-03-02-01--C-00-00-00-03"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-parts" firstAttribute="centerY" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="centerY" id="06-00-03-02-01--C-00-00-00-04"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-parts" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Drafts-Drafts-view-Image-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES" id="06-00-03-02-01--C-00-00-00-04-00"/>
-                                        <constraint firstAttribute="trailing" secondItem="Drafts-Drafts-view-Image-contentView-parts" secondAttribute="trailing" constant="20" symbolic="YES" id="06-00-03-02-01--C-00-00-01"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="bottom" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="bottomMargin" id="08-00-03-02-01--C-00-00-00-00"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="leading" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="leadingMargin" id="08-00-03-02-01--C-00-00-00-01"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="top" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="topMargin" id="08-00-03-02-01--C-00-00-00-02"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="width" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="width" multiplier="1:2" priority="750" id="08-00-03-02-01--C-00-00-00-03"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-parts" firstAttribute="centerY" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="centerY" id="08-00-03-02-01--C-00-00-00-04"/>
+                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-parts" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Drafts-Drafts-view-Image-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES" id="08-00-03-02-01--C-00-00-00-04-00"/>
+                                        <constraint firstAttribute="trailing" secondItem="Drafts-Drafts-view-Image-contentView-parts" secondAttribute="trailing" constant="20" symbolic="YES" id="08-00-03-02-01--C-00-00-01"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -446,9 +446,9 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="Drafts-Drafts-Drafts-barButtonItem-customView-activityIndicatorView" firstAttribute="centerX" secondItem="Drafts-Drafts-Drafts-barButtonItem-customView" secondAttribute="centerX" id="06-00-01-01-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Drafts-Drafts-Drafts-barButtonItem-customView-activityIndicatorView" firstAttribute="centerY" secondItem="Drafts-Drafts-Drafts-barButtonItem-customView" secondAttribute="centerY" id="06-00-01-01-00--C-00-00-00-01"/>
-                                        <constraint firstAttribute="width" secondItem="Drafts-Drafts-Drafts-barButtonItem-customView-activityIndicatorView" secondAttribute="width" id="06-00-01-01-00--C-00-00-01"/>
+                                        <constraint firstItem="Drafts-Drafts-Drafts-barButtonItem-customView-activityIndicatorView" firstAttribute="centerX" secondItem="Drafts-Drafts-Drafts-barButtonItem-customView" secondAttribute="centerX" id="08-00-01-01-00--C-00-00-00-00"/>
+                                        <constraint firstItem="Drafts-Drafts-Drafts-barButtonItem-customView-activityIndicatorView" firstAttribute="centerY" secondItem="Drafts-Drafts-Drafts-barButtonItem-customView" secondAttribute="centerY" id="08-00-01-01-00--C-00-00-00-01"/>
+                                        <constraint firstAttribute="width" secondItem="Drafts-Drafts-Drafts-barButtonItem-customView-activityIndicatorView" secondAttribute="width" id="08-00-01-01-00--C-00-00-01"/>
                                     </constraints>
                                 </view>
                             </barButtonItem>
@@ -519,8 +519,8 @@
                                     <color key="tintColor" systemColor="labelColor"/>
                                     <gestureRecognizers/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="10-02-02-04-01--C-00"/>
-                                        <constraint firstAttribute="width" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="height" multiplier="1:1" id="10-02-02-04-01--C-00-00-00"/>
+                                        <constraint firstAttribute="width" constant="100" id="12-02-02-04-01--C-00"/>
+                                        <constraint firstAttribute="width" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="height" multiplier="1:1" id="12-02-02-04-01--C-00-00-00"/>
                                     </constraints>
                                     <connections>
                                         <outletCollection property="gestureRecognizers" destination="Settings-Avatar-Taps" appends="YES" id="8c8793ef1982f22a0549e7a4fd56a7f4853ea661942ba66e3a6a1f90ac475438"/>
@@ -534,12 +534,12 @@
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="10-02-02-04--C-00-00-00-00"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="top" constant="20" symbolic="YES" id="10-02-02-04--C-00-00-00-01"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="10-02-02-04--C-00-00-00-02"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="leading" constant="20" symbolic="YES" id="10-02-02-04--C-00-00-00-02-00"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="bottom" constant="8" symbolic="YES" id="10-02-02-04--C-00-00-00-03"/>
-                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="trailing" constant="20" symbolic="YES" id="10-02-02-04--C-00-00-00-03-00"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="12-02-02-04--C-00-00-00-00"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Avatar" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="top" constant="20" symbolic="YES" id="12-02-02-04--C-00-00-00-01"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="centerX" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="centerX" id="12-02-02-04--C-00-00-00-02"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="leading" constant="20" symbolic="YES" id="12-02-02-04--C-00-00-00-02-00"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="top" secondItem="Settings-Settings-view-tableHeaderView-Avatar" secondAttribute="bottom" constant="8" symbolic="YES" id="12-02-02-04--C-00-00-00-03"/>
+                                <constraint firstItem="Settings-Settings-view-tableHeaderView-Username" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Settings-Settings-view-tableHeaderView" secondAttribute="trailing" constant="20" symbolic="YES" id="12-02-02-04--C-00-00-00-03-00"/>
                             </constraints>
                         </view>
                         <sections>
@@ -838,12 +838,12 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="bottom" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="bottom" constant="-20" id="0e-02-02-03--C-00-00-00-00"/>
-                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="leading" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="leading" id="0e-02-02-03--C-00-00-00-01"/>
-                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="trailing" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="trailing" id="0e-02-02-03--C-00-00-00-02"/>
+                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="bottom" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="bottom" constant="-20" id="10-03-02-03--C-00-00-00-00"/>
+                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="leading" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="leading" id="10-03-02-03--C-00-00-00-01"/>
+                                <constraint firstItem="Post-Post-view-PostTableHeaderView-DynamicStackView" firstAttribute="trailing" secondItem="Post-Post-view-PostTableHeaderView" secondAttribute="trailing" id="10-03-02-03--C-00-00-00-02"/>
                             </constraints>
                             <connections>
-                                <outlet property="bottom" destination="0e-02-02-03--C-00-00-00-00" id="fa39c4adc8df1bdc29b1fe009c88e2df9c1603365e4a3e64a40198153b502c8d"/>
+                                <outlet property="bottom" destination="10-03-02-03--C-00-00-00-00" id="fa39c4adc8df1bdc29b1fe009c88e2df9c1603365e4a3e64a40198153b502c8d"/>
                                 <outlet property="content" destination="Post-Post-view-PostTableHeaderView-DynamicStackView" id="8230497d9dbc155966c2ed214d8dc040b3506d8767409a0d7bec15010c5cc545"/>
                             </connections>
                         </view>
@@ -860,8 +860,8 @@
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Post-Post-view-Loader-contentView-activityIndicatorView" firstAttribute="centerX" secondItem="Post-Post-view-Loader-contentView" secondAttribute="centerX" id="0e-02-02-02-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Post-Post-view-Loader-contentView-activityIndicatorView" firstAttribute="centerY" secondItem="Post-Post-view-Loader-contentView" secondAttribute="centerY" id="0e-02-02-02-00--C-00-00-00-01"/>
+                                        <constraint firstItem="Post-Post-view-Loader-contentView-activityIndicatorView" firstAttribute="centerX" secondItem="Post-Post-view-Loader-contentView" secondAttribute="centerX" id="10-03-02-02-00--C-00-00-00-00"/>
+                                        <constraint firstItem="Post-Post-view-Loader-contentView-activityIndicatorView" firstAttribute="centerY" secondItem="Post-Post-view-Loader-contentView" secondAttribute="centerY" id="10-03-02-02-00--C-00-00-00-01"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -875,8 +875,8 @@
                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-Button" customClass="RoundButton" customModule="Fyreplace" customModuleProvider="target">
                                             <rect key="frame" x="20" y="10" width="40" height="40"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="0e-02-02-01-01-01--C-00"/>
-                                                <constraint firstAttribute="width" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="height" multiplier="1:1" id="0e-02-02-01-01-01--C-00-00-00"/>
+                                                <constraint firstAttribute="height" constant="40" id="10-03-02-01-01-01--C-00"/>
+                                                <constraint firstAttribute="width" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="height" multiplier="1:1" id="10-03-02-01-01-01--C-00-00-00"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="tintColor" systemColor="labelColor"/>
@@ -893,7 +893,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-Username">
                                             <rect key="frame" x="68" y="10" width="69" height="20"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="0e-02-02-01-01-04--C-00"/>
+                                                <constraint firstAttribute="height" constant="20" id="10-03-02-01-01-04--C-00"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="tintColor" systemColor="labelColor"/>
@@ -918,17 +918,17 @@
                                         </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Button" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="0e-02-02-01-01--C-00-00-00-00"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Button" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView" secondAttribute="top" constant="10" id="0e-02-02-01-01--C-00-00-00-01"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="firstBaseline" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="bottom" id="0e-02-02-01-01--C-00-00-00-02"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="0e-02-02-01-01--C-00-00-00-03"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Date" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Post-Post-view-Comment-contentView-Username" secondAttribute="trailing" constant="8" symbolic="YES" id="0e-02-02-01-01--C-00-00-00-03-00"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Date" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="top" id="0e-02-02-01-01--C-00-00-00-04"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Username" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="0e-02-02-01-01--C-00-00-00-05"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Username" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="top" id="0e-02-02-01-01--C-00-00-00-06"/>
-                                        <constraint firstAttribute="bottom" secondItem="Post-Post-view-Comment-contentView-Comment" secondAttribute="bottom" constant="10" id="0e-02-02-01-01--C-00-00-01"/>
-                                        <constraint firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView-Comment" secondAttribute="trailing" constant="20" symbolic="YES" id="0e-02-02-01-01--C-00-00-02"/>
-                                        <constraint firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView-Date" secondAttribute="trailing" constant="20" symbolic="YES" id="0e-02-02-01-01--C-00-00-03"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Button" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="10-03-02-01-01--C-00-00-00-00"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Button" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView" secondAttribute="top" constant="10" id="10-03-02-01-01--C-00-00-00-01"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="firstBaseline" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="bottom" id="10-03-02-01-01--C-00-00-00-02"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="10-03-02-01-01--C-00-00-00-03"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Date" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Post-Post-view-Comment-contentView-Username" secondAttribute="trailing" constant="8" symbolic="YES" id="10-03-02-01-01--C-00-00-00-03-00"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Date" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="top" id="10-03-02-01-01--C-00-00-00-04"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Username" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="10-03-02-01-01--C-00-00-00-05"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Username" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="top" id="10-03-02-01-01--C-00-00-00-06"/>
+                                        <constraint firstAttribute="bottom" secondItem="Post-Post-view-Comment-contentView-Comment" secondAttribute="bottom" constant="10" id="10-03-02-01-01--C-00-00-01"/>
+                                        <constraint firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView-Comment" secondAttribute="trailing" constant="20" symbolic="YES" id="10-03-02-01-01--C-00-00-02"/>
+                                        <constraint firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView-Date" secondAttribute="trailing" constant="20" symbolic="YES" id="10-03-02-01-01--C-00-00-03"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -956,10 +956,10 @@
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" customClass="RoundButton" customModule="Fyreplace" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="0e-02-01-01-00-01-01--C-00">
+                                                    <constraint firstAttribute="width" constant="40" id="10-03-01-01-00-01-01--C-00">
                                                         <variation key="heightClass=compact" constant="30"/>
                                                     </constraint>
-                                                    <constraint firstAttribute="width" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" secondAttribute="height" multiplier="1:1" id="0e-02-01-01-00-01-01--C-00-00-00"/>
+                                                    <constraint firstAttribute="width" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" secondAttribute="height" multiplier="1:1" id="10-03-01-01-00-01-01--C-00-00-00"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
@@ -999,28 +999,28 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" secondAttribute="height" id="0e-02-01-01-00-01--C-00-00-00-00"/>
-                                            <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" secondAttribute="height" id="0e-02-01-01-00-01--C-00-00-00-01"/>
-                                            <constraint firstAttribute="width" constant="220" id="0e-02-01-01-00-01--C-01"/>
+                                            <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" secondAttribute="height" id="10-03-01-01-00-01--C-00-00-00-00"/>
+                                            <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" secondAttribute="height" id="10-03-01-01-00-01--C-00-00-00-01"/>
+                                            <constraint firstAttribute="width" constant="220" id="10-03-01-01-00-01--C-01"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="0e-02-01-01-00-01--C-01"/>
+                                                <exclude reference="10-03-01-01-00-01--C-01"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
-                                                <include reference="0e-02-01-01-00-01--C-01"/>
+                                                <include reference="10-03-01-01-00-01--C-01"/>
                                             </mask>
                                         </variation>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="centerX" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="centerX" id="0e-02-01-01-00--C-00-00-00-00"/>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="centerY" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="centerY" id="0e-02-01-01-00--C-00-00-00-01"/>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="height" multiplier="1.25" id="0e-02-01-01-00--C-00-00-00-02"/>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="leading" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="leading" id="0e-02-01-01-00--C-00-00-00-03"/>
-                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="trailing" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="trailing" id="0e-02-01-01-00--C-00-00-00-04"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="centerX" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="centerX" id="10-03-01-01-00--C-00-00-00-00"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="centerY" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="centerY" id="10-03-01-01-00--C-00-00-00-01"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="height" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="height" multiplier="1.25" id="10-03-01-01-00--C-00-00-00-02"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="leading" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="leading" id="10-03-01-01-00--C-00-00-00-03"/>
+                                    <constraint firstItem="Post-Post-navigationItem-leftBarButtonItem-customView-stackView" firstAttribute="trailing" secondItem="Post-Post-navigationItem-leftBarButtonItem-customView" secondAttribute="trailing" id="10-03-01-01-00--C-00-00-00-04"/>
                                 </constraints>
                             </view>
                         </barButtonItem>
@@ -1037,6 +1037,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="avatar" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" id="c60bcadb393e0b29be295d7b02fea3a637fba9732a15a517c359651cfc9eaa56"/>
+                        <outlet property="comment" destination="Post-Comment" id="32d0ee4de166cb676fb12dc88da3fe0973ff04dadde5727e9d25d80a60c5f21d"/>
                         <outlet property="dateCreated" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created" id="4aa5d58fdff13cadcdf8decfb26708d03e1f3b65495f1e1f7de9efcea82e117c"/>
                         <outlet property="dateFormat" destination="Post-DateFormat" id="2bf14b14e043f0afe26d547ddbe5d6f7e64e1df25fcde10d654ac3bd3df5c421"/>
                         <outlet property="delete" destination="Post-Delete" id="99538391e95fcdcf705a668f4efdf6989d6ec3370f9fc5372da3568e75b49490"/>
@@ -1105,6 +1106,11 @@
                         <action selector="onDeletePressed" destination="Post-Post" id="8fb353045ff105f66908bcdabb4664a7f5e6401ac072058ccac37286440aca0b"/>
                     </connections>
                 </barButtonItem>
+                <barButtonItem title="Comment" id="Post-Comment">
+                    <connections>
+                        <segue destination="Comment-Navigation-Comment-Navigation" kind="presentation" identifier="" id="acd0c5608416f9a42a0e65f783db113271b86186c97ab9d5a5e36f474b682206"/>
+                    </connections>
+                </barButtonItem>
                 <customObject id="Post-PostViewModel" customClass="PostViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
                         <outlet property="delegate" destination="Post-Post" id="2aab9755982bb7c19c4641755cfc2a518f97faf0836b457d74e982140d18aba6"/>
@@ -1158,9 +1164,9 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="centerX" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="centerX" id="05-01-02-03--C-00-00-00-00"/>
-                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="centerY" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="centerY" id="05-01-02-03--C-00-00-00-01"/>
-                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="height" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="height" id="05-01-02-03--C-00-00-00-02"/>
+                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="centerX" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="centerX" id="07-01-02-03--C-00-00-00-00"/>
+                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="centerY" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="centerY" id="07-01-02-03--C-00-00-00-01"/>
+                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="height" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="height" id="07-01-02-03--C-00-00-00-02"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -1171,7 +1177,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="57.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Draft-Draft-view-Text-contentView-Empty">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Empty" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Draft-Draft-view-Text-contentView-Empty">
                                             <rect key="frame" x="20" y="20" width="350" height="17.333333333333329"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" systemColor="placeholderTextColor"/>
@@ -1179,10 +1185,10 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Draft-Draft-view-Text-contentView-Empty" firstAttribute="leading" secondItem="Draft-Draft-view-Text-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="05-01-02-02-01--C-00-00-00-00"/>
-                                        <constraint firstItem="Draft-Draft-view-Text-contentView-Empty" firstAttribute="top" secondItem="Draft-Draft-view-Text-contentView" secondAttribute="top" constant="20" symbolic="YES" id="05-01-02-02-01--C-00-00-00-01"/>
-                                        <constraint firstAttribute="bottom" secondItem="Draft-Draft-view-Text-contentView-Empty" secondAttribute="bottom" constant="20" symbolic="YES" id="05-01-02-02-01--C-00-00-01"/>
-                                        <constraint firstAttribute="trailing" secondItem="Draft-Draft-view-Text-contentView-Empty" secondAttribute="trailing" constant="20" symbolic="YES" id="05-01-02-02-01--C-00-00-02"/>
+                                        <constraint firstItem="Draft-Draft-view-Text-contentView-Empty" firstAttribute="leading" secondItem="Draft-Draft-view-Text-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="07-01-02-02-01--C-00-00-00-00"/>
+                                        <constraint firstItem="Draft-Draft-view-Text-contentView-Empty" firstAttribute="top" secondItem="Draft-Draft-view-Text-contentView" secondAttribute="top" constant="20" symbolic="YES" id="07-01-02-02-01--C-00-00-00-01"/>
+                                        <constraint firstAttribute="bottom" secondItem="Draft-Draft-view-Text-contentView-Empty" secondAttribute="bottom" constant="20" symbolic="YES" id="07-01-02-02-01--C-00-00-01"/>
+                                        <constraint firstAttribute="trailing" secondItem="Draft-Draft-view-Text-contentView-Empty" secondAttribute="trailing" constant="20" symbolic="YES" id="07-01-02-02-01--C-00-00-02"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1202,10 +1208,10 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="bottom" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="bottom" id="05-01-02-01-01--C-00-00-00-00"/>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="leading" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="leading" id="05-01-02-01-01--C-00-00-00-01"/>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="top" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="top" id="05-01-02-01-01--C-00-00-00-02"/>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="trailing" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="trailing" id="05-01-02-01-01--C-00-00-00-03"/>
+                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="bottom" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="bottom" id="07-01-02-01-01--C-00-00-00-00"/>
+                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="leading" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="leading" id="07-01-02-01-01--C-00-00-00-01"/>
+                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="top" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="top" id="07-01-02-01-01--C-00-00-00-02"/>
+                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="trailing" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="trailing" id="07-01-02-01-01--C-00-00-00-03"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1284,115 +1290,6 @@
             </objects>
             <point key="canvasLocation" x="750" y="1500"/>
         </scene>
-        <!--Text Chapter Navigation-->
-        <scene sceneID="a11e48a6a9b20cca7e4e25ab4ec488941fda8217630cc2970663af1a97c7ad56">
-            <objects>
-                <navigationController storyboardIdentifier="Text Chapter Navigation" automaticallyAdjustsScrollViewInsets="NO" id="Text-Chapter-Navigation-Text-Chapter-Navigation" userLabel="Text Chapter Navigation" customClass="TextChapterNavigationViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Text-Chapter-Navigation-Text-Chapter-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Text-Chapter-Text-Chapter" kind="relationship" relationship="rootViewController" id="d1da893bc903aa92724d64bf6b4764b50d2c2270da04a4f94ba6ede45b906aa4"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Text-Chapter-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="750" y="2250"/>
-        </scene>
-        <!--Text Chapter-->
-        <scene sceneID="f9d5f61a0fc78b0b585789abc0d5daa09c6ed954168754e4faae06c44df7c2d3">
-            <objects>
-                <viewController storyboardIdentifier="Text Chapter" id="Text-Chapter-Text-Chapter" userLabel="Text Chapter" customClass="TextChapterViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Text-Chapter-Text-Chapter-view">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Text-Chapter-Text-Chapter-view-textView">
-                                <rect key="frame" x="16" y="56" width="358" height="734"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Text-Chapter-Text-Chapter-view-safeArea"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Text-Chapter-Text-Chapter-view-textView" firstAttribute="leading" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="leadingMargin" id="12-02-02--C-00-00-00-00"/>
-                            <constraint firstItem="Text-Chapter-Text-Chapter-view-textView" firstAttribute="top" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="topMargin" id="12-02-02--C-00-00-00-01"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Text-Chapter-Text-Chapter-view-textView" secondAttribute="bottom" id="12-02-02--C-00-00-01" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Text-Chapter-Text-Chapter-view-textView" secondAttribute="trailing" id="12-02-02--C-00-00-02"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Text-Chapter-Text-Chapter-navigationItem">
-                        <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Text-Chapter-Text-Chapter-navigationItem-cancel">
-                            <connections>
-                                <action selector="onCancelPressed" destination="Text-Chapter-Text-Chapter" id="bdc167e4bac1e597c0134cee8e5fba25d2d4d78b5cbb5fbc62fee6a7585cbe5a"/>
-                            </connections>
-                        </barButtonItem>
-                        <view key="titleView" contentMode="scaleToFill" id="Text-Chapter-Text-Chapter-navigationItem-titleView">
-                            <rect key="frame" x="195" y="28" width="0.0" height="0.0"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Text-Chapter-Text-Chapter-navigationItem-titleView-Length">
-                                    <rect key="frame" x="-23.666666666666668" y="-8.6666666666666661" width="47.333333333333336" height="17.333333333333332"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="Text-Chapter-Text-Chapter-navigationItem-titleView-Length" firstAttribute="centerX" secondItem="Text-Chapter-Text-Chapter-navigationItem-titleView" secondAttribute="centerX" id="12-02-01-03--C-00-00-00-00"/>
-                                <constraint firstItem="Text-Chapter-Text-Chapter-navigationItem-titleView-Length" firstAttribute="centerY" secondItem="Text-Chapter-Text-Chapter-navigationItem-titleView" secondAttribute="centerY" id="12-02-01-03--C-00-00-00-01"/>
-                            </constraints>
-                        </view>
-                        <rightBarButtonItems>
-                            <barButtonItem style="done" systemItem="done" id="Text-Chapter-Text-Chapter-navigationItem-done">
-                                <connections>
-                                    <action selector="onDonePressed" destination="Text-Chapter-Text-Chapter" id="a6610d5b2679b9697fbed8b1c94adc78d274f62999a1bceb5cefa6c9799e4d62"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="Text-Chapter-Text-Chapter-navigationItem-barButtonItem">
-                                <view key="customView" contentMode="scaleToFill" id="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView">
-                                    <rect key="frame" x="292.33333333333331" y="12" width="32" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView-activityIndicatorView">
-                                            <rect key="frame" x="0.0" y="6" width="32" height="20"/>
-                                        </activityIndicatorView>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerX" secondItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView" secondAttribute="centerX" id="12-02-01-00-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerY" secondItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView" secondAttribute="centerY" id="12-02-01-00-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="width" secondItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView" secondAttribute="width" id="12-02-01-00-00--C-00-00-00-02"/>
-                                    </constraints>
-                                </view>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="content" destination="Text-Chapter-Text-Chapter-view-textView" id="13f11c02e7ad38b0e89023cf79d5541102575adca398e1970a5e72aed545c2b3"/>
-                        <outlet property="done" destination="Text-Chapter-Text-Chapter-navigationItem-done" id="81f45b24f3dc71651177e58c112bbdb8a8c6b25625adfac4a08aa5b81d50777d"/>
-                        <outlet property="length" destination="Text-Chapter-Text-Chapter-navigationItem-titleView-Length" id="879b9e782734e1954b455bec907d783c281786d0568bb0feecdce43fe66c3444"/>
-                        <outlet property="loader" destination="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView-activityIndicatorView" id="25fc18bb53f91ae9c49904d6810feca174ff36af380f96a2b471b87de591ae47"/>
-                        <outlet property="vm" destination="Text-Chapter-TextChapterViewModel" id="b77898702628799461d03a679f66ee4593cd809160f54fe6066f5e9c80d01f7f"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Text-Chapter-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="Text-Chapter-TextChapterViewModel" customClass="TextChapterViewModel" customModule="Fyreplace" customModuleProvider="target">
-                    <connections>
-                        <outlet property="delegate" destination="Text-Chapter-Text-Chapter" id="a88601bca8c67ff7a530e730acd05bd5348a1a0b9a661c42a330d64115e87414"/>
-                    </connections>
-                </customObject>
-            </objects>
-            <point key="canvasLocation" x="750" y="3000"/>
-        </scene>
         <!--User Navigation-->
         <scene sceneID="f3361773c90ccb34ad426081bb65e5313ecb4f843d90498c67a13329db237be1">
             <objects>
@@ -1429,8 +1326,8 @@
                                                 <rect key="frame" x="145" y="21.000000000000007" width="100" height="98.666666666666686"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="14-05-02-02-03-02--C-00"/>
-                                                    <constraint firstAttribute="width" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="14-05-02-02-03-02--C-00-00-00"/>
+                                                    <constraint firstAttribute="height" constant="100" id="16-05-02-02-03-02--C-00"/>
+                                                    <constraint firstAttribute="width" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="16-05-02-02-03-02--C-00-00-00"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date Joined" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view-Date-Joined">
@@ -1442,7 +1339,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view-textView">
                                                 <rect key="frame" x="20" y="177" width="350" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="400" id="14-05-02-02-03-03--C-00"/>
+                                                    <constraint firstAttribute="width" constant="400" id="16-05-02-02-03-03--C-00"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -1455,52 +1352,52 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="14-05-02-02-03-03--C-00"/>
+                                                        <exclude reference="16-05-02-02-03-03--C-00"/>
                                                     </mask>
                                                 </variation>
                                                 <variation key="widthClass=regular">
                                                     <mask key="constraints">
-                                                        <include reference="14-05-02-02-03-03--C-00"/>
+                                                        <include reference="16-05-02-02-03-03--C-00"/>
                                                     </mask>
                                                 </variation>
                                             </textView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="14-05-02-02-03--C-00-00-00-00"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="top" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="bottom" constant="20" id="14-05-02-02-03--C-00-00-00-01"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="14-05-02-02-03--C-00-00-00-02"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" constant="20" symbolic="YES" id="14-05-02-02-03--C-00-00-00-03"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="14-05-02-02-03--C-00-00-00-04"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="top" secondItem="User-User-view-scrollView-view-Date-Joined" secondAttribute="bottom" constant="20" id="14-05-02-02-03--C-00-00-00-05"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="16-05-02-02-03--C-00-00-00-00"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="top" secondItem="User-User-view-scrollView-view-person-crop-circle-fill" secondAttribute="bottom" constant="20" id="16-05-02-02-03--C-00-00-00-01"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="16-05-02-02-03--C-00-00-00-02"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-person-crop-circle-fill" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" constant="20" symbolic="YES" id="16-05-02-02-03--C-00-00-00-03"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="16-05-02-02-03--C-00-00-00-04"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="top" secondItem="User-User-view-scrollView-view-Date-Joined" secondAttribute="bottom" constant="20" id="16-05-02-02-03--C-00-00-00-05"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="14-05-02-02-03--C-00-00-00-04"/>
+                                                <exclude reference="16-05-02-02-03--C-00-00-00-04"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=regular">
                                             <mask key="constraints">
-                                                <include reference="14-05-02-02-03--C-00-00-00-04"/>
+                                                <include reference="16-05-02-02-03--C-00-00-00-04"/>
                                             </mask>
                                         </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view" secondAttribute="bottom" id="14-05-02-02--C-00-00-00-00"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view-textView" secondAttribute="bottom" constant="20" id="14-05-02-02--C-00-00-00-01"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="leading" secondItem="User-User-view-scrollView-view" secondAttribute="leading" id="14-05-02-02--C-00-00-00-02"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" id="14-05-02-02--C-00-00-00-03"/>
-                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="trailing" secondItem="User-User-view-scrollView-view" secondAttribute="trailing" id="14-05-02-02--C-00-00-00-04"/>
-                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="leading" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="leading" constant="20" id="14-05-02-02--C-00-00-00-05"/>
-                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="trailing" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="trailing" constant="-20" id="14-05-02-02--C-00-00-00-06"/>
-                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="width" secondItem="User-User-view-scrollView-frameLayoutGuide" secondAttribute="width" id="14-05-02-02--C-00-00-00-07"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view" secondAttribute="bottom" id="16-05-02-02--C-00-00-00-00"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="bottom" secondItem="User-User-view-scrollView-view-textView" secondAttribute="bottom" constant="20" id="16-05-02-02--C-00-00-00-01"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="leading" secondItem="User-User-view-scrollView-view" secondAttribute="leading" id="16-05-02-02--C-00-00-00-02"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" id="16-05-02-02--C-00-00-00-03"/>
+                                    <constraint firstItem="User-User-view-scrollView-contentLayoutGuide" firstAttribute="trailing" secondItem="User-User-view-scrollView-view" secondAttribute="trailing" id="16-05-02-02--C-00-00-00-04"/>
+                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="leading" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="leading" constant="20" id="16-05-02-02--C-00-00-00-05"/>
+                                    <constraint firstItem="User-User-view-scrollView-view-textView" firstAttribute="trailing" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="trailing" constant="-20" id="16-05-02-02--C-00-00-00-06"/>
+                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="width" secondItem="User-User-view-scrollView-frameLayoutGuide" secondAttribute="width" id="16-05-02-02--C-00-00-00-07"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="User-User-view-scrollView-contentLayoutGuide"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="User-User-view-scrollView-frameLayoutGuide"/>
                                 <variation key="widthClass=regular">
                                     <mask key="constraints">
-                                        <exclude reference="14-05-02-02--C-00-00-00-05"/>
-                                        <exclude reference="14-05-02-02--C-00-00-00-06"/>
+                                        <exclude reference="16-05-02-02--C-00-00-00-05"/>
+                                        <exclude reference="16-05-02-02--C-00-00-00-06"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -1508,10 +1405,10 @@
                         <viewLayoutGuide key="safeArea" id="User-User-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="User-User-view-safeArea" firstAttribute="bottom" secondItem="User-User-view-scrollView" secondAttribute="bottom" id="14-05-02--C-00-00-00-00"/>
-                            <constraint firstItem="User-User-view-safeArea" firstAttribute="trailing" secondItem="User-User-view-scrollView" secondAttribute="trailing" id="14-05-02--C-00-00-00-01"/>
-                            <constraint firstItem="User-User-view-scrollView" firstAttribute="leading" secondItem="User-User-view-safeArea" secondAttribute="leading" id="14-05-02--C-00-00-00-02"/>
-                            <constraint firstItem="User-User-view-scrollView" firstAttribute="top" secondItem="User-User-view-safeArea" secondAttribute="top" id="14-05-02--C-00-00-00-03"/>
+                            <constraint firstItem="User-User-view-safeArea" firstAttribute="bottom" secondItem="User-User-view-scrollView" secondAttribute="bottom" id="16-05-02--C-00-00-00-00"/>
+                            <constraint firstItem="User-User-view-safeArea" firstAttribute="trailing" secondItem="User-User-view-scrollView" secondAttribute="trailing" id="16-05-02--C-00-00-00-01"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="leading" secondItem="User-User-view-safeArea" secondAttribute="leading" id="16-05-02--C-00-00-00-02"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="top" secondItem="User-User-view-safeArea" secondAttribute="top" id="16-05-02--C-00-00-00-03"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Username" id="User-User-Username">
@@ -1597,6 +1494,224 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="3000"/>
         </scene>
+        <!--Comment Navigation-->
+        <scene sceneID="75f2b101d472d2100a2960b014240edc784a6d8a10eb741674618193d06d32dc">
+            <objects>
+                <navigationController storyboardIdentifier="Comment Navigation" automaticallyAdjustsScrollViewInsets="NO" id="Comment-Navigation-Comment-Navigation" userLabel="Comment Navigation" customClass="CommentNavigationViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Comment-Navigation-Comment-Navigation-navigationBar">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Comment-Comment" kind="relationship" relationship="rootViewController" id="a5b244dbd71f8f3e9ac6fc6bd11c2cbeeb08cf03341a0189a5593b9616a9584b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Comment-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-750" y="1500"/>
+        </scene>
+        <!--Comment-->
+        <scene sceneID="44f5e3fbec57be75ebfb2e42caf7f5ee1542f84748a0380b6f20238c4a257e1b">
+            <objects>
+                <viewController storyboardIdentifier="Comment" id="Comment-Comment" userLabel="Comment" customClass="CommentViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Comment-Comment-view">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Comment-Comment-view-textView">
+                                <rect key="frame" x="16" y="56" width="358" height="734"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Comment-Comment-view-safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Comment-Comment-view-textView" firstAttribute="leading" secondItem="Comment-Comment-view" secondAttribute="leadingMargin" id="05-00-02--C-00-00-00-00"/>
+                            <constraint firstItem="Comment-Comment-view-textView" firstAttribute="top" secondItem="Comment-Comment-view" secondAttribute="topMargin" id="05-00-02--C-00-00-00-01"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Comment-Comment-view-textView" secondAttribute="bottom" id="05-00-02--C-00-00-01" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Comment-Comment-view-textView" secondAttribute="trailing" id="05-00-02--C-00-00-02"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Comment-Comment-navigationItem">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Comment-Comment-navigationItem-cancel">
+                            <connections>
+                                <action selector="onCancelPressed" destination="Comment-Comment" id="95738129fe02856273bebf6f2e3bca08181b3b65dc583533a1b287b6f2695635"/>
+                            </connections>
+                        </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="Comment-Comment-navigationItem-titleView">
+                            <rect key="frame" x="195" y="28" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Comment-Comment-navigationItem-titleView-Length">
+                                    <rect key="frame" x="-23.666666666666668" y="-8.6666666666666661" width="47.333333333333336" height="17.333333333333332"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="Comment-Comment-navigationItem-titleView-Length" firstAttribute="centerX" secondItem="Comment-Comment-navigationItem-titleView" secondAttribute="centerX" id="05-00-01-03--C-00-00-00-00"/>
+                                <constraint firstItem="Comment-Comment-navigationItem-titleView-Length" firstAttribute="centerY" secondItem="Comment-Comment-navigationItem-titleView" secondAttribute="centerY" id="05-00-01-03--C-00-00-00-01"/>
+                            </constraints>
+                        </view>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Post" style="done" id="Comment-Comment-navigationItem-Post">
+                                <connections>
+                                    <action selector="onDonePressed" destination="Comment-Comment" id="54a1ad87b8ba3a066797c8ba7c9b1e430686863c15f7adad5fada75641fd76b5"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="Comment-Comment-navigationItem-barButtonItem">
+                                <view key="customView" contentMode="scaleToFill" id="Comment-Comment-navigationItem-barButtonItem-customView">
+                                    <rect key="frame" x="298.33333333333331" y="12" width="32" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Comment-Comment-navigationItem-barButtonItem-customView-activityIndicatorView">
+                                            <rect key="frame" x="0.0" y="6" width="32" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="Comment-Comment-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerX" secondItem="Comment-Comment-navigationItem-barButtonItem-customView" secondAttribute="centerX" id="05-00-01-01-00--C-00-00-00-00"/>
+                                        <constraint firstItem="Comment-Comment-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerY" secondItem="Comment-Comment-navigationItem-barButtonItem-customView" secondAttribute="centerY" id="05-00-01-01-00--C-00-00-00-01"/>
+                                        <constraint firstAttribute="width" secondItem="Comment-Comment-navigationItem-barButtonItem-customView-activityIndicatorView" secondAttribute="width" id="05-00-01-01-00--C-00-00-01"/>
+                                    </constraints>
+                                </view>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="content" destination="Comment-Comment-view-textView" id="84a5b4f3b67522cbf57438f592b90eb1525d976435eb40785e9fa074e331c0b5"/>
+                        <outlet property="done" destination="Comment-Comment-navigationItem-Post" id="fa406a915433dfb21d3f391cbed71556c5336c9b4a5caf625a5bdcc27a851e03"/>
+                        <outlet property="length" destination="Comment-Comment-navigationItem-titleView-Length" id="2130713276d4eed9a0e8605ab875dfdb15baf97015f62cfd298748368b6eb673"/>
+                        <outlet property="loader" destination="Comment-Comment-navigationItem-barButtonItem-customView-activityIndicatorView" id="ddfd26f5984f09919df58a0ba47966e39d3206cfbbfd1061c8e1f7f8a262c014"/>
+                        <outlet property="vm" destination="Comment-CommentViewModel" id="fec2d535c2c11b5182de0eef3ca625eb6e503d5238263f6dc497f238868bdf71"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Comment-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Comment-CommentViewModel" customClass="CommentViewModel" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Comment-Comment" id="fced1935ba3f96f693f685e7c0fce45e759d138c44716d940b409e9ea4a40790"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="-750" y="2250"/>
+        </scene>
+        <!--Text Chapter Navigation-->
+        <scene sceneID="a11e48a6a9b20cca7e4e25ab4ec488941fda8217630cc2970663af1a97c7ad56">
+            <objects>
+                <navigationController storyboardIdentifier="Text Chapter Navigation" automaticallyAdjustsScrollViewInsets="NO" id="Text-Chapter-Navigation-Text-Chapter-Navigation" userLabel="Text Chapter Navigation" customClass="TextChapterNavigationViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Text-Chapter-Navigation-Text-Chapter-Navigation-navigationBar">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Text-Chapter-Text-Chapter" kind="relationship" relationship="rootViewController" id="d1da893bc903aa92724d64bf6b4764b50d2c2270da04a4f94ba6ede45b906aa4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Text-Chapter-Navigation-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="2250"/>
+        </scene>
+        <!--Text Chapter-->
+        <scene sceneID="f9d5f61a0fc78b0b585789abc0d5daa09c6ed954168754e4faae06c44df7c2d3">
+            <objects>
+                <viewController storyboardIdentifier="Text Chapter" id="Text-Chapter-Text-Chapter" userLabel="Text Chapter" customClass="TextChapterViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Text-Chapter-Text-Chapter-view">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Text-Chapter-Text-Chapter-view-textView">
+                                <rect key="frame" x="16" y="56" width="358" height="734"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Text-Chapter-Text-Chapter-view-safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Text-Chapter-Text-Chapter-view-textView" firstAttribute="leading" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="leadingMargin" id="14-02-02--C-00-00-00-00"/>
+                            <constraint firstItem="Text-Chapter-Text-Chapter-view-textView" firstAttribute="top" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="topMargin" id="14-02-02--C-00-00-00-01"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Text-Chapter-Text-Chapter-view-textView" secondAttribute="bottom" id="14-02-02--C-00-00-01" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Text-Chapter-Text-Chapter-view-textView" secondAttribute="trailing" id="14-02-02--C-00-00-02"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Text-Chapter-Text-Chapter-navigationItem">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Text-Chapter-Text-Chapter-navigationItem-cancel">
+                            <connections>
+                                <action selector="onCancelPressed" destination="Text-Chapter-Text-Chapter" id="bdc167e4bac1e597c0134cee8e5fba25d2d4d78b5cbb5fbc62fee6a7585cbe5a"/>
+                            </connections>
+                        </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="Text-Chapter-Text-Chapter-navigationItem-titleView">
+                            <rect key="frame" x="195" y="28" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Text-Chapter-Text-Chapter-navigationItem-titleView-Length">
+                                    <rect key="frame" x="-23.666666666666668" y="-8.6666666666666661" width="47.333333333333336" height="17.333333333333332"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="Text-Chapter-Text-Chapter-navigationItem-titleView-Length" firstAttribute="centerX" secondItem="Text-Chapter-Text-Chapter-navigationItem-titleView" secondAttribute="centerX" id="14-02-01-03--C-00-00-00-00"/>
+                                <constraint firstItem="Text-Chapter-Text-Chapter-navigationItem-titleView-Length" firstAttribute="centerY" secondItem="Text-Chapter-Text-Chapter-navigationItem-titleView" secondAttribute="centerY" id="14-02-01-03--C-00-00-00-01"/>
+                            </constraints>
+                        </view>
+                        <rightBarButtonItems>
+                            <barButtonItem style="done" systemItem="done" id="Text-Chapter-Text-Chapter-navigationItem-done">
+                                <connections>
+                                    <action selector="onDonePressed" destination="Text-Chapter-Text-Chapter" id="a6610d5b2679b9697fbed8b1c94adc78d274f62999a1bceb5cefa6c9799e4d62"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="Text-Chapter-Text-Chapter-navigationItem-barButtonItem">
+                                <view key="customView" contentMode="scaleToFill" id="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView">
+                                    <rect key="frame" x="292.33333333333331" y="12" width="32" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView-activityIndicatorView">
+                                            <rect key="frame" x="0.0" y="6" width="32" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerX" secondItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView" secondAttribute="centerX" id="14-02-01-00-00--C-00-00-00-00"/>
+                                        <constraint firstItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="centerY" secondItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView" secondAttribute="centerY" id="14-02-01-00-00--C-00-00-00-01"/>
+                                        <constraint firstItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView-activityIndicatorView" firstAttribute="width" secondItem="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView" secondAttribute="width" id="14-02-01-00-00--C-00-00-00-02"/>
+                                    </constraints>
+                                </view>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="content" destination="Text-Chapter-Text-Chapter-view-textView" id="13f11c02e7ad38b0e89023cf79d5541102575adca398e1970a5e72aed545c2b3"/>
+                        <outlet property="done" destination="Text-Chapter-Text-Chapter-navigationItem-done" id="81f45b24f3dc71651177e58c112bbdb8a8c6b25625adfac4a08aa5b81d50777d"/>
+                        <outlet property="length" destination="Text-Chapter-Text-Chapter-navigationItem-titleView-Length" id="879b9e782734e1954b455bec907d783c281786d0568bb0feecdce43fe66c3444"/>
+                        <outlet property="loader" destination="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView-activityIndicatorView" id="25fc18bb53f91ae9c49904d6810feca174ff36af380f96a2b471b87de591ae47"/>
+                        <outlet property="vm" destination="Text-Chapter-TextChapterViewModel" id="b77898702628799461d03a679f66ee4593cd809160f54fe6066f5e9c80d01f7f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Text-Chapter-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Text-Chapter-TextChapterViewModel" customClass="TextChapterViewModel" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Text-Chapter-Text-Chapter" id="a88601bca8c67ff7a530e730acd05bd5348a1a0b9a661c42a330d64115e87414"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="750" y="3000"/>
+        </scene>
         <!--Login-->
         <scene sceneID="9d6322c1f4d9d3f38aed8bfbe0b2bcadf66ad82c008476fa62541fa069138e94">
             <objects>
@@ -1614,8 +1729,8 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Logo">
                                                 <rect key="frame" x="135" y="0.0" width="80" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="0a-00-02-02-03-03--C-00"/>
-                                                    <constraint firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Logo" secondAttribute="height" multiplier="1:1" id="0a-00-02-02-03-03--C-00-00-00"/>
+                                                    <constraint firstAttribute="width" constant="80" id="0c-00-02-02-03-03--C-00"/>
+                                                    <constraint firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Logo" secondAttribute="height" multiplier="1:1" id="0c-00-02-02-03-03--C-00-00-00"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Email">
@@ -1629,7 +1744,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Username">
                                                 <rect key="frame" x="55" y="174" width="240" height="34"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="240" id="0a-00-02-02-03-04--C-00-01">
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="240" id="0c-00-02-02-03-04--C-00-01">
                                                         <variation key="widthClass=regular" constant="300"/>
                                                     </constraint>
                                                 </constraints>
@@ -1675,22 +1790,22 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Email" firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Username" secondAttribute="width" id="0a-00-02-02-03--C-00-00-00-00"/>
-                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Username" firstAttribute="width" relation="lessThanOrEqual" secondItem="Login-Login-view-scrollView-stackView" secondAttribute="width" id="0a-00-02-02-03--C-00-00-00-00-00"/>
+                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Email" firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Username" secondAttribute="width" id="0c-00-02-02-03--C-00-00-00-00"/>
+                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Username" firstAttribute="width" relation="lessThanOrEqual" secondItem="Login-Login-view-scrollView-stackView" secondAttribute="width" id="0c-00-02-02-03--C-00-00-00-00-00"/>
                                         </constraints>
                                         <variation key="heightClass=compact" spacing="20"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="bottom" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="bottom" constant="-60" id="0a-00-02-02--C-00-00-00-00">
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="bottom" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="bottom" constant="-60" id="0c-00-02-02--C-00-00-00-00">
                                         <variation key="heightClass=compact" constant="-30"/>
                                     </constraint>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="centerX" secondItem="Login-Login-view-scrollView" secondAttribute="centerX" id="0a-00-02-02--C-00-00-00-01"/>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="leading" secondItem="Login-Login-view-scrollView" secondAttribute="leading" constant="20" id="0a-00-02-02--C-00-00-00-02"/>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="top" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="top" constant="60" id="0a-00-02-02--C-00-00-00-03">
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="centerX" secondItem="Login-Login-view-scrollView" secondAttribute="centerX" id="0c-00-02-02--C-00-00-00-01"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="leading" secondItem="Login-Login-view-scrollView" secondAttribute="leading" constant="20" id="0c-00-02-02--C-00-00-00-02"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="top" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="top" constant="60" id="0c-00-02-02--C-00-00-00-03">
                                         <variation key="heightClass=compact" constant="30"/>
                                     </constraint>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="trailing" secondItem="Login-Login-view-scrollView" secondAttribute="trailing" constant="-20" id="0a-00-02-02--C-00-00-00-04"/>
+                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="trailing" secondItem="Login-Login-view-scrollView" secondAttribute="trailing" constant="-20" id="0c-00-02-02--C-00-00-00-04"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Login-Login-view-scrollView-contentLayoutGuide"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Login-Login-view-scrollView-frameLayoutGuide"/>
@@ -1699,10 +1814,10 @@
                         <viewLayoutGuide key="safeArea" id="Login-Login-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="bottom" secondItem="Login-Login-view-safeArea" secondAttribute="bottom" id="0a-00-02--C-00-00-00-00" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="leading" secondItem="Login-Login-view-safeArea" secondAttribute="leading" id="0a-00-02--C-00-00-00-01"/>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="top" secondItem="Login-Login-view-safeArea" secondAttribute="top" id="0a-00-02--C-00-00-00-02"/>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="trailing" secondItem="Login-Login-view-safeArea" secondAttribute="trailing" id="0a-00-02--C-00-00-00-03"/>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="bottom" secondItem="Login-Login-view-safeArea" secondAttribute="bottom" id="0c-00-02--C-00-00-00-00" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="leading" secondItem="Login-Login-view-safeArea" secondAttribute="leading" id="0c-00-02--C-00-00-00-01"/>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="top" secondItem="Login-Login-view-safeArea" secondAttribute="top" id="0c-00-02--C-00-00-00-02"/>
+                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="trailing" secondItem="Login-Login-view-safeArea" secondAttribute="trailing" id="0c-00-02--C-00-00-00-03"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" largeTitleDisplayMode="never" id="Login-Login-Login"/>
@@ -1956,7 +2071,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="d1c67046e4d4b6693c3bec8a576f96399d34deeaf55d152aec582f47010fa059"/>
+        <segue reference="75fc7b2aec57cd6da8a9c1c1270fc91642607cac697471312f71f9c481ef23fd"/>
         <segue reference="df9e5f5768d4fd0fc2952985a5376b6e919d9f85a1e745733a53ae03615cfdc7"/>
         <segue reference="77e8b833a318243293fae0fd57004cef549205091fef52325afa1fcff5219e42"/>
         <segue reference="db5d4c1481b470b3507a8309359b68fc4d4c6c828d91dbd401aa1bb37f120dac"/>

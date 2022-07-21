@@ -67,8 +67,6 @@
 "Settings.AccountDeletion.Success.Title" = "Account deleted";
 "Settings.AccountDeletion.Success.Message" = "Your account has been deleted, your posts and comments will be fully removed as well within the next minutes.\n\nGoodbye! 👋";
 
-"Post.Menu.Action.Subscribe" = "Subscribe";
-"Post.Menu.Action.Unsubscribe" = "Unsubscribe";
 "Post.Share.Title" = "Post by %@";
 "Post.Report.Title" = "Report this post?";
 "Post.Report.Message" = "";
@@ -124,6 +122,11 @@
 "User.Ban.Permanently.Message" = "";
 "User.Ban.Success.Title" = "User banned";
 "User.Ban.Success.Message" = "";
+
+"Comment.Error.Blocked.Title" = "Unable to comment";
+"Comment.Error.Blocked.Message" = "You are blocked by this post's author.";
+"Comment.Error.TooLong.Title" = "Invalid comment";
+"Comment.Error.TooLong.Message" = "Your comment is too long.";
 
 "TextChapter.Error.ChapterTooLong.Title" = "Invalid text";
 "TextChapter.Error.ChapterTooLong.Message" = "This text is too long.";

@@ -13,6 +13,10 @@
 		4D10CEAC28108994009C1CE2 /* DraftsViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D10CEAB28108994009C1CE2 /* DraftsViewController+Notification.swift */; };
 		4D1DB9D928311B130057D236 /* DraftViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DB9D828311B130057D236 /* DraftViewController+Notification.swift */; };
 		4D41605928797FF0008584FC /* CommentActivityItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D41605828797FEF008584FC /* CommentActivityItemProvider.swift */; };
+		4D45C81528848AE80053B9DB /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45C81428848AE80053B9DB /* CommentViewController.swift */; };
+		4D45C81728848B8E0053B9DB /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45C81628848B8E0053B9DB /* CommentViewModel.swift */; };
+		4D45C8192884ACC60053B9DB /* PostViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45C8182884ACC60053B9DB /* PostViewController+Notification.swift */; };
+		4D45C81B2884B35B0053B9DB /* CommentNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45C81A2884B35B0053B9DB /* CommentNavigationViewController.swift */; };
 		4D46E0B82827E67E00572465 /* TextChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0B72827E67E00572465 /* TextChapterViewController.swift */; };
 		4D46E0BA28293AD700572465 /* TextInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0B928293AD700572465 /* TextInputViewModel.swift */; };
 		4D46E0BC28293D0600572465 /* TextChapterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0BB28293D0600572465 /* TextChapterViewModel.swift */; };
@@ -175,6 +179,10 @@
 		4D3F816726C6E57900764763 /* UserDefaults+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Message.swift"; sourceTree = "<group>"; };
 		4D41605828797FEF008584FC /* CommentActivityItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentActivityItemProvider.swift; sourceTree = "<group>"; };
 		4D4520F926D8203300FCFEE0 /* NSUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUserActivity.swift; sourceTree = "<group>"; };
+		4D45C81428848AE80053B9DB /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		4D45C81628848B8E0053B9DB /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		4D45C8182884ACC60053B9DB /* PostViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewController+Notification.swift"; sourceTree = "<group>"; };
+		4D45C81A2884B35B0053B9DB /* CommentNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentNavigationViewController.swift; sourceTree = "<group>"; };
 		4D46E0B72827E67E00572465 /* TextChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChapterViewController.swift; sourceTree = "<group>"; };
 		4D46E0B928293AD700572465 /* TextInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewModel.swift; sourceTree = "<group>"; };
 		4D46E0BB28293D0600572465 /* TextChapterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChapterViewModel.swift; sourceTree = "<group>"; };
@@ -343,6 +351,8 @@
 				4D06E4DE2804B7D800863E60 /* DraftViewController.swift */,
 				4DA43CEC2785EFD90002C22A /* UserNavigationViewController.swift */,
 				4DA2B91D27848F4D00BD05BF /* UserViewController.swift */,
+				4D45C81A2884B35B0053B9DB /* CommentNavigationViewController.swift */,
+				4D45C81428848AE80053B9DB /* CommentViewController.swift */,
 				4D46E0BD2829A9E300572465 /* TextChapterNavigationViewController.swift */,
 				4D46E0B72827E67E00572465 /* TextChapterViewController.swift */,
 				4D96BF662697A4E700ED9355 /* LoginViewController.swift */,
@@ -469,6 +479,7 @@
 				4DC88FA627B461F600F06921 /* FPCommentServiceNIOClient+ItemRandomAccessListerService.swift */,
 				4DF3579627A0859000AE9845 /* ArchiveViewController+Notification.swift */,
 				4D10CEAB28108994009C1CE2 /* DraftsViewController+Notification.swift */,
+				4D45C8182884ACC60053B9DB /* PostViewController+Notification.swift */,
 				4D1DB9D828311B130057D236 /* DraftViewController+Notification.swift */,
 				4DF3579827A088B600AE9845 /* BlockedUsersViewController+Notification.swift */,
 			);
@@ -486,8 +497,9 @@
 				4DAF29E626C7C062005612C9 /* SettingsViewModel.swift */,
 				4D350CEF27235A6E00D40BE2 /* PostViewModel.swift */,
 				4D06E4E02804C49100863E60 /* DraftViewModel.swift */,
-				4D46E0BB28293D0600572465 /* TextChapterViewModel.swift */,
 				4DA2B91F2784905100BD05BF /* UserViewModel.swift */,
+				4D45C81628848B8E0053B9DB /* CommentViewModel.swift */,
+				4D46E0BB28293D0600572465 /* TextChapterViewModel.swift */,
 				4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */,
 				4DC1739626FA573F002F9EDB /* BioViewModel.swift */,
 				4D224617279C271300D35430 /* BlockedUsersViewModel.swift */,
@@ -696,6 +708,7 @@
 				4D77942027DE654B0068F4E7 /* UIButton.swift in Sources */,
 				4D77942127DE654B0068F4E7 /* FPRank.swift in Sources */,
 				4D77942227DE654B0068F4E7 /* UserDefaults+Message.swift in Sources */,
+				4D45C81728848B8E0053B9DB /* CommentViewModel.swift in Sources */,
 				4D77942327DE654B0068F4E7 /* CommentTableViewCell.swift in Sources */,
 				4D77942427DE654B0068F4E7 /* FPProfiles+ItemBundle.swift in Sources */,
 				4D77942527DE654B0068F4E7 /* NSUserActivity.swift in Sources */,
@@ -728,6 +741,7 @@
 				4D46E0BC28293D0600572465 /* TextChapterViewModel.swift in Sources */,
 				4D77943A27DE654B0068F4E7 /* SettingsViewController.swift in Sources */,
 				4D77943B27DE654B0068F4E7 /* pagination.proto in Sources */,
+				4D45C81528848AE80053B9DB /* CommentViewController.swift in Sources */,
 				4D77943C27DE654B0068F4E7 /* UIViewController.swift in Sources */,
 				4D77943D27DE654B0068F4E7 /* BioViewModel.swift in Sources */,
 				4D77943E27DE654B0068F4E7 /* FPProfile.swift in Sources */,
@@ -760,6 +774,7 @@
 				4D77945227DE654B0068F4E7 /* MainViewModel.swift in Sources */,
 				4D77945327DE654B0068F4E7 /* AppDelegate.swift in Sources */,
 				4D77945427DE654B0068F4E7 /* SceneDelegate.swift in Sources */,
+				4D45C81B2884B35B0053B9DB /* CommentNavigationViewController.swift in Sources */,
 				4DCAAEB72827DF5D00D4427C /* TextInputViewController.swift in Sources */,
 				4D77945527DE654B0068F4E7 /* MenuBarButtonItem.swift in Sources */,
 				4D1DB9D928311B130057D236 /* DraftViewController+Notification.swift in Sources */,
@@ -782,6 +797,7 @@
 				4D77946427DE654B0068F4E7 /* BlockedUsersViewModel.swift in Sources */,
 				4D77946527DE654B0068F4E7 /* SettingsViewModel.swift in Sources */,
 				4D77946627DE654B0068F4E7 /* ItemRandomAccessListViewController.swift in Sources */,
+				4D45C8192884ACC60053B9DB /* PostViewController+Notification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
