@@ -51,7 +51,10 @@ class PostViewController: ItemRandomAccessListViewController {
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard [avatar, username, dateCreated].contains(sender as? UIView) else { return true }
+        guard [avatar, username, dateCreated].contains(sender as? UIView),
+              let post = vm.post.value
+        else { return true }
+
         let author = post.isAnonymous ? FPProfile() : post.author
         return author.isAvailable
     }
