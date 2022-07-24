@@ -110,6 +110,7 @@
 		4D86278D284BC18E00A9320D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D86278C284BC18E00A9320D /* Data.swift */; };
 		4D893B2327E7483200380CF2 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D893B2127E7483200380CF2 /* URL.swift */; };
 		4D93AD26284FE92200ECDF8F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93AD25284FE92200ECDF8F /* UIApplication.swift */; };
+		4D99D265288D8DF100EE66AA /* BaseCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D99D264288D8DF100EE66AA /* BaseCommentTableViewCell.swift */; };
 		4DCAAEB12826952500D4427C /* Data+FPImageChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB02826952500D4427C /* Data+FPImageChunk.swift */; };
 		4DCAAEB32826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB22826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift */; };
 		4DCAAEB72827DF5D00D4427C /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB62827DF5D00D4427C /* TextInputViewController.swift */; };
@@ -224,6 +225,7 @@
 		4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDodgingConstraint.swift; sourceTree = "<group>"; };
 		4D96BF662697A4E700ED9355 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4D97474E27C042E600422023 /* ItemRandomAccessListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRandomAccessListViewController.swift; sourceTree = "<group>"; };
+		4D99D264288D8DF100EE66AA /* BaseCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCommentTableViewCell.swift; sourceTree = "<group>"; };
 		4DA2B91D27848F4D00BD05BF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		4DA2B91F2784905100BD05BF /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		4DA43CE62785C5C80002C22A /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				4D1FF6162708B8C100445793 /* ItemTableViewCell.swift */,
 				4D8BFDBE270B3F3000CAD2B5 /* PostTableViewCell.swift */,
 				4DE97C5C2815C3310024362D /* DraftTableViewCell.swift */,
+				4D99D264288D8DF100EE66AA /* BaseCommentTableViewCell.swift */,
 				4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */,
 				4DE97C5A2815C2AA0024362D /* ChapterTableViewCell.swift */,
 				4D22461D279CBAA500D35430 /* BlockedUserTableViewCell.swift */,
@@ -794,6 +797,7 @@
 				4D77946127DE654B0068F4E7 /* ItemTableViewCell.swift in Sources */,
 				4D77946227DE654B0068F4E7 /* DateFormat.swift in Sources */,
 				4D77946327DE654B0068F4E7 /* RoundButton.swift in Sources */,
+				4D99D265288D8DF100EE66AA /* BaseCommentTableViewCell.swift in Sources */,
 				4D77946427DE654B0068F4E7 /* BlockedUsersViewModel.swift in Sources */,
 				4D77946527DE654B0068F4E7 /* SettingsViewModel.swift in Sources */,
 				4D77946627DE654B0068F4E7 /* ItemRandomAccessListViewController.swift in Sources */,

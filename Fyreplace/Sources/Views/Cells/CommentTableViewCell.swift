@@ -1,7 +1,8 @@
 import Kingfisher
 import UIKit
 
-class CommentTableViewCell: UITableViewCell {
+@IBDesignable
+class CommentTableViewCell: BaseCommentTableViewCell {
     @IBOutlet
     var avatar: UIButton!
     @IBOutlet

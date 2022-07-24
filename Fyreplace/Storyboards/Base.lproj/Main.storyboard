@@ -848,15 +848,15 @@
                             </connections>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Loader" id="Post-Post-view-Loader">
-                                <rect key="frame" x="0.0" y="124.66666603088379" width="390" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Loader" id="Post-Post-view-Loader" customClass="BaseCommentTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="124.66666603088379" width="390" height="70.333335876464844"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Post-Post-view-Loader" id="Post-Post-view-Loader-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="70.333335876464844"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Loader-contentView-activityIndicatorView">
-                                            <rect key="frame" x="185" y="12" width="20" height="20"/>
+                                            <rect key="frame" x="185" y="25.333333333333329" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
@@ -866,10 +866,10 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Comment" id="Post-Post-view-Comment" customClass="CommentTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="168.33333396911621" width="390" height="66"/>
+                                <rect key="frame" x="0.0" y="195.00000190734863" width="390" height="70.333335876464844"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Post-Post-view-Comment" id="Post-Post-view-Comment-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="66"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="70.333335876464844"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-Button" customClass="RoundButton" customModule="Fyreplace" customModuleProvider="target">
@@ -904,13 +904,13 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-Date">
-                                            <rect key="frame" x="343.33333333333331" y="10" width="26.666666666666686" height="14.333333333333336"/>
+                                            <rect key="frame" x="343.33333333333331" y="13" width="26.666666666666686" height="14.333333333333336"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Comment" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-Comment" customClass="CompactTextView" customModule="Fyreplace" customModuleProvider="target">
-                                            <rect key="frame" x="68" y="36.666666666666664" width="302" height="19.333333333333336"/>
+                                            <rect key="frame" x="68" y="38" width="302" height="19"/>
                                             <color key="textColor" systemColor="labelColor"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -920,15 +920,15 @@
                                     <constraints>
                                         <constraint firstItem="Post-Post-view-Comment-contentView-Button" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="10-03-02-01-01--C-00-00-00-00"/>
                                         <constraint firstItem="Post-Post-view-Comment-contentView-Button" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView" secondAttribute="top" constant="10" id="10-03-02-01-01--C-00-00-00-01"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="firstBaseline" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="bottom" id="10-03-02-01-01--C-00-00-00-02"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="10-03-02-01-01--C-00-00-00-03"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Date" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Post-Post-view-Comment-contentView-Username" secondAttribute="trailing" constant="8" symbolic="YES" id="10-03-02-01-01--C-00-00-00-03-00"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Date" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="top" id="10-03-02-01-01--C-00-00-00-04"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="10-03-02-01-01--C-00-00-00-02"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView-Username" secondAttribute="bottom" constant="8" symbolic="YES" id="10-03-02-01-01--C-00-00-00-03"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Date" firstAttribute="centerY" secondItem="Post-Post-view-Comment-contentView-Username" secondAttribute="centerY" id="10-03-02-01-01--C-00-00-00-04"/>
+                                        <constraint firstItem="Post-Post-view-Comment-contentView-Date" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Post-Post-view-Comment-contentView-Username" secondAttribute="trailing" constant="8" symbolic="YES" id="10-03-02-01-01--C-00-00-00-04-00"/>
                                         <constraint firstItem="Post-Post-view-Comment-contentView-Username" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="10-03-02-01-01--C-00-00-00-05"/>
                                         <constraint firstItem="Post-Post-view-Comment-contentView-Username" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="top" id="10-03-02-01-01--C-00-00-00-06"/>
-                                        <constraint firstAttribute="bottom" secondItem="Post-Post-view-Comment-contentView-Comment" secondAttribute="bottom" constant="10" id="10-03-02-01-01--C-00-00-01"/>
-                                        <constraint firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView-Comment" secondAttribute="trailing" constant="20" symbolic="YES" id="10-03-02-01-01--C-00-00-02"/>
-                                        <constraint firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView-Date" secondAttribute="trailing" constant="20" symbolic="YES" id="10-03-02-01-01--C-00-00-03"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Post-Post-view-Comment-contentView-Comment" secondAttribute="bottom" constant="10" id="10-03-02-01-01--C-00-00-00-07"/>
+                                        <constraint firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView-Comment" secondAttribute="trailing" constant="20" symbolic="YES" id="10-03-02-01-01--C-00-00-01"/>
+                                        <constraint firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView-Date" secondAttribute="trailing" constant="20" symbolic="YES" id="10-03-02-01-01--C-00-00-02"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
