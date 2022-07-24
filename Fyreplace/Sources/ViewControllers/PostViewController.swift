@@ -91,6 +91,12 @@ class PostViewController: ItemRandomAccessListViewController {
         }
     }
 
+    override func addItem(_ item: Any) {
+        super.addItem(item)
+        let title = tableView.headerView(forSection: 0)
+        title?.textLabel?.text = tableView(tableView, titleForHeaderInSection: 0)
+    }
+
     @IBAction
     func onSharePressed() {
         let post = vm.post.value ?? post!
