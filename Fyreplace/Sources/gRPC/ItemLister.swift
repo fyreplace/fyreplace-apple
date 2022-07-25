@@ -36,7 +36,6 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     private var stream: BidirectionalStreamingCall<FPPage, Items>?
     private var nextCursor = FPCursor.with { $0.isNext = true }
     private var state = ItemsState.incomplete
-    private var residualFetch = false
 
     init(delegatingTo delegate: ItemListerDelegate, using service: Service, forward: Bool, type: Int = 0) {
         self.delegate = delegate
@@ -65,7 +64,6 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     func reset() {
         items.removeAll()
         nextCursor = .with { $0.isNext = true }
-        residualFetch = state == .fetching
         state = .incomplete
     }
 
@@ -89,11 +87,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
 
     private func onFetch(items: Items) {
         DispatchQueue.main.async { [unowned self] in
-            guard !residualFetch else {
-                residualFetch = false
-                return
-            }
-
+            guard state == .fetching else { return }
             self.items.append(contentsOf: items.items)
             nextCursor = items.next
             state = items.hasNext ? .incomplete : .complete
