@@ -122,13 +122,19 @@ class MainViewController: UITabBarController {
     }
 
     private func presentPost(id postIdShortString: String, at commentPosition: Int? = nil) {
+        guard let postId = Data(base64ShortString: postIdShortString)
+        else { return presentBasicAlert(text: "Main.Error.MalformedUrl") }
+
+        guard currentUser != nil
+        else { return presentBasicAlert(text: "Error.Authentication") }
+
         guard let navigationController = selectedViewController as? UINavigationController,
-              let postId = Data(base64ShortString: postIdShortString),
+              let currentController = navigationController.topViewController,
               let postController = storyboard?.instantiateViewController(withIdentifier: "Post") as? PostViewController
-        else { return }
+        else { return presentBasicAlert(text: "Error") }
+
         postController.post = .with { $0.id = postId }
         postController.commentPosition = commentPosition
-        guard let currentController = navigationController.topViewController else { return }
         navigationBackTitles.updateValue(navigationController.navigationItem.backButtonTitle, forKey: currentController)
         currentController.navigationItem.backButtonTitle = " "
         navigationController.delegate = self
