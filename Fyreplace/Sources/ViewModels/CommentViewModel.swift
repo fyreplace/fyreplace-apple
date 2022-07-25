@@ -27,6 +27,7 @@ class CommentViewModel: ViewModel, TextInputViewModel {
             $0.id = id
             $0.text = self.comment.value
             $0.author = currentProfile!
+            $0.dateCreated = .init(date: .init())
         }
         NotificationCenter.default.post(
             name: PostViewController.commentAddedNotification,
