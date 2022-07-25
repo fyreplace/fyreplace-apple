@@ -49,7 +49,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     }
 
     func startListing() {
-        stream = service.listItems(type: type) { [unowned self] in onFetch(items: $0) }
+        stream = service.listItems(type: type) { [weak self] in self?.onFetch(items: $0) }
         let header = FPHeader.with {
             $0.forward = self.forward
             $0.size = pageSize
@@ -86,7 +86,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     }
 
     private func onFetch(items: Items) {
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [self] in
             guard state == .fetching else { return }
             self.items.append(contentsOf: items.items)
             nextCursor = items.next

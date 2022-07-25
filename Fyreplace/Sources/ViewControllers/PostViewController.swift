@@ -117,15 +117,15 @@ class PostViewController: ItemRandomAccessListViewController {
 
     @IBAction
     func onReportPressed() {
-        presentChoiceAlert(text: "Post.Report", dangerous: true) { [unowned self] in
-            vm.report()
+        presentChoiceAlert(text: "Post.Report", dangerous: true) {
+            self.vm.report()
         }
     }
 
     @IBAction
     func onDeletePressed() {
-        presentChoiceAlert(text: "Post.Delete", dangerous: true) { [unowned self] in
-            vm.delete()
+        presentChoiceAlert(text: "Post.Delete", dangerous: true) {
+            self.vm.delete()
         }
     }
 
@@ -135,7 +135,7 @@ class PostViewController: ItemRandomAccessListViewController {
         report.isHidden = currentUserOwnsPost || currentUserIsAdmin
         delete.isHidden = !report.isHidden
 
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [self] in
             let author = post.isAnonymous ? FPProfile() : post.author
             menu.reload()
             avatar.isHidden = !author.isAvailable
@@ -150,7 +150,7 @@ class PostViewController: ItemRandomAccessListViewController {
     private func onSubscribed(_ subscribed: Bool) {
         subscribe.isHidden = subscribed
         unsubscribe.isHidden = !subscribed
-        DispatchQueue.main.async { [unowned self] in menu.reload() }
+        DispatchQueue.main.async { self.menu.reload() }
     }
 
     private func setToolbarHidden(_ hidden: Bool) {
@@ -204,7 +204,7 @@ extension PostViewController {
         let share = UIContextualAction(
             style: .normal,
             title: .tr("Post.Comment.Menu.Action.Share")
-        ) { [unowned self] _, _, completion in
+        ) { [self] _, _, completion in
             guard let post = vm.post.value ?? post else { return completion(false) }
             let provider = CommentActivityItemProvider(post: post, comment: comment, at: indexPath.row)
             let activityController = UIActivityViewController(activityItems: [provider], applicationActivities: nil)
@@ -214,7 +214,7 @@ extension PostViewController {
 
         let canDelete = currentUserIsAdmin || comment.author.id == currentProfile?.id
         let reportOrDeleteText = canDelete ? "Delete" : "Report"
-        let reportOrDeleteComment = { [unowned self] in
+        let reportOrDeleteComment = { [self] in
             if canDelete {
                 vm.deleteComment(at: indexPath.row)
             } else {
@@ -225,8 +225,8 @@ extension PostViewController {
         let reportOrDelete = UIContextualAction(
             style: .destructive,
             title: .tr("Post.Comment.Menu.Action.\(reportOrDeleteText)")
-        ) { [unowned self] _, _, completion in
-            presentChoiceAlert(
+        ) { _, _, completion in
+            self.presentChoiceAlert(
                 text: "Post.Comment.\(reportOrDeleteText)",
                 dangerous: true,
                 handler: reportOrDeleteComment
@@ -279,8 +279,8 @@ extension PostViewController: PostViewModelDelegate {
             userInfo: ["position": position]
         )
 
-        DispatchQueue.main.async { [unowned self] in
-            navigationController?.popViewController(animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 
@@ -290,8 +290,8 @@ extension PostViewController: PostViewModelDelegate {
 
     func onDeleteComment(_ position: Int) {
         guard let comment = vm.makeDeletedComment(fromPosition: position) else { return }
-        DispatchQueue.main.async { [unowned self] in
-            updateItem(comment, at: .init(row: position, section: 0))
+        DispatchQueue.main.async {
+            self.updateItem(comment, at: .init(row: position, section: 0))
         }
     }
 

@@ -78,8 +78,8 @@ class LoginViewController: UIViewController {
             preferredStyle: .alert
         )
         var password = ""
-        let ok = UIAlertAction(title: .tr("Ok"), style: .default) { [unowned self] _ in
-            vm.login(with: password)
+        let ok = UIAlertAction(title: .tr("Ok"), style: .default) { _ in
+            self.vm.login(with: password)
         }
         let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
 
@@ -107,8 +107,8 @@ extension LoginViewController: LoginViewModelDelegate {
             object: self
         )
 
-        DispatchQueue.main.async { [unowned self] in
-            navigationController?.popViewController(animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 
@@ -120,15 +120,15 @@ extension LoginViewController: LoginViewModelDelegate {
             )
         }
 
-        DispatchQueue.main.async { [unowned self] in
-            navigationController?.popViewController(animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 
     func errorKey(for code: Int, with message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {
         case .cancelled:
-            DispatchQueue.main.async { [unowned self] in askPassword() }
+            DispatchQueue.main.async { self.askPassword() }
             return nil
 
         case .notFound:

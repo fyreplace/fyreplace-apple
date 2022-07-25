@@ -61,15 +61,12 @@ class SettingsViewController: UITableViewController {
     }
 
     private func onUser(_ user: FPUser?) {
-        if let avatar = avatar {
-            DispatchQueue.main.async { avatar.setAvatar(from: user?.profile) }
-        }
-
+        DispatchQueue.main.async { self.avatar.setAvatar(from: user?.profile) }
         reloadTable()
     }
 
     private func reloadTable() {
-        DispatchQueue.main.async { [unowned self] in tableView.reloadData() }
+        DispatchQueue.main.async { self.tableView.reloadData() }
     }
 }
 
@@ -137,8 +134,8 @@ extension SettingsViewController {
             preferredStyle: .alert
         )
         var newEmail = ""
-        let update = UIAlertAction(title: .tr("Ok"), style: .default) { [unowned self] _ in
-            vm.sendEmailUpdateEmail(address: newEmail)
+        let update = UIAlertAction(title: .tr("Ok"), style: .default) { _ in
+            self.vm.sendEmailUpdateEmail(address: newEmail)
         }
         let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
 
@@ -166,8 +163,8 @@ extension SettingsViewController {
             preferredStyle: .actionSheet
         )
         let deleteText = String.tr("Settings.AccountDeletion.Action.Delete")
-        let delete = UIAlertAction(title: deleteText, style: .destructive) { [unowned self] _ in
-            vm.delete()
+        let delete = UIAlertAction(title: deleteText, style: .destructive) { _ in
+            self.vm.delete()
         }
         let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
 

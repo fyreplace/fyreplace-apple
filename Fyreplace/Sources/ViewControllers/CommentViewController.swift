@@ -25,7 +25,7 @@ class CommentViewController: TextInputViewController {
 
 extension CommentViewController: CommentViewModelDelegate {
     func onCreate(_ id: Data) {
-        DispatchQueue.main.async { [unowned self] in dismiss(animated: true) }
+        DispatchQueue.main.async { self.dismiss(animated: true) }
     }
 
     func errorKey(for code: Int, with message: String?) -> String? {

@@ -22,7 +22,7 @@ class BioViewController: TextInputViewController {
 
 extension BioViewController: BioViewModelDelegate {
     func onUpdateBio() {
-        DispatchQueue.main.async { [unowned self] in dismiss(animated: true) }
+        DispatchQueue.main.async { self.dismiss(animated: true) }
     }
 
     func errorKey(for code: Int, with message: String?) -> String? {

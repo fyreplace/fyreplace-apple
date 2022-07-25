@@ -12,8 +12,8 @@ protocol ViewModelDelegate where Self: UIViewController {
 
 extension ViewModelDelegate {
     func onError(_ error: Error, canAutoDisconnect autoDisconnect: Bool = true) {
-        DispatchQueue.main.async { [unowned self] in
-            onFailure(error, canAutoDisconnect: autoDisconnect)
+        DispatchQueue.main.async {
+            self.onFailure(error, canAutoDisconnect: autoDisconnect)
         }
     }
 

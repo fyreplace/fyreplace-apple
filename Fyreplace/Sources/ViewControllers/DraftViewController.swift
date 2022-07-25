@@ -55,11 +55,11 @@ class DraftViewController: UITableViewController {
         let publishPublicly = UIAlertAction(
             title: .tr("Draft.Publish.Action.Public"),
             style: .default
-        ) { [unowned self] _ in vm.publish(anonymous: false) }
+        ) { _ in self.vm.publish(anonymous: false) }
         let publishAnonymously = UIAlertAction(
             title: .tr("Draft.Publish.Action.Anonymous"),
             style: .default
-        ) { [unowned self] _ in vm.publish(anonymous: true) }
+        ) { _ in self.vm.publish(anonymous: true) }
         let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
         alert.addAction(publishPublicly)
         alert.addAction(publishAnonymously)
@@ -104,15 +104,15 @@ class DraftViewController: UITableViewController {
     }
 
     private func onChapterCount(_ chapterCount: Int) {
-        DispatchQueue.main.async { [unowned self] in
-            navigationItem.title = .localizedStringWithFormat(.tr("Draft.Length"), chapterCount)
+        DispatchQueue.main.async {
+            self.navigationItem.title = .localizedStringWithFormat(.tr("Draft.Length"), chapterCount)
         }
     }
 
     private func onEditingStatus(_ editingStatus: EditingStatus) {
         let shouldBeEditing = editingStatus == .isEditing
 
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [self] in
             if shouldBeEditing != tableView.isEditing {
                 tableView.setEditing(shouldBeEditing, animated: true)
             }
@@ -201,7 +201,7 @@ extension DraftViewController {
 
 extension DraftViewController: DraftViewModelDelegate {
     func onRetrieve() {
-        DispatchQueue.main.async { [unowned self] in tableView.reloadData() }
+        DispatchQueue.main.async { self.tableView.reloadData() }
     }
 
     func onDelete() {
@@ -211,8 +211,8 @@ extension DraftViewController: DraftViewModelDelegate {
             userInfo: ["position": itemPosition as Any]
         )
 
-        DispatchQueue.main.async { [unowned self] in
-            navigationController?.popViewController(animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 
@@ -226,7 +226,7 @@ extension DraftViewController: DraftViewModelDelegate {
     }
 
     func onCreateChapter(_ position: Int, _ isText: Bool) {
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [self] in
             tableView.insertRows(at: [.init(row: position, section: 0)], with: .automatic)
             currentChapterPosition = position
 
@@ -241,7 +241,7 @@ extension DraftViewController: DraftViewModelDelegate {
     func onDeleteChapter(_ position: Int) {}
 
     func onUpdateChapter(_ position: Int) {
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [self] in
             tableView.reloadRows(at: [.init(row: currentChapterPosition, section: 0)], with: .automatic)
         }
     }

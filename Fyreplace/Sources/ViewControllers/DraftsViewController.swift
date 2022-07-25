@@ -71,7 +71,7 @@ extension DraftsViewController {
 
 extension DraftsViewController: DraftsViewModelDelegate {
     func onCreate(_ id: Data) {
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [self] in
             createdPostId = id
             addItem(FPPost.with { $0.id = id }, at: .init(row: 0, section: 0))
             performSegue(withIdentifier: "Add", sender: self)
