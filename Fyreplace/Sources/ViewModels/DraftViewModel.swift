@@ -68,6 +68,10 @@ class DraftViewModel: ViewModel {
     }
 
     func deleteChapter(at position: Int) {
+        post.modify {
+            $0?.chapters.remove(at: position)
+            $0?.chapterCount -= 1
+        }
         chapterCount.value -= 1
         isLoading.value = true
         let request = FPChapterLocation.with {
@@ -136,10 +140,6 @@ class DraftViewModel: ViewModel {
 
     private func onDeleteChapter(_ position: Int) {
         isLoading.value = false
-        post.modify {
-            $0?.chapters.remove(at: position)
-            $0?.chapterCount -= 1
-        }
         delegate.onDeleteChapter(position)
     }
 
