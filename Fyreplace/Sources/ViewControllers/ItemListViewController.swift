@@ -80,7 +80,6 @@ class ItemListViewController: UITableViewController {
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 
-    @objc
     private func onRefresh() {
         reset()
         listDelegate.lister.fetchMore()

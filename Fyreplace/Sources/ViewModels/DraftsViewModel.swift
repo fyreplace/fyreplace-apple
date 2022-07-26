@@ -13,7 +13,7 @@ class DraftsViewModel: ViewModel {
         delegatingTo: delegate,
         using: postService,
         forward: false,
-        type: 1
+        type: 2
     )
 
     func post(atIndex index: Int) -> FPPost {

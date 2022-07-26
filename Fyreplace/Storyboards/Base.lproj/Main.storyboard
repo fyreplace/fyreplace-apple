@@ -262,8 +262,19 @@
                             <outlet property="delegate" destination="Archive-Archive" id="d6b4537f433949f2b43d944db03379c195585d82dcfd8caaaecc096e7fe171df"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Archive" id="Archive-Archive-Archive">
-                        <barButtonItem key="backBarButtonItem" title=" " id="Archive-Archive-Archive--"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Archive-Archive-navigationItem">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Archive-Archive-navigationItem--"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Archive-Archive-navigationItem-titleView">
+                            <rect key="frame" x="119.66666666666669" y="5.6666666666666679" width="151" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="All posts"/>
+                                <segment title="My posts"/>
+                            </segments>
+                            <connections>
+                                <action selector="onSegmentValueChanged:" destination="Archive-Archive" eventType="valueChanged" id="b5547af5200b3391ca1e381b234a478aac0c845c788cb5d36dfc849974d08d90"/>
+                            </connections>
+                        </segmentedControl>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Archive-Archive-refreshControl">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

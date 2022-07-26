@@ -22,6 +22,15 @@ class ArchiveViewController: ItemListViewController {
             postController.post = vm.post(atIndex: index)
         }
     }
+
+    @IBAction
+    private func onSegmentValueChanged(_ sender: UISegmentedControl) {
+        listDelegate.lister.stopListing()
+        vm.toggleLister(toOwn: sender.selectedSegmentIndex > 0)
+        tableView.reloadData()
+        listDelegate.lister.startListing()
+        listDelegate.lister.fetchMore()
+    }
 }
 
 extension ArchiveViewController {

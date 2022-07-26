@@ -4,15 +4,22 @@ class ArchiveViewModel: ViewModel {
     @IBOutlet
     weak var delegate: ArchiveViewModelDelegate!
 
-    private lazy var postLister = ItemLister<FPPost, FPPosts, FPPostServiceNIOClient>(
-        delegatingTo: delegate,
-        using: FPPostServiceNIOClient(channel: Self.rpc.channel),
-        forward: false
-    )
+    private lazy var postService = FPPostServiceNIOClient(channel: Self.rpc.channel)
+    private lazy var postLister = makeLister(type: 0)
 
     func post(atIndex index: Int) -> FPPost {
         return postLister.items[index]
     }
+
+    func toggleLister(toOwn ownPosts: Bool) {
+        postLister = makeLister(type: ownPosts ? 1 : 0)
+    }
+
+    private func makeLister(type: Int) -> PostLister {
+        return PostLister(delegatingTo: delegate, using: postService, forward: false, type: type)
+    }
+
+    private typealias PostLister = ItemLister<FPPost, FPPosts, FPPostServiceNIOClient>
 }
 
 extension ArchiveViewModel: ItemListViewDelegate {
