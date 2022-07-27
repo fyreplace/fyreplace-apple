@@ -18,5 +18,7 @@ extension UIButton {
         } else {
             setImage(defaultImage, for: .normal)
         }
+
+        imageView?.contentMode = .scaleAspectFill
     }
 }
