@@ -20,13 +20,8 @@ class BioViewModel: ViewModel, TextInputViewModel {
         isLoading.value = true
         let request = FPBio.with { $0.bio = bio.value }
         let response = userService.updateBio(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.onUpdateBio() }
+        response.whenSuccess { _ in self.delegate.onUpdateBio() }
         response.whenFailure { self.delegate.onError($0) }
-    }
-
-    private func onUpdateBio() {
-        delegate.onUpdateBio()
-        NotificationCenter.default.post(name: FPUser.shouldReloadUserNotification, object: self)
     }
 
     private func onError(_ error: Error) {

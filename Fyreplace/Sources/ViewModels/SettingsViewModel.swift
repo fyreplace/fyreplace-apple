@@ -18,19 +18,19 @@ class SettingsViewModel: ViewModel {
         reloadUser()
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.userChangedNotification)
+            .notifications(forName: FPUser.currentUserChangeNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in reloadUser() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: BlockedUsersViewController.userBlockedNotification)
+            .notifications(forName: FPUser.blockNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in blockedUsers.value += 1 }
 
         NotificationCenter.default.reactive
-            .notifications(forName: BlockedUsersViewController.userUnblockedNotification)
+            .notifications(forName: FPUser.unblockNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in blockedUsers.value -= 1 }
@@ -70,7 +70,6 @@ class SettingsViewModel: ViewModel {
     private func onUpdateAvatar(_ image: FPImage) {
         delegate.onUpdateAvatar()
         user.modify { $0?.profile.avatar = image }
-        NotificationCenter.default.post(name: FPUser.shouldReloadUserNotification, object: self)
     }
 
     private func onLogout() {

@@ -28,7 +28,7 @@ class TextChapterViewController: TextInputViewController {
 extension TextChapterViewController: TextChapterViewModelDelegate {
     func onUpdateChapter(_ text: String) {
         NotificationCenter.default.post(
-            name: DraftViewController.chapterUpdated,
+            name: FPPost.draftUpdateNotification,
             object: self,
             userInfo: ["position": position ?? 0, "text": text]
         )

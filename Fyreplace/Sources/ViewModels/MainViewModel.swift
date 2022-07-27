@@ -14,25 +14,25 @@ class MainViewModel: ViewModel {
         super.awakeFromNib()
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.userConnectedNotification)
+            .notifications(forName: FPUser.connectionNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.shouldReloadUserNotification)
+            .notifications(forName: FPUser.shouldReloadCurrentUserNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: BlockedUsersViewController.userBlockedNotification)
+            .notifications(forName: FPUser.blockNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: BlockedUsersViewController.userUnblockedNotification)
+            .notifications(forName: FPUser.unblockNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
@@ -48,7 +48,7 @@ class MainViewModel: ViewModel {
             $0.client = .default
         }
         let response = accountService.confirmActivation(request).response
-        response.whenSuccess { self.onConfirmConnection(token: $0.token, activated: true) }
+        response.whenSuccess { self.onConfirmActivation(token: $0.token) }
         response.whenFailure { self.delegate.onError($0, canAutoDisconnect: false) }
     }
 
@@ -58,7 +58,7 @@ class MainViewModel: ViewModel {
             $0.client = .default
         }
         let response = accountService.confirmConnection(request).response
-        response.whenSuccess { self.onConfirmConnection(token: $0.token, activated: false) }
+        response.whenSuccess { self.onConfirmConnection(token: $0.token) }
         response.whenFailure { self.delegate.onError($0, canAutoDisconnect: false) }
     }
 
@@ -75,12 +75,17 @@ class MainViewModel: ViewModel {
         response.whenFailure { self.delegate.onError($0) }
     }
 
-    private func onConfirmConnection(token: String, activated: Bool) {
+    private func onConfirmActivation(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
-            NotificationCenter.default.post(name: FPUser.userConnectedNotification, object: self)
-            if activated {
-                delegate.onConfirmActivation()
-            }
+            delegate.onConfirmActivation()
+        } else {
+            delegate.onError(KeychainError.set)
+        }
+    }
+
+    private func onConfirmConnection(token: String) {
+        if authToken.set(token.data(using: .utf8)!) {
+            delegate.onConfirmConnection()
         } else {
             delegate.onError(KeychainError.set)
         }
@@ -95,6 +100,8 @@ class MainViewModel: ViewModel {
 @objc
 protocol MainViewModelDelegate: ViewModelDelegate {
     func onConfirmActivation()
+
+    func onConfirmConnection()
 
     func onConfirmEmailUpdate()
 }

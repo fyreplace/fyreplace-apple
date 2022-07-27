@@ -36,8 +36,12 @@ class PostViewController: ItemRandomAccessListViewController {
     private var shouldScrollToComment = false
     private lazy var currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
 
-    override class var additionNotification: Notification.Name {
-        Self.commentAddedNotification
+    override var additionNotifications: [Notification.Name] {
+        [FPComment.commentCreationNotification]
+    }
+
+    override var updateNotifications: [Notification.Name] {
+        [FPComment.commentDeletionNotification]
     }
 
     override func viewDidLoad() {
@@ -91,8 +95,8 @@ class PostViewController: ItemRandomAccessListViewController {
         }
     }
 
-    override func addItem(_ item: Any) {
-        super.addItem(item)
+    override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification.Name) {
+        super.addItem(item, at: indexPath, becauseOf: reason)
         let title = tableView.headerView(forSection: 0)
         title?.textLabel?.text = tableView(tableView, titleForHeaderInSection: 0)
     }
@@ -143,7 +147,6 @@ class PostViewController: ItemRandomAccessListViewController {
             username.setUsername(author)
             dateCreated.setTitle(dateFormat.string(from: post.dateCreated.date), for: .normal)
             tableHeader.setup(with: post)
-            tableView.reloadData()
         }
     }
 
@@ -255,12 +258,12 @@ extension PostViewController: PostViewModelDelegate {
     func onUpdateSubscription(_ subscribed: Bool) {
         guard let position = itemPosition else { return }
         let notification = subscribed
-            ? ArchiveViewController.postAddedNotification
-            : ArchiveViewController.postDeletedNotification
+            ? FPPost.subscriptionNotification
+            : FPPost.unsubscriptionNotification
         var info: [String: Any] = ["position": position]
 
         if subscribed, let post = vm.post.value {
-            info["item"] = post
+            info["item"] = post.makePreview()
         }
 
         NotificationCenter.default.post(name: notification, object: self, userInfo: info)
@@ -274,7 +277,7 @@ extension PostViewController: PostViewModelDelegate {
         guard let position = itemPosition else { return }
 
         NotificationCenter.default.post(
-            name: ArchiveViewController.postDeletedNotification,
+            name: FPPost.deletionNotification,
             object: self,
             userInfo: ["position": position]
         )
@@ -290,9 +293,11 @@ extension PostViewController: PostViewModelDelegate {
 
     func onDeleteComment(_ position: Int) {
         guard let comment = vm.makeDeletedComment(fromPosition: position) else { return }
-        DispatchQueue.main.async {
-            self.updateItem(comment, at: .init(row: position, section: 0))
-        }
+        NotificationCenter.default.post(
+            name: FPComment.commentDeletionNotification,
+            object: self,
+            userInfo: ["position": position, "item": comment]
+        )
     }
 
     func errorKey(for code: Int, with message: String?) -> String? {

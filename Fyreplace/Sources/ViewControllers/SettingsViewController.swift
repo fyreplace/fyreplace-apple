@@ -196,7 +196,9 @@ extension SettingsViewController {
 }
 
 extension SettingsViewController: SettingsViewModelDelegate {
-    func onUpdateAvatar() {}
+    func onUpdateAvatar() {
+        NotificationCenter.default.post(name: FPUser.shouldReloadCurrentUserNotification, object: self)
+    }
 
     func onSendEmailUpdateEmail() {
         presentBasicAlert(text: "Settings.EmailChange.Success")

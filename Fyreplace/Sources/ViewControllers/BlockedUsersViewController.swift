@@ -10,16 +10,16 @@ class BlockedUsersViewController: ItemListViewController {
     @IBOutlet
     var done: UIBarButtonItem!
 
-    override class var additionNotification: Notification.Name {
-        Self.userBlockedNotification
+    override var additionNotifications: [Notification.Name] {
+        [FPUser.blockNotification]
     }
 
-    override class var updateNotification: Notification.Name {
-        Self.userBannedNotification
+    override var updateNotifications: [Notification.Name] {
+        [FPUser.banNotification]
     }
 
-    override class var deletionNotification: Notification.Name {
-        Self.userUnblockedNotification
+    override var deletionNotifications: [Notification.Name] {
+        [FPUser.unblockNotification]
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -88,12 +88,12 @@ extension BlockedUsersViewController {
 
     private func block(profile: FPProfile, at indexPath: IndexPath) {
         vm.updateBlock(userId: profile.id, blocked: true, at: indexPath.row)
-        addItem(profile, at: indexPath)
+        addItem(profile, at: indexPath, becauseOf: FPUser.blockNotification)
     }
 
     private func unblock(profile: FPProfile, at indexPath: IndexPath) {
         vm.updateBlock(userId: profile.id, blocked: false, at: indexPath.row)
-        deleteItem(at: indexPath)
+        deleteItem(at: indexPath, becauseOf: FPUser.unblockNotification)
     }
 
     private func setupUndo(for profile: FPProfile, at indexPath: IndexPath) {

@@ -22,6 +22,7 @@ class BioViewController: TextInputViewController {
 
 extension BioViewController: BioViewModelDelegate {
     func onUpdateBio() {
+        NotificationCenter.default.post(name: FPUser.shouldReloadCurrentUserNotification, object: self)
         DispatchQueue.main.async { self.dismiss(animated: true) }
     }
 

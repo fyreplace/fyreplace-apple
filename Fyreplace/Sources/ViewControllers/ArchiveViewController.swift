@@ -3,13 +3,21 @@ import UIKit
 class ArchiveViewController: ItemListViewController {
     @IBOutlet
     var vm: ArchiveViewModel!
+    @IBOutlet
+    var segments: UISegmentedControl!
 
-    override class var additionNotification: Notification.Name {
-        Self.postAddedNotification
+    private var isListingAllPosts: Bool { segments.selectedSegmentIndex == 0 }
+
+    override var additionNotifications: [Notification.Name] {
+        isListingAllPosts
+            ? [FPPost.draftPublicationNotification, FPPost.subscriptionNotification]
+            : [FPPost.draftPublicationNotification]
     }
 
-    override class var deletionNotification: Notification.Name {
-        Self.postDeletedNotification
+    override var deletionNotifications: [Notification.Name] {
+        isListingAllPosts
+            ? [FPPost.deletionNotification, FPPost.unsubscriptionNotification]
+            : [FPPost.deletionNotification]
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -23,10 +31,18 @@ class ArchiveViewController: ItemListViewController {
         }
     }
 
+    override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification.Name) {
+        let path = reason == FPPost.draftPublicationNotification
+            ? .init(row: 0, section: 0)
+            : indexPath
+        super.addItem(item, at: path, becauseOf: reason)
+    }
+
     @IBAction
-    private func onSegmentValueChanged(_ sender: UISegmentedControl) {
+    private func onSegmentValueChanged() {
         listDelegate.lister.stopListing()
-        vm.toggleLister(toOwn: sender.selectedSegmentIndex > 0)
+        vm.toggleLister(toOwn: !isListingAllPosts)
+        refreshNotificationHandlers()
         tableView.reloadData()
         listDelegate.lister.startListing()
         listDelegate.lister.fetchMore()

@@ -138,11 +138,11 @@ extension UserViewController: UserViewModelDelegate {
     func onBlockUpdate(_ blocked: Bool) {
         profile.isBlocked = blocked
         guard let position = itemPosition else { return }
-        let notification = blocked
-            ? BlockedUsersViewController.userBlockedNotification
-            : BlockedUsersViewController.userUnblockedNotification
-        let info: [String: Any] = ["position": position, "item": profile as Any]
-        NotificationCenter.default.post(name: notification, object: self, userInfo: info)
+        NotificationCenter.default.post(
+            name: blocked ? FPUser.blockNotification : FPUser.unblockNotification,
+            object: self,
+            userInfo: ["position": position, "item": profile as Any]
+        )
     }
 
     func onReport() {
@@ -153,9 +153,11 @@ extension UserViewController: UserViewModelDelegate {
         profile.isBanned = true
         presentBasicAlert(text: "User.Ban.Success")
         guard let position = itemPosition else { return }
-        var info: [String: Any] = ["position": position]
-        info["item"] = profile
-        NotificationCenter.default.post(name: BlockedUsersViewController.userBannedNotification, object: self, userInfo: info)
+        NotificationCenter.default.post(
+            name: FPUser.banNotification,
+            object: self,
+            userInfo: ["position": position, "item": profile as Any]
+        )
     }
 
     func errorKey(for code: Int, with message: String?) -> String? {

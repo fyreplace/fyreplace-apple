@@ -9,9 +9,9 @@ extension NSObjectProtocol {
             UserDefaults.standard.setValue(user, forKey: "auth:user")
         } else {
             UserDefaults.standard.removeObject(forKey: "auth:user")
-            NotificationCenter.default.post(name: FPUser.userDisconnectedNotification, object: self)
+            NotificationCenter.default.post(name: FPUser.disconnectionNotification, object: self)
         }
 
-        NotificationCenter.default.post(name: FPUser.userChangedNotification, object: self)
+        NotificationCenter.default.post(name: FPUser.currentUserChangeNotification, object: self)
     }
 }

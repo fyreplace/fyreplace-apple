@@ -12,16 +12,16 @@ class DraftsViewController: ItemListViewController {
 
     private var createdPostId = Data()
 
-    override class var additionNotification: Notification.Name {
-        Self.draftAddedNotification
+    override var additionNotifications: [Notification.Name] {
+        [FPPost.draftCreationNotification]
     }
 
-    override class var updateNotification: Notification.Name {
-        Self.draftUpdatedNotification
+    override var updateNotifications: [Notification.Name] {
+        [FPPost.draftUpdateNotification]
     }
 
-    override class var deletionNotification: Notification.Name {
-        Self.draftDeletedNotification
+    override var deletionNotifications: [Notification.Name] {
+        [FPPost.draftDeletionNotification, FPPost.draftPublicationNotification]
     }
 
     override func viewDidLoad() {
@@ -65,15 +65,20 @@ extension DraftsViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         vm.delete(vm.post(atIndex: indexPath.row).id)
-        deleteItem(at: indexPath)
+        deleteItem(at: indexPath, becauseOf: FPPost.draftDeletionNotification)
     }
 }
 
 extension DraftsViewController: DraftsViewModelDelegate {
     func onCreate(_ id: Data) {
+        NotificationCenter.default.post(
+            name: FPPost.draftCreationNotification,
+            object: self,
+            userInfo: ["position": 0, "item": FPPost.with { $0.id = id }]
+        )
+
         DispatchQueue.main.async { [self] in
             createdPostId = id
-            addItem(FPPost.with { $0.id = id }, at: .init(row: 0, section: 0))
             performSegue(withIdentifier: "Add", sender: self)
         }
     }

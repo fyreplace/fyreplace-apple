@@ -18,28 +18,28 @@ class MainViewController: UITabBarController {
             .observeValues { [unowned self] in onUrlOpened($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.userRegistrationEmailNotification)
+            .notifications(forName: FPUser.registrationEmailNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onUserRegistrationEmail($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.userConnectionEmailNotification)
+            .notifications(forName: FPUser.connectionEmailNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onUserConnectionEmail($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.userConnectedNotification)
+            .notifications(forName: FPUser.connectionNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onUserConnected($0) }
+            .observeValues { [unowned self] in onUserConnection($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.userDisconnectedNotification)
+            .notifications(forName: FPUser.disconnectionNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onUserDisconnected($0) }
+            .observeValues { [unowned self] in onUserDisconnection($0) }
 
         NotificationCenter.default.reactive
             .notifications(forName: FPPost.notFoundNotification)
@@ -76,11 +76,11 @@ class MainViewController: UITabBarController {
         presentBasicAlert(text: "Main.Connection")
     }
 
-    private func onUserConnected(_ notification: Notification) {
+    private func onUserConnection(_ notification: Notification) {
         toggleAuthenticatedTabs(enabled: true)
     }
 
-    private func onUserDisconnected(_ notification: Notification) {
+    private func onUserDisconnection(_ notification: Notification) {
         toggleAuthenticatedTabs(enabled: false)
 
         if tabBar.selectedItem?.tag == 1 {
@@ -144,7 +144,12 @@ class MainViewController: UITabBarController {
 
 extension MainViewController: MainViewModelDelegate {
     func onConfirmActivation() {
+        onConfirmConnection()
         presentBasicAlert(text: "Main.AccountActivated")
+    }
+
+    func onConfirmConnection() {
+        NotificationCenter.default.post(name: FPUser.connectionNotification, object: self)
     }
 
     func onConfirmEmailUpdate() {

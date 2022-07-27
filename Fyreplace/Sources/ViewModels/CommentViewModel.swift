@@ -17,23 +17,8 @@ class CommentViewModel: ViewModel, TextInputViewModel {
             $0.text = comment.value
         }
         let response = commentService.create(request, callOptions: .authenticated).response
-        response.whenSuccess { self.onCreate($0.id) }
+        response.whenSuccess { self.delegate.onCreate($0.id) }
         response.whenFailure { self.onError($0) }
-    }
-
-    private func onCreate(_ id: Data) {
-        delegate.onCreate(id)
-        let comment = FPComment.with {
-            $0.id = id
-            $0.text = self.comment.value
-            $0.author = currentProfile!
-            $0.dateCreated = .init(date: .init())
-        }
-        NotificationCenter.default.post(
-            name: PostViewController.commentAddedNotification,
-            object: self,
-            userInfo: ["item": comment]
-        )
     }
 
     private func onError(_ error: Error) {

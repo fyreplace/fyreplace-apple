@@ -125,12 +125,10 @@ class DraftViewController: UITableViewController {
 
     private func postUpdateNotification(_ post: FPPost) {
         guard let position = itemPosition else { return }
-        var info: [String: Any] = ["position": position]
-        info["item"] = post
         NotificationCenter.default.post(
-            name: DraftsViewController.draftUpdatedNotification,
+            name: FPPost.draftUpdateNotification,
             object: self,
-            userInfo: info
+            userInfo: ["position": position, "item": post]
         )
     }
 
@@ -206,7 +204,7 @@ extension DraftViewController: DraftViewModelDelegate {
 
     func onDelete() {
         NotificationCenter.default.post(
-            name: DraftsViewController.draftDeletedNotification,
+            name: FPPost.draftDeletionNotification,
             object: self,
             userInfo: ["position": itemPosition as Any]
         )
@@ -216,13 +214,18 @@ extension DraftViewController: DraftViewModelDelegate {
         }
     }
 
-    func onPublish() {
+    func onPublish(_ anonymous: Bool) {
+        let preview = vm.post.value!.makePreview(anonymous: anonymous)
+
         NotificationCenter.default.post(
-            name: ArchiveViewController.postAddedNotification,
+            name: FPPost.draftPublicationNotification,
             object: self,
-            userInfo: ["position": 0, "item": vm.makePreview()]
+            userInfo: ["position": itemPosition as Any, "item": preview]
         )
-        onDelete()
+
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
     func onCreateChapter(_ position: Int, _ isText: Bool) {

@@ -25,6 +25,18 @@ class CommentViewController: TextInputViewController {
 
 extension CommentViewController: CommentViewModelDelegate {
     func onCreate(_ id: Data) {
+        let comment = FPComment.with {
+            $0.id = id
+            $0.text = vm.comment.value
+            $0.author = currentProfile!
+            $0.dateCreated = .init(date: .init())
+        }
+        NotificationCenter.default.post(
+            name: FPComment.commentCreationNotification,
+            object: self,
+            userInfo: ["position": -1, "item": comment]
+        )
+
         DispatchQueue.main.async { self.dismiss(animated: true) }
     }
 

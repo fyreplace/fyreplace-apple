@@ -1,15 +1,11 @@
 import ReactiveSwift
 import UIKit
 
-class ItemListViewController: UITableViewController {
+class ItemListViewController: DynamicTableViewController {
     @IBOutlet
     weak var listDelegate: ItemListViewDelegate!
     @IBOutlet
     var emptyPlaceholder: UILabel!
-
-    open class var additionNotification: Notification.Name? { nil }
-    open class var updateNotification: Notification.Name? { nil }
-    open class var deletionNotification: Notification.Name? { nil }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,34 +17,10 @@ class ItemListViewController: UITableViewController {
             .observeValues { [unowned self] _ in onRefresh() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.userDisconnectedNotification)
+            .notifications(forName: FPUser.disconnectionNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onUserDisconnected($0) }
-
-        if let additionNotification = Self.additionNotification {
-            NotificationCenter.default.reactive
-                .notifications(forName: additionNotification)
-                .take(during: reactive.lifetime)
-                .observe(on: UIScheduler())
-                .observeValues { [unowned self] in onItemAdded($0) }
-        }
-
-        if let updateNotification = Self.updateNotification {
-            NotificationCenter.default.reactive
-                .notifications(forName: updateNotification)
-                .take(during: reactive.lifetime)
-                .observe(on: UIScheduler())
-                .observeValues { [unowned self] in onItemUpdated($0) }
-        }
-
-        if let deletionNotification = Self.deletionNotification {
-            NotificationCenter.default.reactive
-                .notifications(forName: deletionNotification)
-                .take(during: reactive.lifetime)
-                .observe(on: UIScheduler())
-                .observeValues { [unowned self] in onItemDeleted($0) }
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -65,19 +37,19 @@ class ItemListViewController: UITableViewController {
         listDelegate.lister.stopListing()
     }
 
-    func addItem(_ item: Any, at indexPath: IndexPath) {
+    override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification.Name) {
         listDelegate.lister.insert(item, at: indexPath.row)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        super.addItem(item, at: indexPath, becauseOf: reason)
     }
 
-    func updateItem(_ item: Any, at indexPath: IndexPath) {
+    override func updateItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification.Name) {
         listDelegate.lister.update(item, at: indexPath.row)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        super.updateItem(item, at: indexPath, becauseOf: reason)
     }
 
-    func deleteItem(at indexPath: IndexPath) {
+    override func deleteItem(at indexPath: IndexPath, becauseOf reason: Notification.Name) {
         listDelegate.lister.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .automatic)
+        super.deleteItem(at: indexPath, becauseOf: reason)
     }
 
     private func onRefresh() {
@@ -87,32 +59,6 @@ class ItemListViewController: UITableViewController {
 
     private func onUserDisconnected(_ notification: Notification) {
         reset()
-    }
-
-    private func onItemAdded(_ notification: Notification) {
-        guard let info = notification.userInfo,
-              let position = info["position"] as? Int,
-              let item = info["item"]
-        else { return }
-
-        addItem(item, at: IndexPath(row: position, section: 0))
-    }
-
-    private func onItemUpdated(_ notification: Notification) {
-        guard let info = notification.userInfo,
-              let position = info["position"] as? Int,
-              let item = info["item"]
-        else { return }
-
-        updateItem(item, at: IndexPath(row: position, section: 0))
-    }
-
-    private func onItemDeleted(_ notification: Notification) {
-        guard let info = notification.userInfo,
-              let position = info["position"] as? Int
-        else { return }
-
-        deleteItem(at: IndexPath(row: position, section: 0))
     }
 
     private func reset() {

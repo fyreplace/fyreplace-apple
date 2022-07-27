@@ -52,12 +52,10 @@ class LoginViewModel: ViewModel {
 
     private func onLogin(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
-            NotificationCenter.default.post(name: FPUser.userConnectedNotification, object: self)
+            delegate.onLogin(withPassword: true)
         } else {
             delegate.onError(KeychainError.set)
         }
-
-        delegate.onLogin(withPassword: true)
     }
 }
 

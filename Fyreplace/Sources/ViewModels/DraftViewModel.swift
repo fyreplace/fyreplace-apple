@@ -20,7 +20,7 @@ class DraftViewModel: ViewModel {
     override func awakeFromNib() {
         super.awakeFromNib()
         NotificationCenter.default.reactive
-            .notifications(forName: DraftViewController.chapterUpdated)
+            .notifications(forName: FPPost.draftUpdateNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onChapterUpdated($0) }
@@ -32,7 +32,7 @@ class DraftViewModel: ViewModel {
         let request = FPId.with { $0.id = id }
         let response = postService.retrieve(request, callOptions: .authenticated).response
         response.whenSuccess(onRetrieve(_:))
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure { self.onError($0) }
     }
 
     func delete() {
@@ -40,7 +40,7 @@ class DraftViewModel: ViewModel {
         let request = FPId.with { $0.id = postId }
         let response = postService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onDelete() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure { self.onError($0) }
     }
 
     func publish(anonymous: Bool) {
@@ -50,8 +50,8 @@ class DraftViewModel: ViewModel {
             $0.anonymous = anonymous
         }
         let response = postService.publish(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onPublish() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.onPublish(anonymous) }
+        response.whenFailure { self.onError($0) }
     }
 
     func createChapter(_ type: ChapterType) {
@@ -64,7 +64,7 @@ class DraftViewModel: ViewModel {
         }
         let response = chapterService.create(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onCreateChapter(position, type) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure { self.onError($0) }
     }
 
     func deleteChapter(at position: Int) {
@@ -80,18 +80,19 @@ class DraftViewModel: ViewModel {
         }
         let response = chapterService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onDeleteChapter(position) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure { self.onError($0) }
     }
 
     func updateImageChapter(_ image: Data, at position: Int) {
         isLoading.value = true
         let stream = chapterService.updateImage(callOptions: .authenticated)
         stream.response.whenSuccess { self.onUpdateImageChapter(position, $0) }
-        stream.response.whenFailure { self.delegate.onError($0) }
+        stream.response.whenFailure { self.onError($0) }
         stream.upload(image, for: postId, at: position)
     }
 
     func moveChapter(from fromPosition: Int, to toPosition: Int) {
+        isLoading.value = true
         let request = FPChapterRelocation.with {
             $0.postID = postId
             $0.fromPosition = UInt32(fromPosition)
@@ -99,18 +100,11 @@ class DraftViewModel: ViewModel {
         }
         let response = chapterService.move(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onMoveChapter(fromPosition, toPosition) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure { self.onError($0) }
     }
 
     func updateEditingStatus(_ editingStatus: EditingStatus) {
         self.editingStatus.value = editingStatus
-    }
-
-    func makePreview() -> FPPost {
-        var post = post.value!
-        post.isPreview = true
-        post.chapters = post.chapterCount > 0 ? [post.chapters.first!] : []
-        return post
     }
 
     private func onChapterUpdated(_ notification: Notification) {
@@ -123,8 +117,8 @@ class DraftViewModel: ViewModel {
     }
 
     private func onRetrieve(_ post: FPPost) {
-        chapterCount.value = Int(post.chapterCount)
         isLoading.value = false
+        chapterCount.value = Int(post.chapterCount)
         self.post.value = post
         delegate.onRetrieve()
     }
@@ -150,6 +144,7 @@ class DraftViewModel: ViewModel {
     }
 
     private func onMoveChapter(_ fromPosition: Int, _ toPosition: Int) {
+        isLoading.value = false
         post.modify {
             guard var chapters = $0?.chapters else { return }
             chapters.insert(chapters.remove(at: fromPosition), at: toPosition)
@@ -170,7 +165,7 @@ protocol DraftViewModelDelegate: ViewModelDelegate {
 
     func onDelete()
 
-    func onPublish()
+    func onPublish(_ anonymous: Bool)
 
     func onCreateChapter(_ position: Int, _ isText: Bool)
 

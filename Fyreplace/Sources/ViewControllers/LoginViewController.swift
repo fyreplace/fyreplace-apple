@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: LoginViewModelDelegate {
     func onRegister() {
         NotificationCenter.default.post(
-            name: FPUser.userRegistrationEmailNotification,
+            name: FPUser.registrationEmailNotification,
             object: self
         )
 
@@ -113,12 +113,12 @@ extension LoginViewController: LoginViewModelDelegate {
     }
 
     func onLogin(withPassword: Bool) {
-        if !withPassword {
-            NotificationCenter.default.post(
-                name: FPUser.userConnectionEmailNotification,
-                object: self
-            )
-        }
+        NotificationCenter.default.post(
+            name: withPassword
+                ? FPUser.connectionNotification
+                : FPUser.connectionEmailNotification,
+            object: self
+        )
 
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
