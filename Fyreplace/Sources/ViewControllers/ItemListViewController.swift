@@ -52,15 +52,14 @@ class ItemListViewController: DynamicTableViewController {
     }
 
     private func onRefresh() {
-        reset()
+        listDelegate.lister.stopListing()
+        listDelegate.lister.reset()
+        tableView.reloadData()
+        listDelegate.lister.startListing()
         listDelegate.lister.fetchMore()
     }
 
     private func onUserDisconnected(_ notification: Notification) {
-        reset()
-    }
-
-    private func reset() {
         listDelegate.lister.reset()
         tableView.reloadData()
     }
