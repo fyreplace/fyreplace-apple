@@ -9,7 +9,6 @@ class ItemListViewController: DynamicTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundView = emptyPlaceholder
 
         refreshControl?.reactive.controlEvents(.valueChanged)
             .take(during: reactive.lifetime)
@@ -70,7 +69,7 @@ class ItemListViewController: DynamicTableViewController {
 extension ItemListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = listDelegate.lister.itemCount
-        tableView.backgroundView?.isHidden = count > 0
+        tableView.backgroundView = count == 0 ? emptyPlaceholder : nil
         return count
     }
 

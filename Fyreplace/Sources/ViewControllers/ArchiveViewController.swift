@@ -5,6 +5,10 @@ class ArchiveViewController: ItemListViewController {
     var vm: ArchiveViewModel!
     @IBOutlet
     var segments: UISegmentedControl!
+    @IBOutlet
+    var archiveEmptyPlaceholder: UILabel!
+    @IBOutlet
+    var ownPostsEmptyPlaceholder: UILabel!
 
     private var isListingAllPosts: Bool { segments.selectedSegmentIndex == 0 }
 
@@ -40,6 +44,7 @@ class ArchiveViewController: ItemListViewController {
 
     @IBAction
     private func onSegmentValueChanged() {
+        emptyPlaceholder = isListingAllPosts ? archiveEmptyPlaceholder : ownPostsEmptyPlaceholder
         listDelegate.lister.stopListing()
         vm.toggleLister(toOwn: !isListingAllPosts)
         refreshNotificationHandlers()

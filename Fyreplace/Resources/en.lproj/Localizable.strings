@@ -15,13 +15,13 @@
 "Error.Title" = "Error";
 "Error.Message" = "Something, somewhere, went wrong... 😓";
 "Error.Unavailable.Title" = "Service unavailable";
-"Error.Unavailable.Message" = "The Fyreplace server is currently unavailable. It's probably undergoing maintenance, come back later!";
+"Error.Unavailable.Message" = "The Fyreplace server is currently unavailable. It is likely undergoing some maintenance, come back later!";
 "Error.Authentication.Title" = "Authentication error";
 "Error.Authentication.Message" = "You are not authenticated.";
 "Error.Permission.Title" = "Permission error";
 "Error.Permission.Message" = "You do not have the permission to perform this action.";
 "Error.Validation.Title" = "Validation error";
-"Error.Validation.Message" = "Please ensure the information you wrote is correct.";
+"Error.Validation.Message" = "The data received is not correct.";
 
 "Keychain.Error.Title" = "Keychain error";
 "Keychain.Error.Message" = "Could not operate on the Keychain.";
@@ -35,19 +35,19 @@
 "Main.AccountCreated.Title" = "Check your email";
 "Main.AccountCreated.Message" = "A confirmation email has been sent to your address. It contains a link that will allow you to confirm your registration.";
 "Main.AccountActivated.Title" = "Account activated";
-"Main.AccountActivated.Message" = "Congratulations!\nYour account has been successfully activated.";
+"Main.AccountActivated.Message" = "Your account has been successfully activated. Welcome to Fyreplace!";
 "Main.Connection.Title" = "Check your email";
 "Main.Connection.Message" = "A connection email has been sent to your address. It contains a link to connect to your account.";
 "Main.EmailChanged.Title" = "Email changed";
 "Main.EmailChanged.Message" = "Your email has been successfully updated.";
 "Main.Error.MalformedUrl.Title" = "Cannot open URL";
-"Main.Error.MalformedUrl.Message" = "The URL is malformed and cannot be used.";
+"Main.Error.MalformedUrl.Message" = "This URL is invalid.";
 "Main.Error.TimestampExceeded.Title" = "Outdated URL";
 "Main.Error.TimestampExceeded.Message" = "This URL has expired.";
 "Main.Error.InvalidToken.Title" = "Invalid token";
 "Main.Error.InvalidToken.Message" = "The token in the URL is not correctly formed.";
 "Main.Error.InvalidConnectionToken.Title" = "Invalid connection token";
-"Main.Error.InvalidConnectionToken.Message" = "The connection token is not valid; maybe it has already been used.";
+"Main.Error.InvalidConnectionToken.Message" = "This URL has likely already been used.";
 "Main.Error.UserNotPending.Title" = "Account already activated";
 "Main.Error.UserNotPending.Message" = "This account has already been activated.";
 
@@ -61,7 +61,7 @@
 "Settings.EmailChange.Success.Message" = "A confirmation email has been sent to your new address.";
 "Settings.Bio" = "Empty";
 "Settings.AccountDeletion.Title" = "Account deletion";
-"Settings.AccountDeletion.Message" = "Deleting your account is a permanent action. You will not be able to restore your account afterwards.\n\nAre you sure you want to go through with this?";
+"Settings.AccountDeletion.Message" = "Deleting your account is a permanent action. You will not be able to restore your account afterwards, and all your posts and comments will also be deleted.\n\nAre you sure you want to go through with this?";
 "Settings.AccountDeletion.Action.Delete" = "Delete account";
 "Settings.AccountDeletion.Action.Delete.Countdown" = "Delete account (%d)";
 "Settings.AccountDeletion.Success.Title" = "Account deleted";
@@ -99,7 +99,7 @@
 "Draft.AddText.Title" = "Add text";
 "Draft.UpdateText.Title" = "Update text";
 "Draft.Error.ChapterEmpty.Title" = "Empty text section";
-"Draft.Error.ChapterEmpty.Message" = "Posts can't have text section left empty.";
+"Draft.Error.ChapterEmpty.Message" = "Posts can't have text sections left empty.";
 "Draft.Error.PostEmpty.Title" = "Empty post";
 "Draft.Error.PostEmpty.Message" = "Empty posts can't be published.";
 

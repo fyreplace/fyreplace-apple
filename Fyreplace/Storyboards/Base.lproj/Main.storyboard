@@ -282,14 +282,23 @@
                         <color key="tintColor" systemColor="secondaryLabelColor"/>
                     </refreshControl>
                     <connections>
+                        <outlet property="archiveEmptyPlaceholder" destination="Archive-No-subscribed-posts" id="b5d2171d7288e2bca2ff40c3bc87decdbd6120b920262d77dd28de3e2cdec65f"/>
                         <outlet property="emptyPlaceholder" destination="Archive-No-subscribed-posts" id="dd75d4754ace7d414a368262189cd2a7fc94d474496eb26803bf1b018f350726"/>
                         <outlet property="listDelegate" destination="Archive-ArchiveViewModel" id="7bcad236b113ff50face10092b69e2c5f097cf58d9ec2e74ff3ffb7694f75002"/>
+                        <outlet property="ownPostsEmptyPlaceholder" destination="Archive-No-published-posts" id="40d7180cd595254e5e2f8dcc5403aba11d7f51d3508ea856cd0c5155fd307976"/>
                         <outlet property="segments" destination="Archive-Archive-navigationItem-titleView" id="283b29a2813ac59ae67496686763415c14f822d3720dbe5e2a600b5a2f499a85"/>
                         <outlet property="vm" destination="Archive-ArchiveViewModel" id="30ae82cadfb217d6ad479b8275be5391be4a191d37447ce77702f5ecb939b2e2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Archive-UIResponder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No subscribed posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Archive-No-subscribed-posts">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                    <color key="textColor" systemColor="placeholderTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No published posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Archive-No-published-posts">
                     <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -2026,7 +2035,7 @@
                     <connections>
                         <outlet property="done" destination="Blocked-Users-done" id="f5588a0e2ba14d15d07ee250dc51c03315a0caa92b41b2cddb171693d18b1847"/>
                         <outlet property="edit" destination="Blocked-Users-Blocked-Users-Blocked-users-edit" id="31a95ff23aac31b0f9e3700457c7e97fa7a5665e501a36694c19078120a2e958"/>
-                        <outlet property="emptyPlaceholder" destination="Blocked-Users-No-blocked-users" id="89dcbcb58a1276775df203f100ddde97bebf907d26880b95c304abc2268a7f21"/>
+                        <outlet property="emptyPlaceholder" destination="Blocked-Users-No-users-blocked" id="89dcbcb58a1276775df203f100ddde97bebf907d26880b95c304abc2268a7f21"/>
                         <outlet property="listDelegate" destination="Blocked-Users-BlockedUsersViewModel" id="03034cc75e3245aa2ded5c24ff57e9a4e14dbfb3803565348c968f7519aee7e9"/>
                         <outlet property="vm" destination="Blocked-Users-BlockedUsersViewModel" id="d1f3722d3fcab0eea1b091a4f184a7334beb42eb861ff0a52a830b952d06f953"/>
                     </connections>
@@ -2037,7 +2046,7 @@
                         <action selector="onDonePressed" destination="Blocked-Users-Blocked-Users" id="fb8ba7aa3b1db18068566142a60383d4dae980ec50f47947cd37823c1188f639"/>
                     </connections>
                 </barButtonItem>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No blocked users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Blocked-Users-No-blocked-users">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No users blocked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Blocked-Users-No-users-blocked">
                     <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -2084,7 +2093,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="75fc7b2aec57cd6da8a9c1c1270fc91642607cac697471312f71f9c481ef23fd"/>
-        <segue reference="df9e5f5768d4fd0fc2952985a5376b6e919d9f85a1e745733a53ae03615cfdc7"/>
+        <segue reference="7793e6149e900cb5fc63c3d354fc73023280da9147c1f456b94c29aed15da6a4"/>
         <segue reference="77e8b833a318243293fae0fd57004cef549205091fef52325afa1fcff5219e42"/>
         <segue reference="db5d4c1481b470b3507a8309359b68fc4d4c6c828d91dbd401aa1bb37f120dac"/>
     </inferredMetricsTieBreakers>
