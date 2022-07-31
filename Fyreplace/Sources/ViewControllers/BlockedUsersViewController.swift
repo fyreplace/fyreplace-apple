@@ -88,12 +88,12 @@ extension BlockedUsersViewController {
 
     private func block(profile: FPProfile, at indexPath: IndexPath) {
         vm.updateBlock(userId: profile.id, blocked: true, at: indexPath.row)
-        addItem(profile, at: indexPath, becauseOf: FPUser.blockNotification)
+        addItem(profile, at: indexPath, becauseOf: .init(name: FPUser.blockNotification))
     }
 
     private func unblock(profile: FPProfile, at indexPath: IndexPath) {
         vm.updateBlock(userId: profile.id, blocked: false, at: indexPath.row)
-        deleteItem(at: indexPath, becauseOf: FPUser.unblockNotification)
+        deleteItem(at: indexPath, becauseOf: .init(name: FPUser.unblockNotification))
     }
 
     private func setupUndo(for profile: FPProfile, at indexPath: IndexPath) {

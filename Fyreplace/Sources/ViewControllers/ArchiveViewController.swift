@@ -35,8 +35,8 @@ class ArchiveViewController: ItemListViewController {
         }
     }
 
-    override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification.Name) {
-        let path = reason == FPPost.draftPublicationNotification
+    override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
+        let path = reason.name == FPPost.draftPublicationNotification
             ? .init(row: 0, section: 0)
             : indexPath
         super.addItem(item, at: path, becauseOf: reason)

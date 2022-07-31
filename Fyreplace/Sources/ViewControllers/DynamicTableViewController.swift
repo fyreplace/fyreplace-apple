@@ -48,15 +48,15 @@ class DynamicTableViewController: UITableViewController {
         }
     }
 
-    open func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification.Name) {
+    open func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
 
-    open func updateItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification.Name) {
+    open func updateItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
-    open func deleteItem(at indexPath: IndexPath, becauseOf reason: Notification.Name) {
+    open func deleteItem(at indexPath: IndexPath, becauseOf reason: Notification) {
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 
@@ -69,7 +69,7 @@ class DynamicTableViewController: UITableViewController {
         addItem(
             item,
             at: IndexPath(row: position, section: 0),
-            becauseOf: notification.name
+            becauseOf: notification
         )
     }
 
@@ -82,7 +82,7 @@ class DynamicTableViewController: UITableViewController {
         updateItem(
             item,
             at: IndexPath(row: position, section: 0),
-            becauseOf: notification.name
+            becauseOf: notification
         )
     }
 
@@ -93,7 +93,7 @@ class DynamicTableViewController: UITableViewController {
 
         deleteItem(
             at: IndexPath(row: position, section: 0),
-            becauseOf: notification.name
+            becauseOf: notification
         )
     }
 }

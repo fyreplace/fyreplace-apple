@@ -34,7 +34,7 @@ extension CommentViewController: CommentViewModelDelegate {
         NotificationCenter.default.post(
             name: FPComment.commentCreationNotification,
             object: self,
-            userInfo: ["position": -1, "item": comment]
+            userInfo: ["position": -1, "item": comment, "postId": postId as Any]
         )
 
         DispatchQueue.main.async { self.dismiss(animated: true) }

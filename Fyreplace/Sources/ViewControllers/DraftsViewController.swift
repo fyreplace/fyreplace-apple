@@ -65,7 +65,7 @@ extension DraftsViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         vm.delete(vm.post(atIndex: indexPath.row).id)
-        deleteItem(at: indexPath, becauseOf: FPPost.draftDeletionNotification)
+        deleteItem(at: indexPath, becauseOf: .init(name: FPPost.draftDeletionNotification))
     }
 }
 

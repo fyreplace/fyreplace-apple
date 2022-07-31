@@ -36,17 +36,17 @@ class ItemListViewController: DynamicTableViewController {
         listDelegate.lister.stopListing()
     }
 
-    override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification.Name) {
+    override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
         listDelegate.lister.insert(item, at: indexPath.row)
         super.addItem(item, at: indexPath, becauseOf: reason)
     }
 
-    override func updateItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification.Name) {
+    override func updateItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
         listDelegate.lister.update(item, at: indexPath.row)
         super.updateItem(item, at: indexPath, becauseOf: reason)
     }
 
-    override func deleteItem(at indexPath: IndexPath, becauseOf reason: Notification.Name) {
+    override func deleteItem(at indexPath: IndexPath, becauseOf reason: Notification) {
         listDelegate.lister.remove(at: indexPath.row)
         super.deleteItem(at: indexPath, becauseOf: reason)
     }

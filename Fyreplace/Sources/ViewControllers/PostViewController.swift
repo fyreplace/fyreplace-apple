@@ -95,10 +95,16 @@ class PostViewController: ItemRandomAccessListViewController {
         }
     }
 
-    override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification.Name) {
+    override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
+        guard reason.userInfo?["postId"] as? Data == vm.post.value?.id else { return }
         super.addItem(item, at: indexPath, becauseOf: reason)
         let title = tableView.headerView(forSection: 0)
         title?.textLabel?.text = tableView(tableView, titleForHeaderInSection: 0)
+    }
+
+    override func updateItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
+        guard reason.userInfo?["postId"] as? Data == vm.post.value?.id else { return }
+        super.updateItem(item, at: indexPath, becauseOf: reason)
     }
 
     @IBAction
@@ -296,7 +302,7 @@ extension PostViewController: PostViewModelDelegate {
         NotificationCenter.default.post(
             name: FPComment.commentDeletionNotification,
             object: self,
-            userInfo: ["position": position, "item": comment]
+            userInfo: ["position": position, "item": comment, "postId": vm.post.value?.id as Any]
         )
     }
 
