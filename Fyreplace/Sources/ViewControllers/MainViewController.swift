@@ -115,18 +115,29 @@ class MainViewController: UITabBarController {
             }
         } else if url.path.hasPrefix("/p/") {
             let parts = url.path.dropFirst(3).split(separator: "/")
-            presentPost(id: String(parts.first!), at: .init(parts.last ?? ""))
+            let commentPosition = Int(parts.last ?? "")
+            guard let postIdString = parts.first,
+                  let postId = Data(base64ShortString: .init(postIdString))
+            else { return presentBasicAlert(text: "Main.Error.MalformedUrl") }
+
+            if let commentPosition = commentPosition,
+               let navigationController = selectedViewController as? UINavigationController,
+               let postController = navigationController.topViewController as? PostViewController,
+               postController.tryShowComment(for: postId, at: commentPosition)
+            {
+                return
+            } else {
+                presentPost(id: postId, at: commentPosition)
+            }
         } else {
             presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
         }
     }
 
-    private func presentPost(id postIdShortString: String, at commentPosition: Int? = nil) {
-        guard let postId = Data(base64ShortString: postIdShortString)
-        else { return presentBasicAlert(text: "Main.Error.MalformedUrl") }
-
-        guard currentUser != nil
-        else { return presentBasicAlert(text: "Error.Authentication") }
+    private func presentPost(id postId: Data, at commentPosition: Int? = nil) {
+        guard currentUser != nil else {
+            return presentBasicAlert(text: "Error.Authentication")
+        }
 
         guard let navigationController = selectedViewController as? UINavigationController,
               let currentController = navigationController.topViewController,

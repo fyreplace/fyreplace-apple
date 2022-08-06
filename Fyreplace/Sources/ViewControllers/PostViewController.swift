@@ -139,6 +139,13 @@ class PostViewController: ItemRandomAccessListViewController {
         }
     }
 
+    func tryShowComment(for postId: Data, at position: Int) -> Bool {
+        guard postId == vm.post.value?.id else { return false }
+        commentPosition = position
+        showComment(at: .init(row: position, section: 0))
+        return true
+    }
+
     private func onPost(_ post: FPPost?) {
         guard let post = post else { return }
         let currentUserOwnsPost = post.hasAuthor && post.author.id == currentProfile?.id
@@ -168,6 +175,14 @@ class PostViewController: ItemRandomAccessListViewController {
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         setToolbarItems(hidden ? nil : [space, comment, space], animated: false)
     }
+
+    private func showComment(at indexPath: IndexPath) {
+        guard indexPath.row < vm.lister.totalCount else { return }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
+    }
 }
 
 extension PostViewController {
@@ -195,10 +210,7 @@ extension PostViewController {
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard shouldScrollToComment, indexPath.row == commentPosition else { return }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        }
+        showComment(at: indexPath)
 
         if vm.hasItem(atIndex: indexPath.row) {
             shouldScrollToComment = false
