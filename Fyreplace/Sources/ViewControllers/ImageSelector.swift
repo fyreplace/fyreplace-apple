@@ -3,7 +3,6 @@ import PhotosUI
 import UIKit
 
 class ImageSelector: NSObject {
-    static let imageMaxArea = 1920 * 1080
     static let imageChunkSize = 100 * 1024
 
     @IBOutlet
@@ -68,11 +67,14 @@ class ImageSelector: NSObject {
     }
 
     private func extractImageData(image: UIImage, isPng: Bool) {
-        guard var data = isPng ? image.pngData() : image.jpegData(compressionQuality: 1.0)
+        guard var data = isPng ? image.pngData() : image.jpegData(compressionQuality: 0.75)
         else { return }
+        let downscaleFactor = Float(data.count) / Float(delegate.maxImageBytes)
 
-        if data.count >= delegate.maxImageBytes {
-            guard let newData = image.downscaled()?.jpegData(compressionQuality: 0.5) else { return }
+        if downscaleFactor >= 1 {
+            guard let newData = image.downscaled(withFactor: downscaleFactor).jpegData(compressionQuality: 0.5) else {
+                return delegate.presentBasicAlert(text: "Error", feedback: .error)
+            }
             data = newData
         }
 
@@ -136,16 +138,15 @@ private extension ImageSelectorDelegate {
 }
 
 private extension UIImage {
-    func downscaled() -> UIImage? {
-        let surfaceFactor = (size.width * size.height) / CGFloat(ImageSelector.imageMaxArea)
-        guard surfaceFactor > 1 else { return self }
-        let sideFactor = sqrt(surfaceFactor)
+    func downscaled(withFactor factor: Float) -> UIImage {
+        guard factor > 1 else { return self }
+        let sideFactor = CGFloat(sqrt(factor))
         let newWidth = size.width / sideFactor
         let newHeight = size.height / sideFactor
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
         draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage
+        return newImage!
     }
 }
