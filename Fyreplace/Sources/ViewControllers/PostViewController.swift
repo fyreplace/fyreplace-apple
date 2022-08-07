@@ -178,6 +178,7 @@ class PostViewController: ItemRandomAccessListViewController {
 
     private func showComment(at indexPath: IndexPath) {
         guard indexPath.row < vm.lister.totalCount else { return }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
