@@ -246,7 +246,7 @@ def make_id(*parts: IdPart) -> Id:
 
 
 def mapping_items(mapping: Mapping) -> List[Tuple[Text, Text]]:
-    items = sorted(mapping.items(), key=lambda i: resolve_id(mapping, i[1][0]))
+    items = mapping.items()
     counters = list()
     result = dict()
     previous_id_string = ""
