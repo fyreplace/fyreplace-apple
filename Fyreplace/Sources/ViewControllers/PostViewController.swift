@@ -141,8 +141,14 @@ class PostViewController: ItemRandomAccessListViewController {
 
     func tryShowComment(for postId: Data, at position: Int) -> Bool {
         guard postId == vm.post.value?.id else { return false }
+        var oldIndexPath: IndexPath?
+
+        if let oldPosition = commentPosition {
+            oldIndexPath = .init(row: oldPosition, section: 0)
+        }
+
         commentPosition = position
-        showComment(at: .init(row: position, section: 0))
+        showComment(at: .init(row: position, section: 0), insteadOf: oldIndexPath)
         return true
     }
 
@@ -176,9 +182,19 @@ class PostViewController: ItemRandomAccessListViewController {
         setToolbarItems(hidden ? nil : [space, comment, space], animated: false)
     }
 
-    private func showComment(at indexPath: IndexPath) {
+    private func showComment(at indexPath: IndexPath, insteadOf oldIndexPath: IndexPath?) {
         guard indexPath.row < vm.lister.totalCount else { return }
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        var paths = [indexPath]
+
+        if let oldPath = oldIndexPath {
+            paths.append(oldPath)
+        }
+
+        if vm.hasItem(atIndex: indexPath.row) {
+            shouldScrollToComment = false
+        }
+
+        tableView.reloadRows(at: paths, with: .automatic)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
@@ -211,11 +227,7 @@ extension PostViewController {
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard shouldScrollToComment, indexPath.row == commentPosition else { return }
-        showComment(at: indexPath)
-
-        if vm.hasItem(atIndex: indexPath.row) {
-            shouldScrollToComment = false
-        }
+        showComment(at: indexPath, insteadOf: nil)
     }
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
