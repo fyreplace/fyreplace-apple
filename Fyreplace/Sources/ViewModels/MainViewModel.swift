@@ -70,7 +70,8 @@ class MainViewModel: ViewModel {
     }
 
     func retrieveMe() {
-        let response = userService.retrieveMe(Google_Protobuf_Empty(), callOptions: .authenticated).response
+        let request = Google_Protobuf_Empty()
+        let response = userService.retrieveMe(request, callOptions: .authenticated).response
         response.whenSuccess { self.setCurrentUser($0) }
         response.whenFailure { self.delegate.onError($0) }
     }

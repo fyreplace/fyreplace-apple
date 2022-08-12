@@ -57,7 +57,8 @@ class SettingsViewModel: ViewModel {
     }
 
     func delete() {
-        let response = accountService.delete(Google_Protobuf_Empty(), callOptions: .authenticated).response
+        let request = Google_Protobuf_Empty()
+        let response = accountService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onDelete() }
         response.whenFailure { self.delegate.onError($0) }
     }
