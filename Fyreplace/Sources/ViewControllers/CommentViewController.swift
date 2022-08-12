@@ -32,7 +32,7 @@ extension CommentViewController: CommentViewModelDelegate {
             $0.dateCreated = .init(date: .init())
         }
         NotificationCenter.default.post(
-            name: FPComment.commentCreationNotification,
+            name: FPComment.creationNotification,
             object: self,
             userInfo: ["position": -1, "item": comment, "postId": postId as Any]
         )

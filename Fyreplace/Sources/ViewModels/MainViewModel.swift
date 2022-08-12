@@ -8,6 +8,7 @@ class MainViewModel: ViewModel {
 
     private lazy var accountService = FPAccountServiceNIOClient(channel: Self.rpc.channel)
     private lazy var userService = FPUserServiceNIOClient(channel: Self.rpc.channel)
+    private lazy var commentService = FPCommentServiceNIOClient(channel: Self.rpc.channel)
     private let authToken = Keychain.authToken
 
     override func awakeFromNib() {
@@ -76,6 +77,13 @@ class MainViewModel: ViewModel {
         response.whenFailure { self.delegate.onError($0) }
     }
 
+    func acknowledgeComment(id: Data) {
+        let request = FPId.with { $0.id = id }
+        let response = commentService.acknowledge(request, callOptions: .authenticated).response
+        response.whenSuccess { _ in self.delegate.onAcknowledgeComment() }
+        response.whenFailure { self.delegate.onError($0) }
+    }
+
     private func onConfirmActivation(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
             delegate.onConfirmActivation()
@@ -105,4 +113,6 @@ protocol MainViewModelDelegate: ViewModelDelegate {
     func onConfirmConnection()
 
     func onConfirmEmailUpdate()
+
+    func onAcknowledgeComment()
 }

@@ -1,6 +1,7 @@
 import Foundation
 
 extension FPComment {
-    static let commentCreationNotification = Notification.Name("FPComment.commentCreation")
-    static let commentDeletionNotification = Notification.Name("FPComment.commentDeletion")
+    static let creationNotification = Notification.Name("FPComment.creation")
+    static let deletionNotification = Notification.Name("FPComment.deletion")
+    static let seenNotification = Notification.Name("FPComment.seen")
 }

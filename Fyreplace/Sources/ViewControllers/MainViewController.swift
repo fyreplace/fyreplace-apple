@@ -47,6 +47,12 @@ class MainViewController: UITabBarController {
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onPostNotFound($0) }
 
+        NotificationCenter.default.reactive
+            .notifications(forName: FPComment.seenNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onCommentSeen($0) }
+
         toggleAuthenticatedTabs(enabled: currentUser != nil)
     }
 
@@ -90,6 +96,13 @@ class MainViewController: UITabBarController {
 
     private func onPostNotFound(_ notification: Notification) {
         (selectedViewController as? UINavigationController)?.popViewController(animated: true)
+    }
+
+    private func onCommentSeen(_ notification: Notification) {
+        guard let info = notification.userInfo,
+              let commentId = info["id"] as? Data
+        else { return }
+        vm.acknowledgeComment(id: commentId)
     }
 
     private func toggleAuthenticatedTabs(enabled: Bool) {
@@ -166,6 +179,8 @@ extension MainViewController: MainViewModelDelegate {
     func onConfirmEmailUpdate() {
         presentBasicAlert(text: "Main.EmailChanged")
     }
+
+    func onAcknowledgeComment() {}
 
     func errorKey(for code: Int, with message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {

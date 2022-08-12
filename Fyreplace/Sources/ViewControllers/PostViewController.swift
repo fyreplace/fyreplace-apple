@@ -37,11 +37,11 @@ class PostViewController: ItemRandomAccessListViewController {
     private lazy var currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
 
     override var additionNotifications: [Notification.Name] {
-        [FPComment.commentCreationNotification]
+        [FPComment.creationNotification]
     }
 
     override var updateNotifications: [Notification.Name] {
-        [FPComment.commentDeletionNotification]
+        [FPComment.deletionNotification]
     }
 
     override func viewDidLoad() {
@@ -200,6 +200,28 @@ class PostViewController: ItemRandomAccessListViewController {
             self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
+
+    private func acknowledgeLastVisibleComment() {
+        guard let position = tableView.indexPathsForVisibleRows?.last?.row,
+              let comment = vm.comment(atIndex: position)
+        else { return }
+
+        NotificationCenter.default.post(
+            name: FPComment.seenNotification,
+            object: self,
+            userInfo: ["id": comment.id]
+        )
+    }
+}
+
+extension PostViewController {
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        acknowledgeLastVisibleComment()
+    }
+
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        acknowledgeLastVisibleComment()
+    }
 }
 
 extension PostViewController {
@@ -277,6 +299,7 @@ extension PostViewController {
 extension PostViewController: PostViewModelDelegate {
     override func onFetch(count: Int, at index: Int) {
         super.onFetch(count: count, at: index)
+        acknowledgeLastVisibleComment()
 
         if shouldScrollToComment,
            let position = commentPosition,
@@ -325,7 +348,7 @@ extension PostViewController: PostViewModelDelegate {
     func onDeleteComment(_ position: Int) {
         guard let comment = vm.makeDeletedComment(fromPosition: position) else { return }
         NotificationCenter.default.post(
-            name: FPComment.commentDeletionNotification,
+            name: FPComment.deletionNotification,
             object: self,
             userInfo: ["position": position, "item": comment, "postId": vm.post.value?.id as Any]
         )
