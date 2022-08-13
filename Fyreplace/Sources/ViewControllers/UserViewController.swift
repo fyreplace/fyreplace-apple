@@ -30,9 +30,15 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         vm.blocked.value = profile.isBlocked
         vm.retrieve(id: profile.id)
-        vm.user.producer.startWithValues { [unowned self] in onUser($0) }
-        vm.blocked.producer.startWithValues { [unowned self] in onBlocked($0) }
-        vm.banned.producer.startWithValues { [unowned self] in onBanned($0) }
+        vm.user.producer
+            .take(during: reactive.lifetime)
+            .startWithValues { [unowned self] in onUser($0) }
+        vm.blocked.producer
+            .take(during: reactive.lifetime)
+            .startWithValues { [unowned self] in onBlocked($0) }
+        vm.banned.producer
+            .take(during: reactive.lifetime)
+            .startWithValues { [unowned self] in onBanned($0) }
 
         let isCurrentUser = profile.id == currentProfile?.id
         let currentRank = currentProfile?.rank ?? .unspecified

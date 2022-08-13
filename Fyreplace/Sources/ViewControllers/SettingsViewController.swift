@@ -33,13 +33,18 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
         avatar.reactive.isUserInteractionEnabled <~ vm.user.map { $0 != nil }
         username.reactive.text <~ vm.user.map { $0?.profile.username ?? .tr("Settings.Username") }
-        dateJoined.reactive.text <~ vm.user.map(\.?.dateJoined).map { [unowned self] in
-            $0 != nil ? dateFormatter.string(from: $0!.date) : ""
+        dateJoined.reactive.text <~ vm.user.map(\.?.dateJoined).map { [weak self] dateJoined -> String in
+            guard let dateJoined = dateJoined,
+                  let dateFormatter = self?.dateFormatter
+            else { return "" }
+            return dateFormatter.string(from: dateJoined.date)
         }
         email.reactive.text <~ vm.user.map(\.?.email)
         bio.reactive.text <~ vm.user.map { ($0?.bio.count ?? 0) > 0 ? $0!.bio : .tr("Settings.Bio") }
         blockedUsers.reactive.text <~ vm.blockedUsers.map { String($0) }
-        vm.user.producer.startWithValues { [unowned self] in onUser($0) }
+        vm.user.producer
+            .take(during: reactive.lifetime)
+            .startWithValues { [unowned self] in onUser($0) }
     }
 
     override func viewWillAppear(_ animated: Bool) {

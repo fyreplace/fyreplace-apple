@@ -26,9 +26,15 @@ class DraftViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        vm.post.producer.startWithValues { [unowned self] in onPost($0) }
-        vm.chapterCount.producer.startWithValues { [unowned self] in onChapterCount($0) }
-        vm.editingStatus.producer.startWithValues { [unowned self] in onEditingStatus($0) }
+        vm.post.producer
+            .take(during: reactive.lifetime)
+            .startWithValues { [unowned self] in onPost($0) }
+        vm.chapterCount.producer
+            .take(during: reactive.lifetime)
+            .startWithValues { [unowned self] in onChapterCount($0) }
+        vm.editingStatus.producer
+            .take(during: reactive.lifetime)
+            .startWithValues { [unowned self] in onEditingStatus($0) }
         vm.retrieve(id: post.id)
         publish.reactive.isEnabled <~ vm.chapterCount.map { $0 > 0 }
         addText.reactive.isEnabled <~ vm.canAddChapter

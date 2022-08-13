@@ -48,8 +48,12 @@ class PostViewController: ItemRandomAccessListViewController {
         super.viewDidLoad()
         vm.post.value = post
         vm.subscribed.value = post.isSubscribed
-        vm.post.producer.startWithValues { [unowned self] in onPost($0) }
-        vm.subscribed.producer.startWithValues { [unowned self] in onSubscribed($0) }
+        vm.post.producer
+            .take(during: reactive.lifetime)
+            .startWithValues { [unowned self] in onPost($0) }
+        vm.subscribed.producer
+            .take(during: reactive.lifetime)
+            .startWithValues { [unowned self] in onSubscribed($0) }
 
         if post.isPreview || post.chapterCount == 0 {
             vm.retrieve(id: post.id)

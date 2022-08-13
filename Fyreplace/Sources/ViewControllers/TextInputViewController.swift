@@ -16,13 +16,14 @@ class TextInputViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let maxLength = maxContentLength
         done.reactive.isEnabled <~ textInputViewModel.isLoading.negate()
         loader.reactive.isAnimating <~ textInputViewModel.isLoading
-        length.reactive.text <~ textInputViewModel.text.map { [unowned self] in
-            String.localizedStringWithFormat(.tr("Bio.Length"), $0.count, maxContentLength)
+        length.reactive.text <~ textInputViewModel.text.map {
+            String.localizedStringWithFormat(.tr("Bio.Length"), $0.count, maxLength)
         }
         length.reactive.textColor <~ textInputViewModel.text
-            .map { $0.count <= self.maxContentLength }
+            .map { $0.count <= maxLength }
             .skipRepeats()
             .map { $0 ? .labelCompat : .systemRed }
         content.becomeFirstResponder()
