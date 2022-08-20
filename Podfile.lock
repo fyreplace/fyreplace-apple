@@ -20,12 +20,12 @@ PODS:
     - SwiftProtobuf (< 2.0.0, >= 1.19.0)
   - gRPC-Swift-Plugins (1.8.0):
     - gRPC-Swift (= 1.8.0)
-  - Kingfisher (7.3.1)
+  - Kingfisher (7.3.2)
   - Logging (1.4.0)
   - ReactiveCocoa (12.0.0):
     - ReactiveSwift (~> 7.0)
   - ReactiveSwift (7.0.0)
-  - SwiftFormat/CLI (0.49.14)
+  - SwiftFormat/CLI (0.49.17)
   - SwiftNIO (2.40.0):
     - _NIODataStructures (= 2.40.0)
     - CNIOAtomics (= 2.40.0)
@@ -210,11 +210,11 @@ SPEC CHECKSUMS:
   CNIOWindows: 3047f2d8165848a3936a0a755fee27c6b5ee479b
   gRPC-Swift: 74adcaaa62ac5e0a018938840328cb1fdfb09e7b
   gRPC-Swift-Plugins: 22f9ebeaea124d95cfd85221aebe7a7503a00a41
-  Kingfisher: f411ab4902e733fc0c40522920fb5a236d7a7334
+  Kingfisher: 0086ad83719761ba9b2cdaf6ef4d5b4878cbae23
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
   ReactiveCocoa: 5d10386f0ce09f922006efbf784881c5fade27c5
   ReactiveSwift: 48c4b9d3b497e8dd20b10300bb1a28ff93550f13
-  SwiftFormat: 09cc5eb67ae49356c4ad9a2be6a0d5a4212b61bb
+  SwiftFormat: 64ac3f15bbfc3c830103a17340bcc5b60d9a3acd
   SwiftNIO: 829958aab300642625091f82fc2f49cb7cf4ef24
   SwiftNIOConcurrencyHelpers: 697370136789b1074e4535eaae75cbd7f900370e
   SwiftNIOCore: 473fdfe746534d7aa25766916459eeaf6f92ef49
