@@ -11,8 +11,9 @@ class PostActivityItemProvider: URLActivityItemProvider {
     @available(iOS 13.0, *)
     override func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
         let metadata = super.activityViewControllerLinkMetadata(activityViewController)
-        let author = post.author.getNormalizedUsername(with: nil).string
-        metadata?.title = .localizedStringWithFormat(.tr("Post.Share.Title"), author)
+        let author = post.isAnonymous ? FPProfile() : post.author
+        let username = author.getNormalizedUsername(with: nil).string
+        metadata?.title = .localizedStringWithFormat(.tr("Post.Share.Title"), username)
         return metadata
     }
 }
