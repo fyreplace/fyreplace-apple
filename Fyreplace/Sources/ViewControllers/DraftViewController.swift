@@ -271,7 +271,7 @@ extension DraftViewController: DraftViewModelDelegate {
 }
 
 extension DraftViewController: ImageSelectorDelegate {
-    static let maxImageSize: Float = 0.5
+    var maxImageByteSize: Int { 512 * 1024 }
 
     func onImageSelected(_ image: Data) {
         vm.updateImageChapter(image, at: currentChapterPosition)

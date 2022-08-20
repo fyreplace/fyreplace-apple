@@ -69,7 +69,7 @@ class ImageSelector: NSObject {
     private func extractImageData(image: UIImage, isPng: Bool) {
         guard var data = isPng ? image.pngData() : image.jpegData(compressionQuality: 0.75)
         else { return }
-        let downscaleFactor = Float(data.count) / Float(delegate.maxImageBytes)
+        let downscaleFactor = Float(data.count) / Float(delegate.maxImageByteSize)
 
         if downscaleFactor >= 1 {
             guard let newData = image.downscaled(withFactor: downscaleFactor).jpegData(compressionQuality: 0.5) else {
@@ -78,7 +78,7 @@ class ImageSelector: NSObject {
             data = newData
         }
 
-        guard data.count < delegate.maxImageBytes else {
+        guard data.count < delegate.maxImageByteSize else {
             return delegate.presentBasicAlert(text: "ImageSelector.Error.Size", feedback: .error)
         }
 
@@ -124,17 +124,13 @@ extension ImageSelector: PHPickerViewControllerDelegate {
 
 @objc
 protocol ImageSelectorDelegate where Self: UIViewController {
-    static var maxImageSize: Float { get }
+    var maxImageByteSize: Int { get }
 
     func onImageSelected(_ image: Data)
 
     func onImageRemoved()
 
     func onImageSelectionCancelled()
-}
-
-private extension ImageSelectorDelegate {
-    var maxImageBytes: Int { Int(Self.maxImageSize * 1024 * 1024) }
 }
 
 private extension UIImage {
