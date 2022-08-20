@@ -260,9 +260,16 @@ extension DraftViewController: DraftViewModelDelegate {
     func errorKey(for code: Int, with message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {
         case .invalidArgument:
-            return ["chapter_empty", "post_empty"].contains(message)
-                ? "Draft.Error.\(message!.pascalized)"
-                : "Error.Validation"
+            switch message {
+            case "payload_too_large":
+                return "ImageSelector.Error.Size"
+
+            case "chapter_empty", "post_empty":
+                return "Draft.Error.\(message!.pascalized)"
+
+            default:
+                return "Error.Validation"
+            }
 
         default:
             return "Error"

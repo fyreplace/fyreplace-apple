@@ -78,10 +78,6 @@ class ImageSelector: NSObject {
             data = newData
         }
 
-        guard data.count < delegate.maxImageByteSize else {
-            return delegate.presentBasicAlert(text: "ImageSelector.Error.Size", feedback: .error)
-        }
-
         DispatchQueue.main.async { self.delegate.onImageSelected(data) }
     }
 }

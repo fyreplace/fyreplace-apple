@@ -227,6 +227,9 @@ extension SettingsViewController: SettingsViewModelDelegate {
 
         case .invalidArgument:
             switch message {
+            case "payload_too_large":
+                return "ImageSelector.Error.Size"
+
             case "invalid_email":
                 return "Login.Error.InvalidEmail"
 
