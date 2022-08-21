@@ -16,7 +16,6 @@ extension FPChapter {
         text.setup()
         text.translatesAutoresizingMaskIntoConstraints = false
         text.font = preferredFont
-        text.textAlignment = .center
         text.text = self.text
         text.isScrollEnabled = false
         text.isEditable = false
