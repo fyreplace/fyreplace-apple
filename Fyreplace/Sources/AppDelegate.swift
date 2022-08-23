@@ -1,3 +1,4 @@
+import Kingfisher
 import UIKit
 
 @main
@@ -33,5 +34,9 @@ extension AppDelegate: UIApplicationDelegate {
     @available(iOS 13, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+
+    func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
+        KingfisherManager.shared.cache.clearMemoryCache()
     }
 }

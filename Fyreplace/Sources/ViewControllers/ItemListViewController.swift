@@ -36,6 +36,15 @@ class ItemListViewController: DynamicTableViewController {
         listDelegate.lister.stopListing()
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+
+        if viewIfLoaded?.window == nil {
+            listDelegate.lister.reset()
+            tableView.reloadData()
+        }
+    }
+
     override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
         listDelegate.lister.insert(item, at: indexPath.row)
         super.addItem(item, at: indexPath, becauseOf: reason)
