@@ -32,6 +32,7 @@ class PostViewController: ItemRandomAccessListViewController {
     var itemPosition: Int?
     var post: FPPost!
     var commentPosition: Int? { didSet { shouldScrollToComment = commentPosition != nil } }
+    private var postId: Data { vm.post.value?.id ?? post.id }
     private var errored = false
     private var shouldScrollToComment = false
     private lazy var currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
@@ -95,19 +96,24 @@ class PostViewController: ItemRandomAccessListViewController {
         {
             userNavigationController.profile = profile
         } else if let commentNavigationController = segue.destination as? CommentNavigationViewController {
-            commentNavigationController.postId = post.id
+            commentNavigationController.postId = postId
         }
     }
 
     override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
-        guard reason.userInfo?["postId"] as? Data == vm.post.value?.id else { return }
+        guard reason.userInfo?["postId"] as? Data == postId else { return }
         super.addItem(item, at: indexPath, becauseOf: reason)
         let title = tableView.headerView(forSection: 0)
         title?.textLabel?.text = tableView(tableView, titleForHeaderInSection: 0)
+        _ = tryShowComment(
+            for: postId,
+            at: listDelegate.lister.totalCount - 1,
+            selected: false
+        )
     }
 
     override func updateItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
-        guard reason.userInfo?["postId"] as? Data == vm.post.value?.id else { return }
+        guard reason.userInfo?["postId"] as? Data == postId else { return }
         super.updateItem(item, at: indexPath, becauseOf: reason)
     }
 
@@ -143,15 +149,17 @@ class PostViewController: ItemRandomAccessListViewController {
         }
     }
 
-    func tryShowComment(for postId: Data, at position: Int) -> Bool {
-        guard postId == vm.post.value?.id else { return false }
+    func tryShowComment(for postId: Data, at position: Int, selected: Bool = true) -> Bool {
         var oldIndexPath: IndexPath?
 
-        if let oldPosition = commentPosition {
-            oldIndexPath = .init(row: oldPosition, section: 0)
+        if selected {
+            if let oldPosition = commentPosition {
+                oldIndexPath = .init(row: oldPosition, section: 0)
+            }
+
+            commentPosition = position
         }
 
-        commentPosition = position
         showComment(at: .init(row: position, section: 0), insteadOf: oldIndexPath)
         return true
     }
@@ -354,7 +362,7 @@ extension PostViewController: PostViewModelDelegate {
         NotificationCenter.default.post(
             name: FPComment.deletionNotification,
             object: self,
-            userInfo: ["position": position, "item": comment, "postId": vm.post.value?.id as Any]
+            userInfo: ["position": position, "item": comment, "postId": postId as Any]
         )
     }
 
