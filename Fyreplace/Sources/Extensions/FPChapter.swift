@@ -24,8 +24,8 @@ extension FPChapter {
         container.addSubview(text)
         text.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
         text.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
-        text.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20).isActive = true
-        text.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20).isActive = true
+        text.leadingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        text.trailingAnchor.constraint(equalTo: container.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         return container
     }
 
