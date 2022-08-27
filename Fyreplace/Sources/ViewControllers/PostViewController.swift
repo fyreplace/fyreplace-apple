@@ -150,6 +150,7 @@ class PostViewController: ItemRandomAccessListViewController {
     }
 
     func tryShowComment(for postId: Data, at position: Int, selected: Bool = true) -> Bool {
+        guard postId == self.postId else { return false }
         var oldIndexPath: IndexPath?
 
         if selected {
