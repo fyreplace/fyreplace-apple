@@ -5,21 +5,19 @@ class PostViewModel: ViewModel {
     @IBOutlet
     weak var delegate: PostViewModelDelegate!
 
-    let post = MutableProperty<FPPost?>(nil)
+    let post = MutableProperty<FPPost>(FPPost())
     let subscribed = MutableProperty<Bool>(false)
     var lister: ItemRandomAccessListerProtocol { commentLister }
 
-    private var postId: Data!
     private lazy var postService = FPPostServiceNIOClient(channel: Self.rpc.channel)
     private lazy var commentService = FPCommentServiceNIOClient(channel: Self.rpc.channel)
     private lazy var commentLister = ItemRandomAccessLister<FPComment, FPComments, FPCommentServiceNIOClient>(
         delegatingTo: delegate,
         using: self.commentService,
-        contextId: postId
+        contextId: post.value.id
     )
 
     func retrieve(id: Data) {
-        postId = id
         let request = FPId.with { $0.id = id }
         let response = postService.retrieve(request, callOptions: .authenticated).response
         response.whenSuccess(onRetrieve(_:))
@@ -28,7 +26,7 @@ class PostViewModel: ViewModel {
 
     func updateSubscription(subscribed: Bool) {
         let request = FPSubscription.with {
-            $0.id = postId
+            $0.id = post.value.id
             $0.subscribed = subscribed
         }
         let response = postService.updateSubscription(request, callOptions: .authenticated).response
@@ -37,14 +35,14 @@ class PostViewModel: ViewModel {
     }
 
     func report() {
-        let request = FPId.with { $0.id = postId }
+        let request = FPId.with { $0.id = post.value.id }
         let response = postService.report(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onReport() }
         response.whenFailure { self.delegate.onError($0) }
     }
 
     func delete() {
-        let request = FPId.with { $0.id = postId }
+        let request = FPId.with { $0.id = post.value.id }
         let response = postService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.onDelete() }
         response.whenFailure { self.delegate.onError($0) }
