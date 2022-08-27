@@ -13,6 +13,8 @@
 		4D16CF69289405D700C3B61C /* FPPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D16CF68289405D700C3B61C /* FPPost.swift */; };
 		4D1984D12891ACAC0074045F /* DynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1984D02891ACAC0074045F /* DynamicTableViewController.swift */; };
 		4D1984D32891CC290074045F /* FPComment+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1984D22891CC290074045F /* FPComment+Notification.swift */; };
+		4D1F07C828BA53EA0074B158 /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F07C728BA53EA0074B158 /* BaseListViewController.swift */; };
+		4D1F07CA28BA545A0074B158 /* BaseLister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F07C928BA545A0074B158 /* BaseLister.swift */; };
 		4D41605928797FF0008584FC /* CommentActivityItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D41605828797FEF008584FC /* CommentActivityItemProvider.swift */; };
 		4D45C81528848AE80053B9DB /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45C81428848AE80053B9DB /* CommentViewController.swift */; };
 		4D45C81728848B8E0053B9DB /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45C81628848B8E0053B9DB /* CommentViewModel.swift */; };
@@ -155,6 +157,8 @@
 		4D16CF68289405D700C3B61C /* FPPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPPost.swift; sourceTree = "<group>"; };
 		4D1984D02891ACAC0074045F /* DynamicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTableViewController.swift; sourceTree = "<group>"; };
 		4D1984D22891CC290074045F /* FPComment+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPComment+Notification.swift"; sourceTree = "<group>"; };
+		4D1F07C728BA53EA0074B158 /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
+		4D1F07C928BA545A0074B158 /* BaseLister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLister.swift; sourceTree = "<group>"; };
 		4D1FF60C270793BF00445793 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		4D1FF61027085F9600445793 /* ItemLister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLister.swift; sourceTree = "<group>"; };
 		4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPPosts+ItemBundle.swift"; sourceTree = "<group>"; };
@@ -340,6 +344,7 @@
 				4D5FC3EE2701FECC00AE1F73 /* ImageSelector.swift */,
 				4DCAAEB62827DF5D00D4427C /* TextInputViewController.swift */,
 				4D1984D02891ACAC0074045F /* DynamicTableViewController.swift */,
+				4D1F07C728BA53EA0074B158 /* BaseListViewController.swift */,
 				4D1FF60C270793BF00445793 /* ItemListViewController.swift */,
 				4D97474E27C042E600422023 /* ItemRandomAccessListViewController.swift */,
 				4D3EB6D926C42DA10034B6FB /* MainViewController.swift */,
@@ -418,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				4D28876126A74F7200D6D3CB /* Rpc.swift */,
+				4D1F07C928BA545A0074B158 /* BaseLister.swift */,
 				4D1FF61027085F9600445793 /* ItemLister.swift */,
 				4DC88FA027B4550E00F06921 /* ItemRandomAccessLister.swift */,
 			);
@@ -701,6 +707,7 @@
 				4D77941D27DE654B0068F4E7 /* NSObjectProtocol+FPBUser.swift in Sources */,
 				4D77941E27DE654B0068F4E7 /* LargeFilledButton.swift in Sources */,
 				4D77941F27DE654B0068F4E7 /* PostTableHeaderView.swift in Sources */,
+				4D1F07CA28BA545A0074B158 /* BaseLister.swift in Sources */,
 				4DF63A0427FF0C2000DF8460 /* DraftsViewController.swift in Sources */,
 				4D77942027DE654B0068F4E7 /* UIButton.swift in Sources */,
 				4D77942127DE654B0068F4E7 /* FPRank.swift in Sources */,
@@ -722,6 +729,7 @@
 				4D77942C27DE654B0068F4E7 /* String.swift in Sources */,
 				4D77942D27DE654B0068F4E7 /* PostTableViewCell.swift in Sources */,
 				4D77942E27DE654B0068F4E7 /* Keychain.swift in Sources */,
+				4D1F07C828BA53EA0074B158 /* BaseListViewController.swift in Sources */,
 				4D77942F27DE654B0068F4E7 /* FPClient.swift in Sources */,
 				4D77943027DE654B0068F4E7 /* RoundImageView.swift in Sources */,
 				4D86278D284BC18E00A9320D /* Data.swift in Sources */,

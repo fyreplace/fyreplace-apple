@@ -1,22 +1,21 @@
 import ReactiveSwift
 import UIKit
 
-class ItemRandomAccessListViewController: DynamicTableViewController {
+class ItemRandomAccessListViewController: BaseListViewController {
     @IBOutlet
     weak var listDelegate: ItemRandomAccessListViewDelegate!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        listViewDelegate = self
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        listDelegate.lister.startListing()
 
         if listDelegate.lister.itemCount == 0 {
             listDelegate.lister.fetch(around: 0)
         }
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        listDelegate.lister.stopListing()
     }
 
     override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
@@ -47,6 +46,10 @@ extension ItemRandomAccessListViewController {
         let identifier = listDelegate.itemPreviewType(atIndex: indexPath.row)
         return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
     }
+}
+
+extension ItemRandomAccessListViewController: BaseListViewDelegate {
+    var lister: BaseListerProtocol! { listDelegate.lister }
 }
 
 extension ItemRandomAccessListViewController: ItemRandomAccessListerDelegate {

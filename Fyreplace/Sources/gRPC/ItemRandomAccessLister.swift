@@ -2,16 +2,12 @@ import Foundation
 import GRPC
 
 @objc
-protocol ItemRandomAccessListerProtocol {
+protocol ItemRandomAccessListerProtocol: BaseListerProtocol {
     var pageSize: UInt32 { get }
 
     var itemCount: Int { get }
 
     var totalCount: Int { get }
-
-    func startListing()
-
-    func stopListing()
 
     func fetch(around index: Int)
 

@@ -1,7 +1,7 @@
 import ReactiveSwift
 import UIKit
 
-class ItemListViewController: DynamicTableViewController {
+class ItemListViewController: BaseListViewController {
     @IBOutlet
     weak var listDelegate: ItemListViewDelegate!
     @IBOutlet
@@ -9,6 +9,7 @@ class ItemListViewController: DynamicTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        listViewDelegate = self
 
         refreshControl?.reactive.controlEvents(.valueChanged)
             .take(during: reactive.lifetime)
@@ -24,25 +25,17 @@ class ItemListViewController: DynamicTableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        listDelegate.lister.startListing()
 
         if listDelegate.lister.itemCount == 0 {
             listDelegate.lister.fetchMore()
         }
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        listDelegate.lister.stopListing()
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
-        if viewIfLoaded?.window == nil {
-            listDelegate.lister.reset()
-            tableView.reloadData()
-        }
+        guard viewIfLoaded?.window == nil else { return }
+        listDelegate.lister.reset()
+        tableView.reloadData()
     }
 
     override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
@@ -99,6 +92,10 @@ extension ItemListViewController: ViewModelDelegate {
     func errorKey(for code: Int, with message: String?) -> String? {
         return "Error"
     }
+}
+
+extension ItemListViewController: BaseListViewDelegate {
+    var lister: BaseListerProtocol! { listDelegate.lister }
 }
 
 extension ItemListViewController: ItemListerDelegate {
