@@ -156,7 +156,7 @@ PODS:
     - SwiftNIOFoundationCompat (< 3, >= 2.32.0)
     - SwiftNIOPosix (< 3, >= 2.32.0)
     - SwiftNIOTLS (< 3, >= 2.32.0)
-  - SwiftProtobuf (1.19.1)
+  - SwiftProtobuf (1.20.1)
 
 DEPENDENCIES:
   - gRPC-Swift (~> 1)
@@ -228,7 +228,7 @@ SPEC CHECKSUMS:
   SwiftNIOSSL: d153c5a6fc5b2301b0519b4c4d037a9414212da6
   SwiftNIOTLS: 598af547490133e9aac52aed0c23c4a90c31dcfc
   SwiftNIOTransportServices: 0b2b407819d82eb63af558c5396e33c945759503
-  SwiftProtobuf: 59d9ea2eb5f84b509f32d170a65f3348ae758f1e
+  SwiftProtobuf: e40a7684079620e84ba522dbaeab0cddb0ec7ffd
 
 PODFILE CHECKSUM: abc10d2eb006bcd0e7f12085a6a4a80a68884ffb
 
