@@ -456,7 +456,7 @@
                                     <action selector="onAddPressed" destination="Drafts-Drafts" id="17c24ea96e1db17bfc06d21ce9dca186ebb460eaa675990cc289421fc54cc061"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem style="plain" id="Drafts-Drafts-Drafts-barButtonItem">
+                            <barButtonItem id="Drafts-Drafts-Drafts-barButtonItem">
                                 <view key="customView" contentMode="scaleToFill" id="Drafts-Drafts-Drafts-barButtonItem-customView">
                                     <rect key="frame" x="300" y="6" width="32" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1588,7 +1588,7 @@
                                     <action selector="onDonePressed" destination="Comment-Comment" id="54a1ad87b8ba3a066797c8ba7c9b1e430686863c15f7adad5fada75641fd76b5"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem style="plain" id="Comment-Comment-navigationItem-barButtonItem">
+                            <barButtonItem id="Comment-Comment-navigationItem-barButtonItem">
                                 <view key="customView" contentMode="scaleToFill" id="Comment-Comment-navigationItem-barButtonItem-customView">
                                     <rect key="frame" x="298.33333333333331" y="12" width="32" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1697,7 +1697,7 @@
                                     <action selector="onDonePressed" destination="Text-Chapter-Text-Chapter" id="a6610d5b2679b9697fbed8b1c94adc78d274f62999a1bceb5cefa6c9799e4d62"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem style="plain" id="Text-Chapter-Text-Chapter-navigationItem-barButtonItem">
+                            <barButtonItem id="Text-Chapter-Text-Chapter-navigationItem-barButtonItem">
                                 <view key="customView" contentMode="scaleToFill" id="Text-Chapter-Text-Chapter-navigationItem-barButtonItem-customView">
                                     <rect key="frame" x="292.33333333333331" y="12" width="32" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
