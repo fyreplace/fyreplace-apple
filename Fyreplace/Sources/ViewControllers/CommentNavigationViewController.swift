@@ -6,10 +6,8 @@ class CommentNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for controller in viewControllers {
-            if let controller = controller as? CommentViewController {
-                controller.postId = postId
-            }
+        for case let controller as CommentViewController in viewControllers {
+            controller.postId = postId
         }
     }
 }

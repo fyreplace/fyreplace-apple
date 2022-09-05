@@ -8,12 +8,10 @@ class TextChapterNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for controller in viewControllers {
-            if let controller = controller as? TextChapterViewController {
-                controller.postId = postId
-                controller.position = position
-                controller.text = text
-            }
+        for case let controller as TextChapterViewController in viewControllers {
+            controller.postId = postId
+            controller.position = position
+            controller.text = text
         }
     }
 }

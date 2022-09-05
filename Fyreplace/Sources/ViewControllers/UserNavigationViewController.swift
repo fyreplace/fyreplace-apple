@@ -7,11 +7,9 @@ class UserNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for controller in viewControllers {
-            if let controller = controller as? UserViewController {
-                controller.itemPosition = itemPosition
-                controller.profile = profile
-            }
+        for case let controller as UserViewController in viewControllers {
+            controller.itemPosition = itemPosition
+            controller.profile = profile
         }
     }
 }
