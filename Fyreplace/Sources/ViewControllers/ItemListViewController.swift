@@ -48,9 +48,9 @@ class ItemListViewController: BaseListViewController {
         super.updateItem(item, at: indexPath, becauseOf: reason)
     }
 
-    override func deleteItem(at indexPath: IndexPath, becauseOf reason: Notification) {
+    override func deleteItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
         listDelegate.lister.remove(at: indexPath.row)
-        super.deleteItem(at: indexPath, becauseOf: reason)
+        super.deleteItem(item, at: indexPath, becauseOf: reason)
     }
 
     private func onRefresh() {

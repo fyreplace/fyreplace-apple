@@ -3,10 +3,6 @@ import GRPC
 
 @objc
 protocol ItemListerProtocol: BaseListerProtocol {
-    var pageSize: UInt32 { get }
-
-    var itemCount: Int { get }
-
     func reset()
 
     func fetchMore()
@@ -19,7 +15,8 @@ protocol ItemListerProtocol: BaseListerProtocol {
 }
 
 class ItemLister<Item, Items, Service>: ItemListerProtocol
-    where Items: ItemBundle, Item == Items.Item,
+    where Item: IdentifiableItem,
+    Items: ItemBundle, Item == Items.Item,
     Service: ItemListerService, Item == Service.Item, Items == Service.Items
 {
     let pageSize: UInt32 = 12
@@ -55,6 +52,11 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
 
     func stopListing() {
         _ = stream?.sendEnd()
+    }
+
+    func getPosition(for item: Any) -> Int {
+        let itemId = (item as! Item).id
+        return items.firstIndex { $0.id == itemId } ?? -1
     }
 
     func reset() {
@@ -96,6 +98,10 @@ enum ItemsState {
     case incomplete
     case complete
     case fetching
+}
+
+protocol IdentifiableItem {
+    var id: Data { get }
 }
 
 protocol ItemBundle {

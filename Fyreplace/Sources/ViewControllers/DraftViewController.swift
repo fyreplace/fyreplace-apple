@@ -19,7 +19,6 @@ class DraftViewController: UITableViewController {
     @IBOutlet
     var addImage: UIButton!
 
-    var itemPosition: Int!
     var post: FPPost!
 
     private var currentChapterPosition = -1
@@ -45,7 +44,7 @@ class DraftViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
 
         if let controller = segue.destination as? TextChapterNavigationViewController {
-            controller.postId = post.id
+            controller.post = vm.post.value
             controller.position = currentChapterPosition
             controller.text = vm.post.value?.chapters[currentChapterPosition].text
         }
@@ -130,11 +129,10 @@ class DraftViewController: UITableViewController {
     }
 
     private func postUpdateNotification(_ post: FPPost) {
-        guard let position = itemPosition else { return }
         NotificationCenter.default.post(
             name: FPPost.draftUpdateNotification,
             object: self,
-            userInfo: ["position": position, "item": post]
+            userInfo: ["item": post]
         )
     }
 
@@ -209,10 +207,12 @@ extension DraftViewController: DraftViewModelDelegate {
     }
 
     func onDelete() {
+        let preview = vm.post.value!.makePreview()
+
         NotificationCenter.default.post(
             name: FPPost.draftDeletionNotification,
             object: self,
-            userInfo: ["position": itemPosition as Any]
+            userInfo: ["item": preview]
         )
 
         DispatchQueue.main.async {
@@ -226,7 +226,7 @@ extension DraftViewController: DraftViewModelDelegate {
         NotificationCenter.default.post(
             name: FPPost.draftPublicationNotification,
             object: self,
-            userInfo: ["position": itemPosition as Any, "item": preview]
+            userInfo: ["item": preview]
         )
 
         DispatchQueue.main.async {

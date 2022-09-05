@@ -37,10 +37,8 @@ class DraftsViewController: ItemListViewController {
             if let cell = sender as? UITableViewCell,
                let index = tableView.indexPath(for: cell)?.row
             {
-                draftController.itemPosition = index
                 draftController.post = vm.post(atIndex: index)
             } else {
-                draftController.itemPosition = 0
                 draftController.post = .with { $0.id = createdPostId }
             }
         }
@@ -64,8 +62,9 @@ extension DraftsViewController {
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        vm.delete(vm.post(atIndex: indexPath.row).id)
-        deleteItem(at: indexPath, becauseOf: .init(name: FPPost.draftDeletionNotification))
+        let post = vm.post(atIndex: indexPath.row)
+        vm.delete(post.id)
+        deleteItem(post, at: indexPath, becauseOf: .init(name: FPPost.draftDeletionNotification))
     }
 }
 
@@ -74,7 +73,7 @@ extension DraftsViewController: DraftsViewModelDelegate {
         NotificationCenter.default.post(
             name: FPPost.draftCreationNotification,
             object: self,
-            userInfo: ["position": 0, "item": FPPost.with { $0.id = id }]
+            userInfo: ["item": FPPost.with { $0.id = id }]
         )
 
         DispatchQueue.main.async { [self] in

@@ -3,10 +3,6 @@ import GRPC
 
 @objc
 protocol ItemRandomAccessListerProtocol: BaseListerProtocol {
-    var pageSize: UInt32 { get }
-
-    var itemCount: Int { get }
-
     var totalCount: Int { get }
 
     func fetch(around index: Int)
@@ -17,7 +13,8 @@ protocol ItemRandomAccessListerProtocol: BaseListerProtocol {
 }
 
 class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtocol
-    where Items: ItemRandomAccessBundle, Item == Items.Item,
+    where Item: IdentifiableItem,
+    Items: ItemRandomAccessBundle, Item == Items.Item,
     Service: ItemListerService, Item == Service.Item, Items == Service.Items
 {
     let pageSize: UInt32 = 12
@@ -52,6 +49,12 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
 
     func stopListing() {
         _ = stream?.sendEnd()
+    }
+
+    func getPosition(for item: Any) -> Int {
+        let itemId = (item as! Item).id
+        guard let index = (items.firstIndex { $0.1.id == itemId }) else { return -1 }
+        return items[index].0
     }
 
     func fetch(around index: Int) {

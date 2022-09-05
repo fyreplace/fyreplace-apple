@@ -23,7 +23,6 @@ class UserViewController: UIViewController {
     @IBOutlet
     var dateFormat: DateFormat!
 
-    var itemPosition: Int?
     var profile: FPProfile!
 
     override func viewDidLoad() {
@@ -143,11 +142,10 @@ class UserViewController: UIViewController {
 extension UserViewController: UserViewModelDelegate {
     func onBlockUpdate(_ blocked: Bool) {
         profile.isBlocked = blocked
-        guard let position = itemPosition else { return }
         NotificationCenter.default.post(
             name: blocked ? FPUser.blockNotification : FPUser.unblockNotification,
             object: self,
-            userInfo: ["position": position, "item": profile as Any]
+            userInfo: ["item": profile!]
         )
     }
 
@@ -158,11 +156,10 @@ extension UserViewController: UserViewModelDelegate {
     func onBan() {
         profile.isBanned = true
         presentBasicAlert(text: "User.Ban.Success")
-        guard let position = itemPosition else { return }
         NotificationCenter.default.post(
             name: FPUser.banNotification,
             object: self,
-            userInfo: ["position": position, "item": profile as Any]
+            userInfo: ["item": profile!]
         )
     }
 

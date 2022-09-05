@@ -30,7 +30,6 @@ class ArchiveViewController: ItemListViewController {
         if let postController = segue.destination as? PostViewController,
            let index = tableView.indexPathForSelectedRow?.row
         {
-            postController.itemPosition = index
             postController.post = vm.post(atIndex: index)
         }
     }

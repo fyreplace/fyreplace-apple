@@ -29,7 +29,6 @@ class PostViewController: ItemRandomAccessListViewController {
     @IBOutlet
     var dateFormat: DateFormat!
 
-    var itemPosition: Int?
     var post: FPPost!
     var commentPosition: Int? { didSet { shouldScrollToComment = commentPosition != nil } }
     private var errored = false
@@ -57,10 +56,6 @@ class PostViewController: ItemRandomAccessListViewController {
 
         if post.isPreview || post.chapterCount == 0 {
             vm.retrieve(id: post.id)
-        }
-
-        if itemPosition == nil, !post.isSubscribed {
-            itemPosition = 0
         }
     }
 
@@ -314,17 +309,13 @@ extension PostViewController: PostViewModelDelegate {
     }
 
     func onUpdateSubscription(_ subscribed: Bool) {
-        guard let position = itemPosition else { return }
-        let notification = subscribed
-            ? FPPost.subscriptionNotification
-            : FPPost.unsubscriptionNotification
-        var info: [String: Any] = ["position": position]
-
-        if subscribed {
-            info["item"] = vm.post.value.makePreview()
-        }
-
-        NotificationCenter.default.post(name: notification, object: self, userInfo: info)
+        NotificationCenter.default.post(
+            name: subscribed
+                ? FPPost.subscriptionNotification
+                : FPPost.unsubscriptionNotification,
+            object: self,
+            userInfo: ["item": vm.post.value.makePreview()]
+        )
     }
 
     func onReport() {
@@ -332,12 +323,10 @@ extension PostViewController: PostViewModelDelegate {
     }
 
     func onDelete() {
-        guard let position = itemPosition else { return }
-
         NotificationCenter.default.post(
             name: FPPost.deletionNotification,
             object: self,
-            userInfo: ["position": position]
+            userInfo: ["item": vm.post.value.makePreview()]
         )
 
         DispatchQueue.main.async {
@@ -354,7 +343,7 @@ extension PostViewController: PostViewModelDelegate {
         NotificationCenter.default.post(
             name: FPComment.deletionNotification,
             object: self,
-            userInfo: ["position": position, "item": comment, "postId": vm.post.value.id as Any]
+            userInfo: ["item": comment, "postId": vm.post.value.id]
         )
     }
 

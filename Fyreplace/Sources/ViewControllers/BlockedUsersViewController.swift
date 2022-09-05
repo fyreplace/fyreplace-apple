@@ -40,7 +40,6 @@ class BlockedUsersViewController: ItemListViewController {
            let cell = sender as? UITableViewCell,
            let index = tableView.indexPath(for: cell)?.row
         {
-            userNavigationController.itemPosition = index
             userNavigationController.profile = vm.blockedUser(at: index)
         }
     }
@@ -93,7 +92,7 @@ extension BlockedUsersViewController {
 
     private func unblock(profile: FPProfile, at indexPath: IndexPath) {
         vm.updateBlock(userId: profile.id, blocked: false, at: indexPath.row)
-        deleteItem(at: indexPath, becauseOf: .init(name: FPUser.unblockNotification))
+        deleteItem(profile, at: indexPath, becauseOf: .init(name: FPUser.unblockNotification))
     }
 
     private func setupUndo(for profile: FPProfile, at indexPath: IndexPath) {

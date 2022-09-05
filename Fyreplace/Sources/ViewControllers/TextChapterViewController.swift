@@ -9,7 +9,7 @@ class TextChapterViewController: TextInputViewController {
     @IBOutlet
     var vm: TextChapterViewModel!
 
-    var postId: Data!
+    var post: FPPost!
     var position: Int!
     var text: String!
 
@@ -21,7 +21,7 @@ class TextChapterViewController: TextInputViewController {
     }
 
     override func onDonePressed() {
-        vm.updateChapter(for: postId, at: position)
+        vm.updateChapter(for: post.id, at: position)
     }
 }
 
@@ -30,7 +30,7 @@ extension TextChapterViewController: TextChapterViewModelDelegate {
         NotificationCenter.default.post(
             name: FPPost.draftUpdateNotification,
             object: self,
-            userInfo: ["position": position ?? 0, "text": text]
+            userInfo: ["item": post!, "position": position!, "text": text]
         )
 
         DispatchQueue.main.async { self.dismiss(animated: true) }
