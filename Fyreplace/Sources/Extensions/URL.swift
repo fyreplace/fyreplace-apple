@@ -2,7 +2,8 @@ import UIKit
 
 extension URL {
     init(for type: String, id: Data, at position: Int? = nil) {
-        let host = Bundle.main.infoDictionary!["FPLinkHost"] as! String
+        let hostsString = Bundle.main.infoDictionary!["FPLinkHosts"] as! String
+        let host = hostsString.split(separator: ";").first!
         var urlString = "https://\(host)/\(type)/\(id.base64ShortString)"
 
         if let position = position {

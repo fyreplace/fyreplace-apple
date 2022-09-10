@@ -4,8 +4,8 @@
 "No" = "No";
 "Menu" = "Menu";
 
-"Legal.PrivacyPolicy.Url" = "https://fyreplace.app/privacy-policy";
-"Legal.TermsOfService.Url" = "https://fyreplace.app/terms-of-service";
+"Legal.PrivacyPolicy.Url" = "https://fyreplace.net/privacy-policy";
+"Legal.TermsOfService.Url" = "https://fyreplace.net/terms-of-service";
 
 "Profile.Anonymous" = "Anonymous";
 "Profile.Banned" = "User banned";

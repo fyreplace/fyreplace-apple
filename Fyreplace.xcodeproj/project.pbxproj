@@ -998,7 +998,7 @@
 				DEVELOPMENT_TEAM = "";
 				FYREPLACE_API_HOST = localhost;
 				FYREPLACE_API_PORT = 50051;
-				FYREPLACE_LINK_HOST = fyreplace.link;
+				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
 				INFOPLIST_FILE = Fyreplace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1023,7 +1023,7 @@
 				DEVELOPMENT_TEAM = "";
 				FYREPLACE_API_HOST = dev.api.fyreplace.app;
 				FYREPLACE_API_PORT = 50051;
-				FYREPLACE_LINK_HOST = fyreplace.link;
+				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
 				INFOPLIST_FILE = Fyreplace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1104,7 +1104,7 @@
 				DEVELOPMENT_TEAM = "";
 				FYREPLACE_API_HOST = api.fyreplace.app;
 				FYREPLACE_API_PORT = 50051;
-				FYREPLACE_LINK_HOST = fyreplace.link;
+				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
 				INFOPLIST_FILE = Fyreplace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

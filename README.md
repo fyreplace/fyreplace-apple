@@ -2,7 +2,7 @@
 
 [![Shipping](https://github.com/fyreplace/fyreplace-ios/actions/workflows/publishing.yml/badge.svg)](https://github.com/fyreplace/fyreplace-ios/actions/workflows/publishing.yml)
 
-The iOS client app for [Fyreplace](https://fyreplace.app).
+The iOS client app for [Fyreplace](https://fyreplace.net).
 
 ## License
 

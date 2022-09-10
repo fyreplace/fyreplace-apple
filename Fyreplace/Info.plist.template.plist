@@ -37,8 +37,8 @@
 	<string>$(FYREPLACE_API_HOST)</string>
 	<key>FPApiPort</key>
 	<string>$(FYREPLACE_API_PORT)</string>
-	<key>FPLinkHost</key>
-	<string>$(FYREPLACE_LINK_HOST)</string>
+	<key>FPLinkHosts</key>
+	<string>$(FYREPLACE_LINK_HOSTS)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
