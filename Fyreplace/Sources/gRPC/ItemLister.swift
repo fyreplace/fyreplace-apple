@@ -55,7 +55,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     }
 
     func getPosition(for item: Any) -> Int {
-        let itemId = (item as! Item).id
+        let itemId = (item as! IdentifiableItem).id
         return items.firstIndex { $0.id == itemId } ?? -1
     }
 

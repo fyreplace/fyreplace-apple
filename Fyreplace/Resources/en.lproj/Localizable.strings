@@ -51,6 +51,8 @@
 "Main.Error.UserNotPending.Title" = "Account already activated";
 "Main.Error.UserNotPending.Message" = "This account has already been activated.";
 
+"Notifications.Item.Action.Dismiss" = "Dismiss";
+
 "Drafts.Parts" = "%d part(s)";
 
 "Settings.Username" = "Guest";

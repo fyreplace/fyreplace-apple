@@ -43,10 +43,10 @@ class DraftViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        if let controller = segue.destination as? TextChapterNavigationViewController {
-            controller.post = vm.post.value
-            controller.position = currentChapterPosition
-            controller.text = vm.post.value?.chapters[currentChapterPosition].text
+        if let chapterNavigationontroller = segue.destination as? TextChapterNavigationViewController {
+            chapterNavigationontroller.post = vm.post.value
+            chapterNavigationontroller.position = currentChapterPosition
+            chapterNavigationontroller.text = vm.post.value?.chapters[currentChapterPosition].text
         }
     }
 
