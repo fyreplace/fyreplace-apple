@@ -1,21 +1,24 @@
 import UIKit
 
-class TextDraftTableViewCell: TextPostTableViewCell {
-    @IBOutlet
-    var parts: UILabel!
+protocol DraftTableViewCell: PostTableViewCell {
+    var parts: UILabel! { get }
 
-    override func setup(with post: FPPost) {
-        super.setup(with: post)
+    func setup(withDraft post: FPPost)
+}
+
+extension DraftTableViewCell {
+    func setup(withDraft post: FPPost) {
+        setup(withPost: post)
         parts.text = .localizedStringWithFormat(.tr("Drafts.Parts"), post.chapterCount)
     }
 }
 
-class ImageDraftTableViewCell: ImagePostTableViewCell {
+class TextDraftTableViewCell: TextPostTableViewCell, DraftTableViewCell {
     @IBOutlet
     var parts: UILabel!
+}
 
-    override func setup(with post: FPPost) {
-        super.setup(with: post)
-        parts.text = .localizedStringWithFormat(.tr("Drafts.Parts"), post.chapterCount)
-    }
+class ImageDraftTableViewCell: ImagePostTableViewCell, DraftTableViewCell {
+    @IBOutlet
+    var parts: UILabel!
 }

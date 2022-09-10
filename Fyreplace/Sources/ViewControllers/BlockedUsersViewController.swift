@@ -66,7 +66,7 @@ extension BlockedUsersViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        (cell as? BlockedUserTableViewCell)?.setup(with: vm.blockedUser(at: indexPath.row))
+        (cell as? BlockedUserTableViewCell)?.setup(withProfile: vm.blockedUser(at: indexPath.row))
         return cell
     }
 

@@ -3,7 +3,7 @@ import ReactiveCocoa
 import UIKit
 
 protocol ChapterTableViewCell {
-    func setup(with chapter: FPChapter)
+    func setup(withChapter chapter: FPChapter)
 }
 
 class TextChapterTableViewCell: UITableViewCell {
@@ -12,7 +12,7 @@ class TextChapterTableViewCell: UITableViewCell {
 }
 
 extension TextChapterTableViewCell: ChapterTableViewCell {
-    func setup(with chapter: FPChapter) {
+    func setup(withChapter chapter: FPChapter) {
         content.font = chapter.preferredFont
         content.textColor = chapter.text.isEmpty ? .placeholderTextCompat : .labelCompat
         content.text = chapter.text.isEmpty ? .tr("Draft.Empty") : chapter.text
@@ -30,7 +30,7 @@ class ImageChapterTableViewCell: UITableViewCell {
 }
 
 extension ImageChapterTableViewCell: ChapterTableViewCell {
-    func setup(with chapter: FPChapter) {
+    func setup(withChapter chapter: FPChapter) {
         content.kf.setImage(
             with: URL(string: chapter.image.url),
             options: [.transition(.fade(0.3))]

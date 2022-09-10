@@ -78,8 +78,8 @@
                 <navigationController storyboardIdentifier="Notifications Navigation" automaticallyAdjustsScrollViewInsets="NO" id="Notifications-Navigation-Notifications-Navigation" userLabel="Notifications Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Notifications" image="bell.fill" catalog="system" id="Notifications-Navigation-Notifications-Navigation-Notifications"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Notifications-Navigation-Notifications-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Notifications-Navigation-Notifications-Navigation-navigationBar">
+                        <rect key="frame" x="0.0" y="44" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -94,16 +94,267 @@
         <!--Notifications-->
         <scene sceneID="788011833a5a0f22db90c91e8eb7bd8e9f5cd423354ff5ef8c338e7895f44ba9">
             <objects>
-                <viewController storyboardIdentifier="Notifications" id="Notifications-Notifications" userLabel="Notifications" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Notifications-Notifications-view">
+                <tableViewController storyboardIdentifier="Notifications" id="Notifications-Notifications" userLabel="Notifications" customClass="NotificationsViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" estimatedRowHeight="140" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Notifications-Notifications-view">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Notifications-Notifications-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Notifications" id="Notifications-Notifications-Notifications"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Notifications-UIResponder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="User" id="Notifications-Notifications-view-User" customClass="UserNotificationTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Notifications-Notifications-view-User" id="Notifications-Notifications-view-User-contentView">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="11.999999999999993" width="118" height="116.66666666666666"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="04-00-00-00-00-00--C-00-00-00"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-User-contentView-Username">
+                                            <rect key="frame" x="146" y="11" width="224" height="30"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Count" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-User-contentView-Count">
+                                            <rect key="frame" x="146" y="92" width="224" height="37"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Username" firstAttribute="leading" secondItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-00-00--C-00-00-00-00"/>
+                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Count" firstAttribute="leading" secondItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-00-00--C-00-00-00-01"/>
+                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" firstAttribute="bottom" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="bottomMargin" id="04-00-00-00-00--C-00-00-00-02"/>
+                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Count" firstAttribute="trailing" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="trailingMargin" id="04-00-00-00-00--C-00-00-00-03"/>
+                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Username" firstAttribute="trailing" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="trailingMargin" id="04-00-00-00-00--C-00-00-00-04"/>
+                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="topMargin" id="04-00-00-00-00--C-00-00-00-05"/>
+                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Count" firstAttribute="bottom" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="bottomMargin" id="04-00-00-00-00--C-00-00-00-06"/>
+                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" firstAttribute="leading" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="leadingMargin" id="04-00-00-00-00--C-00-00-00-07"/>
+                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Username" firstAttribute="top" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="topMargin" id="04-00-00-00-00--C-00-00-00-08"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatar" destination="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" id="8e3728761e21841c23f801cb4a5db760b0ac5c8dc94564ad78570c7b117a2a78"/>
+                                    <outlet property="count" destination="Notifications-Notifications-view-User-contentView-Count" id="03ca36a813e83e50c579abcd96eee3719cb62638018f430875869e9a936314ed"/>
+                                    <outlet property="username" destination="Notifications-Notifications-view-User-contentView-Username" id="984fb5db37b6502b5b3abcd9fe74b5ab31e2e9fa8d0c5bf00661912f63c774f2"/>
+                                    <segue destination="User-Navigation-User-Navigation" kind="presentation" id="86958d8e53ced208041afaf3b36dee893057dd54da0db38de79399c57a05f377"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Text Post" id="Notifications-Notifications-view-Text-Post" customClass="TextPostNotificationTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="184.66666603088379" width="390" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Notifications-Notifications-view-Text-Post" id="Notifications-Notifications-view-Text-Post-contentView">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Text-Post-contentView-label">
+                                            <rect key="frame" x="20" y="11" width="195" height="118"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
+                                            <rect key="frame" x="330" y="12" width="40" height="38.666666666666671"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="04-00-00-01-00-01--C-00-00-00"/>
+                                                <constraint firstAttribute="width" constant="40" id="04-00-00-01-00-01--C-01"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Text-Post-contentView-Username">
+                                            <rect key="frame" x="223" y="55" width="147" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Count" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Text-Post-contentView-Count">
+                                            <rect key="frame" x="223" y="92" width="147" height="37"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="trailingMargin" id="04-00-00-01-00--C-00-00-00-00"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Count" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="bottomMargin" id="04-00-00-01-00--C-00-00-00-01"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Username" firstAttribute="leading" secondItem="Notifications-Notifications-view-Text-Post-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-01-00--C-00-00-00-02"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-label" firstAttribute="width" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="width" multiplier="1:2" id="04-00-00-01-00--C-00-00-00-03"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-label" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="bottomMargin" id="04-00-00-01-00--C-00-00-00-04"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-label" firstAttribute="leading" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="leadingMargin" id="04-00-00-01-00--C-00-00-00-05"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Count" firstAttribute="leading" secondItem="Notifications-Notifications-view-Text-Post-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-01-00--C-00-00-00-06"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Username" firstAttribute="top" secondItem="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="4" id="04-00-00-01-00--C-00-00-00-07"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="topMargin" id="04-00-00-01-00--C-00-00-00-08"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Username" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" secondAttribute="trailing" id="04-00-00-01-00--C-00-00-00-09"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-label" firstAttribute="top" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="topMargin" id="04-00-00-01-00--C-00-00-00-0a"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Count" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="trailingMargin" id="04-00-00-01-00--C-00-00-00-0b"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatar" destination="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" id="4f90ad8cd2539be32f50a48a9f66bd72699f55dbc4b9da23272269a7251e8d48"/>
+                                    <outlet property="count" destination="Notifications-Notifications-view-Text-Post-contentView-Count" id="a173e6acad3543b203e8ef604d2aeee56d5f1fabff8b38c9c6cf38a746c2fa16"/>
+                                    <outlet property="preview" destination="Notifications-Notifications-view-Text-Post-contentView-label" id="216f701d79c661a0db196ec55dce1880a892c0baecad5c44cf0e9f5f8317e05d"/>
+                                    <outlet property="username" destination="Notifications-Notifications-view-Text-Post-contentView-Username" id="51ebc1e4781653da1876687fd62e503dfab9bbc5a8f89a9930527b60bcc3bd71"/>
+                                    <segue destination="Post-Post" kind="show" id="efecd5d5f464924990b0607a336b82c675e7cf71f7a47f29f1e3003f2e2fde45"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image Post" id="Notifications-Notifications-view-Image-Post" customClass="ImagePostNotificationTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="324.66666603088379" width="390" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Notifications-Notifications-view-Image-Post" id="Notifications-Notifications-view-Image-Post-contentView">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Image-Post-contentView-imageView">
+                                            <rect key="frame" x="20" y="11" width="195" height="118"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="Notifications-Notifications-view-Image-Post-contentView-imageView" secondAttribute="height" multiplier="16:9" id="04-00-00-02-00-00--C-00-00-00-00"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
+                                            <rect key="frame" x="330" y="12" width="40" height="38.666666666666671"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="04-00-00-02-00-01--C-00-00-00"/>
+                                                <constraint firstAttribute="width" constant="40" id="04-00-00-02-00-01--C-01"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Image-Post-contentView-Username">
+                                            <rect key="frame" x="223" y="55" width="147" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Count" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Image-Post-contentView-Count">
+                                            <rect key="frame" x="223" y="92" width="147" height="37"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="trailingMargin" id="04-00-00-02-00--C-00-00-00-00"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-imageView" firstAttribute="top" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="topMargin" id="04-00-00-02-00--C-00-00-00-01"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Count" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="bottomMargin" id="04-00-00-02-00--C-00-00-00-02"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-imageView" firstAttribute="leading" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="leadingMargin" id="04-00-00-02-00--C-00-00-00-03"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-imageView" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="bottomMargin" id="04-00-00-02-00--C-00-00-00-04"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-imageView" firstAttribute="width" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="width" multiplier="1:2" priority="750" id="04-00-00-02-00--C-00-00-00-05"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Username" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" secondAttribute="trailing" id="04-00-00-02-00--C-00-00-00-06"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Username" firstAttribute="leading" secondItem="Notifications-Notifications-view-Image-Post-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-02-00--C-00-00-00-07"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Username" firstAttribute="top" secondItem="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="4" id="04-00-00-02-00--C-00-00-00-08"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Count" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="trailingMargin" id="04-00-00-02-00--C-00-00-00-09"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Count" firstAttribute="leading" secondItem="Notifications-Notifications-view-Image-Post-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-02-00--C-00-00-00-0a"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="topMargin" id="04-00-00-02-00--C-00-00-00-0b"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatar" destination="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" id="4cbc93da381ad8f3ea4d0c9ee0b74ffa4ac1593022ddd2a139c6aaefaf8891cc"/>
+                                    <outlet property="count" destination="Notifications-Notifications-view-Image-Post-contentView-Count" id="06386c381ae8a94455600b6e31bb8da14d3c9c2e2b3fd85b14f468e4cf2cc788"/>
+                                    <outlet property="preview" destination="Notifications-Notifications-view-Image-Post-contentView-imageView" id="0e991ef493db2f30682e13a2a956b630ca946f1471456a78ea13da7315e0e43a"/>
+                                    <outlet property="username" destination="Notifications-Notifications-view-Image-Post-contentView-Username" id="8fc609b1ff6d2dac44deb1e8ea32724d6b6dba10045f352c3b2b554f67d3912f"/>
+                                    <segue destination="Post-Post" kind="show" id="56b223050d6e161928c11339c3c2eb8f62798d72ca86edd1d995912c5875d068"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Comment" id="Notifications-Notifications-view-Comment" customClass="CommentNotificationTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="464.66666603088379" width="390" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Notifications-Notifications-view-Comment" id="Notifications-Notifications-view-Comment-contentView">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Comment-contentView-label">
+                                            <rect key="frame" x="20" y="11" width="195" height="118"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
+                                            <rect key="frame" x="330" y="12" width="40" height="38.666666666666671"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="04-00-00-03-00-01--C-00"/>
+                                                <constraint firstAttribute="width" secondItem="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="04-00-00-03-00-01--C-00-00-00"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Comment-contentView-Username">
+                                            <rect key="frame" x="223" y="55" width="147" height="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Count" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Comment-contentView-Count">
+                                            <rect key="frame" x="223" y="92" width="147" height="37"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-label" firstAttribute="leading" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="leadingMargin" id="04-00-00-03-00--C-00-00-00-00"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-label" firstAttribute="width" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="width" multiplier="1:2" id="04-00-00-03-00--C-00-00-00-01"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="trailingMargin" id="04-00-00-03-00--C-00-00-00-02"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Count" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="trailingMargin" id="04-00-00-03-00--C-00-00-00-03"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Username" firstAttribute="leading" secondItem="Notifications-Notifications-view-Comment-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-03-00--C-00-00-00-04"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Username" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" secondAttribute="trailing" id="04-00-00-03-00--C-00-00-00-05"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Username" firstAttribute="top" secondItem="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="4" id="04-00-00-03-00--C-00-00-00-06"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Count" firstAttribute="leading" secondItem="Notifications-Notifications-view-Comment-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-03-00--C-00-00-00-07"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-label" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="bottomMargin" id="04-00-00-03-00--C-00-00-00-08"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-label" firstAttribute="top" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="topMargin" id="04-00-00-03-00--C-00-00-00-09"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Count" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="bottomMargin" id="04-00-00-03-00--C-00-00-00-0a"/>
+                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="topMargin" id="04-00-00-03-00--C-00-00-00-0b"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatar" destination="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" id="94a928bf66b07d722b0549dd114b95496f9cb24e029e090faee77445414be831"/>
+                                    <outlet property="count" destination="Notifications-Notifications-view-Comment-contentView-Count" id="f76fd7030de9532dcf9b9a8574fa9352f673dfcdd39e1cd0e8cbbaa07029aa13"/>
+                                    <outlet property="preview" destination="Notifications-Notifications-view-Comment-contentView-label" id="3c700e71915c982881874b71aaf3bc70df5a5e9da61effe4fc77fed94e831f5b"/>
+                                    <outlet property="username" destination="Notifications-Notifications-view-Comment-contentView-Username" id="0fa8ceaf1eedf60aed9860808884d545296670c8c5e6978d8083196729f9aac1"/>
+                                    <segue destination="Post-Post" kind="show" id="5be8ab78535afd05cd3921930bb6467d0dc08245cb0499c87e7816d27ba33b2f"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Notifications-Notifications" id="c072b2988493b1b9a17726a863223d36946a58c5476afbfd77ae51365cd73f10"/>
+                            <outlet property="delegate" destination="Notifications-Notifications" id="8f26f1740d65d9613a8ae202d2f7983e3c21866dac39038aad78fe9ca0ad31e0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Notifications" id="Notifications-Notifications-Notifications">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Notifications-Notifications-Notifications--"/>
+                    </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Notifications-Notifications-refreshControl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="secondaryLabelColor"/>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="emptyPlaceholder" destination="Notifications-No-notifications" id="96c7b6e7ea0dcd500f1aa21c9a473c45ab3d279a885deb19d7c8af1b897ffcde"/>
+                        <outlet property="listDelegate" destination="Notifications-NotificationsViewModel" id="30793dedb23522774d1a12b174bb3f5bdabc045fac92b22f1ef4ac5276a5796c"/>
+                        <outlet property="vm" destination="Notifications-NotificationsViewModel" id="aa0c3fafcc008d02d37fe9705c351875494441b4da63d837fd252aa87ff95f4f"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Notifications-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Notifications-No-notifications">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                    <color key="textColor" systemColor="placeholderTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <customObject id="Notifications-NotificationsViewModel" customClass="NotificationsViewModel" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Notifications-Notifications" id="2ea148387fef814209dd2181f952a5bb20214a965baa6647b965939c09b6d562"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-750" y="750"/>
         </scene>
@@ -265,7 +516,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Archive-Archive-navigationItem">
                         <barButtonItem key="backBarButtonItem" title=" " id="Archive-Archive-navigationItem--"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Archive-Archive-navigationItem-titleView">
-                            <rect key="frame" x="119.66666666666669" y="5.6666666666666679" width="151" height="33"/>
+                            <rect key="frame" x="119.66666666666669" y="6" width="151" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="All posts"/>
@@ -2075,6 +2326,18 @@
         <designable name="Login-Login-view-scrollView-stackView-Button">
             <size key="intrinsicContentSize" width="59.333333333333336" height="31"/>
         </designable>
+        <designable name="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill">
+            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
+        </designable>
+        <designable name="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill">
+            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
+        </designable>
+        <designable name="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill">
+            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
+        </designable>
+        <designable name="Notifications-Notifications-view-User-contentView-person-crop-circle-fill">
+            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
+        </designable>
         <designable name="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton">
             <size key="intrinsicContentSize" width="50.666666666666664" height="50.666666666666664"/>
         </designable>
@@ -2094,8 +2357,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="75fc7b2aec57cd6da8a9c1c1270fc91642607cac697471312f71f9c481ef23fd"/>
         <segue reference="0033c1bdcc67de81f3a077994e035c98717fb0f88523e94f05ce92a1f25238f7"/>
-        <segue reference="77e8b833a318243293fae0fd57004cef549205091fef52325afa1fcff5219e42"/>
-        <segue reference="db5d4c1481b470b3507a8309359b68fc4d4c6c828d91dbd401aa1bb37f120dac"/>
+        <segue reference="a326c5fe72dcc9878ec93165a322ba44df444213686edc81e053cf725b996310"/>
+        <segue reference="16afa6a7a29e215df0c8aa8386d9ea45279cec0373caffe5224c32d0994442dc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>

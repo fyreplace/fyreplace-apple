@@ -31,8 +31,8 @@ class PostViewController: ItemRandomAccessListViewController {
 
     var post: FPPost!
     var commentPosition: Int? { didSet { shouldScrollToComment = commentPosition != nil } }
+    var shouldScrollToComment = false
     private var errored = false
-    private var shouldScrollToComment = false
     private lazy var currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
 
     override var additionNotifications: [Notification.Name] {
@@ -197,8 +197,12 @@ class PostViewController: ItemRandomAccessListViewController {
 
         tableView.reloadRows(at: paths, with: .automatic)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
+            tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+
+            if !shouldScrollToComment {
+                acknowledgeLastVisibleComment()
+            }
         }
     }
 
@@ -210,7 +214,11 @@ class PostViewController: ItemRandomAccessListViewController {
         NotificationCenter.default.post(
             name: FPComment.seenNotification,
             object: self,
-            userInfo: ["id": comment.id]
+            userInfo: [
+                "id": comment.id,
+                "postId": vm.post.value.id,
+                "commentsLeft": vm.lister.totalCount - 1 - position,
+            ]
         )
     }
 }
@@ -226,6 +234,22 @@ extension PostViewController {
 }
 
 extension PostViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let count = super.tableView(tableView, numberOfRowsInSection: section)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [self] in
+            guard shouldScrollToComment else { return }
+
+            if let position = commentPosition {
+                showComment(at: .init(row: position, section: 0), insteadOf: nil)
+            } else if vm.post.value.commentsRead > 0 {
+                showComment(at: .init(row: Int(vm.post.value.commentsRead), section: 0), insteadOf: nil)
+            }
+        }
+
+        return count
+    }
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return .tr(vm.lister.itemCount > 0 ? "Post.Comments.Title" : "Post.Comments.Empty.Title")
     }
@@ -237,10 +261,11 @@ extension PostViewController {
            let comment = vm.comment(atIndex: indexPath.row)
         {
             cell.setup(
-                with: comment,
+                withComment: comment,
                 at: indexPath.row,
                 isPostAuthor: vm.post.value.author.id == comment.author.id,
-                isSelected: indexPath.row == commentPosition
+                isSelected: indexPath.row == commentPosition,
+                isHighlighted: indexPath.row >= vm.post.value.commentsRead && vm.post.value.commentsRead > 0
             )
         }
 
@@ -248,8 +273,13 @@ extension PostViewController {
     }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard shouldScrollToComment, indexPath.row == commentPosition else { return }
-        showComment(at: indexPath, insteadOf: nil)
+        guard shouldScrollToComment else { return }
+
+        if indexPath.row == commentPosition {
+            showComment(at: indexPath, insteadOf: nil)
+        } else if indexPath.row == vm.post.value.commentsRead, vm.post.value.commentsRead > 0 {
+            showComment(at: .init(row: Int(vm.post.value.commentsRead), section: 0), insteadOf: nil)
+        }
     }
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -307,6 +337,8 @@ extension PostViewController: PostViewModelDelegate {
             tableView.scrollToRow(at: .init(row: position, section: 0), at: .top, animated: false)
         }
     }
+
+    func onRetrieve() {}
 
     func onUpdateSubscription(_ subscribed: Bool) {
         NotificationCenter.default.post(

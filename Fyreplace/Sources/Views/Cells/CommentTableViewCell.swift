@@ -2,6 +2,23 @@ import Kingfisher
 import UIKit
 
 @IBDesignable
+class BaseCommentTableViewCell: UITableViewCell {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
+    }
+
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupView()
+    }
+
+    func setupView() {
+        contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 70).isActive = true
+    }
+}
+
+@IBDesignable
 class CommentTableViewCell: BaseCommentTableViewCell {
     @IBOutlet
     var avatar: UIButton!
@@ -21,14 +38,14 @@ class CommentTableViewCell: BaseCommentTableViewCell {
         originalFont = content.font
     }
 
-    func setup(with comment: FPComment, at position: Int, isPostAuthor: Bool, isSelected: Bool) {
+    func setup(withComment comment: FPComment, at position: Int, isPostAuthor: Bool, isSelected: Bool, isHighlighted: Bool) {
         backgroundColor = isSelected ? .accent.withAlphaComponent(0.3) : nil
         avatar.setAvatar(from: comment.author)
         avatar.tag = position
         username.tintColor = isPostAuthor ? .accent : .labelCompat
         username.setUsername(comment.author)
         username.tag = position
-        content.setComment(comment, font: originalFont)
+        content.setComment(comment, font: isHighlighted ? originalFont?.withTraits(.traitBold) : originalFont)
         date.text = dateFormat.string(from: comment.dateCreated.date)
     }
 }

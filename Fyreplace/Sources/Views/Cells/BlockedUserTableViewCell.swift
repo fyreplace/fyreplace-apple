@@ -4,8 +4,8 @@ class BlockedUserTableViewCell: AvatarTableViewCell {
     @IBOutlet
     var username: UILabel!
 
-    override func setup(with profile: FPProfile) {
-        super.setup(with: profile)
+    override func setup(withProfile profile: FPProfile) {
+        super.setup(withProfile: profile)
         username.setUsername(profile)
     }
 }

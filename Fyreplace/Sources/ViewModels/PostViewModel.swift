@@ -78,6 +78,7 @@ class PostViewModel: ViewModel {
     private func onRetrieve(_ post: FPPost) {
         self.post.value = post
         subscribed.value = post.isSubscribed
+        delegate.onRetrieve()
     }
 
     private func onUpdateSubscription(_ subscribed: Bool) {
@@ -98,6 +99,8 @@ extension PostViewModel: ItemRandomAccessListViewDelegate {
 
 @objc
 protocol PostViewModelDelegate: ViewModelDelegate, ItemRandomAccessListerDelegate {
+    func onRetrieve()
+
     func onUpdateSubscription(_ subscribed: Bool)
 
     func onReport()

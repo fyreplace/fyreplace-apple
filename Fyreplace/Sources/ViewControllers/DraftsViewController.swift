@@ -53,7 +53,7 @@ class DraftsViewController: ItemListViewController {
 extension DraftsViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        (cell as? PostTableViewCell)?.setup(with: vm.post(atIndex: indexPath.row))
+        (cell as? DraftTableViewCell)?.setup(withDraft: vm.post(atIndex: indexPath.row))
         return cell
     }
 

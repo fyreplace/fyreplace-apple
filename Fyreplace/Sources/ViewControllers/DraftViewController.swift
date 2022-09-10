@@ -159,7 +159,7 @@ extension DraftViewController {
         let chapter = vm.post.value!.chapters[indexPath.row]
         let identifier = chapter.hasImage ? "Image" : "Text"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        (cell as? ChapterTableViewCell)?.setup(with: chapter)
+        (cell as? ChapterTableViewCell)?.setup(withChapter: chapter)
         return cell
     }
 
