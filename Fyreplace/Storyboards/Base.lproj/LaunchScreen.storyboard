@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tab-Bar-Controller-tabBarController">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tab-Bar-Controller-tabBarController">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -39,7 +39,7 @@
                     <tabBarItem key="tabBarItem" title=" " image="square.grid.2x2.fill" catalog="system" id="Feed-Navigation-Feed-Navigation-Feed" userLabel="Feed"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Feed-Navigation-Feed-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -56,7 +56,7 @@
             <objects>
                 <viewController title="Feed" id="Feed-Feed" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Feed-Feed-view">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Feed-Feed-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -72,7 +72,7 @@
             <objects>
                 <viewController id="Notifications-Notifications" userLabel="Notifications" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Notifications-Notifications-view">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Notifications-Notifications-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -88,7 +88,7 @@
             <objects>
                 <viewController id="Archive-Archive" userLabel="Archive" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Archive-Archive-view">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Archive-Archive-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -104,7 +104,7 @@
             <objects>
                 <viewController id="Drafts-Drafts" userLabel="Drafts" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Drafts-Drafts-view">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Drafts-Drafts-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -120,7 +120,7 @@
             <objects>
                 <viewController id="Settings-Settings" userLabel="Settings" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Settings-Settings-view">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Settings-Settings-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -134,10 +134,10 @@
     </scenes>
     <color key="tintColor" name="AccentColor"/>
     <resources>
-        <image name="bell.fill" catalog="system" width="128" height="124"/>
-        <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="bell.fill" catalog="system" width="123" height="128"/>
+        <image name="clock.fill" catalog="system" width="128" height="123"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
-        <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.58399999141693115" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

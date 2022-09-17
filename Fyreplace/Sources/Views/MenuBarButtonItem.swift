@@ -4,7 +4,7 @@ class ActionBarButtonItem: UIBarButtonItem {
     @IBInspectable
     var index: Int = 0
     @IBInspectable
-    var isHidden: Bool = false
+    var isConcealed: Bool = false
     @IBInspectable
     var isDestructive: Bool = false
 }
@@ -17,7 +17,7 @@ class MenuBarButtonItem: UIBarButtonItem {
 
     private var alert: UIAlertController?
     private lazy var orderedActions = actions.sorted { a, b in a.index < b.index }
-    private var visibleActions: [ActionBarButtonItem] { orderedActions.filter { !$0.isHidden } }
+    private var visibleActions: [ActionBarButtonItem] { orderedActions.filter { !$0.isConcealed } }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -61,7 +61,7 @@ class MenuBarButtonItem: UIBarButtonItem {
             UIAction(
                 title: action.title ?? "",
                 image: action.image,
-                attributes: action.isHidden ? .hidden : action.isDestructive ? .destructive : []
+                attributes: action.isConcealed ? .hidden : action.isDestructive ? .destructive : []
             ) { _ in action.execute() }
         }
         menu = UIMenu(title: "", image: nil, children: elements)

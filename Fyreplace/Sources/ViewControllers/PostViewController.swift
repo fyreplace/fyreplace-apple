@@ -156,8 +156,8 @@ class PostViewController: ItemRandomAccessListViewController {
 
     private func onPost(_ post: FPPost) {
         let currentUserOwnsPost = post.hasAuthor && post.author.id == currentProfile?.id
-        report.isHidden = currentUserOwnsPost || currentUserIsAdmin
-        delete.isHidden = !report.isHidden
+        report.isConcealed = currentUserOwnsPost || currentUserIsAdmin
+        delete.isConcealed = !report.isConcealed
 
         DispatchQueue.main.async { [self] in
             let author = post.isAnonymous ? FPProfile() : post.author
@@ -171,8 +171,8 @@ class PostViewController: ItemRandomAccessListViewController {
     }
 
     private func onSubscribed(_ subscribed: Bool) {
-        subscribe.isHidden = subscribed
-        unsubscribe.isHidden = !subscribed
+        subscribe.isConcealed = subscribed
+        unsubscribe.isConcealed = !subscribed
         DispatchQueue.main.async { self.menu.reload() }
     }
 

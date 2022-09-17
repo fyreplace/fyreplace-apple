@@ -41,8 +41,8 @@ class UserViewController: UIViewController {
 
         let isCurrentUser = profile.id == currentProfile?.id
         let currentRank = currentProfile?.rank ?? .unspecified
-        report.isHidden = profile.rank != currentRank || isCurrentUser
-        ban.isHidden = profile.rank >= currentRank || isCurrentUser
+        report.isConcealed = profile.rank != currentRank || isCurrentUser
+        ban.isConcealed = profile.rank >= currentRank || isCurrentUser
         menu.reload()
 
         navigationItem.title = profile.getNormalizedUsername(with: nil).string
@@ -124,15 +124,15 @@ class UserViewController: UIViewController {
 
     private func onBlocked(_ blocked: Bool) {
         let isCurrentUser = profile.id == currentProfile?.id
-        block.isHidden = blocked || isCurrentUser
-        unblock.isHidden = !blocked || isCurrentUser
+        block.isConcealed = blocked || isCurrentUser
+        unblock.isConcealed = !blocked || isCurrentUser
         DispatchQueue.main.async { self.menu.reload() }
     }
 
     private func onBanned(_ banned: Bool) {
         if banned {
-            report.isHidden = true
-            ban.isHidden = true
+            report.isConcealed = true
+            ban.isConcealed = true
         }
 
         DispatchQueue.main.async { self.menu.reload() }
