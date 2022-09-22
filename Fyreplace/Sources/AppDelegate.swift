@@ -3,13 +3,14 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder {
-    static let urlOpenedNotification = Notification.Name("AppDelegate.urlOpened")
+    static let urlOpeningNotification = Notification.Name("AppDelegate.urlOpening")
+    static let environmentChangeNotification = Notification.Name("AppDelegate.environmentChange")
     var window: UIWindow?
     var activityUrl: URL?
 
     func open(url: URL) {
         activityUrl = url
-        NotificationCenter.default.post(name: Self.urlOpenedNotification, object: self, userInfo: ["url": url])
+        NotificationCenter.default.post(name: Self.urlOpeningNotification, object: self, userInfo: ["url": url])
     }
 }
 

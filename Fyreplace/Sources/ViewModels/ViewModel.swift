@@ -1,8 +1,37 @@
 import GRPC
+import ReactiveSwift
 import UIKit
 
 class ViewModel: NSObject {
-    internal static let rpc = Rpc()
+    static let rpc = Rpc()
+    var accountService: FPAccountServiceNIOClient!
+    var userService: FPUserServiceNIOClient!
+    var postService: FPPostServiceNIOClient!
+    var chapterService: FPChapterServiceNIOClient!
+    var commentService: FPCommentServiceNIOClient!
+    var notificationService: FPNotificationServiceNIOClient!
+
+    override init() {
+        super.init()
+        setupServices()
+        NotificationCenter.default.reactive
+            .notifications(forName: Rpc.channelChangeNotification)
+            .take(during: reactive.lifetime)
+            .observeValues { [unowned self] in onChannelChange($0) }
+    }
+
+    private func onChannelChange(_ notification: Notification) {
+        setupServices()
+    }
+
+    private func setupServices() {
+        accountService = FPAccountServiceNIOClient(channel: Self.rpc.channel)
+        userService = FPUserServiceNIOClient(channel: Self.rpc.channel)
+        postService = FPPostServiceNIOClient(channel: Self.rpc.channel)
+        chapterService = FPChapterServiceNIOClient(channel: Self.rpc.channel)
+        commentService = FPCommentServiceNIOClient(channel: Self.rpc.channel)
+        notificationService = FPNotificationServiceNIOClient(channel: Self.rpc.channel)
+    }
 }
 
 @objc

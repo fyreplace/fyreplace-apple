@@ -8,7 +8,6 @@ class DraftsViewModel: ViewModel {
 
     let isLoading = MutableProperty(false)
 
-    private lazy var postService = FPPostServiceNIOClient(channel: Self.rpc.channel)
     private lazy var draftLister = ItemLister<FPPost, FPPosts, FPPostServiceNIOClient>(
         delegatingTo: delegate,
         using: postService,

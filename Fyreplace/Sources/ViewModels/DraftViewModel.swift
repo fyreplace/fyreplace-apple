@@ -14,8 +14,6 @@ class DraftViewModel: ViewModel {
     let editingStatus = MutableProperty<EditingStatus>(.cannotEdit)
 
     private var postId: Data!
-    private lazy var postService = FPPostServiceNIOClient(channel: Self.rpc.channel)
-    private lazy var chapterService = FPChapterServiceNIOClient(channel: Self.rpc.channel)
 
     override func awakeFromNib() {
         super.awakeFromNib()

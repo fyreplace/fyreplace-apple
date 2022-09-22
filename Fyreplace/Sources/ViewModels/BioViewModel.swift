@@ -9,8 +9,6 @@ class BioViewModel: ViewModel, TextInputViewModel {
     let isLoading = MutableProperty(false)
     let bio = MutableProperty("")
 
-    private lazy var userService = FPUserServiceNIOClient(channel: Self.rpc.channel)
-
     override func awakeFromNib() {
         super.awakeFromNib()
         bio.value = currentUser?.bio ?? ""

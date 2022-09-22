@@ -9,8 +9,6 @@ class SettingsViewModel: ViewModel {
     let user = MutableProperty<FPUser?>(nil)
     let blockedUsers = MutableProperty<UInt32>(0)
 
-    private lazy var accountService = FPAccountServiceNIOClient(channel: Self.rpc.channel)
-    private lazy var userService = FPUserServiceNIOClient(channel: Self.rpc.channel)
     private let authToken = Keychain.authToken
 
     override func awakeFromNib() {

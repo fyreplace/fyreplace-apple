@@ -27,13 +27,14 @@
 		4D46E0BE2829A9E300572465 /* TextChapterNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D46E0BD2829A9E300572465 /* TextChapterNavigationViewController.swift */; };
 		4D480C84286868DD009C14A8 /* FPComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D480C83286868DD009C14A8 /* FPComment.swift */; };
 		4D480C8628686CA9009C14A8 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D480C8528686CA9009C14A8 /* UITextView.swift */; };
+		4D4E21B328DB9A0C007D26C2 /* EnvironmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E21B228DB9A0C007D26C2 /* EnvironmentTableViewCell.swift */; };
 		4D6D9D69285F33ED003FD1F8 /* LinkTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D9D68285F33ED003FD1F8 /* LinkTextView.swift */; };
 		4D77941827DE654B0068F4E7 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D350CEF27235A6E00D40BE2 /* PostViewModel.swift */; };
 		4D77941927DE654B0068F4E7 /* KeyboardDodgingConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96BF642697A2B800ED9355 /* KeyboardDodgingConstraint.swift */; };
 		4D77941A27DE654B0068F4E7 /* FPPosts+ItemBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1FF61227086E9300445793 /* FPPosts+ItemBundle.swift */; };
 		4D77941B27DE654B0068F4E7 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB06E1427103E7800A65198 /* UIFont.swift */; };
 		4D77941C27DE654B0068F4E7 /* image.proto in Sources */ = {isa = PBXBuildFile; fileRef = 4D7C985C2691254B00819E3F /* image.proto */; };
-		4D77941D27DE654B0068F4E7 /* NSObjectProtocol+FPBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */; };
+		4D77941D27DE654B0068F4E7 /* NSObjectProtocol+FPUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3F816326C6D0D000764763 /* NSObjectProtocol+FPUser.swift */; };
 		4D77941E27DE654B0068F4E7 /* LargeFilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D36CC3026964B5D00BA1675 /* LargeFilledButton.swift */; };
 		4D77941F27DE654B0068F4E7 /* PostTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6D3AB4272FF61500353913 /* PostTableHeaderView.swift */; };
 		4D77942027DE654B0068F4E7 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA43CE62785C5C80002C22A /* UIButton.swift */; };
@@ -116,6 +117,7 @@
 		4D9680FA28A028DF00B25A76 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9680F928A028DF00B25A76 /* NotificationsViewModel.swift */; };
 		4D9680FC28A029E800B25A76 /* FPNotifications+ItemBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9680FB28A029E800B25A76 /* FPNotifications+ItemBundle.swift */; };
 		4D9680FE28A02A9200B25A76 /* FPNotificationServiceNIOClient+ItemListerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9680FD28A02A9200B25A76 /* FPNotificationServiceNIOClient+ItemListerService.swift */; };
+		4DC20F2628DCD57C00101110 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC20F2528DCD57C00101110 /* Bundle.swift */; };
 		4DCAAEB12826952500D4427C /* Data+FPImageChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB02826952500D4427C /* Data+FPImageChunk.swift */; };
 		4DCAAEB32826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB22826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift */; };
 		4DCAAEB72827DF5D00D4427C /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCAAEB62827DF5D00D4427C /* TextInputViewController.swift */; };
@@ -187,7 +189,7 @@
 		4D3AEDA826C5185200C93DFF /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		4D3EB6D926C42DA10034B6FB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4D3F816126C6C53500764763 /* CallOptions+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CallOptions+Keychain.swift"; sourceTree = "<group>"; };
-		4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+FPBUser.swift"; sourceTree = "<group>"; };
+		4D3F816326C6D0D000764763 /* NSObjectProtocol+FPUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+FPUser.swift"; sourceTree = "<group>"; };
 		4D3F816726C6E57900764763 /* UserDefaults+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Message.swift"; sourceTree = "<group>"; };
 		4D41605828797FEF008584FC /* CommentActivityItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentActivityItemProvider.swift; sourceTree = "<group>"; };
 		4D4520F926D8203300FCFEE0 /* NSUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUserActivity.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		4D46E0BD2829A9E300572465 /* TextChapterNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChapterNavigationViewController.swift; sourceTree = "<group>"; };
 		4D480C83286868DD009C14A8 /* FPComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPComment.swift; sourceTree = "<group>"; };
 		4D480C8528686CA9009C14A8 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
+		4D4E21B228DB9A0C007D26C2 /* EnvironmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTableViewCell.swift; sourceTree = "<group>"; };
 		4D5CC7E727232BEE00D33C87 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4D5FC3EE2701FECC00AE1F73 /* ImageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelector.swift; sourceTree = "<group>"; };
 		4D5FC3F427021BE800AE1F73 /* ClientStreamingCall+FPImageChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientStreamingCall+FPImageChunk.swift"; sourceTree = "<group>"; };
@@ -254,6 +257,7 @@
 		4DB06E1427103E7800A65198 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		4DC1739426FA4BC2002F9EDB /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
 		4DC1739626FA573F002F9EDB /* BioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewModel.swift; sourceTree = "<group>"; };
+		4DC20F2528DCD57C00101110 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		4DC225F327036539007BD7A0 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		4DC225F527045734007BD7A0 /* ArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewModel.swift; sourceTree = "<group>"; };
 		4DC88FA027B4550E00F06921 /* ItemRandomAccessLister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRandomAccessLister.swift; sourceTree = "<group>"; };
@@ -449,6 +453,7 @@
 		4DF63A072801AD0B00DF8460 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				4D4E21B228DB9A0C007D26C2 /* EnvironmentTableViewCell.swift */,
 				4D22461F279CBBD800D35430 /* AvatarTableViewCell.swift */,
 				4D1FF6162708B8C100445793 /* ItemTableViewCell.swift */,
 				4D45C0A028A7F31800B946E8 /* NotificationTableViewCell.swift */,
@@ -469,9 +474,10 @@
 				4DCAAEB02826952500D4427C /* Data+FPImageChunk.swift */,
 				4DFAAD20269F628200DFAB5F /* String.swift */,
 				4D893B2127E7483200380CF2 /* URL.swift */,
-				4D3F816326C6D0D000764763 /* NSObjectProtocol+FPBUser.swift */,
+				4D3F816326C6D0D000764763 /* NSObjectProtocol+FPUser.swift */,
 				4D4520F926D8203300FCFEE0 /* NSUserActivity.swift */,
 				4D3F816726C6E57900764763 /* UserDefaults+Message.swift */,
+				4DC20F2528DCD57C00101110 /* Bundle.swift */,
 				4D93AD25284FE92200ECDF8F /* UIApplication.swift */,
 				4D01C6E927BD9434003E3091 /* UIColor.swift */,
 				4DB06E1427103E7800A65198 /* UIFont.swift */,
@@ -720,6 +726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D93AD26284FE92200ECDF8F /* UIApplication.swift in Sources */,
+				4DC20F2628DCD57C00101110 /* Bundle.swift in Sources */,
 				4DF63A0627FF0C6F00DF8460 /* DraftsViewModel.swift in Sources */,
 				4D77941827DE654B0068F4E7 /* PostViewModel.swift in Sources */,
 				4D77941927DE654B0068F4E7 /* KeyboardDodgingConstraint.swift in Sources */,
@@ -729,7 +736,7 @@
 				4D06E4E12804C49100863E60 /* DraftViewModel.swift in Sources */,
 				4D77941B27DE654B0068F4E7 /* UIFont.swift in Sources */,
 				4D77941C27DE654B0068F4E7 /* image.proto in Sources */,
-				4D77941D27DE654B0068F4E7 /* NSObjectProtocol+FPBUser.swift in Sources */,
+				4D77941D27DE654B0068F4E7 /* NSObjectProtocol+FPUser.swift in Sources */,
 				4D77941E27DE654B0068F4E7 /* LargeFilledButton.swift in Sources */,
 				4D77941F27DE654B0068F4E7 /* PostTableHeaderView.swift in Sources */,
 				4D1F07CA28BA545A0074B158 /* BaseLister.swift in Sources */,
@@ -768,6 +775,7 @@
 				4D77943727DE654B0068F4E7 /* notification.proto in Sources */,
 				4D77943827DE654B0068F4E7 /* CallOptions+Keychain.swift in Sources */,
 				4D77943927DE654B0068F4E7 /* post.proto in Sources */,
+				4D4E21B328DB9A0C007D26C2 /* EnvironmentTableViewCell.swift in Sources */,
 				4D46E0BC28293D0600572465 /* TextChapterViewModel.swift in Sources */,
 				4D77943A27DE654B0068F4E7 /* SettingsViewController.swift in Sources */,
 				4D77943B27DE654B0068F4E7 /* pagination.proto in Sources */,
@@ -929,74 +937,20 @@
 			};
 			name = Debug;
 		};
-		4D004111268EEDE900AF89FD /* Development */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Development;
-		};
 		4D77947127DE654B0068F4E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB0C04D40EE228CAD9C567B9 /* Pods-Fyreplace.debug.xcconfig */;
 			buildSettings = {
-				APP_NAME = Fyredbg;
+				APP_NAME = "$(PRODUCT_NAME)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				FYREPLACE_API_HOST = localhost;
+				FYREPLACE_API_HOST_DEFAULT_KEY = FPApiHostLocal;
+				FYREPLACE_API_HOST_DEV = dev.api.fyreplace.app;
+				FYREPLACE_API_HOST_LOCAL = localhost;
+				FYREPLACE_API_HOST_MAIN = api.fyreplace.app;
 				FYREPLACE_API_PORT = 50051;
 				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
 				INFOPLIST_FILE = Fyreplace/Info.plist;
@@ -1010,31 +964,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
-		};
-		4D77947227DE654B0068F4E7 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DD124F0F741B2029331A9FA /* Pods-Fyreplace.development.xcconfig */;
-			buildSettings = {
-				APP_NAME = Fyredev;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				FYREPLACE_API_HOST = dev.api.fyreplace.app;
-				FYREPLACE_API_PORT = 50051;
-				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
-				INFOPLIST_FILE = Fyreplace/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
-				PRODUCT_NAME = "$(PROJECT)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Development;
 		};
 		4D7B187627ED22AB00FE31A0 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1102,7 +1031,10 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				FYREPLACE_API_HOST = api.fyreplace.app;
+				FYREPLACE_API_HOST_DEFAULT_KEY = FPApiHostMain;
+				FYREPLACE_API_HOST_DEV = dev.api.fyreplace.app;
+				FYREPLACE_API_HOST_LOCAL = localhost;
+				FYREPLACE_API_HOST_MAIN = api.fyreplace.app;
 				FYREPLACE_API_PORT = 50051;
 				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
 				INFOPLIST_FILE = Fyreplace/Info.plist;
@@ -1124,7 +1056,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D004110268EEDE900AF89FD /* Debug */,
-				4D004111268EEDE900AF89FD /* Development */,
 				4D7B187627ED22AB00FE31A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1134,7 +1065,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D77947127DE654B0068F4E7 /* Debug */,
-				4D77947227DE654B0068F4E7 /* Development */,
 				4D7B187727ED22AB00FE31A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

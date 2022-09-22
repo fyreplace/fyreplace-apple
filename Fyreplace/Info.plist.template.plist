@@ -33,8 +33,14 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string></string>
-	<key>FPApiHost</key>
-	<string>$(FYREPLACE_API_HOST)</string>
+	<key>FPApiHostDefaultKey</key>
+	<string>$(FYREPLACE_API_HOST_DEFAULT_KEY)</string>
+	<key>FPApiHostDev</key>
+	<string>$(FYREPLACE_API_HOST_DEV)</string>
+	<key>FPApiHostLocal</key>
+	<string>$(FYREPLACE_API_HOST_LOCAL)</string>
+	<key>FPApiHostMain</key>
+	<string>$(FYREPLACE_API_HOST_MAIN)</string>
 	<key>FPApiPort</key>
 	<string>$(FYREPLACE_API_PORT)</string>
 	<key>FPLinkHosts</key>

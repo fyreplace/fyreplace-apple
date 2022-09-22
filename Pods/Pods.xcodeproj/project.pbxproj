@@ -9820,186 +9820,6 @@
 			};
 			name = Debug;
 		};
-		06B2882CC986AB2E417BC6517F80C4C8 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8ED75C00F3B7A3CD158008B3BDCBAA80 /* gRPC-Swift.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/gRPC-Swift/gRPC-Swift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/gRPC-Swift/gRPC-Swift-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/gRPC-Swift/gRPC-Swift.modulemap";
-				PRODUCT_MODULE_NAME = GRPC;
-				PRODUCT_NAME = GRPC;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		0823DD65C81A62910229263E1571182A /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA1DFE9F7584F2994FC9DF4860BDDF4B /* CNIOWindows.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CNIOWindows/CNIOWindows-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CNIOWindows/CNIOWindows-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CNIOWindows/CNIOWindows.modulemap";
-				PRODUCT_MODULE_NAME = CNIOWindows;
-				PRODUCT_NAME = CNIOWindows;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		0DB3840D2D1416F743EBE98F615EB40A /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B1D5D7C966FEA3D09D4541D360736AA /* CNIOBoringSSLShims.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CNIOBoringSSLShims/CNIOBoringSSLShims-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CNIOBoringSSLShims/CNIOBoringSSLShims-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CNIOBoringSSLShims/CNIOBoringSSLShims.modulemap";
-				PRODUCT_MODULE_NAME = CNIOBoringSSLShims;
-				PRODUCT_NAME = CNIOBoringSSLShims;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		104531EA12D6E2C3D5FB6136624E43E1 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 972566CDE050E732E02CE455B96CEB45 /* CNIOLinux.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CNIOLinux/CNIOLinux-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CNIOLinux/CNIOLinux-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CNIOLinux/CNIOLinux.modulemap";
-				PRODUCT_MODULE_NAME = CNIOLinux;
-				PRODUCT_NAME = CNIOLinux;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		1706171B69A16A59E7199F6DF2589378 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCBF1C1147C12BBA0DA5A81A69DD9A0F /* SwiftNIOFoundationCompat.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOFoundationCompat/SwiftNIOFoundationCompat-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOFoundationCompat/SwiftNIOFoundationCompat-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOFoundationCompat/SwiftNIOFoundationCompat.modulemap";
-				PRODUCT_MODULE_NAME = NIOFoundationCompat;
-				PRODUCT_NAME = NIOFoundationCompat;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
 		17A66090D0E9FB4DB7E0A8F58D76E6BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 188F9A77F59A9E8DE997060BF25ADDA4 /* _NIODataStructures.debug.xcconfig */;
@@ -10034,78 +9854,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		17E57D4F5C598F25B9E37E509D71C2FA /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D77F38EA68187182C9F38BC6F0FAB11C /* _NIODataStructures.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/_NIODataStructures/_NIODataStructures-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/_NIODataStructures/_NIODataStructures-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/_NIODataStructures/_NIODataStructures.modulemap";
-				PRODUCT_MODULE_NAME = _NIODataStructures;
-				PRODUCT_NAME = _NIODataStructures;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		1A5F139B7B717ABE8351E0D62EF64F7B /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 037A53AB7235D5E4A2F94978A2A252D6 /* SwiftNIOTransportServices.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOTransportServices/SwiftNIOTransportServices-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOTransportServices/SwiftNIOTransportServices-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOTransportServices/SwiftNIOTransportServices.modulemap";
-				PRODUCT_MODULE_NAME = NIOTransportServices;
-				PRODUCT_NAME = NIOTransportServices;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
 		};
 		1B0CFDF9DCDE39EC89A6943B6D0CAFEC /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -10177,78 +9925,6 @@
 			};
 			name = Debug;
 		};
-		1EA6F40A57C3CC0FE5907B9DDB83F70A /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A753195C1963F63E98EC2E98125B005D /* SwiftNIOConcurrencyHelpers.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOConcurrencyHelpers/SwiftNIOConcurrencyHelpers-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOConcurrencyHelpers/SwiftNIOConcurrencyHelpers-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOConcurrencyHelpers/SwiftNIOConcurrencyHelpers.modulemap";
-				PRODUCT_MODULE_NAME = NIOConcurrencyHelpers;
-				PRODUCT_NAME = NIOConcurrencyHelpers;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		1F54F035CCD968E92DDD36AFB4F8A1B7 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56EEEBE6913E741E82CFD294CEEB93AC /* SwiftNIOExtras.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOExtras/SwiftNIOExtras-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOExtras/SwiftNIOExtras-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOExtras/SwiftNIOExtras.modulemap";
-				PRODUCT_MODULE_NAME = NIOExtras;
-				PRODUCT_NAME = NIOExtras;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
 		2132EBB4E9F2035CB2CA6B22729391EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 972566CDE050E732E02CE455B96CEB45 /* CNIOLinux.release.xcconfig */;
@@ -10284,60 +9960,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		22825320D3C44B5302BA1ACA84DE3BAA /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A397B8A93F3BC5D601AE06E5DE7D8001 /* Kingfisher.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Kingfisher/Kingfisher-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
-				PRODUCT_MODULE_NAME = Kingfisher;
-				PRODUCT_NAME = Kingfisher;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		248B76E4E7D9F460770A970657773A3F /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13F196B2382AC7312199C7D3297D06D0 /* gRPC-Swift-Plugins.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Development;
 		};
 		2852ECF40CFF38DF87107C6885D06C3A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -10407,186 +10029,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		2BC4418B3C67C745FA4F746327C07DF5 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8368B64E62977938315FD6C258008A1 /* SwiftNIOHPACK.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOHPACK/SwiftNIOHPACK-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOHPACK/SwiftNIOHPACK-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOHPACK/SwiftNIOHPACK.modulemap";
-				PRODUCT_MODULE_NAME = NIOHPACK;
-				PRODUCT_NAME = NIOHPACK;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		30AE88A3E2353090E185253D20B38A43 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E099434A120B78D2CB32A7DCBD95DC0A /* CNIODarwin.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CNIODarwin/CNIODarwin-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CNIODarwin/CNIODarwin-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CNIODarwin/CNIODarwin.modulemap";
-				PRODUCT_MODULE_NAME = CNIODarwin;
-				PRODUCT_NAME = CNIODarwin;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		3674CF0BAE7ACA5E0064D6020BE89ECB /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 144BC7748E73FD85FDF7D49ADB4B64B9 /* CGRPCZlib.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CGRPCZlib/CGRPCZlib-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CGRPCZlib/CGRPCZlib-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CGRPCZlib/CGRPCZlib.modulemap";
-				PRODUCT_MODULE_NAME = CGRPCZlib;
-				PRODUCT_NAME = CGRPCZlib;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		389DC36B95F345E759CCC5CBEFAAC5D7 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D01C19C7AB7E24FEF078B78B3E9B1EA /* SwiftNIOSSL.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOSSL/SwiftNIOSSL-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOSSL/SwiftNIOSSL-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOSSL/SwiftNIOSSL.modulemap";
-				PRODUCT_MODULE_NAME = NIOSSL;
-				PRODUCT_NAME = NIOSSL;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		3BCBBD0E7813512F4C41036EABC8BC96 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 753E58C66A7753B7E73915DD3122AFAB /* CNIOHTTPParser.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CNIOHTTPParser/CNIOHTTPParser-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CNIOHTTPParser/CNIOHTTPParser-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CNIOHTTPParser/CNIOHTTPParser.modulemap";
-				PRODUCT_MODULE_NAME = CNIOHTTPParser;
-				PRODUCT_NAME = CNIOHTTPParser;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
 		};
 		3CC456C554369864A9A79F62030520E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -10764,114 +10206,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		46E31348C6210C4AFCC0A18615BB414D /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 661A99368B7FF7C003EA43B5A1DFD197 /* SwiftNIOEmbedded.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOEmbedded/SwiftNIOEmbedded-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOEmbedded/SwiftNIOEmbedded-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOEmbedded/SwiftNIOEmbedded.modulemap";
-				PRODUCT_MODULE_NAME = NIOEmbedded;
-				PRODUCT_NAME = NIOEmbedded;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		4A158B17767599C42869CE05174C71B6 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC826A1A17D7FB2C70DAC9BA71F93B57 /* CNIOBoringSSL.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CNIOBoringSSL/CNIOBoringSSL-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CNIOBoringSSL/CNIOBoringSSL-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CNIOBoringSSL/CNIOBoringSSL.modulemap";
-				PRODUCT_MODULE_NAME = CNIOBoringSSL;
-				PRODUCT_NAME = CNIOBoringSSL;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		4C5AFD7F96285162A8D5EA5E7BF46553 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DD79BA97FA54743689F5EAA3E0CE050 /* SwiftNIOHTTP2.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOHTTP2/SwiftNIOHTTP2-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOHTTP2/SwiftNIOHTTP2-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOHTTP2/SwiftNIOHTTP2.modulemap";
-				PRODUCT_MODULE_NAME = NIOHTTP2;
-				PRODUCT_NAME = NIOHTTP2;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
 		};
 		509A7715EA9E0DCE5449A072472AD345 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -11122,42 +10456,6 @@
 			};
 			name = Debug;
 		};
-		62A1C3870C3A29109490428A19362AC7 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 454C6B3DA3162F078BFADFACE80963C6 /* SwiftNIOHTTP1.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOHTTP1/SwiftNIOHTTP1-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOHTTP1/SwiftNIOHTTP1-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOHTTP1/SwiftNIOHTTP1.modulemap";
-				PRODUCT_MODULE_NAME = NIOHTTP1;
-				PRODUCT_NAME = NIOHTTP1;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
 		631843DFF209B383E9CA606683EB2CCF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EAA92986B14AA3061FD2365428B111E6 /* SwiftNIOPosix.debug.xcconfig */;
@@ -11385,41 +10683,6 @@
 			};
 			name = Debug;
 		};
-		75E1FC1F41E1DF0BB9CBEE866101727D /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F6EC24590FC14D769DC177A342D865E /* ReactiveCocoa.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ReactiveCocoa/ReactiveCocoa-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReactiveCocoa/ReactiveCocoa-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/ReactiveCocoa/ReactiveCocoa.modulemap";
-				PRODUCT_MODULE_NAME = ReactiveCocoa;
-				PRODUCT_NAME = ReactiveCocoa;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
 		78831F972E2E7D17147A650178AA00BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 00F3382A2F709E9059ADAD23D064E8F6 /* ReactiveSwift.debug.xcconfig */;
@@ -11591,41 +10854,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		8384C5B569A4E84C3F2D84A04E48590C /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E93AD41B135A08A0CC8C8BC89C0407C /* ReactiveSwift.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ReactiveSwift/ReactiveSwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ReactiveSwift/ReactiveSwift-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/ReactiveSwift/ReactiveSwift.modulemap";
-				PRODUCT_MODULE_NAME = ReactiveSwift;
-				PRODUCT_NAME = ReactiveSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
 		};
 		856566065A1A41794B649B7B6F355EDA /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -11974,23 +11202,6 @@
 			};
 			name = Release;
 		};
-		A61497D75560E55AF7C5EE085D44670E /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDFEDE38E172E069B48A33DAB79EADF5 /* SwiftFormat.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Development;
-		};
 		A7EF13BA9BC9917F535A6FBCDABD9AA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F863A1F0A0A1F7E762B65B99C059699A /* CNIODarwin.debug.xcconfig */;
@@ -12026,42 +11237,6 @@
 			};
 			name = Debug;
 		};
-		AC40147EE6E14AB4BB86E4F71680F118 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6CAF23E10F4B0C7313726153C28856E /* SwiftNIO.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIO/SwiftNIO-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIO/SwiftNIO-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIO/SwiftNIO.modulemap";
-				PRODUCT_MODULE_NAME = NIO;
-				PRODUCT_NAME = NIO;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
 		AC55331FE53E63AEE02105790C4ED790 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 04A43C8B4047A6B4E9AA46397590996A /* SwiftFormat.debug.xcconfig */;
@@ -12077,44 +11252,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
-		};
-		AD7984DA1E483451A5DC6BD7B4D8AF42 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9F2875CB0A7E95367EFE4AEA2C64A1E /* Pods-Fyreplace.development.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
 		};
 		AE4839E329604BBEDBFF2E871DF6700E /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -12150,41 +11287,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		AEF1EF9455F9C5A72106CD8684EA2BE9 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB37DE19E2BC15B1015A526A12CD85E9 /* SwiftProtobuf.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftProtobuf/SwiftProtobuf-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftProtobuf/SwiftProtobuf-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftProtobuf/SwiftProtobuf.modulemap";
-				PRODUCT_MODULE_NAME = SwiftProtobuf;
-				PRODUCT_NAME = SwiftProtobuf;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
 		};
 		B0A9E3CABA096A7FB90C23584B614631 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -12364,77 +11466,6 @@
 			};
 			name = Release;
 		};
-		C8F972E5CE62451BA712A992DAB4FD2B /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99567ADD90EC1A1E2815FCE1C2603E84 /* Logging.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Logging/Logging-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Logging/Logging-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Logging/Logging.modulemap";
-				PRODUCT_MODULE_NAME = Logging;
-				PRODUCT_NAME = Logging;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
-		CDB76506DE00DD8ACF36C3E813479A98 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 412494187405ADD73A10D7AD6BE12944 /* SwiftNIOPosix.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOPosix/SwiftNIOPosix-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOPosix/SwiftNIOPosix-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOPosix/SwiftNIOPosix.modulemap";
-				PRODUCT_MODULE_NAME = NIOPosix;
-				PRODUCT_NAME = NIOPosix;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
 		CF0F7DA31197F9BA8A30E3CECE126815 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BF24EE2480C1F3D85A4B3ED16A67595C /* gRPC-Swift-Plugins.debug.xcconfig */;
@@ -12608,42 +11639,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		DD823E1BCD8D020DF1465C7D2F9DD1DE /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2057C0F47596BAB308C07E232C19F06 /* SwiftNIOCore.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOCore/SwiftNIOCore-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOCore/SwiftNIOCore-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOCore/SwiftNIOCore.modulemap";
-				PRODUCT_MODULE_NAME = NIOCore;
-				PRODUCT_NAME = NIOCore;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
 		};
 		DF28C8E1933B20D1C90D8C0A77ACCA16 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -12859,70 +11854,6 @@
 			};
 			name = Debug;
 		};
-		EE793ED2DF9E5602BD00DB408DAADBB3 /* Development */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_DEVELOPMENT=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Development;
-		};
 		F0A9239A171E21F540310C0D2AA41AE9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F6CAF23E10F4B0C7313726153C28856E /* SwiftNIO.release.xcconfig */;
@@ -12958,42 +11889,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		F0B423389D347BA3F22D0F6F060F99F8 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A4BD071C912E94B36A7A5D3FDC5A2CC /* CNIOAtomics.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CNIOAtomics/CNIOAtomics-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CNIOAtomics/CNIOAtomics-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CNIOAtomics/CNIOAtomics.modulemap";
-				PRODUCT_MODULE_NAME = CNIOAtomics;
-				PRODUCT_NAME = CNIOAtomics;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
 		};
 		F842B9B08E741EC3936CF0B0719FD58E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -13139,42 +12034,6 @@
 			};
 			name = Release;
 		};
-		FEEE27E44089B4C439E5DA65560CF9E3 /* Development */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 841B36ECD7251AF5B6070515AA6997DF /* SwiftNIOTLS.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOTLS/SwiftNIOTLS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOTLS/SwiftNIOTLS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOTLS/SwiftNIOTLS.modulemap";
-				PRODUCT_MODULE_NAME = NIOTLS;
-				PRODUCT_NAME = NIOTLS;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Development;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -13182,7 +12041,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F85FB064D0D49A98D3DFB639929F3A7A /* Debug */,
-				389DC36B95F345E759CCC5CBEFAAC5D7 /* Development */,
 				B0A9E3CABA096A7FB90C23584B614631 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13192,7 +12050,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44F1C4FCC0BD051815861ACF5920F059 /* Debug */,
-				1F54F035CCD968E92DDD36AFB4F8A1B7 /* Development */,
 				7A3FB28DDB27A1786BE486D646CF0C2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13202,7 +12059,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC55331FE53E63AEE02105790C4ED790 /* Debug */,
-				A61497D75560E55AF7C5EE085D44670E /* Development */,
 				703174389DCE8A75DA079960A697B591 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13212,7 +12068,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				034F18D04781109A245A2D409764410B /* Debug */,
-				AD7984DA1E483451A5DC6BD7B4D8AF42 /* Development */,
 				FAF8B2F93ABAD911FDDD16730293BC8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13222,7 +12077,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6950619288A2F3ACCF0D2029DAF41D75 /* Debug */,
-				62A1C3870C3A29109490428A19362AC7 /* Development */,
 				57C2E4495DD07C8E0C0E577F1CB85EEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13232,7 +12086,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FFE47E42FAD45229414FC70F71B8014 /* Debug */,
-				3BCBBD0E7813512F4C41036EABC8BC96 /* Development */,
 				548C227A4C7AA73CAADCF7DF5E9773B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13242,7 +12095,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CF0F7DA31197F9BA8A30E3CECE126815 /* Debug */,
-				248B76E4E7D9F460770A970657773A3F /* Development */,
 				D4F8AE32F2069E4CA8287F0BD20A08EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13252,7 +12104,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17A66090D0E9FB4DB7E0A8F58D76E6BC /* Debug */,
-				17E57D4F5C598F25B9E37E509D71C2FA /* Development */,
 				E3457DEBF345F5C00F22641A15DF3EB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13262,7 +12113,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3CC456C554369864A9A79F62030520E4 /* Debug */,
-				0823DD65C81A62910229263E1571182A /* Development */,
 				DF28C8E1933B20D1C90D8C0A77ACCA16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13272,7 +12122,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81F8D4F2F7A41D8223C1B32C81033009 /* Debug */,
-				EE793ED2DF9E5602BD00DB408DAADBB3 /* Development */,
 				949893C6606874DA4EEF6BD2EA125F08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13282,7 +12131,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AE4839E329604BBEDBFF2E871DF6700E /* Debug */,
-				4A158B17767599C42869CE05174C71B6 /* Development */,
 				642CC9C0E007BFA12DC26D51666E0B72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13292,7 +12140,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B3C5A7FC26BB8C3BDDC00724021E7AE /* Debug */,
-				22825320D3C44B5302BA1ACA84DE3BAA /* Development */,
 				A268B1E40D411A5D97CA633663B41978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13302,7 +12149,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D1D4DBDA7E71BF3E32650EE461428EE8 /* Debug */,
-				F0B423389D347BA3F22D0F6F060F99F8 /* Development */,
 				C6EB9138CCDEB44B12ACF3AFEF83ED1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13312,7 +12158,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				856566065A1A41794B649B7B6F355EDA /* Debug */,
-				1EA6F40A57C3CC0FE5907B9DDB83F70A /* Development */,
 				E0AA6DA38F83FCC4C3BDBA1032D21A27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13322,7 +12167,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B0CFDF9DCDE39EC89A6943B6D0CAFEC /* Debug */,
-				FEEE27E44089B4C439E5DA65560CF9E3 /* Development */,
 				B540049992C4FD2D74256B44AE2B58F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13332,7 +12176,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2852ECF40CFF38DF87107C6885D06C3A /* Debug */,
-				2BC4418B3C67C745FA4F746327C07DF5 /* Development */,
 				9CD75D29E980165E6376E0C966C57C64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13342,7 +12185,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				673D1F9B895BFC88E2E3E597AABF349F /* Debug */,
-				75E1FC1F41E1DF0BB9CBEE866101727D /* Development */,
 				F842B9B08E741EC3936CF0B0719FD58E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13352,7 +12194,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6E3398A36735043C941573698799595 /* Debug */,
-				104531EA12D6E2C3D5FB6136624E43E1 /* Development */,
 				2132EBB4E9F2035CB2CA6B22729391EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13362,7 +12203,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDB8114144894638ED2334426F81C986 /* Debug */,
-				AC40147EE6E14AB4BB86E4F71680F118 /* Development */,
 				F0A9239A171E21F540310C0D2AA41AE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13372,7 +12212,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D34A2B25470B121CA2B5E3C9187D7746 /* Debug */,
-				C8F972E5CE62451BA712A992DAB4FD2B /* Development */,
 				A5E0C12C395CA22C639548FB7B7E6EE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13382,7 +12221,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C3D6E03A3CAE13ADE537CC5BD2CB01A /* Debug */,
-				0DB3840D2D1416F743EBE98F615EB40A /* Development */,
 				565CE4D38837F81DC48B6E2664F13B22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13392,7 +12230,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				631843DFF209B383E9CA606683EB2CCF /* Debug */,
-				CDB76506DE00DD8ACF36C3E813479A98 /* Development */,
 				F9663F2E1C3F1B3D5227D6F913673B08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13402,7 +12239,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2B272610B11602F6F4D7F2E9C238F3A0 /* Debug */,
-				AEF1EF9455F9C5A72106CD8684EA2BE9 /* Development */,
 				563CD9B19F04A8F3C2E126AFF3651B68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13412,7 +12248,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B5960C05821A9241AA3FFB99953DBDF /* Debug */,
-				3674CF0BAE7ACA5E0064D6020BE89ECB /* Development */,
 				82F86EDAA6391F6BC68808E09DC6C3FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13422,7 +12257,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				724981DDB6EA9ACB625190D025765711 /* Debug */,
-				DD823E1BCD8D020DF1465C7D2F9DD1DE /* Development */,
 				509A7715EA9E0DCE5449A072472AD345 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13432,7 +12266,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57BB92FCFB28E2039E79BE69F20D092F /* Debug */,
-				06B2882CC986AB2E417BC6517F80C4C8 /* Development */,
 				44286ECB91D3E8714638C7B50B754C32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13442,7 +12275,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D7FE625E38F4F426BD3637117588E999 /* Debug */,
-				46E31348C6210C4AFCC0A18615BB414D /* Development */,
 				EBC6D6C355719AF12717B34074C27B06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13452,7 +12284,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9045B9AC81D81DD8A9E35749BC99F0E /* Debug */,
-				4C5AFD7F96285162A8D5EA5E7BF46553 /* Development */,
 				A30214BE3D348BF5A95F57483DC61EC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13462,7 +12293,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D5D0308AC521863E265F45AE41F5D8AF /* Debug */,
-				1706171B69A16A59E7199F6DF2589378 /* Development */,
 				856B19C4E5199453B3175FDD8221E444 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13472,7 +12302,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E421D25F966252300A834FBC34B2B3D4 /* Debug */,
-				1A5F139B7B717ABE8351E0D62EF64F7B /* Development */,
 				3F1C5D178A928DC94AAA07E5C8FA3E18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13482,7 +12311,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78831F972E2E7D17147A650178AA00BD /* Debug */,
-				8384C5B569A4E84C3F2D84A04E48590C /* Development */,
 				40EAE42B369763D95F7FE599CFEBA18A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -13492,7 +12320,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7EF13BA9BC9917F535A6FBCDABD9AA9 /* Debug */,
-				30AE88A3E2353090E185253D20B38A43 /* Development */,
 				85CEDA6126DEA9438A80F6FFB3C72DB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

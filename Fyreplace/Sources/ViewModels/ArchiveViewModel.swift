@@ -4,7 +4,6 @@ class ArchiveViewModel: ViewModel {
     @IBOutlet
     weak var delegate: ArchiveViewModelDelegate!
 
-    private lazy var postService = FPPostServiceNIOClient(channel: Self.rpc.channel)
     private lazy var postLister = makeLister(type: 0)
 
     func post(atIndex index: Int) -> FPPost {

@@ -1,24 +1,35 @@
 import Foundation
 import GRPC
+import ReactiveSwift
 
-class Rpc {
+class Rpc: NSObject {
+    static let channelChangeNotification = Notification.Name("Rpc.channelChange")
     private let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
-    let channel: ClientConnection
+    lazy var channel: ClientConnection = makeChannel()
 
-    init() {
-        let host = Bundle.main.infoDictionary!["FPApiHost"] as! String
-        let port = Bundle.main.infoDictionary!["FPApiPort"] as! String
-
-        #if DEBUG
-            let builder = ClientConnection.insecure(group: group)
-        #else
-            let builder = ClientConnection.usingPlatformAppropriateTLS(for: group)
-        #endif
-
-        channel = builder.connect(host: host, port: Int(port)!)
+    override init() {
+        super.init()
+        NotificationCenter.default.reactive
+            .notifications(forName: AppDelegate.environmentChangeNotification)
+            .take(during: reactive.lifetime)
+            .observeValues { [unowned self] in onEnvironmentChange($0) }
     }
 
     deinit {
         try? group.syncShutdownGracefully()
+    }
+
+    private func onEnvironmentChange(_ notification: Notification) {
+        channel = makeChannel()
+        NotificationCenter.default.post(name: Self.channelChangeNotification, object: self)
+    }
+
+    private func makeChannel() -> ClientConnection {
+        let hostKey = UserDefaults.standard.string(forKey: "app:environment") ?? Bundle.main.apiDefaultHostKey
+        let host = Bundle.main.getString(hostKey)
+        let builder = host == Bundle.main.apiHostLocal
+            ? ClientConnection.insecure(group: group)
+            : ClientConnection.usingPlatformAppropriateTLS(for: group)
+        return builder.connect(host: host, port: Bundle.main.apiPort)
     }
 }

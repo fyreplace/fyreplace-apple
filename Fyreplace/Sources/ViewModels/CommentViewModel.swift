@@ -8,8 +8,6 @@ class CommentViewModel: ViewModel, TextInputViewModel {
     let isLoading = MutableProperty(false)
     let comment = MutableProperty("")
 
-    private lazy var commentService = FPCommentServiceNIOClient(channel: Self.rpc.channel)
-
     func create(for postId: Data) {
         isLoading.value = true
         let request = FPCommentCreation.with {

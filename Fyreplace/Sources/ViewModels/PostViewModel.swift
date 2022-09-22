@@ -9,8 +9,6 @@ class PostViewModel: ViewModel {
     let subscribed = MutableProperty<Bool>(false)
     var lister: ItemRandomAccessListerProtocol { commentLister }
 
-    private lazy var postService = FPPostServiceNIOClient(channel: Self.rpc.channel)
-    private lazy var commentService = FPCommentServiceNIOClient(channel: Self.rpc.channel)
     private lazy var commentLister = ItemRandomAccessLister<FPComment, FPComments, FPCommentServiceNIOClient>(
         delegatingTo: delegate,
         using: self.commentService,

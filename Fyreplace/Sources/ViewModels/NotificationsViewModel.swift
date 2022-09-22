@@ -5,10 +5,6 @@ class NotificationsViewModel: ViewModel {
     @IBOutlet
     weak var delegate: NotificationsViewModelDelegate!
 
-    private lazy var notificationService = FPNotificationServiceNIOClient(channel: Self.rpc.channel)
-    private lazy var userService = FPUserServiceNIOClient(channel: Self.rpc.channel)
-    private lazy var postService = FPPostServiceNIOClient(channel: Self.rpc.channel)
-    private lazy var commentService = FPCommentServiceNIOClient(channel: Self.rpc.channel)
     private lazy var notificationLister = ItemLister<FPNotification, FPNotifications, FPNotificationServiceNIOClient>(
         delegatingTo: delegate,
         using: notificationService,

@@ -9,8 +9,6 @@ class UserViewModel: ViewModel {
     let blocked = MutableProperty<Bool>(false)
     let banned = MutableProperty<Bool>(false)
 
-    private lazy var userService = FPUserServiceNIOClient(channel: Self.rpc.channel)
-
     func retrieve(id: Data) {
         let request = FPId.with { $0.id = id }
         let response = userService.retrieve(request, callOptions: .authenticated).response

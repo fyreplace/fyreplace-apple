@@ -21,12 +21,24 @@ class SettingsViewController: UITableViewController {
     var bio: UILabel!
     @IBOutlet
     var blockedUsers: UILabel!
+    @IBOutlet
+    var environments: [EnvironmentTableViewCell]!
 
     private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
         return formatter
+    }
+
+    private var canChangeEnvironment: Bool {
+        if let hostKey = UserDefaults.standard.string(forKey: "app:environment"),
+           hostKey != Bundle.main.apiDefaultHostKey
+        {
+            return true
+        }
+
+        return Bundle.main.bundleVersion.split(separator: ".").last == "0"
     }
 
     override func viewDidLoad() {
@@ -45,6 +57,12 @@ class SettingsViewController: UITableViewController {
         vm.user.producer
             .take(during: reactive.lifetime)
             .startWithValues { [unowned self] in onUser($0) }
+
+        let hostKey = UserDefaults.standard.string(forKey: "app:environment") ?? Bundle.main.apiDefaultHostKey
+
+        for environment in environments {
+            environment.accessoryType = environment.hostKey == hostKey ? .checkmark : .none
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,10 +96,24 @@ class SettingsViewController: UITableViewController {
 extension SettingsViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         let count = super.numberOfSections(in: tableView)
-        return vm.user.value != nil ? count - 1 : count
+        var omitted = 0
+
+        if vm.user.value != nil {
+            omitted = 2
+        } else if !canChangeEnvironment {
+            omitted = 1
+        }
+
+        return count - omitted
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if Bundle.main.apiDefaultHostKey != Bundle.apiHostLocalKey,
+           section == tableView.numberOfSections - 1
+        {
+            return super.tableView(tableView, numberOfRowsInSection: section) - 1
+        }
+
         return shouldHide(section: section) ? 0 : super.tableView(tableView, numberOfRowsInSection: section)
     }
 
@@ -103,24 +135,32 @@ extension SettingsViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard vm.user.value != nil else { return }
         let cell = tableView.cellForRow(at: indexPath)
 
         switch cell?.tag {
-        case 1:
+        case 2:
             changeEmail()
 
-        case 2:
+        case 11:
             URL(string: .tr("Legal.PrivacyPolicy.Url"))?.browse()
 
-        case 3:
+        case 12:
             URL(string: .tr("Legal.TermsOfService.Url"))?.browse()
 
-        case 4:
+        case 21:
             vm.logout()
 
-        case 5:
+        case 31:
             deleteAccount()
+
+        case 51, 52, 53:
+            guard let cell = cell as? EnvironmentTableViewCell else { return }
+            UserDefaults.standard.set(cell.hostKey, forKey: "app:environment")
+            NotificationCenter.default.post(name: AppDelegate.environmentChangeNotification, object: self)
+
+            for environment in environments {
+                environment.accessoryType = environment == cell ? .checkmark : .none
+            }
 
         default:
             return
@@ -129,7 +169,7 @@ extension SettingsViewController {
 
     private func shouldHide(section: Int) -> Bool {
         guard section >= 0, section < tableView.numberOfSections else { return false }
-        return (vm.user.value == nil) && (section != tableView.numberOfSections - 1)
+        return (vm.user.value == nil) && (section < tableView.numberOfSections - (canChangeEnvironment ? 2 : 1))
     }
 
     private func changeEmail() {

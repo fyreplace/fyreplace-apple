@@ -13,9 +13,9 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
 
         NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.urlOpenedNotification)
+            .notifications(forName: AppDelegate.urlOpeningNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onUrlOpened($0) }
+            .observeValues { [unowned self] in onUrlOpening($0) }
 
         NotificationCenter.default.reactive
             .notifications(forName: FPUser.registrationEmailNotification)
@@ -66,7 +66,7 @@ class MainViewController: UITabBarController {
         handle(url: url)
     }
 
-    private func onUrlOpened(_ notification: Notification) {
+    private func onUrlOpening(_ notification: Notification) {
         guard let url = notification.userInfo?["url"] as? URL else {
             return presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
         }

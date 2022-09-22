@@ -9,8 +9,6 @@ class TextChapterViewModel: ViewModel, TextInputViewModel {
     let isLoading = MutableProperty(false)
     let chapterText = MutableProperty("")
 
-    private lazy var chapterService = FPChapterServiceNIOClient(channel: Self.rpc.channel)
-
     func setInitialChapterText(_ text: String) {
         chapterText.value = text
     }
