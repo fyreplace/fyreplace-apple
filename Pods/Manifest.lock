@@ -25,7 +25,7 @@ PODS:
   - ReactiveCocoa (12.0.0):
     - ReactiveSwift (~> 7.0)
   - ReactiveSwift (7.0.0)
-  - SwiftFormat/CLI (0.49.18)
+  - SwiftFormat/CLI (0.50.0)
   - SwiftNIO (2.40.0):
     - _NIODataStructures (= 2.40.0)
     - CNIOAtomics (= 2.40.0)
@@ -156,7 +156,7 @@ PODS:
     - SwiftNIOFoundationCompat (< 3, >= 2.32.0)
     - SwiftNIOPosix (< 3, >= 2.32.0)
     - SwiftNIOTLS (< 3, >= 2.32.0)
-  - SwiftProtobuf (1.20.1)
+  - SwiftProtobuf (1.20.2)
 
 DEPENDENCIES:
   - gRPC-Swift (~> 1)
@@ -214,7 +214,7 @@ SPEC CHECKSUMS:
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
   ReactiveCocoa: 5d10386f0ce09f922006efbf784881c5fade27c5
   ReactiveSwift: 48c4b9d3b497e8dd20b10300bb1a28ff93550f13
-  SwiftFormat: 2402d29b26746f169cce5454d5af88314cbb2e35
+  SwiftFormat: 1940d131999e956350ed7ff71542015c27776e33
   SwiftNIO: 829958aab300642625091f82fc2f49cb7cf4ef24
   SwiftNIOConcurrencyHelpers: 697370136789b1074e4535eaae75cbd7f900370e
   SwiftNIOCore: 473fdfe746534d7aa25766916459eeaf6f92ef49
@@ -228,7 +228,7 @@ SPEC CHECKSUMS:
   SwiftNIOSSL: d153c5a6fc5b2301b0519b4c4d037a9414212da6
   SwiftNIOTLS: 598af547490133e9aac52aed0c23c4a90c31dcfc
   SwiftNIOTransportServices: 0b2b407819d82eb63af558c5396e33c945759503
-  SwiftProtobuf: e40a7684079620e84ba522dbaeab0cddb0ec7ffd
+  SwiftProtobuf: 9f458aaa7844a2fc0b910053e66578bc4e2da9c1
 
 PODFILE CHECKSUM: abc10d2eb006bcd0e7f12085a6a4a80a68884ffb
 
