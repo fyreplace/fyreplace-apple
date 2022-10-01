@@ -2450,7 +2450,7 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>
-        <image name="Logo" width="500" height="500"/>
+        <image name="Logo" width="375" height="375"/>
         <image name="bell" catalog="system" width="125" height="128"/>
         <image name="bell.fill" catalog="system" width="123" height="128"/>
         <image name="bell.slash" catalog="system" width="128" height="128"/>
