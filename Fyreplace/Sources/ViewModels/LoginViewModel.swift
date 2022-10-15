@@ -8,9 +8,12 @@ class LoginViewModel: ViewModel {
     let isRegistering = MutableProperty(true)
     let email = MutableProperty("")
     let username = MutableProperty("")
+    let conditionsAccepted = MutableProperty(false)
     lazy var isEmailValid = email.map { $0.count.between(3, 100) }
     lazy var isUsernameValid = username.map { $0.count.between(3, 50) }
-    lazy var canProceed = isRegistering.negate().or(isUsernameValid).and(isEmailValid)
+    lazy var canProceed = isRegistering.negate()
+        .or(isUsernameValid.and(conditionsAccepted))
+        .and(isEmailValid)
     let isLoading = MutableProperty(false)
 
     private let authToken = Keychain.authToken

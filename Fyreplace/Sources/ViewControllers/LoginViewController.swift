@@ -3,7 +3,7 @@ import ReactiveCocoa
 import ReactiveSwift
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UITableViewController {
     @IBOutlet
     var vm: LoginViewModel!
     @IBOutlet
@@ -11,13 +11,13 @@ class LoginViewController: UIViewController {
     @IBOutlet
     var username: UITextField!
     @IBOutlet
-    var button: UIButton!
+    var conditionsAccepted: UISwitch!
+    @IBOutlet
+    var button: UILabel!
+    @IBOutlet
+    var buttonContainer: UITableViewCell!
     @IBOutlet
     var loader: UIActivityIndicatorView!
-    @IBOutlet
-    var privacyPolicy: UIButton!
-    @IBOutlet
-    var termsOfService: UIButton!
 
     var isRegistering = true
 
@@ -26,14 +26,14 @@ class LoginViewController: UIViewController {
         vm.isRegistering.value = isRegistering
         vm.email <~ email.reactive.continuousTextValues
         vm.username <~ username.reactive.continuousTextValues
-        button.reactive.isEnabled <~ vm.canProceed
+        vm.conditionsAccepted <~ conditionsAccepted.reactive.isOnValues
+        button.reactive.textColor <~ vm.canProceed.map { $0 ? .accent : .secondaryLabelCompat }
         button.reactive.isHidden <~ vm.isLoading
+        buttonContainer.reactive.isUserInteractionEnabled <~ vm.canProceed
         loader.reactive.isAnimating <~ vm.isLoading
-        privacyPolicy.isHidden = !isRegistering
-        termsOfService.isHidden = !isRegistering
         navigationItem.title = .tr("Login." + (isRegistering ? "Register" : "Login"))
-        username.isHidden = !isRegistering
-        button.setTitle(navigationItem.title, for: .normal)
+        email.returnKeyType = isRegistering ? .next : .done
+        button.text = navigationItem.title
     }
 
     @IBAction
@@ -42,33 +42,12 @@ class LoginViewController: UIViewController {
             username.becomeFirstResponder()
         } else {
             email.resignFirstResponder()
-            onLoginPressed()
         }
     }
 
     @IBAction
     func onUsernameDidEndOnExit() {
         username.resignFirstResponder()
-        onLoginPressed()
-    }
-
-    @IBAction
-    func onLoginPressed() {
-        if isRegistering {
-            vm.register()
-        } else {
-            vm.login()
-        }
-    }
-
-    @IBAction
-    func onPrivacyPolicyPressed() {
-        URL(string: .tr("Legal.PrivacyPolicy.Url"))?.browse()
-    }
-
-    @IBAction
-    func onTermsOfServicePressed() {
-        URL(string: .tr("Legal.TermsOfService.Url"))?.browse()
     }
 
     private func askPassword() {
@@ -97,6 +76,61 @@ class LoginViewController: UIViewController {
         alert.addAction(ok)
         alert.addAction(cancel)
         present(alert, animated: true)
+    }
+}
+
+extension LoginViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if shouldHide(section: section) {
+            return 0
+        } else if !isRegistering, section == 0 {
+            return 1
+        }
+
+        return super.tableView(tableView, numberOfRowsInSection: section)
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return shouldHide(section: section) ? 0 : super.tableView(tableView, heightForHeaderInSection: section)
+    }
+
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return shouldHide(section: section) ? 0 : super.tableView(tableView, heightForFooterInSection: section)
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return shouldHide(section: section) ? nil : super.tableView(tableView, titleForHeaderInSection: section)
+    }
+
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return shouldHide(section: section) ? nil : super.tableView(tableView, titleForFooterInSection: section)
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath)
+
+        switch cell?.tag {
+        case 12:
+            URL(string: .tr("Legal.PrivacyPolicy.Url"))?.browse()
+
+        case 13:
+            URL(string: .tr("Legal.TermsOfService.Url"))?.browse()
+
+        case 21:
+            if isRegistering {
+                vm.register()
+            } else {
+                vm.login()
+            }
+
+        default:
+            return
+        }
+    }
+
+    private func shouldHide(section: Int) -> Bool {
+        return !isRegistering && section == 1
     }
 }
 

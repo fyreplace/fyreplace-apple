@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -2075,123 +2076,193 @@
         <!--Login-->
         <scene sceneID="9d6322c1f4d9d3f38aed8bfbe0b2bcadf66ad82c008476fa62541fa069138e94">
             <objects>
-                <viewController storyboardIdentifier="Login" hidesBottomBarWhenPushed="YES" id="Login-Login" userLabel="Login" customClass="LoginViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Login-Login-view">
+                <tableViewController storyboardIdentifier="Login" hidesBottomBarWhenPushed="YES" id="Login-Login" userLabel="Login" customClass="LoginViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Login-Login-view">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView">
-                                <rect key="frame" x="0.0" y="91" width="375" height="687"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView">
-                                        <rect key="frame" x="20" y="59.999999999999972" width="335" height="402.33333333333326"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Logo">
-                                                <rect key="frame" x="127.66666666666666" y="0.0" width="80" height="80"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="13-00-00-00-00-00--C-00"/>
-                                                    <constraint firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Logo" secondAttribute="height" multiplier="1:1" id="13-00-00-00-00-00--C-00-00-00"/>
-                                                </constraints>
-                                            </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Email">
-                                                <rect key="frame" x="47.666666666666686" y="110" width="240" height="34"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
-                                                <connections>
-                                                    <action selector="onEmailDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="3a9d4d9366d0206a6ac8601bced845663aae01f001f987d6bdcbc9636f76b812"/>
-                                                </connections>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Username">
-                                                <rect key="frame" x="47.666666666666686" y="174" width="240" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="240" id="13-00-00-00-00-02--C-00-00">
-                                                        <variation key="widthClass=regular" constant="300"/>
-                                                    </constraint>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
-                                                <connections>
-                                                    <action selector="onUsernameDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="e5709d4d5f636b475bd9b3a702f8b7b98d77662448ab19535be2d8a7b8206a4a"/>
-                                                </connections>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-Button" customClass="LargeFilledButton" customModule="Fyreplace" customModuleProvider="target">
-                                                <rect key="frame" x="134.66666666666666" y="238" width="65.666666666666657" height="34.333333333333314"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Login"/>
-                                                <connections>
-                                                    <action selector="onLoginPressed" destination="Login-Login" eventType="primaryActionTriggered" id="3f9a92f823bf92700435dd92c7d8ec4900ee20f4642aa7794ebc1c810f248daf"/>
-                                                </connections>
-                                            </button>
-                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-activityIndicatorView">
-                                                <rect key="frame" x="149" y="302.33333333333331" width="37" height="37"/>
-                                            </activityIndicatorView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-stackView">
-                                                <rect key="frame" x="42" y="369.33333333333337" width="251" height="33"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-stackView-Privacy-policy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="105" height="33"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Privacy policy"/>
-                                                        <connections>
-                                                            <action selector="onPrivacyPolicyPressed" destination="Login-Login" eventType="primaryActionTriggered" id="dd82bef2b1d0748cff2cc517d63380917371d294784addd0fe9c654356e6954d"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-scrollView-stackView-stackView-Terms-of-service">
-                                                        <rect key="frame" x="125" y="0.0" width="126" height="33"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Terms of service"/>
-                                                        <connections>
-                                                            <action selector="onTermsOfServicePressed" destination="Login-Login" eventType="primaryActionTriggered" id="68bb38bd1985e22ed4b63c9077ccf5a6b41348e487cb8722d8fc5a666b04ba06"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Email" firstAttribute="width" secondItem="Login-Login-view-scrollView-stackView-Username" secondAttribute="width" id="13-00-00-00-00--C-01-00-00-01"/>
-                                            <constraint firstItem="Login-Login-view-scrollView-stackView-Username" firstAttribute="width" relation="lessThanOrEqual" secondItem="Login-Login-view-scrollView-stackView" secondAttribute="width" id="13-00-00-00-00--C-01-00-00-01-00"/>
-                                        </constraints>
-                                        <variation key="heightClass=compact" spacing="20"/>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="bottom" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="bottom" constant="-60" id="13-00-00-00--C-05-01-00-01">
-                                        <variation key="heightClass=compact" constant="-30"/>
-                                    </constraint>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="centerX" secondItem="Login-Login-view-scrollView" secondAttribute="centerX" id="13-00-00-00--C-05-01-00-02"/>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="leading" secondItem="Login-Login-view-scrollView" secondAttribute="leading" constant="20" id="13-00-00-00--C-05-01-00-03"/>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="top" secondItem="Login-Login-view-scrollView-contentLayoutGuide" secondAttribute="top" constant="60" id="13-00-00-00--C-05-01-00-04">
-                                        <variation key="heightClass=compact" constant="30"/>
-                                    </constraint>
-                                    <constraint firstItem="Login-Login-view-scrollView-stackView" firstAttribute="trailing" secondItem="Login-Login-view-scrollView" secondAttribute="trailing" constant="-20" id="13-00-00-00--C-05-01-00-05"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="Login-Login-view-scrollView-contentLayoutGuide"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Login-Login-view-scrollView-frameLayoutGuide"/>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Login-Login-view-safeArea"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="bottom" secondItem="Login-Login-view-safeArea" secondAttribute="bottom" id="13-00-00--C-00-00-00-00" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="leading" secondItem="Login-Login-view-safeArea" secondAttribute="leading" id="13-00-00--C-00-00-00-01"/>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="top" secondItem="Login-Login-view-safeArea" secondAttribute="top" id="13-00-00--C-00-00-00-02"/>
-                            <constraint firstItem="Login-Login-view-scrollView" firstAttribute="trailing" secondItem="Login-Login-view-safeArea" secondAttribute="trailing" id="13-00-00--C-00-00-00-03"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Login" largeTitleDisplayMode="never" id="Login-Login-Login"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Login-Login-view-tableHeaderView">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-tableHeaderView-Logo">
+                                    <rect key="frame" x="147.66666666666666" y="20" width="80" height="80"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Login-Login-view-tableHeaderView-Logo" secondAttribute="height" multiplier="1:1" id="13-00-00-00-00--C-00-00-00"/>
+                                        <constraint firstAttribute="width" constant="80" id="13-00-00-00-00--C-01"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Login-Login-view-tableHeaderView-Logo" firstAttribute="top" secondItem="Login-Login-view-tableHeaderView" secondAttribute="top" constant="20" symbolic="YES" id="13-00-00-00--C-00-01-00-00"/>
+                                <constraint firstItem="Login-Login-view-tableHeaderView-Logo" firstAttribute="centerX" secondItem="Login-Login-view-tableHeaderView" secondAttribute="centerX" id="13-00-00-00--C-00-01-00-01"/>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection id="Login-Login-view-tableViewSection-00">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="Login-Login-view-tableViewSection-00-tableViewCell-00">
+                                        <rect key="frame" x="20" y="137.66666603088379" width="335" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Login-Login-view-tableViewSection-00-tableViewCell-00" id="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email">
+                                                    <rect key="frame" x="20" y="0.0" width="295" height="50"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                                    <connections>
+                                                        <action selector="onEmailDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="b9c4c10a1331eef8b66547732fce89dfef29f8a1531e6cb67a9bb2e5fdf540d1"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email" firstAttribute="leading" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="13-00-00-01-00-00--C-00-00-00-01"/>
+                                                <constraint firstAttribute="trailing" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email" secondAttribute="trailing" constant="20" symbolic="YES" id="13-00-00-01-00-00--C-00-00-01"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email" firstAttribute="top" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView" secondAttribute="top" id="13-00-00-01-00-00--C-00-00-01-00"/>
+                                                <constraint firstAttribute="bottom" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email" secondAttribute="bottom" id="13-00-00-01-00-00--C-00-00-02"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="Login-Login-view-tableViewSection-00-tableViewCell-01">
+                                        <rect key="frame" x="20" y="187.66666603088379" width="335" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Login-Login-view-tableViewSection-00-tableViewCell-01" id="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username">
+                                                    <rect key="frame" x="20" y="0.0" width="295" height="50"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="username"/>
+                                                    <connections>
+                                                        <action selector="onUsernameDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="d73ff7bd73913ce10f74c4adfd465092f8d1b38afd3780abff6197a7df9b5bbd"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username" firstAttribute="leading" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="13-00-00-01-01-00--C-00-00-00-01"/>
+                                                <constraint firstAttribute="trailing" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username" secondAttribute="trailing" constant="20" symbolic="YES" id="13-00-00-01-01-00--C-00-00-01"/>
+                                                <constraint firstAttribute="bottom" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username" secondAttribute="bottom" id="13-00-00-01-01-00--C-00-00-02"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username" firstAttribute="top" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView" secondAttribute="top" id="13-00-00-01-01-00--C-00-00-02-00"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="Login-Login-view-tableViewSection-01">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" tag="11" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Login-Login-view-tableViewSection-01-tableViewCell-00">
+                                        <rect key="frame" x="20" y="272.66666603088379" width="335" height="104.66666412353516"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Login-Login-view-tableViewSection-01-tableViewCell-00" id="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="104.66666412353516"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" text="I accept the Privacy Policy and the Terms Of Service described in the links below." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" userLabel="Conditions">
+                                                    <rect key="frame" x="20" y="20" width="238" height="64.666666666666671"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-switch">
+                                                    <rect key="frame" x="266" y="37" width="51" height="31"/>
+                                                    <color key="onTintColor" name="AccentColor"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-switch" secondAttribute="trailing" constant="20" symbolic="YES" id="13-00-00-02-00-00--C-00-00-00"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-switch" firstAttribute="centerY" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView" secondAttribute="centerY" id="13-00-00-02-00-00--C-00-00-00-00"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" firstAttribute="leading" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="13-00-00-02-00-00--C-00-00-00-01"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-switch" firstAttribute="leading" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" secondAttribute="trailing" constant="8" symbolic="YES" id="13-00-00-02-00-00--C-00-00-00-02"/>
+                                                <constraint firstAttribute="bottom" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" secondAttribute="bottom" constant="20" symbolic="YES" id="13-00-00-02-00-00--C-00-00-01"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" firstAttribute="top" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView" secondAttribute="top" constant="20" symbolic="YES" id="13-00-00-02-00-00--C-00-00-01-00"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" tag="12" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Login-Login-view-tableViewSection-01-tableViewCell-01-contentView-Privacy-policy" style="IBUITableViewCellStyleDefault" id="Login-Login-view-tableViewSection-01-tableViewCell-01">
+                                        <rect key="frame" x="20" y="377.33333015441895" width="335" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Login-Login-view-tableViewSection-01-tableViewCell-01" id="Login-Login-view-tableViewSection-01-tableViewCell-01-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="304.66666666666669" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Privacy policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Login-Login-view-tableViewSection-01-tableViewCell-01-contentView-Privacy-policy">
+                                                    <rect key="frame" x="20" y="0.0" width="276.66666666666669" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" tag="13" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Login-Login-view-tableViewSection-01-tableViewCell-02-contentView-Terms-of-service" style="IBUITableViewCellStyleDefault" id="Login-Login-view-tableViewSection-01-tableViewCell-02">
+                                        <rect key="frame" x="20" y="420.99999809265137" width="335" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Login-Login-view-tableViewSection-01-tableViewCell-02" id="Login-Login-view-tableViewSection-01-tableViewCell-02-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="304.66666666666669" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Terms of service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Login-Login-view-tableViewSection-01-tableViewCell-02-contentView-Terms-of-service">
+                                                    <rect key="frame" x="20" y="0.0" width="276.66666666666669" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="Login-Login-view-tableViewSection-02">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" tag="21" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Login-Login-view-tableViewSection-02-tableViewCell-00">
+                                        <rect key="frame" x="20" y="499.66666603088379" width="335" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Login-Login-view-tableViewSection-02-tableViewCell-00" id="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView-Login">
+                                                    <rect key="frame" x="146.66666666666666" y="11.333333333333336" width="41.666666666666657" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" name="AccentColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView-activityIndicatorView">
+                                                    <rect key="frame" x="157.66666666666666" y="12" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView-activityIndicatorView" firstAttribute="centerX" secondItem="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView" secondAttribute="centerX" id="13-00-00-03-00-00--C-00-00-00-00"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView-activityIndicatorView" firstAttribute="centerY" secondItem="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView" secondAttribute="centerY" id="13-00-00-03-00-00--C-00-00-00-01"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView-Login" firstAttribute="centerY" secondItem="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView" secondAttribute="centerY" id="13-00-00-03-00-00--C-00-00-00-02"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView-Login" firstAttribute="centerX" secondItem="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView" secondAttribute="centerX" id="13-00-00-03-00-00--C-00-00-00-03"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Login-Login" id="846624505bb9805738d5dd2c819b915dc8d4dc40646831cb0ecca65f3157a87c"/>
+                            <outlet property="delegate" destination="Login-Login" id="197c4124ea8b766fee1768e1dd8fb9d3dbdfcbd6f13a3e58969932c3433450eb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Login" id="Login-Login-Login"/>
                     <connections>
-                        <outlet property="button" destination="Login-Login-view-scrollView-stackView-Button" id="e379b08d0d5874fbd031dc74239b4ec2ef6fbe708fabad107ad4d8bffbe1863e"/>
-                        <outlet property="email" destination="Login-Login-view-scrollView-stackView-Email" id="d9ebeab3af2ce5b3fa5b80c6f47b8bbe854fadf5c3ae38b8284b057497e11c1c"/>
-                        <outlet property="loader" destination="Login-Login-view-scrollView-stackView-activityIndicatorView" id="9f59c7dbedaeced85135c8b36c94d3268dd6c362b7256bf446fa67836afd1a78"/>
-                        <outlet property="privacyPolicy" destination="Login-Login-view-scrollView-stackView-stackView-Privacy-policy" id="3d1ea592e5451f667413b6bda2c0949e9c0669515f11bea649b727d9ad707cdc"/>
-                        <outlet property="termsOfService" destination="Login-Login-view-scrollView-stackView-stackView-Terms-of-service" id="1318d2c4eaf7fb0a24a77e3d7a282a1349bfb8beb7d015830af9b8f20d64cc90"/>
-                        <outlet property="username" destination="Login-Login-view-scrollView-stackView-Username" id="e8460bffe0a5872f8c9ab2aad867c80c92bb4a4cd937bd508170f01324323d1e"/>
+                        <outlet property="button" destination="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView-Login" id="e379b08d0d5874fbd031dc74239b4ec2ef6fbe708fabad107ad4d8bffbe1863e"/>
+                        <outlet property="buttonContainer" destination="Login-Login-view-tableViewSection-02-tableViewCell-00" id="ca9218a1320a954f7690511a1dbd12a6a4a3b9ef7232beb715ceba438f20cfa0"/>
+                        <outlet property="conditionsAccepted" destination="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-switch" id="961b3b3a7f03f594ff13d7b8bb6a1aa69a55838f75b6daea9f71e5b752bb0a9f"/>
+                        <outlet property="email" destination="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email" id="d9ebeab3af2ce5b3fa5b80c6f47b8bbe854fadf5c3ae38b8284b057497e11c1c"/>
+                        <outlet property="loader" destination="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView-activityIndicatorView" id="9f59c7dbedaeced85135c8b36c94d3268dd6c362b7256bf446fa67836afd1a78"/>
+                        <outlet property="username" destination="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username" id="e8460bffe0a5872f8c9ab2aad867c80c92bb4a4cd937bd508170f01324323d1e"/>
                         <outlet property="vm" destination="Login-LoginViewModel" id="34dce91158a933b81f3d9f65166af5f54bd07fdc3adf9d8a822c79ec3b07eb98"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Login-UIResponder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Login-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Login-LoginViewModel" customClass="LoginViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
                         <outlet property="delegate" destination="Login-Login" id="aaf5fccb4db1c357f3344e8fa331e66204b2995131692f3a1fda12c536617bb4"/>
@@ -2410,9 +2481,6 @@
         </designable>
         <designable name="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill">
             <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
-        </designable>
-        <designable name="Login-Login-view-scrollView-stackView-Button">
-            <size key="intrinsicContentSize" width="65.666666666666671" height="34.333333333333336"/>
         </designable>
         <designable name="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill">
             <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
