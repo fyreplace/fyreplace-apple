@@ -116,7 +116,7 @@ class BaseListViewController: UITableViewController {
 
         updateItem(
             item,
-            at: .init(row: listViewDelegate.lister.getPosition(for: item), section: 0),
+            at: .init(row: position, section: 0),
             becauseOf: notification
         )
     }
