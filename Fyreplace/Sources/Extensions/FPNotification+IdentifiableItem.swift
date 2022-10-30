@@ -2,8 +2,22 @@ import Foundation
 
 extension FPNotification: IdentifiableItem {
     var id: Data {
-        guard let target = target as? IdentifiableItem else { return .init() }
-        var data = target.id
+        var data: Data
+
+        switch target {
+        case .user(user):
+            data = user.id
+
+        case .post(post):
+            data = post.id
+
+        case .comment(comment):
+            data = comment.id
+
+        default:
+            data = .init()
+        }
+
         data.append(isFlag ? 1 : 0)
         return data
     }

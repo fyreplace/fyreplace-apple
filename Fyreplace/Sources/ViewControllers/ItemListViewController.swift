@@ -17,10 +17,10 @@ class ItemListViewController: BaseListViewController {
             .observeValues { [unowned self] _ in onRefresh() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.disconnectionNotification)
+            .notifications(forName: FPUser.currentUserChangeNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onUserDisconnected($0) }
+            .observeValues { [unowned self] in onCurrentUserChange($0) }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -53,15 +53,25 @@ class ItemListViewController: BaseListViewController {
         super.deleteItem(item, at: indexPath, becauseOf: reason)
     }
 
-    private func onRefresh() {
-        listDelegate.lister.stopListing()
-        listDelegate.lister.reset()
-        tableView.reloadData()
-        listDelegate.lister.startListing()
-        listDelegate.lister.fetchMore()
+    func refreshListing() {
+        DispatchQueue.main.async { [self] in
+            listDelegate.lister.stopListing()
+            listDelegate.lister.reset()
+            tableView.reloadData()
+            listDelegate.lister.startListing()
+            listDelegate.lister.fetchMore()
+        }
     }
 
-    private func onUserDisconnected(_ notification: Notification) {
+    private func onRefresh() {
+        refreshListing()
+    }
+
+    private func onCurrentUserChange(_ notification: Notification) {
+        guard let info = notification.userInfo,
+              let connected = info["connected"] as? Bool,
+              !connected
+        else { return }
         listDelegate.lister.reset()
         tableView.reloadData()
     }
@@ -100,7 +110,7 @@ extension ItemListViewController: BaseListViewDelegate {
 
 extension ItemListViewController: ItemListerDelegate {
     func onFetch(count: Int) {
-        if refreshControl?.isRefreshing ?? false {
+        if refreshControl?.isRefreshing == true {
             refreshControl?.endRefreshing()
         }
 

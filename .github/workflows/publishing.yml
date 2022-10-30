@@ -13,7 +13,7 @@ jobs:
   build:
     name: Build
     runs-on: macos-latest
-    environment: main
+    environment: apple-app-store
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -60,7 +60,7 @@ jobs:
         run: |
           xcodebuild archive \
             DEVELOPMENT_TEAM=${{ secrets.TEAM_ID }} \
-            PROVISIONING_PROFILE_SPECIFIER=Fyreplace \
+            PROVISIONING_PROFILE_SPECIFIER=${{ secrets.PROVISIONING_PROFILE_NAME }} \
             -allowProvisioningUpdates \
             -authenticationKeyPath /tmp/connect-key.p8 \
             -authenticationKeyID ${{ secrets.APP_STORE_CONNECT_KEY_IDENTIFIER }} \
@@ -76,7 +76,7 @@ jobs:
           /usr/libexec/PlistBuddy -c "Add :teamId string" ExportOptions.plist
           /usr/libexec/PlistBuddy -c "Set :teamId ${{ secrets.TEAM_ID }}" ExportOptions.plist
           /usr/libexec/PlistBuddy -c "Add :provisioningProfiles dict" ExportOptions.plist
-          /usr/libexec/PlistBuddy -c "Add :provisioningProfiles:app.fyreplace.Fyreplace string ${{ secrets.PROVISIONING_PROFILE }}" ExportOptions.plist
+          /usr/libexec/PlistBuddy -c "Add :provisioningProfiles:${{ secrets.APP_ID }} string ${{ secrets.PROVISIONING_PROFILE_NAME }}" ExportOptions.plist
           xcodebuild export \
             -allowProvisioningUpdates \
             -authenticationKeyPath /tmp/connect-key.p8 \
@@ -97,7 +97,7 @@ jobs:
     name: Publish
     needs: build
     runs-on: macos-latest
-    environment: main
+    environment: apple-app-store
     steps:
       - uses: actions/download-artifact@v3
         with:

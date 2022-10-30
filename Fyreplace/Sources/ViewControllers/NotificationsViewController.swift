@@ -1,3 +1,4 @@
+import ReactiveSwift
 import UIKit
 
 class NotificationsViewController: ItemListViewController {
@@ -12,6 +13,16 @@ class NotificationsViewController: ItemListViewController {
         [FPNotification.deletionNotification]
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        NotificationCenter.default.reactive
+            .notifications(forName: FPNotification.creationNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onNotificationCreation($0) }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard let index = tableView.indexPathForSelectedRow?.row else { return }
@@ -23,15 +34,18 @@ class NotificationsViewController: ItemListViewController {
 
         case let (controller as PostViewController, .post(post)):
             controller.post = post
-            controller.shouldScrollToComment = true
 
         case let (controller as PostViewController, .comment(comment)):
             controller.post = .with { $0.id = comment.id }
-            controller.commentPosition = Int(comment.position)
+            controller.selectedComment = Int(comment.position)
 
         default:
             return
         }
+    }
+
+    private func onNotificationCreation(_ notification: Notification) {
+        refreshListing()
     }
 }
 

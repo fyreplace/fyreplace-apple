@@ -15,4 +15,8 @@ extension Data {
             .padding(toLength: 24, withPad: "=", startingAt: 0)
         self.init(base64Encoded: paddedString)
     }
+
+    init(jsonObject: Any) throws {
+        self.init(referencing: .init(data: try JSONSerialization.data(withJSONObject: jsonObject)))
+    }
 }

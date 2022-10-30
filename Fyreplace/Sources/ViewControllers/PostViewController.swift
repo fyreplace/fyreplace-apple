@@ -1,5 +1,4 @@
 import GRPC
-import Kingfisher
 import ReactiveSwift
 import UIKit
 
@@ -30,7 +29,7 @@ class PostViewController: ItemRandomAccessListViewController {
     var dateFormat: DateFormat!
 
     var post: FPPost!
-    var commentPosition: Int? { didSet { shouldScrollToComment = commentPosition != nil } }
+    var selectedComment: Int? { didSet { shouldScrollToComment = selectedComment != nil } }
     var shouldScrollToComment = false
     private var errored = false
     private lazy var currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
@@ -95,11 +94,14 @@ class PostViewController: ItemRandomAccessListViewController {
         super.addItem(item, at: indexPath, becauseOf: reason)
         let title = tableView.headerView(forSection: 0)
         title?.textLabel?.text = tableView(tableView, titleForHeaderInSection: 0)
-        _ = tryShowComment(
-            for: vm.post.value.id,
-            at: listDelegate.lister.totalCount - 1,
-            selected: false
-        )
+
+        if reason.userInfo?["byCurrentUser"] as? Bool == true {
+            _ = tryShowComment(
+                for: vm.post.value.id,
+                at: listDelegate.lister.totalCount - 1,
+                selected: false
+            )
+        }
     }
 
     override func updateItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
@@ -140,18 +142,37 @@ class PostViewController: ItemRandomAccessListViewController {
 
     func tryShowComment(for postId: Data, at position: Int, selected: Bool = true) -> Bool {
         guard postId == vm.post.value.id else { return false }
-        var oldIndexPath: IndexPath?
+        var oldPosition: Int?
 
         if selected {
-            if let oldPosition = commentPosition {
-                oldIndexPath = .init(row: oldPosition, section: 0)
+            if let old = selectedComment {
+                oldPosition = old
             }
 
-            commentPosition = position
+            selectedComment = position
         }
 
-        showComment(at: .init(row: position, section: 0), insteadOf: oldIndexPath)
+        showComment(at: position, insteadOf: oldPosition)
         return true
+    }
+
+    func tryHandleCommentCreation(for postId: Data) -> Bool {
+        guard postId == vm.post.value.id else { return false }
+        let position = tableView.indexPathsForVisibleRows?.last?.row ?? -1
+
+        if position == vm.lister.totalCount - 1 {
+            showComment(at: position, insteadOf: nil)
+        } else {
+            return false
+        }
+
+        return true
+    }
+
+    func showUnreadComments() {
+        let commentsRead = Int(vm.post.value.commentsRead)
+        guard commentsRead > 0 else { return }
+        showComment(at: commentsRead, insteadOf: nil)
     }
 
     private func onPost(_ post: FPPost) {
@@ -183,7 +204,16 @@ class PostViewController: ItemRandomAccessListViewController {
         setToolbarItems(hidden ? nil : [space, comment, space], animated: false)
     }
 
-    private func showComment(at indexPath: IndexPath, insteadOf oldIndexPath: IndexPath?) {
+    private func showComment(at position: Int, insteadOf oldPosition: Int?) {
+        let indexPath = IndexPath(row: position, section: 0)
+        let oldIndexPath: IndexPath?
+
+        if let oldPosition = oldPosition {
+            oldIndexPath = .init(row: oldPosition, section: 0)
+        } else {
+            oldIndexPath = nil
+        }
+
         guard indexPath.row < vm.lister.totalCount else { return }
         var paths = [indexPath]
 
@@ -197,20 +227,12 @@ class PostViewController: ItemRandomAccessListViewController {
 
         tableView.reloadRows(at: paths, with: .automatic)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
-            tableView.scrollToRow(at: indexPath, at: .top, animated: false)
-
-            if !shouldScrollToComment {
-                acknowledgeLastVisibleComment()
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
         }
     }
 
-    private func acknowledgeLastVisibleComment() {
-        guard let position = tableView.indexPathsForVisibleRows?.last?.row,
-              let comment = vm.comment(atIndex: position)
-        else { return }
-
+    private func acknowledgeComment(_ comment: FPComment, at position: Int) {
         NotificationCenter.default.post(
             name: FPComment.seenNotification,
             object: self,
@@ -221,15 +243,9 @@ class PostViewController: ItemRandomAccessListViewController {
             ]
         )
     }
-}
 
-extension PostViewController {
-    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        acknowledgeLastVisibleComment()
-    }
-
-    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        acknowledgeLastVisibleComment()
+    private func isCommentHighlighted(at position: Int) -> Bool {
+        return vm.post.value.isSubscribed && position >= vm.post.value.commentsRead
     }
 }
 
@@ -240,10 +256,10 @@ extension PostViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [self] in
             guard shouldScrollToComment else { return }
 
-            if let position = commentPosition {
-                showComment(at: .init(row: position, section: 0), insteadOf: nil)
+            if let position = selectedComment {
+                showComment(at: position, insteadOf: nil)
             } else if vm.post.value.commentsRead > 0 {
-                showComment(at: .init(row: Int(vm.post.value.commentsRead), section: 0), insteadOf: nil)
+                showUnreadComments()
             }
         }
 
@@ -251,7 +267,7 @@ extension PostViewController {
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return .tr(vm.lister.itemCount > 0 ? "Post.Comments.Title" : "Post.Comments.Empty.Title")
+        return .tr(vm.lister.totalCount > 0 ? "Post.Comments.Title" : "Post.Comments.Empty.Title")
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -264,8 +280,8 @@ extension PostViewController {
                 withComment: comment,
                 at: indexPath.row,
                 isPostAuthor: vm.post.value.author.id == comment.author.id,
-                isSelected: indexPath.row == commentPosition,
-                isHighlighted: indexPath.row >= vm.post.value.commentsRead && vm.post.value.commentsRead > 0
+                isSelected: indexPath.row == selectedComment,
+                isHighlighted: isCommentHighlighted(at: indexPath.row)
             )
         }
 
@@ -273,12 +289,18 @@ extension PostViewController {
     }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let comment = vm.comment(atIndex: indexPath.row),
+           isCommentHighlighted(at: indexPath.row)
+        {
+            acknowledgeComment(comment, at: indexPath.row)
+        }
+
         guard shouldScrollToComment else { return }
 
-        if indexPath.row == commentPosition {
-            showComment(at: indexPath, insteadOf: nil)
+        if indexPath.row == selectedComment {
+            showComment(at: indexPath.row, insteadOf: nil)
         } else if indexPath.row == vm.post.value.commentsRead, vm.post.value.commentsRead > 0 {
-            showComment(at: .init(row: Int(vm.post.value.commentsRead), section: 0), insteadOf: nil)
+            showUnreadComments()
         }
     }
 
@@ -326,12 +348,18 @@ extension PostViewController {
 }
 
 extension PostViewController: PostViewModelDelegate {
-    override func onFetch(count: Int, at index: Int) {
-        super.onFetch(count: count, at: index)
-        acknowledgeLastVisibleComment()
+    override func onFetch(count: Int, at index: Int, oldTotal: Int, newTotal: Int) {
+        if oldTotal == 0,
+           vm.post.value.commentsRead > 0,
+           vm.post.value.commentsRead < vm.lister.totalCount
+        {
+            shouldScrollToComment = true
+        }
+
+        super.onFetch(count: count, at: index, oldTotal: oldTotal, newTotal: newTotal)
 
         if shouldScrollToComment,
-           let position = commentPosition,
+           let position = selectedComment,
            position < tableView.numberOfRows(inSection: 0)
         {
             tableView.scrollToRow(at: .init(row: position, section: 0), at: .top, animated: false)

@@ -86,7 +86,9 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
                 self.items[index + i] = item
             }
 
-            totalCount = Int(items.count)
+            let oldTotalCount = totalCount
+            let newTotalCount = Int(items.count)
+            totalCount = newTotalCount
 
             if let index = indexes.firstObject as? Int {
                 _ = stream!.sendMessage(.with { $0.offset = UInt32(index) })
@@ -94,7 +96,12 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
                 state = itemCount < totalCount ? .incomplete : .complete
             }
 
-            delegate.onFetch(count: items.items.count, at: index)
+            delegate.onFetch(
+                count: items.items.count,
+                at: index,
+                oldTotal: oldTotalCount,
+                newTotal: newTotalCount
+            )
         }
     }
 }
@@ -108,5 +115,5 @@ protocol ItemRandomAccessBundle {
 
 @objc
 protocol ItemRandomAccessListerDelegate {
-    func onFetch(count: Int, at index: Int)
+    func onFetch(count: Int, at index: Int, oldTotal: Int, newTotal: Int)
 }

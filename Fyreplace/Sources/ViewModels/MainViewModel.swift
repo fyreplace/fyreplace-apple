@@ -35,9 +35,7 @@ class MainViewModel: ViewModel {
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
 
-        if authToken.get() != nil {
-            retrieveMe()
-        }
+        tryRetrieveMe()
     }
 
     func confirmActivation(with token: String) {
@@ -81,6 +79,16 @@ class MainViewModel: ViewModel {
         response.whenFailure { self.delegate.onError($0) }
     }
 
+    func registerToken(token: String) {
+        let request = FPMessagingToken.with {
+            $0.service = FPMessagingService.apns
+            $0.token = token
+        }
+        let response = notificationService.registerToken(request, callOptions: .authenticated).response
+        response.whenSuccess { _ in self.delegate.onRegisterToken() }
+        response.whenFailure { self.delegate.onError($0) }
+    }
+
     private func onConfirmActivation(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
             delegate.onConfirmActivation()
@@ -101,6 +109,15 @@ class MainViewModel: ViewModel {
         retrieveMe()
         delegate.onConfirmEmailUpdate()
     }
+
+    private func tryRetrieveMe() {
+        if !UserDefaults.standard.bool(forKey: "app:first-run") {
+            UserDefaults.standard.set(true, forKey: "app:first-run")
+            _ = authToken.delete()
+        } else if authToken.get() != nil {
+            retrieveMe()
+        }
+    }
 }
 
 @objc
@@ -112,4 +129,6 @@ protocol MainViewModelDelegate: ViewModelDelegate {
     func onConfirmEmailUpdate()
 
     func onAcknowledgeComment()
+
+    func onRegisterToken()
 }

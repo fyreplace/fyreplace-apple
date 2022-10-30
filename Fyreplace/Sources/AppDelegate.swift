@@ -1,10 +1,15 @@
 import Kingfisher
 import UIKit
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder {
     static let urlOpeningNotification = Notification.Name("AppDelegate.urlOpening")
     static let environmentChangeNotification = Notification.Name("AppDelegate.environmentChange")
+    static let remoteNotificationTokenNotification = Notification.Name("AppDelegate.remoteNotificationToken")
+    static let remoteNotificationReceptionNotification = Notification.Name("AppDelegate.remoteNotificationReception")
+    static let remoteNotificationClickNotification = Notification.Name("AppDelegate.remoteNotificationClick")
+
     var window: UIWindow?
     var activityUrl: URL?
 
@@ -18,6 +23,16 @@ extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         for case let window? in application.windows + [window] {
             window.tintColor = .accent
+        }
+
+        UNUserNotificationCenter.current().delegate = self
+
+        if let remoteNotification = launchOptions?[.remoteNotification] as? [AnyHashable: Any] {
+            NotificationCenter.default.post(
+                name: Self.remoteNotificationClickNotification,
+                object: self,
+                userInfo: remoteNotification
+            )
         }
 
         return true
@@ -39,5 +54,103 @@ extension AppDelegate: UIApplicationDelegate {
 
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
         KingfisherManager.shared.cache.clearMemoryCache()
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        NotificationCenter.default.post(
+            name: Self.remoteNotificationTokenNotification,
+            object: self,
+            userInfo: ["token": deviceToken.map { String(format: "%02x", $0) }.joined()]
+        )
+    }
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        if let badge = userInfo["_aps.badge"] as? Int {
+            application.applicationIconBadgeNumber = badge
+        }
+
+        guard let command = userInfo["_command"] as? String,
+              let serializedComment = userInfo["comment"],
+              let comment = try? FPComment(jsonUTF8Data: .init(jsonObject: serializedComment)),
+              let postIdString = userInfo["postId"] as? String,
+              let postId = Data(base64ShortString: postIdString)
+        else { return completionHandler(.failed) }
+
+        switch command {
+        case "comment:creation":
+            NotificationCenter.default.post(
+                name: FPComment.creationNotification,
+                object: self,
+                userInfo: ["item": comment, "postId": postId]
+            )
+
+            if application.applicationState == .background {
+                let content = makeUserNotificationContent(comment: comment, postId: postId, info: userInfo)
+                createUserNotification(withIdentifier: comment.id.base64ShortString, withContent: content) {
+                    completionHandler($0 == nil ? .noData : .failed)
+                }
+            }
+
+        case "comment:deletion":
+            NotificationCenter.default.post(
+                name: FPComment.deletionNotification,
+                object: self,
+                userInfo: ["item": comment, "postId": postId]
+            )
+
+            deleteUserNotifications {
+                guard let nSerializedComment = $0.request.content.userInfo["comment"],
+                      let nComment = try? FPComment(jsonUTF8Data: .init(jsonObject: nSerializedComment))
+                else { return false }
+                return nComment.id == comment.id
+            } onCompletion: {
+                completionHandler(.noData)
+            }
+
+        case "comment:acknowledgement":
+            deleteUserNotifications {
+                guard let nSerializedComment = $0.request.content.userInfo["comment"],
+                      let nComment = try? FPComment(jsonUTF8Data: .init(jsonObject: nSerializedComment)),
+                      let nPostIdString = $0.request.content.userInfo["postId"] as? String
+                else { return false }
+                return nPostIdString == postIdString && nComment.dateCreated.date <= comment.dateCreated.date
+            } onCompletion: {
+                completionHandler(.noData)
+            }
+
+        default:
+            completionHandler(.noData)
+        }
+
+        NotificationCenter.default.post(
+            name: Self.remoteNotificationReceptionNotification,
+            object: self,
+            userInfo: userInfo
+        )
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        if #available(iOS 14.0, *) {
+            var options: UNNotificationPresentationOptions = [.badge, .banner, .sound]
+
+            if notification.request.content.userInfo["_aps.list"] as? Bool != false {
+                options.insert(.list)
+            }
+
+            completionHandler(options)
+        } else {
+            completionHandler([.badge, .alert, .sound])
+        }
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let additionalInfo: [String: Any] = ["_completionHandler": completionHandler]
+        NotificationCenter.default.post(
+            name: Self.remoteNotificationClickNotification,
+            object: self,
+            userInfo: response.notification.request.content.userInfo.merging(additionalInfo) { _, new in new }
+        )
     }
 }

@@ -124,6 +124,7 @@
 		4DD98EBD28C53D6B00985841 /* FPProfile+IdentifiableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD98EBC28C53D6B00985841 /* FPProfile+IdentifiableItem.swift */; };
 		4DD98EBF28C53D9F00985841 /* FPPost+IdentifiableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD98EBE28C53D9F00985841 /* FPPost+IdentifiableItem.swift */; };
 		4DD98EC128C5D6E800985841 /* FPComment+IdentifiableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD98EC028C5D6E800985841 /* FPComment+IdentifiableItem.swift */; };
+		4DDB51D029113E5C0057C39C /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB51CF29113E5C0057C39C /* Notifications.swift */; };
 		4DE97C5B2815C2AA0024362D /* ChapterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE97C5A2815C2AA0024362D /* ChapterTableViewCell.swift */; };
 		4DE97C5D2815C3310024362D /* DraftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE97C5C2815C3310024362D /* DraftTableViewCell.swift */; };
 		4DF63A0427FF0C2000DF8460 /* DraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF63A0327FF0C2000DF8460 /* DraftsViewController.swift */; };
@@ -234,6 +235,7 @@
 		4D87F45727888FBB00A82AFF /* MenuBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarButtonItem.swift; sourceTree = "<group>"; };
 		4D87F45B27889F0900A82AFF /* UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		4D893B2127E7483200380CF2 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		4D89EB9728CE378500405BDB /* Fyreplace.debug.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Fyreplace.debug.entitlements; sourceTree = "<group>"; };
 		4D8BFDB327090BF100CAD2B5 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		4D8BFDBE270B3F3000CAD2B5 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4D93AD25284FE92200ECDF8F /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		4DD98EBC28C53D6B00985841 /* FPProfile+IdentifiableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPProfile+IdentifiableItem.swift"; sourceTree = "<group>"; };
 		4DD98EBE28C53D9F00985841 /* FPPost+IdentifiableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPPost+IdentifiableItem.swift"; sourceTree = "<group>"; };
 		4DD98EC028C5D6E800985841 /* FPComment+IdentifiableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPComment+IdentifiableItem.swift"; sourceTree = "<group>"; };
+		4DDB51CF29113E5C0057C39C /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		4DE97C5A2815C2AA0024362D /* ChapterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewCell.swift; sourceTree = "<group>"; };
 		4DE97C5C2815C3310024362D /* DraftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftTableViewCell.swift; sourceTree = "<group>"; };
 		4DF63A0327FF0C2000DF8460 /* DraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +327,7 @@
 			children = (
 				4D77941027DE4BEF0068F4E7 /* Info.plist.template.plist */,
 				4D0040F9268EEDE900AF89FD /* Info.plist */,
+				4D89EB9728CE378500405BDB /* Fyreplace.debug.entitlements */,
 				4D35B1A726D7A60600077811 /* Fyreplace.entitlements */,
 				4D7B187027EBC45000FE31A0 /* version.py */,
 				4DB316DD26906A940000BDC3 /* Resources */,
@@ -348,6 +352,7 @@
 			children = (
 				4D0040EB268EEDE800AF89FD /* AppDelegate.swift */,
 				4D0040ED268EEDE800AF89FD /* SceneDelegate.swift */,
+				4DDB51CF29113E5C0057C39C /* Notifications.swift */,
 				4D36CC2F26964B4000BA1675 /* Views */,
 				4D22185C2693AE50007D8CFF /* ViewControllers */,
 				4DFAAD27269F7CA600DFAB5F /* ViewModels */,
@@ -786,6 +791,7 @@
 				4D77943C27DE654B0068F4E7 /* UIViewController.swift in Sources */,
 				4D77943D27DE654B0068F4E7 /* BioViewModel.swift in Sources */,
 				4D77943E27DE654B0068F4E7 /* FPProfile.swift in Sources */,
+				4DDB51D029113E5C0057C39C /* Notifications.swift in Sources */,
 				4D77943F27DE654B0068F4E7 /* LoginViewModel.swift in Sources */,
 				4D77944027DE654B0068F4E7 /* UIImage.swift in Sources */,
 				4DE97C5D2815C3310024362D /* DraftTableViewCell.swift in Sources */,
@@ -947,7 +953,7 @@
 				APP_NAME = "$(PRODUCT_NAME)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
+				CODE_SIGN_ENTITLEMENTS = $PROJECT/Fyreplace.debug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				FYREPLACE_API_HOST_DEFAULT_KEY = FPApiHostLocal;
@@ -1030,7 +1036,7 @@
 				APP_NAME = "$(PRODUCT_NAME)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Fyreplace/Fyreplace.entitlements;
+				CODE_SIGN_ENTITLEMENTS = $PROJECT/Fyreplace.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";

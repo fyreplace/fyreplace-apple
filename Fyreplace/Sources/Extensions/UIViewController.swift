@@ -1,14 +1,14 @@
 import UIKit
 
 extension UIViewController {
-    func presentBasicAlert(text: String, feedback: UINotificationFeedbackGenerator.FeedbackType = .success) {
+    func presentBasicAlert(text: String, feedback: UINotificationFeedbackGenerator.FeedbackType = .success, then complete: (() -> Void)? = nil) {
         let feedbackGenerator = UINotificationFeedbackGenerator()
         let alert = UIAlertController(
             title: .tr("\(text).Title"),
             message: .tr("\(text).Message"),
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: .tr("Ok"), style: .default))
+        alert.addAction(UIAlertAction(title: .tr("Ok"), style: .default) { _ in complete?() })
         DispatchQueue.main.async {
             feedbackGenerator.notificationOccurred(feedback)
             self.present(alert, animated: true)

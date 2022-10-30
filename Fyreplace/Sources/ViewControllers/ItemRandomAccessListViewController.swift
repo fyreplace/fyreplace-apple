@@ -53,12 +53,19 @@ extension ItemRandomAccessListViewController: BaseListViewDelegate {
 }
 
 extension ItemRandomAccessListViewController: ItemRandomAccessListerDelegate {
-    func onFetch(count: Int, at index: Int) {
-        if tableView.numberOfRows(inSection: 0) == 0 {
-            tableView.reloadSections(.init(integer: 0), with: .automatic)
-        } else {
-            tableView.reloadRows(at: .init(rows: index ..< index + count, section: 0), with: .automatic)
+    func onFetch(count: Int, at index: Int, oldTotal: Int, newTotal: Int) {
+        guard oldTotal != 0 else { return tableView.reloadData() }
+
+        tableView.beginUpdates()
+        defer { tableView.endUpdates() }
+
+        if newTotal < oldTotal {
+            tableView.deleteRows(at: .init(rows: newTotal ..< oldTotal, section: 0), with: .automatic)
+        } else if newTotal > oldTotal {
+            tableView.insertRows(at: .init(rows: oldTotal ..< newTotal, section: 0), with: .automatic)
         }
+
+        tableView.reloadRows(at: .init(rows: index ..< index + count, section: 0), with: .automatic)
     }
 }
 

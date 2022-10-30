@@ -80,7 +80,7 @@ class SettingsViewController: UITableViewController {
 
     @IBAction
     func onAvatarPressed() {
-        imageSelector.selectImage(canRemove: vm.user.value?.profile.hasAvatar ?? false)
+        imageSelector.selectImage(canRemove: vm.user.value?.profile.hasAvatar == true)
     }
 
     private func onUser(_ user: FPUser?) {

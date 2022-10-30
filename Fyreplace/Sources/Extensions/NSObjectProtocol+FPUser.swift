@@ -5,13 +5,20 @@ extension NSObjectProtocol {
     var currentProfile: FPProfile? { currentUser?.profile }
 
     func setCurrentUser(_ user: FPUser?) {
+        let connected: Bool
+
         if let user = user {
-            UserDefaults.standard.setValue(user, forKey: "auth:user")
+            connected = true
+            UserDefaults.standard.set(user, forKey: "auth:user")
         } else {
+            connected = false
             UserDefaults.standard.removeObject(forKey: "auth:user")
-            NotificationCenter.default.post(name: FPUser.disconnectionNotification, object: self)
         }
 
-        NotificationCenter.default.post(name: FPUser.currentUserChangeNotification, object: self)
+        NotificationCenter.default.post(
+            name: FPUser.currentUserChangeNotification,
+            object: self,
+            userInfo: ["connected": connected]
+        )
     }
 }

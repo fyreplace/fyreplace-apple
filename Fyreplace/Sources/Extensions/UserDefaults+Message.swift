@@ -2,9 +2,9 @@ import Foundation
 import SwiftProtobuf
 
 extension UserDefaults {
-    func setValue<M: Message>(_ value: M, forKey key: String) {
+    func set<M: Message>(_ value: M, forKey key: String) {
         guard let data = try? value.serializedData(partial: false) else { return }
-        UserDefaults.standard.setValue(data, forKey: key)
+        UserDefaults.standard.set(data, forKey: key)
     }
 
     func message<M: Message>(forKey defaultName: String) -> M? {
