@@ -100,230 +100,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="User" id="Notifications-Notifications-view-User" customClass="UserNotificationTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Notifications-Notifications-view-User" id="Notifications-Notifications-view-User-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="11.999999999999993" width="118" height="116.66666666666666"/>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="04-00-00-00-00-00--C-00-00-00"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-User-contentView-Username">
-                                            <rect key="frame" x="146" y="11" width="209" height="33.666666666666664"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Count" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-User-contentView-Count">
-                                            <rect key="frame" x="146" y="88.333333333333329" width="209" height="40.666666666666671"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Username" firstAttribute="leading" secondItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-00-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Count" firstAttribute="leading" secondItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-00-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" firstAttribute="bottom" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="bottomMargin" id="04-00-00-00-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Count" firstAttribute="trailing" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="trailingMargin" id="04-00-00-00-00--C-00-00-00-03"/>
-                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Username" firstAttribute="trailing" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="trailingMargin" id="04-00-00-00-00--C-00-00-00-04"/>
-                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="topMargin" id="04-00-00-00-00--C-00-00-00-05"/>
-                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Count" firstAttribute="bottom" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="bottomMargin" id="04-00-00-00-00--C-00-00-00-06"/>
-                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" firstAttribute="leading" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="leadingMargin" id="04-00-00-00-00--C-00-00-00-07"/>
-                                        <constraint firstItem="Notifications-Notifications-view-User-contentView-Username" firstAttribute="top" secondItem="Notifications-Notifications-view-User-contentView" secondAttribute="topMargin" id="04-00-00-00-00--C-00-00-00-08"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="avatar" destination="Notifications-Notifications-view-User-contentView-person-crop-circle-fill" id="8e3728761e21841c23f801cb4a5db760b0ac5c8dc94564ad78570c7b117a2a78"/>
-                                    <outlet property="count" destination="Notifications-Notifications-view-User-contentView-Count" id="03ca36a813e83e50c579abcd96eee3719cb62638018f430875869e9a936314ed"/>
-                                    <outlet property="username" destination="Notifications-Notifications-view-User-contentView-Username" id="984fb5db37b6502b5b3abcd9fe74b5ab31e2e9fa8d0c5bf00661912f63c774f2"/>
-                                    <segue destination="User-Navigation-User-Navigation" kind="presentation" id="86958d8e53ced208041afaf3b36dee893057dd54da0db38de79399c57a05f377"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Text Post" id="Notifications-Notifications-view-Text-Post" customClass="TextPostNotificationTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="190" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Notifications-Notifications-view-Text-Post" id="Notifications-Notifications-view-Text-Post-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Text-Post-contentView-label">
-                                            <rect key="frame" x="20" y="11" width="187.66666666666666" height="118"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
-                                            <rect key="frame" x="315" y="12" width="40" height="38.666666666666671"/>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="04-00-00-01-00-01--C-00-00-00"/>
-                                                <constraint firstAttribute="width" constant="40" id="04-00-00-01-00-01--C-01"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Text-Post-contentView-Username">
-                                            <rect key="frame" x="215.66666666666663" y="55.000000000000007" width="139.33333333333337" height="20.333333333333336"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Count" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Text-Post-contentView-Count">
-                                            <rect key="frame" x="215.66666666666663" y="88.333333333333329" width="139.33333333333337" height="40.666666666666671"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="trailingMargin" id="04-00-00-01-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Count" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="bottomMargin" id="04-00-00-01-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Username" firstAttribute="leading" secondItem="Notifications-Notifications-view-Text-Post-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-01-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-label" firstAttribute="width" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="width" multiplier="1:2" id="04-00-00-01-00--C-00-00-00-03"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-label" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="bottomMargin" id="04-00-00-01-00--C-00-00-00-04"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-label" firstAttribute="leading" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="leadingMargin" id="04-00-00-01-00--C-00-00-00-05"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Count" firstAttribute="leading" secondItem="Notifications-Notifications-view-Text-Post-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-01-00--C-00-00-00-06"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Username" firstAttribute="top" secondItem="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="4" id="04-00-00-01-00--C-00-00-00-07"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="topMargin" id="04-00-00-01-00--C-00-00-00-08"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Username" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" secondAttribute="trailing" id="04-00-00-01-00--C-00-00-00-09"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-label" firstAttribute="top" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="topMargin" id="04-00-00-01-00--C-00-00-00-0a"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Text-Post-contentView-Count" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Text-Post-contentView" secondAttribute="trailingMargin" id="04-00-00-01-00--C-00-00-00-0b"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="avatar" destination="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill" id="4f90ad8cd2539be32f50a48a9f66bd72699f55dbc4b9da23272269a7251e8d48"/>
-                                    <outlet property="count" destination="Notifications-Notifications-view-Text-Post-contentView-Count" id="a173e6acad3543b203e8ef604d2aeee56d5f1fabff8b38c9c6cf38a746c2fa16"/>
-                                    <outlet property="preview" destination="Notifications-Notifications-view-Text-Post-contentView-label" id="216f701d79c661a0db196ec55dce1880a892c0baecad5c44cf0e9f5f8317e05d"/>
-                                    <outlet property="username" destination="Notifications-Notifications-view-Text-Post-contentView-Username" id="51ebc1e4781653da1876687fd62e503dfab9bbc5a8f89a9930527b60bcc3bd71"/>
-                                    <segue destination="Post-Post" kind="show" id="efecd5d5f464924990b0607a336b82c675e7cf71f7a47f29f1e3003f2e2fde45"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image Post" id="Notifications-Notifications-view-Image-Post" customClass="ImagePostNotificationTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="330" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Notifications-Notifications-view-Image-Post" id="Notifications-Notifications-view-Image-Post-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Image-Post-contentView-imageView">
-                                            <rect key="frame" x="20" y="11" width="187.66666666666666" height="118"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="Notifications-Notifications-view-Image-Post-contentView-imageView" secondAttribute="height" multiplier="16:9" id="04-00-00-02-00-00--C-00-00-00-00"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="4"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
-                                            <rect key="frame" x="315" y="12" width="40" height="38.666666666666671"/>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="04-00-00-02-00-01--C-00-00-00"/>
-                                                <constraint firstAttribute="width" constant="40" id="04-00-00-02-00-01--C-01"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Image-Post-contentView-Username">
-                                            <rect key="frame" x="215.66666666666663" y="55.000000000000007" width="139.33333333333337" height="20.333333333333336"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Count" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Image-Post-contentView-Count">
-                                            <rect key="frame" x="215.66666666666663" y="88.333333333333329" width="139.33333333333337" height="40.666666666666671"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="trailingMargin" id="04-00-00-02-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-imageView" firstAttribute="top" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="topMargin" id="04-00-00-02-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Count" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="bottomMargin" id="04-00-00-02-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-imageView" firstAttribute="leading" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="leadingMargin" id="04-00-00-02-00--C-00-00-00-03"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-imageView" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="bottomMargin" id="04-00-00-02-00--C-00-00-00-04"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-imageView" firstAttribute="width" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="width" multiplier="1:2" priority="750" id="04-00-00-02-00--C-00-00-00-05"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Username" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" secondAttribute="trailing" id="04-00-00-02-00--C-00-00-00-06"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Username" firstAttribute="leading" secondItem="Notifications-Notifications-view-Image-Post-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-02-00--C-00-00-00-07"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Username" firstAttribute="top" secondItem="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="4" id="04-00-00-02-00--C-00-00-00-08"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Count" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="trailingMargin" id="04-00-00-02-00--C-00-00-00-09"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-Count" firstAttribute="leading" secondItem="Notifications-Notifications-view-Image-Post-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-02-00--C-00-00-00-0a"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Notifications-Notifications-view-Image-Post-contentView" secondAttribute="topMargin" id="04-00-00-02-00--C-00-00-00-0b"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="avatar" destination="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill" id="4cbc93da381ad8f3ea4d0c9ee0b74ffa4ac1593022ddd2a139c6aaefaf8891cc"/>
-                                    <outlet property="count" destination="Notifications-Notifications-view-Image-Post-contentView-Count" id="06386c381ae8a94455600b6e31bb8da14d3c9c2e2b3fd85b14f468e4cf2cc788"/>
-                                    <outlet property="preview" destination="Notifications-Notifications-view-Image-Post-contentView-imageView" id="0e991ef493db2f30682e13a2a956b630ca946f1471456a78ea13da7315e0e43a"/>
-                                    <outlet property="username" destination="Notifications-Notifications-view-Image-Post-contentView-Username" id="8fc609b1ff6d2dac44deb1e8ea32724d6b6dba10045f352c3b2b554f67d3912f"/>
-                                    <segue destination="Post-Post" kind="show" id="56b223050d6e161928c11339c3c2eb8f62798d72ca86edd1d995912c5875d068"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Comment" id="Notifications-Notifications-view-Comment" customClass="CommentNotificationTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="470" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Notifications-Notifications-view-Comment" id="Notifications-Notifications-view-Comment-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Comment-contentView-label">
-                                            <rect key="frame" x="20" y="11" width="187.66666666666666" height="118"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
-                                            <rect key="frame" x="315" y="12" width="40" height="38.666666666666671"/>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="04-00-00-03-00-01--C-00"/>
-                                                <constraint firstAttribute="width" secondItem="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="04-00-00-03-00-01--C-00-00-00"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Comment-contentView-Username">
-                                            <rect key="frame" x="215.66666666666663" y="55.000000000000007" width="139.33333333333337" height="20.333333333333336"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Count" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Notifications-Notifications-view-Comment-contentView-Count">
-                                            <rect key="frame" x="215.66666666666663" y="88.333333333333329" width="139.33333333333337" height="40.666666666666671"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-label" firstAttribute="leading" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="leadingMargin" id="04-00-00-03-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-label" firstAttribute="width" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="width" multiplier="1:2" id="04-00-00-03-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="trailingMargin" id="04-00-00-03-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Count" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="trailingMargin" id="04-00-00-03-00--C-00-00-00-03"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Username" firstAttribute="leading" secondItem="Notifications-Notifications-view-Comment-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-03-00--C-00-00-00-04"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Username" firstAttribute="trailing" secondItem="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" secondAttribute="trailing" id="04-00-00-03-00--C-00-00-00-05"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Username" firstAttribute="top" secondItem="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="4" id="04-00-00-03-00--C-00-00-00-06"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Count" firstAttribute="leading" secondItem="Notifications-Notifications-view-Comment-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES" id="04-00-00-03-00--C-00-00-00-07"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-label" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="bottomMargin" id="04-00-00-03-00--C-00-00-00-08"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-label" firstAttribute="top" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="topMargin" id="04-00-00-03-00--C-00-00-00-09"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-Count" firstAttribute="bottom" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="bottomMargin" id="04-00-00-03-00--C-00-00-00-0a"/>
-                                        <constraint firstItem="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Notifications-Notifications-view-Comment-contentView" secondAttribute="topMargin" id="04-00-00-03-00--C-00-00-00-0b"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="avatar" destination="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill" id="94a928bf66b07d722b0549dd114b95496f9cb24e029e090faee77445414be831"/>
-                                    <outlet property="count" destination="Notifications-Notifications-view-Comment-contentView-Count" id="f76fd7030de9532dcf9b9a8574fa9352f673dfcdd39e1cd0e8cbbaa07029aa13"/>
-                                    <outlet property="preview" destination="Notifications-Notifications-view-Comment-contentView-label" id="3c700e71915c982881874b71aaf3bc70df5a5e9da61effe4fc77fed94e831f5b"/>
-                                    <outlet property="username" destination="Notifications-Notifications-view-Comment-contentView-Username" id="0fa8ceaf1eedf60aed9860808884d545296670c8c5e6978d8083196729f9aac1"/>
-                                    <segue destination="Post-Post" kind="show" id="5be8ab78535afd05cd3921930bb6467d0dc08245cb0499c87e7816d27ba33b2f"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Notifications-Notifications" id="c072b2988493b1b9a17726a863223d36946a58c5476afbfd77ae51365cd73f10"/>
                             <outlet property="delegate" destination="Notifications-Notifications" id="8f26f1740d65d9613a8ae202d2f7983e3c21866dac39038aad78fe9ca0ad31e0"/>
@@ -341,6 +117,8 @@
                         <outlet property="emptyPlaceholder" destination="Notifications-No-notifications" id="96c7b6e7ea0dcd500f1aa21c9a473c45ab3d279a885deb19d7c8af1b897ffcde"/>
                         <outlet property="listDelegate" destination="Notifications-NotificationsViewModel" id="30793dedb23522774d1a12b174bb3f5bdabc045fac92b22f1ef4ac5276a5796c"/>
                         <outlet property="vm" destination="Notifications-NotificationsViewModel" id="aa0c3fafcc008d02d37fe9705c351875494441b4da63d837fd252aa87ff95f4f"/>
+                        <segue destination="User-Navigation-User-Navigation" kind="presentation" identifier="User" id="c569d3ee947f89573ba3c13aba2c50bbfb816edad9828fba974164f71152f00b"/>
+                        <segue destination="Post-Post" kind="show" identifier="Post" id="c5cc53ad5c964e5b961e802e80ab5f53857565b0c1a520168c4d339ba7962931"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Notifications-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -386,129 +164,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Text" id="Archive-Archive-view-Text" customClass="TextPostTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Archive-Archive-view-Text" id="Archive-Archive-view-Text-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Text-contentView-label">
-                                            <rect key="frame" x="20" y="11" width="187.66666666666666" height="118"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Text-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
-                                            <rect key="frame" x="315" y="12" width="40" height="38.666666666666671"/>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="06-00-00-00-00-01--C-00"/>
-                                                <constraint firstAttribute="width" secondItem="Archive-Archive-view-Text-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="06-00-00-00-00-01--C-00-00-00"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Text-contentView-Username">
-                                            <rect key="frame" x="215.66666666666663" y="55.000000000000007" width="139.33333333333337" height="20.333333333333336"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Text-contentView-Date">
-                                            <rect key="frame" x="215.66666666666663" y="113.33333333333333" width="139.33333333333337" height="15.666666666666671"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Date" firstAttribute="bottom" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="bottomMargin" id="06-00-00-00-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Date" firstAttribute="leading" secondItem="Archive-Archive-view-Text-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES" id="06-00-00-00-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Date" firstAttribute="trailing" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="trailingMargin" id="06-00-00-00-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Username" firstAttribute="leading" secondItem="Archive-Archive-view-Text-contentView-label" secondAttribute="trailing" constant="8" symbolic="YES" id="06-00-00-00-00--C-00-00-00-03"/>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Username" firstAttribute="top" secondItem="Archive-Archive-view-Text-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="4" id="06-00-00-00-00--C-00-00-00-04"/>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-Username" firstAttribute="trailing" secondItem="Archive-Archive-view-Text-contentView-person-crop-circle-fill" secondAttribute="trailing" id="06-00-00-00-00--C-00-00-00-05"/>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-label" firstAttribute="bottom" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="bottomMargin" id="06-00-00-00-00--C-00-00-00-06"/>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-label" firstAttribute="leading" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="leadingMargin" id="06-00-00-00-00--C-00-00-00-07"/>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-label" firstAttribute="top" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="topMargin" id="06-00-00-00-00--C-00-00-00-08"/>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-label" firstAttribute="width" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="width" multiplier="1:2" id="06-00-00-00-00--C-00-00-00-09"/>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="topMargin" id="06-00-00-00-00--C-00-00-00-0a"/>
-                                        <constraint firstItem="Archive-Archive-view-Text-contentView-person-crop-circle-fill" firstAttribute="trailing" secondItem="Archive-Archive-view-Text-contentView" secondAttribute="trailingMargin" id="06-00-00-00-00--C-00-00-00-0b"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="avatar" destination="Archive-Archive-view-Text-contentView-person-crop-circle-fill" id="927c1774deb827fbcecc5dc9f5dad2330da55209fde29b7ee6c6f90cb954a01e"/>
-                                    <outlet property="date" destination="Archive-Archive-view-Text-contentView-Date" id="73093c3aee74fdd7568fdddc40a9070bb09c9276eec494ee015ad8ba2476f56e"/>
-                                    <outlet property="dateFormat" destination="Archive-DateFormat" id="2459554a2238e7094d2e2249b5d5e84f3122dc7d3603ca6a6865224e5fb5874d"/>
-                                    <outlet property="preview" destination="Archive-Archive-view-Text-contentView-label" id="10a1347f02d3f67a082ad5cbfcd6fa9242de3dde649d5159e59b354b33132004"/>
-                                    <outlet property="username" destination="Archive-Archive-view-Text-contentView-Username" id="77f66fc21bf0567165b5b24018da7ef60161241490e14dd3fbd9e6f2722f4cb8"/>
-                                    <segue destination="Post-Post" kind="show" id="16afa6a7a29e215df0c8aa8386d9ea45279cec0373caffe5224c32d0994442dc"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image" id="Archive-Archive-view-Image" customClass="ImagePostTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="190" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Archive-Archive-view-Image" id="Archive-Archive-view-Image-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Image-contentView-imageView">
-                                            <rect key="frame" x="20" y="11" width="187.66666666666666" height="118"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="Archive-Archive-view-Image-contentView-imageView" secondAttribute="height" multiplier="16:9" id="06-00-00-01-00-00--C-00-00-00-00"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="4"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Image-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
-                                            <rect key="frame" x="315" y="12" width="40" height="38.666666666666671"/>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="06-00-00-01-00-01--C-00"/>
-                                                <constraint firstAttribute="width" secondItem="Archive-Archive-view-Image-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="06-00-00-01-00-01--C-00-00-00"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Image-contentView-Username">
-                                            <rect key="frame" x="215.66666666666663" y="55.000000000000007" width="139.33333333333337" height="20.333333333333336"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Archive-Archive-view-Image-contentView-Date">
-                                            <rect key="frame" x="215.66666666666663" y="113.33333333333333" width="139.33333333333337" height="15.666666666666671"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Date" firstAttribute="bottom" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="bottomMargin" id="06-00-00-01-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Date" firstAttribute="leading" secondItem="Archive-Archive-view-Image-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES" id="06-00-00-01-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Date" firstAttribute="trailing" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="trailingMargin" id="06-00-00-01-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Username" firstAttribute="leading" secondItem="Archive-Archive-view-Image-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES" id="06-00-00-01-00--C-00-00-00-03"/>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Username" firstAttribute="top" secondItem="Archive-Archive-view-Image-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="4" id="06-00-00-01-00--C-00-00-00-04"/>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-Username" firstAttribute="trailing" secondItem="Archive-Archive-view-Image-contentView-person-crop-circle-fill" secondAttribute="trailing" id="06-00-00-01-00--C-00-00-00-05"/>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-imageView" firstAttribute="bottom" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="bottomMargin" id="06-00-00-01-00--C-00-00-00-06"/>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-imageView" firstAttribute="leading" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="leadingMargin" id="06-00-00-01-00--C-00-00-00-07"/>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-imageView" firstAttribute="top" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="topMargin" id="06-00-00-01-00--C-00-00-00-08"/>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-imageView" firstAttribute="width" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="width" multiplier="1:2" priority="750" id="06-00-00-01-00--C-00-00-00-09"/>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-person-crop-circle-fill" firstAttribute="top" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="topMargin" id="06-00-00-01-00--C-00-00-00-0a"/>
-                                        <constraint firstItem="Archive-Archive-view-Image-contentView-person-crop-circle-fill" firstAttribute="trailing" secondItem="Archive-Archive-view-Image-contentView" secondAttribute="trailingMargin" id="06-00-00-01-00--C-00-00-00-0b"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="avatar" destination="Archive-Archive-view-Image-contentView-person-crop-circle-fill" id="fa210f1ddd0d81c3552fa7e1b3e5adf77a504747da63ee90d98e9459449620c6"/>
-                                    <outlet property="date" destination="Archive-Archive-view-Image-contentView-Date" id="2c9af23b16a93540810c759fea0f698dc9e4d5b88b987cc2edcb78f2808064d4"/>
-                                    <outlet property="dateFormat" destination="Archive-DateFormat" id="94920fdd3287e8237328814083eff90f9a1f5e9dcbff19cf8f3ad0165c8783b2"/>
-                                    <outlet property="preview" destination="Archive-Archive-view-Image-contentView-imageView" id="2a2c30353a3b054129544ea7c1114c841f959a5436f941205e57780d7da40f0d"/>
-                                    <outlet property="username" destination="Archive-Archive-view-Image-contentView-Username" id="2f9e5a2a471545bbcb52f400e5f2159d60af4dd7dac910b6904cc17c3bbd6412"/>
-                                    <segue destination="Post-Post" kind="show" id="db5d4c1481b470b3507a8309359b68fc4d4c6c828d91dbd401aa1bb37f120dac"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Archive-Archive" id="8180b9f95fa52f4c0121e80556dc32010c037903f65514bcf9a32a74c863e627"/>
                             <outlet property="delegate" destination="Archive-Archive" id="d6b4537f433949f2b43d944db03379c195585d82dcfd8caaaecc096e7fe171df"/>
@@ -540,6 +195,7 @@
                         <outlet property="ownPostsEmptyPlaceholder" destination="Archive-No-published-posts" id="40d7180cd595254e5e2f8dcc5403aba11d7f51d3508ea856cd0c5155fd307976"/>
                         <outlet property="segments" destination="Archive-Archive-navigationItem-titleView" id="283b29a2813ac59ae67496686763415c14f822d3720dbe5e2a600b5a2f499a85"/>
                         <outlet property="vm" destination="Archive-ArchiveViewModel" id="30ae82cadfb217d6ad479b8275be5391be4a191d37447ce77702f5ecb939b2e2"/>
+                        <segue destination="Post-Post" kind="show" identifier="Post" id="bb3b97f2c3253b2a45d54be32bac640ca56e8560f27378bf9fb42a27e84c9f51"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Archive-UIResponder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -593,109 +249,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Empty" id="Drafts-Drafts-view-Empty">
-                                <rect key="frame" x="0.0" y="50" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Drafts-Drafts-view-Empty" id="Drafts-Drafts-view-Empty-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drafts-Drafts-view-Empty-contentView-Empty">
-                                            <rect key="frame" x="140.66666666666666" y="49.666666666666671" width="93.666666666666657" height="40.666666666666671"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Drafts-Drafts-view-Empty-contentView-Empty" firstAttribute="centerX" secondItem="Drafts-Drafts-view-Empty-contentView" secondAttribute="centerX" id="08-00-00-00-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Empty-contentView-Empty" firstAttribute="centerY" secondItem="Drafts-Drafts-view-Empty-contentView" secondAttribute="centerY" id="08-00-00-00-00--C-00-00-00-01"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="dateFormat" destination="Archive-DateFormat" id="9ddafbeae6ac0a1c3459eb53d12c58e6bc6da57c13ee92bfeb30ae183a20ce7a"/>
-                                    <segue destination="Draft-Draft" kind="show" id="118fd61d5c1e812f2b919a05482bacde5cc03b146576643e910cee7423d504cb"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Text" id="Drafts-Drafts-view-Text" customClass="TextDraftTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="190" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Drafts-Drafts-view-Text" id="Drafts-Drafts-view-Text-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drafts-Drafts-view-Text-contentView-Preview" userLabel="Preview">
-                                            <rect key="frame" x="20" y="11" width="187.66666666666666" height="118"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="parts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drafts-Drafts-view-Text-contentView-parts">
-                                            <rect key="frame" x="292.66666666666669" y="53.333333333333343" width="62.333333333333314" height="33.666666666666657"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="bottom" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="bottomMargin" id="08-00-00-01-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="leading" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="leadingMargin" id="08-00-00-01-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="top" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="topMargin" id="08-00-00-01-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-Preview" firstAttribute="width" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="width" multiplier="1:2" id="08-00-00-01-00--C-00-00-00-03"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-parts" firstAttribute="centerY" secondItem="Drafts-Drafts-view-Text-contentView" secondAttribute="centerY" id="08-00-00-01-00--C-00-00-00-04"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Text-contentView-parts" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Drafts-Drafts-view-Text-contentView-Preview" secondAttribute="trailing" constant="8" symbolic="YES" id="08-00-00-01-00--C-00-00-00-04-00"/>
-                                        <constraint firstAttribute="trailing" secondItem="Drafts-Drafts-view-Text-contentView-parts" secondAttribute="trailing" constant="20" symbolic="YES" id="08-00-00-01-00--C-00-00-01"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="parts" destination="Drafts-Drafts-view-Text-contentView-parts" id="761799a807352a84fb009adce648228bd78349cbdcd87e3dc36f16e510fd9de5"/>
-                                    <outlet property="preview" destination="Drafts-Drafts-view-Text-contentView-Preview" id="35bbc862f9f38b0866d81c9c5d70100eb22ea66bc1593e649d5295edb27c5465"/>
-                                    <segue destination="Draft-Draft" kind="show" id="a279086c1007b90acfccdaf77fbcf5c5722e7aee6fc5aeb918e4b00ea2906a3e"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image" id="Drafts-Drafts-view-Image" customClass="ImageDraftTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="330" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Drafts-Drafts-view-Image" id="Drafts-Drafts-view-Image-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Drafts-Drafts-view-Image-contentView-imageView">
-                                            <rect key="frame" x="20" y="11" width="187.66666666666666" height="118"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="Drafts-Drafts-view-Image-contentView-imageView" secondAttribute="height" multiplier="16:9" id="08-00-00-02-00-00--C-00-00-00-00"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="4"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="parts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drafts-Drafts-view-Image-contentView-parts">
-                                            <rect key="frame" x="292.66666666666669" y="53.333333333333343" width="62.333333333333314" height="33.666666666666657"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="bottom" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="bottomMargin" id="08-00-00-02-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="leading" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="leadingMargin" id="08-00-00-02-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="top" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="topMargin" id="08-00-00-02-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-imageView" firstAttribute="width" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="width" multiplier="1:2" priority="750" id="08-00-00-02-00--C-00-00-00-03"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-parts" firstAttribute="centerY" secondItem="Drafts-Drafts-view-Image-contentView" secondAttribute="centerY" id="08-00-00-02-00--C-00-00-00-04"/>
-                                        <constraint firstItem="Drafts-Drafts-view-Image-contentView-parts" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Drafts-Drafts-view-Image-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES" id="08-00-00-02-00--C-00-00-00-04-00"/>
-                                        <constraint firstAttribute="trailing" secondItem="Drafts-Drafts-view-Image-contentView-parts" secondAttribute="trailing" constant="20" symbolic="YES" id="08-00-00-02-00--C-00-00-01"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="parts" destination="Drafts-Drafts-view-Image-contentView-parts" id="bc7c90a455794baada5c1b2f9c2378f8a0780fe9c9b90148bcc5c3137971a440"/>
-                                    <outlet property="preview" destination="Drafts-Drafts-view-Image-contentView-imageView" id="bda87cb037f071db91d0c05db02ed32d94205b7c0f69a13480537fee48078b47"/>
-                                    <segue destination="Draft-Draft" kind="show" id="77e8b833a318243293fae0fd57004cef549205091fef52325afa1fcff5219e42"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Drafts-Drafts" id="7a6e848be4f5f2c78e7bd63578b8768ab1383248d4e6535872c5b342ec81fd39"/>
                             <outlet property="delegate" destination="Drafts-Drafts" id="abf29aea1b9488063fc239ba4371ce32e641f379a7ee216b732f41f3942dc2cc"/>
@@ -738,7 +291,7 @@
                         <outlet property="listDelegate" destination="Drafts-DraftsViewModel" id="fc4ca350fb00cd9716f84e3ff4cc56f9b9b2380dc5b363e02ab20361577b8b1b"/>
                         <outlet property="loader" destination="Drafts-Drafts-Drafts-barButtonItem-customView-activityIndicatorView" id="5958636463e036c765184f0e42ac7610c4f351dd12fdfdabaf95b874ec977851"/>
                         <outlet property="vm" destination="Drafts-DraftsViewModel" id="9fc0c19f20c4a1b3d15af1ca69842931f3886384b53c7bd08a603293e4f989b0"/>
-                        <segue destination="Draft-Draft" kind="show" identifier="Add" id="a326c5fe72dcc9878ec93165a322ba44df444213686edc81e053cf725b996310"/>
+                        <segue destination="Draft-Draft" kind="show" identifier="Draft" id="a326c5fe72dcc9878ec93165a322ba44df444213686edc81e053cf725b996310"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Drafts-UIResponder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1208,99 +761,6 @@
                                 <outlet property="content" destination="Post-Post-view-PostTableHeaderView-DynamicStackView" id="8230497d9dbc155966c2ed214d8dc040b3506d8767409a0d7bec15010c5cc545"/>
                             </connections>
                         </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Loader" id="Post-Post-view-Loader" customClass="BaseCommentTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="130" width="375" height="70.333335876464844"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Post-Post-view-Loader" id="Post-Post-view-Loader-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70.333335876464844"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Loader-contentView-activityIndicatorView">
-                                            <rect key="frame" x="177.66666666666666" y="25.333333333333329" width="20" height="20"/>
-                                        </activityIndicatorView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Post-Post-view-Loader-contentView-activityIndicatorView" firstAttribute="centerX" secondItem="Post-Post-view-Loader-contentView" secondAttribute="centerX" id="0b-00-00-01-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Post-Post-view-Loader-contentView-activityIndicatorView" firstAttribute="centerY" secondItem="Post-Post-view-Loader-contentView" secondAttribute="centerY" id="0b-00-00-01-00--C-00-00-00-01"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Comment" id="Post-Post-view-Comment" customClass="CommentTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="200.33333587646484" width="375" height="70.333335876464844"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Post-Post-view-Comment" id="Post-Post-view-Comment-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70.333335876464844"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-Button" customClass="RoundButton" customModule="Fyreplace" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="10" width="40" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="0b-00-00-02-00-00--C-00"/>
-                                                <constraint firstAttribute="width" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="height" multiplier="1:1" id="0b-00-00-02-00-00--C-00-00-00"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" title="Button" image="person.crop.circle.fill" catalog="system">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large">
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                </preferredSymbolConfiguration>
-                                            </state>
-                                            <connections>
-                                                <segue destination="User-Navigation-User-Navigation" kind="presentation" id="df9e5f5768d4fd0fc2952985a5376b6e919d9f85a1e745733a53ae03615cfdc7"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-Username">
-                                            <rect key="frame" x="68" y="10" width="82" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="0b-00-00-02-00-01--C-00"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" title="Username"/>
-                                            <connections>
-                                                <segue destination="User-Navigation-User-Navigation" kind="presentation" id="0c8f1645cdc2d1b1b0f7c5a5f0e6e27100297524006052dbb8e41258ee04c469"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-Date">
-                                            <rect key="frame" x="322.66666666666669" y="11" width="32.333333333333314" height="18"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Comment" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-view-Comment-contentView-Comment" customClass="CompactTextView" customModule="Fyreplace" customModuleProvider="target">
-                                            <rect key="frame" x="68" y="38" width="287" height="22"/>
-                                            <color key="textColor" systemColor="labelColor"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" lookupSuggestion="YES"/>
-                                        </textView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Button" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="0b-00-00-02-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Button" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView" secondAttribute="top" constant="10" id="0b-00-00-02-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="0b-00-00-02-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Comment" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView-Username" secondAttribute="bottom" constant="8" symbolic="YES" id="0b-00-00-02-00--C-00-00-00-03"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Date" firstAttribute="centerY" secondItem="Post-Post-view-Comment-contentView-Username" secondAttribute="centerY" id="0b-00-00-02-00--C-00-00-00-04"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Date" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Post-Post-view-Comment-contentView-Username" secondAttribute="trailing" constant="8" symbolic="YES" id="0b-00-00-02-00--C-00-00-00-04-00"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Username" firstAttribute="leading" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="0b-00-00-02-00--C-00-00-00-05"/>
-                                        <constraint firstItem="Post-Post-view-Comment-contentView-Username" firstAttribute="top" secondItem="Post-Post-view-Comment-contentView-Button" secondAttribute="top" id="0b-00-00-02-00--C-00-00-00-06"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Post-Post-view-Comment-contentView-Comment" secondAttribute="bottom" constant="10" id="0b-00-00-02-00--C-00-00-00-07"/>
-                                        <constraint firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView-Comment" secondAttribute="trailing" constant="20" symbolic="YES" id="0b-00-00-02-00--C-00-00-01"/>
-                                        <constraint firstAttribute="trailing" secondItem="Post-Post-view-Comment-contentView-Date" secondAttribute="trailing" constant="20" symbolic="YES" id="0b-00-00-02-00--C-00-00-02"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="avatar" destination="Post-Post-view-Comment-contentView-Button" id="5830dea5089bc79a030bf772c24892e77625ae49d12667840f9609a05f7cb0b1"/>
-                                    <outlet property="content" destination="Post-Post-view-Comment-contentView-Comment" id="788e37553eb7f20e8b0c18452ae1807f67ac842b6a319cce1f0daf3cae73279d"/>
-                                    <outlet property="date" destination="Post-Post-view-Comment-contentView-Date" id="6820afa0783f8424d24dc337fbee1f9814ae6d1f8d414f688317edbbbe0557e5"/>
-                                    <outlet property="dateFormat" destination="Post-DateFormat" id="965605dad81be8342c3970e65bac8e477eaeb1a8a636fd7943dc462024c3decf"/>
-                                    <outlet property="username" destination="Post-Post-view-Comment-contentView-Username" id="3acf683ceb491b6988d1933956b99f541ff704f031fca29881bcdfa1e5d642c6"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Post-Post" id="88ea7182cd40da5d7921cc36892fcd023a4d55068c01f3ec692cda80a8a99545"/>
                             <outlet property="delegate" destination="Post-Post" id="c80f5bfa80f9727a1c117acb2d2603617466b95936385f4b3fd49705211fa6a0"/>
@@ -1410,6 +870,7 @@
                         <outlet property="unsubscribe" destination="Post-Unsubscribe" id="5187bed6bb9b49ed01c65478e67872c7944f23b0a3c91c56e99fff23cd95e53b"/>
                         <outlet property="username" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-button" id="417650c58d7e733a89c06e335876233dca4a7fcc9af23570e8ebf7bbcc7b5d8a"/>
                         <outlet property="vm" destination="Post-PostViewModel" id="17682a10202c2e49f2e7bb9bff56a51be0f2971cea2391c52a1e166086a1ab01"/>
+                        <segue destination="User-Navigation-User-Navigation" kind="presentation" identifier="User" id="af53327e86a1be85b59594f1407e2ba84bad8c26e40855caf996d038367678f0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Post-UIResponder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1494,7 +955,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="Draft-Draft-view-tableFooterView">
-                            <rect key="frame" x="0.0" y="182.33333587646484" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Draft-Draft-view-tableFooterView-stackView">
@@ -1530,56 +991,6 @@
                                 <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="height" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="height" id="0c-00-00-00--C-01-00-00-03"/>
                             </constraints>
                         </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Text" id="Draft-Draft-view-Text" customClass="TextChapterTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="375" height="60.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Draft-Draft-view-Text" id="Draft-Draft-view-Text-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Empty" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Draft-Draft-view-Text-contentView-Empty">
-                                            <rect key="frame" x="20" y="20" width="335" height="20.666666666666671"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" systemColor="placeholderTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Draft-Draft-view-Text-contentView-Empty" firstAttribute="leading" secondItem="Draft-Draft-view-Text-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="0c-00-00-01-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Draft-Draft-view-Text-contentView-Empty" firstAttribute="top" secondItem="Draft-Draft-view-Text-contentView" secondAttribute="top" constant="20" symbolic="YES" id="0c-00-00-01-00--C-00-00-00-01"/>
-                                        <constraint firstAttribute="bottom" secondItem="Draft-Draft-view-Text-contentView-Empty" secondAttribute="bottom" constant="20" symbolic="YES" id="0c-00-00-01-00--C-00-00-01"/>
-                                        <constraint firstAttribute="trailing" secondItem="Draft-Draft-view-Text-contentView-Empty" secondAttribute="trailing" constant="20" symbolic="YES" id="0c-00-00-01-00--C-00-00-02"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="content" destination="Draft-Draft-view-Text-contentView-Empty" id="1a5e9b70ff72fc42aed63c44ba3a088298fa35d2cb8243ab4fd55d8ddbc6fa4a"/>
-                                    <segue destination="Text-Chapter-Navigation-Text-Chapter-Navigation" kind="presentation" identifier="Text" id="2a7972b59ee5fb6f850bdf4d7a9af913e496010259e90ab762b6bbfdfa590749"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image" id="Draft-Draft-view-Image" customClass="ImageChapterTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="110.66666793823242" width="375" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Draft-Draft-view-Image" id="Draft-Draft-view-Image-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Draft-Draft-view-Image-contentView-imageView">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="bottom" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="bottom" id="0c-00-00-02-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="leading" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="leading" id="0c-00-00-02-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="top" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="top" id="0c-00-00-02-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Draft-Draft-view-Image-contentView-imageView" firstAttribute="trailing" secondItem="Draft-Draft-view-Image-contentView" secondAttribute="trailing" id="0c-00-00-02-00--C-00-00-00-03"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="content" destination="Draft-Draft-view-Image-contentView-imageView" id="335f17f7e58b0c6e5fb2789867d5884536ac4485a0447343e2efe0a7ee7491e6"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Draft-Draft" id="1f550c3ef46d27e4852d039f5fb94e253033652dfa96df4e690b7fe706163af5"/>
                             <outlet property="delegate" destination="Draft-Draft" id="7a4683f96086a6bdf7a0607729dd442dbac7d1c9e5e64ebc561e4d56e8042b63"/>
@@ -1609,6 +1020,7 @@
                         <outlet property="menu" destination="Draft-Draft-navigationItem-Menu" id="91be3b09fcf1186979350e364396a74c3d3dd6fb6c01bb64e3226e6efafbb37b"/>
                         <outlet property="publish" destination="Draft-Draft-navigationItem-Publish" id="d2d1cef751c7017a7b4ba152ddf79466e57472c874166b05396bea7664b2db40"/>
                         <outlet property="vm" destination="Draft-DraftViewModel" id="6b3fea78f7ec897219f67ce6ca366db92eaeb613a81470b202893bb967a56a8a"/>
+                        <segue destination="Text-Chapter-Navigation-Text-Chapter-Navigation" kind="presentation" identifier="Text" id="44b6a94ba7a63c54812cd61df58ba724833268bc389f5c589fd42c8d8bff6710"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Draft-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2386,45 +1798,6 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Blocked-Users-Blocked-Users-view">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Default" id="Blocked-Users-Blocked-Users-view-Default" customClass="BlockedUserTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-                                <rect key="frame" x="20" y="38" width="335" height="56.333332061767578"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="Blocked-Users-Blocked-Users-view-Default-contentView">
-                                    <rect key="frame" x="0.0" y="0.0" width="335" height="56.333332061767578"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" ambiguous="YES" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" customClass="RoundImageView" customModule="Fyreplace" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="8" width="40" height="40"/>
-                                            <color key="tintColor" systemColor="labelColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="16-00-00-00-00-00--C-00"/>
-                                                <constraint firstAttribute="width" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="height" multiplier="1:1" id="16-00-00-00-00-00--C-00-00-00"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Blocked-Users-Blocked-Users-view-Default-contentView-label">
-                                            <rect key="frame" x="68" y="28.333333333333332" width="247" height="0.0"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" firstAttribute="centerY" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="centerY" id="16-00-00-00-00--C-00-00-00-00"/>
-                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" firstAttribute="leading" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="trailing" constant="8" symbolic="YES" id="16-00-00-00-00--C-00-00-00-01"/>
-                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" firstAttribute="leading" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="16-00-00-00-00--C-00-00-00-02"/>
-                                        <constraint firstItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView" secondAttribute="top" constant="8" id="16-00-00-00-00--C-00-00-00-02-00"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" secondAttribute="bottom" constant="8" id="16-00-00-00-00--C-00-00-00-03"/>
-                                        <constraint firstAttribute="trailing" secondItem="Blocked-Users-Blocked-Users-view-Default-contentView-label" secondAttribute="trailing" constant="20" symbolic="YES" id="16-00-00-00-00--C-00-00-01"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="avatar" destination="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill" id="7d40976167c6ca2d4019f27534478770d23091bf1a5bebc015ec182972761132"/>
-                                    <outlet property="username" destination="Blocked-Users-Blocked-Users-view-Default-contentView-label" id="572f22c1e6d2e8685a4efc661562c2c5911de7bc861299984c103fd79bca3a9b"/>
-                                    <segue destination="User-Navigation-User-Navigation" kind="presentation" id="7793e6149e900cb5fc63c3d354fc73023280da9147c1f456b94c29aed15da6a4"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Blocked-Users-Blocked-Users" id="7f0744a55c6e174989becd5e0670347ae7e00c243578ec7a156a2b21ab702f0a"/>
                             <outlet property="delegate" destination="Blocked-Users-Blocked-Users" id="70445c478b7a15cd9a4a7c5e95f407a6122765eee86f22abbfb792749e0eb107"/>
@@ -2448,6 +1821,7 @@
                         <outlet property="emptyPlaceholder" destination="Blocked-Users-No-users-blocked" id="89dcbcb58a1276775df203f100ddde97bebf907d26880b95c304abc2268a7f21"/>
                         <outlet property="listDelegate" destination="Blocked-Users-BlockedUsersViewModel" id="03034cc75e3245aa2ded5c24ff57e9a4e14dbfb3803565348c968f7519aee7e9"/>
                         <outlet property="vm" destination="Blocked-Users-BlockedUsersViewModel" id="d1f3722d3fcab0eea1b091a4f184a7334beb42eb861ff0a52a830b952d06f953"/>
+                        <segue destination="User-Navigation-User-Navigation" kind="presentation" identifier="User" id="2d3954db45272305c361dbe1addf5c67fc265c4accc4e3c274e42ca143947043"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Blocked-Users-UIResponder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2473,35 +1847,8 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="Archive-Archive-view-Image-contentView-person-crop-circle-fill">
-            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
-        </designable>
-        <designable name="Archive-Archive-view-Text-contentView-person-crop-circle-fill">
-            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
-        </designable>
-        <designable name="Blocked-Users-Blocked-Users-view-Default-contentView-person-crop-circle-fill">
-            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
-        </designable>
-        <designable name="Notifications-Notifications-view-Comment-contentView-person-crop-circle-fill">
-            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
-        </designable>
-        <designable name="Notifications-Notifications-view-Image-Post-contentView-person-crop-circle-fill">
-            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
-        </designable>
-        <designable name="Notifications-Notifications-view-Text-Post-contentView-person-crop-circle-fill">
-            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
-        </designable>
-        <designable name="Notifications-Notifications-view-User-contentView-person-crop-circle-fill">
-            <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
-        </designable>
         <designable name="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton">
             <size key="intrinsicContentSize" width="50.666666666666664" height="50.666666666666664"/>
-        </designable>
-        <designable name="Post-Post-view-Comment-contentView-Button">
-            <size key="intrinsicContentSize" width="101.66666666666667" height="50.666666666666664"/>
-        </designable>
-        <designable name="Post-Post-view-Comment-contentView-Comment">
-            <size key="intrinsicContentSize" width="74.666666666666671" height="22"/>
         </designable>
         <designable name="Settings-Settings-view-tableHeaderView-Avatar">
             <size key="intrinsicContentSize" width="19.666666666666664" height="20.333333333333332"/>
@@ -2513,8 +1860,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="75fc7b2aec57cd6da8a9c1c1270fc91642607cac697471312f71f9c481ef23fd"/>
         <segue reference="0033c1bdcc67de81f3a077994e035c98717fb0f88523e94f05ce92a1f25238f7"/>
-        <segue reference="a326c5fe72dcc9878ec93165a322ba44df444213686edc81e053cf725b996310"/>
-        <segue reference="16afa6a7a29e215df0c8aa8386d9ea45279cec0373caffe5224c32d0994442dc"/>
+        <segue reference="bb3b97f2c3253b2a45d54be32bac640ca56e8560f27378bf9fb42a27e84c9f51"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>

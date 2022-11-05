@@ -25,6 +25,8 @@ class DraftViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(.init(nibName: "ImageChapterTableViewCell", bundle: nil), forCellReuseIdentifier: "Image")
+        tableView.register(.init(nibName: "TextChapterTableViewCell", bundle: nil), forCellReuseIdentifier: "Text")
         vm.post.producer
             .take(during: reactive.lifetime)
             .startWithValues { [unowned self] in onPost($0) }
@@ -178,8 +180,15 @@ extension DraftViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        if tableView.cellForRow(at: indexPath) is ImageChapterTableViewCell {
+        switch tableView.cellForRow(at: indexPath) {
+        case let textCell as TextChapterTableViewCell:
+            performSegue(withIdentifier: "Text", sender: textCell)
+
+        case _ as ImageChapterTableViewCell:
             imageSelector.selectImage(canRemove: true)
+
+        default:
+            return
         }
     }
 

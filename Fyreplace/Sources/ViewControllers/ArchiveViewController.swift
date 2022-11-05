@@ -24,11 +24,18 @@ class ArchiveViewController: ItemListViewController {
             : [FPPost.deletionNotification]
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.register(.init(nibName: "TextPostTableViewCell", bundle: nil), forCellReuseIdentifier: "Text")
+        tableView.register(.init(nibName: "ImagePostTableViewCell", bundle: nil), forCellReuseIdentifier: "Image")
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
         if let postController = segue.destination as? PostViewController,
-           let index = tableView.indexPathForSelectedRow?.row
+           let cell = sender as? UITableViewCell,
+           let index = tableView.indexPath(for: cell)?.row
         {
             postController.post = vm.post(atIndex: index)
         }
@@ -58,6 +65,11 @@ extension ArchiveViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         (cell as? PostTableViewCell)?.setup(withPost: vm.post(atIndex: indexPath.row))
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        performSegue(withIdentifier: "Post", sender: tableView.cellForRow(at: indexPath))
     }
 }
 

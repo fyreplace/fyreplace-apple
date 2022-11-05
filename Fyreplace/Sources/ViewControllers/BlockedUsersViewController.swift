@@ -22,6 +22,11 @@ class BlockedUsersViewController: ItemListViewController {
         [FPUser.unblockNotification]
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.register(.init(nibName: "BlockedUserTableViewCell", bundle: nil), forCellReuseIdentifier: "BlockedUser")
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         becomeFirstResponder()
@@ -83,6 +88,11 @@ extension BlockedUsersViewController {
 
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return .tr("BlockedUsers.Swipe.Unblock")
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        performSegue(withIdentifier: "User", sender: tableView.cellForRow(at: indexPath))
     }
 
     private func block(profile: FPProfile, at indexPath: IndexPath) {

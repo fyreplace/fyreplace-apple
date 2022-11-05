@@ -29,7 +29,7 @@ extension BlockedUsersViewModel: ItemListViewDelegate {
     var lister: ItemListerProtocol { blockedUserLister }
 
     func itemPreviewType(atIndex index: Int) -> String {
-        return "Default"
+        return "BlockedUser"
     }
 }
 

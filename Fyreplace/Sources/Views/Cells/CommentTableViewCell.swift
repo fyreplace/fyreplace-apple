@@ -21,6 +21,8 @@ class BaseCommentTableViewCell: UITableViewCell {
 @IBDesignable
 class CommentTableViewCell: BaseCommentTableViewCell {
     @IBOutlet
+    weak var delegate: CommentTableViewCellDelegate?
+    @IBOutlet
     var avatar: UIButton!
     @IBOutlet
     var username: UIButton!
@@ -38,6 +40,11 @@ class CommentTableViewCell: BaseCommentTableViewCell {
         originalFont = content.font
     }
 
+    @IBAction
+    func onUserViewClicked(_ view: UIView) {
+        delegate?.commentTableViewCell(self, didClickOnView: view)
+    }
+
     func setup(withComment comment: FPComment, at position: Int, isPostAuthor: Bool, isSelected: Bool, isHighlighted: Bool) {
         backgroundColor = isSelected ? .accent.withAlphaComponent(0.3) : nil
         avatar.setAvatar(from: comment.author)
@@ -48,4 +55,9 @@ class CommentTableViewCell: BaseCommentTableViewCell {
         content.setComment(comment, font: isHighlighted ? originalFont?.withTraits(.traitBold) : originalFont)
         date.text = dateFormat.string(from: comment.dateCreated.date)
     }
+}
+
+@objc
+protocol CommentTableViewCellDelegate: NSObjectProtocol {
+    func commentTableViewCell(_ cell: CommentTableViewCell, didClickOnView view: UIView)
 }

@@ -26,6 +26,9 @@ class DraftsViewController: ItemListViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(.init(nibName: "EmptyDraftTableViewCell", bundle: nil), forCellReuseIdentifier: "Empty")
+        tableView.register(.init(nibName: "TextDraftTableViewCell", bundle: nil), forCellReuseIdentifier: "Text")
+        tableView.register(.init(nibName: "ImageDraftTableViewCell", bundle: nil), forCellReuseIdentifier: "Image")
         add.reactive.isEnabled <~ vm.isLoading.negate()
         loader.reactive.isAnimating <~ vm.isLoading
     }
@@ -66,6 +69,11 @@ extension DraftsViewController {
         vm.delete(post.id)
         deleteItem(post, at: indexPath, becauseOf: .init(name: FPPost.draftDeletionNotification))
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        performSegue(withIdentifier: "Draft", sender: tableView.cellForRow(at: indexPath))
+    }
 }
 
 extension DraftsViewController: DraftsViewModelDelegate {
@@ -78,7 +86,7 @@ extension DraftsViewController: DraftsViewModelDelegate {
 
         DispatchQueue.main.async { [self] in
             createdPostId = id
-            performSegue(withIdentifier: "Add", sender: self)
+            performSegue(withIdentifier: "Draft", sender: self)
         }
     }
 

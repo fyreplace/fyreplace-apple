@@ -23,6 +23,14 @@ class NotificationsViewController: ItemListViewController {
             .observeValues { [unowned self] in onNotificationCreation($0) }
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.register(.init(nibName: "UserNotificationTableViewCell", bundle: nil), forCellReuseIdentifier: "User")
+        tableView.register(.init(nibName: "TextPostNotificationTableViewCell", bundle: nil), forCellReuseIdentifier: "Text Post")
+        tableView.register(.init(nibName: "ImagePostNotificationTableViewCell", bundle: nil), forCellReuseIdentifier: "Image Post")
+        tableView.register(.init(nibName: "CommentNotificationTableViewCell", bundle: nil), forCellReuseIdentifier: "Comment")
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard let index = tableView.indexPathForSelectedRow?.row else { return }
@@ -64,6 +72,18 @@ extension NotificationsViewController {
             deleteItem(notification, at: indexPath, becauseOf: .init(name: FPNotification.deletionNotification))
         }
         return UISwipeActionsConfiguration(actions: [dismiss])
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
+
+        switch tableView.cellForRow(at: indexPath) {
+        case let cell as UserNotificationTableViewCell:
+            performSegue(withIdentifier: "User", sender: cell)
+
+        case let cell:
+            performSegue(withIdentifier: "Post", sender: cell)
+        }
     }
 }
 

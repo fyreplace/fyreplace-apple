@@ -44,6 +44,8 @@ class PostViewController: ItemRandomAccessListViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(.init(nibName: "LoadingCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "Loader")
+        tableView.register(.init(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: "Comment")
         vm.post.value = post
         vm.subscribed.value = post.isSubscribed
         vm.post.producer
@@ -272,10 +274,11 @@ extension PostViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        guard let cell = cell as? CommentTableViewCell else { return cell }
+        cell.dateFormat = dateFormat
+        cell.delegate = self
 
-        if let cell = cell as? CommentTableViewCell,
-           let comment = vm.comment(atIndex: indexPath.row)
-        {
+        if let comment = vm.comment(atIndex: indexPath.row) {
             cell.setup(
                 withComment: comment,
                 at: indexPath.row,
@@ -426,5 +429,11 @@ extension PostViewController: DynamicStackViewDelegate {
     func boundsDidUpdate(_ bounds: CGRect) {
         tableHeader.resize()
         tableView.tableHeaderView = tableHeader
+    }
+}
+
+extension PostViewController: CommentTableViewCellDelegate {
+    func commentTableViewCell(_ cell: CommentTableViewCell, didClickOnView view: UIView) {
+        performSegue(withIdentifier: "User", sender: view)
     }
 }

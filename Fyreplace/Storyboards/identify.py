@@ -7,7 +7,8 @@ import re
 import sys
 from collections import OrderedDict
 from hashlib import sha256
-from os.path import basename, dirname, realpath, splitext
+from os.path import basename, splitext
+from pathlib import Path
 from typing import Dict, List, Optional, Text, Tuple
 from xml.etree import ElementTree as etree
 
@@ -42,16 +43,16 @@ last_comment: Optional[Text] = None
 id_counters: List[int] = []
 
 
-def process(storyboard: Text):
+def process(ib_file: Text):
     global last_comment
     last_comment = None
 
-    tree = etree.parse(storyboard, parser=etree.XMLParser(target=TreeBuilder()))
+    tree = etree.parse(ib_file, parser=etree.XMLParser(target=TreeBuilder()))
     mapping = OrderedDict()
-    storyboard_name = splitext(basename(storyboard))[0]
-    walk(tree.find("scenes"), mapping, [])
+    ib_file_name = splitext(basename(ib_file))[0]
+    walk(tree.find("scenes") or tree.find("objects"), mapping, [])
 
-    for name in [storyboard] + glob.glob(f"**/{storyboard_name}.strings"):
+    for name in [ib_file] + glob.glob(f"**/{ib_file_name}.strings"):
         old_to_new = [(old, new) for old, new in mapping_items(mapping) if old != new]
 
         if len(old_to_new) == 0:
@@ -120,10 +121,13 @@ def walk(node: etree.Element, mapping: Mapping, prefix: Id):
         mapping[node.attrib["sceneID"]] = (identifier, IdForm.HASH)
         prefix = identifier
     elif "id" in node.attrib:
-        node_id, form = get_id(node)
-        identifier = make_id(*prefix, *node_id)
-        mapping[node.attrib["id"]] = (identifier, form)
-        prefix = identifier
+        try:
+            float(node.attrib["id"])
+        except:
+            node_id, form = get_id(node)
+            identifier = make_id(*prefix, *node_id)
+            mapping[node.attrib["id"]] = (identifier, form)
+            prefix = identifier
     else:
         for child in node:
             if child.tag == "string" and child.attrib.get("key") == "id":
@@ -322,7 +326,9 @@ def shrink_id(identifier: Id, counters: List[int]) -> Text:
 
 
 if __name__ == "__main__":
-    os.chdir(dirname(realpath(__file__)))
+    search_root = Path(__file__).parent.parent
+    os.chdir(search_root)
 
-    for storyboard in glob.iglob("*/*.storyboard"):
-        process(storyboard)
+    for extension in ("xib", "storyboard"):
+        for ib_file in glob.iglob(f"**/*.{extension}", recursive=True):
+            process(ib_file)
