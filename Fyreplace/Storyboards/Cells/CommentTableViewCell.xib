@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,11 +18,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="70.333335876464844"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-view">
+                        <rect key="frame" x="0.0" y="0.0" width="4" height="70.333333333333329"/>
+                        <color key="backgroundColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="00-00-00--C-00"/>
+                        </constraints>
+                    </view>
                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Button" customClass="RoundButton" customModule="Fyreplace" customModuleProvider="target">
                         <rect key="frame" x="20" y="10" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="tableViewCell-00-contentView-Button" secondAttribute="height" multiplier="1:1" id="00-00-00--C-00-00-00"/>
-                            <constraint firstAttribute="height" constant="40" id="00-00-00--C-01"/>
+                            <constraint firstAttribute="width" secondItem="tableViewCell-00-contentView-Button" secondAttribute="height" multiplier="1:1" id="00-00-01--C-00-00-00"/>
+                            <constraint firstAttribute="height" constant="40" id="00-00-01--C-01"/>
                         </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <color key="tintColor" systemColor="labelColor"/>
@@ -38,7 +46,7 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Username">
                         <rect key="frame" x="68" y="10" width="82" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="00-00-01--C-00"/>
+                            <constraint firstAttribute="height" constant="20" id="00-00-02--C-00"/>
                         </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <color key="tintColor" systemColor="labelColor"/>
@@ -74,12 +82,16 @@
                     <constraint firstItem="tableViewCell-00-contentView-Date" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tableViewCell-00-contentView-Username" secondAttribute="trailing" constant="8" symbolic="YES" id="00-00--C-00-00-01-04-00"/>
                     <constraint firstItem="tableViewCell-00-contentView-Comment" firstAttribute="leading" secondItem="tableViewCell-00-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="00-00--C-00-00-01-05"/>
                     <constraint firstItem="tableViewCell-00-contentView-Username" firstAttribute="top" secondItem="tableViewCell-00-contentView-Button" secondAttribute="top" id="00-00--C-00-00-01-06"/>
+                    <constraint firstItem="tableViewCell-00-contentView-view" firstAttribute="leading" secondItem="tableViewCell-00-contentView" secondAttribute="leading" id="00-00--C-00-00-01-07"/>
+                    <constraint firstAttribute="bottom" secondItem="tableViewCell-00-contentView-view" secondAttribute="bottom" id="00-00--C-00-00-02"/>
+                    <constraint firstItem="tableViewCell-00-contentView-view" firstAttribute="top" secondItem="tableViewCell-00-contentView" secondAttribute="top" id="00-00--C-00-00-02-00"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatar" destination="tableViewCell-00-contentView-Button" id="f17ef504fb36d9e6ec62186c68801b69c54b0bd9c02a3431feeac96558e133db"/>
                 <outlet property="content" destination="tableViewCell-00-contentView-Comment" id="7da8d9ae0ca7d72e130723b551566037a466335738a27627d05e6e2452b95fed"/>
                 <outlet property="date" destination="tableViewCell-00-contentView-Date" id="23162fe61eb20c4c978c30c5cfe0a1b28fff1e70a702a6ce6b08f0ed38191d14"/>
+                <outlet property="highlight" destination="tableViewCell-00-contentView-view" id="7b1df5693302f1394a5aa654e806fb3dcbb1175596d4387aa423a002a156e712"/>
                 <outlet property="username" destination="tableViewCell-00-contentView-Username" id="b9cef866961eaa6e00f38435c3e0ff49175a3d57dc851554689d697f4b78bf94"/>
             </connections>
             <point key="canvasLocation" x="0.0" y="0.0"/>
@@ -95,6 +107,9 @@
     </designables>
     <resources>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

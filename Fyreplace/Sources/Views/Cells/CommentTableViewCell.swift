@@ -23,6 +23,8 @@ class CommentTableViewCell: BaseCommentTableViewCell {
     @IBOutlet
     weak var delegate: CommentTableViewCellDelegate?
     @IBOutlet
+    var highlight: UIView!
+    @IBOutlet
     var avatar: UIButton!
     @IBOutlet
     var username: UIButton!
@@ -47,6 +49,7 @@ class CommentTableViewCell: BaseCommentTableViewCell {
 
     func setup(withComment comment: FPComment, at position: Int, isPostAuthor: Bool, isSelected: Bool, isHighlighted: Bool) {
         backgroundColor = isSelected ? .accent.withAlphaComponent(0.3) : nil
+        highlight.isHidden = !isHighlighted
         avatar.setAvatar(from: comment.author)
         avatar.tag = position
         username.tintColor = isPostAuthor ? .accent : .labelCompat
