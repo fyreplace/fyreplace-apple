@@ -135,9 +135,9 @@ extension LoginViewController {
 }
 
 extension LoginViewController: LoginViewModelDelegate {
-    func onRegister() {
+    func loginViewModel(_ viewModel: LoginViewModel, didRegisterWithEmail email: String, andUsername username: String) {
         NotificationCenter.default.post(
-            name: FPUser.registrationEmailNotification,
+            name: FPUser.currentDidSendRegistrationEmailNotification,
             object: self
         )
 
@@ -146,11 +146,11 @@ extension LoginViewController: LoginViewModelDelegate {
         }
     }
 
-    func onLogin(withPassword: Bool) {
+    func loginViewModel(_ viewModel: LoginViewModel, didLoginWithPassword withPassword: Bool) {
         NotificationCenter.default.post(
             name: withPassword
-                ? FPUser.connectionNotification
-                : FPUser.connectionEmailNotification,
+                ? FPUser.currentDidConnectNotification
+                : FPUser.currentDidSendConnectionEmailNotification,
             object: self
         )
 
@@ -159,7 +159,7 @@ extension LoginViewController: LoginViewModelDelegate {
         }
     }
 
-    func errorKey(for code: Int, with message: String?) -> String? {
+    func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {
         case .cancelled:
             DispatchQueue.main.async { self.askPassword() }

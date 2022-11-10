@@ -10,30 +10,30 @@ class BlockedUsersViewModel: ViewModel {
         forward: true
     )
 
-    func blockedUser(at index: Int) -> FPProfile {
-        return blockedUserLister.items[index]
+    func blockedUser(at position: Int) -> FPProfile {
+        return blockedUserLister.items[position]
     }
 
-    func updateBlock(userId: Data, blocked: Bool, at index: Int) {
+    func updateBlock(userId: Data, blocked: Bool, at position: Int) {
         let request = FPBlock.with {
             $0.id = userId
             $0.blocked = blocked
         }
         let response = userService.updateBlock(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onUpdateBlock(blocked, at: index) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.blockedUsersViewModel(self, didUpdateAtPosition: position, blocked: blocked) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 }
 
 extension BlockedUsersViewModel: ItemListViewDelegate {
     var lister: ItemListerProtocol { blockedUserLister }
 
-    func itemPreviewType(atIndex index: Int) -> String {
+    func itemListView(_ listViewController: ItemListViewController, itemPreviewTypeAtPosition position: Int) -> String {
         return "BlockedUser"
     }
 }
 
 @objc
 protocol BlockedUsersViewModelDelegate: ViewModelDelegate, ItemListerDelegate {
-    func onUpdateBlock(_ blocked: Bool, at index: Int)
+    func blockedUsersViewModel(_ viewModel: BlockedUsersViewModel, didUpdateAtPosition position: Int, blocked: Bool)
 }

@@ -5,11 +5,11 @@ import GRPC
 protocol ItemRandomAccessListerProtocol: BaseListerProtocol {
     var totalCount: Int { get }
 
-    func fetch(around index: Int)
+    func fetch(around position: Int)
 
     func insert(_ item: Any)
 
-    func update(_ item: Any, at index: Int)
+    func update(_ item: Any, at position: Int)
 }
 
 class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtocol
@@ -21,7 +21,7 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
     var itemCount: Int { items.count }
     private(set) var items: [Int: Item] = [:]
     private(set) var totalCount = 0
-    private var indexes = NSMutableOrderedSet()
+    private var positions = NSMutableOrderedSet()
     private weak var delegate: ItemRandomAccessListerDelegate!
     private let service: Service
     private let contextId: Data
@@ -53,18 +53,18 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
 
     func getPosition(for item: Any) -> Int {
         let itemId = (item as! Item).id
-        guard let index = (items.firstIndex { $0.1.id == itemId }) else { return -1 }
-        return items[index].0
+        guard let position = (items.firstIndex { $0.1.id == itemId }) else { return -1 }
+        return items[position].0
     }
 
-    func fetch(around index: Int) {
+    func fetch(around position: Int) {
         guard state != .complete, let stream = stream else { return }
-        let index = index - (index % Int(pageSize))
-        indexes.add(index)
+        let pageStart = position - (position % Int(pageSize))
+        positions.add(pageStart)
 
         if state == .incomplete {
             state = .fetching
-            _ = stream.sendMessage(.with { $0.offset = UInt32(index) })
+            _ = stream.sendMessage(.with { $0.offset = UInt32(pageStart) })
         }
     }
 
@@ -73,32 +73,33 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
         totalCount += 1
     }
 
-    func update(_ item: Any, at index: Int) {
-        items[index] = (item as! Item)
+    func update(_ item: Any, at position: Int) {
+        items[position] = (item as! Item)
     }
 
     private func onFetch(items: Items) {
         DispatchQueue.main.async { [self] in
-            let index = indexes.firstObject as! Int
-            indexes.removeObject(at: 0)
+            let position = positions.firstObject as! Int
+            positions.removeObject(at: 0)
 
             for (i, item) in items.items.enumerated() {
-                self.items[index + i] = item
+                self.items[position + i] = item
             }
 
             let oldTotalCount = totalCount
             let newTotalCount = Int(items.count)
             totalCount = newTotalCount
 
-            if let index = indexes.firstObject as? Int {
-                _ = stream!.sendMessage(.with { $0.offset = UInt32(index) })
+            if let position = positions.firstObject as? Int {
+                _ = stream!.sendMessage(.with { $0.offset = UInt32(position) })
             } else {
                 state = itemCount < totalCount ? .incomplete : .complete
             }
 
-            delegate.onFetch(
-                count: items.items.count,
-                at: index,
+            delegate.itemRandomAccessLister(
+                self,
+                didFetch: items.items.count,
+                at: position,
                 oldTotal: oldTotalCount,
                 newTotal: newTotalCount
             )
@@ -115,5 +116,5 @@ protocol ItemRandomAccessBundle {
 
 @objc
 protocol ItemRandomAccessListerDelegate {
-    func onFetch(count: Int, at index: Int, oldTotal: Int, newTotal: Int)
+    func itemRandomAccessLister(_ itemLister: ItemRandomAccessListerProtocol, didFetch count: Int, at position: Int, oldTotal: Int, newTotal: Int)
 }

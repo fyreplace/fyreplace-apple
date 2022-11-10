@@ -1,7 +1,7 @@
 import Foundation
 
 extension FPNotification {
-    static let creationNotification = Notification.Name("FPNotification.creation")
-    static let updateNotification = Notification.Name("FPNotification.update")
-    static let deletionNotification = Notification.Name("FPNotification.deletion")
+    static let wasCreatedNotification = Notification.Name("FPNotification.wasCreated")
+    static let wasUpdatedNotification = Notification.Name("FPNotification.wasUpdated")
+    static let wasDeletedNotification = Notification.Name("FPNotification.wasDeleted")
 }

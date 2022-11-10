@@ -16,7 +16,7 @@ extension NSObjectProtocol {
         }
 
         NotificationCenter.default.post(
-            name: FPUser.currentUserChangeNotification,
+            name: FPUser.currentDidChangeNotification,
             object: self,
             userInfo: ["connected": connected]
         )

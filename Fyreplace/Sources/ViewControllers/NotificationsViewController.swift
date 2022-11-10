@@ -6,21 +6,21 @@ class NotificationsViewController: ItemListViewController {
     var vm: NotificationsViewModel!
 
     override var updateNotifications: [Notification.Name] {
-        [FPNotification.updateNotification]
+        [FPNotification.wasUpdatedNotification]
     }
 
-    override var deletionNotifications: [Notification.Name] {
-        [FPNotification.deletionNotification]
+    override var removalNotifications: [Notification.Name] {
+        [FPNotification.wasDeletedNotification]
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPNotification.creationNotification)
+            .notifications(forName: FPNotification.wasCreatedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onNotificationCreation($0) }
+            .observeValues { [unowned self] in onNotificationWasCreated($0) }
     }
 
     override func viewDidLoad() {
@@ -33,8 +33,8 @@ class NotificationsViewController: ItemListViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        guard let index = tableView.indexPathForSelectedRow?.row else { return }
-        let notification = vm.notification(atIndex: index)
+        guard let position = tableView.indexPathForSelectedRow?.row else { return }
+        let notification = vm.notification(at: position)
 
         switch (segue.destination, notification.target) {
         case let (controller as UserNavigationViewController, .user(profile)):
@@ -52,7 +52,7 @@ class NotificationsViewController: ItemListViewController {
         }
     }
 
-    private func onNotificationCreation(_ notification: Notification) {
+    private func onNotificationWasCreated(_ notification: Notification) {
         refreshListing()
     }
 }
@@ -60,16 +60,16 @@ class NotificationsViewController: ItemListViewController {
 extension NotificationsViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        (cell as? NotificationTableViewCell)?.setup(withNotification: vm.notification(atIndex: indexPath.row))
+        (cell as? NotificationTableViewCell)?.setup(withNotification: vm.notification(at: indexPath.row))
         return cell
     }
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let notification = vm.notification(atIndex: indexPath.row)
+        let notification = vm.notification(at: indexPath.row)
         guard notification.isFlag else { return nil }
         let dismiss = UIContextualAction(style: .destructive, title: .tr("Notifications.Item.Action.Dismiss")) { [self] _, _, _ in
             vm.absolve(notification: notification)
-            deleteItem(notification, at: indexPath, becauseOf: .init(name: FPNotification.deletionNotification))
+            removeItem(notification, at: indexPath, becauseOf: .init(name: FPNotification.wasDeletedNotification))
         }
         return UISwipeActionsConfiguration(actions: [dismiss])
     }
@@ -88,9 +88,9 @@ extension NotificationsViewController {
 }
 
 extension NotificationsViewController: NotificationsViewModelDelegate {
-    func onAbsolveUser() {}
+    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolveUser id: Data) {}
 
-    func onAbsolvePost() {}
+    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolvePost id: Data) {}
 
-    func onAbsolveComment() {}
+    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolveComment id: Data) {}
 }

@@ -25,8 +25,8 @@ class LoginViewModel: ViewModel {
             $0.username = username.value
         }
         let response = accountService.create(request).response
-        response.whenSuccess { _ in self.delegate.onRegister() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.loginViewModel(self, didRegisterWithEmail: self.email.value, andUsername: self.username.value) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
         response.whenComplete { _ in self.isLoading.value = false }
     }
 
@@ -34,8 +34,8 @@ class LoginViewModel: ViewModel {
         isLoading.value = true
         let request = FPEmail.with { $0.email = email.value }
         let response = accountService.sendConnectionEmail(request).response
-        response.whenSuccess { _ in self.delegate.onLogin(withPassword: false) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.loginViewModel(self, didLoginWithPassword: false) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
         response.whenComplete { _ in self.isLoading.value = false }
     }
 
@@ -48,24 +48,24 @@ class LoginViewModel: ViewModel {
         }
         let response = accountService.connect(request).response
         response.whenSuccess { self.onLogin(token: $0.token) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
         response.whenComplete { _ in self.isLoading.value = false }
     }
 
     private func onLogin(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
-            delegate.onLogin(withPassword: true)
+            delegate.loginViewModel(self, didLoginWithPassword: true)
         } else {
-            delegate.onError(KeychainError.set)
+            delegate.viewModel(self, didFailWithError: KeychainError.set)
         }
     }
 }
 
 @objc
 protocol LoginViewModelDelegate: ViewModelDelegate {
-    func onRegister()
+    func loginViewModel(_ viewModel: LoginViewModel, didRegisterWithEmail email: String, andUsername username: String)
 
-    func onLogin(withPassword: Bool)
+    func loginViewModel(_ viewModel: LoginViewModel, didLoginWithPassword withPassword: Bool)
 }
 
 private extension Int {

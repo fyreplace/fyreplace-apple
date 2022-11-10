@@ -14,14 +14,14 @@ class ArchiveViewController: ItemListViewController {
 
     override var additionNotifications: [Notification.Name] {
         isListingAllPosts
-            ? [FPPost.draftPublicationNotification, FPPost.subscriptionNotification]
-            : [FPPost.draftPublicationNotification]
+            ? [FPPost.draftWasPublishedNotification, FPPost.wasSubscribedToNotification]
+            : [FPPost.draftWasPublishedNotification]
     }
 
-    override var deletionNotifications: [Notification.Name] {
+    override var removalNotifications: [Notification.Name] {
         isListingAllPosts
-            ? [FPPost.deletionNotification, FPPost.unsubscriptionNotification]
-            : [FPPost.deletionNotification]
+            ? [FPPost.wasDeletedNotification, FPPost.wasUnsubscribedFromNotification]
+            : [FPPost.wasDeletedNotification]
     }
 
     override func viewDidLoad() {
@@ -35,14 +35,14 @@ class ArchiveViewController: ItemListViewController {
 
         if let postController = segue.destination as? PostViewController,
            let cell = sender as? UITableViewCell,
-           let index = tableView.indexPath(for: cell)?.row
+           let position = tableView.indexPath(for: cell)?.row
         {
-            postController.post = vm.post(atIndex: index)
+            postController.post = vm.post(at: position)
         }
     }
 
     override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
-        let path = reason.name == FPPost.draftPublicationNotification
+        let path = reason.name == FPPost.draftWasPublishedNotification
             ? .init(row: 0, section: 0)
             : indexPath
         super.addItem(item, at: path, becauseOf: reason)
@@ -63,7 +63,7 @@ class ArchiveViewController: ItemListViewController {
 extension ArchiveViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        (cell as? PostTableViewCell)?.setup(withPost: vm.post(atIndex: indexPath.row))
+        (cell as? PostTableViewCell)?.setup(withPost: vm.post(at: indexPath.row))
         return cell
     }
 

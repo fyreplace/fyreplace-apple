@@ -1,12 +1,12 @@
 import Foundation
 
 extension FPUser {
-    static let registrationEmailNotification = Notification.Name("FPUser.registrationEmail")
-    static let connectionEmailNotification = Notification.Name("FPUser.connectionEmail")
-    static let connectionNotification = Notification.Name("FPUser.connection")
-    static let currentUserChangeNotification = Notification.Name("FPUser.currentUserChange")
-    static let shouldReloadCurrentUserNotification = Notification.Name("FPUser.shouldReloadCurrentUser")
-    static let blockNotification = Notification.Name("FPUser.block")
-    static let unblockNotification = Notification.Name("FPUser.unblock")
-    static let banNotification = Notification.Name("FPUser.ban")
+    static let currentDidSendRegistrationEmailNotification = Notification.Name("FPUser.currentDidSendRegistrationEmail")
+    static let currentDidSendConnectionEmailNotification = Notification.Name("FPUser.currentDidSendConnectionEmail")
+    static let currentDidConnectNotification = Notification.Name("FPUser.currentDidConnect")
+    static let currentDidChangeNotification = Notification.Name("FPUser.currentDidChange")
+    static let currentShouldBeReloadedNotification = Notification.Name("FPUser.currentShouldBeReloaded")
+    static let wasBlockedNotification = Notification.Name("FPUser.wasBlocked")
+    static let wasUnblockedNotification = Notification.Name("FPUser.wasUnblocked")
+    static let wasBannedNotification = Notification.Name("FPUser.wasBanned")
 }

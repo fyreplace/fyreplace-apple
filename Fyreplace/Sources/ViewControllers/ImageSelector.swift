@@ -26,12 +26,12 @@ class ImageSelector: NSObject {
             let remove = UIAlertAction(
                 title: .tr("ImageSelector.ChooseSource.Action.Remove"),
                 style: .destructive
-            ) { _ in self.delegate.onImageRemoved() }
+            ) { _ in self.delegate.imageSelector(self, didSelectImage: nil) }
             choice.addAction(remove)
         }
 
         let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel) { _ in
-            self.delegate.onImageSelectionCancelled()
+            self.delegate.didNotSelectImage(self)
         }
 
         choice.addAction(cancel)
@@ -78,7 +78,7 @@ class ImageSelector: NSObject {
             data = newData
         }
 
-        DispatchQueue.main.async { self.delegate.onImageSelected(data) }
+        DispatchQueue.main.async { self.delegate.imageSelector(self, didSelectImage: data) }
     }
 }
 
@@ -122,11 +122,9 @@ extension ImageSelector: PHPickerViewControllerDelegate {
 protocol ImageSelectorDelegate where Self: UIViewController {
     var maxImageByteSize: Int { get }
 
-    func onImageSelected(_ image: Data)
+    func imageSelector(_ imageSelector: ImageSelector, didSelectImage image: Data?)
 
-    func onImageRemoved()
-
-    func onImageSelectionCancelled()
+    func didNotSelectImage(_ imageSelector: ImageSelector)
 }
 
 private extension UIImage {

@@ -15,17 +15,17 @@ class CommentViewModel: ViewModel, TextInputViewModel {
             $0.text = comment.value
         }
         let response = commentService.create(request, callOptions: .authenticated).response
-        response.whenSuccess { self.delegate.onCreate($0.id) }
+        response.whenSuccess { self.delegate.commentViewModel(self, didCreate: $0.id) }
         response.whenFailure { self.onError($0) }
     }
 
     private func onError(_ error: Error) {
         isLoading.value = false
-        delegate.onError(error)
+        delegate.viewModel(self, didFailWithError: error)
     }
 }
 
 @objc
 protocol CommentViewModelDelegate: ViewModelDelegate {
-    func onCreate(_ id: Data)
+    func commentViewModel(_ viewModel: CommentViewModel, didCreate id: Data)
 }

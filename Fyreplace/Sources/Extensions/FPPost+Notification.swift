@@ -1,12 +1,12 @@
 import Foundation
 
 extension FPPost {
-    static let notFoundNotification = Notification.Name("FPPost.notFound")
-    static let subscriptionNotification = Notification.Name("FPPost.subscription")
-    static let unsubscriptionNotification = Notification.Name("FPPost.unsubscription")
-    static let deletionNotification = Notification.Name("FPPost.deletion")
-    static let draftCreationNotification = Notification.Name("FPPost.draftCreation")
-    static let draftUpdateNotification = Notification.Name("FPPost.draftUpdate")
-    static let draftDeletionNotification = Notification.Name("FPPost.draftDeletion")
-    static let draftPublicationNotification = Notification.Name("FPPost.publication")
+    static let wasNotFoundNotification = Notification.Name("FPPost.wasNotFound")
+    static let wasSubscribedToNotification = Notification.Name("FPPost.wasSubscribedTo")
+    static let wasUnsubscribedFromNotification = Notification.Name("FPPost.wasUnsubscribedFrom")
+    static let wasDeletedNotification = Notification.Name("FPPost.wasDeleted")
+    static let draftWasCreatedNotification = Notification.Name("FPPost.draftWasCreated")
+    static let draftWasUpdatedNotification = Notification.Name("FPPost.draftWasUpdated")
+    static let draftWasDeletedNotification = Notification.Name("FPPost.draftWasDeleted")
+    static let draftWasPublishedNotification = Notification.Name("FPPost.draftWasPublished")
 }

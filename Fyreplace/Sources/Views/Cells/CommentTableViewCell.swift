@@ -41,7 +41,7 @@ class CommentTableViewCell: BaseCommentTableViewCell {
     }
 
     @IBAction
-    func onUserViewClicked(_ view: UIView) {
+    func onUserViewPressed(_ view: UIView) {
         delegate?.commentTableViewCell(self, didClickOnView: view)
     }
 

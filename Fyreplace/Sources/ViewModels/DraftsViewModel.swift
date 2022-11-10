@@ -15,8 +15,8 @@ class DraftsViewModel: ViewModel {
         type: 2
     )
 
-    func post(atIndex index: Int) -> FPPost {
-        return draftLister.items[index]
+    func post(at position: Int) -> FPPost {
+        return draftLister.items[position]
     }
 
     func create() {
@@ -24,39 +24,40 @@ class DraftsViewModel: ViewModel {
         let request = Google_Protobuf_Empty()
         let response = postService.create(request, callOptions: .authenticated).response
         response.whenSuccess { self.onCreate($0) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure { self.onError($0) }
     }
 
     func delete(_ postId: Data) {
+        isLoading.value = true
         let request = FPId.with { $0.id = postId }
         let response = postService.delete(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onDelete() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.draftsViewModel(self, didDelete: postId) }
+        response.whenFailure { self.onError($0) }
     }
 
     private func onCreate(_ postId: FPId) {
         isLoading.value = false
-        delegate.onCreate(postId.id)
+        delegate.draftsViewModel(self, didCreate: postId.id)
     }
 
     private func onError(_ error: Error) {
         isLoading.value = false
-        delegate.onError(error)
+        delegate.viewModel(self, didFailWithError: error)
     }
 }
 
 extension DraftsViewModel: ItemListViewDelegate {
     var lister: ItemListerProtocol { draftLister }
 
-    func itemPreviewType(atIndex index: Int) -> String {
-        guard let chapter = post(atIndex: index).chapters.first else { return "Empty" }
+    func itemListView(_ listViewController: ItemListViewController, itemPreviewTypeAtPosition position: Int) -> String {
+        guard let chapter = post(at: position).chapters.first else { return "Empty" }
         return chapter.hasImage ? "Image" : "Text"
     }
 }
 
 @objc
 protocol DraftsViewModelDelegate: ViewModelDelegate, ItemListerDelegate {
-    func onCreate(_ id: Data)
+    func draftsViewModel(_ viewModel: DraftsViewModel, didCreate id: Data)
 
-    func onDelete()
+    func draftsViewModel(_ viewModel: DraftsViewModel, didDelete id: Data)
 }

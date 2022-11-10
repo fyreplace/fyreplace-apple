@@ -35,11 +35,11 @@ class PostViewController: ItemRandomAccessListViewController {
     private lazy var currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
 
     override var additionNotifications: [Notification.Name] {
-        [FPComment.creationNotification]
+        [FPComment.wasCreatedNotification]
     }
 
     override var updateNotifications: [Notification.Name] {
-        [FPComment.deletionNotification]
+        [FPComment.wasDeletedNotification]
     }
 
     override func viewDidLoad() {
@@ -83,7 +83,7 @@ class PostViewController: ItemRandomAccessListViewController {
            let userNavigationController = segue.destination as? UserNavigationViewController,
            let profile = [avatar, username, dateCreated].contains(sender)
            ? vm.post.value.author
-           : vm.comment(atIndex: sender.tag)?.author
+           : vm.comment(at: sender.tag)?.author
         {
             userNavigationController.profile = profile
         } else if let commentNavigationController = segue.destination as? CommentNavigationViewController {
@@ -223,7 +223,7 @@ class PostViewController: ItemRandomAccessListViewController {
             paths.append(oldPath)
         }
 
-        if vm.hasItem(atIndex: indexPath.row) {
+        if vm.itemRandomAccessListView(self, hasItemAtPosition: indexPath.row) {
             shouldScrollToComment = false
         }
 
@@ -236,7 +236,7 @@ class PostViewController: ItemRandomAccessListViewController {
 
     private func acknowledgeComment(_ comment: FPComment, at position: Int) {
         NotificationCenter.default.post(
-            name: FPComment.seenNotification,
+            name: FPComment.wasSeenNotification,
             object: self,
             userInfo: [
                 "id": comment.id,
@@ -278,7 +278,7 @@ extension PostViewController {
         cell.dateFormat = dateFormat
         cell.delegate = self
 
-        if let comment = vm.comment(atIndex: indexPath.row) {
+        if let comment = vm.comment(at: indexPath.row) {
             cell.setup(
                 withComment: comment,
                 at: indexPath.row,
@@ -292,7 +292,7 @@ extension PostViewController {
     }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let comment = vm.comment(atIndex: indexPath.row),
+        if let comment = vm.comment(at: indexPath.row),
            isCommentHighlighted(at: indexPath.row)
         {
             acknowledgeComment(comment, at: indexPath.row)
@@ -308,7 +308,7 @@ extension PostViewController {
     }
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        guard let comment = vm.comment(atIndex: indexPath.row),
+        guard let comment = vm.comment(at: indexPath.row),
               !comment.isDeleted
         else { return .init(actions: []) }
 
@@ -351,7 +351,7 @@ extension PostViewController {
 }
 
 extension PostViewController: PostViewModelDelegate {
-    override func onFetch(count: Int, at index: Int, oldTotal: Int, newTotal: Int) {
+    override func itemRandomAccessLister(_ itemLister: ItemRandomAccessListerProtocol, didFetch count: Int, at position: Int, oldTotal: Int, newTotal: Int) {
         if oldTotal == 0,
            vm.post.value.commentsRead > 0,
            vm.post.value.commentsRead < vm.lister.totalCount
@@ -359,7 +359,7 @@ extension PostViewController: PostViewModelDelegate {
             shouldScrollToComment = true
         }
 
-        super.onFetch(count: count, at: index, oldTotal: oldTotal, newTotal: newTotal)
+        super.itemRandomAccessLister(itemLister, didFetch: count, at: position, oldTotal: oldTotal, newTotal: newTotal)
 
         if shouldScrollToComment,
            let position = selectedComment,
@@ -369,25 +369,25 @@ extension PostViewController: PostViewModelDelegate {
         }
     }
 
-    func onRetrieve() {}
+    func postViewModel(_ viewModel: PostViewModel, didRetrieve id: Data) {}
 
-    func onUpdateSubscription(_ subscribed: Bool) {
+    func postViewModel(_ viewModel: PostViewModel, didUpdate id: Data, subscribed: Bool) {
         NotificationCenter.default.post(
             name: subscribed
-                ? FPPost.subscriptionNotification
-                : FPPost.unsubscriptionNotification,
+                ? FPPost.wasSubscribedToNotification
+                : FPPost.wasUnsubscribedFromNotification,
             object: self,
             userInfo: ["item": vm.post.value.makePreview()]
         )
     }
 
-    func onReport() {
+    func postViewModel(_ viewModel: PostViewModel, didReport id: Data) {
         presentBasicAlert(text: "Post.Report.Success")
     }
 
-    func onDelete() {
+    func postViewModel(_ viewModel: PostViewModel, didDelete id: Data) {
         NotificationCenter.default.post(
-            name: FPPost.deletionNotification,
+            name: FPPost.wasDeletedNotification,
             object: self,
             userInfo: ["item": vm.post.value.makePreview()]
         )
@@ -397,26 +397,26 @@ extension PostViewController: PostViewModelDelegate {
         }
     }
 
-    func onReportComment(_ position: Int) {
+    func postViewModel(_ viewModel: PostViewModel, didReportCommentAtPosition position: Int, inside id: Data) {
         presentBasicAlert(text: "Post.Comment.Report.Success")
     }
 
-    func onDeleteComment(_ position: Int) {
+    func postViewModel(_ viewModel: PostViewModel, didDeleteCommentAtPosition position: Int, inside id: Data) {
         guard let comment = vm.makeDeletedComment(fromPosition: position) else { return }
         NotificationCenter.default.post(
-            name: FPComment.deletionNotification,
+            name: FPComment.wasDeletedNotification,
             object: self,
             userInfo: ["item": comment, "postId": vm.post.value.id]
         )
     }
 
-    func errorKey(for code: Int, with message: String?) -> String? {
+    func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String? {
         guard !errored else { return nil }
         errored = true
 
         switch GRPCStatus.Code(rawValue: code)! {
         case .invalidArgument, .notFound:
-            NotificationCenter.default.post(name: FPPost.notFoundNotification, object: self)
+            NotificationCenter.default.post(name: FPPost.wasNotFoundNotification, object: self)
             return "Post.Error.NotFound"
 
         default:

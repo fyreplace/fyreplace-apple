@@ -26,17 +26,17 @@ class TextChapterViewController: TextInputViewController {
 }
 
 extension TextChapterViewController: TextChapterViewModelDelegate {
-    func onUpdateChapter(_ text: String) {
+    func textChapterViewModel(_ viewModel: TextChapterViewModel, didUpdateAtPosition position: Int, withText text: String) {
         NotificationCenter.default.post(
-            name: FPPost.draftUpdateNotification,
+            name: FPPost.draftWasUpdatedNotification,
             object: self,
-            userInfo: ["item": post!, "position": position!, "text": text]
+            userInfo: ["item": post!, "position": position, "text": text]
         )
 
         DispatchQueue.main.async { self.dismiss(animated: true) }
     }
 
-    func errorKey(for code: Int, with message: String?) -> String? {
+    func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {
         case .invalidArgument:
             return "TextChapter.Error.ChapterTooLong"

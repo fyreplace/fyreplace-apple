@@ -29,7 +29,7 @@
                     <constraint firstItem="tableViewCell-00-contentView-Empty" firstAttribute="centerY" secondItem="tableViewCell-00-contentView" secondAttribute="centerY" id="00-00--C-00-00-00-01"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="36" y="20"/>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -4,7 +4,7 @@ import UIKit
 class BaseListViewController: UITableViewController {
     open var additionNotifications: [Notification.Name] { [] }
     open var updateNotifications: [Notification.Name] { [] }
-    open var deletionNotifications: [Notification.Name] { [] }
+    open var removalNotifications: [Notification.Name] { [] }
 
     weak var listViewDelegate: BaseListViewDelegate!
     private var notificationTrash: [Disposable?] = []
@@ -61,12 +61,12 @@ class BaseListViewController: UITableViewController {
             notificationTrash.append(disposable)
         }
 
-        for deletionNotification in deletionNotifications {
+        for removalNotification in removalNotifications {
             let disposable = NotificationCenter.default.reactive
-                .notifications(forName: deletionNotification)
+                .notifications(forName: removalNotification)
                 .take(during: reactive.lifetime)
                 .observe(on: UIScheduler())
-                .observeValues { [unowned self] in onItemDeleted($0) }
+                .observeValues { [unowned self] in onItemRemoved($0) }
             notificationTrash.append(disposable)
         }
     }
@@ -79,7 +79,7 @@ class BaseListViewController: UITableViewController {
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
-    open func deleteItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
+    open func removeItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 
@@ -121,7 +121,7 @@ class BaseListViewController: UITableViewController {
         )
     }
 
-    private func onItemDeleted(_ notification: Notification) {
+    private func onItemRemoved(_ notification: Notification) {
         guard let info = notification.userInfo,
               let item = info["item"]
         else { return }
@@ -129,7 +129,7 @@ class BaseListViewController: UITableViewController {
         let position = listViewDelegate.lister.getPosition(for: item)
         guard position != -1 else { return }
 
-        deleteItem(
+        removeItem(
             item,
             at: .init(row: position, section: 0),
             becauseOf: notification

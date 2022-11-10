@@ -32,7 +32,7 @@
                             </preferredSymbolConfiguration>
                         </state>
                         <connections>
-                            <action selector="onUserViewClicked:" destination="tableViewCell-00" eventType="primaryActionTriggered" id="de5830b288013172820b9a5461a85b083db192fe7f15d537383525904602abc7"/>
+                            <action selector="onUserViewPressed:" destination="tableViewCell-00" eventType="primaryActionTriggered" id="1e7ed3e58d809f77136a0b5450c4f925f1db12d73342a4031cffa81142890c1b"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Username">
@@ -45,7 +45,7 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Username"/>
                         <connections>
-                            <action selector="onUserViewClicked:" destination="tableViewCell-00" eventType="primaryActionTriggered" id="f49520da3ddb8cb93856d2cb8246510d1e481d1e42cd40d35e5ac4cc6c0ecbf8"/>
+                            <action selector="onUserViewPressed:" destination="tableViewCell-00" eventType="primaryActionTriggered" id="bd3cd90cf5e278002a6a100936262e40b8331ed332b546f641bcecf58550fb86"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Date">
@@ -82,7 +82,7 @@
                 <outlet property="date" destination="tableViewCell-00-contentView-Date" id="23162fe61eb20c4c978c30c5cfe0a1b28fff1e70a702a6ce6b08f0ed38191d14"/>
                 <outlet property="username" destination="tableViewCell-00-contentView-Username" id="b9cef866961eaa6e00f38435c3e0ff49175a3d57dc851554689d697f4b78bf94"/>
             </connections>
-            <point key="canvasLocation" x="-170" y="-67"/>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </tableViewCell>
     </objects>
     <designables>

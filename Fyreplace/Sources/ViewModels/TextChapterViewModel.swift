@@ -23,17 +23,17 @@ class TextChapterViewModel: ViewModel, TextInputViewModel {
             $0.text = chapterText.value
         }
         let response = chapterService.updateText(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onUpdateChapter(self.chapterText.value) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.textChapterViewModel(self, didUpdateAtPosition: position, withText: self.chapterText.value) }
+        response.whenFailure { self.onError($0) }
     }
 
     private func onError(_ error: Error) {
         isLoading.value = false
-        delegate.onError(error)
+        delegate.viewModel(self, didFailWithError: error)
     }
 }
 
 @objc
 protocol TextChapterViewModelDelegate: ViewModelDelegate {
-    func onUpdateChapter(_ text: String)
+    func textChapterViewModel(_ viewModel: TextChapterViewModel, didUpdateAtPosition position: Int, withText text: String)
 }

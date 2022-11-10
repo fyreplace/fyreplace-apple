@@ -39,11 +39,11 @@ extension ItemRandomAccessListViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if !listDelegate.hasItem(atIndex: indexPath.row) {
+        if !listDelegate.itemRandomAccessListView(self, hasItemAtPosition: indexPath.row) {
             listDelegate.lister.fetch(around: indexPath.row)
         }
 
-        let identifier = listDelegate.itemPreviewType(atIndex: indexPath.row)
+        let identifier = listDelegate.itemRandomAccessListView(self, itemPreviewTypeAtPosition: indexPath.row)
         return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
     }
 }
@@ -53,7 +53,7 @@ extension ItemRandomAccessListViewController: BaseListViewDelegate {
 }
 
 extension ItemRandomAccessListViewController: ItemRandomAccessListerDelegate {
-    func onFetch(count: Int, at index: Int, oldTotal: Int, newTotal: Int) {
+    func itemRandomAccessLister(_ itemLister: ItemRandomAccessListerProtocol, didFetch count: Int, at position: Int, oldTotal: Int, newTotal: Int) {
         guard oldTotal != 0 else { return tableView.reloadData() }
 
         tableView.beginUpdates()
@@ -65,7 +65,7 @@ extension ItemRandomAccessListViewController: ItemRandomAccessListerDelegate {
             tableView.insertRows(at: .init(rows: oldTotal ..< newTotal, section: 0), with: .automatic)
         }
 
-        tableView.reloadRows(at: .init(rows: index ..< index + count, section: 0), with: .automatic)
+        tableView.reloadRows(at: .init(rows: position ..< position + count, section: 0), with: .automatic)
     }
 }
 
@@ -73,7 +73,7 @@ extension ItemRandomAccessListViewController: ItemRandomAccessListerDelegate {
 protocol ItemRandomAccessListViewDelegate: NSObjectProtocol {
     var lister: ItemRandomAccessListerProtocol { get }
 
-    func itemPreviewType(atIndex index: Int) -> String
+    func itemRandomAccessListView(_ listViewController: ItemRandomAccessListViewController, itemPreviewTypeAtPosition position: Int) -> String
 
-    func hasItem(atIndex index: Int) -> Bool
+    func itemRandomAccessListView(_ listViewController: ItemRandomAccessListViewController, hasItemAtPosition position: Int) -> Bool
 }

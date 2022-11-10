@@ -12,25 +12,25 @@ class MainViewModel: ViewModel {
         super.awakeFromNib()
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.connectionNotification)
+            .notifications(forName: FPUser.currentDidConnectNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.shouldReloadCurrentUserNotification)
+            .notifications(forName: FPUser.currentShouldBeReloadedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.blockNotification)
+            .notifications(forName: FPUser.wasBlockedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.unblockNotification)
+            .notifications(forName: FPUser.wasUnblockedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
@@ -45,7 +45,7 @@ class MainViewModel: ViewModel {
         }
         let response = accountService.confirmActivation(request).response
         response.whenSuccess { self.onConfirmActivation(token: $0.token) }
-        response.whenFailure { self.delegate.onError($0, canAutoDisconnect: false) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0, canAutoDisconnect: false) }
     }
 
     func confirmConnection(with token: String) {
@@ -55,28 +55,28 @@ class MainViewModel: ViewModel {
         }
         let response = accountService.confirmConnection(request).response
         response.whenSuccess { self.onConfirmConnection(token: $0.token) }
-        response.whenFailure { self.delegate.onError($0, canAutoDisconnect: false) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0, canAutoDisconnect: false) }
     }
 
     func confirmEmailUpdate(with token: String) {
         let request = FPToken.with { $0.token = token }
         let response = userService.confirmEmailUpdate(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.onConfirmEmailUpdate() }
-        response.whenFailure { self.delegate.onError($0, canAutoDisconnect: false) }
+        response.whenSuccess { _ in self.onConfirmEmailUpdate(token: token) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0, canAutoDisconnect: false) }
     }
 
     func retrieveMe() {
         let request = Google_Protobuf_Empty()
         let response = userService.retrieveMe(request, callOptions: .authenticated).response
         response.whenSuccess { self.setCurrentUser($0) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     func acknowledgeComment(id: Data) {
         let request = FPId.with { $0.id = id }
         let response = commentService.acknowledge(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onAcknowledgeComment() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.mainViewModel(self, didAcknowledgeComment: id) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     func registerToken(token: String) {
@@ -85,29 +85,29 @@ class MainViewModel: ViewModel {
             $0.token = token
         }
         let response = notificationService.registerToken(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onRegisterToken() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.mainViewModel(self, didRegisterToken: token) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     private func onConfirmActivation(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
-            delegate.onConfirmActivation()
+            delegate.mainViewModel(self, didConfirmActivationWithToken: token)
         } else {
-            delegate.onError(KeychainError.set)
+            delegate.viewModel(self, didFailWithError: KeychainError.set)
         }
     }
 
     private func onConfirmConnection(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
-            delegate.onConfirmConnection()
+            delegate.mainViewModel(self, didConfirmConnectionWithToken: token)
         } else {
-            delegate.onError(KeychainError.set)
+            delegate.viewModel(self, didFailWithError: KeychainError.set)
         }
     }
 
-    private func onConfirmEmailUpdate() {
+    private func onConfirmEmailUpdate(token: String) {
         retrieveMe()
-        delegate.onConfirmEmailUpdate()
+        delegate.mainViewModel(self, didConfirmEmailUpdateWithToken: token)
     }
 
     private func tryRetrieveMe() {
@@ -122,13 +122,13 @@ class MainViewModel: ViewModel {
 
 @objc
 protocol MainViewModelDelegate: ViewModelDelegate {
-    func onConfirmActivation()
+    func mainViewModel(_ viewModel: MainViewModel, didConfirmActivationWithToken token: String)
 
-    func onConfirmConnection()
+    func mainViewModel(_ viewModel: MainViewModel, didConfirmConnectionWithToken token: String)
 
-    func onConfirmEmailUpdate()
+    func mainViewModel(_ viewModel: MainViewModel, didConfirmEmailUpdateWithToken token: String)
 
-    func onAcknowledgeComment()
+    func mainViewModel(_ viewModel: MainViewModel, didAcknowledgeComment id: Data)
 
-    func onRegisterToken()
+    func mainViewModel(_ viewModel: MainViewModel, didRegisterToken token: String)
 }

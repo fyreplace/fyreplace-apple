@@ -156,7 +156,7 @@ extension SettingsViewController {
         case 51, 52, 53:
             guard let cell = cell as? EnvironmentTableViewCell else { return }
             UserDefaults.standard.set(cell.hostKey, forKey: "app:environment")
-            NotificationCenter.default.post(name: AppDelegate.environmentChangeNotification, object: self)
+            NotificationCenter.default.post(name: AppDelegate.didChangeEnvironmentNotification, object: self)
 
             for environment in environments {
                 environment.accessoryType = environment == cell ? .checkmark : .none
@@ -180,7 +180,7 @@ extension SettingsViewController {
         )
         var newEmail = ""
         let update = UIAlertAction(title: .tr("Ok"), style: .default) { _ in
-            self.vm.sendEmailUpdateEmail(address: newEmail)
+            self.vm.sendEmailUpdateEmail(email: newEmail)
         }
         let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
 
@@ -241,26 +241,26 @@ extension SettingsViewController {
 }
 
 extension SettingsViewController: SettingsViewModelDelegate {
-    func onUpdateAvatar() {
-        NotificationCenter.default.post(name: FPUser.shouldReloadCurrentUserNotification, object: self)
+    func settingsViewModel(_ viewModel: SettingsViewModel, didUpdateAvatar url: String) {
+        NotificationCenter.default.post(name: FPUser.currentShouldBeReloadedNotification, object: self)
     }
 
-    func onSendEmailUpdateEmail() {
+    func settingsViewModel(_ viewModel: SettingsViewModel, didSendEmailUpdateEmail email: String) {
         presentBasicAlert(text: "Settings.EmailChange.Success")
     }
 
-    func onLogout() {
+    func settingsViewModelDidLogout(_ viewModel: SettingsViewModel) {
         clearImageCache()
         reloadTable()
     }
 
-    func onDelete() {
+    func settingsViewModelDidDelete(_ viewModel: SettingsViewModel) {
         clearImageCache()
         reloadTable()
         presentBasicAlert(text: "Settings.AccountDeletion.Success")
     }
 
-    func errorKey(for code: Int, with message: String?) -> String? {
+    func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {
         case .alreadyExists:
             return "Login.Error.EmailAlreadyExists"
@@ -286,13 +286,9 @@ extension SettingsViewController: SettingsViewModelDelegate {
 extension SettingsViewController: ImageSelectorDelegate {
     var maxImageByteSize: Int { 1024 * 1024 }
 
-    func onImageSelected(_ image: Data) {
+    func imageSelector(_ imageSelector: ImageSelector, didSelectImage image: Data?) {
         vm.updateAvatar(image: image)
     }
 
-    func onImageRemoved() {
-        vm.updateAvatar(image: nil)
-    }
-
-    func onImageSelectionCancelled() {}
+    func didNotSelectImage(_ imageSelector: ImageSelector) {}
 }

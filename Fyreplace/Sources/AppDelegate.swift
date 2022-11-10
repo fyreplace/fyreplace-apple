@@ -4,18 +4,18 @@ import UserNotifications
 
 @main
 class AppDelegate: UIResponder {
-    static let urlOpeningNotification = Notification.Name("AppDelegate.urlOpening")
-    static let environmentChangeNotification = Notification.Name("AppDelegate.environmentChange")
-    static let remoteNotificationTokenNotification = Notification.Name("AppDelegate.remoteNotificationToken")
-    static let remoteNotificationReceptionNotification = Notification.Name("AppDelegate.remoteNotificationReception")
-    static let remoteNotificationClickNotification = Notification.Name("AppDelegate.remoteNotificationClick")
+    static let didOpenUrlNotification = Notification.Name("AppDelegate.didOpenUrl")
+    static let didChangeEnvironmentNotification = Notification.Name("AppDelegate.didChangeEnvironment")
+    static let didUpdateRemoteNotificationTokenNotification = Notification.Name("AppDelegate.didUpdateRemoteNotificationToken")
+    static let didReceiveRemoteNotificationNotification = Notification.Name("AppDelegate.didReceiveRemoteNotification")
+    static let didOpenRemoteNotificationNotification = Notification.Name("AppDelegate.didOpenRemoteNotification")
 
     var window: UIWindow?
     var activityUrl: URL?
 
     func open(url: URL) {
         activityUrl = url
-        NotificationCenter.default.post(name: Self.urlOpeningNotification, object: self, userInfo: ["url": url])
+        NotificationCenter.default.post(name: Self.didOpenUrlNotification, object: self, userInfo: ["url": url])
     }
 }
 
@@ -29,7 +29,7 @@ extension AppDelegate: UIApplicationDelegate {
 
         if let remoteNotification = launchOptions?[.remoteNotification] as? [AnyHashable: Any] {
             NotificationCenter.default.post(
-                name: Self.remoteNotificationClickNotification,
+                name: Self.didOpenRemoteNotificationNotification,
                 object: self,
                 userInfo: remoteNotification
             )
@@ -58,7 +58,7 @@ extension AppDelegate: UIApplicationDelegate {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         NotificationCenter.default.post(
-            name: Self.remoteNotificationTokenNotification,
+            name: Self.didUpdateRemoteNotificationTokenNotification,
             object: self,
             userInfo: ["token": deviceToken.map { String(format: "%02x", $0) }.joined()]
         )
@@ -79,7 +79,7 @@ extension AppDelegate: UIApplicationDelegate {
         switch command {
         case "comment:creation":
             NotificationCenter.default.post(
-                name: FPComment.creationNotification,
+                name: FPComment.wasCreatedNotification,
                 object: self,
                 userInfo: ["item": comment, "postId": postId]
             )
@@ -93,7 +93,7 @@ extension AppDelegate: UIApplicationDelegate {
 
         case "comment:deletion":
             NotificationCenter.default.post(
-                name: FPComment.deletionNotification,
+                name: FPComment.wasDeletedNotification,
                 object: self,
                 userInfo: ["item": comment, "postId": postId]
             )
@@ -123,7 +123,7 @@ extension AppDelegate: UIApplicationDelegate {
         }
 
         NotificationCenter.default.post(
-            name: Self.remoteNotificationReceptionNotification,
+            name: Self.didReceiveRemoteNotificationNotification,
             object: self,
             userInfo: userInfo
         )
@@ -148,7 +148,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let additionalInfo: [String: Any] = ["_completionHandler": completionHandler]
         NotificationCenter.default.post(
-            name: Self.remoteNotificationClickNotification,
+            name: Self.didOpenRemoteNotificationNotification,
             object: self,
             userInfo: response.notification.request.content.userInfo.merging(additionalInfo) { _, new in new }
         )

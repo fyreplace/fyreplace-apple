@@ -18,17 +18,17 @@ class BioViewModel: ViewModel, TextInputViewModel {
         isLoading.value = true
         let request = FPBio.with { $0.bio = bio.value }
         let response = userService.updateBio(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onUpdateBio() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.bioViewModel(self, didUpdateBio: self.bio.value) }
+        response.whenFailure { self.onError($0) }
     }
 
     private func onError(_ error: Error) {
         isLoading.value = false
-        delegate.onError(error)
+        delegate.viewModel(self, didFailWithError: error)
     }
 }
 
 @objc
 protocol BioViewModelDelegate: ViewModelDelegate {
-    func onUpdateBio()
+    func bioViewModel(_ viewModel: BioViewModel, didUpdateBio bio: String)
 }

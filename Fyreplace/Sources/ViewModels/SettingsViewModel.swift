@@ -16,19 +16,19 @@ class SettingsViewModel: ViewModel {
         reloadUser()
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentUserChangeNotification)
+            .notifications(forName: FPUser.currentDidChangeNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in reloadUser() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.blockNotification)
+            .notifications(forName: FPUser.wasBlockedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in blockedUsers.value += 1 }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.unblockNotification)
+            .notifications(forName: FPUser.wasUnblockedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in blockedUsers.value -= 1 }
@@ -37,28 +37,28 @@ class SettingsViewModel: ViewModel {
     func updateAvatar(image: Data?) {
         let stream = userService.updateAvatar(callOptions: .authenticated)
         stream.response.whenSuccess { self.onUpdateAvatar($0) }
-        stream.response.whenFailure { self.delegate.onError($0) }
+        stream.response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
         stream.upload(image)
     }
 
-    func sendEmailUpdateEmail(address: String) {
-        let request = FPEmail.with { $0.email = address }
+    func sendEmailUpdateEmail(email: String) {
+        let request = FPEmail.with { $0.email = email }
         let response = userService.sendEmailUpdateEmail(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onSendEmailUpdateEmail() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.settingsViewModel(self, didSendEmailUpdateEmail: email) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     func logout() {
         let response = accountService.disconnect(FPId(), callOptions: .authenticated).response
         response.whenSuccess { _ in self.onLogout() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     func delete() {
         let request = Google_Protobuf_Empty()
         let response = accountService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onDelete() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     private func reloadUser() {
@@ -67,36 +67,36 @@ class SettingsViewModel: ViewModel {
     }
 
     private func onUpdateAvatar(_ image: FPImage) {
-        delegate.onUpdateAvatar()
+        delegate.settingsViewModel(self, didUpdateAvatar: image.url)
         user.modify { $0?.profile.avatar = image }
     }
 
     private func onLogout() {
         if authToken.delete() {
             setCurrentUser(nil)
-            delegate.onLogout()
+            delegate.settingsViewModelDidLogout(self)
         } else {
-            delegate.onError(KeychainError.delete)
+            delegate.viewModel(self, didFailWithError: KeychainError.delete)
         }
     }
 
     private func onDelete() {
         if authToken.delete() {
             setCurrentUser(nil)
-            delegate.onDelete()
+            delegate.settingsViewModelDidDelete(self)
         } else {
-            delegate.onError(KeychainError.delete)
+            delegate.viewModel(self, didFailWithError: KeychainError.delete)
         }
     }
 }
 
 @objc
 protocol SettingsViewModelDelegate: ViewModelDelegate {
-    func onUpdateAvatar()
+    func settingsViewModel(_ viewModel: SettingsViewModel, didUpdateAvatar url: String)
 
-    func onSendEmailUpdateEmail()
+    func settingsViewModel(_ viewModel: SettingsViewModel, didSendEmailUpdateEmail email: String)
 
-    func onLogout()
+    func settingsViewModelDidLogout(_ viewModel: SettingsViewModel)
 
-    func onDelete()
+    func settingsViewModelDidDelete(_ viewModel: SettingsViewModel)
 }

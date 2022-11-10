@@ -46,7 +46,7 @@
                 <outlet property="avatar" destination="tableViewCell-00-contentView-Avatar" id="f17ef504fb36d9e6ec62186c68801b69c54b0bd9c02a3431feeac96558e133db"/>
                 <outlet property="username" destination="tableViewCell-00-contentView-Username" id="b9cef866961eaa6e00f38435c3e0ff49175a3d57dc851554689d697f4b78bf94"/>
             </connections>
-            <point key="canvasLocation" x="112.8" y="42.118226600985224"/>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </tableViewCell>
     </objects>
     <designables>

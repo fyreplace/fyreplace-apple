@@ -140,30 +140,30 @@ class UserViewController: UIViewController {
 }
 
 extension UserViewController: UserViewModelDelegate {
-    func onBlockUpdate(_ blocked: Bool) {
+    func userViewModel(_ viewModel: UserViewModel, didUpdate id: Data, blocked: Bool) {
         profile.isBlocked = blocked
         NotificationCenter.default.post(
-            name: blocked ? FPUser.blockNotification : FPUser.unblockNotification,
+            name: blocked ? FPUser.wasBlockedNotification : FPUser.wasUnblockedNotification,
             object: self,
             userInfo: ["item": profile!]
         )
     }
 
-    func onReport() {
+    func userViewModel(_ viewModel: UserViewModel, didReport id: Data) {
         presentBasicAlert(text: "User.Report.Success")
     }
 
-    func onBan() {
+    func userViewModel(_ viewModel: UserViewModel, didBan id: Data) {
         profile.isBanned = true
         presentBasicAlert(text: "User.Ban.Success")
         NotificationCenter.default.post(
-            name: FPUser.banNotification,
+            name: FPUser.wasBannedNotification,
             object: self,
             userInfo: ["item": profile!]
         )
     }
 
-    func errorKey(for code: Int, with message: String?) -> String? {
+    func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String? {
         return "Error"
     }
 }

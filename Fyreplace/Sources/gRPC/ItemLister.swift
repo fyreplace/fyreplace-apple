@@ -7,11 +7,11 @@ protocol ItemListerProtocol: BaseListerProtocol {
 
     func fetchMore()
 
-    func insert(_ item: Any, at index: Int)
+    func insert(_ item: Any, at position: Int)
 
-    func update(_ item: Any, at index: Int)
+    func update(_ item: Any, at position: Int)
 
-    func remove(at index: Int)
+    func remove(at position: Int)
 }
 
 class ItemLister<Item, Items, Service>: ItemListerProtocol
@@ -71,16 +71,16 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
         _ = stream.sendMessage(.with { $0.cursor = nextCursor })
     }
 
-    func insert(_ item: Any, at index: Int) {
-        items.insert(item as! Item, at: index)
+    func insert(_ item: Any, at position: Int) {
+        items.insert(item as! Item, at: position)
     }
 
-    func update(_ item: Any, at index: Int) {
-        items[index] = item as! Item
+    func update(_ item: Any, at position: Int) {
+        items[position] = item as! Item
     }
 
-    func remove(at index: Int) {
-        items.remove(at: index)
+    func remove(at position: Int) {
+        items.remove(at: position)
     }
 
     private func onFetch(items: Items) {
@@ -89,7 +89,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
             self.items.append(contentsOf: items.items)
             nextCursor = items.next
             state = items.hasNext ? .incomplete : .complete
-            delegate.onFetch(count: items.items.count)
+            delegate.itemLister(self, didFetch: items.items.count)
         }
     }
 }
@@ -123,5 +123,5 @@ protocol ItemListerService {
 
 @objc
 protocol ItemListerDelegate {
-    func onFetch(count: Int)
+    func itemLister(_ itemLister: ItemListerProtocol, didFetch count: Int)
 }

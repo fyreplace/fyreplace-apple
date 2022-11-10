@@ -132,7 +132,7 @@ class DraftViewController: UITableViewController {
 
     private func postUpdateNotification(_ post: FPPost) {
         NotificationCenter.default.post(
-            name: FPPost.draftUpdateNotification,
+            name: FPPost.draftWasUpdatedNotification,
             object: self,
             userInfo: ["item": post]
         )
@@ -211,15 +211,15 @@ extension DraftViewController {
 }
 
 extension DraftViewController: DraftViewModelDelegate {
-    func onRetrieve() {
+    func draftViewModel(_ viewModel: DraftViewModel, didRetrieve id: Data) {
         DispatchQueue.main.async { self.tableView.reloadData() }
     }
 
-    func onDelete() {
+    func draftViewModel(_ viewModel: DraftViewModel, didDelete id: Data) {
         let preview = vm.post.value!.makePreview()
 
         NotificationCenter.default.post(
-            name: FPPost.draftDeletionNotification,
+            name: FPPost.draftWasDeletedNotification,
             object: self,
             userInfo: ["item": preview]
         )
@@ -229,11 +229,11 @@ extension DraftViewController: DraftViewModelDelegate {
         }
     }
 
-    func onPublish(_ anonymous: Bool) {
+    func draftViewModel(_ viewModel: DraftViewModel, didPublish id: Data, anonymously anonymous: Bool) {
         let preview = vm.post.value!.makePreview(anonymous: anonymous)
 
         NotificationCenter.default.post(
-            name: FPPost.draftPublicationNotification,
+            name: FPPost.draftWasPublishedNotification,
             object: self,
             userInfo: ["item": preview]
         )
@@ -243,7 +243,7 @@ extension DraftViewController: DraftViewModelDelegate {
         }
     }
 
-    func onCreateChapter(_ position: Int, _ isText: Bool) {
+    func draftViewModel(_ viewModel: DraftViewModel, didCreateChapterAtPosition position: Int, inside id: Data, isText: Bool) {
         DispatchQueue.main.async { [self] in
             tableView.insertRows(at: [.init(row: position, section: 0)], with: .automatic)
             currentChapterPosition = position
@@ -256,17 +256,17 @@ extension DraftViewController: DraftViewModelDelegate {
         }
     }
 
-    func onDeleteChapter(_ position: Int) {}
+    func draftViewModel(_ viewModel: DraftViewModel, didDeleteChapterAtPosition position: Int, inside id: Data) {}
 
-    func onUpdateChapter(_ position: Int) {
+    func draftViewModel(_ viewModel: DraftViewModel, didUpdateChapterAtPosition position: Int, inside id: Data) {
         DispatchQueue.main.async { [self] in
-            tableView.reloadRows(at: [.init(row: currentChapterPosition, section: 0)], with: .automatic)
+            tableView.reloadRows(at: [.init(row: position, section: 0)], with: .automatic)
         }
     }
 
-    func onMoveChapter(_ fromPosition: Int, _ toPosition: Int) {}
+    func draftViewModel(_ viewModel: DraftViewModel, didMoveChapterFromPosition fromPosition: Int, toPosition: Int, inside id: Data) {}
 
-    func errorKey(for code: Int, with message: String?) -> String? {
+    func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {
         case .invalidArgument:
             switch message {
@@ -289,15 +289,15 @@ extension DraftViewController: DraftViewModelDelegate {
 extension DraftViewController: ImageSelectorDelegate {
     var maxImageByteSize: Int { 512 * 1024 }
 
-    func onImageSelected(_ image: Data) {
-        vm.updateImageChapter(image, at: currentChapterPosition)
+    func imageSelector(_ imageSelector: ImageSelector, didSelectImage image: Data?) {
+        if let image = image {
+            vm.updateImageChapter(image, at: currentChapterPosition)
+        } else {
+            deleteChapter(at: currentChapterPosition)
+        }
     }
 
-    func onImageRemoved() {
-        deleteChapter(at: currentChapterPosition)
-    }
-
-    func onImageSelectionCancelled() {
+    func didNotSelectImage(_ imageSelector: ImageSelector) {
         if vm.post.value?.chapters[currentChapterPosition].hasImage == false {
             deleteChapter(at: currentChapterPosition)
         }

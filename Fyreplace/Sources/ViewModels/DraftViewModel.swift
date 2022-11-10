@@ -18,7 +18,7 @@ class DraftViewModel: ViewModel {
     override func awakeFromNib() {
         super.awakeFromNib()
         NotificationCenter.default.reactive
-            .notifications(forName: FPPost.draftUpdateNotification)
+            .notifications(forName: FPPost.draftWasUpdatedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onChapterUpdated($0) }
@@ -37,7 +37,7 @@ class DraftViewModel: ViewModel {
         isLoading.value = true
         let request = FPId.with { $0.id = postId }
         let response = postService.delete(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onDelete() }
+        response.whenSuccess { _ in self.delegate.draftViewModel(self, didDelete: self.postId) }
         response.whenFailure { self.onError($0) }
     }
 
@@ -48,7 +48,7 @@ class DraftViewModel: ViewModel {
             $0.anonymous = anonymous
         }
         let response = postService.publish(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onPublish(anonymous) }
+        response.whenSuccess { _ in self.delegate.draftViewModel(self, didPublish: self.postId, anonymously: anonymous) }
         response.whenFailure { self.onError($0) }
     }
 
@@ -111,14 +111,14 @@ class DraftViewModel: ViewModel {
               let text = info["text"] as? String
         else { return }
         post.modify { $0?.chapters[position].text = text }
-        delegate.onUpdateChapter(position)
+        delegate.draftViewModel(self, didUpdateChapterAtPosition: position, inside: postId)
     }
 
     private func onRetrieve(_ post: FPPost) {
         isLoading.value = false
         chapterCount.value = Int(post.chapterCount)
         self.post.value = post
-        delegate.onRetrieve()
+        delegate.draftViewModel(self, didRetrieve: post.id)
     }
 
     private func onCreateChapter(_ position: Int, _ type: ChapterType) {
@@ -127,18 +127,18 @@ class DraftViewModel: ViewModel {
             $0?.chapters.insert(.init(), at: position)
             $0?.chapterCount += 1
         }
-        delegate.onCreateChapter(position, type == .text)
+        delegate.draftViewModel(self, didCreateChapterAtPosition: position, inside: postId, isText: type == .text)
     }
 
     private func onDeleteChapter(_ position: Int) {
         isLoading.value = false
-        delegate.onDeleteChapter(position)
+        delegate.draftViewModel(self, didDeleteChapterAtPosition: position, inside: postId)
     }
 
     private func onUpdateImageChapter(_ position: Int, _ image: FPImage) {
         isLoading.value = false
         post.modify { $0?.chapters[position].image = image }
-        delegate.onUpdateChapter(position)
+        delegate.draftViewModel(self, didUpdateChapterAtPosition: position, inside: postId)
     }
 
     private func onMoveChapter(_ fromPosition: Int, _ toPosition: Int) {
@@ -148,30 +148,30 @@ class DraftViewModel: ViewModel {
             chapters.insert(chapters.remove(at: fromPosition), at: toPosition)
             $0?.chapters = chapters
         }
-        delegate.onMoveChapter(fromPosition, toPosition)
+        delegate.draftViewModel(self, didMoveChapterFromPosition: fromPosition, toPosition: toPosition, inside: postId)
     }
 
     private func onError(_ error: Error) {
         isLoading.value = false
-        delegate.onError(error)
+        delegate.viewModel(self, didFailWithError: error)
     }
 }
 
 @objc
 protocol DraftViewModelDelegate: ViewModelDelegate {
-    func onRetrieve()
+    func draftViewModel(_ viewModel: DraftViewModel, didRetrieve id: Data)
 
-    func onDelete()
+    func draftViewModel(_ viewModel: DraftViewModel, didDelete id: Data)
 
-    func onPublish(_ anonymous: Bool)
+    func draftViewModel(_ viewModel: DraftViewModel, didPublish id: Data, anonymously anonymous: Bool)
 
-    func onCreateChapter(_ position: Int, _ isText: Bool)
+    func draftViewModel(_ viewModel: DraftViewModel, didCreateChapterAtPosition position: Int, inside id: Data, isText: Bool)
 
-    func onDeleteChapter(_ position: Int)
+    func draftViewModel(_ viewModel: DraftViewModel, didDeleteChapterAtPosition position: Int, inside id: Data)
 
-    func onUpdateChapter(_ position: Int)
+    func draftViewModel(_ viewModel: DraftViewModel, didUpdateChapterAtPosition position: Int, inside id: Data)
 
-    func onMoveChapter(_ fromPosition: Int, _ toPosition: Int)
+    func draftViewModel(_ viewModel: DraftViewModel, didMoveChapterFromPosition fromPosition: Int, toPosition: Int, inside id: Data)
 }
 
 enum ChapterType {

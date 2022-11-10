@@ -15,12 +15,12 @@ class ViewModel: NSObject {
         super.init()
         setupServices()
         NotificationCenter.default.reactive
-            .notifications(forName: Rpc.channelChangeNotification)
+            .notifications(forName: Rpc.didChangeChannelNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onChannelChange($0) }
+            .observeValues { [unowned self] in onRpcDidChangeChannel($0) }
     }
 
-    private func onChannelChange(_ notification: Notification) {
+    private func onRpcDidChangeChannel(_ notification: Notification) {
         setupServices()
     }
 
@@ -36,17 +36,17 @@ class ViewModel: NSObject {
 
 @objc
 protocol ViewModelDelegate where Self: UIViewController {
-    func errorKey(for code: Int, with message: String?) -> String?
+    func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String?
 }
 
 extension ViewModelDelegate {
-    func onError(_ error: Error, canAutoDisconnect autoDisconnect: Bool = true) {
+    func viewModel(_ viewModel: ViewModel, didFailWithError error: Error, canAutoDisconnect autoDisconnect: Bool = true) {
         DispatchQueue.main.async {
-            self.onFailure(error, canAutoDisconnect: autoDisconnect)
+            self.onFailure(viewModel: viewModel, error: error, canAutoDisconnect: autoDisconnect)
         }
     }
 
-    func onFailure(_ error: Error, canAutoDisconnect autoDisconnect: Bool) {
+    private func onFailure(viewModel: ViewModel, error: Error, canAutoDisconnect autoDisconnect: Bool) {
         let key: String?
         guard let status = error as? GRPCStatus else {
             return presentBasicAlert(text: "Error", feedback: .error)
@@ -64,11 +64,11 @@ extension ViewModelDelegate {
                     setCurrentUser(nil)
                 }
             } else {
-                key = errorKey(for: status.code.rawValue, with: status.message)
+                key = self.viewModel(viewModel, errorKeyForCode: status.code.rawValue, withMessage: status.message)
             }
 
         default:
-            key = errorKey(for: status.code.rawValue, with: status.message)
+            key = self.viewModel(viewModel, errorKeyForCode: status.code.rawValue, withMessage: status.message)
         }
 
         if let key = key {

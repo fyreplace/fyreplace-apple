@@ -24,7 +24,7 @@ class CommentViewController: TextInputViewController {
 }
 
 extension CommentViewController: CommentViewModelDelegate {
-    func onCreate(_ id: Data) {
+    func commentViewModel(_ viewModel: CommentViewModel, didCreate id: Data) {
         let comment = FPComment.with {
             $0.id = id
             $0.text = vm.comment.value
@@ -32,7 +32,7 @@ extension CommentViewController: CommentViewModelDelegate {
             $0.dateCreated = .init(date: .init())
         }
         NotificationCenter.default.post(
-            name: FPComment.creationNotification,
+            name: FPComment.wasCreatedNotification,
             object: self,
             userInfo: ["item": comment, "postId": postId!, "byCurrentUser": true]
         )
@@ -40,7 +40,7 @@ extension CommentViewController: CommentViewModelDelegate {
         DispatchQueue.main.async { self.dismiss(animated: true) }
     }
 
-    func errorKey(for code: Int, with message: String?) -> String? {
+    func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {
         case .permissionDenied:
             return "Comment.Error.Blocked"

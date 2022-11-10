@@ -44,7 +44,7 @@
                 <outlet property="parts" destination="tableViewCell-00-contentView-parts" id="ac412c9499596ad11353b4b0f0523bf2a6bd8cff803fa301784866a6d661bb61"/>
                 <outlet property="preview" destination="tableViewCell-00-contentView-Preview" id="1ce683f5f4190009de6bf548d01a3c73751ebd6bf3606c9c52f85d4d8750d201"/>
             </connections>
-            <point key="canvasLocation" x="36" y="20"/>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </tableViewCell>
     </objects>
     <resources>

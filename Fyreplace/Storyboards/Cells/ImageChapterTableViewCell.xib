@@ -30,7 +30,7 @@
             <connections>
                 <outlet property="content" destination="tableViewCell-00-contentView-imageView" id="7da8d9ae0ca7d72e130723b551566037a466335738a27627d05e6e2452b95fed"/>
             </connections>
-            <point key="canvasLocation" x="-130" y="24"/>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </tableViewCell>
     </objects>
 </document>

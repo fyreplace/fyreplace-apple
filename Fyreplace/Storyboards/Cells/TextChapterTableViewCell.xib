@@ -34,7 +34,7 @@
             <connections>
                 <outlet property="content" destination="tableViewCell-00-contentView-Empty" id="7da8d9ae0ca7d72e130723b551566037a466335738a27627d05e6e2452b95fed"/>
             </connections>
-            <point key="canvasLocation" x="35.877862595419849" y="32.394366197183103"/>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </tableViewCell>
     </objects>
     <resources>

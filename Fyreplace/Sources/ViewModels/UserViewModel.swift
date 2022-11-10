@@ -13,29 +13,32 @@ class UserViewModel: ViewModel {
         let request = FPId.with { $0.id = id }
         let response = userService.retrieve(request, callOptions: .authenticated).response
         response.whenSuccess(onRetrieve(_:))
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     func updateBlock(blocked: Bool) {
+        let id = user.value!.profile.id
         let request = FPBlock.with {
-            $0.id = user.value!.profile.id
+            $0.id = id
             $0.blocked = blocked
         }
         let response = userService.updateBlock(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.onBlockUpdate(blocked) }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.onBlockUpdate(id: id, blocked: blocked) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     func report() {
-        let request = FPId.with { $0.id = user.value!.profile.id }
+        let id = user.value!.profile.id
+        let request = FPId.with { $0.id = id }
         let response = userService.report(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onReport() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.userViewModel(self, didReport: id) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     func ban(for sentence: BanSentence) {
+        let id = user.value!.profile.id
         let request = FPBanSentence.with {
-            $0.id = user.value!.profile.id
+            $0.id = id
 
             switch sentence {
             case .week: $0.days = 7
@@ -44,8 +47,8 @@ class UserViewModel: ViewModel {
             }
         }
         let response = userService.ban(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.onBan() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.onBan(id: id) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     private func onRetrieve(_ user: FPUser) {
@@ -54,24 +57,24 @@ class UserViewModel: ViewModel {
         banned.value = user.profile.isBanned
     }
 
-    private func onBlockUpdate(_ blocked: Bool) {
+    private func onBlockUpdate(id: Data, blocked: Bool) {
         self.blocked.value = blocked
-        delegate.onBlockUpdate(blocked)
+        delegate.userViewModel(self, didUpdate: id, blocked: blocked)
     }
 
-    private func onBan() {
+    private func onBan(id: Data) {
         banned.value = true
-        delegate.onBan()
+        delegate.userViewModel(self, didBan: id)
     }
 }
 
 @objc
 protocol UserViewModelDelegate: ViewModelDelegate {
-    func onBlockUpdate(_ blocked: Bool)
+    func userViewModel(_ viewModel: UserViewModel, didUpdate id: Data, blocked: Bool)
 
-    func onReport()
+    func userViewModel(_ viewModel: UserViewModel, didReport id: Data)
 
-    func onBan()
+    func userViewModel(_ viewModel: UserViewModel, didBan id: Data)
 }
 
 enum BanSentence {

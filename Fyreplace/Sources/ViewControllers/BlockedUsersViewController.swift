@@ -11,15 +11,15 @@ class BlockedUsersViewController: ItemListViewController {
     var done: UIBarButtonItem!
 
     override var additionNotifications: [Notification.Name] {
-        [FPUser.blockNotification]
+        [FPUser.wasBlockedNotification]
     }
 
     override var updateNotifications: [Notification.Name] {
-        [FPUser.banNotification]
+        [FPUser.wasBannedNotification]
     }
 
-    override var deletionNotifications: [Notification.Name] {
-        [FPUser.unblockNotification]
+    override var removalNotifications: [Notification.Name] {
+        [FPUser.wasUnblockedNotification]
     }
 
     override func viewDidLoad() {
@@ -43,9 +43,9 @@ class BlockedUsersViewController: ItemListViewController {
 
         if let userNavigationController = segue.destination as? UserNavigationViewController,
            let cell = sender as? UITableViewCell,
-           let index = tableView.indexPath(for: cell)?.row
+           let position = tableView.indexPath(for: cell)?.row
         {
-            userNavigationController.profile = vm.blockedUser(at: index)
+            userNavigationController.profile = vm.blockedUser(at: position)
         }
     }
 
@@ -97,12 +97,12 @@ extension BlockedUsersViewController {
 
     private func block(profile: FPProfile, at indexPath: IndexPath) {
         vm.updateBlock(userId: profile.id, blocked: true, at: indexPath.row)
-        addItem(profile, at: indexPath, becauseOf: .init(name: FPUser.blockNotification))
+        addItem(profile, at: indexPath, becauseOf: .init(name: FPUser.wasBlockedNotification))
     }
 
     private func unblock(profile: FPProfile, at indexPath: IndexPath) {
         vm.updateBlock(userId: profile.id, blocked: false, at: indexPath.row)
-        deleteItem(profile, at: indexPath, becauseOf: .init(name: FPUser.unblockNotification))
+        removeItem(profile, at: indexPath, becauseOf: .init(name: FPUser.wasUnblockedNotification))
     }
 
     private func setupUndo(for profile: FPProfile, at indexPath: IndexPath) {
@@ -119,5 +119,5 @@ extension BlockedUsersViewController {
 }
 
 extension BlockedUsersViewController: BlockedUsersViewModelDelegate {
-    func onUpdateBlock(_ blocked: Bool, at index: Int) {}
+    func blockedUsersViewModel(_ viewModel: BlockedUsersViewModel, didUpdateAtPosition position: Int, blocked: Bool) {}
 }

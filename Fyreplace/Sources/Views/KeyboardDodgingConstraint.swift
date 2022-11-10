@@ -12,20 +12,20 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
         NotificationCenter.default.reactive
             .notifications(forName: UIDevice.orientationDidChangeNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onOrientationDidChange($0) }
+            .observeValues { [unowned self] in onDeviceOrientationDidChange($0) }
 
         NotificationCenter.default.reactive
             .notifications(forName: UIWindow.keyboardWillShowNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onKeyboardWillShow($0) }
+            .observeValues { [unowned self] in onWindowKeyboardWillShow($0) }
 
         NotificationCenter.default.reactive
             .notifications(forName: UIWindow.keyboardWillHideNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onKeyboardWillHide($0) }
+            .observeValues { [unowned self] in onWindowKeyboardWillHide($0) }
     }
 
-    private func onOrientationDidChange(_ notification: Notification) {
+    private func onDeviceOrientationDidChange(_ notification: Notification) {
         let currentOrientation = UIDevice.current.orientation
         guard currentOrientation != lastOrientation else { return }
         lastOrientation = currentOrientation
@@ -35,7 +35,7 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
         }
     }
 
-    private func onKeyboardWillShow(_ notification: Notification) {
+    private func onWindowKeyboardWillShow(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
               let frameValue = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)
         else { return }
@@ -48,7 +48,7 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
         keyboardChanged(height: keyboardSize.height, info: userInfo)
     }
 
-    private func onKeyboardWillHide(_ notification: Notification) {
+    private func onWindowKeyboardWillHide(_ notification: Notification) {
         keyboardChanged(height: 0, info: notification.userInfo)
     }
 

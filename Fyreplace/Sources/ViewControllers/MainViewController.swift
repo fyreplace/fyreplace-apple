@@ -14,55 +14,55 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
 
         NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.urlOpeningNotification)
+            .notifications(forName: AppDelegate.didOpenUrlNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onUrlOpening($0) }
+            .observeValues { [unowned self] in onAppDidOpenUrl($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.remoteNotificationTokenNotification)
+            .notifications(forName: AppDelegate.didUpdateRemoteNotificationTokenNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onRemoteNotificationToken($0) }
+            .observeValues { [unowned self] in onAppDidUpdateRemoteNotificationToken($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.remoteNotificationReceptionNotification)
+            .notifications(forName: AppDelegate.didReceiveRemoteNotificationNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onRemoteNotificationReception($0) }
+            .observeValues { [unowned self] in onAppDidReceiveRemoteNotification($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.remoteNotificationClickNotification)
+            .notifications(forName: AppDelegate.didOpenRemoteNotificationNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onRemoteNotificationClick($0) }
+            .observeValues { [unowned self] in onAppDidOpenRemoteNotification($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.registrationEmailNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onUserRegistrationEmail($0) }
-
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.connectionEmailNotification)
+            .notifications(forName: FPUser.currentDidSendRegistrationEmailNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onUserConnectionEmail($0) }
+            .observeValues { [unowned self] in onCurrentUserDidSendRegistrationEmail($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentUserChangeNotification)
+            .notifications(forName: FPUser.currentDidSendConnectionEmailNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCurrentUserChange($0) }
+            .observeValues { [unowned self] in onCurrentUserDidSendConnectionEmail($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPPost.notFoundNotification)
+            .notifications(forName: FPUser.currentDidChangeNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onPostNotFound($0) }
+            .observeValues { [unowned self] in onCurrentUserDidChange($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPComment.seenNotification)
+            .notifications(forName: FPPost.wasNotFoundNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onPostWasNotFound($0) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: FPComment.wasSeenNotification)
             .debounce(1, on: QueueScheduler.main)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCommentSeen($0) }
+            .observeValues { [unowned self] in onCommentWasSeen($0) }
 
         toggleAuthenticatedTabs(enabled: currentUser != nil)
     }
@@ -77,7 +77,7 @@ class MainViewController: UITabBarController {
         handle(url: url)
     }
 
-    private func onUrlOpening(_ notification: Notification) {
+    private func onAppDidOpenUrl(_ notification: Notification) {
         guard let url = notification.userInfo?["url"] as? URL else {
             return presentBasicAlert(text: "Main.Error.MalformedUrl", feedback: .error)
         }
@@ -85,14 +85,14 @@ class MainViewController: UITabBarController {
         handle(url: url)
     }
 
-    private func onRemoteNotificationToken(_ notification: Notification) {
+    private func onAppDidUpdateRemoteNotificationToken(_ notification: Notification) {
         guard let info = notification.userInfo,
               let token = info["token"] as? String
         else { return }
         vm.registerToken(token: token)
     }
 
-    private func onRemoteNotificationReception(_ notification: Notification) {
+    private func onAppDidReceiveRemoteNotification(_ notification: Notification) {
         guard UIApplication.shared.applicationState != .background,
               let info = notification.userInfo,
               info["_command"] as? String == "comment:creation",
@@ -118,7 +118,7 @@ class MainViewController: UITabBarController {
         createUserNotification(withIdentifier: comment.id.base64ShortString, withContent: content)
     }
 
-    private func onRemoteNotificationClick(_ notification: Notification) {
+    private func onAppDidOpenRemoteNotification(_ notification: Notification) {
         guard let info = notification.userInfo else { return }
         let completionHandler = info["_completionHandler"] as? () -> Void
         defer { completionHandler?() }
@@ -130,15 +130,15 @@ class MainViewController: UITabBarController {
         presentPost(id: postId)
     }
 
-    private func onUserRegistrationEmail(_ notification: Notification) {
+    private func onCurrentUserDidSendRegistrationEmail(_ notification: Notification) {
         presentBasicAlert(text: "Main.AccountCreated")
     }
 
-    private func onUserConnectionEmail(_ notification: Notification) {
+    private func onCurrentUserDidSendConnectionEmail(_ notification: Notification) {
         presentBasicAlert(text: "Main.Connection")
     }
 
-    private func onCurrentUserChange(_ notification: Notification) {
+    private func onCurrentUserDidChange(_ notification: Notification) {
         guard let info = notification.userInfo,
               let connected = info["connected"] as? Bool
         else { return }
@@ -155,11 +155,11 @@ class MainViewController: UITabBarController {
         }
     }
 
-    private func onPostNotFound(_ notification: Notification) {
+    private func onPostWasNotFound(_ notification: Notification) {
         (selectedViewController as? UINavigationController)?.popViewController(animated: true)
     }
 
-    private func onCommentSeen(_ notification: Notification) {
+    private func onCommentWasSeen(_ notification: Notification) {
         guard let info = notification.userInfo,
               let commentId = info["id"] as? Data
         else { return }
@@ -247,25 +247,25 @@ class MainViewController: UITabBarController {
 }
 
 extension MainViewController: MainViewModelDelegate {
-    func onConfirmActivation() {
-        NotificationCenter.default.post(name: FPUser.connectionNotification, object: self)
+    func mainViewModel(_ viewModel: MainViewModel, didConfirmActivationWithToken token: String) {
+        NotificationCenter.default.post(name: FPUser.currentDidConnectNotification, object: self)
         presentBasicAlert(text: "Main.AccountActivated", then: requestNotificationAuthorization)
     }
 
-    func onConfirmConnection() {
-        NotificationCenter.default.post(name: FPUser.connectionNotification, object: self)
+    func mainViewModel(_ viewModel: MainViewModel, didConfirmConnectionWithToken token: String) {
+        NotificationCenter.default.post(name: FPUser.currentDidConnectNotification, object: self)
         requestNotificationAuthorization()
     }
 
-    func onConfirmEmailUpdate() {
+    func mainViewModel(_ viewModel: MainViewModel, didConfirmEmailUpdateWithToken token: String) {
         presentBasicAlert(text: "Main.EmailChanged")
     }
 
-    func onAcknowledgeComment() {}
+    func mainViewModel(_ viewModel: MainViewModel, didAcknowledgeComment id: Data) {}
 
-    func onRegisterToken() {}
+    func mainViewModel(_ viewModel: MainViewModel, didRegisterToken token: String) {}
 
-    func errorKey(for code: Int, with message: String?) -> String? {
+    func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {
         case .unauthenticated:
             return ["timestamp_exceeded", "invalid_token"].contains(message)

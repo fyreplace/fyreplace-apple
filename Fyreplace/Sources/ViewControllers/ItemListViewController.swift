@@ -17,10 +17,10 @@ class ItemListViewController: BaseListViewController {
             .observeValues { [unowned self] _ in onRefresh() }
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentUserChangeNotification)
+            .notifications(forName: FPUser.currentDidChangeNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCurrentUserChange($0) }
+            .observeValues { [unowned self] in onCurrentUserDidChange($0) }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -48,9 +48,9 @@ class ItemListViewController: BaseListViewController {
         super.updateItem(item, at: indexPath, becauseOf: reason)
     }
 
-    override func deleteItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
+    override func removeItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
         listDelegate.lister.remove(at: indexPath.row)
-        super.deleteItem(item, at: indexPath, becauseOf: reason)
+        super.removeItem(item, at: indexPath, becauseOf: reason)
     }
 
     func refreshListing() {
@@ -67,7 +67,7 @@ class ItemListViewController: BaseListViewController {
         refreshListing()
     }
 
-    private func onCurrentUserChange(_ notification: Notification) {
+    private func onCurrentUserDidChange(_ notification: Notification) {
         guard let info = notification.userInfo,
               let connected = info["connected"] as? Bool,
               !connected
@@ -89,7 +89,7 @@ extension ItemListViewController {
             listDelegate.lister.fetchMore()
         }
 
-        let identifier = listDelegate.itemPreviewType(atIndex: indexPath.row)
+        let identifier = listDelegate.itemListView(self, itemPreviewTypeAtPosition: indexPath.row)
         return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
     }
 
@@ -99,7 +99,7 @@ extension ItemListViewController {
 }
 
 extension ItemListViewController: ViewModelDelegate {
-    func errorKey(for code: Int, with message: String?) -> String? {
+    func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String? {
         return "Error"
     }
 }
@@ -109,7 +109,7 @@ extension ItemListViewController: BaseListViewDelegate {
 }
 
 extension ItemListViewController: ItemListerDelegate {
-    func onFetch(count: Int) {
+    func itemLister(_ itemLister: ItemListerProtocol, didFetch count: Int) {
         if refreshControl?.isRefreshing == true {
             refreshControl?.endRefreshing()
         }
@@ -123,5 +123,5 @@ extension ItemListViewController: ItemListerDelegate {
 protocol ItemListViewDelegate: NSObjectProtocol {
     var lister: ItemListerProtocol { get }
 
-    func itemPreviewType(atIndex index: Int) -> String
+    func itemListView(_ listViewController: ItemListViewController, itemPreviewTypeAtPosition position: Int) -> String
 }

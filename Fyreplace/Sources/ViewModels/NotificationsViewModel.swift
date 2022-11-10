@@ -15,20 +15,20 @@ class NotificationsViewModel: ViewModel {
         super.awakeFromNib()
 
         NotificationCenter.default.reactive
-            .notifications(forName: FPComment.seenNotification)
+            .notifications(forName: FPComment.wasSeenNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCommentSeen($0) }
+            .observeValues { [unowned self] in onCommentWasSeen($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.remoteNotificationReceptionNotification)
+            .notifications(forName: AppDelegate.didReceiveRemoteNotificationNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onRemoteNotificationReception($0) }
+            .observeValues { [unowned self] in onAppDidReceiveRemoteNotification($0) }
     }
 
-    func notification(atIndex index: Int) -> FPNotification {
-        return notificationLister.items[index]
+    func notification(at position: Int) -> FPNotification {
+        return notificationLister.items[position]
     }
 
     func absolve(notification: FPNotification) {
@@ -50,25 +50,25 @@ class NotificationsViewModel: ViewModel {
     private func absolveUser(id: Data) {
         let request = FPId.with { $0.id = id }
         let response = userService.absolve(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onAbsolveUser() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.notificationsViewModel(self, didAbsolveUser: id) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     private func absolvePost(id: Data) {
         let request = FPId.with { $0.id = id }
         let response = postService.absolve(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onAbsolvePost() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.notificationsViewModel(self, didAbsolvePost: id) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
     private func absolveComment(id: Data) {
         let request = FPId.with { $0.id = id }
         let response = commentService.absolve(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.onAbsolveComment() }
-        response.whenFailure { self.delegate.onError($0) }
+        response.whenSuccess { _ in self.delegate.notificationsViewModel(self, didAbsolveComment: id) }
+        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
-    private func onCommentSeen(_ notification: Notification) {
+    private func onCommentWasSeen(_ notification: Notification) {
         guard let info = notification.userInfo,
               let postId = info["postId"] as? Data,
               let commentsLeft = info["commentsLeft"] as? Int
@@ -76,7 +76,7 @@ class NotificationsViewModel: ViewModel {
         var postNotification = FPNotification.with { $0.post = .with { $0.id = postId } }
         let position = lister.getPosition(for: postNotification)
         guard position != -1 else { return }
-        postNotification = self.notification(atIndex: position)
+        postNotification = self.notification(at: position)
         guard commentsLeft < postNotification.count,
               postId == postNotification.post.id
         else { return }
@@ -84,10 +84,10 @@ class NotificationsViewModel: ViewModel {
         let notificationName: Notification.Name
 
         if commentsLeft == 0 {
-            notificationName = FPNotification.deletionNotification
+            notificationName = FPNotification.wasDeletedNotification
         } else {
             postNotification.count = UInt32(commentsLeft)
-            notificationName = FPNotification.updateNotification
+            notificationName = FPNotification.wasUpdatedNotification
         }
 
         NotificationCenter.default.post(
@@ -97,7 +97,7 @@ class NotificationsViewModel: ViewModel {
         )
     }
 
-    private func onRemoteNotificationReception(_ notification: Notification) {
+    private func onAppDidReceiveRemoteNotification(_ notification: Notification) {
         guard let info = notification.userInfo,
               let command = info["_command"] as? String,
               let postIdString = info["postId"] as? String,
@@ -108,16 +108,16 @@ class NotificationsViewModel: ViewModel {
 
         if position == -1 {
             return NotificationCenter.default.post(
-                name: FPNotification.creationNotification,
+                name: FPNotification.wasCreatedNotification,
                 object: self
             )
         }
 
-        var postNotification = self.notification(atIndex: position)
+        var postNotification = self.notification(at: position)
 
         if postNotification.count == 1, command == "comment:deletion" {
             return NotificationCenter.default.post(
-                name: FPNotification.deletionNotification,
+                name: FPNotification.wasDeletedNotification,
                 object: self,
                 userInfo: ["item": postNotification]
             )
@@ -130,7 +130,7 @@ class NotificationsViewModel: ViewModel {
         }
 
         NotificationCenter.default.post(
-            name: FPNotification.updateNotification,
+            name: FPNotification.wasUpdatedNotification,
             object: self,
             userInfo: ["item": postNotification]
         )
@@ -140,8 +140,8 @@ class NotificationsViewModel: ViewModel {
 extension NotificationsViewModel: ItemListViewDelegate {
     var lister: ItemListerProtocol { notificationLister }
 
-    func itemPreviewType(atIndex index: Int) -> String {
-        let notification = notification(atIndex: index)
+    func itemListView(_ listViewController: ItemListViewController, itemPreviewTypeAtPosition position: Int) -> String {
+        let notification = notification(at: position)
 
         switch notification.target! {
         case .user:
@@ -158,9 +158,9 @@ extension NotificationsViewModel: ItemListViewDelegate {
 
 @objc
 protocol NotificationsViewModelDelegate: ViewModelDelegate, ItemListerDelegate {
-    func onAbsolveUser()
+    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolveUser id: Data)
 
-    func onAbsolvePost()
+    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolvePost id: Data)
 
-    func onAbsolveComment()
+    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolveComment id: Data)
 }

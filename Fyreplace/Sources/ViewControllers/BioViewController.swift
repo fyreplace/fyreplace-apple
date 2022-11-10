@@ -21,12 +21,12 @@ class BioViewController: TextInputViewController {
 }
 
 extension BioViewController: BioViewModelDelegate {
-    func onUpdateBio() {
-        NotificationCenter.default.post(name: FPUser.shouldReloadCurrentUserNotification, object: self)
+    func bioViewModel(_ viewModel: BioViewModel, didUpdateBio bio: String) {
+        NotificationCenter.default.post(name: FPUser.currentShouldBeReloadedNotification, object: self)
         DispatchQueue.main.async { self.dismiss(animated: true) }
     }
 
-    func errorKey(for code: Int, with message: String?) -> String? {
+    func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {
         case .invalidArgument:
             return content.text.count > maxContentLength

@@ -3,25 +3,25 @@ import GRPC
 import ReactiveSwift
 
 class Rpc: NSObject {
-    static let channelChangeNotification = Notification.Name("Rpc.channelChange")
+    static let didChangeChannelNotification = Notification.Name("Rpc.channelChange")
     private let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
     lazy var channel: ClientConnection = makeChannel()
 
     override init() {
         super.init()
         NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.environmentChangeNotification)
+            .notifications(forName: AppDelegate.didChangeEnvironmentNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onEnvironmentChange($0) }
+            .observeValues { [unowned self] in onAppDidChangeEnvironment($0) }
     }
 
     deinit {
         try? group.syncShutdownGracefully()
     }
 
-    private func onEnvironmentChange(_ notification: Notification) {
+    private func onAppDidChangeEnvironment(_ notification: Notification) {
         channel = makeChannel()
-        NotificationCenter.default.post(name: Self.channelChangeNotification, object: self)
+        NotificationCenter.default.post(name: Self.didChangeChannelNotification, object: self)
     }
 
     private func makeChannel() -> ClientConnection {

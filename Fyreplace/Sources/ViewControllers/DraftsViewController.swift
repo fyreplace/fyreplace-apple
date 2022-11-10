@@ -13,15 +13,15 @@ class DraftsViewController: ItemListViewController {
     private var createdPostId = Data()
 
     override var additionNotifications: [Notification.Name] {
-        [FPPost.draftCreationNotification]
+        [FPPost.draftWasCreatedNotification]
     }
 
     override var updateNotifications: [Notification.Name] {
-        [FPPost.draftUpdateNotification]
+        [FPPost.draftWasUpdatedNotification]
     }
 
-    override var deletionNotifications: [Notification.Name] {
-        [FPPost.draftDeletionNotification, FPPost.draftPublicationNotification]
+    override var removalNotifications: [Notification.Name] {
+        [FPPost.draftWasDeletedNotification, FPPost.draftWasPublishedNotification]
     }
 
     override func viewDidLoad() {
@@ -38,9 +38,9 @@ class DraftsViewController: ItemListViewController {
 
         if let draftController = segue.destination as? DraftViewController {
             if let cell = sender as? UITableViewCell,
-               let index = tableView.indexPath(for: cell)?.row
+               let position = tableView.indexPath(for: cell)?.row
             {
-                draftController.post = vm.post(atIndex: index)
+                draftController.post = vm.post(at: position)
             } else {
                 draftController.post = .with { $0.id = createdPostId }
             }
@@ -56,7 +56,7 @@ class DraftsViewController: ItemListViewController {
 extension DraftsViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        (cell as? DraftTableViewCell)?.setup(withDraft: vm.post(atIndex: indexPath.row))
+        (cell as? DraftTableViewCell)?.setup(withDraft: vm.post(at: indexPath.row))
         return cell
     }
 
@@ -65,9 +65,9 @@ extension DraftsViewController {
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let post = vm.post(atIndex: indexPath.row)
+        let post = vm.post(at: indexPath.row)
         vm.delete(post.id)
-        deleteItem(post, at: indexPath, becauseOf: .init(name: FPPost.draftDeletionNotification))
+        removeItem(post, at: indexPath, becauseOf: .init(name: FPPost.draftWasDeletedNotification))
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -77,9 +77,9 @@ extension DraftsViewController {
 }
 
 extension DraftsViewController: DraftsViewModelDelegate {
-    func onCreate(_ id: Data) {
+    func draftsViewModel(_ viewModel: DraftsViewModel, didCreate id: Data) {
         NotificationCenter.default.post(
-            name: FPPost.draftCreationNotification,
+            name: FPPost.draftWasCreatedNotification,
             object: self,
             userInfo: ["item": FPPost.with { $0.id = id }]
         )
@@ -90,5 +90,5 @@ extension DraftsViewController: DraftsViewModelDelegate {
         }
     }
 
-    func onDelete() {}
+    func draftsViewModel(_ viewModel: DraftsViewModel, didDelete id: Data) {}
 }

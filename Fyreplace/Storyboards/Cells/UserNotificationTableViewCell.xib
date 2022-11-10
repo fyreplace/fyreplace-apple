@@ -54,7 +54,7 @@
                 <outlet property="count" destination="tableViewCell-00-contentView-Count" id="688a7ae9ce6953e6ed2dbba0b12586685a756b55c0f275532e985194fc7b1b85"/>
                 <outlet property="username" destination="tableViewCell-00-contentView-Username" id="b9cef866961eaa6e00f38435c3e0ff49175a3d57dc851554689d697f4b78bf94"/>
             </connections>
-            <point key="canvasLocation" x="36" y="20"/>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </tableViewCell>
     </objects>
     <designables>
