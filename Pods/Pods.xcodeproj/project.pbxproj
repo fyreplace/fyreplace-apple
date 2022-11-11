@@ -2563,7 +2563,7 @@
 		13101CE50518829762919ED1E79FB1C3 /* p256-nistz-table.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "p256-nistz-table.h"; path = "Sources/CNIOBoringSSL/crypto/fipsmodule/ec/p256-nistz-table.h"; sourceTree = "<group>"; };
 		132D387314C9E98C5605A89C008A9EAF /* ObjCRuntimeAliases.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ObjCRuntimeAliases.h; path = ReactiveCocoaObjC/include/ObjCRuntimeAliases.h; sourceTree = "<group>"; };
 		133A3FCAC20AFB3825BD412745FD1C82 /* i2d_pr.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = i2d_pr.c; path = Sources/CNIOBoringSSL/crypto/x509/i2d_pr.c; sourceTree = "<group>"; };
-		134C82C2AF26C1F6D1FA6484A52A0FF4 /* NIOHTTP1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOHTTP1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		134C82C2AF26C1F6D1FA6484A52A0FF4 /* SwiftNIOHTTP1 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOHTTP1; path = NIOHTTP1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13500CF52600192E0025EC49F36BF6E7 /* t_crl.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = t_crl.c; path = Sources/CNIOBoringSSL/crypto/x509/t_crl.c; sourceTree = "<group>"; };
 		13804F39C078F7C5FF3AB1029C88BCD1 /* UIGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIGestureRecognizer.swift; path = ReactiveCocoa/UIKit/UIGestureRecognizer.swift; sourceTree = "<group>"; };
 		13D0DDB2257282E65BA76778D79FD3F1 /* forkunsafe.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = forkunsafe.c; path = Sources/CNIOBoringSSL/crypto/rand_extra/forkunsafe.c; sourceTree = "<group>"; };
@@ -2605,7 +2605,7 @@
 		1AEE66A127E609E656F99F3A07E641AF /* ByteBuffer-multi-int.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ByteBuffer-multi-int.swift"; path = "Sources/NIOCore/ByteBuffer-multi-int.swift"; sourceTree = "<group>"; };
 		1AF1E58C04D844A071911D055F359902 /* unicode.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = unicode.c; path = Sources/CNIOBoringSSL/crypto/bytestring/unicode.c; sourceTree = "<group>"; };
 		1C0BFDE0328F55931EFA6AD8819CE677 /* PassthroughMessageSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PassthroughMessageSource.swift; path = Sources/GRPC/AsyncAwaitSupport/PassthroughMessageSource.swift; sourceTree = "<group>"; };
-		1C28BA3A3A3D7E0630D7850B2EA9BBE2 /* GRPC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GRPC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C28BA3A3A3D7E0630D7850B2EA9BBE2 /* gRPC-Swift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "gRPC-Swift"; path = GRPC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6FD893C8293FD78B46D448C43B4C5D /* CNIOBoringSSL_lhash.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CNIOBoringSSL_lhash.h; path = Sources/CNIOBoringSSL/include/CNIOBoringSSL_lhash.h; sourceTree = "<group>"; };
 		1C957D21DCB5A2F69C7B67D0D1D0BD04 /* LinuxCPUSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinuxCPUSet.swift; path = Sources/NIOPosix/LinuxCPUSet.swift; sourceTree = "<group>"; };
 		1CB550837FB1CFD78507BA3734BFA142 /* SignalProducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SignalProducer.swift; path = Sources/SignalProducer.swift; sourceTree = "<group>"; };
@@ -2690,7 +2690,7 @@
 		292DCBD2627BCB01AA21B1E4A3620954 /* ImageProgressive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProgressive.swift; path = Sources/Image/ImageProgressive.swift; sourceTree = "<group>"; };
 		299BED002362B04947DF2ADB31A50464 /* BaseSocketChannel+SocketOptionProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BaseSocketChannel+SocketOptionProvider.swift"; path = "Sources/NIOPosix/BaseSocketChannel+SocketOptionProvider.swift"; sourceTree = "<group>"; };
 		29C088865753517E627CF0B45BEF6B21 /* _MessageContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = _MessageContext.swift; path = Sources/GRPC/_MessageContext.swift; sourceTree = "<group>"; };
-		2A4CC298CC8CF90A2A7FAFA7D74BD1CF /* NIOHTTP2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOHTTP2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A4CC298CC8CF90A2A7FAFA7D74BD1CF /* SwiftNIOHTTP2 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOHTTP2; path = NIOHTTP2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A961C1821F61E97FFB4071EB8C8177A /* cpu_arm.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = cpu_arm.c; path = Sources/CNIOBoringSSL/crypto/cpu_arm.c; sourceTree = "<group>"; };
 		2AA532460D9E2DA0291CD8868E0B207C /* ThreadPosix.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadPosix.swift; path = Sources/NIOPosix/ThreadPosix.swift; sourceTree = "<group>"; };
 		2AD662B10E16F020DC15B6A66BEA1B5C /* x_algor.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = x_algor.c; path = Sources/CNIOBoringSSL/crypto/x509/x_algor.c; sourceTree = "<group>"; };
@@ -2839,7 +2839,7 @@
 		42B32493394CB36969F38C266394E2A4 /* ex_data.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ex_data.c; path = Sources/CNIOBoringSSL/crypto/ex_data.c; sourceTree = "<group>"; };
 		42B5627E31446525256C5F8478F5B002 /* ssl_cipher.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = ssl_cipher.cc; path = Sources/CNIOBoringSSL/ssl/ssl_cipher.cc; sourceTree = "<group>"; };
 		42C68CE86BE8E6978B0156413DAC6D0A /* trust_token.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = trust_token.c; path = Sources/CNIOBoringSSL/crypto/trust_token/trust_token.c; sourceTree = "<group>"; };
-		42E23A3C1C5D8CE37484B124E180BAA0 /* NIOTransportServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOTransportServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42E23A3C1C5D8CE37484B124E180BAA0 /* SwiftNIOTransportServices */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOTransportServices; path = NIOTransportServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4306F8BEF1D89F9F5BF88FC2B6FC0F5B /* x509cset.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = x509cset.c; path = Sources/CNIOBoringSSL/crypto/x509/x509cset.c; sourceTree = "<group>"; };
 		430FBD85B93BDD7FEAA00247EE0C461C /* FixedLengthFrameDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FixedLengthFrameDecoder.swift; path = Sources/NIOExtras/FixedLengthFrameDecoder.swift; sourceTree = "<group>"; };
 		4323F0439F8F86A0BC0F068E5FEA7F28 /* CNIOAtomics-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CNIOAtomics-Info.plist"; sourceTree = "<group>"; };
@@ -2849,7 +2849,7 @@
 		4364FBCF445AEE4DBDB0BB530EB62489 /* poly1305_vec.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = poly1305_vec.c; path = Sources/CNIOBoringSSL/crypto/poly1305/poly1305_vec.c; sourceTree = "<group>"; };
 		43A9529376901F3EEB28BC9BF694732B /* HPACKHeaders+Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HPACKHeaders+Validation.swift"; path = "Sources/NIOHTTP2/HPACKHeaders+Validation.swift"; sourceTree = "<group>"; };
 		43B855BAC5CBC21D1F28A10A0427FD11 /* IndexedHeaderTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IndexedHeaderTable.swift; path = Sources/NIOHPACK/IndexedHeaderTable.swift; sourceTree = "<group>"; };
-		43BCA78D557ACEB23EEA495EE0402530 /* NIOTLS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOTLS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43BCA78D557ACEB23EEA495EE0402530 /* SwiftNIOTLS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOTLS; path = NIOTLS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43D09302B1FBEFEF4C9B61DF4940DFA9 /* GRPCStatusMessageMarshaller.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GRPCStatusMessageMarshaller.swift; path = Sources/GRPC/GRPCStatusMessageMarshaller.swift; sourceTree = "<group>"; };
 		43FA197EF110944038D1965612BA0E91 /* key_wrap.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = key_wrap.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/aes/key_wrap.c; sourceTree = "<group>"; };
 		4444546B47D635FE960B900D1E662ED2 /* v3_genn.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = v3_genn.c; path = Sources/CNIOBoringSSL/crypto/x509v3/v3_genn.c; sourceTree = "<group>"; };
@@ -2874,11 +2874,11 @@
 		48854F26EC41B39903C3F5C8837D0AAF /* md5.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = md5.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/md5/md5.c; sourceTree = "<group>"; };
 		48E9CAA564B65548A92C215157FFC98E /* SocketOptionProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketOptionProvider.swift; path = Sources/NIOCore/SocketOptionProvider.swift; sourceTree = "<group>"; };
 		490399F75490D14681ECF76529A45253 /* CNIOBoringSSL_md4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CNIOBoringSSL_md4.h; path = Sources/CNIOBoringSSL/include/CNIOBoringSSL_md4.h; sourceTree = "<group>"; };
-		490AC753C5C289D7B70E73B4E7512560 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		490AC753C5C289D7B70E73B4E7512560 /* ReactiveCocoa */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ReactiveCocoa; path = ReactiveCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		493C602509A42A9B071E1A6F793996A0 /* internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = internal.h; path = Sources/CNIOBoringSSL/crypto/conf/internal.h; sourceTree = "<group>"; };
 		496ECA4BDFA2EA5018392A52E55D5EC3 /* internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = internal.h; path = Sources/CNIOBoringSSL/crypto/fipsmodule/rand/internal.h; sourceTree = "<group>"; };
 		49E5B0223BAACF1315557E3784FDA78D /* polyval.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = polyval.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/modes/polyval.c; sourceTree = "<group>"; };
-		4A1D16EDB0405CEE4C837F184DC39013 /* CNIOWindows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CNIOWindows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A1D16EDB0405CEE4C837F184DC39013 /* CNIOWindows */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CNIOWindows; path = CNIOWindows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A55CE36C56386A30A8837F071F80D60 /* SSLErrors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLErrors.swift; path = Sources/NIOSSL/SSLErrors.swift; sourceTree = "<group>"; };
 		4A5D5C7E108F7641184A9C75266924FE /* CNIOBoringSSL_pkcs7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CNIOBoringSSL_pkcs7.h; path = Sources/CNIOBoringSSL/include/CNIOBoringSSL_pkcs7.h; sourceTree = "<group>"; };
 		4A960B779E8D4574796F7B28145F8300 /* Pods-Fyreplace-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Fyreplace-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -2898,7 +2898,7 @@
 		4CBFDFDF018F8F3C1213C65162736BF8 /* SSLCertificate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLCertificate.swift; path = Sources/NIOSSL/SSLCertificate.swift; sourceTree = "<group>"; };
 		4CD6E9863B3078D53AEC7158568AE4CB /* ByteBuffer-aux.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ByteBuffer-aux.swift"; path = "Sources/NIOCore/ByteBuffer-aux.swift"; sourceTree = "<group>"; };
 		4CD7F28D6CD158A7B204BA2A104B8F1C /* InboundEventBuffer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InboundEventBuffer.swift; path = Sources/NIOHTTP2/InboundEventBuffer.swift; sourceTree = "<group>"; };
-		4CECE1D3F082EE1C5AF7E5E93BAEDF74 /* CNIODarwin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CNIODarwin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CECE1D3F082EE1C5AF7E5E93BAEDF74 /* CNIODarwin */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CNIODarwin; path = CNIODarwin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D10CA2D4B5A38257315E39679B4A0BD /* handoff.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = handoff.cc; path = Sources/CNIOBoringSSL/ssl/handoff.cc; sourceTree = "<group>"; };
 		4DB5FE345F7046D8B931614BA0B2D550 /* ChannelOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChannelOption.swift; path = Sources/NIOCore/ChannelOption.swift; sourceTree = "<group>"; };
 		4E209F405B1C38D7BD61F70D70602623 /* CGRPCZlib-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CGRPCZlib-dummy.m"; sourceTree = "<group>"; };
@@ -2995,7 +2995,7 @@
 		5E82F868C255590B1993AF011B1DDB28 /* hexdump.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = hexdump.c; path = Sources/CNIOBoringSSL/crypto/bio/hexdump.c; sourceTree = "<group>"; };
 		5E84BC27113D453E8669FFD543069A86 /* GRPCIdleHandlerStateMachine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GRPCIdleHandlerStateMachine.swift; path = Sources/GRPC/GRPCIdleHandlerStateMachine.swift; sourceTree = "<group>"; };
 		5E85209BED8315F071DA52CE5C17F280 /* NIOThreadPool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NIOThreadPool.swift; path = Sources/NIOPosix/NIOThreadPool.swift; sourceTree = "<group>"; };
-		5E982D315A4CB75E8F15068B30779C7C /* NIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E982D315A4CB75E8F15068B30779C7C /* SwiftNIO */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIO; path = NIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE866419B21B53EBC0981F19CEC147C /* CNIOBoringSSL_buffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CNIOBoringSSL_buffer.h; path = Sources/CNIOBoringSSL/include/CNIOBoringSSL_buffer.h; sourceTree = "<group>"; };
 		5EEA61AB1D5B70861905A3B66E50D2DB /* SwiftNIOCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftNIOCore-umbrella.h"; sourceTree = "<group>"; };
 		5F69F27EE38405181126243747124949 /* ClientConnection+NIOSSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ClientConnection+NIOSSL.swift"; path = "Sources/GRPC/GRPCChannel/ClientConnection+NIOSSL.swift"; sourceTree = "<group>"; };
@@ -3049,14 +3049,14 @@
 		667D16AD853458FEAEC8ABD918BB5E72 /* ReactiveSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReactiveSwift-prefix.pch"; sourceTree = "<group>"; };
 		6696BFCE24F6109D785F767DF918A892 /* CompactMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompactMap.swift; path = Sources/Observers/CompactMap.swift; sourceTree = "<group>"; };
 		66EDB196B2AC0FFE4986D8B63223CD97 /* GRPCServerRequestRoutingHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GRPCServerRequestRoutingHandler.swift; path = Sources/GRPC/GRPCServerRequestRoutingHandler.swift; sourceTree = "<group>"; };
-		673CA60B9FF9D56D5AEAFAD4E2D7B368 /* NIOConcurrencyHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOConcurrencyHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		673CA60B9FF9D56D5AEAFAD4E2D7B368 /* SwiftNIOConcurrencyHelpers */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOConcurrencyHelpers; path = NIOConcurrencyHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		674E812BFC10497F9A5D5BE36A742724 /* NIOTSConnectionChannel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NIOTSConnectionChannel.swift; path = Sources/NIOTransportServices/NIOTSConnectionChannel.swift; sourceTree = "<group>"; };
 		675EC94144AFAF7D7A8E72264B500A47 /* ScanMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScanMap.swift; path = Sources/Observers/ScanMap.swift; sourceTree = "<group>"; };
 		6775A56F1837AC4F5F228C1E804032FF /* GRPCError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GRPCError.swift; path = Sources/GRPC/GRPCError.swift; sourceTree = "<group>"; };
 		679BE6D0B14CE6F547C64F93310B8C52 /* jacobi.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = jacobi.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/bn/jacobi.c; sourceTree = "<group>"; };
 		67BFA7F485D72F39D732485F37718685 /* handshake_server.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = handshake_server.cc; path = Sources/CNIOBoringSSL/ssl/handshake_server.cc; sourceTree = "<group>"; };
 		67EF2B1F827B912AFC7E069DDEE051C4 /* internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = internal.h; path = Sources/CNIOBoringSSL/crypto/des/internal.h; sourceTree = "<group>"; };
-		67F9B3FA2F42C85B1AEE52AB15566E95 /* CGRPCZlib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CGRPCZlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67F9B3FA2F42C85B1AEE52AB15566E95 /* CGRPCZlib */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CGRPCZlib; path = CGRPCZlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68271258E82E08B72E113508F65A0054 /* ImageDataProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDataProcessor.swift; path = Sources/Networking/ImageDataProcessor.swift; sourceTree = "<group>"; };
 		6863186087C0C6EF46E4DEB131086304 /* Server.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Server.swift; path = Sources/GRPC/Server.swift; sourceTree = "<group>"; };
 		689662E70AA3FC9FCCD3E33E8F16B26B /* ec_asn1.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ec_asn1.c; path = Sources/CNIOBoringSSL/crypto/ec_extra/ec_asn1.c; sourceTree = "<group>"; };
@@ -3081,7 +3081,7 @@
 		6BFBF1BDCA23754E9B2B41B40854827A /* CocoaAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CocoaAction.swift; path = ReactiveCocoa/CocoaAction.swift; sourceTree = "<group>"; };
 		6C09658312D24E8AEC93641BB6D8DF2D /* ghash-x86_64.linux.x86_64.S */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.asm; name = "ghash-x86_64.linux.x86_64.S"; path = "Sources/CNIOBoringSSL/crypto/fipsmodule/ghash-x86_64.linux.x86_64.S"; sourceTree = "<group>"; };
 		6C452BC45382D2CA280CABCF922A5C94 /* UniqueValues.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UniqueValues.swift; path = Sources/Observers/UniqueValues.swift; sourceTree = "<group>"; };
-		6D040D1A67C3DBE3C11EB6FBC61B8141 /* NIOFoundationCompat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOFoundationCompat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D040D1A67C3DBE3C11EB6FBC61B8141 /* SwiftNIOFoundationCompat */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOFoundationCompat; path = NIOFoundationCompat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D3B7E3D7B96D22B12F5A65E15E35339 /* CNIOHTTPParser-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CNIOHTTPParser-Info.plist"; sourceTree = "<group>"; };
 		6E0561DB7F45596A8FA656D16332CA21 /* ec.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ec.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/ec/ec.c; sourceTree = "<group>"; };
 		6E0F89ECB156D3EA392F7BB4CF25160B /* ByteBuffer-int.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ByteBuffer-int.swift"; path = "Sources/NIOCore/ByteBuffer-int.swift"; sourceTree = "<group>"; };
@@ -3094,7 +3094,7 @@
 		6E7ED311C7100CA8792538E52E8D434D /* CNIOWindows-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CNIOWindows-Info.plist"; sourceTree = "<group>"; };
 		6E9BB365E40072A6DDFC351094E87115 /* SwiftNIOSSL-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftNIOSSL-Info.plist"; sourceTree = "<group>"; };
 		6F047CE5E09186E54ED317DC6CCC8488 /* err_data.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = err_data.c; path = Sources/CNIOBoringSSL/crypto/err/err_data.c; sourceTree = "<group>"; };
-		6F1C5C1A1C8F9473CEF780C63705F78A /* CNIOLinux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CNIOLinux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F1C5C1A1C8F9473CEF780C63705F78A /* CNIOLinux */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CNIOLinux; path = CNIOLinux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F36A45909C83946FABA0ABB68BB5A35 /* EventLoopFuture+WithEventLoop.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "EventLoopFuture+WithEventLoop.swift"; path = "Sources/NIOCore/EventLoopFuture+WithEventLoop.swift"; sourceTree = "<group>"; };
 		6F75A4F65ACF4FCD8E6AA4EE7B9842F3 /* TextFormatDecodingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatDecodingError.swift; path = Sources/SwiftProtobuf/TextFormatDecodingError.swift; sourceTree = "<group>"; };
 		6F76C99AA3094B290608481157B66A92 /* print.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = print.c; path = Sources/CNIOBoringSSL/crypto/evp/print.c; sourceTree = "<group>"; };
@@ -3118,7 +3118,7 @@
 		73158FFE22022566E294F0B667154478 /* ResultExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResultExtensions.swift; path = Sources/ResultExtensions.swift; sourceTree = "<group>"; };
 		731AEBA2FA2064F20855CF3C6C3505B0 /* CNIOBoringSSL_des.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CNIOBoringSSL_des.h; path = Sources/CNIOBoringSSL/include/CNIOBoringSSL_des.h; sourceTree = "<group>"; };
 		732074F341022862B302BECF4335E107 /* a_bool.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = a_bool.c; path = Sources/CNIOBoringSSL/crypto/asn1/a_bool.c; sourceTree = "<group>"; };
-		73328AB6E67FF4855DF7327B64265B4E /* NIOSSL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73328AB6E67FF4855DF7327B64265B4E /* SwiftNIOSSL */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOSSL; path = NIOSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		733668F15AF41C3089FDE00BF2FDFECB /* CGRPCZlib-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CGRPCZlib-umbrella.h"; sourceTree = "<group>"; };
 		74364683E96D0B53707251AFC0194785 /* SNIHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SNIHandler.swift; path = Sources/NIOTLS/SNIHandler.swift; sourceTree = "<group>"; };
 		74367BA70940A0CA1DEEAA77B101AB33 /* ByteBuffer-conversions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ByteBuffer-conversions.swift"; path = "Sources/NIOCore/ByteBuffer-conversions.swift"; sourceTree = "<group>"; };
@@ -3206,7 +3206,7 @@
 		8163C458461F00582BA01FD44F51907C /* SwiftProtobuf.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftProtobuf.modulemap; sourceTree = "<group>"; };
 		818C6D7E7B3A4D3A998320FA7DEC4AC4 /* md4.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = md4.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/md4/md4.c; sourceTree = "<group>"; };
 		819EEC8DE8D382C228A871908F5A8CAA /* pkcs7.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pkcs7.c; path = Sources/CNIOBoringSSL/crypto/pkcs7/pkcs7.c; sourceTree = "<group>"; };
-		81AC88440747A0FCA422BCA626C9A038 /* NIOExtras.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOExtras.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AC88440747A0FCA422BCA626C9A038 /* SwiftNIOExtras */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOExtras; path = NIOExtras.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BA196BE032296BDECC0829F921ECB8 /* sha256-586.linux.x86.S */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.asm; name = "sha256-586.linux.x86.S"; path = "Sources/CNIOBoringSSL/crypto/fipsmodule/sha256-586.linux.x86.S"; sourceTree = "<group>"; };
 		82BB721C5172E6D239BB1DFC3E108E04 /* ReactiveCocoa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ReactiveCocoa.h; path = ReactiveCocoaObjC/include/ReactiveCocoa.h; sourceTree = "<group>"; };
 		82EFDC9A26E4CFC79E11FC25E34B63DF /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Views/Indicator.swift; sourceTree = "<group>"; };
@@ -3220,7 +3220,7 @@
 		84097C7476665E0A112F7C7D271B85CA /* GRPCChannel+AsyncAwaitSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "GRPCChannel+AsyncAwaitSupport.swift"; path = "Sources/GRPC/AsyncAwaitSupport/GRPCChannel+AsyncAwaitSupport.swift"; sourceTree = "<group>"; };
 		841B36ECD7251AF5B6070515AA6997DF /* SwiftNIOTLS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftNIOTLS.release.xcconfig; sourceTree = "<group>"; };
 		8431624DE772435C993078E2C8BA2484 /* div.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = div.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/bn/div.c; sourceTree = "<group>"; };
-		8436BC15451DA6766C259541522EB812 /* _NIODataStructures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = _NIODataStructures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8436BC15451DA6766C259541522EB812 /* _NIODataStructures */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = _NIODataStructures; path = _NIODataStructures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8449EC3F38CDBA94D3B357D64A46660A /* HTTP2FrameEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTP2FrameEncoder.swift; path = Sources/NIOHTTP2/HTTP2FrameEncoder.swift; sourceTree = "<group>"; };
 		84BDAE6A03EFC7C70307D650B72FB7D8 /* p256_32.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = p256_32.h; path = Sources/CNIOBoringSSL/third_party/fiat/p256_32.h; sourceTree = "<group>"; };
 		851851131C53F27804BF4F9CF30F4CE7 /* UISearchBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UISearchBar.swift; path = ReactiveCocoa/UIKit/iOS/UISearchBar.swift; sourceTree = "<group>"; };
@@ -3253,7 +3253,7 @@
 		89EE41D1975CB6F9219BA11BB42B95F2 /* pcy_data.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pcy_data.c; path = Sources/CNIOBoringSSL/crypto/x509v3/pcy_data.c; sourceTree = "<group>"; };
 		8A1ADB2B273FB540B1BC6F4DAE48369F /* PointerHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PointerHelpers.swift; path = Sources/NIOPosix/PointerHelpers.swift; sourceTree = "<group>"; };
 		8A621A2392BD1B0A200777A38224CFBB /* internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = internal.h; path = Sources/CNIOBoringSSL/crypto/fipsmodule/ecdsa/internal.h; sourceTree = "<group>"; };
-		8A6887895625D9DECAAEBF5A690134F7 /* NIOHPACK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOHPACK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A6887895625D9DECAAEBF5A690134F7 /* SwiftNIOHPACK */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOHPACK; path = NIOHPACK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE4A57FEDAA70D77278824BA47AFD4C /* EventLoop.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventLoop.swift; path = Sources/NIOCore/EventLoop.swift; sourceTree = "<group>"; };
 		8AF2AD7ADE7FDB83B91ADB6EF72A5DA9 /* ProtoNameProviding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProtoNameProviding.swift; path = Sources/SwiftProtobuf/ProtoNameProviding.swift; sourceTree = "<group>"; };
 		8B22095A3663FC4D8A52D40DB46721F4 /* UniversalBootstrapSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UniversalBootstrapSupport.swift; path = Sources/NIOSSL/UniversalBootstrapSupport.swift; sourceTree = "<group>"; };
@@ -3306,7 +3306,7 @@
 		9402220E0A03B45047761153197EC629 /* ByteBuffer-core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ByteBuffer-core.swift"; path = "Sources/NIOCore/ByteBuffer-core.swift"; sourceTree = "<group>"; };
 		941E1F795644546FB6569CA1C9938220 /* ExtensionHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionHelpers.swift; path = Sources/Utility/ExtensionHelpers.swift; sourceTree = "<group>"; };
 		942200FF783F6BF7E0B5BF1C886C0860 /* NIOAtomic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NIOAtomic.swift; path = Sources/NIOConcurrencyHelpers/NIOAtomic.swift; sourceTree = "<group>"; };
-		943D347E61A2E181A4FA2CA894307B6E /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		943D347E61A2E181A4FA2CA894307B6E /* SwiftProtobuf */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftProtobuf; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		946E2BBAFA10F903DE2196416B9D3ADE /* HPACKHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HPACKHeader.swift; path = Sources/NIOHPACK/HPACKHeader.swift; sourceTree = "<group>"; };
 		946F94421AC2BC789CA8454343E14151 /* SystemCallHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SystemCallHelpers.swift; path = Sources/NIOCore/SystemCallHelpers.swift; sourceTree = "<group>"; };
 		94897FE7D533C512C2807B8F53B1B58A /* UIImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = ReactiveCocoa/UIKit/UIImageView.swift; sourceTree = "<group>"; };
@@ -3366,7 +3366,7 @@
 		9F5E5966ED8B7DEC2ADBFE7E8AC99585 /* a_utf8.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = a_utf8.c; path = Sources/CNIOBoringSSL/crypto/asn1/a_utf8.c; sourceTree = "<group>"; };
 		9F77EEFAE29AEBDD6791A83C2832D6B4 /* Google_Protobuf_ListValue+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_ListValue+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_ListValue+Extensions.swift"; sourceTree = "<group>"; };
 		9FE7017141D72234171B22F469E367E8 /* ClientInterceptorPipeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ClientInterceptorPipeline.swift; path = Sources/GRPC/Interceptor/ClientInterceptorPipeline.swift; sourceTree = "<group>"; };
-		A00E16AE69A03C3643B9534FCF13263C /* NIOCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00E16AE69A03C3643B9534FCF13263C /* SwiftNIOCore */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOCore; path = NIOCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A04A3FF3244ED1BB8BA8659A05579CD8 /* x_req.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = x_req.c; path = Sources/CNIOBoringSSL/crypto/x509/x_req.c; sourceTree = "<group>"; };
 		A0552A53DEDCC194288B90E47D636F25 /* rsa.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = rsa.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/rsa/rsa.c; sourceTree = "<group>"; };
 		A06D0BCEF1EC2EFE49C6218185BC03F8 /* poly1305.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = poly1305.c; path = Sources/CNIOBoringSSL/crypto/poly1305/poly1305.c; sourceTree = "<group>"; };
@@ -3415,7 +3415,7 @@
 		A62AC30749335D970D6BB684E4625224 /* SSLPKCS12Bundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLPKCS12Bundle.swift; path = Sources/NIOSSL/SSLPKCS12Bundle.swift; sourceTree = "<group>"; };
 		A638D36048CF74BAEFFC02F05F6856E5 /* UniversalBootstrapSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UniversalBootstrapSupport.swift; path = Sources/NIOCore/UniversalBootstrapSupport.swift; sourceTree = "<group>"; };
 		A64868AC7B3281A4004E427923DD60BB /* IO.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IO.swift; path = Sources/NIOPosix/IO.swift; sourceTree = "<group>"; };
-		A6513E0A6CB60623515716E73996F0F5 /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6513E0A6CB60623515716E73996F0F5 /* Logging */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Logging; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A675C26A8C95D7E7ED75EA0AFA6C8E6A /* ofb.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ofb.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/modes/ofb.c; sourceTree = "<group>"; };
 		A6BAF7350B23A7719D7288D099EFD66F /* Google_Protobuf_NullValue+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_NullValue+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_NullValue+Extensions.swift"; sourceTree = "<group>"; };
 		A6C684AC4F3C397F37E6FF897AEAFB7D /* aesni-x86_64.linux.x86_64.S */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.asm; name = "aesni-x86_64.linux.x86_64.S"; path = "Sources/CNIOBoringSSL/crypto/fipsmodule/aesni-x86_64.linux.x86_64.S"; sourceTree = "<group>"; };
@@ -3534,7 +3534,7 @@
 		BB496D6A24E4B25E24E085F8087408CB /* cbc.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = cbc.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/modes/cbc.c; sourceTree = "<group>"; };
 		BB4AB6F1BF7B5DBBFC020908CB6886A7 /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
 		BBA51EC14577FF1C38A1F168EE7D868F /* ByteBuffer-lengthPrefix.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ByteBuffer-lengthPrefix.swift"; path = "Sources/NIOCore/ByteBuffer-lengthPrefix.swift"; sourceTree = "<group>"; };
-		BBBC89616D0756CD768F9406643F7DC0 /* CNIOBoringSSL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CNIOBoringSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBBC89616D0756CD768F9406643F7DC0 /* CNIOBoringSSL */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CNIOBoringSSL; path = CNIOBoringSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBEACF45194F6D625779C0D461674DD4 /* CustomJSONCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomJSONCodable.swift; path = Sources/SwiftProtobuf/CustomJSONCodable.swift; sourceTree = "<group>"; };
 		BBF247000A2E8D1DF3A638B59D031EB7 /* util.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = util.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/ec/util.c; sourceTree = "<group>"; };
 		BC1B6B9DC77C6C592782D839902C7C34 /* poly1305_arm.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = poly1305_arm.c; path = Sources/CNIOBoringSSL/crypto/poly1305/poly1305_arm.c; sourceTree = "<group>"; };
@@ -3656,7 +3656,7 @@
 		D1200F0B6FDF93DC3B533BBEE360BE75 /* any.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = any.pb.swift; path = Sources/SwiftProtobuf/any.pb.swift; sourceTree = "<group>"; };
 		D132A686226528E688876A1624ACE83E /* AttemptMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AttemptMap.swift; path = Sources/Observers/AttemptMap.swift; sourceTree = "<group>"; };
 		D135A33EF07C642B11041AA9FEEE1DA6 /* by_file.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = by_file.c; path = Sources/CNIOBoringSSL/crypto/x509/by_file.c; sourceTree = "<group>"; };
-		D138731AC283B1675098D887342027D8 /* CNIOBoringSSLShims.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CNIOBoringSSLShims.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D138731AC283B1675098D887342027D8 /* CNIOBoringSSLShims */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CNIOBoringSSLShims; path = CNIOBoringSSLShims.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13A399AB8D9441D0D85F7EF80787C71 /* ecdh.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ecdh.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/ecdh/ecdh.c; sourceTree = "<group>"; };
 		D1428CC2CD60224C94CB0CECCA2CF2FD /* SecurityFrameworkCertificateVerification.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecurityFrameworkCertificateVerification.swift; path = Sources/NIOSSL/SecurityFrameworkCertificateVerification.swift; sourceTree = "<group>"; };
 		D16DD8E68C32A5953E2285F3170A3A4B /* GRPCChannelBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GRPCChannelBuilder.swift; path = Sources/GRPC/GRPCChannel/GRPCChannelBuilder.swift; sourceTree = "<group>"; };
@@ -3694,7 +3694,7 @@
 		D7F9A096A8117294941E05BCB642487E /* MultiplexerAbstractChannel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiplexerAbstractChannel.swift; path = Sources/NIOHTTP2/MultiplexerAbstractChannel.swift; sourceTree = "<group>"; };
 		D833AEBB98E6CF556841D02D0404D918 /* HashVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashVisitor.swift; path = Sources/SwiftProtobuf/HashVisitor.swift; sourceTree = "<group>"; };
 		D84241941B1AA8255C86B528877D2170 /* CNIOBoringSSL_hmac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CNIOBoringSSL_hmac.h; path = Sources/CNIOBoringSSL/include/CNIOBoringSSL_hmac.h; sourceTree = "<group>"; };
-		D85994E4069B3EC81A279B775780797A /* NIOPosix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOPosix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85994E4069B3EC81A279B775780797A /* SwiftNIOPosix */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOPosix; path = NIOPosix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86925922F8A3B0647009F9FD330E2BD /* CancellationError+GRPCStatusTransformable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CancellationError+GRPCStatusTransformable.swift"; path = "Sources/GRPC/AsyncAwaitSupport/CancellationError+GRPCStatusTransformable.swift"; sourceTree = "<group>"; };
 		D86D1B6970BFC3D81D040345DB0951BD /* internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = internal.h; path = Sources/CNIOBoringSSL/crypto/trust_token/internal.h; sourceTree = "<group>"; };
 		D898BC83367917D5420F72599B59FE86 /* CNIOBoringSSL_cpu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CNIOBoringSSL_cpu.h; path = Sources/CNIOBoringSSL/include/CNIOBoringSSL_cpu.h; sourceTree = "<group>"; };
@@ -3702,7 +3702,7 @@
 		D8EC8369BC0CA8B918F1596CBA4A2530 /* add.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = add.c; path = Sources/CNIOBoringSSL/crypto/fipsmodule/bn/add.c; sourceTree = "<group>"; };
 		D8F8FD35EFBAC44756275237C5974CB3 /* SSLPrivateKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLPrivateKey.swift; path = Sources/NIOSSL/SSLPrivateKey.swift; sourceTree = "<group>"; };
 		D91D21840188D9433297746D75224C01 /* ReactiveSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReactiveSwift-dummy.m"; sourceTree = "<group>"; };
-		D91FC01385D3680BAE48C7A1E23CB088 /* CNIOAtomics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CNIOAtomics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D91FC01385D3680BAE48C7A1E23CB088 /* CNIOAtomics */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CNIOAtomics; path = CNIOAtomics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92075B68EA18A5A2FB6D264D46E31A5 /* a_bitstr.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = a_bitstr.c; path = Sources/CNIOBoringSSL/crypto/asn1/a_bitstr.c; sourceTree = "<group>"; };
 		D9885059F266AE3C4745B5C2E03CBA38 /* HuffmanTables.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HuffmanTables.swift; path = Sources/NIOHPACK/HuffmanTables.swift; sourceTree = "<group>"; };
 		D9B652199472A7605B8BD35D40743239 /* aes128gcmsiv-x86_64.mac.x86_64.S */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.asm; name = "aes128gcmsiv-x86_64.mac.x86_64.S"; path = "Sources/CNIOBoringSSL/crypto/cipher_extra/aes128gcmsiv-x86_64.mac.x86_64.S"; sourceTree = "<group>"; };
@@ -3781,9 +3781,9 @@
 		E7CD4AE9E11F6E9F151D13EE0EE8A3DC /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/Utility/String+MD5.swift"; sourceTree = "<group>"; };
 		E80EF054A9999880029A8389BB7F4F31 /* CNIOLinux.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CNIOLinux.h; path = Sources/CNIOLinux/include/CNIOLinux.h; sourceTree = "<group>"; };
 		E827735CD5E385615161E57C63453D73 /* CNIOWindows.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CNIOWindows.h; path = Sources/CNIOWindows/include/CNIOWindows.h; sourceTree = "<group>"; };
-		E83089C79437628622D534CAA83363B4 /* NIOEmbedded.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NIOEmbedded.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E83089C79437628622D534CAA83363B4 /* SwiftNIOEmbedded */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftNIOEmbedded; path = NIOEmbedded.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8368B64E62977938315FD6C258008A1 /* SwiftNIOHPACK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftNIOHPACK.release.xcconfig; sourceTree = "<group>"; };
-		E8457AC368411E1953DDF7BE182DA599 /* CNIOHTTPParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CNIOHTTPParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8457AC368411E1953DDF7BE182DA599 /* CNIOHTTPParser */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CNIOHTTPParser; path = CNIOHTTPParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8630BB1EB60BAB5448DB17CA1C42588 /* rsa_pss.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = rsa_pss.c; path = Sources/CNIOBoringSSL/crypto/x509/rsa_pss.c; sourceTree = "<group>"; };
 		E88C1671AE1164C93323F09F8992B12B /* SwiftNIOHTTP1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftNIOHTTP1.debug.xcconfig; sourceTree = "<group>"; };
 		E8C80CFC5B9948B6427084B7607D4202 /* cpu_arm_linux.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = cpu_arm_linux.h; path = Sources/CNIOBoringSSL/crypto/cpu_arm_linux.h; sourceTree = "<group>"; };
@@ -3888,7 +3888,7 @@
 		F8625D6BCCBAC64A6C823E75F204FE69 /* shim.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = shim.c; path = Sources/CNIOLinux/shim.c; sourceTree = "<group>"; };
 		F863A1F0A0A1F7E762B65B99C059699A /* CNIODarwin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CNIODarwin.debug.xcconfig; sourceTree = "<group>"; };
 		F87A49AF838453429919B0AD01065E3D /* sha1-x86_64.linux.x86_64.S */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.asm; name = "sha1-x86_64.linux.x86_64.S"; path = "Sources/CNIOBoringSSL/crypto/fipsmodule/sha1-x86_64.linux.x86_64.S"; sourceTree = "<group>"; };
-		F87D9465992CEA630BE417FC7868C484 /* ReactiveSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F87D9465992CEA630BE417FC7868C484 /* ReactiveSwift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ReactiveSwift; path = ReactiveSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F890DB63B430BD3F2688A7969AB6ECAB /* x_name.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = x_name.c; path = Sources/CNIOBoringSSL/crypto/x509/x_name.c; sourceTree = "<group>"; };
 		F8AFD5221912C0134C0D86098F11B09E /* socket_helper.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = socket_helper.c; path = Sources/CNIOBoringSSL/crypto/bio/socket_helper.c; sourceTree = "<group>"; };
 		F8F553C49DD74C7A51670FC7EC0B3D70 /* FileDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileDescriptor.swift; path = Sources/NIOPosix/FileDescriptor.swift; sourceTree = "<group>"; };
@@ -5694,35 +5694,35 @@
 		BC0F0AF02C2DE5E4FFF74256E1A5D8EF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8436BC15451DA6766C259541522EB812 /* _NIODataStructures.framework */,
-				67F9B3FA2F42C85B1AEE52AB15566E95 /* CGRPCZlib.framework */,
-				D91FC01385D3680BAE48C7A1E23CB088 /* CNIOAtomics.framework */,
-				BBBC89616D0756CD768F9406643F7DC0 /* CNIOBoringSSL.framework */,
-				D138731AC283B1675098D887342027D8 /* CNIOBoringSSLShims.framework */,
-				4CECE1D3F082EE1C5AF7E5E93BAEDF74 /* CNIODarwin.framework */,
-				E8457AC368411E1953DDF7BE182DA599 /* CNIOHTTPParser.framework */,
-				6F1C5C1A1C8F9473CEF780C63705F78A /* CNIOLinux.framework */,
-				4A1D16EDB0405CEE4C837F184DC39013 /* CNIOWindows.framework */,
-				1C28BA3A3A3D7E0630D7850B2EA9BBE2 /* GRPC.framework */,
+				8436BC15451DA6766C259541522EB812 /* _NIODataStructures */,
+				67F9B3FA2F42C85B1AEE52AB15566E95 /* CGRPCZlib */,
+				D91FC01385D3680BAE48C7A1E23CB088 /* CNIOAtomics */,
+				BBBC89616D0756CD768F9406643F7DC0 /* CNIOBoringSSL */,
+				D138731AC283B1675098D887342027D8 /* CNIOBoringSSLShims */,
+				4CECE1D3F082EE1C5AF7E5E93BAEDF74 /* CNIODarwin */,
+				E8457AC368411E1953DDF7BE182DA599 /* CNIOHTTPParser */,
+				6F1C5C1A1C8F9473CEF780C63705F78A /* CNIOLinux */,
+				4A1D16EDB0405CEE4C837F184DC39013 /* CNIOWindows */,
+				1C28BA3A3A3D7E0630D7850B2EA9BBE2 /* gRPC-Swift */,
 				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */,
-				A6513E0A6CB60623515716E73996F0F5 /* Logging.framework */,
+				A6513E0A6CB60623515716E73996F0F5 /* Logging */,
 				23DE7E56F06088EC34274AE75EE9207F /* Pods-Fyreplace */,
-				490AC753C5C289D7B70E73B4E7512560 /* ReactiveCocoa.framework */,
-				F87D9465992CEA630BE417FC7868C484 /* ReactiveSwift.framework */,
-				5E982D315A4CB75E8F15068B30779C7C /* NIO.framework */,
-				673CA60B9FF9D56D5AEAFAD4E2D7B368 /* NIOConcurrencyHelpers.framework */,
-				A00E16AE69A03C3643B9534FCF13263C /* NIOCore.framework */,
-				E83089C79437628622D534CAA83363B4 /* NIOEmbedded.framework */,
-				81AC88440747A0FCA422BCA626C9A038 /* NIOExtras.framework */,
-				6D040D1A67C3DBE3C11EB6FBC61B8141 /* NIOFoundationCompat.framework */,
-				8A6887895625D9DECAAEBF5A690134F7 /* NIOHPACK.framework */,
-				134C82C2AF26C1F6D1FA6484A52A0FF4 /* NIOHTTP1.framework */,
-				2A4CC298CC8CF90A2A7FAFA7D74BD1CF /* NIOHTTP2.framework */,
-				D85994E4069B3EC81A279B775780797A /* NIOPosix.framework */,
-				73328AB6E67FF4855DF7327B64265B4E /* NIOSSL.framework */,
-				43BCA78D557ACEB23EEA495EE0402530 /* NIOTLS.framework */,
-				42E23A3C1C5D8CE37484B124E180BAA0 /* NIOTransportServices.framework */,
-				943D347E61A2E181A4FA2CA894307B6E /* SwiftProtobuf.framework */,
+				490AC753C5C289D7B70E73B4E7512560 /* ReactiveCocoa */,
+				F87D9465992CEA630BE417FC7868C484 /* ReactiveSwift */,
+				5E982D315A4CB75E8F15068B30779C7C /* SwiftNIO */,
+				673CA60B9FF9D56D5AEAFAD4E2D7B368 /* SwiftNIOConcurrencyHelpers */,
+				A00E16AE69A03C3643B9534FCF13263C /* SwiftNIOCore */,
+				E83089C79437628622D534CAA83363B4 /* SwiftNIOEmbedded */,
+				81AC88440747A0FCA422BCA626C9A038 /* SwiftNIOExtras */,
+				6D040D1A67C3DBE3C11EB6FBC61B8141 /* SwiftNIOFoundationCompat */,
+				8A6887895625D9DECAAEBF5A690134F7 /* SwiftNIOHPACK */,
+				134C82C2AF26C1F6D1FA6484A52A0FF4 /* SwiftNIOHTTP1 */,
+				2A4CC298CC8CF90A2A7FAFA7D74BD1CF /* SwiftNIOHTTP2 */,
+				D85994E4069B3EC81A279B775780797A /* SwiftNIOPosix */,
+				73328AB6E67FF4855DF7327B64265B4E /* SwiftNIOSSL */,
+				43BCA78D557ACEB23EEA495EE0402530 /* SwiftNIOTLS */,
+				42E23A3C1C5D8CE37484B124E180BAA0 /* SwiftNIOTransportServices */,
+				943D347E61A2E181A4FA2CA894307B6E /* SwiftProtobuf */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -6592,7 +6592,7 @@
 			);
 			name = ReactiveCocoa;
 			productName = ReactiveCocoa;
-			productReference = 490AC753C5C289D7B70E73B4E7512560 /* ReactiveCocoa.framework */;
+			productReference = 490AC753C5C289D7B70E73B4E7512560 /* ReactiveCocoa */;
 			productType = "com.apple.product-type.framework";
 		};
 		08B8EF1A02DE30CBEFB370FFE1C123C0 /* ReactiveSwift */ = {
@@ -6610,7 +6610,7 @@
 			);
 			name = ReactiveSwift;
 			productName = ReactiveSwift;
-			productReference = F87D9465992CEA630BE417FC7868C484 /* ReactiveSwift.framework */;
+			productReference = F87D9465992CEA630BE417FC7868C484 /* ReactiveSwift */;
 			productType = "com.apple.product-type.framework";
 		};
 		17112F66EE5BDC5584A51CF4FCE7631A /* SwiftNIOHTTP2 */ = {
@@ -6642,7 +6642,7 @@
 			);
 			name = SwiftNIOHTTP2;
 			productName = NIOHTTP2;
-			productReference = 2A4CC298CC8CF90A2A7FAFA7D74BD1CF /* NIOHTTP2.framework */;
+			productReference = 2A4CC298CC8CF90A2A7FAFA7D74BD1CF /* SwiftNIOHTTP2 */;
 			productType = "com.apple.product-type.framework";
 		};
 		2ABF3F8EC6CE525E1E02C51D72C64E94 /* Logging */ = {
@@ -6660,7 +6660,7 @@
 			);
 			name = Logging;
 			productName = Logging;
-			productReference = A6513E0A6CB60623515716E73996F0F5 /* Logging.framework */;
+			productReference = A6513E0A6CB60623515716E73996F0F5 /* Logging */;
 			productType = "com.apple.product-type.framework";
 		};
 		34E23B39AFBC87A7678CDCA494DE5CDC /* CNIOLinux */ = {
@@ -6678,7 +6678,7 @@
 			);
 			name = CNIOLinux;
 			productName = CNIOLinux;
-			productReference = 6F1C5C1A1C8F9473CEF780C63705F78A /* CNIOLinux.framework */;
+			productReference = 6F1C5C1A1C8F9473CEF780C63705F78A /* CNIOLinux */;
 			productType = "com.apple.product-type.framework";
 		};
 		4A0A66DC2DC19095E11E5D3A679802D4 /* CNIOWindows */ = {
@@ -6696,7 +6696,7 @@
 			);
 			name = CNIOWindows;
 			productName = CNIOWindows;
-			productReference = 4A1D16EDB0405CEE4C837F184DC39013 /* CNIOWindows.framework */;
+			productReference = 4A1D16EDB0405CEE4C837F184DC39013 /* CNIOWindows */;
 			productType = "com.apple.product-type.framework";
 		};
 		4F818C63E0C8BC4199AC207AD36B89F0 /* SwiftNIOEmbedded */ = {
@@ -6719,7 +6719,7 @@
 			);
 			name = SwiftNIOEmbedded;
 			productName = NIOEmbedded;
-			productReference = E83089C79437628622D534CAA83363B4 /* NIOEmbedded.framework */;
+			productReference = E83089C79437628622D534CAA83363B4 /* SwiftNIOEmbedded */;
 			productType = "com.apple.product-type.framework";
 		};
 		56A44E6B610D174593F40C5AD73224C4 /* CNIODarwin */ = {
@@ -6737,7 +6737,7 @@
 			);
 			name = CNIODarwin;
 			productName = CNIODarwin;
-			productReference = 4CECE1D3F082EE1C5AF7E5E93BAEDF74 /* CNIODarwin.framework */;
+			productReference = 4CECE1D3F082EE1C5AF7E5E93BAEDF74 /* CNIODarwin */;
 			productType = "com.apple.product-type.framework";
 		};
 		56C793C77970EA2F3692F44FFEFD9360 /* SwiftNIOHTTP1 */ = {
@@ -6766,7 +6766,7 @@
 			);
 			name = SwiftNIOHTTP1;
 			productName = NIOHTTP1;
-			productReference = 134C82C2AF26C1F6D1FA6484A52A0FF4 /* NIOHTTP1.framework */;
+			productReference = 134C82C2AF26C1F6D1FA6484A52A0FF4 /* SwiftNIOHTTP1 */;
 			productType = "com.apple.product-type.framework";
 		};
 		59007493BE8F52FEEC69F0F9330AA6C0 /* CNIOHTTPParser */ = {
@@ -6784,7 +6784,7 @@
 			);
 			name = CNIOHTTPParser;
 			productName = CNIOHTTPParser;
-			productReference = E8457AC368411E1953DDF7BE182DA599 /* CNIOHTTPParser.framework */;
+			productReference = E8457AC368411E1953DDF7BE182DA599 /* CNIOHTTPParser */;
 			productType = "com.apple.product-type.framework";
 		};
 		595729A6BA7621B06DBF24D66650D595 /* _NIODataStructures */ = {
@@ -6802,7 +6802,7 @@
 			);
 			name = _NIODataStructures;
 			productName = _NIODataStructures;
-			productReference = 8436BC15451DA6766C259541522EB812 /* _NIODataStructures.framework */;
+			productReference = 8436BC15451DA6766C259541522EB812 /* _NIODataStructures */;
 			productType = "com.apple.product-type.framework";
 		};
 		5D6DC8585F20CBE789F7D3D4F645980E /* SwiftNIOTransportServices */ = {
@@ -6832,7 +6832,7 @@
 			);
 			name = SwiftNIOTransportServices;
 			productName = NIOTransportServices;
-			productReference = 42E23A3C1C5D8CE37484B124E180BAA0 /* NIOTransportServices.framework */;
+			productReference = 42E23A3C1C5D8CE37484B124E180BAA0 /* SwiftNIOTransportServices */;
 			productType = "com.apple.product-type.framework";
 		};
 		5E62229F86AA9810C2A7E6CF628B8486 /* SwiftNIO */ = {
@@ -6859,7 +6859,7 @@
 			);
 			name = SwiftNIO;
 			productName = NIO;
-			productReference = 5E982D315A4CB75E8F15068B30779C7C /* NIO.framework */;
+			productReference = 5E982D315A4CB75E8F15068B30779C7C /* SwiftNIO */;
 			productType = "com.apple.product-type.framework";
 		};
 		61DB9F97C45B368C17F830199512E361 /* SwiftNIOExtras */ = {
@@ -6887,7 +6887,7 @@
 			);
 			name = SwiftNIOExtras;
 			productName = NIOExtras;
-			productReference = 81AC88440747A0FCA422BCA626C9A038 /* NIOExtras.framework */;
+			productReference = 81AC88440747A0FCA422BCA626C9A038 /* SwiftNIOExtras */;
 			productType = "com.apple.product-type.framework";
 		};
 		642945244208FC5F107EE5F43551DCA5 /* CGRPCZlib */ = {
@@ -6905,7 +6905,7 @@
 			);
 			name = CGRPCZlib;
 			productName = CGRPCZlib;
-			productReference = 67F9B3FA2F42C85B1AEE52AB15566E95 /* CGRPCZlib.framework */;
+			productReference = 67F9B3FA2F42C85B1AEE52AB15566E95 /* CGRPCZlib */;
 			productType = "com.apple.product-type.framework";
 		};
 		65C8D0D3B04F444B821EB675E4D821DA /* CNIOBoringSSLShims */ = {
@@ -6924,7 +6924,7 @@
 			);
 			name = CNIOBoringSSLShims;
 			productName = CNIOBoringSSLShims;
-			productReference = D138731AC283B1675098D887342027D8 /* CNIOBoringSSLShims.framework */;
+			productReference = D138731AC283B1675098D887342027D8 /* CNIOBoringSSLShims */;
 			productType = "com.apple.product-type.framework";
 		};
 		71D94F5C545887C8BC575883E745A3DF /* CNIOBoringSSL */ = {
@@ -6942,7 +6942,7 @@
 			);
 			name = CNIOBoringSSL;
 			productName = CNIOBoringSSL;
-			productReference = BBBC89616D0756CD768F9406643F7DC0 /* CNIOBoringSSL.framework */;
+			productReference = BBBC89616D0756CD768F9406643F7DC0 /* CNIOBoringSSL */;
 			productType = "com.apple.product-type.framework";
 		};
 		773FB76F4A2F42092713B9025F188877 /* SwiftNIOConcurrencyHelpers */ = {
@@ -6961,7 +6961,7 @@
 			);
 			name = SwiftNIOConcurrencyHelpers;
 			productName = NIOConcurrencyHelpers;
-			productReference = 673CA60B9FF9D56D5AEAFAD4E2D7B368 /* NIOConcurrencyHelpers.framework */;
+			productReference = 673CA60B9FF9D56D5AEAFAD4E2D7B368 /* SwiftNIOConcurrencyHelpers */;
 			productType = "com.apple.product-type.framework";
 		};
 		834F3DE9EFC7B90102D63A51F6A9AF51 /* SwiftNIOFoundationCompat */ = {
@@ -6989,7 +6989,7 @@
 			);
 			name = SwiftNIOFoundationCompat;
 			productName = NIOFoundationCompat;
-			productReference = 6D040D1A67C3DBE3C11EB6FBC61B8141 /* NIOFoundationCompat.framework */;
+			productReference = 6D040D1A67C3DBE3C11EB6FBC61B8141 /* SwiftNIOFoundationCompat */;
 			productType = "com.apple.product-type.framework";
 		};
 		A284FBC915D2D556B046FA0A96871C2F /* SwiftNIOCore */ = {
@@ -7010,7 +7010,7 @@
 			);
 			name = SwiftNIOCore;
 			productName = NIOCore;
-			productReference = A00E16AE69A03C3643B9534FCF13263C /* NIOCore.framework */;
+			productReference = A00E16AE69A03C3643B9534FCF13263C /* SwiftNIOCore */;
 			productType = "com.apple.product-type.framework";
 		};
 		A5F702E0DA383BC1479572581615A916 /* SwiftProtobuf */ = {
@@ -7028,7 +7028,7 @@
 			);
 			name = SwiftProtobuf;
 			productName = SwiftProtobuf;
-			productReference = 943D347E61A2E181A4FA2CA894307B6E /* SwiftProtobuf.framework */;
+			productReference = 943D347E61A2E181A4FA2CA894307B6E /* SwiftProtobuf */;
 			productType = "com.apple.product-type.framework";
 		};
 		CF4D556EB90FFD6388321BDFD45BDDB3 /* SwiftNIOSSL */ = {
@@ -7059,7 +7059,7 @@
 			);
 			name = SwiftNIOSSL;
 			productName = NIOSSL;
-			productReference = 73328AB6E67FF4855DF7327B64265B4E /* NIOSSL.framework */;
+			productReference = 73328AB6E67FF4855DF7327B64265B4E /* SwiftNIOSSL */;
 			productType = "com.apple.product-type.framework";
 		};
 		D736A00DEDBE6AC34D5D1D32FD54046C /* SwiftNIOPosix */ = {
@@ -7084,7 +7084,7 @@
 			);
 			name = SwiftNIOPosix;
 			productName = NIOPosix;
-			productReference = D85994E4069B3EC81A279B775780797A /* NIOPosix.framework */;
+			productReference = D85994E4069B3EC81A279B775780797A /* SwiftNIOPosix */;
 			productType = "com.apple.product-type.framework";
 		};
 		DBB6098E2B03BC9DB53C067142C50CA4 /* gRPC-Swift */ = {
@@ -7110,7 +7110,7 @@
 			);
 			name = "gRPC-Swift";
 			productName = GRPC;
-			productReference = 1C28BA3A3A3D7E0630D7850B2EA9BBE2 /* GRPC.framework */;
+			productReference = 1C28BA3A3A3D7E0630D7850B2EA9BBE2 /* gRPC-Swift */;
 			productType = "com.apple.product-type.framework";
 		};
 		E0A1D7BDF9C722E6E4B4B1E012D20E51 /* SwiftNIOTLS */ = {
@@ -7138,7 +7138,7 @@
 			);
 			name = SwiftNIOTLS;
 			productName = NIOTLS;
-			productReference = 43BCA78D557ACEB23EEA495EE0402530 /* NIOTLS.framework */;
+			productReference = 43BCA78D557ACEB23EEA495EE0402530 /* SwiftNIOTLS */;
 			productType = "com.apple.product-type.framework";
 		};
 		E31BF93EB20B6245622D5A44E45F9BCA /* CNIOAtomics */ = {
@@ -7156,7 +7156,7 @@
 			);
 			name = CNIOAtomics;
 			productName = CNIOAtomics;
-			productReference = D91FC01385D3680BAE48C7A1E23CB088 /* CNIOAtomics.framework */;
+			productReference = D91FC01385D3680BAE48C7A1E23CB088 /* CNIOAtomics */;
 			productType = "com.apple.product-type.framework";
 		};
 		E8022D22FAA6690B5E1C379C1BCE1491 /* Kingfisher */ = {
@@ -7252,7 +7252,7 @@
 			);
 			name = SwiftNIOHPACK;
 			productName = NIOHPACK;
-			productReference = 8A6887895625D9DECAAEBF5A690134F7 /* NIOHPACK.framework */;
+			productReference = 8A6887895625D9DECAAEBF5A690134F7 /* SwiftNIOHPACK */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -7263,7 +7263,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1410;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -9797,7 +9797,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOHTTP2/SwiftNIOHTTP2-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOHTTP2/SwiftNIOHTTP2-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9808,6 +9808,8 @@
 				PRODUCT_NAME = NIOHTTP2;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -9832,7 +9834,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ReactiveSwift/ReactiveSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ReactiveSwift/ReactiveSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9867,7 +9869,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOExtras/SwiftNIOExtras-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOExtras/SwiftNIOExtras-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9902,7 +9904,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIO/SwiftNIO-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIO/SwiftNIO-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9913,6 +9915,8 @@
 				PRODUCT_NAME = NIO;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -9938,7 +9942,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOEmbedded/SwiftNIOEmbedded-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOEmbedded/SwiftNIOEmbedded-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9973,7 +9977,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIOHTTPParser/CNIOHTTPParser-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIOHTTPParser/CNIOHTTPParser-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9984,6 +9988,8 @@
 				PRODUCT_NAME = CNIOHTTPParser;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10000,7 +10006,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10026,7 +10032,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/gRPC-Swift/gRPC-Swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/gRPC-Swift/gRPC-Swift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10037,6 +10043,8 @@
 				PRODUCT_NAME = GRPC;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10062,7 +10070,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIO/SwiftNIO-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIO/SwiftNIO-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10097,7 +10105,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIOAtomics/CNIOAtomics-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIOAtomics/CNIOAtomics-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10108,6 +10116,8 @@
 				PRODUCT_NAME = CNIOAtomics;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10133,7 +10143,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIOWindows/CNIOWindows-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIOWindows/CNIOWindows-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10144,6 +10154,8 @@
 				PRODUCT_NAME = CNIOWindows;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10169,7 +10181,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIOWindows/CNIOWindows-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIOWindows/CNIOWindows-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10204,7 +10216,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOConcurrencyHelpers/SwiftNIOConcurrencyHelpers-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOConcurrencyHelpers/SwiftNIOConcurrencyHelpers-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10217,6 +10229,43 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		41FAD8EC53D37B8480618002B76423CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3676750190B098B251A33F207A6D9EE /* Pods-Fyreplace.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -10239,7 +10288,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOTLS/SwiftNIOTLS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOTLS/SwiftNIOTLS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10250,6 +10299,8 @@
 				PRODUCT_NAME = NIOTLS;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10275,7 +10326,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOTransportServices/SwiftNIOTransportServices-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOTransportServices/SwiftNIOTransportServices-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10286,6 +10337,8 @@
 				PRODUCT_NAME = NIOTransportServices;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10311,7 +10364,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIOBoringSSL/CNIOBoringSSL-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIOBoringSSL/CNIOBoringSSL-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10346,7 +10399,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIOLinux/CNIOLinux-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIOLinux/CNIOLinux-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10357,6 +10410,8 @@
 				PRODUCT_NAME = CNIOLinux;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10381,7 +10436,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ReactiveSwift/ReactiveSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ReactiveSwift/ReactiveSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10392,6 +10447,8 @@
 				PRODUCT_NAME = ReactiveSwift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10417,7 +10474,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CGRPCZlib/CGRPCZlib-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CGRPCZlib/CGRPCZlib-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10452,7 +10509,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/_NIODataStructures/_NIODataStructures-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/_NIODataStructures/_NIODataStructures-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10463,6 +10520,8 @@
 				PRODUCT_NAME = _NIODataStructures;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10488,7 +10547,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOHTTP2/SwiftNIOHTTP2-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOHTTP2/SwiftNIOHTTP2-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10507,6 +10566,69 @@
 			};
 			name = Debug;
 		};
+		6C98B09FF5CCB107837D1A84E8F3A4F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
 		6F37C2D479BB3F2DF0B5206915D477BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0D74A96E83AE7AEDB9915509B5F67387 /* SwiftNIOCore.debug.xcconfig */;
@@ -10523,7 +10645,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOCore/SwiftNIOCore-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOCore/SwiftNIOCore-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10558,7 +10680,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIOAtomics/CNIOAtomics-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIOAtomics/CNIOAtomics-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10593,7 +10715,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOExtras/SwiftNIOExtras-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOExtras/SwiftNIOExtras-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10604,6 +10726,8 @@
 				PRODUCT_NAME = NIOExtras;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10628,7 +10752,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftProtobuf/SwiftProtobuf-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftProtobuf/SwiftProtobuf-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10639,6 +10763,8 @@
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10648,7 +10774,115 @@
 			};
 			name = Release;
 		};
-		81F8D4F2F7A41D8223C1B32C81033009 /* Debug */ = {
+		884443819DFC85659D742C9FD7EFFB5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC826A1A17D7FB2C70DAC9BA71F93B57 /* CNIOBoringSSL.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CNIOBoringSSL/CNIOBoringSSL-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CNIOBoringSSL/CNIOBoringSSL-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CNIOBoringSSL/CNIOBoringSSL.modulemap";
+				PRODUCT_MODULE_NAME = CNIOBoringSSL;
+				PRODUCT_NAME = CNIOBoringSSL;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.4;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		88C875240B2CC9E31F986E2A04E3755F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 030A43223EE84DDEE2F82C28EC5255FE /* SwiftNIOTransportServices.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOTransportServices/SwiftNIOTransportServices-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftNIOTransportServices/SwiftNIOTransportServices-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftNIOTransportServices/SwiftNIOTransportServices.modulemap";
+				PRODUCT_MODULE_NAME = NIOTransportServices;
+				PRODUCT_NAME = NIOTransportServices;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8970C972AAE552563A0B6EA805C02D01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E06A1F593B7DED7115A13BAD5BF2CFCE /* CNIOLinux.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CNIOLinux/CNIOLinux-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CNIOLinux/CNIOLinux-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CNIOLinux/CNIOLinux.modulemap";
+				PRODUCT_MODULE_NAME = CNIOLinux;
+				PRODUCT_NAME = CNIOLinux;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.4;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8E6A8FF58D100B7F9B1943F455C00F02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -10702,7 +10936,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -10712,150 +10946,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Debug;
-		};
-		856FA702D78C94F1FC1F4B95FE8686E8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35EAC521FA811E25ACEFBD20DED26875 /* Pods-Fyreplace.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		884443819DFC85659D742C9FD7EFFB5C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC826A1A17D7FB2C70DAC9BA71F93B57 /* CNIOBoringSSL.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CNIOBoringSSL/CNIOBoringSSL-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CNIOBoringSSL/CNIOBoringSSL-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CNIOBoringSSL/CNIOBoringSSL.modulemap";
-				PRODUCT_MODULE_NAME = CNIOBoringSSL;
-				PRODUCT_NAME = CNIOBoringSSL;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		88C875240B2CC9E31F986E2A04E3755F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 030A43223EE84DDEE2F82C28EC5255FE /* SwiftNIOTransportServices.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOTransportServices/SwiftNIOTransportServices-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftNIOTransportServices/SwiftNIOTransportServices-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftNIOTransportServices/SwiftNIOTransportServices.modulemap";
-				PRODUCT_MODULE_NAME = NIOTransportServices;
-				PRODUCT_NAME = NIOTransportServices;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8970C972AAE552563A0B6EA805C02D01 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E06A1F593B7DED7115A13BAD5BF2CFCE /* CNIOLinux.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/CNIOLinux/CNIOLinux-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CNIOLinux/CNIOLinux-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/CNIOLinux/CNIOLinux.modulemap";
-				PRODUCT_MODULE_NAME = CNIOLinux;
-				PRODUCT_NAME = CNIOLinux;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.4;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -10875,7 +10965,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOHPACK/SwiftNIOHPACK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOHPACK/SwiftNIOHPACK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10886,6 +10976,8 @@
 				PRODUCT_NAME = NIOHPACK;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10910,7 +11002,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Logging/Logging-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Logging/Logging-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10929,69 +11021,6 @@
 			};
 			name = Debug;
 		};
-		949893C6606874DA4EEF6BD2EA125F08 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
 		94E29AC288F46E25C94869CF635D1CA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 188F9A77F59A9E8DE997060BF25ADDA4 /* _NIODataStructures.debug.xcconfig */;
@@ -11008,7 +11037,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/_NIODataStructures/_NIODataStructures-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/_NIODataStructures/_NIODataStructures-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11043,7 +11072,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Kingfisher/Kingfisher-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11078,7 +11107,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOSSL/SwiftNIOSSL-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOSSL/SwiftNIOSSL-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11113,7 +11142,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOSSL/SwiftNIOSSL-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOSSL/SwiftNIOSSL-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11124,6 +11153,8 @@
 				PRODUCT_NAME = NIOSSL;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11149,7 +11180,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIODarwin/CNIODarwin-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIODarwin/CNIODarwin-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11160,6 +11191,8 @@
 				PRODUCT_NAME = CNIODarwin;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11185,7 +11218,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOHTTP1/SwiftNIOHTTP1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOHTTP1/SwiftNIOHTTP1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11220,7 +11253,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOFoundationCompat/SwiftNIOFoundationCompat-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOFoundationCompat/SwiftNIOFoundationCompat-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11231,6 +11264,8 @@
 				PRODUCT_NAME = NIOFoundationCompat;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11256,7 +11291,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOEmbedded/SwiftNIOEmbedded-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOEmbedded/SwiftNIOEmbedded-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11267,6 +11302,8 @@
 				PRODUCT_NAME = NIOEmbedded;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11292,7 +11329,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOPosix/SwiftNIOPosix-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOPosix/SwiftNIOPosix-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11311,6 +11348,46 @@
 			};
 			name = Debug;
 		};
+		AD97BA4C02BD9E012FE5C8EDEADED08F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35EAC521FA811E25ACEFBD20DED26875 /* Pods-Fyreplace.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		B06DC1BBE1B58571A4F32BFF1A44BC8E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A753195C1963F63E98EC2E98125B005D /* SwiftNIOConcurrencyHelpers.release.xcconfig */;
@@ -11327,7 +11404,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOConcurrencyHelpers/SwiftNIOConcurrencyHelpers-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOConcurrencyHelpers/SwiftNIOConcurrencyHelpers-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11338,6 +11415,8 @@
 				PRODUCT_NAME = NIOConcurrencyHelpers;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11363,7 +11442,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOCore/SwiftNIOCore-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOCore/SwiftNIOCore-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11374,6 +11453,8 @@
 				PRODUCT_NAME = NIOCore;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11399,7 +11480,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOHTTP1/SwiftNIOHTTP1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOHTTP1/SwiftNIOHTTP1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11410,6 +11491,8 @@
 				PRODUCT_NAME = NIOHTTP1;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11435,7 +11518,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIODarwin/CNIODarwin-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIODarwin/CNIODarwin-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11470,7 +11553,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Kingfisher/Kingfisher-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11481,6 +11564,8 @@
 				PRODUCT_NAME = Kingfisher;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11497,7 +11582,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11522,7 +11607,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftProtobuf/SwiftProtobuf-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftProtobuf/SwiftProtobuf-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11557,7 +11642,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/gRPC-Swift/gRPC-Swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/gRPC-Swift/gRPC-Swift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11592,7 +11677,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOFoundationCompat/SwiftNIOFoundationCompat-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOFoundationCompat/SwiftNIOFoundationCompat-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11627,7 +11712,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIOHTTPParser/CNIOHTTPParser-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIOHTTPParser/CNIOHTTPParser-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11662,7 +11747,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIOBoringSSLShims/CNIOBoringSSLShims-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIOBoringSSLShims/CNIOBoringSSLShims-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11673,6 +11758,8 @@
 				PRODUCT_NAME = CNIOBoringSSLShims;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11689,12 +11776,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				SDKROOT = iphoneos;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -11716,7 +11805,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOTLS/SwiftNIOTLS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOTLS/SwiftNIOTLS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11742,12 +11831,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				SDKROOT = iphoneos;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -11768,7 +11859,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Logging/Logging-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Logging/Logging-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11779,6 +11870,8 @@
 				PRODUCT_NAME = Logging;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11803,7 +11896,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ReactiveCocoa/ReactiveCocoa-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ReactiveCocoa/ReactiveCocoa-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11814,6 +11907,8 @@
 				PRODUCT_NAME = ReactiveCocoa;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11839,7 +11934,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CNIOBoringSSLShims/CNIOBoringSSLShims-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CNIOBoringSSLShims/CNIOBoringSSLShims-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11874,7 +11969,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOHPACK/SwiftNIOHPACK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOHPACK/SwiftNIOHPACK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11908,7 +12003,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ReactiveCocoa/ReactiveCocoa-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ReactiveCocoa/ReactiveCocoa-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11943,7 +12038,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CGRPCZlib/CGRPCZlib-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CGRPCZlib/CGRPCZlib-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11954,6 +12049,8 @@
 				PRODUCT_NAME = CGRPCZlib;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -11962,43 +12059,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		F0AB6D61D94DCDDC90A3C95666E948FC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3676750190B098B251A33F207A6D9EE /* Pods-Fyreplace.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		F586AF42AE74C6DCF83B3163E60ABBD9 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -12016,7 +12076,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftNIOPosix/SwiftNIOPosix-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftNIOPosix/SwiftNIOPosix-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -12027,6 +12087,8 @@
 				PRODUCT_NAME = NIOPosix;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				STRIPFLAGS = "-rSTx";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.4;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -12141,8 +12203,8 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				81F8D4F2F7A41D8223C1B32C81033009 /* Debug */,
-				949893C6606874DA4EEF6BD2EA125F08 /* Release */,
+				8E6A8FF58D100B7F9B1943F455C00F02 /* Debug */,
+				6C98B09FF5CCB107837D1A84E8F3A4F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -12159,8 +12221,8 @@
 		4FDAD5AB12F26CEBCE73DD0799BA5003 /* Build configuration list for PBXNativeTarget "Pods-Fyreplace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F0AB6D61D94DCDDC90A3C95666E948FC /* Debug */,
-				856FA702D78C94F1FC1F4B95FE8686E8 /* Release */,
+				41FAD8EC53D37B8480618002B76423CD /* Debug */,
+				AD97BA4C02BD9E012FE5C8EDEADED08F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

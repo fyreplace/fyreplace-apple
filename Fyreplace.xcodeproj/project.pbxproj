@@ -1103,6 +1103,7 @@
 				CODE_SIGN_ENTITLEMENTS = $PROJECT/Fyreplace.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
+				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = "";
 				FYREPLACE_API_HOST_DEFAULT_KEY = FPApiHostMain;
 				FYREPLACE_API_HOST_DEV = dev.api.fyreplace.app;
@@ -1117,6 +1118,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
 				PRODUCT_NAME = "$(PROJECT)";
+				STRIPFLAGS = "-rSTx";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
