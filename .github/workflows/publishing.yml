@@ -54,7 +54,6 @@ jobs:
       - name: Install dependencies
         run: |
           brew install protobuf swift-protobuf grpc-swift
-          pod install
 
       - name: Build app
         run: |
