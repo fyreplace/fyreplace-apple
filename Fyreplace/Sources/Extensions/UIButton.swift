@@ -9,7 +9,7 @@ extension UIButton {
     func setAvatar(from profile: FPProfile?) {
         let defaultImage = UIImage(called: "person.crop.circle.fill")
 
-        if let profile = profile, !profile.isBanned {
+        if let profile, !profile.isBanned {
             kf.setImage(
                 with: URL(string: profile.avatar.url),
                 for: .normal,

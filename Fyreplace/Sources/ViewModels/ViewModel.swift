@@ -73,7 +73,7 @@ extension ViewModelDelegate {
             key = self.viewModel(viewModel, errorKeyForCode: status.code.rawValue, withMessage: status.message)
         }
 
-        if let key = key {
+        if let key {
             presentBasicAlert(text: key, feedback: .error)
         }
     }

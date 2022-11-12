@@ -149,8 +149,8 @@ class PostViewController: ItemRandomAccessListViewController {
         var oldPosition: Int?
 
         if selected {
-            if let old = selectedComment {
-                oldPosition = old
+            if let selectedComment {
+                oldPosition = selectedComment
             }
 
             selectedComment = position
@@ -212,7 +212,7 @@ class PostViewController: ItemRandomAccessListViewController {
         let indexPath = IndexPath(row: position, section: 0)
         let oldIndexPath: IndexPath?
 
-        if let oldPosition = oldPosition {
+        if let oldPosition {
             oldIndexPath = .init(row: oldPosition, section: 0)
         } else {
             oldIndexPath = nil
@@ -221,8 +221,8 @@ class PostViewController: ItemRandomAccessListViewController {
         guard indexPath.row < vm.lister.totalCount else { return }
         var paths = [indexPath]
 
-        if let oldPath = oldIndexPath {
-            paths.append(oldPath)
+        if let oldIndexPath {
+            paths.append(oldIndexPath)
         }
 
         if vm.itemRandomAccessListView(self, hasItemAtPosition: indexPath.row) {
@@ -264,8 +264,8 @@ extension PostViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [self] in
             guard shouldScrollToComment else { return }
 
-            if let position = selectedComment {
-                showComment(at: position, insteadOf: nil)
+            if let selectedComment {
+                showComment(at: selectedComment, insteadOf: nil)
             } else if vm.post.value.commentsRead > 0 {
                 showUnreadComments()
             }

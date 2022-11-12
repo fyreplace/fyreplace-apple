@@ -79,7 +79,7 @@ class MainViewModel: ViewModel {
 
     func registerToken(token: String) {
         let request = FPMessagingToken.with {
-            $0.service = FPMessagingService.apns
+            $0.service = .apns
             $0.token = token
         }
         let response = notificationService.registerToken(request, callOptions: .authenticated).response

@@ -216,7 +216,7 @@ class MainViewController: UITabBarController {
         }
 
         if let postController = findPostViewController() {
-            if let commentPosition = commentPosition,
+            if let commentPosition,
                postController.tryShowComment(for: postId, at: commentPosition)
             {
                 return

@@ -14,6 +14,7 @@ class DateFormat: DateFormatter {
     }
 
     private func setupStyle() {
+        locale = .current
         dateStyle = concise ? .short : .medium
         timeStyle = concise ? .short : .medium
     }

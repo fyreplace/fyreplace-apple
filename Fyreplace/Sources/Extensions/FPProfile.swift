@@ -21,7 +21,7 @@ extension FPProfile {
 
         let attributes: [NSAttributedString.Key: Any]?
 
-        if let font = font, !isNormalName {
+        if let font, !isNormalName {
             attributes = [NSAttributedString.Key.font: font.withTraits(.traitItalic)]
         } else {
             attributes = nil

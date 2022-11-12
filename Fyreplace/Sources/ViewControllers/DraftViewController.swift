@@ -293,7 +293,7 @@ extension DraftViewController: ImageSelectorDelegate {
     var maxImageByteSize: Int { 512 * 1024 }
 
     func imageSelector(_ imageSelector: ImageSelector, didSelectImage image: Data?) {
-        if let image = image {
+        if let image {
             vm.updateImageChapter(image, at: currentChapterPosition)
         } else {
             deleteChapter(at: currentChapterPosition)

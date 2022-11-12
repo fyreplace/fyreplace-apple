@@ -6,7 +6,7 @@ extension URL {
         let host = hostsString.split(separator: ";").first!
         var urlString = "https://\(host)/\(type)/\(id.base64ShortString)"
 
-        if let position = position {
+        if let position {
             urlString += "/\(position)"
         }
 

@@ -7,7 +7,7 @@ extension NSObjectProtocol {
     func setCurrentUser(_ user: FPUser?) {
         let connected: Bool
 
-        if let user = user {
+        if let user {
             connected = true
             UserDefaults.standard.set(user, forKey: "auth:user")
         } else {

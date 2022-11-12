@@ -30,8 +30,8 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
         guard currentOrientation != lastOrientation else { return }
         lastOrientation = currentOrientation
 
-        if let original = originalConstant {
-            constant = original
+        if let originalConstant {
+            constant = originalConstant
         }
     }
 
