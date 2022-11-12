@@ -21,15 +21,15 @@ jobs:
           fetch-depth: 0
           submodules: true
 
-      - name: Cache pods
+      - name: Cache packages
         uses: actions/cache@v3
         with:
           path: |
-            ~/Library/Caches/CocoaPods
+            ~/Library/Developer/Xcode/DerivedData/**/SourcePackages/checkouts
             Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
           restore-keys: |
-            ${{ runner.os }}-pods-
+            ${{ runner.os }}-spm-
 
       - name: Set up signing certificate
         env:
@@ -53,7 +53,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          brew install protobuf
+          brew install protobuf swift-protobuf grpc-swift
           pod install
 
       - name: Build app

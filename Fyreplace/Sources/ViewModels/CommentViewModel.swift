@@ -1,3 +1,4 @@
+import Foundation
 import ReactiveSwift
 
 class CommentViewModel: ViewModel, TextInputViewModel {

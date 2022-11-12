@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -135,15 +135,17 @@
 		4DCD6679291455370040E5AD /* ImageChapterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD6678291455370040E5AD /* ImageChapterTableViewCell.xib */; };
 		4DCD667B29145A2D0040E5AD /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD667A29145A2D0040E5AD /* CommentTableViewCell.xib */; };
 		4DCD667D29145DA30040E5AD /* LoadingCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD667C29145DA30040E5AD /* LoadingCommentTableViewCell.xib */; };
+		4DD34374291FC49300C82D37 /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD34373291FC49300C82D37 /* ReactiveCocoa */; };
+		4DD34377291FC4DE00C82D37 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD34376291FC4DE00C82D37 /* Kingfisher */; };
 		4DD98EBD28C53D6B00985841 /* FPProfile+IdentifiableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD98EBC28C53D6B00985841 /* FPProfile+IdentifiableItem.swift */; };
 		4DD98EBF28C53D9F00985841 /* FPPost+IdentifiableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD98EBE28C53D9F00985841 /* FPPost+IdentifiableItem.swift */; };
 		4DD98EC128C5D6E800985841 /* FPComment+IdentifiableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD98EC028C5D6E800985841 /* FPComment+IdentifiableItem.swift */; };
 		4DDB51D029113E5C0057C39C /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB51CF29113E5C0057C39C /* Notifications.swift */; };
+		4DE5949B291FBBB500534CED /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 4DE5949A291FBBB500534CED /* GRPC */; };
 		4DE97C5B2815C2AA0024362D /* ChapterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE97C5A2815C2AA0024362D /* ChapterTableViewCell.swift */; };
 		4DE97C5D2815C3310024362D /* DraftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE97C5C2815C3310024362D /* DraftTableViewCell.swift */; };
 		4DF63A0427FF0C2000DF8460 /* DraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF63A0327FF0C2000DF8460 /* DraftsViewController.swift */; };
 		4DF63A0627FF0C6F00DF8460 /* DraftsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF63A0527FF0C6F00DF8460 /* DraftsViewModel.swift */; };
-		73BD19A7C9039A10208B520B /* Pods_Fyreplace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768E622B14C754E0E2E56E55 /* Pods_Fyreplace.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -160,7 +162,7 @@
 				"$(INPUT_FILE_DIR)/$(INPUT_FILE_BASE).grpc.swift",
 			);
 			runOncePerArchitecture = 0;
-			script = "touch $INPUT_FILE_DIR/$INPUT_FILE_BASE.pb.swift\ntouch $INPUT_FILE_DIR/$INPUT_FILE_BASE.grpc.swift\nPATH=\"$PODS_ROOT/gRPC-Swift-Plugins/bin:$PATH\"\nprotoc --swift_out=. --grpc-swift_out=. protos/$INPUT_FILE_NAME\n";
+			script = "touch $INPUT_FILE_DIR/$INPUT_FILE_BASE.pb.swift\ntouch $INPUT_FILE_DIR/$INPUT_FILE_BASE.grpc.swift\nprotoc --swift_out=. --grpc-swift_out=. protos/$INPUT_FILE_NAME\n";
 		};
 /* End PBXBuildRule section */
 
@@ -311,11 +313,6 @@
 		4DFAAD24269F6D1F00DFAB5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DFAAD26269F6D4800DFAB5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DFAAD28269F7CB800DFAB5F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		4EEF1E1AED80FAA9662C9671 /* Pods_Fyreplace_Dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fyreplace_Dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		768E622B14C754E0E2E56E55 /* Pods_Fyreplace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fyreplace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DD124F0F741B2029331A9FA /* Pods-Fyreplace.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.development.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.development.xcconfig"; sourceTree = "<group>"; };
-		F6AE99DEBB9480CE0EB31F33 /* Pods-Fyreplace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.release.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.release.xcconfig"; sourceTree = "<group>"; };
-		FB0C04D40EE228CAD9C567B9 /* Pods-Fyreplace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fyreplace.debug.xcconfig"; path = "Target Support Files/Pods-Fyreplace/Pods-Fyreplace.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,7 +320,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73BD19A7C9039A10208B520B /* Pods_Fyreplace.framework in Frameworks */,
+				4DD34377291FC4DE00C82D37 /* Kingfisher in Frameworks */,
+				4DD34374291FC49300C82D37 /* ReactiveCocoa in Frameworks */,
+				4DE5949B291FBBB500534CED /* GRPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,8 +335,6 @@
 				4D77947527DE9B460068F4E7 /* .gitignore */,
 				4D0040EA268EEDE800AF89FD /* Fyreplace */,
 				4D7C984A2691254B00819E3F /* protos */,
-				958BE3377F98F9B27CCC6D2D /* Frameworks */,
-				C65EB2DEC8380D9ABD7483E6 /* Pods */,
 				4D0040E9268EEDE800AF89FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -595,25 +592,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		958BE3377F98F9B27CCC6D2D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4EEF1E1AED80FAA9662C9671 /* Pods_Fyreplace_Dev.framework */,
-				768E622B14C754E0E2E56E55 /* Pods_Fyreplace.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C65EB2DEC8380D9ABD7483E6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FB0C04D40EE228CAD9C567B9 /* Pods-Fyreplace.debug.xcconfig */,
-				7DD124F0F741B2029331A9FA /* Pods-Fyreplace.development.xcconfig */,
-				F6AE99DEBB9480CE0EB31F33 /* Pods-Fyreplace.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -621,14 +599,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D77947027DE654B0068F4E7 /* Build configuration list for PBXNativeTarget "Fyreplace" */;
 			buildPhases = (
-				4D77941327DE654B0068F4E7 /* [CP] Check Pods Manifest.lock */,
 				4D77941427DE654B0068F4E7 /* ShellScript */,
 				4D77941527DE654B0068F4E7 /* ShellScript */,
 				4D77941627DE654B0068F4E7 /* ShellScript */,
 				4D77941727DE654B0068F4E7 /* Sources */,
 				4D77946727DE654B0068F4E7 /* Frameworks */,
 				4D77946927DE654B0068F4E7 /* Resources */,
-				4D77946E27DE654B0068F4E7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 				4D77946F27DE654B0068F4E7 /* PBXBuildRule */,
@@ -636,6 +612,11 @@
 			dependencies = (
 			);
 			name = Fyreplace;
+			packageProductDependencies = (
+				4DE5949A291FBBB500534CED /* GRPC */,
+				4DD34373291FC49300C82D37 /* ReactiveCocoa */,
+				4DD34376291FC4DE00C82D37 /* Kingfisher */,
+			);
 			productName = Fyreplace;
 			productReference = 4D77947327DE654B0068F4E7 /* Fyreplace.app */;
 			productType = "com.apple.product-type.application";
@@ -651,7 +632,7 @@
 				LastUpgradeCheck = 1340;
 			};
 			buildConfigurationList = 4D0040E3268EEDE800AF89FD /* Build configuration list for PBXProject "Fyreplace" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -659,6 +640,11 @@
 				Base,
 			);
 			mainGroup = 4D0040DF268EEDE800AF89FD;
+			packageReferences = (
+				4DE59499291FBBB500534CED /* XCRemoteSwiftPackageReference "grpc-swift" */,
+				4DD34372291FC49300C82D37 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
+				4DD34375291FC4DE00C82D37 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 4D0040E9268EEDE800AF89FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -697,28 +683,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4D77941327DE654B0068F4E7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Fyreplace-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4D77941427DE654B0068F4E7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -753,7 +717,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "PATH=\"$PODS_ROOT/SwiftFormat/CommandLineTool:$PATH\"\nswiftformat --semicolons never --stripunusedargs closure-only $SOURCE_ROOT/$PROJECT\n";
+			shellScript = "if (which swiftformat)\nthen\n    swiftformat --semicolons never --stripunusedargs closure-only $SOURCE_ROOT/$PROJECT\nfi\n";
 		};
 		4D77941627DE654B0068F4E7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -772,23 +736,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "cp -f $INFOPLIST_FILE.template.plist $INFOPLIST_FILE\nversion_number=$(python3 $PROJECT/version.py)\nversion_string=$(python3 $PROJECT/version.py string)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $version_number\" $INFOPLIST_FILE\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $version_string\" $INFOPLIST_FILE\n";
-		};
-		4D77946E27DE654B0068F4E7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Fyreplace/Pods-Fyreplace-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Fyreplace/Pods-Fyreplace-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fyreplace/Pods-Fyreplace-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1012,7 +959,6 @@
 		};
 		4D77947127DE654B0068F4E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB0C04D40EE228CAD9C567B9 /* Pods-Fyreplace.debug.xcconfig */;
 			buildSettings = {
 				APP_NAME = "$(PRODUCT_NAME)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1095,7 +1041,6 @@
 		};
 		4D7B187727ED22AB00FE31A0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6AE99DEBB9480CE0EB31F33 /* Pods-Fyreplace.release.xcconfig */;
 			buildSettings = {
 				APP_NAME = "$(PRODUCT_NAME)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1146,6 +1091,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4DD34372291FC49300C82D37 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveCocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
+		4DD34375291FC4DE00C82D37 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		4DE59499291FBBB500534CED /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grpc/grpc-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4DD34373291FC49300C82D37 /* ReactiveCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DD34372291FC49300C82D37 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */;
+			productName = ReactiveCocoa;
+		};
+		4DD34376291FC4DE00C82D37 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DD34375291FC4DE00C82D37 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		4DE5949A291FBBB500534CED /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DE59499291FBBB500534CED /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D0040E0268EEDE800AF89FD /* Project object */;
 }
