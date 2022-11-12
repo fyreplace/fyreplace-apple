@@ -33,7 +33,9 @@ class NotificationsViewController: ItemListViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        guard let position = tableView.indexPathForSelectedRow?.row else { return }
+        guard let cell = sender as? UITableViewCell,
+              let position = tableView.indexPath(for: cell)?.row
+        else { return }
         let notification = vm.notification(at: position)
 
         switch (segue.destination, notification.target) {
