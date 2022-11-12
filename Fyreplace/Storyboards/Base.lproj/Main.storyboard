@@ -190,6 +190,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="archiveEmptyPlaceholder" destination="Archive-No-subscribed-posts" id="b5d2171d7288e2bca2ff40c3bc87decdbd6120b920262d77dd28de3e2cdec65f"/>
+                        <outlet property="dateFormat" destination="Archive-DateFormat" id="9035d3998439dfca49de79b1e35ce4bfc79fb08911743af58c665505fd65a66c"/>
                         <outlet property="emptyPlaceholder" destination="Archive-No-subscribed-posts" id="dd75d4754ace7d414a368262189cd2a7fc94d474496eb26803bf1b018f350726"/>
                         <outlet property="listDelegate" destination="Archive-ArchiveViewModel" id="7bcad236b113ff50face10092b69e2c5f097cf58d9ec2e74ff3ffb7694f75002"/>
                         <outlet property="ownPostsEmptyPlaceholder" destination="Archive-No-published-posts" id="40d7180cd595254e5e2f8dcc5403aba11d7f51d3508ea856cd0c5155fd307976"/>
@@ -797,21 +798,20 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView">
                                                 <rect key="frame" x="48" y="0.0" width="172" height="40"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-button">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Username" userLabel="Username">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="21"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <connections>
-                                                            <segue destination="User-Navigation-User-Navigation" kind="presentation" id="4994cd755aca52576955c32cd900bfee2254dc05c91793aedb5f173f7d15eeb2"/>
+                                                            <segue destination="User-Navigation-User-Navigation" kind="presentation" id="4e3369d91b5678fb4ff1beda74140bbb5850e3703cf29df139e52b7fac0b57e1"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created">
-                                                        <rect key="frame" x="0.0" y="21" width="91" height="19"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created" userLabel="Date Created">
+                                                        <rect key="frame" x="0.0" y="21" width="30" height="19"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <color key="tintColor" systemColor="secondaryLabelColor"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Date Created"/>
                                                         <connections>
                                                             <segue destination="User-Navigation-User-Navigation" kind="presentation" id="a874b6660a756db33daace55335d460366cfd25570ddf4d6deefd6e69b652c3e"/>
                                                         </connections>
@@ -868,7 +868,7 @@
                         <outlet property="subscribe" destination="Post-Subscribe" id="459044615fd0c6ef2e04205aeec94c404cd393049b30924854db219329ff5da3"/>
                         <outlet property="tableHeader" destination="Post-Post-view-PostTableHeaderView" id="ae62783ad10c717ce9fbce363f30e0e615e9b435789c0800c800e72b3c8b0b58"/>
                         <outlet property="unsubscribe" destination="Post-Unsubscribe" id="5187bed6bb9b49ed01c65478e67872c7944f23b0a3c91c56e99fff23cd95e53b"/>
-                        <outlet property="username" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-button" id="417650c58d7e733a89c06e335876233dca4a7fcc9af23570e8ebf7bbcc7b5d8a"/>
+                        <outlet property="username" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Username" id="417650c58d7e733a89c06e335876233dca4a7fcc9af23570e8ebf7bbcc7b5d8a"/>
                         <outlet property="vm" destination="Post-PostViewModel" id="17682a10202c2e49f2e7bb9bff56a51be0f2971cea2391c52a1e166086a1ab01"/>
                         <segue destination="User-Navigation-User-Navigation" kind="presentation" identifier="User" id="af53327e86a1be85b59594f1407e2ba84bad8c26e40855caf996d038367678f0"/>
                     </connections>

@@ -9,6 +9,8 @@ class ArchiveViewController: ItemListViewController {
     var archiveEmptyPlaceholder: UILabel!
     @IBOutlet
     var ownPostsEmptyPlaceholder: UILabel!
+    @IBOutlet
+    var dateFormat: DateFormat!
 
     private var isListingAllPosts: Bool { segments.selectedSegmentIndex == 0 }
 
@@ -63,6 +65,7 @@ class ArchiveViewController: ItemListViewController {
 extension ArchiveViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        (cell as? ItemTableViewCell)?.dateFormat = dateFormat
         (cell as? PostTableViewCell)?.setup(withPost: vm.post(at: indexPath.row))
         return cell
     }
