@@ -7,8 +7,9 @@
 "Legal.PrivacyPolicy.Url" = "https://fyreplace.net/privacy-policy";
 "Legal.TermsOfService.Url" = "https://fyreplace.net/terms-of-service";
 
-"Profile.Anonymous" = "Anonymous";
+"Profile.Deleted" = "User deleted";
 "Profile.Banned" = "User banned";
+"Profile.Anonymous" = "Anonymous";
 
 "Comment.Deleted" = "Comment deleted";
 
