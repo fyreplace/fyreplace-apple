@@ -57,12 +57,14 @@ extension ViewModelDelegate {
             key = "Error.Unavailable"
 
         case .unauthenticated:
-            if autoDisconnect, Keychain.authToken.get() != nil {
-                key = nil
-
-                if Keychain.authToken.delete() {
-                    setCurrentUser(nil)
+            if autoDisconnect {
+                if Keychain.authToken.get() != nil {
+                    presentBasicAlert(text: "Error.Autodisconnect", feedback: .error)
                 }
+
+                key = nil
+                _ = Keychain.authToken.delete()
+                setCurrentUser(nil)
             } else {
                 key = self.viewModel(viewModel, errorKeyForCode: status.code.rawValue, withMessage: status.message)
             }

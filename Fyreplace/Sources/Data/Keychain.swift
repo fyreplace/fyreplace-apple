@@ -33,7 +33,7 @@ struct Keychain {
     }
 
     func delete() -> Bool {
-        SecItemDelete(query as CFDictionary) == errSecSuccess
+        return SecItemDelete(query as CFDictionary) == errSecSuccess
     }
 }
 

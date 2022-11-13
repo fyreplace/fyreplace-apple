@@ -24,9 +24,8 @@
 "Error.Permission.Message" = "You do not have the permission to perform this action.";
 "Error.Validation.Title" = "Validation error";
 "Error.Validation.Message" = "The data received is not correct.";
-
-"Keychain.Error.Title" = "Keychain error";
-"Keychain.Error.Message" = "Could not operate on the Keychain.";
+"Error.Autodisconnect.Title" = "You have been disconnected";
+"Error.Autodisconnect.Message" = "Your session has expired.";
 
 "ImageSelector.ChooseSource.Action.Library" = "Pick an image";
 "ImageSelector.ChooseSource.Action.Camera" = "Take a picture";

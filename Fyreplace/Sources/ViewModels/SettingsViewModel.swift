@@ -72,21 +72,15 @@ class SettingsViewModel: ViewModel {
     }
 
     private func onLogout() {
-        if authToken.delete() {
-            setCurrentUser(nil)
-            delegate.settingsViewModelDidLogout(self)
-        } else {
-            delegate.viewModel(self, didFailWithError: KeychainError.delete)
-        }
+        _ = authToken.delete()
+        setCurrentUser(nil)
+        delegate.settingsViewModelDidLogout(self)
     }
 
     private func onDelete() {
-        if authToken.delete() {
-            setCurrentUser(nil)
-            delegate.settingsViewModelDidDelete(self)
-        } else {
-            delegate.viewModel(self, didFailWithError: KeychainError.delete)
-        }
+        _ = authToken.delete()
+        setCurrentUser(nil)
+        delegate.settingsViewModelDidDelete(self)
     }
 }
 
