@@ -252,6 +252,10 @@ class PostViewController: ItemRandomAccessListViewController {
 }
 
 extension PostViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return vm.post.value.isPreview ? 0 : super.numberOfSections(in: tableView)
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = super.tableView(tableView, numberOfRowsInSection: section)
 
@@ -369,7 +373,9 @@ extension PostViewController: PostViewModelDelegate {
         }
     }
 
-    func postViewModel(_ viewModel: PostViewModel, didRetrieve id: Data) {}
+    func postViewModel(_ viewModel: PostViewModel, didRetrieve id: Data) {
+        DispatchQueue.main.async { self.tableView.reloadData() }
+    }
 
     func postViewModel(_ viewModel: PostViewModel, didUpdate id: Data, subscribed: Bool) {
         NotificationCenter.default.post(
