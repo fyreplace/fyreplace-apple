@@ -1,5 +1,4 @@
 import GRPC
-import Kingfisher
 import ReactiveSwift
 import SwiftProtobuf
 import UIKit
@@ -233,11 +232,6 @@ extension SettingsViewController {
         alert.addAction(cancel)
         present(alert, animated: true)
     }
-
-    private func clearImageCache() {
-        KingfisherManager.shared.cache.clearMemoryCache()
-        KingfisherManager.shared.cache.clearDiskCache()
-    }
 }
 
 extension SettingsViewController: SettingsViewModelDelegate {
@@ -250,12 +244,10 @@ extension SettingsViewController: SettingsViewModelDelegate {
     }
 
     func settingsViewModelDidLogout(_ viewModel: SettingsViewModel) {
-        clearImageCache()
         reloadTable()
     }
 
     func settingsViewModelDidDelete(_ viewModel: SettingsViewModel) {
-        clearImageCache()
         reloadTable()
         presentBasicAlert(text: "Settings.AccountDeletion.Success")
     }

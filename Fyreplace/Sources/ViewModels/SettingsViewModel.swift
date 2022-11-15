@@ -9,8 +9,6 @@ class SettingsViewModel: ViewModel {
     let user = MutableProperty<FPUser?>(nil)
     let blockedUsers = MutableProperty<UInt32>(0)
 
-    private let authToken = Keychain.authToken
-
     override func awakeFromNib() {
         super.awakeFromNib()
         reloadUser()
@@ -72,13 +70,13 @@ class SettingsViewModel: ViewModel {
     }
 
     private func onLogout() {
-        _ = authToken.delete()
+        _ = Keychain.authToken.delete()
         setCurrentUser(nil)
         delegate.settingsViewModelDidLogout(self)
     }
 
     private func onDelete() {
-        _ = authToken.delete()
+        _ = Keychain.authToken.delete()
         setCurrentUser(nil)
         delegate.settingsViewModelDidDelete(self)
     }

@@ -1,4 +1,5 @@
 import GRPC
+import Kingfisher
 import ReactiveSwift
 import UIKit
 import UserNotifications
@@ -148,6 +149,11 @@ class MainViewController: UITabBarController {
             UIApplication.shared.registerForRemoteNotifications()
         } else {
             UIApplication.shared.unregisterForRemoteNotifications()
+            UIApplication.shared.applicationIconBadgeNumber = 0
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            KingfisherManager.shared.cache.clearMemoryCache()
+            KingfisherManager.shared.cache.clearDiskCache()
 
             if tabBar.selectedItem?.tag == 1 {
                 selectedIndex = (tabBar.items?.count ?? 1) - 1
