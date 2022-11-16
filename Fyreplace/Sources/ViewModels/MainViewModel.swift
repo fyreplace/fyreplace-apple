@@ -35,7 +35,9 @@ class MainViewModel: ViewModel {
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
 
-        tryRetrieveMe()
+        if authToken.get() != nil {
+            retrieveMe()
+        }
     }
 
     func confirmActivation(with token: String) {
@@ -108,15 +110,6 @@ class MainViewModel: ViewModel {
     private func onConfirmEmailUpdate(token: String) {
         retrieveMe()
         delegate.mainViewModel(self, didConfirmEmailUpdateWithToken: token)
-    }
-
-    private func tryRetrieveMe() {
-        if !UserDefaults.standard.bool(forKey: "app:first-run") {
-            UserDefaults.standard.set(true, forKey: "app:first-run")
-            _ = authToken.delete()
-        } else if authToken.get() != nil {
-            retrieveMe()
-        }
     }
 }
 

@@ -17,15 +17,22 @@ class AppDelegate: UIResponder {
         activityUrl = url
         NotificationCenter.default.post(name: Self.didOpenUrlNotification, object: self, userInfo: ["url": url])
     }
+
+    private func firstTimeSetup() {
+        guard !UserDefaults.standard.bool(forKey: "app:first-run") else { return }
+        UserDefaults.standard.set(true, forKey: "app:first-run")
+        _ = Keychain.authToken.delete()
+    }
 }
 
 extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
+        firstTimeSetup()
+
         for case let window? in application.windows + [window] {
             window.tintColor = .accent
         }
-
-        UNUserNotificationCenter.current().delegate = self
 
         if let remoteNotification = launchOptions?[.remoteNotification] as? [AnyHashable: Any] {
             NotificationCenter.default.post(

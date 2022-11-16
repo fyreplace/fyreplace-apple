@@ -26,7 +26,6 @@ jobs:
         with:
           path: |
             ~/Library/Developer/Xcode/DerivedData/**/SourcePackages/checkouts
-            Pods
           key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
           restore-keys: |
             ${{ runner.os }}-spm-
