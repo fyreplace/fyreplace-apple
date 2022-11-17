@@ -34,10 +34,6 @@ class MainViewModel: ViewModel {
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in retrieveMe() }
-
-        if authToken.get() != nil {
-            retrieveMe()
-        }
     }
 
     func confirmActivation(with token: String) {
@@ -89,6 +85,11 @@ class MainViewModel: ViewModel {
         let response = notificationService.registerToken(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate.mainViewModel(self, didRegisterToken: token) }
         response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+    }
+
+    func tryRetrieveMe() {
+        guard authToken.get() != nil else { return }
+        retrieveMe()
     }
 
     private func onConfirmActivation(token: String) {

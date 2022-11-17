@@ -66,6 +66,7 @@ class MainViewController: UITabBarController {
             .observeValues { [unowned self] in onCommentWasSeen($0) }
 
         toggleAuthenticatedTabs(enabled: currentUser != nil)
+        vm.tryRetrieveMe()
     }
 
     override func viewDidAppear(_ animated: Bool) {
