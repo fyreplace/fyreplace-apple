@@ -108,7 +108,8 @@ extension SettingsViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if Bundle.main.apiDefaultHostKey != Bundle.apiHostLocalKey,
-           section == tableView.numberOfSections - 1
+           section == tableView.numberOfSections - 1,
+           vm.user.value == nil
         {
             return super.tableView(tableView, numberOfRowsInSection: section) - 1
         }
