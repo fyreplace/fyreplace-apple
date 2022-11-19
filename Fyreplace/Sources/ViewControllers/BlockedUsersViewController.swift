@@ -75,49 +75,30 @@ extension BlockedUsersViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete else { return }
-        let profile = vm.blockedUser(at: indexPath.row)
-        unblock(profile: profile, at: indexPath)
-        setupUndo(for: profile, at: indexPath)
-    }
-
-    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return .tr("BlockedUsers.Swipe.Unblock")
-    }
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         performSegue(withIdentifier: "User", sender: tableView.cellForRow(at: indexPath))
     }
 
-    private func block(profile: FPProfile, at indexPath: IndexPath) {
-        vm.updateBlock(userId: profile.id, blocked: true, at: indexPath.row)
-        addItem(profile, at: indexPath, becauseOf: .init(name: FPUser.wasBlockedNotification))
-    }
-
-    private func unblock(profile: FPProfile, at indexPath: IndexPath) {
-        vm.updateBlock(userId: profile.id, blocked: false, at: indexPath.row)
-        removeItem(profile, at: indexPath, becauseOf: .init(name: FPUser.wasUnblockedNotification))
-    }
-
-    private func setupUndo(for profile: FPProfile, at indexPath: IndexPath) {
-        guard let undoer = undoManager else { return }
-        undoer.setActionName(.tr("BlockedUsers.Swipe.Unblock"))
-        undoer.registerUndo(withTarget: self) { [unowned undoer] target in
-            target.block(profile: profile, at: indexPath)
-            undoer.registerUndo(withTarget: target) { target in
-                target.unblock(profile: profile, at: indexPath)
-                target.setupUndo(for: profile, at: indexPath)
-            }
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let unblock = UIContextualAction(
+            style: .destructive,
+            title: .tr("BlockedUsers.Swipe.Unblock")
+        ) { [self] _, _, completion in
+            let profile = vm.blockedUser(at: indexPath.row)
+            vm.unblock(userId: profile.id, at: indexPath.row, onCompletion: completion)
         }
+
+        return .init(actions: [unblock])
     }
 }
 
 extension BlockedUsersViewController: BlockedUsersViewModelDelegate {
-    func blockedUsersViewModel(_ viewModel: BlockedUsersViewModel, didUpdateAtPosition position: Int, blocked: Bool) {}
+    func blockedUsersViewModel(_ viewModel: BlockedUsersViewModel, didUnblockAtPosition position: Int, onCompletion handler: @escaping () -> Void) {
+        NotificationCenter.default.post(
+            name: FPUser.wasUnblockedNotification,
+            object: self,
+            userInfo: ["item": vm.blockedUser(at: position), "_completionHandler": handler]
+        )
+    }
 }

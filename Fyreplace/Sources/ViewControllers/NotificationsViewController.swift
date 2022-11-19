@@ -69,11 +69,10 @@ extension NotificationsViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let notification = vm.notification(at: indexPath.row)
         guard notification.isFlag else { return nil }
-        let dismiss = UIContextualAction(style: .destructive, title: .tr("Notifications.Item.Action.Dismiss")) { [self] _, _, _ in
-            vm.absolve(notification: notification)
-            removeItem(notification, at: indexPath, becauseOf: .init(name: FPNotification.wasDeletedNotification))
+        let dismiss = UIContextualAction(style: .destructive, title: .tr("Notifications.Item.Action.Dismiss")) { [self] _, _, completion in
+            vm.absolve(at: indexPath.row, onCompletion: completion)
         }
-        return UISwipeActionsConfiguration(actions: [dismiss])
+        return .init(actions: [dismiss])
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -90,9 +89,11 @@ extension NotificationsViewController {
 }
 
 extension NotificationsViewController: NotificationsViewModelDelegate {
-    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolveUser id: Data) {}
-
-    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolvePost id: Data) {}
-
-    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolveComment id: Data) {}
+    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolve id: Data, at position: Int, onCompletion handler: @escaping () -> Void) {
+        NotificationCenter.default.post(
+            name: FPNotification.wasDeletedNotification,
+            object: self,
+            userInfo: ["item": vm.notification(at: position), "_completionHandler": handler]
+        )
+    }
 }

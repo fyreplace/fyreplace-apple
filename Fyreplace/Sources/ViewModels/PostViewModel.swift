@@ -46,20 +46,26 @@ class PostViewModel: ViewModel {
         response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
     }
 
-    func reportComment(at position: Int) {
+    func reportComment(at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         guard let comment = comment(at: position) else { return }
         let request = FPId.with { $0.id = comment.id }
         let response = commentService.report(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.postViewModel(self, didReportCommentAtPosition: position, inside: self.post.value.id) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate.postViewModel(self, didReportCommentAtPosition: position, inside: self.post.value.id) { completion(true) } }
+        response.whenFailure {
+            self.delegate.viewModel(self, didFailWithError: $0)
+            completion(false)
+        }
     }
 
-    func deleteComment(at position: Int) {
+    func deleteComment(at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         guard let comment = comment(at: position) else { return }
         let request = FPId.with { $0.id = comment.id }
         let response = commentService.delete(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.postViewModel(self, didDeleteCommentAtPosition: position, inside: self.post.value.id) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate.postViewModel(self, didDeleteCommentAtPosition: position, inside: self.post.value.id) { completion(true) } }
+        response.whenFailure {
+            self.delegate.viewModel(self, didFailWithError: $0)
+            completion(false)
+        }
     }
 
     func comment(at position: Int) -> FPComment? {
@@ -105,7 +111,7 @@ protocol PostViewModelDelegate: ViewModelDelegate, ItemRandomAccessListerDelegat
 
     func postViewModel(_ viewModel: PostViewModel, didDelete id: Data)
 
-    func postViewModel(_ viewModel: PostViewModel, didReportCommentAtPosition position: Int, inside id: Data)
+    func postViewModel(_ viewModel: PostViewModel, didReportCommentAtPosition position: Int, inside id: Data, onCompletion handler: @escaping () -> Void)
 
-    func postViewModel(_ viewModel: PostViewModel, didDeleteCommentAtPosition position: Int, inside id: Data)
+    func postViewModel(_ viewModel: PostViewModel, didDeleteCommentAtPosition position: Int, inside id: Data, onCompletion handler: @escaping () -> Void)
 }

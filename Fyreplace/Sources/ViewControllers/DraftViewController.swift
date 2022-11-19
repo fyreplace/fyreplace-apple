@@ -81,7 +81,10 @@ class DraftViewController: UITableViewController {
 
     @IBAction
     func onDeletePressed() {
-        presentChoiceAlert(text: "Draft.Delete", dangerous: true, handler: vm.delete)
+        presentChoiceAlert(text: "Draft.Delete", dangerous: true) { yes in
+            guard yes else { return }
+            self.vm.delete()
+        }
     }
 
     @IBAction

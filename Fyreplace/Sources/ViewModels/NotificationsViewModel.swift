@@ -31,41 +31,52 @@ class NotificationsViewModel: ViewModel {
         return notificationLister.items[position]
     }
 
-    func absolve(notification: FPNotification) {
+    func absolve(at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
+        let notification = notification(at: position)
+
         switch notification.target {
         case let .user(user):
-            absolveUser(id: user.id)
+            absolveUser(id: user.id, at: position, onCompletion: completion)
 
         case let .post(post):
-            absolveUser(id: post.id)
+            absolveUser(id: post.id, at: position, onCompletion: completion)
 
         case let .comment(comment):
-            absolveUser(id: comment.id)
+            absolveUser(id: comment.id, at: position, onCompletion: completion)
 
         default:
             return
         }
     }
 
-    private func absolveUser(id: Data) {
+    private func absolveUser(id: Data, at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         let request = FPId.with { $0.id = id }
         let response = userService.absolve(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.notificationsViewModel(self, didAbsolveUser: id) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate.notificationsViewModel(self, didAbsolve: id, at: position) { completion(true) } }
+        response.whenFailure {
+            self.delegate.viewModel(self, didFailWithError: $0)
+            completion(false)
+        }
     }
 
-    private func absolvePost(id: Data) {
+    private func absolvePost(id: Data, at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         let request = FPId.with { $0.id = id }
         let response = postService.absolve(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.notificationsViewModel(self, didAbsolvePost: id) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate.notificationsViewModel(self, didAbsolve: id, at: position) { completion(true) } }
+        response.whenFailure {
+            self.delegate.viewModel(self, didFailWithError: $0)
+            completion(false)
+        }
     }
 
-    private func absolveComment(id: Data) {
+    private func absolveComment(id: Data, at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         let request = FPId.with { $0.id = id }
         let response = commentService.absolve(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.notificationsViewModel(self, didAbsolveComment: id) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate.notificationsViewModel(self, didAbsolve: id, at: position) { completion(true) } }
+        response.whenFailure {
+            self.delegate.viewModel(self, didFailWithError: $0)
+            completion(false)
+        }
     }
 
     private func onCommentWasSeen(_ notification: Notification) {
@@ -158,9 +169,5 @@ extension NotificationsViewModel: ItemListViewDelegate {
 
 @objc
 protocol NotificationsViewModelDelegate: ViewModelDelegate, ItemListerDelegate {
-    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolveUser id: Data)
-
-    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolvePost id: Data)
-
-    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolveComment id: Data)
+    func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolve id: Data, at position: Int, onCompletion handler: @escaping () -> Void)
 }

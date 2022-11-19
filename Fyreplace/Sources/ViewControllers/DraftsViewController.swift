@@ -40,7 +40,7 @@ class DraftsViewController: ItemListViewController {
             if let cell = sender as? UITableViewCell,
                let position = tableView.indexPath(for: cell)?.row
             {
-                draftController.post = vm.post(at: position)
+                draftController.post = vm.draft(at: position)
             } else {
                 draftController.post = .with { $0.id = createdPostId }
             }
@@ -56,23 +56,25 @@ class DraftsViewController: ItemListViewController {
 extension DraftsViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        (cell as? DraftTableViewCell)?.setup(withDraft: vm.post(at: indexPath.row))
+        (cell as? DraftTableViewCell)?.setup(withDraft: vm.draft(at: indexPath.row))
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let post = vm.post(at: indexPath.row)
-        vm.delete(post.id)
-        removeItem(post, at: indexPath, becauseOf: .init(name: FPPost.draftWasDeletedNotification))
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         performSegue(withIdentifier: "Draft", sender: tableView.cellForRow(at: indexPath))
+    }
+
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(
+            style: .destructive,
+            title: .tr("Delete")
+        ) { [self] _, _, completion in
+            let draft = vm.draft(at: indexPath.row)
+            vm.delete(draft.id, at: indexPath.row, onCompletion: completion)
+        }
+
+        return .init(actions: [delete])
     }
 }
 
@@ -90,5 +92,11 @@ extension DraftsViewController: DraftsViewModelDelegate {
         }
     }
 
-    func draftsViewModel(_ viewModel: DraftsViewModel, didDelete id: Data) {}
+    func draftsViewModel(_ viewModel: DraftsViewModel, didDelete id: Data, at position: Int, onCompletion handler: @escaping () -> Void) {
+        NotificationCenter.default.post(
+            name: FPPost.draftWasDeletedNotification,
+            object: self,
+            userInfo: ["item": vm.draft(at: position), "_completionHandler": handler]
+        )
+    }
 }

@@ -130,14 +130,16 @@ class PostViewController: ItemRandomAccessListViewController {
 
     @IBAction
     func onReportPressed() {
-        presentChoiceAlert(text: "Post.Report", dangerous: true) {
+        presentChoiceAlert(text: "Post.Report", dangerous: true) { yes in
+            guard yes else { return }
             self.vm.report()
         }
     }
 
     @IBAction
     func onDeletePressed() {
-        presentChoiceAlert(text: "Post.Delete", dangerous: true) {
+        presentChoiceAlert(text: "Post.Delete", dangerous: true) { yes in
+            guard yes else { return }
             self.vm.delete()
         }
     }
@@ -328,14 +330,6 @@ extension PostViewController {
 
         let canDelete = currentUserIsAdmin || comment.author.id == currentProfile?.id
         let reportOrDeleteText = canDelete ? "Delete" : "Report"
-        let reportOrDeleteComment = { [self] in
-            if canDelete {
-                vm.deleteComment(at: indexPath.row)
-            } else {
-                vm.reportComment(at: indexPath.row)
-            }
-        }
-
         let reportOrDelete = UIContextualAction(
             style: .destructive,
             title: .tr("Post.Comment.Menu.Action.\(reportOrDeleteText)")
@@ -343,9 +337,16 @@ extension PostViewController {
             self.presentChoiceAlert(
                 text: "Post.Comment.\(reportOrDeleteText)",
                 dangerous: true,
-                handler: reportOrDeleteComment
+                handler: { [self] yes in
+                    guard yes else { return completion(false) }
+
+                    if canDelete {
+                        vm.deleteComment(at: indexPath.row, onCompletion: completion)
+                    } else {
+                        vm.reportComment(at: indexPath.row, onCompletion: completion)
+                    }
+                }
             )
-            completion(true)
         }
 
         share.image = .init(called: "square.and.arrow.up.fill")
@@ -403,16 +404,17 @@ extension PostViewController: PostViewModelDelegate {
         }
     }
 
-    func postViewModel(_ viewModel: PostViewModel, didReportCommentAtPosition position: Int, inside id: Data) {
+    func postViewModel(_ viewModel: PostViewModel, didReportCommentAtPosition position: Int, inside id: Data, onCompletion handler: @escaping () -> Void) {
         presentBasicAlert(text: "Post.Comment.Report.Success")
+        handler()
     }
 
-    func postViewModel(_ viewModel: PostViewModel, didDeleteCommentAtPosition position: Int, inside id: Data) {
-        guard let comment = vm.makeDeletedComment(fromPosition: position) else { return }
+    func postViewModel(_ viewModel: PostViewModel, didDeleteCommentAtPosition position: Int, inside id: Data, onCompletion handler: @escaping () -> Void) {
+        guard let comment = vm.makeDeletedComment(fromPosition: position) else { return handler() }
         NotificationCenter.default.post(
             name: FPComment.wasDeletedNotification,
             object: self,
-            userInfo: ["item": comment, "postId": vm.post.value.id]
+            userInfo: ["item": comment, "postId": vm.post.value.id, "_completionHandler": handler]
         )
     }
 

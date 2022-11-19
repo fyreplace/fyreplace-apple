@@ -104,6 +104,10 @@ class BaseListViewController: UITableViewController {
             at: .init(row: position, section: 0),
             becauseOf: notification
         )
+
+        if let handler = info["_completionHandler"] as? (() -> Void) {
+            handler()
+        }
     }
 
     private func onItemUpdated(_ notification: Notification) {
@@ -119,6 +123,10 @@ class BaseListViewController: UITableViewController {
             at: .init(row: position, section: 0),
             becauseOf: notification
         )
+
+        if let handler = info["_completionHandler"] as? (() -> Void) {
+            handler()
+        }
     }
 
     private func onItemRemoved(_ notification: Notification) {
@@ -134,6 +142,10 @@ class BaseListViewController: UITableViewController {
             at: .init(row: position, section: 0),
             becauseOf: notification
         )
+
+        if let handler = info["_completionHandler"] as? (() -> Void) {
+            handler()
+        }
     }
 }
 

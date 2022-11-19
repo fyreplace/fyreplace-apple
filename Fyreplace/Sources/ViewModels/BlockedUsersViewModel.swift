@@ -14,14 +14,17 @@ class BlockedUsersViewModel: ViewModel {
         return blockedUserLister.items[position]
     }
 
-    func updateBlock(userId: Data, blocked: Bool, at position: Int) {
+    func unblock(userId: Data, at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         let request = FPBlock.with {
             $0.id = userId
-            $0.blocked = blocked
+            $0.blocked = false
         }
         let response = userService.updateBlock(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.blockedUsersViewModel(self, didUpdateAtPosition: position, blocked: blocked) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate.blockedUsersViewModel(self, didUnblockAtPosition: position) { completion(true) } }
+        response.whenFailure {
+            self.delegate.viewModel(self, didFailWithError: $0)
+            completion(false)
+        }
     }
 }
 
@@ -35,5 +38,5 @@ extension BlockedUsersViewModel: ItemListViewDelegate {
 
 @objc
 protocol BlockedUsersViewModelDelegate: ViewModelDelegate, ItemListerDelegate {
-    func blockedUsersViewModel(_ viewModel: BlockedUsersViewModel, didUpdateAtPosition position: Int, blocked: Bool)
+    func blockedUsersViewModel(_ viewModel: BlockedUsersViewModel, didUnblockAtPosition position: Int, onCompletion handler: @escaping () -> Void)
 }
