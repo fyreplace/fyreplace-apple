@@ -858,7 +858,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="avatar" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton" id="c60bcadb393e0b29be295d7b02fea3a637fba9732a15a517c359651cfc9eaa56"/>
-                        <outlet property="comment" destination="Post-Comment" id="32d0ee4de166cb676fb12dc88da3fe0973ff04dadde5727e9d25d80a60c5f21d"/>
+                        <outlet property="comment" destination="Post-Button" id="32d0ee4de166cb676fb12dc88da3fe0973ff04dadde5727e9d25d80a60c5f21d"/>
                         <outlet property="dateCreated" destination="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-stackView-Date-Created" id="4aa5d58fdff13cadcdf8decfb26708d03e1f3b65495f1e1f7de9efcea82e117c"/>
                         <outlet property="dateFormat" destination="Post-DateFormat" id="2bf14b14e043f0afe26d547ddbe5d6f7e64e1df25fcde10d654ac3bd3df5c421"/>
                         <outlet property="delete" destination="Post-Delete" id="99538391e95fcdcf705a668f4efdf6989d6ec3370f9fc5372da3568e75b49490"/>
@@ -928,11 +928,19 @@
                         <action selector="onDeletePressed" destination="Post-Post" id="8fb353045ff105f66908bcdabb4664a7f5e6401ac072058ccac37286440aca0b"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem title="Comment" id="Post-Comment">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Post-Button" customClass="LargeFilledButton" customModule="Fyreplace" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Comment">
+                        <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                    </buttonConfiguration>
                     <connections>
-                        <segue destination="Comment-Navigation-Comment-Navigation" kind="presentation" identifier="" id="acd0c5608416f9a42a0e65f783db113271b86186c97ab9d5a5e36f474b682206"/>
+                        <segue destination="Comment-Navigation-Comment-Navigation" kind="popoverPresentation" popoverAnchorView="Post-Button" id="0e08196e67d7056790d59654a9ddfaf45798dd0f098e5093df10da6fc31b3bab">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
-                </barButtonItem>
+                </button>
                 <customObject id="Post-PostViewModel" customClass="PostViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
                         <outlet property="delegate" destination="Post-Post" id="2aab9755982bb7c19c4641755cfc2a518f97faf0836b457d74e982140d18aba6"/>
@@ -954,71 +962,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="Draft-Draft-view-tableFooterView">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Draft-Draft-view-tableFooterView-stackView">
-                                    <rect key="frame" x="72.333333333333329" y="0.0" width="230.66666666666669" height="44"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Draft-Draft-view-tableFooterView-stackView-Text" userLabel="Text">
-                                            <rect key="frame" x="0.0" y="5" width="105.33333333333333" height="34.333333333333336"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="tinted" title="Add text">
-                                                <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
-                                            </buttonConfiguration>
-                                            <connections>
-                                                <action selector="onAddTextPressed" destination="Draft-Draft" eventType="primaryActionTriggered" id="f5cb8eaa640155c463d365aaa2a1256f35129df11e736b5635876208f9cc71db"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Draft-Draft-view-tableFooterView-stackView-Image" userLabel="Image">
-                                            <rect key="frame" x="125.33333333333334" y="5" width="105.33333333333334" height="34.333333333333336"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="tinted" title="Add image">
-                                                <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
-                                            </buttonConfiguration>
-                                            <connections>
-                                                <action selector="onAddImagePressed" destination="Draft-Draft" eventType="primaryActionTriggered" id="bed4ba639e6abc43e03dfb66fd83531ccec4049c93cb173cb14be79170fad988"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="centerX" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="centerX" id="0c-00-00-00--C-01-00-00-01"/>
-                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="centerY" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="centerY" id="0c-00-00-00--C-01-00-00-02"/>
-                                <constraint firstItem="Draft-Draft-view-tableFooterView-stackView" firstAttribute="height" secondItem="Draft-Draft-view-tableFooterView" secondAttribute="height" id="0c-00-00-00--C-01-00-00-03"/>
-                            </constraints>
-                        </view>
                         <connections>
                             <outlet property="dataSource" destination="Draft-Draft" id="1f550c3ef46d27e4852d039f5fb94e253033652dfa96df4e690b7fe706163af5"/>
                             <outlet property="delegate" destination="Draft-Draft" id="7a4683f96086a6bdf7a0607729dd442dbac7d1c9e5e64ebc561e4d56e8042b63"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Draft-Draft-navigationItem">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Menu" image="ellipsis.circle" catalog="system" id="Draft-Draft-navigationItem-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
-                                <connections>
-                                    <outlet property="navigationDelegate" destination="Draft-Draft" id="4d99ae5072f301f2ed573a7b8b7cabcd60238bf7144df6112bfa80d6cb83714f"/>
-                                    <outletCollection property="actions" destination="Draft-Edit" collectionClass="NSMutableArray" id="f6b3055e6a4b63cdac9d0aa70dbe5843f428fb74797e31b09539bb5ddd1a21ee"/>
-                                    <outletCollection property="actions" destination="Draft-Delete" collectionClass="NSMutableArray" id="2ba606d0d77bac0438534d25062a25e3dd8be2bbd52a6a14ccc84a327069d80a"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Publish" id="Draft-Draft-navigationItem-Publish">
-                                <connections>
-                                    <action selector="onPublishPressed" destination="Draft-Draft" id="44990dd236b14a67e99b2b9e87e9892ee840f7ac2c8a62ca5ca61b3c9b3dd134"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Menu" image="ellipsis.circle" catalog="system" id="Draft-Draft-navigationItem-Menu" customClass="MenuBarButtonItem" customModule="Fyreplace" customModuleProvider="target">
+                            <connections>
+                                <outlet property="navigationDelegate" destination="Draft-Draft" id="4d99ae5072f301f2ed573a7b8b7cabcd60238bf7144df6112bfa80d6cb83714f"/>
+                                <outletCollection property="actions" destination="Draft-Edit" collectionClass="NSMutableArray" id="f6b3055e6a4b63cdac9d0aa70dbe5843f428fb74797e31b09539bb5ddd1a21ee"/>
+                                <outletCollection property="actions" destination="Draft-Delete" collectionClass="NSMutableArray" id="2ba606d0d77bac0438534d25062a25e3dd8be2bbd52a6a14ccc84a327069d80a"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addImage" destination="Draft-Draft-view-tableFooterView-stackView-Image" id="fe7c6fb4b5c80c579924f0f871004cd93e41d29f251378bd97ad7eec5fe4825e"/>
-                        <outlet property="addText" destination="Draft-Draft-view-tableFooterView-stackView-Text" id="b938c9314bbac66560d8de0ced4b70373846e90ac28addd3f96bf7f552dc59d3"/>
+                        <outlet property="addImage" destination="Draft-Add-image" id="fe7c6fb4b5c80c579924f0f871004cd93e41d29f251378bd97ad7eec5fe4825e"/>
+                        <outlet property="addText" destination="Draft-Add-text" id="b938c9314bbac66560d8de0ced4b70373846e90ac28addd3f96bf7f552dc59d3"/>
                         <outlet property="done" destination="Draft-done" id="fc17fb6833b6c5dd84dcfb69805637f9944773755dd956216985e8ae83dea789"/>
                         <outlet property="imageSelector" destination="Draft-ImageSelector" id="73fc259ecd68f1cc06110c3e6e73de1a190c49a63b599f88590ef56118e2a0d8"/>
                         <outlet property="menu" destination="Draft-Draft-navigationItem-Menu" id="91be3b09fcf1186979350e364396a74c3d3dd6fb6c01bb64e3226e6efafbb37b"/>
-                        <outlet property="publish" destination="Draft-Draft-navigationItem-Publish" id="d2d1cef751c7017a7b4ba152ddf79466e57472c874166b05396bea7664b2db40"/>
+                        <outlet property="publish" destination="Draft-Button" id="d2d1cef751c7017a7b4ba152ddf79466e57472c874166b05396bea7664b2db40"/>
                         <outlet property="vm" destination="Draft-DraftViewModel" id="6b3fea78f7ec897219f67ce6ca366db92eaeb613a81470b202893bb967a56a8a"/>
                         <segue destination="Text-Chapter-Navigation-Text-Chapter-Navigation" kind="presentation" identifier="Text" id="44b6a94ba7a63c54812cd61df58ba724833268bc389f5c589fd42c8d8bff6710"/>
                     </connections>
@@ -1050,6 +1014,27 @@
                         <action selector="onDonePressed" destination="Draft-Draft" id="37981441e7cda981d2596dbfbb6b6e6e237611a2e1d78b39bc289f2ec3413bf1"/>
                     </connections>
                 </barButtonItem>
+                <barButtonItem title="Add text" id="Draft-Add-text">
+                    <connections>
+                        <action selector="onAddTextPressed" destination="Draft-Draft" id="9ed5abd78e7ae0924b96990226db61dbe83303161b93bc8bb38b72dc3119813a"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Add image" id="Draft-Add-image">
+                    <connections>
+                        <action selector="onAddImagePressed" destination="Draft-Draft" id="62f8a77a89cb5c7f7c0092031c6fbc7355e006ca982358b3ad8c6919d21e7c94"/>
+                    </connections>
+                </barButtonItem>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Draft-Button" customClass="LargeFilledButton" customModule="Fyreplace" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Publish">
+                        <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="onPublishPressed" destination="Draft-Draft" eventType="primaryActionTriggered" id="516f52659435599be94ef74b8184c95883267ac884083990146e7dd43c991e46"/>
+                    </connections>
+                </button>
                 <customObject id="Draft-DraftViewModel" customClass="DraftViewModel" customModule="Fyreplace" customModuleProvider="target">
                     <connections>
                         <outlet property="delegate" destination="Draft-Draft" id="84e4f38677b9d40e29969b7103e16a7f8e8b5ce7c675508ef5e92a9407b9a06f"/>
@@ -1847,6 +1832,12 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="Draft-Button">
+            <size key="intrinsicContentSize" width="79.666666666666671" height="34.333333333333336"/>
+        </designable>
+        <designable name="Post-Button">
+            <size key="intrinsicContentSize" width="98.666666666666671" height="34.333333333333336"/>
+        </designable>
         <designable name="Post-Post-navigationItem-leftBarButtonItem-customView-stackView-RoundButton">
             <size key="intrinsicContentSize" width="50.666666666666664" height="50.666666666666664"/>
         </designable>

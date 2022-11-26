@@ -11,13 +11,13 @@ class DraftViewController: UITableViewController {
     @IBOutlet
     var menu: MenuBarButtonItem!
     @IBOutlet
-    var publish: UIBarButtonItem!
+    var publish: UIButton!
     @IBOutlet
     var done: UIBarButtonItem!
     @IBOutlet
-    var addText: UIButton!
+    var addText: UIBarButtonItem!
     @IBOutlet
-    var addImage: UIButton!
+    var addImage: UIBarButtonItem!
 
     var post: FPPost!
 
@@ -37,9 +37,19 @@ class DraftViewController: UITableViewController {
             .take(during: reactive.lifetime)
             .startWithValues { [unowned self] in onEditingStatus($0) }
         vm.retrieve(id: post.id)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setToolbarHidden(false)
         publish.reactive.isEnabled <~ vm.chapterCount.map { $0 > 0 }
         addText.reactive.isEnabled <~ vm.canAddChapter
         addImage.reactive.isEnabled <~ vm.canAddChapter
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        setToolbarHidden(true)
+        super.viewWillDisappear(animated)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -129,7 +139,7 @@ class DraftViewController: UITableViewController {
 
             navigationItem.rightBarButtonItems = editingStatus == .isEditing
                 ? [done]
-                : [menu, publish]
+                : [menu]
         }
     }
 
@@ -139,6 +149,13 @@ class DraftViewController: UITableViewController {
             object: self,
             userInfo: ["item": post]
         )
+    }
+
+    private func setToolbarHidden(_ hidden: Bool) {
+        guard let navigationController = navigationController else { return }
+        navigationController.setToolbarHidden(hidden, animated: true)
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        setToolbarItems(hidden ? nil : [space, addText, addImage, space, .init(customView: publish), space], animated: false)
     }
 
     private func createChapter(_ type: ChapterType) {

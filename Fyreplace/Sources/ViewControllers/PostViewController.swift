@@ -22,7 +22,7 @@ class PostViewController: ItemRandomAccessListViewController {
     @IBOutlet
     var dateCreated: UIButton!
     @IBOutlet
-    var comment: UIBarButtonItem!
+    var comment: UIButton!
     @IBOutlet
     var tableHeader: PostTableHeaderView!
     @IBOutlet
@@ -205,7 +205,7 @@ class PostViewController: ItemRandomAccessListViewController {
         guard let navigationController = navigationController else { return }
         navigationController.setToolbarHidden(hidden, animated: true)
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        setToolbarItems(hidden ? nil : [space, comment, space], animated: false)
+        setToolbarItems(hidden ? nil : [space, .init(customView: comment), space], animated: false)
     }
 
     private func showComment(at position: Int, insteadOf oldPosition: Int?) {
