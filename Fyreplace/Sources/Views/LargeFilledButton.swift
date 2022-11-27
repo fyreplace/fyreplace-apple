@@ -7,7 +7,7 @@ class LargeFilledButton: UIButton {
     override var intrinsicContentSize: CGSize {
         let baseSize = super.intrinsicContentSize
 
-        if #available(iOS 15.0, *) {
+        if #available(iOS 15, *) {
             return baseSize
         } else {
             return CGSize(width: baseSize.width + 24, height: baseSize.height)
@@ -25,7 +25,7 @@ class LargeFilledButton: UIButton {
     }
 
     private func setupView() {
-        if #available(iOS 15.0, *) {
+        if #available(iOS 15, *) {
             return
         }
 
@@ -34,7 +34,7 @@ class LargeFilledButton: UIButton {
         reactive.backgroundColor <~ isEnabledSignal.map {
             let disabled: UIColor
 
-            if #available(iOS 13.0, *) {
+            if #available(iOS 13, *) {
                 disabled = .secondarySystemBackground
             } else {
                 disabled = .init(named: "ButtonBackgroundDisabledColor")!
@@ -45,7 +45,7 @@ class LargeFilledButton: UIButton {
         reactive.tintColor <~ isEnabledSignal.map {
             let disabled: UIColor
 
-            if #available(iOS 13.0, *) {
+            if #available(iOS 13, *) {
                 disabled = .label
             } else {
                 disabled = .black

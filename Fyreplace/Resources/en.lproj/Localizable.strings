@@ -31,6 +31,8 @@
 "ImageSelector.ChooseSource.Action.Library" = "Pick an image";
 "ImageSelector.ChooseSource.Action.Camera" = "Take a picture";
 "ImageSelector.ChooseSource.Action.Remove" = "Remove";
+"ImageSelector.Error.Format.Title" = "Invalid image";
+"ImageSelector.Error.Format.Message" = "This image uses an unsupported file format.";
 "ImageSelector.Error.Size.Title" = "Invalid image";
 "ImageSelector.Error.Size.Message" = "This picture is too large.";
 

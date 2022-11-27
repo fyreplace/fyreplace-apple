@@ -8,7 +8,7 @@ class CommentActivityItemProvider: URLActivityItemProvider {
         super.init(url: .init(for: "p", id: post.id, at: position))
     }
 
-    @available(iOS 13.0, *)
+    @available(iOS 13, *)
     override func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
         let metadata = super.activityViewControllerLinkMetadata(activityViewController)
         let author = comment.author.getNormalizedUsername(with: nil).string

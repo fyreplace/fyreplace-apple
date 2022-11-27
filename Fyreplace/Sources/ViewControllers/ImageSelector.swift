@@ -1,5 +1,5 @@
-import Kingfisher
 import PhotosUI
+import SDWebImage
 import UIKit
 
 class ImageSelector: NSObject {
@@ -66,15 +66,31 @@ class ImageSelector: NSObject {
         return picker
     }
 
-    private func extractImageData(image: UIImage, isPng: Bool) {
-        guard var data = isPng ? image.pngData() : image.jpegData(compressionQuality: 0.75)
-        else { return }
+    private func extractImageData(image: UIImage, as format: SDImageFormat) {
+        let data: Data?
+
+        switch format {
+        case .JPEG:
+            data = image.jpegData(compressionQuality: 1)
+
+        case .PNG:
+            data = image.pngData()
+
+        default:
+            data = image.sd_imageData(as: format)
+        }
+
+        guard var data else {
+            return delegate.presentBasicAlert(text: .tr("ImageSelector.Error.Format"))
+        }
+
         let downscaleFactor = Float(data.count) / Float(delegate.maxImageByteSize)
 
         if downscaleFactor >= 1 {
-            guard let newData = image.downscaled(withFactor: downscaleFactor).jpegData(compressionQuality: 0.5) else {
+            guard let newData = image.downscaled(withFactor: downscaleFactor).sd_imageData(as: format, compressionQuality: 0.5) else {
                 return delegate.presentBasicAlert(text: "Error", feedback: .error)
             }
+
             data = newData
         }
 
@@ -91,9 +107,21 @@ extension ImageSelector: UINavigationControllerDelegate, UIImagePickerController
         picker.dismiss(animated: true)
         guard let image = (info[.editedImage] ?? info[.originalImage]) as? UIImage else { return }
         let url = info[.imageURL] as? NSURL
+        let format: SDImageFormat
+
+        switch url?.pathExtension {
+        case "webp":
+            format = .webP
+
+        case "png":
+            format = .PNG
+
+        default:
+            format = .JPEG
+        }
 
         DispatchQueue.global(qos: .userInitiated).async {
-            self.extractImageData(image: image, isPng: url?.pathExtension == "png")
+            self.extractImageData(image: image, as: format)
         }
     }
 }
@@ -102,18 +130,29 @@ extension ImageSelector: UINavigationControllerDelegate, UIImagePickerController
 extension ImageSelector: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
+        let acceptedTypes: [UTType] = [.webP, .png, .jpeg, .image]
         guard let provider = results.first?.itemProvider,
-              provider.canLoadObject(ofClass: UIImage.self)
-        else { return }
+              let identifier = acceptedTypes.map(\.identifier).first(where: provider.hasItemConformingToTypeIdentifier)
+        else { return delegate.presentBasicAlert(text: .tr("ImageSelector.Error.Format")) }
+        let format: SDImageFormat
 
-        provider.loadObject(ofClass: UIImage.self) { image, error in
-            guard let image = image as? UIImage, error == nil else {
-                return self.delegate.presentBasicAlert(text: "Error", feedback: .error)
+        switch identifier {
+        case UTType.webP.identifier:
+            format = .webP
+
+        case UTType.png.identifier:
+            format = .PNG
+
+        default:
+            format = .JPEG
+        }
+
+        provider.loadDataRepresentation(forTypeIdentifier: identifier) { data, error in
+            guard let data, let image = UIImage(data: data), error == nil else {
+                return self.delegate.presentBasicAlert(text: "ImageSelector.Error.Format", feedback: .error)
             }
 
-            DispatchQueue.global(qos: .userInitiated).async {
-                self.extractImageData(image: image, isPng: false)
-            }
+            DispatchQueue.global(qos: .userInitiated).async { self.extractImageData(image: image, as: format) }
         }
     }
 }

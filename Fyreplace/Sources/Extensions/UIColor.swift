@@ -2,7 +2,7 @@ import UIKit
 
 extension UIColor {
     static var labelCompat: UIColor {
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13, *) {
             return .label
         } else {
             return .black
@@ -10,7 +10,7 @@ extension UIColor {
     }
 
     static var secondaryLabelCompat: UIColor {
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13, *) {
             return .secondaryLabel
         } else {
             return .darkGray
@@ -18,7 +18,7 @@ extension UIColor {
     }
 
     static var placeholderTextCompat: UIColor {
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13, *) {
             return .placeholderText
         } else {
             return .gray

@@ -10,6 +10,8 @@
 		4D020222285E5A5800D85B79 /* FPPost+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D020221285E5A5800D85B79 /* FPPost+Notification.swift */; };
 		4D06E4DF2804B7D800863E60 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D06E4DE2804B7D800863E60 /* DraftViewController.swift */; };
 		4D06E4E12804C49100863E60 /* DraftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D06E4E02804C49100863E60 /* DraftViewModel.swift */; };
+		4D15C91A2933F8840038706F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4D15C9192933F8840038706F /* SDWebImage */; };
+		4D15C91D2933F8A10038706F /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 4D15C91C2933F8A10038706F /* SDWebImageWebPCoder */; };
 		4D16CF69289405D700C3B61C /* FPPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D16CF68289405D700C3B61C /* FPPost.swift */; };
 		4D1984D12891ACAC0074045F /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1984D02891ACAC0074045F /* BaseListViewController.swift */; };
 		4D1984D32891CC290074045F /* FPComment+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1984D22891CC290074045F /* FPComment+Notification.swift */; };
@@ -136,7 +138,6 @@
 		4DCD667B29145A2D0040E5AD /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD667A29145A2D0040E5AD /* CommentTableViewCell.xib */; };
 		4DCD667D29145DA30040E5AD /* LoadingCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD667C29145DA30040E5AD /* LoadingCommentTableViewCell.xib */; };
 		4DD34374291FC49300C82D37 /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD34373291FC49300C82D37 /* ReactiveCocoa */; };
-		4DD34377291FC4DE00C82D37 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD34376291FC4DE00C82D37 /* Kingfisher */; };
 		4DD98EBD28C53D6B00985841 /* FPProfile+IdentifiableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD98EBC28C53D6B00985841 /* FPProfile+IdentifiableItem.swift */; };
 		4DD98EBF28C53D9F00985841 /* FPPost+IdentifiableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD98EBE28C53D9F00985841 /* FPPost+IdentifiableItem.swift */; };
 		4DD98EC128C5D6E800985841 /* FPComment+IdentifiableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD98EC028C5D6E800985841 /* FPComment+IdentifiableItem.swift */; };
@@ -320,8 +321,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DD34377291FC4DE00C82D37 /* Kingfisher in Frameworks */,
+				4D15C91A2933F8840038706F /* SDWebImage in Frameworks */,
 				4DD34374291FC49300C82D37 /* ReactiveCocoa in Frameworks */,
+				4D15C91D2933F8A10038706F /* SDWebImageWebPCoder in Frameworks */,
 				4DE5949B291FBBB500534CED /* GRPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,7 +617,8 @@
 			packageProductDependencies = (
 				4DE5949A291FBBB500534CED /* GRPC */,
 				4DD34373291FC49300C82D37 /* ReactiveCocoa */,
-				4DD34376291FC4DE00C82D37 /* Kingfisher */,
+				4D15C9192933F8840038706F /* SDWebImage */,
+				4D15C91C2933F8A10038706F /* SDWebImageWebPCoder */,
 			);
 			productName = Fyreplace;
 			productReference = 4D77947327DE654B0068F4E7 /* Fyreplace.app */;
@@ -643,7 +646,8 @@
 			packageReferences = (
 				4DE59499291FBBB500534CED /* XCRemoteSwiftPackageReference "grpc-swift" */,
 				4DD34372291FC49300C82D37 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
-				4DD34375291FC4DE00C82D37 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				4D15C9182933F8830038706F /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				4D15C91B2933F8A00038706F /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
 			);
 			productRefGroup = 4D0040E9268EEDE800AF89FD /* Products */;
 			projectDirPath = "";
@@ -1093,20 +1097,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4D15C9182933F8830038706F /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		4D15C91B2933F8A00038706F /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageWebPCoder";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.0;
+			};
+		};
 		4DD34372291FC49300C82D37 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveCocoa";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 12.0.0;
-			};
-		};
-		4DD34375291FC4DE00C82D37 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
 			};
 		};
 		4DE59499291FBBB500534CED /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
@@ -1120,15 +1132,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4D15C9192933F8840038706F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D15C9182933F8830038706F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		4D15C91C2933F8A10038706F /* SDWebImageWebPCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D15C91B2933F8A00038706F /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */;
+			productName = SDWebImageWebPCoder;
+		};
 		4DD34373291FC49300C82D37 /* ReactiveCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4DD34372291FC49300C82D37 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */;
 			productName = ReactiveCocoa;
-		};
-		4DD34376291FC4DE00C82D37 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4DD34375291FC4DE00C82D37 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 		4DE5949A291FBBB500534CED /* GRPC */ = {
 			isa = XCSwiftPackageProductDependency;

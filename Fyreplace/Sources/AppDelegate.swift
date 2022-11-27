@@ -1,4 +1,5 @@
-import Kingfisher
+import SDWebImage
+import SDWebImageWebPCoder
 import UIKit
 import UserNotifications
 
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder {
 extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         UNUserNotificationCenter.current().delegate = self
+        SDImageCodersManager.shared.addCoder(SDImageWebPCoder.shared)
         firstTimeSetup()
 
         for case let window? in application.windows + [window] {
@@ -60,7 +62,7 @@ extension AppDelegate: UIApplicationDelegate {
     }
 
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
-        KingfisherManager.shared.cache.clearMemoryCache()
+        SDImageCachesManager.shared.clear(with: .memory)
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -139,7 +141,7 @@ extension AppDelegate: UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        if #available(iOS 14.0, *) {
+        if #available(iOS 14, *) {
             var options: UNNotificationPresentationOptions = [.badge, .banner, .sound]
 
             if notification.request.content.userInfo["_aps.list"] as? Bool != false {

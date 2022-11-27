@@ -1,5 +1,6 @@
 import GRPC
 import ReactiveSwift
+import SDWebImage
 import UIKit
 
 class PostViewController: ItemRandomAccessListViewController {
@@ -44,6 +45,7 @@ class PostViewController: ItemRandomAccessListViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        avatar.sd_imageTransition = .fade
         tableView.register(.init(nibName: "LoadingCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "Loader")
         tableView.register(.init(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: "Comment")
         vm.post.value = post

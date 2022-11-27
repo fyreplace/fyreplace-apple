@@ -1,4 +1,4 @@
-import Kingfisher
+import SDWebImage
 import UIKit
 
 extension UIButton {
@@ -10,10 +10,10 @@ extension UIButton {
         let defaultImage = UIImage(called: "person.crop.circle.fill")
 
         if let profile, !profile.isBanned {
-            kf.setImage(
-                with: URL(string: profile.avatar.url),
+            sd_setImage(
+                with: .init(string: profile.avatar.url),
                 for: .normal,
-                placeholder: defaultImage
+                placeholderImage: defaultImage
             )
         } else {
             setImage(defaultImage, for: .normal)

@@ -1,4 +1,5 @@
 import GRPC
+import SDWebImage
 import UIKit
 
 class UserViewController: UIViewController {
@@ -27,6 +28,8 @@ class UserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        avatar.sd_imageIndicator = SDWebImageActivityIndicator.medium
+        avatar.sd_imageTransition = .fade
         vm.blocked.value = profile.isBlocked
         vm.retrieve(id: profile.id)
         vm.user.producer

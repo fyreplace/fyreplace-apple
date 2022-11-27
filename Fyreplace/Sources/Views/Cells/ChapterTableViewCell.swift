@@ -1,5 +1,5 @@
-import Kingfisher
 import ReactiveCocoa
+import SDWebImage
 import UIKit
 
 protocol ChapterTableViewCell {
@@ -25,15 +25,13 @@ class ImageChapterTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        content.kf.indicatorType = .activity
+        content.sd_imageIndicator = SDWebImageProgressIndicator.default
+        content.sd_imageTransition = .fade
     }
 }
 
 extension ImageChapterTableViewCell: ChapterTableViewCell {
     func setup(withChapter chapter: FPChapter) {
-        content.kf.setImage(
-            with: URL(string: chapter.image.url),
-            options: [.transition(.fade(0.3))]
-        )
+        content.sd_setImage(with: .init(string: chapter.image.url))
     }
 }

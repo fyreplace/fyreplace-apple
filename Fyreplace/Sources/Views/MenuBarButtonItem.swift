@@ -48,7 +48,7 @@ class MenuBarButtonItem: UIBarButtonItem {
     private func attachMultipleActions() {
         navigationDelegate.navigationItem.rightBarButtonItem = self
 
-        if #available(iOS 14.0, *) {
+        if #available(iOS 14, *) {
             attachMenu()
         } else {
             attachAlert()

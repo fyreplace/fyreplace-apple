@@ -1,4 +1,3 @@
-import Kingfisher
 import UIKit
 
 @IBDesignable
@@ -39,6 +38,7 @@ class CommentTableViewCell: BaseCommentTableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        avatar.sd_imageTransition = .fade
         originalFont = content.font
     }
 

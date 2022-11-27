@@ -1,5 +1,6 @@
 import GRPC
 import ReactiveSwift
+import SDWebImage
 import SwiftProtobuf
 import UIKit
 
@@ -42,6 +43,8 @@ class SettingsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        avatar.sd_imageIndicator = SDWebImageActivityIndicator.medium
+        avatar.sd_imageTransition = .fade
         avatar.reactive.isUserInteractionEnabled <~ vm.user.map { $0 != nil }
         username.reactive.text <~ vm.user.map { $0?.profile.username ?? .tr("Settings.Username") }
         dateJoined.reactive.text <~ vm.user.map(\.?.dateJoined).map { [weak self] dateJoined -> String in

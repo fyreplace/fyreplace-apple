@@ -10,7 +10,7 @@ open class URLActivityItemProvider: UIActivityItemProvider {
         super.init(placeholderItem: url)
     }
 
-    @available(iOS 13.0, *)
+    @available(iOS 13, *)
     override open func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
         let metadata = LPLinkMetadata()
         let iconUrl = Bundle.main.url(forResource: "AppIcon", withExtension: nil)

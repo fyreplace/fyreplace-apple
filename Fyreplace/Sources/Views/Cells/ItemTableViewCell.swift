@@ -1,4 +1,4 @@
-import Kingfisher
+import SDWebImage
 import UIKit
 
 class ItemTableViewCell: AvatarTableViewCell {
@@ -35,10 +35,11 @@ class ImageItemTableViewCell: ItemTableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        preview.kf.indicatorType = .activity
+        preview.sd_imageIndicator = SDWebImageProgressIndicator.default
+        preview.sd_imageTransition = .fade
     }
 
     func setup(withUrl url: URL?) {
-        preview.kf.setImage(with: url, options: [.transition(.fade(0.3))])
+        preview.sd_setImage(with: url)
     }
 }

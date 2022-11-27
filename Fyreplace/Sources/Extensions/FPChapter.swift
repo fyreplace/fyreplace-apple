@@ -1,4 +1,4 @@
-import Kingfisher
+import SDWebImage
 import UIKit
 
 extension FPChapter {
@@ -33,11 +33,9 @@ extension FPChapter {
         let ratio = CGFloat(image.height) / CGFloat(image.width)
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.kf.indicatorType = .activity
-        image.kf.setImage(
-            with: URL(string: self.image.url),
-            options: [.transition(.fade(0.3))]
-        )
+        image.sd_imageIndicator = SDWebImageProgressIndicator.default
+        image.sd_imageTransition = .fade
+        image.sd_setImage(with: .init(string: self.image.url))
         image.heightAnchor.constraint(equalTo: image.widthAnchor, multiplier: ratio).isActive = true
         return image
     }

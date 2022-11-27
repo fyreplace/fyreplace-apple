@@ -1,4 +1,4 @@
-import Kingfisher
+import SDWebImage
 import UIKit
 
 extension UIImageView {
@@ -6,10 +6,9 @@ extension UIImageView {
         let defaultImage = UIImage(called: "person.crop.circle.fill")
 
         if let profile, !profile.isBanned {
-            kf.setImage(
-                with: URL(string: profile.avatar.url),
-                placeholder: defaultImage,
-                options: [.transition(.fade(0.3))]
+            sd_setImage(
+                with: .init(string: profile.avatar.url),
+                placeholderImage: defaultImage
             )
         } else {
             image = defaultImage
