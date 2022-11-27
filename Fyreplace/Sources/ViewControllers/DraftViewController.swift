@@ -37,6 +37,7 @@ class DraftViewController: UITableViewController {
             .take(during: reactive.lifetime)
             .startWithValues { [unowned self] in onEditingStatus($0) }
         vm.retrieve(id: post.id)
+        setTitleChapterCount(Int(post.chapterCount))
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -124,9 +125,7 @@ class DraftViewController: UITableViewController {
     }
 
     private func onChapterCount(_ chapterCount: Int) {
-        DispatchQueue.main.async {
-            self.navigationItem.title = .localizedStringWithFormat(.tr("Draft.Length"), chapterCount)
-        }
+        DispatchQueue.main.async { self.setTitleChapterCount(chapterCount) }
     }
 
     private func onEditingStatus(_ editingStatus: EditingStatus) {
@@ -149,6 +148,10 @@ class DraftViewController: UITableViewController {
             object: self,
             userInfo: ["item": post]
         )
+    }
+
+    private func setTitleChapterCount(_ chapterCount: Int) {
+        navigationItem.title = .localizedStringWithFormat(.tr("Draft.Length"), chapterCount)
     }
 
     private func setToolbarHidden(_ hidden: Bool) {
