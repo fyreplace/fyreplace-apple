@@ -133,7 +133,7 @@ extension ImageSelector: PHPickerViewControllerDelegate {
         let acceptedTypes: [UTType] = [.webP, .png, .jpeg, .image]
         guard let provider = results.first?.itemProvider,
               let identifier = acceptedTypes.map(\.identifier).first(where: provider.hasItemConformingToTypeIdentifier)
-        else { return delegate.presentBasicAlert(text: .tr("ImageSelector.Error.Format")) }
+        else { return }
         let format: SDImageFormat
 
         switch identifier {
