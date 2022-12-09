@@ -7,6 +7,8 @@ class ActionBarButtonItem: UIBarButtonItem {
     var isConcealed: Bool = false
     @IBInspectable
     var isDestructive: Bool = false
+    @IBInspectable
+    var needsAuthentication: Bool = false
 }
 
 class MenuBarButtonItem: UIBarButtonItem {
@@ -17,7 +19,7 @@ class MenuBarButtonItem: UIBarButtonItem {
 
     private var alert: UIAlertController?
     private lazy var orderedActions = actions.sorted { a, b in a.index < b.index }
-    private var visibleActions: [ActionBarButtonItem] { orderedActions.filter { !$0.isConcealed } }
+    private var visibleActions: [ActionBarButtonItem] { orderedActions.filter { !$0.isConcealed && (!$0.needsAuthentication || currentUser != nil) } }
 
     override func awakeFromNib() {
         super.awakeFromNib()

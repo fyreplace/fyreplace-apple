@@ -55,6 +55,9 @@
 "Main.Error.UserNotPending.Title" = "Account already activated";
 "Main.Error.UserNotPending.Message" = "This account has already been activated.";
 
+"Feed.Help.Title" = "How it works";
+"Feed.Help.Message" = "The buttons on the right allow you to spread or dismiss posts in your feed.\nSpreading will send posts to other people, dismissing will simply remove it from your feed.\n\nIf you\'re interested, head over to the settings to make an account!";
+
 "Notifications.Item.Action.Dismiss" = "Dismiss";
 
 "Drafts.Parts" = "%d part(s)";

@@ -42,10 +42,10 @@
         <scene sceneID="5115c23b349285157b102c63979fc46608b49f2487f4a096f2c020c99ebcd2e2">
             <objects>
                 <navigationController storyboardIdentifier="Feed Navigation" automaticallyAdjustsScrollViewInsets="NO" id="Feed-Navigation-Feed-Navigation" userLabel="Feed Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="square.grid.2x2.fill" catalog="system" id="Feed-Navigation-Feed-Navigation-Feed"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="house.fill" catalog="system" id="Feed-Navigation-Feed-Navigation-Feed"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Feed-Navigation-Feed-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Feed-Navigation-Feed-Navigation-navigationBar">
+                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -60,16 +60,49 @@
         <!--Feed-->
         <scene sceneID="396c3cb18f811a18a0859bd18bf8094c9dedcbbe92651bbd3aa7a6e0e6e3aee8">
             <objects>
-                <viewController storyboardIdentifier="Feed" id="Feed-Feed" userLabel="Feed" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Feed-Feed-view">
+                <tableViewController id="Feed-Feed" userLabel="Feed" customClass="FeedViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" estimatedRowHeight="160" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Feed-Feed-view">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Feed-Feed-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Feed" id="Feed-Feed-Feed"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Feed-UIResponder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Feed-Feed" id="df8c27ef9482643a527db5d4f9b27c6d49ceb26c295369ee56b9a718ee5e5c0c"/>
+                            <outlet property="delegate" destination="Feed-Feed" id="5c2be5c8949678d42d825282f7264cf8f2937e1f618e23c10f11c191afddbc85"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Feed" id="Feed-Feed-Feed">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Feed-Feed-Feed--"/>
+                        <barButtonItem key="rightBarButtonItem" title="How does it work?" image="questionmark.circle" catalog="system" id="Feed-Feed-Feed-How-does-it-work-">
+                            <connections>
+                                <action selector="onHelpPressed" destination="Feed-Feed" id="8f3ebf2c3271e441aee618d67ca4545861f336f53d6d6085b911aaf67ea375cf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Feed-Feed-refreshControl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="secondaryLabelColor"/>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="emptyPlaceholder" destination="Feed-Nothing-more-to-see-for-now" id="15a1942e3e600fbec3f76e0d4df25461c30fe23890317dd8cfa769d211e29515"/>
+                        <outlet property="help" destination="Feed-Feed-Feed-How-does-it-work-" id="5ec4dfbe685c52da45246046b8d4a620497739f8dec6ba10905a67309f718165"/>
+                        <outlet property="vm" destination="Feed-FeedViewModel" id="3ff74e57ad8cf4976e6920770a85d39d9d35a9a92fcf8fb05dbb46924744cfde"/>
+                        <segue destination="Post-Post" kind="show" identifier="Post" id="b7a5c5bd09b64585b8c6d88e5290d7ec6541e73cecf5b8d0f31a4baa5ac57cb2"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Feed-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Nothing more to see for now" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Feed-Nothing-more-to-see-for-now">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                    <color key="textColor" systemColor="placeholderTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <customObject id="Feed-FeedViewModel" customClass="FeedViewModel" customModule="Fyreplace" customModuleProvider="target">
+                    <connections>
+                        <outlet property="delegate" destination="Feed-Feed" id="a05c4278ba1a6ba20a95cea53668cfa63b2bdd7a81a33e9c095d8f35c7c3e8ed"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-1500" y="750"/>
         </scene>
@@ -122,7 +155,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Notifications-First-Responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Notifications-No-notifications">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No notifications" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Notifications-No-notifications">
                     <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -200,14 +233,14 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Archive-UIResponder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No subscribed posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Archive-No-subscribed-posts">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No subscribed posts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Archive-No-subscribed-posts">
                     <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                     <color key="textColor" systemColor="placeholderTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No published posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Archive-No-published-posts">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No published posts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Archive-No-published-posts">
                     <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -296,7 +329,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Drafts-UIResponder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No drafts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Drafts-No-drafts">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No drafts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Drafts-No-drafts">
                     <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -731,7 +764,7 @@
         <scene sceneID="a5554622c655c7a7e470c115f374d92595fa3b1f431dc6ee3d1edfbc103846ed">
             <objects>
                 <tableViewController storyboardIdentifier="Post" hidesBottomBarWhenPushed="YES" id="Post-Post" userLabel="Post" customClass="PostViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Post-Post-view">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="70" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Post-Post-view">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -890,6 +923,7 @@
                             <integer key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isConcealed" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="needsAuthentication" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onSubscribePressed" destination="Post-Post" id="a8686e9df805a99c0755253c214959e6b2eaf6ea7653733dda0e22364084a237"/>
@@ -900,6 +934,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="index">
                             <integer key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="needsAuthentication" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onUnsubscribePressed" destination="Post-Post" id="a139b03be89fd181f00f364fd31104e59232714b9420f3c22b092f9d1994f4c1"/>
@@ -911,6 +946,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="index">
                             <integer key="value" value="4"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="needsAuthentication" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onReportPressed" destination="Post-Post" id="e0be2950be547d111485b50dc13416a0047c12e01b9ccae7742b3a8a6c1232aa"/>
@@ -923,6 +959,7 @@
                             <integer key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isConcealed" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="needsAuthentication" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onDeletePressed" destination="Post-Post" id="8fb353045ff105f66908bcdabb4664a7f5e6401ac072058ccac37286440aca0b"/>
@@ -1204,6 +1241,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="index">
                             <integer key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="needsAuthentication" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onBlockPressed" destination="User-User" id="785fc5079b0f66d605525fe978ad5fb97b1622f8b529c51f02670d56027e7a7f"/>
@@ -1215,6 +1253,7 @@
                             <integer key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isConcealed" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="needsAuthentication" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onUnblockPressed" destination="User-User" id="47329bd0251099c0cb94cc7aa0f64ceabef46bf1b2e29389d63fad6260fc4edd"/>
@@ -1226,6 +1265,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="index">
                             <integer key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="needsAuthentication" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onReportPressed" destination="User-User" id="05d729c6baf43b5cf2e41e506d244c85fc0bef7929506dcdeb0de8c803954771"/>
@@ -1238,6 +1278,7 @@
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isConcealed" value="YES"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isDestructive" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="needsAuthentication" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="onBanPressed" destination="User-User" id="e5723669b3e08b1c4fabc5f6025f0f86510d8f2332341023b4e5a008b04894ac"/>
@@ -1815,7 +1856,7 @@
                         <action selector="onDonePressed" destination="Blocked-Users-Blocked-Users" id="fb8ba7aa3b1db18068566142a60383d4dae980ec50f47947cd37823c1188f639"/>
                     </connections>
                 </barButtonItem>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No users blocked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Blocked-Users-No-users-blocked">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="No users blocked" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Blocked-Users-No-users-blocked">
                     <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -1851,7 +1892,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="75fc7b2aec57cd6da8a9c1c1270fc91642607cac697471312f71f9c481ef23fd"/>
         <segue reference="0033c1bdcc67de81f3a077994e035c98717fb0f88523e94f05ce92a1f25238f7"/>
-        <segue reference="bb3b97f2c3253b2a45d54be32bac640ca56e8560f27378bf9fb42a27e84c9f51"/>
+        <segue reference="b7a5c5bd09b64585b8c6d88e5290d7ec6541e73cecf5b8d0f31a4baa5ac57cb2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>
@@ -1866,10 +1907,11 @@
         <image name="hammer" catalog="system" width="128" height="117"/>
         <image name="hand.raised" catalog="system" width="128" height="128"/>
         <image name="hand.raised.slash" catalog="system" width="125" height="128"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="questionmark.circle" catalog="system" width="128" height="123"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <image name="trash" catalog="system" width="117" height="128"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

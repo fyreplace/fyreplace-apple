@@ -207,7 +207,7 @@ class PostViewController: ItemRandomAccessListViewController {
         guard let navigationController = navigationController else { return }
         navigationController.setToolbarHidden(hidden, animated: true)
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        setToolbarItems(hidden ? nil : [space, .init(customView: comment), space], animated: false)
+        setToolbarItems(hidden || currentUser == nil ? nil : [space, .init(customView: comment), space], animated: false)
     }
 
     private func showComment(at position: Int, insteadOf oldPosition: Int?) {
@@ -316,9 +316,10 @@ extension PostViewController {
     }
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        guard let comment = vm.comment(at: indexPath.row),
+        guard let currentProfile,
+              let comment = vm.comment(at: indexPath.row),
               !comment.isDeleted
-        else { return .init(actions: []) }
+        else { return nil }
 
         let share = UIContextualAction(
             style: .normal,
@@ -330,7 +331,7 @@ extension PostViewController {
             completion(true)
         }
 
-        let canDelete = currentUserIsAdmin || comment.author.id == currentProfile?.id
+        let canDelete = currentUserIsAdmin || comment.author.id == currentProfile.id
         let reportOrDeleteText = canDelete ? "Delete" : "Report"
         let reportOrDelete = UIContextualAction(
             style: .destructive,
