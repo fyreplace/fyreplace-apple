@@ -27,17 +27,6 @@ class BlockedUsersViewController: ItemListViewController {
         tableView.register(.init(nibName: "BlockedUserTableViewCell", bundle: nil), forCellReuseIdentifier: "BlockedUser")
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        becomeFirstResponder()
-        undoManager?.removeAllActions()
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        resignFirstResponder()
-        super.viewDidDisappear(animated)
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
