@@ -73,11 +73,11 @@ extension FeedViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = vm.post(at: indexPath.row)
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: post.chapters.first?.text.isEmpty ?? false ? "Image" : "Text",
+            withIdentifier: post?.chapters.first?.text.isEmpty ?? false ? "Image" : "Text",
             for: indexPath
         )
 
-        guard let cell = cell as? FeedTableViewCell else { return cell }
+        guard let cell = cell as? FeedTableViewCell, let post else { return cell }
         cell.delegate = self
         cell.setup(withPost: post)
         return cell

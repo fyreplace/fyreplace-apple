@@ -10,6 +10,7 @@
 		4D020222285E5A5800D85B79 /* FPPost+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D020221285E5A5800D85B79 /* FPPost+Notification.swift */; };
 		4D06E4DF2804B7D800863E60 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D06E4DE2804B7D800863E60 /* DraftViewController.swift */; };
 		4D06E4E12804C49100863E60 /* DraftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D06E4E02804C49100863E60 /* DraftViewModel.swift */; };
+		4D074BB22944941500DCA632 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D074BB12944941500DCA632 /* Array.swift */; };
 		4D15C91A2933F8840038706F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4D15C9192933F8840038706F /* SDWebImage */; };
 		4D15C91D2933F8A10038706F /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 4D15C91C2933F8A10038706F /* SDWebImageWebPCoder */; };
 		4D16CF69289405D700C3B61C /* FPPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D16CF68289405D700C3B61C /* FPPost.swift */; };
@@ -183,6 +184,7 @@
 		4D020221285E5A5800D85B79 /* FPPost+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPPost+Notification.swift"; sourceTree = "<group>"; };
 		4D06E4DE2804B7D800863E60 /* DraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewController.swift; sourceTree = "<group>"; };
 		4D06E4E02804C49100863E60 /* DraftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewModel.swift; sourceTree = "<group>"; };
+		4D074BB12944941500DCA632 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		4D0A8D6C26A7FAF8007691C9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4D0C6F1C26F247E500C4271C /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		4D15D5AF27B82B660015AD4E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 		4DFAAD1F269F626E00DFAB5F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4D074BB12944941500DCA632 /* Array.swift */,
 				4D6CFE8927B64E7F00CA50BD /* Array+IndexPath.swift */,
 				4D86278C284BC18E00A9320D /* Data.swift */,
 				4DCAAEB02826952500D4427C /* Data+FPImageChunk.swift */,
@@ -802,6 +805,7 @@
 				4D77942C27DE654B0068F4E7 /* String.swift in Sources */,
 				4D77942D27DE654B0068F4E7 /* PostTableViewCell.swift in Sources */,
 				4D77942E27DE654B0068F4E7 /* Keychain.swift in Sources */,
+				4D074BB22944941500DCA632 /* Array.swift in Sources */,
 				4D77942F27DE654B0068F4E7 /* FPClient.swift in Sources */,
 				4D77943027DE654B0068F4E7 /* RoundImageView.swift in Sources */,
 				4D86278D284BC18E00A9320D /* Data.swift in Sources */,
