@@ -2,7 +2,7 @@ import Foundation
 
 class BlockedUsersViewModel: ViewModel {
     @IBOutlet
-    weak var delegate: BlockedUsersViewModelDelegate!
+    weak var delegate: BlockedUsersViewModelDelegate?
 
     private lazy var blockedUserLister = ItemLister<FPProfile, FPProfiles, FPUserServiceNIOClient>(
         delegatingTo: delegate,
@@ -20,9 +20,9 @@ class BlockedUsersViewModel: ViewModel {
             $0.blocked = false
         }
         let response = userService.updateBlock(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.blockedUsersViewModel(self, didUnblockAtPosition: position) { completion(true) } }
+        response.whenSuccess { _ in self.delegate?.blockedUsersViewModel(self, didUnblockAtPosition: position) { completion(true) } }
         response.whenFailure {
-            self.delegate.viewModel(self, didFailWithError: $0)
+            self.delegate?.viewModel(self, didFailWithError: $0)
             completion(false)
         }
     }

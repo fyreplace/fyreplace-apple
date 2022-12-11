@@ -2,7 +2,7 @@ import Foundation
 
 class ArchiveViewModel: ViewModel {
     @IBOutlet
-    weak var delegate: ArchiveViewModelDelegate!
+    weak var delegate: ArchiveViewModelDelegate?
 
     private lazy var postLister = makeLister(type: 0)
 

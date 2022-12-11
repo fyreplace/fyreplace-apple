@@ -4,7 +4,7 @@ import SwiftProtobuf
 
 class MainViewModel: ViewModel {
     @IBOutlet
-    weak var delegate: MainViewModelDelegate!
+    weak var delegate: MainViewModelDelegate?
 
     private let authToken = Keychain.authToken
 
@@ -43,7 +43,7 @@ class MainViewModel: ViewModel {
         }
         let response = accountService.confirmActivation(request).response
         response.whenSuccess { self.onConfirmActivation(token: $0.token) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0, canAutoDisconnect: false) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0, canAutoDisconnect: false) }
     }
 
     func confirmConnection(with token: String) {
@@ -53,28 +53,28 @@ class MainViewModel: ViewModel {
         }
         let response = accountService.confirmConnection(request).response
         response.whenSuccess { self.onConfirmConnection(token: $0.token) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0, canAutoDisconnect: false) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0, canAutoDisconnect: false) }
     }
 
     func confirmEmailUpdate(with token: String) {
         let request = FPToken.with { $0.token = token }
         let response = userService.confirmEmailUpdate(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onConfirmEmailUpdate(token: token) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0, canAutoDisconnect: false) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0, canAutoDisconnect: false) }
     }
 
     func retrieveMe() {
         let request = Google_Protobuf_Empty()
         let response = userService.retrieveMe(request, callOptions: .authenticated).response
         response.whenSuccess { self.setCurrentUser($0) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func acknowledgeComment(id: Data) {
         let request = FPId.with { $0.id = id }
         let response = commentService.acknowledge(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.mainViewModel(self, didAcknowledgeComment: id) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate?.mainViewModel(self, didAcknowledgeComment: id) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func registerToken(token: String) {
@@ -83,8 +83,8 @@ class MainViewModel: ViewModel {
             $0.token = token
         }
         let response = notificationService.registerToken(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.mainViewModel(self, didRegisterToken: token) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate?.mainViewModel(self, didRegisterToken: token) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func tryRetrieveMe() {
@@ -94,23 +94,23 @@ class MainViewModel: ViewModel {
 
     private func onConfirmActivation(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
-            delegate.mainViewModel(self, didConfirmActivationWithToken: token)
+            delegate?.mainViewModel(self, didConfirmActivationWithToken: token)
         } else {
-            delegate.viewModel(self, didFailWithError: KeychainError.set)
+            delegate?.viewModel(self, didFailWithError: KeychainError.set)
         }
     }
 
     private func onConfirmConnection(token: String) {
         if authToken.set(token.data(using: .utf8)!) {
-            delegate.mainViewModel(self, didConfirmConnectionWithToken: token)
+            delegate?.mainViewModel(self, didConfirmConnectionWithToken: token)
         } else {
-            delegate.viewModel(self, didFailWithError: KeychainError.set)
+            delegate?.viewModel(self, didFailWithError: KeychainError.set)
         }
     }
 
     private func onConfirmEmailUpdate(token: String) {
         retrieveMe()
-        delegate.mainViewModel(self, didConfirmEmailUpdateWithToken: token)
+        delegate?.mainViewModel(self, didConfirmEmailUpdateWithToken: token)
     }
 }
 

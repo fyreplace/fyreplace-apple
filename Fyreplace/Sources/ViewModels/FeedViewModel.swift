@@ -4,7 +4,7 @@ import ReactiveSwift
 
 class FeedViewModel: ViewModel {
     @IBOutlet
-    weak var delegate: FeedViewModelDelegate!
+    weak var delegate: FeedViewModelDelegate?
 
     private var stream: BidirectionalStreamingCall<FPVote, FPPost>?
     private var posts: [FPPost] = []
@@ -19,12 +19,12 @@ class FeedViewModel: ViewModel {
                 posts[index] = post
             } else {
                 posts += [post]
-                delegate.feedViewModel(self, didReceivePostAtPosition: posts.count - 1)
+                delegate?.feedViewModel(self, didReceivePostAtPosition: posts.count - 1)
             }
         }
         stream!.status.whenComplete { [self] _ in
             stream = nil
-            delegate.didFinishListing(self)
+            delegate?.didFinishListing(self)
         }
     }
 
@@ -51,7 +51,7 @@ class FeedViewModel: ViewModel {
         })
         response?.whenSuccess { [self] _ in
             posts.remove(at: position)
-            delegate.feedViewModel(self, didVotePostAtPosition: position)
+            delegate?.feedViewModel(self, didVotePostAtPosition: position)
         }
     }
 }

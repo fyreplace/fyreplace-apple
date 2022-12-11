@@ -22,14 +22,14 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
     private(set) var items: [Int: Item] = [:]
     private(set) var totalCount = 0
     private var positions = NSMutableOrderedSet()
-    private weak var delegate: ItemRandomAccessListerDelegate!
+    private weak var delegate: ItemRandomAccessListerDelegate?
     private let service: Service
     private let contextId: Data
     private let type: Int
     private var stream: BidirectionalStreamingCall<FPPage, Items>?
     private var state = ItemsState.incomplete
 
-    init(delegatingTo delegate: ItemRandomAccessListerDelegate, using service: Service, contextId: Data, type: Int = 0) {
+    init(delegatingTo delegate: ItemRandomAccessListerDelegate?, using service: Service, contextId: Data, type: Int = 0) {
         self.delegate = delegate
         self.service = service
         self.contextId = contextId
@@ -96,7 +96,7 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
                 state = itemCount < totalCount ? .incomplete : .complete
             }
 
-            delegate.itemRandomAccessLister(
+            delegate?.itemRandomAccessLister(
                 self,
                 didFetch: items.items.count,
                 at: position,

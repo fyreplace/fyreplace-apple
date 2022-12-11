@@ -3,7 +3,7 @@ import ReactiveSwift
 
 class PostViewModel: ViewModel {
     @IBOutlet
-    weak var delegate: PostViewModelDelegate!
+    weak var delegate: PostViewModelDelegate?
 
     let post = MutableProperty<FPPost>(FPPost())
     let subscribed = MutableProperty<Bool>(false)
@@ -19,7 +19,7 @@ class PostViewModel: ViewModel {
         let request = FPId.with { $0.id = id }
         let response = postService.retrieve(request, callOptions: .authenticated).response
         response.whenSuccess(onRetrieve(_:))
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func updateSubscription(subscribed: Bool) {
@@ -29,30 +29,30 @@ class PostViewModel: ViewModel {
         }
         let response = postService.updateSubscription(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onUpdateSubscription(subscribed) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func report() {
         let request = FPId.with { $0.id = post.value.id }
         let response = postService.report(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.postViewModel(self, didReport: self.post.value.id) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate?.postViewModel(self, didReport: self.post.value.id) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func delete() {
         let request = FPId.with { $0.id = post.value.id }
         let response = postService.delete(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.postViewModel(self, didDelete: self.post.value.id) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate?.postViewModel(self, didDelete: self.post.value.id) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func reportComment(at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         guard let comment = comment(at: position) else { return }
         let request = FPId.with { $0.id = comment.id }
         let response = commentService.report(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.postViewModel(self, didReportCommentAtPosition: position, inside: self.post.value.id) { completion(true) } }
+        response.whenSuccess { _ in self.delegate?.postViewModel(self, didReportCommentAtPosition: position, inside: self.post.value.id) { completion(true) } }
         response.whenFailure {
-            self.delegate.viewModel(self, didFailWithError: $0)
+            self.delegate?.viewModel(self, didFailWithError: $0)
             completion(false)
         }
     }
@@ -61,9 +61,9 @@ class PostViewModel: ViewModel {
         guard let comment = comment(at: position) else { return }
         let request = FPId.with { $0.id = comment.id }
         let response = commentService.delete(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.postViewModel(self, didDeleteCommentAtPosition: position, inside: self.post.value.id) { completion(true) } }
+        response.whenSuccess { _ in self.delegate?.postViewModel(self, didDeleteCommentAtPosition: position, inside: self.post.value.id) { completion(true) } }
         response.whenFailure {
-            self.delegate.viewModel(self, didFailWithError: $0)
+            self.delegate?.viewModel(self, didFailWithError: $0)
             completion(false)
         }
     }
@@ -82,12 +82,12 @@ class PostViewModel: ViewModel {
     private func onRetrieve(_ post: FPPost) {
         self.post.value = post
         subscribed.value = post.isSubscribed
-        delegate.postViewModel(self, didRetrieve: post.id)
+        delegate?.postViewModel(self, didRetrieve: post.id)
     }
 
     private func onUpdateSubscription(_ subscribed: Bool) {
         self.subscribed.value = subscribed
-        delegate.postViewModel(self, didUpdate: post.value.id, subscribed: subscribed)
+        delegate?.postViewModel(self, didUpdate: post.value.id, subscribed: subscribed)
     }
 }
 

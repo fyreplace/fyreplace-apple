@@ -3,7 +3,7 @@ import ReactiveSwift
 
 class TextChapterViewModel: ViewModel, TextInputViewModel {
     @IBOutlet
-    weak var delegate: TextChapterViewModelDelegate!
+    weak var delegate: TextChapterViewModelDelegate?
 
     var text: MutableProperty<String> { chapterText }
     let isLoading = MutableProperty(false)
@@ -23,13 +23,13 @@ class TextChapterViewModel: ViewModel, TextInputViewModel {
             $0.text = chapterText.value
         }
         let response = chapterService.updateText(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.textChapterViewModel(self, didUpdateAtPosition: position, withText: self.chapterText.value) }
+        response.whenSuccess { _ in self.delegate?.textChapterViewModel(self, didUpdateAtPosition: position, withText: self.chapterText.value) }
         response.whenFailure { self.onError($0) }
     }
 
     private func onError(_ error: Error) {
         isLoading.value = false
-        delegate.viewModel(self, didFailWithError: error)
+        delegate?.viewModel(self, didFailWithError: error)
     }
 }
 

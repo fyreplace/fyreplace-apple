@@ -4,7 +4,7 @@ import SwiftProtobuf
 
 class DraftsViewModel: ViewModel {
     @IBOutlet
-    weak var delegate: DraftsViewModelDelegate!
+    weak var delegate: DraftsViewModelDelegate?
 
     let isLoading = MutableProperty(false)
 
@@ -30,7 +30,7 @@ class DraftsViewModel: ViewModel {
     func delete(_ postId: Data, at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         let request = FPId.with { $0.id = postId }
         let response = postService.delete(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.draftsViewModel(self, didDelete: postId, at: position) { completion(true) } }
+        response.whenSuccess { _ in self.delegate?.draftsViewModel(self, didDelete: postId, at: position) { completion(true) } }
         response.whenFailure {
             self.onError($0)
             completion(false)
@@ -39,12 +39,12 @@ class DraftsViewModel: ViewModel {
 
     private func onCreate(_ postId: FPId) {
         isLoading.value = false
-        delegate.draftsViewModel(self, didCreate: postId.id)
+        delegate?.draftsViewModel(self, didCreate: postId.id)
     }
 
     private func onError(_ error: Error) {
         isLoading.value = false
-        delegate.viewModel(self, didFailWithError: error)
+        delegate?.viewModel(self, didFailWithError: error)
     }
 }
 

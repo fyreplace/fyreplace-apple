@@ -22,7 +22,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     let pageSize: UInt32 = 12
     var itemCount: Int { items.count }
     private(set) var items: [Item] = []
-    private weak var delegate: ItemListerDelegate!
+    private weak var delegate: ItemListerDelegate?
     private let service: Service
     private let forward: Bool
     private let type: Int
@@ -30,7 +30,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     private var nextCursor = FPCursor.with { $0.isNext = true }
     private var state = ItemsState.incomplete
 
-    init(delegatingTo delegate: ItemListerDelegate, using service: Service, forward: Bool, type: Int = 0) {
+    init(delegatingTo delegate: ItemListerDelegate?, using service: Service, forward: Bool, type: Int = 0) {
         self.delegate = delegate
         self.service = service
         self.forward = forward
@@ -89,7 +89,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
             self.items.append(contentsOf: items.items)
             nextCursor = items.next
             state = items.hasNext ? .incomplete : .complete
-            delegate.itemLister(self, didFetch: items.items.count)
+            delegate?.itemLister(self, didFetch: items.items.count)
         }
     }
 }

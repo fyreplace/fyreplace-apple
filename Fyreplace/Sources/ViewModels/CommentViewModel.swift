@@ -3,7 +3,7 @@ import ReactiveSwift
 
 class CommentViewModel: ViewModel, TextInputViewModel {
     @IBOutlet
-    weak var delegate: CommentViewModelDelegate!
+    weak var delegate: CommentViewModelDelegate?
 
     var text: MutableProperty<String> { comment }
     let isLoading = MutableProperty(false)
@@ -16,13 +16,13 @@ class CommentViewModel: ViewModel, TextInputViewModel {
             $0.text = comment.value
         }
         let response = commentService.create(request, callOptions: .authenticated).response
-        response.whenSuccess { self.delegate.commentViewModel(self, didCreate: $0.id) }
+        response.whenSuccess { self.delegate?.commentViewModel(self, didCreate: $0.id) }
         response.whenFailure { self.onError($0) }
     }
 
     private func onError(_ error: Error) {
         isLoading.value = false
-        delegate.viewModel(self, didFailWithError: error)
+        delegate?.viewModel(self, didFailWithError: error)
     }
 }
 

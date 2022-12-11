@@ -3,7 +3,7 @@ import ReactiveSwift
 
 class UserViewModel: ViewModel {
     @IBOutlet
-    weak var delegate: UserViewModelDelegate!
+    weak var delegate: UserViewModelDelegate?
 
     let user = MutableProperty<FPUser?>(nil)
     let blocked = MutableProperty<Bool>(false)
@@ -13,7 +13,7 @@ class UserViewModel: ViewModel {
         let request = FPId.with { $0.id = id }
         let response = userService.retrieve(request, callOptions: .authenticated).response
         response.whenSuccess(onRetrieve(_:))
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func updateBlock(blocked: Bool) {
@@ -24,15 +24,15 @@ class UserViewModel: ViewModel {
         }
         let response = userService.updateBlock(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onBlockUpdate(id: id, blocked: blocked) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func report() {
         let id = user.value!.profile.id
         let request = FPId.with { $0.id = id }
         let response = userService.report(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.userViewModel(self, didReport: id) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate?.userViewModel(self, didReport: id) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func ban(for sentence: BanSentence) {
@@ -48,7 +48,7 @@ class UserViewModel: ViewModel {
         }
         let response = userService.ban(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onBan(id: id) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     private func onRetrieve(_ user: FPUser) {
@@ -59,12 +59,12 @@ class UserViewModel: ViewModel {
 
     private func onBlockUpdate(id: Data, blocked: Bool) {
         self.blocked.value = blocked
-        delegate.userViewModel(self, didUpdate: id, blocked: blocked)
+        delegate?.userViewModel(self, didUpdate: id, blocked: blocked)
     }
 
     private func onBan(id: Data) {
         banned.value = true
-        delegate.userViewModel(self, didBan: id)
+        delegate?.userViewModel(self, didBan: id)
     }
 }
 

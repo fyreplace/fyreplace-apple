@@ -4,7 +4,7 @@ import SwiftProtobuf
 
 class SettingsViewModel: ViewModel {
     @IBOutlet
-    weak var delegate: SettingsViewModelDelegate!
+    weak var delegate: SettingsViewModelDelegate?
 
     let user = MutableProperty<FPUser?>(nil)
     let blockedUsers = MutableProperty<UInt32>(0)
@@ -35,28 +35,28 @@ class SettingsViewModel: ViewModel {
     func updateAvatar(image: Data?) {
         let stream = userService.updateAvatar(callOptions: .authenticated)
         stream.response.whenSuccess { self.onUpdateAvatar($0) }
-        stream.response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        stream.response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
         stream.upload(image)
     }
 
     func sendEmailUpdateEmail(email: String) {
         let request = FPEmail.with { $0.email = email }
         let response = userService.sendEmailUpdateEmail(request, callOptions: .authenticated).response
-        response.whenSuccess { _ in self.delegate.settingsViewModel(self, didSendEmailUpdateEmail: email) }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenSuccess { _ in self.delegate?.settingsViewModel(self, didSendEmailUpdateEmail: email) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func logout() {
         let response = accountService.disconnect(FPId(), callOptions: .authenticated).response
         response.whenSuccess { _ in self.onLogout() }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func delete() {
         let request = Google_Protobuf_Empty()
         let response = accountService.delete(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.onDelete() }
-        response.whenFailure { self.delegate.viewModel(self, didFailWithError: $0) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     private func reloadUser() {
@@ -65,20 +65,20 @@ class SettingsViewModel: ViewModel {
     }
 
     private func onUpdateAvatar(_ image: FPImage) {
-        delegate.settingsViewModel(self, didUpdateAvatar: image.url)
+        delegate?.settingsViewModel(self, didUpdateAvatar: image.url)
         user.modify { $0?.profile.avatar = image }
     }
 
     private func onLogout() {
         _ = Keychain.authToken.delete()
         setCurrentUser(nil)
-        delegate.settingsViewModelDidLogout(self)
+        delegate?.settingsViewModelDidLogout(self)
     }
 
     private func onDelete() {
         _ = Keychain.authToken.delete()
         setCurrentUser(nil)
-        delegate.settingsViewModelDidDelete(self)
+        delegate?.settingsViewModelDidDelete(self)
     }
 }
 

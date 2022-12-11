@@ -6,7 +6,7 @@ class ImageSelector: NSObject {
     static let imageChunkSize = 100 * 1024
 
     @IBOutlet
-    weak var delegate: ImageSelectorDelegate!
+    weak var delegate: ImageSelectorDelegate?
 
     func selectImage(canRemove: Bool) {
         let choice = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -26,16 +26,16 @@ class ImageSelector: NSObject {
             let remove = UIAlertAction(
                 title: .tr("ImageSelector.ChooseSource.Action.Remove"),
                 style: .destructive
-            ) { _ in self.delegate.imageSelector(self, didSelectImage: nil) }
+            ) { _ in self.delegate?.imageSelector(self, didSelectImage: nil) }
             choice.addAction(remove)
         }
 
         let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel) { _ in
-            self.delegate.didNotSelectImage(self)
+            self.delegate?.didNotSelectImage(self)
         }
 
         choice.addAction(cancel)
-        delegate.present(choice, animated: true)
+        delegate?.present(choice, animated: true)
     }
 
     private func selectImage(from source: UIImagePickerController.SourceType) {
@@ -47,7 +47,7 @@ class ImageSelector: NSObject {
             picker = makeSelectPictureOrPhotoPicker(from: source)
         }
 
-        delegate.present(picker, animated: true)
+        delegate?.present(picker, animated: true)
     }
 
     @available(iOS 14, *)
@@ -67,6 +67,7 @@ class ImageSelector: NSObject {
     }
 
     private func extractImageData(image: UIImage, as format: SDImageFormat) {
+        guard let delegate else { return }
         let data: Data?
 
         switch format {
@@ -94,7 +95,7 @@ class ImageSelector: NSObject {
             data = newData
         }
 
-        DispatchQueue.main.async { self.delegate.imageSelector(self, didSelectImage: data) }
+        DispatchQueue.main.async { delegate.imageSelector(self, didSelectImage: data) }
     }
 }
 
@@ -149,7 +150,8 @@ extension ImageSelector: PHPickerViewControllerDelegate {
 
         provider.loadDataRepresentation(forTypeIdentifier: identifier) { data, error in
             guard let data, let image = UIImage(data: data), error == nil else {
-                return self.delegate.presentBasicAlert(text: "ImageSelector.Error.Format", feedback: .error)
+                self.delegate?.presentBasicAlert(text: "ImageSelector.Error.Format", feedback: .error)
+                return
             }
 
             DispatchQueue.global(qos: .userInitiated).async { self.extractImageData(image: image, as: format) }
