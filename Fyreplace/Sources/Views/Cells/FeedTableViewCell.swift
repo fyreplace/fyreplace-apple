@@ -9,19 +9,35 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet
     var up: UIButton!
 
+    private let feedbackGenerator = UISelectionFeedbackGenerator()
+    private var isVoting = false
+
     @IBAction
     func onDownPressed() {
-        delegate.feedTableViewCell(self, didSpread: false)
+        vote(with: down)
     }
 
     @IBAction
     func onUpPressed() {
-        delegate.feedTableViewCell(self, didSpread: true)
+        vote(with: up)
     }
 
     func setup(withPost post: FPPost) {
         for button in [down, up] {
             button?.isEnabled = currentUser != nil
+        }
+    }
+
+    private func vote(with button: UIButton) {
+        guard !isVoting else { return }
+        isVoting = true
+        button.tintColor = .accent
+        feedbackGenerator.selectionChanged()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+            delegate.feedTableViewCell(self, didSpread: button == up)
+            isVoting = false
+            button.tintColor = .labelCompat
         }
     }
 }
