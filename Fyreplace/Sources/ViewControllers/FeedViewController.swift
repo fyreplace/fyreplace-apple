@@ -27,6 +27,18 @@ class FeedViewController: UITableViewController {
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in onRefresh() }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: UIApplication.willEnterForegroundNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onApplicationWillEnterForeground($0) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: UIApplication.didEnterBackgroundNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onApplicationDidEnterBackground($0) }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -61,6 +73,16 @@ class FeedViewController: UITableViewController {
         postCount = 0
         tableView.deleteRows(at: .init(rows: 0 ..< count, section: 0), with: .none)
         vm.refresh()
+    }
+
+    private func onApplicationWillEnterForeground(_ notification: Notification) {
+        guard viewIfLoaded?.window != nil else { return }
+        vm.startListing()
+    }
+
+    private func onApplicationDidEnterBackground(_ notification: Notification) {
+        guard viewIfLoaded?.window != nil else { return }
+        vm.stopListing()
     }
 }
 
