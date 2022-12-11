@@ -99,13 +99,13 @@ class PostViewController: ItemRandomAccessListViewController {
         let title = tableView.headerView(forSection: 0)
         title?.textLabel?.text = tableView(tableView, titleForHeaderInSection: 0)
 
-        if reason.userInfo?["byCurrentUser"] as? Bool == true {
-            _ = tryShowComment(
-                for: vm.post.value.id,
-                at: listDelegate.lister.totalCount - 1,
-                selected: false
-            )
-        }
+        guard reason.userInfo?["byCurrentUser"] as? Bool == true else { return }
+        _ = tryShowComment(
+            for: vm.post.value.id,
+            at: listDelegate.lister.totalCount - 1,
+            selected: false
+        )
+        vm.subscribed.value = true
     }
 
     override func updateItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
