@@ -14,10 +14,13 @@ class FeedViewModel: ViewModel {
     }
 
     func startListing() {
-        stream = postService.listFeed(callOptions: .authenticated) { [self] in
-            guard !posts.contains($0) else { return }
-            posts += [$0]
-            delegate.feedViewModel(self, didReceivePostAtPosition: posts.count - 1)
+        stream = postService.listFeed(callOptions: .authenticated) { [self] post in
+            if let index = posts.firstIndex(where: { $0.id == post.id }) {
+                posts[index] = post
+            } else {
+                posts += [post]
+                delegate.feedViewModel(self, didReceivePostAtPosition: posts.count - 1)
+            }
         }
         stream!.status.whenComplete { [self] _ in
             stream = nil
