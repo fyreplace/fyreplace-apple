@@ -34,11 +34,6 @@ class FeedViewModel: ViewModel {
     }
 
     func refresh() {
-        guard stream != nil else {
-            posts = []
-            return
-        }
-
         stopListing()
         posts = []
         startListing()

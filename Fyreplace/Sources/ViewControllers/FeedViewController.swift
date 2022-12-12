@@ -120,6 +120,7 @@ extension FeedViewController: FeedViewModelDelegate {
         DispatchQueue.main.async { [self] in
             postCount += 1
             tableView.insertRows(at: [.init(row: position, section: 0)], with: .automatic)
+            stopRefreshing()
         }
     }
 
@@ -131,10 +132,12 @@ extension FeedViewController: FeedViewModelDelegate {
     }
 
     func didFinishListing(_ viewModel: FeedViewModel) {
-        DispatchQueue.main.async { [self] in
-            guard let refreshControl, refreshControl.isRefreshing else { return }
-            refreshControl.endRefreshing()
-        }
+        DispatchQueue.main.async { self.stopRefreshing() }
+    }
+
+    private func stopRefreshing() {
+        guard let refreshControl, refreshControl.isRefreshing else { return }
+        refreshControl.endRefreshing()
     }
 }
 
