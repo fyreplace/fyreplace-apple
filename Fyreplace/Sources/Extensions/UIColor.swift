@@ -25,11 +25,15 @@ extension UIColor {
         }
     }
 
-    static var accent: UIColor {
+    static var tintColorCompat: UIColor {
         if #available(iOS 15.0, *) {
             return .tintColor
         } else {
-            return .init(named: "AccentColor")!
+            return .accent
         }
+    }
+
+    static var accent: UIColor {
+        return .init(named: "AccentColor")!
     }
 }
