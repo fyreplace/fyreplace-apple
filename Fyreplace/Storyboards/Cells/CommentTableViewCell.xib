@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentTableViewCell" customModule="Fyreplace" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="tableViewCell-00" customClass="CommentTableViewCell" customModule="Fyreplace" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="70.333335876464844"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tableViewCell-00" id="tableViewCell-00-contentView">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="70.333335876464844"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-view">
-                        <rect key="frame" x="0.0" y="0.0" width="4" height="70.333333333333329"/>
+                        <rect key="frame" x="0.0" y="0.0" width="4" height="90"/>
                         <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="4" id="00-00-00--C-00"/>
@@ -57,13 +57,13 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Date">
-                        <rect key="frame" x="322.66666666666669" y="11" width="32.333333333333314" height="18"/>
+                        <rect key="frame" x="68" y="32" width="32.333333333333343" height="18"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                         <color key="textColor" systemColor="secondaryLabelColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Comment" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Comment" customClass="CompactTextView" customModule="Fyreplace" customModuleProvider="target">
-                        <rect key="frame" x="68" y="38" width="287" height="22"/>
+                        <rect key="frame" x="68" y="58" width="287" height="22"/>
                         <color key="textColor" systemColor="labelColor"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -73,18 +73,19 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="tableViewCell-00-contentView-Comment" secondAttribute="trailing" constant="20" symbolic="YES" id="00-00--C-00-00-00"/>
                     <constraint firstItem="tableViewCell-00-contentView-Button" firstAttribute="top" secondItem="tableViewCell-00-contentView" secondAttribute="top" constant="10" id="00-00--C-00-00-00-00"/>
-                    <constraint firstAttribute="trailing" secondItem="tableViewCell-00-contentView-Date" secondAttribute="trailing" constant="20" symbolic="YES" id="00-00--C-00-00-01"/>
-                    <constraint firstItem="tableViewCell-00-contentView-Username" firstAttribute="leading" secondItem="tableViewCell-00-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="00-00--C-00-00-01-00"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tableViewCell-00-contentView-Comment" secondAttribute="bottom" constant="10" id="00-00--C-00-00-01-01"/>
-                    <constraint firstItem="tableViewCell-00-contentView-Comment" firstAttribute="top" secondItem="tableViewCell-00-contentView-Username" secondAttribute="bottom" constant="8" symbolic="YES" id="00-00--C-00-00-01-02"/>
-                    <constraint firstItem="tableViewCell-00-contentView-Date" firstAttribute="centerY" secondItem="tableViewCell-00-contentView-Username" secondAttribute="centerY" id="00-00--C-00-00-01-03"/>
-                    <constraint firstItem="tableViewCell-00-contentView-Button" firstAttribute="leading" secondItem="tableViewCell-00-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="00-00--C-00-00-01-04"/>
-                    <constraint firstItem="tableViewCell-00-contentView-Date" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tableViewCell-00-contentView-Username" secondAttribute="trailing" constant="8" symbolic="YES" id="00-00--C-00-00-01-04-00"/>
-                    <constraint firstItem="tableViewCell-00-contentView-Comment" firstAttribute="leading" secondItem="tableViewCell-00-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="00-00--C-00-00-01-05"/>
-                    <constraint firstItem="tableViewCell-00-contentView-Username" firstAttribute="top" secondItem="tableViewCell-00-contentView-Button" secondAttribute="top" id="00-00--C-00-00-01-06"/>
-                    <constraint firstItem="tableViewCell-00-contentView-view" firstAttribute="leading" secondItem="tableViewCell-00-contentView" secondAttribute="leading" id="00-00--C-00-00-01-07"/>
-                    <constraint firstAttribute="bottom" secondItem="tableViewCell-00-contentView-view" secondAttribute="bottom" id="00-00--C-00-00-02"/>
-                    <constraint firstItem="tableViewCell-00-contentView-view" firstAttribute="top" secondItem="tableViewCell-00-contentView" secondAttribute="top" id="00-00--C-00-00-02-00"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tableViewCell-00-contentView-Date" secondAttribute="trailing" constant="20" symbolic="YES" id="00-00--C-00-00-00-01"/>
+                    <constraint firstItem="tableViewCell-00-contentView-Username" firstAttribute="leading" secondItem="tableViewCell-00-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="00-00--C-00-00-00-02"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tableViewCell-00-contentView-Comment" secondAttribute="bottom" constant="10" id="00-00--C-00-00-00-03"/>
+                    <constraint firstItem="tableViewCell-00-contentView-Button" firstAttribute="leading" secondItem="tableViewCell-00-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="00-00--C-00-00-00-04"/>
+                    <constraint firstItem="tableViewCell-00-contentView-Date" firstAttribute="leading" secondItem="tableViewCell-00-contentView-Button" secondAttribute="trailing" constant="8" symbolic="YES" id="00-00--C-00-00-00-05"/>
+                    <constraint firstItem="tableViewCell-00-contentView-Username" firstAttribute="top" secondItem="tableViewCell-00-contentView-Button" secondAttribute="top" id="00-00--C-00-00-00-06"/>
+                    <constraint firstItem="tableViewCell-00-contentView-view" firstAttribute="leading" secondItem="tableViewCell-00-contentView" secondAttribute="leading" id="00-00--C-00-00-00-07"/>
+                    <constraint firstAttribute="bottom" secondItem="tableViewCell-00-contentView-view" secondAttribute="bottom" id="00-00--C-00-00-01"/>
+                    <constraint firstItem="tableViewCell-00-contentView-view" firstAttribute="top" secondItem="tableViewCell-00-contentView" secondAttribute="top" id="00-00--C-00-00-01-00"/>
+                    <constraint firstItem="tableViewCell-00-contentView-Comment" firstAttribute="top" secondItem="tableViewCell-00-contentView-Button" secondAttribute="bottom" constant="8" symbolic="YES" id="00-00--C-00-00-01-01"/>
+                    <constraint firstItem="tableViewCell-00-contentView-Button" firstAttribute="bottom" secondItem="tableViewCell-00-contentView-Date" secondAttribute="bottom" id="00-00--C-00-00-01-02"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tableViewCell-00-contentView-Username" secondAttribute="trailing" constant="20" symbolic="YES" id="00-00--C-00-00-01-03"/>
+                    <constraint firstItem="tableViewCell-00-contentView-Comment" firstAttribute="leading" secondItem="tableViewCell-00-contentView-Username" secondAttribute="leading" id="00-00--C-00-00-01-04"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

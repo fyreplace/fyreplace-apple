@@ -13,7 +13,7 @@ class BaseCommentTableViewCell: UITableViewCell {
     }
 
     func setupView() {
-        contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 70).isActive = true
+        contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 90).isActive = true
     }
 }
 
