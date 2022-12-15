@@ -8,7 +8,6 @@ class FeedViewModel: ViewModel {
 
     private var stream: BidirectionalStreamingCall<FPVote, FPPost>?
     private var posts: [FPPost] = []
-    private var isListing = false
 
     func post(at position: Int) -> FPPost? {
         return posts[position, default: nil]
@@ -22,23 +21,15 @@ class FeedViewModel: ViewModel {
                 posts += [post]
                 delegate?.feedViewModel(self, didReceivePostAtPosition: posts.count - 1)
             }
-
-            isListing = true
         }
-        stream!.status.whenComplete { [self] _ in
-            stream = nil
-            delegate?.didFinishListing(self)
-        }
+        stream!.status.whenComplete { [self] _ in delegate?.didFinishListing(self) }
     }
 
     func stopListing() {
         _ = stream?.sendEnd()
-        stream = nil
-        isListing = false
     }
 
     func refresh() {
-        guard isListing else { return }
         stopListing()
         posts = []
         startListing()
@@ -49,7 +40,7 @@ class FeedViewModel: ViewModel {
             $0.postID = posts[position].id
             $0.spread = spread
         })
-        response?.whenSuccess { [self] _ in
+        response?.whenSuccess { [self] in
             posts.remove(at: position)
             delegate?.feedViewModel(self, didVotePostAtPosition: position)
         }

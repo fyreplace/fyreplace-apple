@@ -39,6 +39,8 @@ class FeedViewController: UITableViewController {
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onApplicationDidEnterBackground($0) }
+
+        setupHelp()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -68,7 +70,7 @@ class FeedViewController: UITableViewController {
     }
 
     private func onRefresh() {
-        navigationItem.setRightBarButton(currentUser == nil ? help : nil, animated: true)
+        setupHelp()
         let count = postCount
         postCount = 0
         tableView.deleteRows(at: .init(rows: 0 ..< count, section: 0), with: .none)
@@ -83,6 +85,10 @@ class FeedViewController: UITableViewController {
     private func onApplicationDidEnterBackground(_ notification: Notification) {
         guard viewIfLoaded?.window != nil else { return }
         vm.stopListing()
+    }
+
+    private func setupHelp() {
+        navigationItem.setRightBarButton(currentUser == nil ? help : nil, animated: true)
     }
 }
 
