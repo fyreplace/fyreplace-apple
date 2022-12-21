@@ -8,7 +8,8 @@ class ImageSelector: NSObject {
     @IBOutlet
     weak var delegate: ImageSelectorDelegate?
 
-    func selectImage(canRemove: Bool) {
+    func selectImage(canRemove: Bool, fromView view: UIView) {
+        guard let delegate else { return }
         let choice = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let library = UIAlertAction(
             title: .tr("ImageSelector.ChooseSource.Action.Library"),
@@ -26,16 +27,21 @@ class ImageSelector: NSObject {
             let remove = UIAlertAction(
                 title: .tr("ImageSelector.ChooseSource.Action.Remove"),
                 style: .destructive
-            ) { _ in self.delegate?.imageSelector(self, didSelectImage: nil) }
+            ) { _ in delegate.imageSelector(self, didSelectImage: nil) }
             choice.addAction(remove)
         }
 
         let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel) { _ in
-            self.delegate?.didNotSelectImage(self)
+            delegate.didNotSelectImage(self)
         }
 
         choice.addAction(cancel)
-        delegate?.present(choice, animated: true)
+
+        if let popoverController = choice.popoverPresentationController {
+            popoverController.sourceView = view
+        }
+
+        delegate.present(choice, animated: true)
     }
 
     private func selectImage(from source: UIImagePickerController.SourceType) {

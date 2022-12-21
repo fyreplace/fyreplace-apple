@@ -200,11 +200,11 @@ extension DraftViewController {
         tableView.deselectRow(at: indexPath, animated: true)
 
         switch tableView.cellForRow(at: indexPath) {
-        case let textCell as TextChapterTableViewCell:
-            performSegue(withIdentifier: "Text", sender: textCell)
+        case let cell as TextChapterTableViewCell:
+            performSegue(withIdentifier: "Text", sender: cell)
 
-        case _ as ImageChapterTableViewCell:
-            imageSelector.selectImage(canRemove: true)
+        case let cell as ImageChapterTableViewCell:
+            imageSelector.selectImage(canRemove: true, fromView: cell)
 
         default:
             return
@@ -264,13 +264,14 @@ extension DraftViewController: DraftViewModelDelegate {
 
     func draftViewModel(_ viewModel: DraftViewModel, didCreateChapterAtPosition position: Int, inside id: Data, isText: Bool) {
         DispatchQueue.main.async { [self] in
-            tableView.insertRows(at: [.init(row: position, section: 0)], with: .automatic)
+            let indexPath = IndexPath(row: position, section: 0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
             currentChapterPosition = position
 
             if isText {
                 performSegue(withIdentifier: "Text", sender: self)
-            } else {
-                imageSelector.selectImage(canRemove: false)
+            } else if let cell = tableView.cellForRow(at: indexPath) {
+                imageSelector.selectImage(canRemove: false, fromView: cell)
             }
         }
     }
