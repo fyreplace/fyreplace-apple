@@ -84,7 +84,6 @@ class MainViewModel: ViewModel {
         }
         let response = notificationService.registerToken(request, callOptions: .authenticated).response
         response.whenSuccess { _ in self.delegate?.mainViewModel(self, didRegisterToken: token) }
-        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func tryRetrieveMe() {
