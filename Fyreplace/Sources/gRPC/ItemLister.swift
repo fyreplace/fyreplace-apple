@@ -3,6 +3,8 @@ import GRPC
 
 @objc
 protocol ItemListerProtocol: BaseListerProtocol {
+    var manuallyAddedCount: Int { get }
+
     func reset()
 
     func fetchMore()
@@ -22,6 +24,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     let pageSize: UInt32 = 12
     var itemCount: Int { items.count }
     private(set) var items: [Item] = []
+    private(set) var manuallyAddedCount = 0
     private weak var delegate: ItemListerDelegate?
     private let service: Service
     private let forward: Bool
@@ -72,6 +75,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     func reset() {
         items.removeAll()
         nextCursor = .with { $0.isNext = true }
+        manuallyAddedCount = 0
 
         if state != .paused {
             state = .incomplete
@@ -86,6 +90,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
 
     func insert(_ item: Any, at position: Int) {
         items.insert(item as! Item, at: position)
+        manuallyAddedCount += 1
     }
 
     func update(_ item: Any, at position: Int) {
@@ -94,6 +99,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
 
     func remove(at position: Int) {
         items.remove(at: position)
+        manuallyAddedCount -= 1
     }
 
     private func onFetch(items: Items) {
