@@ -27,6 +27,7 @@ class ItemListViewController: BaseListViewController {
         super.viewWillAppear(animated)
 
         if listDelegate.lister.itemCount == 0 {
+            listDelegate.lister.reset()
             listDelegate.lister.fetchMore()
         }
     }

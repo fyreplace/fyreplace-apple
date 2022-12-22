@@ -28,7 +28,7 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     private let type: Int
     private var stream: BidirectionalStreamingCall<FPPage, Items>?
     private var nextCursor = FPCursor.with { $0.isNext = true }
-    private var state = ItemsState.incomplete
+    private var state = ItemsState.paused
 
     init(delegatingTo delegate: ItemListerDelegate?, using service: Service, forward: Bool, type: Int = 0) {
         self.delegate = delegate
@@ -43,14 +43,24 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
 
     func startListing() {
         stream = service.listItems(type: type) { [weak self] in self?.onFetch(items: $0) }
+
         let header = FPHeader.with {
             $0.forward = self.forward
             $0.size = pageSize
         }
+
+        if state == .paused {
+            state = .incomplete
+        }
+
         _ = stream!.sendMessage(.with { $0.header = header })
     }
 
     func stopListing() {
+        if state != .complete {
+            state = .paused
+        }
+
         _ = stream?.sendEnd()
     }
 
@@ -62,11 +72,14 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     func reset() {
         items.removeAll()
         nextCursor = .with { $0.isNext = true }
-        state = .incomplete
+
+        if state != .paused {
+            state = .incomplete
+        }
     }
 
     func fetchMore() {
-        guard state == .incomplete, let stream = stream else { return }
+        guard state == .incomplete, let stream else { return }
         state = .fetching
         _ = stream.sendMessage(.with { $0.cursor = nextCursor })
     }
@@ -98,6 +111,7 @@ enum ItemsState {
     case incomplete
     case complete
     case fetching
+    case paused
 }
 
 protocol IdentifiableItem {

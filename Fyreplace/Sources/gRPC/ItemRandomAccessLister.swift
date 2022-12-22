@@ -27,7 +27,7 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
     private let contextId: Data
     private let type: Int
     private var stream: BidirectionalStreamingCall<FPPage, Items>?
-    private var state = ItemsState.incomplete
+    private var state = ItemsState.paused
 
     init(delegatingTo delegate: ItemRandomAccessListerDelegate?, using service: Service, contextId: Data, type: Int = 0) {
         self.delegate = delegate
@@ -38,6 +38,11 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
 
     func startListing() {
         stream = service.listItems(type: type) { [weak self] in self?.onFetch(items: $0) }
+
+        if state == .paused {
+            state = .incomplete
+        }
+
         _ = stream?.sendMessage(.with {
             $0.header = .with {
                 $0.forward = true
@@ -48,6 +53,10 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
     }
 
     func stopListing() {
+        if state != .complete {
+            state = .paused
+        }
+
         _ = stream?.sendEnd()
     }
 
@@ -58,7 +67,7 @@ class ItemRandomAccessLister<Item, Items, Service>: ItemRandomAccessListerProtoc
     }
 
     func fetch(around position: Int) {
-        guard state != .complete, let stream = stream else { return }
+        guard [.incomplete, .fetching].contains(state), let stream else { return }
         let pageStart = position - (position % Int(pageSize))
         positions.add(pageStart)
 
