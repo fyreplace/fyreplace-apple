@@ -117,11 +117,15 @@ class NotificationsViewModel: ViewModel {
 
         let position = lister.getPosition(for: FPNotification.with { $0.post = .with { $0.id = postId } })
 
-        if position == -1 {
-            return NotificationCenter.default.post(
-                name: FPNotification.wasCreatedNotification,
-                object: self
-            )
+        guard position != -1 else {
+            if command == "comment:creation" {
+                NotificationCenter.default.post(
+                    name: FPNotification.wasCreatedNotification,
+                    object: self
+                )
+            }
+
+            return
         }
 
         var postNotification = self.notification(at: position)
