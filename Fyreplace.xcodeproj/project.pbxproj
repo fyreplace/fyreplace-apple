@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D020222285E5A5800D85B79 /* FPPost+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D020221285E5A5800D85B79 /* FPPost+Notification.swift */; };
+		4D02BE1B295631CF0007648E /* UNNotificationPresentationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02BE1A295631CF0007648E /* UNNotificationPresentationOptions.swift */; };
 		4D06E4DF2804B7D800863E60 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D06E4DE2804B7D800863E60 /* DraftViewController.swift */; };
 		4D06E4E12804C49100863E60 /* DraftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D06E4E02804C49100863E60 /* DraftViewModel.swift */; };
 		4D074BB22944941500DCA632 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D074BB12944941500DCA632 /* Array.swift */; };
@@ -182,6 +183,7 @@
 		4D0040F9268EEDE900AF89FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D01C6E927BD9434003E3091 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		4D020221285E5A5800D85B79 /* FPPost+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPPost+Notification.swift"; sourceTree = "<group>"; };
+		4D02BE1A295631CF0007648E /* UNNotificationPresentationOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNNotificationPresentationOptions.swift; sourceTree = "<group>"; };
 		4D06E4DE2804B7D800863E60 /* DraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewController.swift; sourceTree = "<group>"; };
 		4D06E4E02804C49100863E60 /* DraftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewModel.swift; sourceTree = "<group>"; };
 		4D074BB12944941500DCA632 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 				4D8BFDB327090BF100CAD2B5 /* UIImageView.swift */,
 				4D87F45B27889F0900A82AFF /* UIBarButtonItem.swift */,
 				4D75EC6726B9BA2E00684537 /* UIViewController.swift */,
+				4D02BE1A295631CF0007648E /* UNNotificationPresentationOptions.swift */,
 				4D3F816126C6C53500764763 /* CallOptions+Keychain.swift */,
 				4D5FC3F427021BE800AE1F73 /* ClientStreamingCall+FPImageChunk.swift */,
 				4DCAAEB22826F08500D4427C /* ClientStreamingCall+FPChapterImageUpdate.swift */,
@@ -887,6 +890,7 @@
 				4D77946227DE654B0068F4E7 /* DateFormat.swift in Sources */,
 				4D77946327DE654B0068F4E7 /* RoundButton.swift in Sources */,
 				4D77946427DE654B0068F4E7 /* BlockedUsersViewModel.swift in Sources */,
+				4D02BE1B295631CF0007648E /* UNNotificationPresentationOptions.swift in Sources */,
 				4DD98EBF28C53D9F00985841 /* FPPost+IdentifiableItem.swift in Sources */,
 				4D77946527DE654B0068F4E7 /* SettingsViewModel.swift in Sources */,
 				4D77946627DE654B0068F4E7 /* ItemRandomAccessListViewController.swift in Sources */,

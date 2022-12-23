@@ -95,29 +95,30 @@ class MainViewController: UITabBarController {
     }
 
     private func onAppDidReceiveRemoteNotification(_ notification: Notification) {
+        guard let info = notification.userInfo,
+              let completionHandler = info["_completionHandler"] as? (UNNotificationPresentationOptions) -> Void
+        else { return }
+
+        var options: UNNotificationPresentationOptions = .default
+        defer { completionHandler(options) }
+
         guard UIApplication.shared.applicationState != .background,
               let info = notification.userInfo,
               info["_command"] as? String == "comment:creation",
-              let serializedComment = info["comment"],
-              let comment = try? FPComment(jsonUTF8Data: .init(jsonObject: serializedComment)),
               let postIdString = info["postId"] as? String,
               let postId = Data(base64ShortString: postIdString)
         else { return }
 
         let postController = findPostViewController()
 
-        if postController?.tryHandleCommentCreation(for: postId) == true {
+        guard postController?.tryHandleCommentCreation(for: postId) != true else {
+            options = []
             return
         }
 
-        let content = makeUserNotificationContent(comment: comment, postId: postId, info: info)
-
-        if postId == postController?.vm.post.value.id {
-            content.subtitle = .tr("Notification.Comment.Creation.Subtitle")
-            content.userInfo["_aps.list"] = false
+        if #available(iOS 14, *), postId != postController?.vm.post.value.id {
+            options.insert(.list)
         }
-
-        createUserNotification(withIdentifier: comment.id.base64ShortString, withContent: content)
     }
 
     private func onAppDidOpenRemoteNotification(_ notification: Notification) {

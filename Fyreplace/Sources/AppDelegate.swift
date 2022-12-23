@@ -86,20 +86,6 @@ extension AppDelegate: UIApplicationDelegate {
         else { return completionHandler(.failed) }
 
         switch command {
-        case "comment:creation":
-            NotificationCenter.default.post(
-                name: FPComment.wasCreatedNotification,
-                object: self,
-                userInfo: ["item": comment, "postId": postId]
-            )
-
-            if application.applicationState == .background {
-                let content = makeUserNotificationContent(comment: comment, postId: postId, info: userInfo)
-                createUserNotification(withIdentifier: comment.id.base64ShortString, withContent: content) {
-                    completionHandler($0 == nil ? .noData : .failed)
-                }
-            }
-
         case "comment:deletion":
             NotificationCenter.default.post(
                 name: FPComment.wasDeletedNotification,
@@ -141,17 +127,28 @@ extension AppDelegate: UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        if #available(iOS 14, *) {
-            var options: UNNotificationPresentationOptions = [.badge, .banner, .sound]
+        var userInfo = notification.request.content.userInfo
+        userInfo["_completionHandler"] = completionHandler
 
-            if notification.request.content.userInfo["_aps.list"] as? Bool != false {
-                options.insert(.list)
-            }
+        NotificationCenter.default.post(
+            name: Self.didReceiveRemoteNotificationNotification,
+            object: self,
+            userInfo: userInfo
+        )
 
-            completionHandler(options)
-        } else {
-            completionHandler([.badge, .alert, .sound])
-        }
+        guard let command = userInfo["_command"] as? String,
+              command == "comment:creation",
+              let serializedComment = userInfo["comment"],
+              let comment = try? FPComment(jsonUTF8Data: .init(jsonObject: serializedComment)),
+              let postIdString = userInfo["postId"] as? String,
+              let postId = Data(base64ShortString: postIdString)
+        else { return completionHandler(.default) }
+
+        NotificationCenter.default.post(
+            name: FPComment.wasCreatedNotification,
+            object: self,
+            userInfo: ["item": comment, "postId": postId]
+        )
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
