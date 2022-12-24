@@ -25,8 +25,9 @@ class ItemListViewController: BaseListViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let manualCount = max(listDelegate.lister.manuallyAddedCount, 0)
 
-        if listDelegate.lister.itemCount - listDelegate.lister.manuallyAddedCount <= 0 {
+        if listDelegate.lister.itemCount - manualCount <= 0 {
             listDelegate.lister.reset()
             listDelegate.lister.fetchMore()
         }
