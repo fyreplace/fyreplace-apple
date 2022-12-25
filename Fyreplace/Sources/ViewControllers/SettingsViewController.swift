@@ -139,9 +139,9 @@ extension SettingsViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let cell = tableView.cellForRow(at: indexPath)
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
 
-        switch cell?.tag {
+        switch cell.tag {
         case 2:
             changeEmail()
 
@@ -155,7 +155,7 @@ extension SettingsViewController {
             vm.logout()
 
         case 31:
-            deleteAccount()
+            deleteAccount(from: cell)
 
         case 51, 52, 53:
             guard let cell = cell as? EnvironmentTableViewCell else { return }
@@ -205,7 +205,7 @@ extension SettingsViewController {
         present(alert, animated: true)
     }
 
-    private func deleteAccount() {
+    private func deleteAccount(from cell: UITableViewCell) {
         let alert = UIAlertController(
             title: .tr("Settings.AccountDeletion.Title"),
             message: .tr("Settings.AccountDeletion.Message"),
@@ -235,6 +235,11 @@ extension SettingsViewController {
         count()
         alert.addAction(delete)
         alert.addAction(cancel)
+
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = cell
+        }
+
         present(alert, animated: true)
     }
 }

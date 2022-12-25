@@ -93,7 +93,12 @@ class MenuBarButtonItem: UIBarButtonItem {
 
     @objc
     private func showAlert() {
-        guard let alert = alert else { return }
+        guard let alert else { return }
+
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = navigationDelegate.navigationController?.navigationBar
+        }
+
         navigationDelegate.present(alert, animated: true)
     }
 }

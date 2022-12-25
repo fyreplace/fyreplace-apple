@@ -82,6 +82,11 @@ class DraftViewController: UITableViewController {
         alert.addAction(publishPublicly)
         alert.addAction(publishAnonymously)
         alert.addAction(cancel)
+
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = publish
+        }
+
         present(alert, animated: true)
     }
 

@@ -116,6 +116,11 @@ class UserViewController: UIViewController {
             }
         })
         alert.addAction(UIAlertAction(title: .tr("Cancel"), style: .cancel))
+
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = navigationItem.titleView
+        }
+
         present(alert, animated: true)
     }
 
