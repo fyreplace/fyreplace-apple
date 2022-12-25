@@ -36,12 +36,13 @@ class FeedViewModel: ViewModel {
     }
 
     func vote(spread: Bool, at position: Int) {
+        let postId = posts[position].id
         let response = stream?.sendMessage(.with {
-            $0.postID = posts[position].id
+            $0.postID = postId
             $0.spread = spread
         })
         response?.whenSuccess { [self] in
-            posts.remove(at: position)
+            posts.removeAll { $0.id == postId }
             delegate?.feedViewModel(self, didVotePostAtPosition: position)
         }
     }
