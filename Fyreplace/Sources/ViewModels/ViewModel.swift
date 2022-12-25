@@ -52,21 +52,20 @@ extension ViewModelDelegate {
             return presentBasicAlert(text: "Error", feedback: .error)
         }
 
-        switch status.code {
-        case .unavailable:
+        switch (status.code, autoDisconnect) {
+        case (.unavailable, _):
             key = "Error.Unavailable"
 
-        case .unauthenticated:
-            if autoDisconnect {
-                if Keychain.authToken.get() != nil {
-                    presentBasicAlert(text: "Error.Autodisconnect", feedback: .error)
-                }
+        case (.unauthenticated, true):
+            if Keychain.authToken.get() != nil {
+                presentBasicAlert(text: "Error.Autodisconnect", feedback: .error)
+            }
 
-                key = nil
+            key = nil
+
+            if UIApplication.shared.applicationState == .active {
                 _ = Keychain.authToken.delete()
                 setCurrentUser(nil)
-            } else {
-                key = self.viewModel(viewModel, errorKeyForCode: status.code.rawValue, withMessage: status.message)
             }
 
         default:
