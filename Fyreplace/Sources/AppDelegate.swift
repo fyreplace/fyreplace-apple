@@ -94,7 +94,7 @@ extension AppDelegate: UIApplicationDelegate {
             )
 
             deleteUserNotifications {
-                guard let nSerializedComment = $0.request.content.userInfo["comment"],
+                guard let nSerializedComment = $0.content.userInfo["comment"],
                       let nComment = try? FPComment(jsonUTF8Data: .init(jsonObject: nSerializedComment))
                 else { return false }
                 return nComment.id == comment.id
@@ -104,9 +104,9 @@ extension AppDelegate: UIApplicationDelegate {
 
         case "comment:acknowledgement":
             deleteUserNotifications {
-                guard let nSerializedComment = $0.request.content.userInfo["comment"],
+                guard let nSerializedComment = $0.content.userInfo["comment"],
                       let nComment = try? FPComment(jsonUTF8Data: .init(jsonObject: nSerializedComment)),
-                      let nPostIdString = $0.request.content.userInfo["postId"] as? String
+                      let nPostIdString = $0.content.userInfo["postId"] as? String
                 else { return false }
                 return nPostIdString == postIdString && nComment.dateCreated.date <= comment.dateCreated.date
             } onCompletion: {

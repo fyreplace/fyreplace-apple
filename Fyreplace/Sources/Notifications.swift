@@ -8,11 +8,26 @@ func createUserNotification(withIdentifier identifier: String, withContent conte
     )) { handler?($0) }
 }
 
-func deleteUserNotifications(where predicate: @escaping (UNNotification) -> Bool, onCompletion handler: (() -> Void)? = nil) {
-    UNUserNotificationCenter.current().getDeliveredNotifications { notifications in
-        defer { handler?() }
-        guard let notification = notifications.first(where: predicate) else { return }
-        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notification.request.identifier])
+func deleteUserNotifications(where predicate: @escaping (UNNotificationRequest) -> Bool, onCompletion handler: (() -> Void)? = nil) {
+    let center = UNUserNotificationCenter.current()
+    var deliveredDeleted = false
+    var pendingDeleted = false
+
+    func tryHandler() {
+        guard deliveredDeleted, pendingDeleted else { return }
+        handler?()
+    }
+
+    center.getDeliveredNotifications { notifications in
+        center.removeDeliveredNotifications(withIdentifiers: notifications.map(\.request).filter(predicate).map(\.identifier))
+        deliveredDeleted = true
+        tryHandler()
+    }
+
+    center.getPendingNotificationRequests { requests in
+        center.removePendingNotificationRequests(withIdentifiers: requests.filter(predicate).map(\.identifier))
+        pendingDeleted = true
+        tryHandler()
     }
 }
 
