@@ -4,6 +4,8 @@ import UIKit
 class NotificationsViewController: ItemListViewController {
     @IBOutlet
     var vm: NotificationsViewModel!
+    @IBOutlet
+    var clear: UIBarButtonItem!
 
     override var updateNotifications: [Notification.Name] {
         [FPNotification.wasUpdatedNotification]
@@ -54,12 +56,26 @@ class NotificationsViewController: ItemListViewController {
         }
     }
 
+    @IBAction
+    func onClearPressed() {
+        presentChoiceAlert(text: .tr("Notifications.Clear"), dangerous: true) { yes in
+            guard yes else { return }
+            self.vm.clear()
+        }
+    }
+
     private func onNotificationWasCreated(_ notification: Notification) {
         refreshListing()
     }
 }
 
 extension NotificationsViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let count = super.tableView(tableView, numberOfRowsInSection: section)
+        clear.isEnabled = count > 0
+        return count
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         (cell as? NotificationTableViewCell)?.setup(withNotification: vm.notification(at: indexPath.row))
@@ -89,6 +105,10 @@ extension NotificationsViewController {
 }
 
 extension NotificationsViewController: NotificationsViewModelDelegate {
+    func didClearNotifications(_ viewModel: NotificationsViewModel) {
+        refreshListing()
+    }
+
     func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolve id: Data, at position: Int, onCompletion handler: @escaping () -> Void) {
         NotificationCenter.default.post(
             name: FPNotification.wasDeletedNotification,

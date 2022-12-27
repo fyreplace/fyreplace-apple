@@ -140,6 +140,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Notifications" id="Notifications-Notifications-Notifications">
                         <barButtonItem key="backBarButtonItem" title=" " id="Notifications-Notifications-Notifications--"/>
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="Notifications-Notifications-Notifications-Clear">
+                            <connections>
+                                <action selector="onClearPressed" destination="Notifications-Notifications" id="0fe1e9221f297ada3bd1e0ddbb2541ca45d1301c7ee7572215db31cc3fca2c3c"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Notifications-Notifications-refreshControl">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -147,6 +152,7 @@
                         <color key="tintColor" systemColor="secondaryLabelColor"/>
                     </refreshControl>
                     <connections>
+                        <outlet property="clear" destination="Notifications-Notifications-Notifications-Clear" id="b6d85dfa4ca69f7f34a6008bb2aef96817dc71750e85e0d7a3b2cd0d693b06bf"/>
                         <outlet property="emptyPlaceholder" destination="Notifications-No-notifications" id="96c7b6e7ea0dcd500f1aa21c9a473c45ab3d279a885deb19d7c8af1b897ffcde"/>
                         <outlet property="listDelegate" destination="Notifications-NotificationsViewModel" id="30793dedb23522774d1a12b174bb3f5bdabc045fac92b22f1ef4ac5276a5796c"/>
                         <outlet property="vm" destination="Notifications-NotificationsViewModel" id="aa0c3fafcc008d02d37fe9705c351875494441b4da63d837fd252aa87ff95f4f"/>

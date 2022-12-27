@@ -78,8 +78,13 @@ extension AppDelegate: UIApplicationDelegate {
             application.applicationIconBadgeNumber = badge
         }
 
-        guard let command = userInfo["_command"] as? String,
-              let serializedComment = userInfo["comment"],
+        guard let command = userInfo["_command"] as? String else { return completionHandler(.failed) }
+
+        if command == "notifications:clear" {
+            return deleteUserNotifications { _ in true } onCompletion: { completionHandler(.noData) }
+        }
+
+        guard let serializedComment = userInfo["comment"],
               let comment = try? FPComment(jsonUTF8Data: .init(jsonObject: serializedComment)),
               let postIdString = userInfo["postId"] as? String,
               let postId = Data(base64ShortString: postIdString)

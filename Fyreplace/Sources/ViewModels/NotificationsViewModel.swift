@@ -1,5 +1,6 @@
 import Foundation
 import ReactiveSwift
+import SwiftProtobuf
 
 class NotificationsViewModel: ViewModel {
     @IBOutlet
@@ -29,6 +30,13 @@ class NotificationsViewModel: ViewModel {
 
     func notification(at position: Int) -> FPNotification {
         return notificationLister.items[position]
+    }
+
+    func clear() {
+        let request = Google_Protobuf_Empty()
+        let response = notificationService.clear(request, callOptions: .authenticated).response
+        response.whenSuccess { _ in self.delegate?.didClearNotifications(self) }
+        response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func absolve(at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
@@ -173,5 +181,7 @@ extension NotificationsViewModel: ItemListViewDelegate {
 
 @objc
 protocol NotificationsViewModelDelegate: ViewModelDelegate, ItemListerDelegate {
+    func didClearNotifications(_ viewModel: NotificationsViewModel)
+
     func notificationsViewModel(_ viewModel: NotificationsViewModel, didAbsolve id: Data, at position: Int, onCompletion handler: @escaping () -> Void)
 }
