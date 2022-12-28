@@ -14,6 +14,7 @@ class PostViewModel: ViewModel {
         using: self.commentService,
         contextId: post.value.id
     )
+    private var acknowledgedPosition = -1
 
     func retrieve(id: Data) {
         let request = FPId.with { $0.id = id }
@@ -68,6 +69,23 @@ class PostViewModel: ViewModel {
         }
     }
 
+    func acknowledgeComment(at position: Int) {
+        guard position > acknowledgedPosition,
+              let comment = comment(at: position)
+        else { return }
+
+        acknowledgedPosition = position
+        NotificationCenter.default.post(
+            name: FPComment.wasSeenNotification,
+            object: self,
+            userInfo: [
+                "id": comment.id,
+                "postId": post.value.id,
+                "commentsLeft": lister.totalCount - 1 - position,
+            ]
+        )
+    }
+
     func comment(at position: Int) -> FPComment? {
         return commentLister.items[position]
     }
@@ -82,6 +100,7 @@ class PostViewModel: ViewModel {
     private func onRetrieve(_ post: FPPost) {
         self.post.value = post
         subscribed.value = post.isSubscribed
+        acknowledgedPosition = Int(post.commentsRead - 1)
         delegate?.postViewModel(self, didRetrieve: post.id)
     }
 

@@ -238,18 +238,6 @@ class PostViewController: ItemRandomAccessListViewController {
         }
     }
 
-    private func acknowledgeComment(_ comment: FPComment, at position: Int) {
-        NotificationCenter.default.post(
-            name: FPComment.wasSeenNotification,
-            object: self,
-            userInfo: [
-                "id": comment.id,
-                "postId": vm.post.value.id,
-                "commentsLeft": vm.lister.totalCount - 1 - position,
-            ]
-        )
-    }
-
     private func isCommentHighlighted(at position: Int) -> Bool {
         return vm.post.value.isSubscribed && position >= vm.post.value.commentsRead
     }
@@ -300,10 +288,8 @@ extension PostViewController {
     }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let comment = vm.comment(at: indexPath.row),
-           isCommentHighlighted(at: indexPath.row)
-        {
-            acknowledgeComment(comment, at: indexPath.row)
+        if isCommentHighlighted(at: indexPath.row) {
+            vm.acknowledgeComment(at: indexPath.row)
         }
 
         guard shouldScrollToComment else { return }
