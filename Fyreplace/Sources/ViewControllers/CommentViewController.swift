@@ -5,7 +5,7 @@ import UIKit
 
 class CommentViewController: TextInputViewController {
     override var textInputViewModel: TextInputViewModel! { vm }
-    override var maxContentLength: Int { 500 }
+    override var maxContentLength: Int { 1500 }
 
     @IBOutlet
     var vm: CommentViewModel!
