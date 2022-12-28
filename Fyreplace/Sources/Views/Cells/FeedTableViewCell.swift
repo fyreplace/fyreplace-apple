@@ -34,7 +34,7 @@ class FeedTableViewCell: UITableViewCell {
         button.tintColor = .tintColorCompat
         feedbackGenerator.selectionChanged()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
             delegate.feedTableViewCell(self, didSpread: button == up)
             isVoting = false
             button.tintColor = .labelCompat

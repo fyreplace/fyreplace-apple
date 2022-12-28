@@ -73,7 +73,7 @@ class FeedViewController: UITableViewController {
         setupHelp()
         let count = postCount
         postCount = 0
-        tableView.deleteRows(at: .init(rows: 0 ..< count, section: 0), with: .none)
+        tableView.reloadData()
         vm.refresh()
     }
 
@@ -123,7 +123,7 @@ extension FeedViewController: FeedViewModelDelegate {
     }
 
     func feedViewModel(_ viewModel: FeedViewModel, didReceivePostAtPosition position: Int) {
-        DispatchQueue.main.async { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [self] in
             postCount += 1
             tableView.insertRows(at: [.init(row: position, section: 0)], with: .automatic)
             stopRefreshing()
