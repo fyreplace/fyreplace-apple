@@ -100,7 +100,7 @@ class PostViewModel: ViewModel {
     private func onRetrieve(_ post: FPPost) {
         self.post.value = post
         subscribed.value = post.isSubscribed
-        acknowledgedPosition = Int(post.commentsRead - 1)
+        acknowledgedPosition = Int(post.commentsRead) - 1
         delegate?.postViewModel(self, didRetrieve: post.id)
     }
 
