@@ -11,19 +11,17 @@ class FeedViewController: UITableViewController {
     var help: UIBarButtonItem!
 
     private var postCount = 0
+    private var isAuthenticated = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(.init(nibName: "TextPostFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "Text")
         tableView.register(.init(nibName: "ImagePostFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "Image")
 
-        refreshControl?.reactive.controlEvents(.valueChanged)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in onRefresh() }
+        isAuthenticated = currentUser != nil
+        setupHelp()
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentDidChangeNotification)
+        refreshControl?.reactive.controlEvents(.valueChanged)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
             .observeValues { [unowned self] _ in onRefresh() }
@@ -40,7 +38,11 @@ class FeedViewController: UITableViewController {
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onApplicationDidEnterBackground($0) }
 
-        setupHelp()
+        NotificationCenter.default.reactive
+            .notifications(forName: FPUser.currentDidChangeNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onCurrentUserDidChange($0) }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -71,7 +73,6 @@ class FeedViewController: UITableViewController {
 
     private func onRefresh() {
         setupHelp()
-        let count = postCount
         postCount = 0
         tableView.reloadData()
         vm.refresh()
@@ -87,8 +88,18 @@ class FeedViewController: UITableViewController {
         vm.stopListing()
     }
 
+    private func onCurrentUserDidChange(_ notification: Notification) {
+        guard let info = notification.userInfo,
+              let connected = info["connected"] as? Bool,
+              connected != isAuthenticated
+        else { return }
+
+        isAuthenticated = connected
+        onRefresh()
+    }
+
     private func setupHelp() {
-        navigationItem.setRightBarButton(currentUser == nil ? help : nil, animated: true)
+        navigationItem.setRightBarButton(isAuthenticated ? nil : help, animated: true)
     }
 }
 
