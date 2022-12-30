@@ -54,7 +54,7 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
 
     private func keyboardChanged(height: CGFloat, info: [AnyHashable: Any]?) {
         keyboardHeight = height
-        constant = originalConstant! - keyboardHeight
+        constant = originalConstant! + keyboardHeight
 
         let duration = info?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber
         let curve = info?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber

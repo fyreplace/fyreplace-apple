@@ -1338,7 +1338,7 @@
                         <constraints>
                             <constraint firstItem="Comment-Comment-view-textView" firstAttribute="leading" secondItem="Comment-Comment-view" secondAttribute="leadingMargin" id="10-00-00--C-00-00-00-00"/>
                             <constraint firstItem="Comment-Comment-view-textView" firstAttribute="top" secondItem="Comment-Comment-view" secondAttribute="topMargin" id="10-00-00--C-00-00-00-01"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Comment-Comment-view-textView" secondAttribute="bottom" id="10-00-00--C-00-00-01" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
+                            <constraint firstAttribute="bottom" secondItem="Comment-Comment-view-textView" secondAttribute="bottom" id="10-00-00--C-00-00-01" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Comment-Comment-view-textView" secondAttribute="trailing" id="10-00-00--C-00-00-02"/>
                         </constraints>
                     </view>
@@ -1447,7 +1447,7 @@
                         <constraints>
                             <constraint firstItem="Text-Chapter-Text-Chapter-view-textView" firstAttribute="leading" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="leadingMargin" id="12-00-00--C-00-00-00-00"/>
                             <constraint firstItem="Text-Chapter-Text-Chapter-view-textView" firstAttribute="top" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="topMargin" id="12-00-00--C-00-00-00-01"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Text-Chapter-Text-Chapter-view-textView" secondAttribute="bottom" id="12-00-00--C-00-00-01" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
+                            <constraint firstAttribute="bottom" secondItem="Text-Chapter-Text-Chapter-view-textView" secondAttribute="bottom" id="12-00-00--C-00-00-01" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Text-Chapter-Text-Chapter-view-textView" secondAttribute="trailing" id="12-00-00--C-00-00-02"/>
                         </constraints>
                     </view>
@@ -1753,7 +1753,7 @@
                         <constraints>
                             <constraint firstItem="Bio-Bio-view-textView" firstAttribute="leading" secondItem="Bio-Bio-view" secondAttribute="leadingMargin" id="15-00-00--C-00-00-00-00"/>
                             <constraint firstItem="Bio-Bio-view-textView" firstAttribute="top" secondItem="Bio-Bio-view" secondAttribute="topMargin" id="15-00-00--C-00-00-00-01"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Bio-Bio-view-textView" secondAttribute="bottom" id="15-00-00--C-00-00-01" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
+                            <constraint firstAttribute="bottom" secondItem="Bio-Bio-view-textView" secondAttribute="bottom" id="15-00-00--C-00-00-01" customClass="KeyboardDodgingConstraint" customModule="Fyreplace" customModuleProvider="target"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bio-Bio-view-textView" secondAttribute="trailing" id="15-00-00--C-00-00-02"/>
                         </constraints>
                     </view>
