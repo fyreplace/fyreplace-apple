@@ -29,6 +29,7 @@ class ItemListViewController: BaseListViewController {
 
         if listDelegate.lister.itemCount - manualCount <= 0 {
             listDelegate.lister.reset()
+            tableView.reloadData()
             listDelegate.lister.fetchMore()
         }
     }
