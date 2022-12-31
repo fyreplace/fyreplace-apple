@@ -56,7 +56,7 @@ class ArchiveViewController: ItemListViewController {
         listDelegate.lister.stopListing()
         vm.toggleLister(toOwn: !isListingAllPosts)
         refreshNotificationHandlers()
-        tableView.reloadData()
+        resetListing()
         listDelegate.lister.startListing()
         listDelegate.lister.fetchMore()
     }

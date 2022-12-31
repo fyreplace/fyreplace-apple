@@ -17,6 +17,12 @@ class ItemListViewController: BaseListViewController {
             .observeValues { [unowned self] _ in onRefresh() }
 
         NotificationCenter.default.reactive
+            .notifications(forName: UIApplication.didBecomeActiveNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onApplicationDidBecomeActive($0) }
+
+        NotificationCenter.default.reactive
             .notifications(forName: FPUser.currentDidChangeNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
@@ -25,20 +31,13 @@ class ItemListViewController: BaseListViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let manualCount = max(listDelegate.lister.manuallyAddedCount, 0)
-
-        if listDelegate.lister.itemCount - manualCount <= 0 {
-            listDelegate.lister.reset()
-            tableView.reloadData()
-            listDelegate.lister.fetchMore()
-        }
+        fillIfEmpty()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         guard viewIfLoaded?.window == nil else { return }
-        listDelegate.lister.reset()
-        tableView.reloadData()
+        resetListing()
     }
 
     override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
@@ -56,11 +55,15 @@ class ItemListViewController: BaseListViewController {
         super.removeItem(item, at: indexPath, becauseOf: reason)
     }
 
+    func resetListing() {
+        listDelegate.lister.reset()
+        tableView.reloadData()
+    }
+
     func refreshListing() {
         DispatchQueue.main.async { [self] in
             listDelegate.lister.stopListing()
-            listDelegate.lister.reset()
-            tableView.reloadData()
+            resetListing()
             listDelegate.lister.startListing()
             listDelegate.lister.fetchMore()
         }
@@ -70,13 +73,23 @@ class ItemListViewController: BaseListViewController {
         refreshListing()
     }
 
+    private func onApplicationDidBecomeActive(_ notification: Notification) {
+        fillIfEmpty()
+    }
+
     private func onCurrentUserDidChange(_ notification: Notification) {
         guard let info = notification.userInfo,
               let connected = info["connected"] as? Bool,
               !connected
         else { return }
-        listDelegate.lister.reset()
-        tableView.reloadData()
+        resetListing()
+    }
+
+    private func fillIfEmpty() {
+        let manualCount = max(listDelegate.lister.manuallyAddedCount, 0)
+        guard listDelegate.lister.itemCount - manualCount <= 0 else { return }
+        resetListing()
+        listDelegate.lister.fetchMore()
     }
 }
 

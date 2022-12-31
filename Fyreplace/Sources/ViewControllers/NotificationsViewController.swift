@@ -19,6 +19,12 @@ class NotificationsViewController: ItemListViewController {
         super.awakeFromNib()
 
         NotificationCenter.default.reactive
+            .notifications(forName: UIApplication.didEnterBackgroundNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onApplicationDidEnterBackground($0) }
+
+        NotificationCenter.default.reactive
             .notifications(forName: FPNotification.wasCreatedNotification)
             .take(during: reactive.lifetime)
             .observe(on: UIScheduler())
@@ -67,6 +73,10 @@ class NotificationsViewController: ItemListViewController {
             guard yes else { return }
             self.vm.clear()
         }
+    }
+
+    private func onApplicationDidEnterBackground(_ notification: Notification) {
+        resetListing()
     }
 
     private func onNotificationWasCreated(_ notification: Notification) {
