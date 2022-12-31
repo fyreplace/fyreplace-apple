@@ -1,3 +1,4 @@
+import ReactiveSwift
 import UIKit
 
 class ArchiveViewController: ItemListViewController {
@@ -30,6 +31,12 @@ class ArchiveViewController: ItemListViewController {
         super.viewDidLoad()
         tableView.register(.init(nibName: "TextPostTableViewCell", bundle: nil), forCellReuseIdentifier: "Text")
         tableView.register(.init(nibName: "ImagePostTableViewCell", bundle: nil), forCellReuseIdentifier: "Image")
+
+        NotificationCenter.default.reactive
+            .notifications(forName: FPPost.wasSeenNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onPostWasSeen($0) }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,13 +50,6 @@ class ArchiveViewController: ItemListViewController {
         }
     }
 
-    override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
-        let path = reason.name == FPPost.draftWasPublishedNotification
-            ? .init(row: 0, section: 0)
-            : indexPath
-        super.addItem(item, at: path, becauseOf: reason)
-    }
-
     @IBAction
     private func onSegmentValueChanged() {
         emptyPlaceholder = isListingAllPosts ? archiveEmptyPlaceholder : ownPostsEmptyPlaceholder
@@ -59,6 +59,20 @@ class ArchiveViewController: ItemListViewController {
         tableView.reloadData()
         listDelegate.lister.startListing()
         listDelegate.lister.fetchMore()
+    }
+
+    private func onPostWasSeen(_ notification: Notification) {
+        guard let info = notification.userInfo,
+              let item = info["item"]
+        else { return }
+
+        let position = listDelegate.lister.getPosition(for: item)
+
+        if position != -1 {
+            removeItem(item, at: .init(row: position, section: 0), becauseOf: notification)
+        }
+
+        addItem(item, at: .init(row: 0, section: 0), becauseOf: notification)
     }
 }
 

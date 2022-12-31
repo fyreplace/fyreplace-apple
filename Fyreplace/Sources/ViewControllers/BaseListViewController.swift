@@ -98,10 +98,9 @@ class BaseListViewController: UITableViewController {
               let item = info["item"]
         else { return }
 
-        let position = max(listViewDelegate.lister.getPosition(for: item), 0)
         addItem(
             item,
-            at: .init(row: position, section: 0),
+            at: .init(row: 0, section: 0),
             becauseOf: notification
         )
 

@@ -46,6 +46,11 @@ class NotificationsViewController: ItemListViewController {
 
         case let (controller as PostViewController, .post(post)):
             controller.post = post
+            NotificationCenter.default.post(
+                name: FPPost.wasSeenNotification,
+                object: self,
+                userInfo: ["item": post]
+            )
 
         case let (controller as PostViewController, .comment(comment)):
             controller.post = .with { $0.id = comment.id }
