@@ -100,6 +100,10 @@ class ItemLister<Item, Items, Service>: ItemListerProtocol
     func remove(at position: Int) {
         items.remove(at: position)
         manuallyAddedCount -= 1
+
+        if itemCount <= pageSize {
+            fetchMore()
+        }
     }
 
     private func onFetch(items: Items) {
