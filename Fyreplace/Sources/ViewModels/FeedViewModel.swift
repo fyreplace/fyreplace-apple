@@ -17,6 +17,7 @@ class FeedViewModel: ViewModel {
         stream = postService.listFeed(callOptions: .authenticated) { [self] post in
             if let index = posts.firstIndex(where: { $0.id == post.id }) {
                 posts[index] = post
+                delegate?.feedViewModel(self, didUpdatePostAtPosition: index)
             } else {
                 posts += [post]
                 delegate?.feedViewModel(self, didReceivePostAtPosition: posts.count - 1)
@@ -51,6 +52,8 @@ class FeedViewModel: ViewModel {
 @objc
 protocol FeedViewModelDelegate: ViewModelDelegate {
     func feedViewModel(_ viewModel: FeedViewModel, didReceivePostAtPosition position: Int)
+
+    func feedViewModel(_ viewModel: FeedViewModel, didUpdatePostAtPosition position: Int)
 
     func feedViewModel(_ viewModel: FeedViewModel, didVotePostAtPosition position: Int)
 

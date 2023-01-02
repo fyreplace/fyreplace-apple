@@ -172,7 +172,7 @@ class DraftViewController: UITableViewController {
 
     private func deleteChapter(at position: Int) {
         vm.deleteChapter(at: position)
-        tableView.deleteRows(at: [.init(row: position, section: 0)], with: .automatic)
+        tableView.deleteRows(at: .init(row: position, section: 0), with: .automatic)
     }
 }
 
@@ -285,7 +285,7 @@ extension DraftViewController: DraftViewModelDelegate {
 
     func draftViewModel(_ viewModel: DraftViewModel, didUpdateChapterAtPosition position: Int, inside id: Data) {
         DispatchQueue.main.async { [self] in
-            tableView.reloadRows(at: [.init(row: position, section: 0)], with: .automatic)
+            tableView.reloadRows(at: .init(row: position, section: 0), with: .automatic)
         }
     }
 
