@@ -43,7 +43,13 @@ extension CommentViewController: CommentViewModelDelegate {
     func viewModel(_ viewModel: ViewModel, errorKeyForCode code: Int, withMessage message: String?) -> String? {
         switch GRPCStatus.Code(rawValue: code)! {
         case .permissionDenied:
-            return "Comment.Error.Blocked"
+            switch message {
+            case "caller_blocked":
+                return "Error.Permission"
+
+            default:
+                return "Comment.Error.Blocked"
+            }
 
         case .invalidArgument:
             return content.text.count > maxContentLength
