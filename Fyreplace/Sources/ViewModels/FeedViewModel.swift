@@ -15,9 +15,11 @@ class FeedViewModel: ViewModel {
 
     func startListing() {
         stream = postService.listFeed(callOptions: .authenticated) { [self] post in
-            if let index = posts.firstIndex(where: { $0.id == post.id }) {
-                posts[index] = post
-                delegate?.feedViewModel(self, didUpdatePostAtPosition: index)
+            if let position = posts.firstIndex(where: { $0.id == post.id }) {
+                if post != posts[position] {
+                    posts[position] = post
+                    delegate?.feedViewModel(self, didUpdatePostAtPosition: position)
+                }
             } else {
                 posts += [post]
                 delegate?.feedViewModel(self, didReceivePostAtPosition: posts.count - 1)
