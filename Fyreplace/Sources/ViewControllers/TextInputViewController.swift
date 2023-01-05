@@ -26,7 +26,16 @@ class TextInputViewController: UIViewController {
             .map { $0.count <= maxLength }
             .skipRepeats()
             .map { $0 ? .labelCompat : .systemRed }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         content.becomeFirstResponder()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        content.resignFirstResponder()
+        super.viewWillDisappear(animated)
     }
 
     @IBAction
