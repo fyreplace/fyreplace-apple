@@ -4,6 +4,9 @@
 "No" = "No";
 "Menu" = "Menu";
 
+"App.Code.Url" = "https://github.com/fyreplace";
+"App.BugReport.Url" = "mailto:bugs@fyreplace.app";
+
 "Legal.PrivacyPolicy.Url" = "https://fyreplace.net/privacy-policy";
 "Legal.TermsOfService.Url" = "https://fyreplace.net/terms-of-service";
 

@@ -151,6 +151,12 @@ extension SettingsViewController {
         case 12:
             URL(string: .tr("Legal.TermsOfService.Url"))?.browse()
 
+        case 13:
+            URL(string: .tr("App.Code.Url"))?.browse()
+
+        case 14:
+            URL(string: .tr("App.BugReport.Url"))?.browse()
+
         case 21:
             vm.logout()
 
