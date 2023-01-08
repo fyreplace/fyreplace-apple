@@ -20,9 +20,9 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
             .observeValues { [unowned self] in onWindowKeyboardWillShow($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: UIWindow.keyboardWillHideNotification)
+            .notifications(forName: UIWindow.keyboardDidHideNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onWindowKeyboardWillHide($0) }
+            .observeValues { [unowned self] in onWindowKeyboardDidHide($0) }
     }
 
     private func onDeviceOrientationDidChange(_ notification: Notification) {
@@ -48,7 +48,7 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
         keyboardChanged(height: keyboardSize.height, info: userInfo)
     }
 
-    private func onWindowKeyboardWillHide(_ notification: Notification) {
+    private func onWindowKeyboardDidHide(_ notification: Notification) {
         keyboardChanged(height: 0, info: notification.userInfo)
     }
 
