@@ -34,6 +34,7 @@ class PostViewController: ItemRandomAccessListViewController {
     var shouldScrollToComment = false
     private var errored = false
     private lazy var currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
+    private var savedComment = ""
 
     override var additionNotifications: [Notification.Name] {
         [FPComment.wasCreatedNotification]
@@ -56,6 +57,12 @@ class PostViewController: ItemRandomAccessListViewController {
         vm.subscribed.producer
             .take(during: reactive.lifetime)
             .startWithValues { [unowned self] in onSubscribed($0) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: FPComment.wasSavedNotification)
+            .take(during: reactive.lifetime)
+            .observe(on: UIScheduler())
+            .observeValues { [unowned self] in onCommentWasSaved($0) }
 
         if post.isPreview || post.chapterCount == 0 {
             vm.retrieve(id: post.id)
@@ -90,6 +97,7 @@ class PostViewController: ItemRandomAccessListViewController {
             userNavigationController.profile = profile
         } else if let commentNavigationController = segue.destination as? CommentNavigationViewController {
             commentNavigationController.postId = vm.post.value.id
+            commentNavigationController.text = savedComment
         }
     }
 
@@ -105,6 +113,7 @@ class PostViewController: ItemRandomAccessListViewController {
             at: listDelegate.lister.totalCount - 1,
             selected: false
         )
+        savedComment = ""
         vm.subscribed.value = true
     }
 
@@ -201,6 +210,13 @@ class PostViewController: ItemRandomAccessListViewController {
         subscribe.isConcealed = subscribed
         unsubscribe.isConcealed = !subscribed
         DispatchQueue.main.async { self.menu.reload() }
+    }
+
+    private func onCommentWasSaved(_ notification: Notification) {
+        guard let info = notification.userInfo,
+              let text = info["text"] as? String
+        else { return }
+        savedComment = text
     }
 
     private func setToolbarHidden(_ hidden: Bool) {

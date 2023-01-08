@@ -11,11 +11,27 @@ class CommentViewController: TextInputViewController {
     var vm: CommentViewModel!
 
     var postId: Data!
+    var text: String!
+    private var isDone = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        content.text = text
         done.reactive.isEnabled <~ vm.comment.map(\.isEmpty).negate()
         vm.comment <~ content.reactive.continuousTextValues.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+        vm.comment.value = text
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        if !isDone {
+            NotificationCenter.default.post(
+                name: FPComment.wasSavedNotification,
+                object: self,
+                userInfo: ["text": vm.text.value]
+            )
+        }
+
+        super.viewDidDisappear(animated)
     }
 
     override func onDonePressed() {
@@ -37,6 +53,7 @@ extension CommentViewController: CommentViewModelDelegate {
             userInfo: ["item": comment, "postId": postId!, "byCurrentUser": true]
         )
 
+        isDone = true
         DispatchQueue.main.async { self.dismiss(animated: true) }
     }
 
