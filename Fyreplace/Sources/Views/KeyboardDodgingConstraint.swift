@@ -17,12 +17,22 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
         NotificationCenter.default.reactive
             .notifications(forName: UIWindow.keyboardWillShowNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onWindowKeyboardWillShow($0) }
+            .observeValues { [unowned self] in onWindowKeyboardShow($0) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: UIWindow.keyboardDidShowNotification)
+            .take(during: reactive.lifetime)
+            .observeValues { [unowned self] in onWindowKeyboardShow($0) }
+
+        NotificationCenter.default.reactive
+            .notifications(forName: UIWindow.keyboardWillHideNotification)
+            .take(during: reactive.lifetime)
+            .observeValues { [unowned self] in onWindowKeyboardHide($0) }
 
         NotificationCenter.default.reactive
             .notifications(forName: UIWindow.keyboardDidHideNotification)
             .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onWindowKeyboardDidHide($0) }
+            .observeValues { [unowned self] in onWindowKeyboardHide($0) }
     }
 
     private func onDeviceOrientationDidChange(_ notification: Notification) {
@@ -35,7 +45,7 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
         }
     }
 
-    private func onWindowKeyboardWillShow(_ notification: Notification) {
+    private func onWindowKeyboardShow(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
               let frameValue = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)
         else { return }
@@ -48,7 +58,7 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
         keyboardChanged(height: keyboardSize.height, info: userInfo)
     }
 
-    private func onWindowKeyboardDidHide(_ notification: Notification) {
+    private func onWindowKeyboardHide(_ notification: Notification) {
         keyboardChanged(height: 0, info: notification.userInfo)
     }
 
