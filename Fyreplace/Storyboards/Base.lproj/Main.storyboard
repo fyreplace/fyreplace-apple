@@ -1406,9 +1406,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Comment-Comment-navigationItem">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="Comment-Comment-navigationItem-cancel">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="Comment-Comment-navigationItem-Close">
                             <connections>
-                                <action selector="onCancelPressed" destination="Comment-Comment" id="95738129fe02856273bebf6f2e3bca08181b3b65dc583533a1b287b6f2695635"/>
+                                <action selector="onCancelPressed" destination="Comment-Comment" id="4a998cb1da33236bd5ec3f501ad1467d68cf65ed6943374b6b431c5deb889fe0"/>
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="Comment-Comment-navigationItem-titleView">

@@ -47,10 +47,10 @@ class NotificationsViewModel: ViewModel {
             absolveUser(id: user.id, at: position, onCompletion: completion)
 
         case let .post(post):
-            absolveUser(id: post.id, at: position, onCompletion: completion)
+            absolvePost(id: post.id, at: position, onCompletion: completion)
 
         case let .comment(comment):
-            absolveUser(id: comment.id, at: position, onCompletion: completion)
+            absolveComment(id: comment.id, at: position, onCompletion: completion)
 
         default:
             return
