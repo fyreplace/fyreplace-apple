@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage",
       "state" : {
-        "revision" : "4178d12a44691182c2eb79c70281b14cb73f4cbf",
-        "version" : "5.14.3"
+        "revision" : "6c6b951845a520fa7e8356e28adb5339c0f008d3",
+        "version" : "5.15.0"
       }
     },
     {
@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImageWebPCoder",
       "state" : {
-        "revision" : "4416805045174938b11edb69a86e9f7dd0699952",
-        "version" : "0.9.1"
+        "revision" : "c25a1d2c1bef1d7e1b402a56f7f2f09d36903eb8",
+        "version" : "0.10.0"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
       "state" : {
-        "revision" : "6fe203dc33195667ce1759bf0182975e4653ba1c",
-        "version" : "1.4.4"
+        "revision" : "3e3ef75109d6801b2c44504e73f55f0dce6662c9",
+        "version" : "1.5.1"
       }
     },
     {
@@ -86,8 +86,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio.git",
       "state" : {
-        "revision" : "7e3b50b38e4e66f31db6cf4a784c6af148bac846",
-        "version" : "2.46.0"
+        "revision" : "4ad2c3733845abd9ee8892a323b0fa0d80f37e34",
+        "version" : "2.47.0"
       }
     },
     {
