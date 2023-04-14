@@ -17,6 +17,6 @@ extension Data {
     }
 
     init(jsonObject: Any) throws {
-        self.init(referencing: .init(data: try JSONSerialization.data(withJSONObject: jsonObject)))
+        try self.init(referencing: .init(data: JSONSerialization.data(withJSONObject: jsonObject)))
     }
 }

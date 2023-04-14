@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Main-Main">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Main-Main">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -45,7 +45,7 @@
                     <tabBarItem key="tabBarItem" title="Feed" image="house.fill" catalog="system" id="Feed-Navigation-Feed-Navigation-Feed"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Feed-Navigation-Feed-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -113,7 +113,7 @@
                     <tabBarItem key="tabBarItem" tag="1" title="Notifications" image="bell.fill" catalog="system" id="Notifications-Navigation-Notifications-Navigation-Notifications"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Notifications-Navigation-Notifications-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -183,7 +183,7 @@
                     <tabBarItem key="tabBarItem" tag="1" title="Archive" image="clock.fill" catalog="system" id="Archive-Navigation-Archive-Navigation-Archive"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Archive-Navigation-Archive-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -269,7 +269,7 @@
                     <tabBarItem key="tabBarItem" tag="1" title="Drafts" image="doc.text.fill" catalog="system" id="Drafts-Navigation-Drafts-Navigation-Drafts"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Drafts-Navigation-Drafts-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -357,7 +357,7 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="person.crop.circle.fill" catalog="system" id="Settings-Navigation-Settings-Navigation-Settings"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Settings-Navigation-Settings-Navigation-navigationBar">
-                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1176,11 +1176,11 @@
             <objects>
                 <viewController storyboardIdentifier="User" id="User-User" userLabel="User" customClass="UserViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="User-User-view">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView">
-                                <rect key="frame" x="0.0" y="108" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="694"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="238.33333333333334"/>
@@ -1384,11 +1384,11 @@
             <objects>
                 <viewController storyboardIdentifier="Comment" id="Comment-Comment" userLabel="Comment" customClass="CommentViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Comment-Comment-view">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Comment-Comment-view-textView">
-                                <rect key="frame" x="16" y="56" width="343" height="699"/>
+                                <rect key="frame" x="16" y="56" width="343" height="746"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -1493,11 +1493,11 @@
             <objects>
                 <viewController storyboardIdentifier="Text Chapter" id="Text-Chapter-Text-Chapter" userLabel="Text Chapter" customClass="TextChapterViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Text-Chapter-Text-Chapter-view">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Text-Chapter-Text-Chapter-view-textView">
-                                <rect key="frame" x="16" y="56" width="343" height="699"/>
+                                <rect key="frame" x="16" y="56" width="343" height="746"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -1800,11 +1800,11 @@
             <objects>
                 <viewController storyboardIdentifier="Bio" id="Bio-Bio" userLabel="Bio" customClass="BioViewController" customModule="Fyreplace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bio-Bio-view">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-view-textView">
-                                <rect key="frame" x="16" y="56" width="343" height="699"/>
+                                <rect key="frame" x="16" y="56" width="343" height="746"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
