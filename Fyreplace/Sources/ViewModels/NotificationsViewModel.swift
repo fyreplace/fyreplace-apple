@@ -34,7 +34,7 @@ class NotificationsViewModel: ViewModel {
 
     func clear() {
         let request = Google_Protobuf_Empty()
-        let response = notificationService.clear(request, callOptions: .authenticated).response
+        let response = notificationService.clear(request).response
         response.whenSuccess { _ in self.delegate?.didClearNotifications(self) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
@@ -59,7 +59,7 @@ class NotificationsViewModel: ViewModel {
 
     private func absolveUser(id: Data, at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         let request = FPId.with { $0.id = id }
-        let response = userService.absolve(request, callOptions: .authenticated).response
+        let response = userService.absolve(request).response
         response.whenSuccess { _ in self.delegate?.notificationsViewModel(self, didAbsolve: id, at: position) { completion(true) } }
         response.whenFailure {
             self.delegate?.viewModel(self, didFailWithError: $0)
@@ -69,7 +69,7 @@ class NotificationsViewModel: ViewModel {
 
     private func absolvePost(id: Data, at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         let request = FPId.with { $0.id = id }
-        let response = postService.absolve(request, callOptions: .authenticated).response
+        let response = postService.absolve(request).response
         response.whenSuccess { _ in self.delegate?.notificationsViewModel(self, didAbsolve: id, at: position) { completion(true) } }
         response.whenFailure {
             self.delegate?.viewModel(self, didFailWithError: $0)
@@ -79,7 +79,7 @@ class NotificationsViewModel: ViewModel {
 
     private func absolveComment(id: Data, at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         let request = FPId.with { $0.id = id }
-        let response = commentService.absolve(request, callOptions: .authenticated).response
+        let response = commentService.absolve(request).response
         response.whenSuccess { _ in self.delegate?.notificationsViewModel(self, didAbsolve: id, at: position) { completion(true) } }
         response.whenFailure {
             self.delegate?.viewModel(self, didFailWithError: $0)

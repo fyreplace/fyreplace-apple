@@ -5,6 +5,6 @@ extension FPCommentServiceNIOClient: ItemListerService {
     typealias Items = FPComments
 
     func listItems(type: Int, handler: @escaping (Items) -> Void) -> BidirectionalStreamingCall<FPPage, Items> {
-        return list(callOptions: .authenticated, handler: handler)
+        return list(handler: handler)
     }
 }

@@ -7,13 +7,13 @@ extension FPPostServiceNIOClient: ItemListerService {
     func listItems(type: Int, handler: @escaping (Items) -> Void) -> BidirectionalStreamingCall<FPPage, Items> {
         switch type {
         case 1:
-            return listOwnPosts(callOptions: .authenticated, handler: handler)
+            return listOwnPosts(handler: handler)
 
         case 2:
-            return listDrafts(callOptions: .authenticated, handler: handler)
+            return listDrafts(handler: handler)
 
         default:
-            return listArchive(callOptions: .authenticated, handler: handler)
+            return listArchive(handler: handler)
         }
     }
 }

@@ -22,7 +22,7 @@ class TextChapterViewModel: ViewModel, TextInputViewModel {
             }
             $0.text = chapterText.value
         }
-        let response = chapterService.updateText(request, callOptions: .authenticated).response
+        let response = chapterService.updateText(request).response
         response.whenSuccess { _ in self.delegate?.textChapterViewModel(self, didUpdateAtPosition: position, withText: self.chapterText.value) }
         response.whenFailure { self.onError($0) }
     }

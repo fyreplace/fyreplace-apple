@@ -33,7 +33,7 @@ class SettingsViewModel: ViewModel {
     }
 
     func updateAvatar(image: Data?) {
-        let stream = userService.updateAvatar(callOptions: .authenticated)
+        let stream = userService.updateAvatar()
         stream.response.whenSuccess { self.onUpdateAvatar($0) }
         stream.response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
         stream.upload(image)
@@ -41,20 +41,20 @@ class SettingsViewModel: ViewModel {
 
     func sendEmailUpdateEmail(email: String) {
         let request = FPEmail.with { $0.email = email }
-        let response = userService.sendEmailUpdateEmail(request, callOptions: .authenticated).response
+        let response = userService.sendEmailUpdateEmail(request).response
         response.whenSuccess { _ in self.delegate?.settingsViewModel(self, didSendEmailUpdateEmail: email) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func logout() {
-        let response = accountService.disconnect(FPId(), callOptions: .authenticated).response
+        let response = accountService.disconnect(FPId()).response
         response.whenSuccess { _ in self.onLogout() }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func delete() {
         let request = Google_Protobuf_Empty()
-        let response = accountService.delete(request, callOptions: .authenticated).response
+        let response = accountService.delete(request).response
         response.whenSuccess { _ in self.onDelete() }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }

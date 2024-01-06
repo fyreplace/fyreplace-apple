@@ -28,7 +28,7 @@ class DraftViewModel: ViewModel {
         isLoading.value = true
         postId = id
         let request = FPId.with { $0.id = id }
-        let response = postService.retrieve(request, callOptions: .authenticated).response
+        let response = postService.retrieve(request).response
         response.whenSuccess(onRetrieve(_:))
         response.whenFailure { self.onError($0) }
     }
@@ -36,7 +36,7 @@ class DraftViewModel: ViewModel {
     func delete() {
         isLoading.value = true
         let request = FPId.with { $0.id = postId }
-        let response = postService.delete(request, callOptions: .authenticated).response
+        let response = postService.delete(request).response
         response.whenSuccess { _ in self.delegate?.draftViewModel(self, didDelete: self.postId) }
         response.whenFailure { self.onError($0) }
     }
@@ -47,7 +47,7 @@ class DraftViewModel: ViewModel {
             $0.id = postId
             $0.anonymous = anonymous
         }
-        let response = postService.publish(request, callOptions: .authenticated).response
+        let response = postService.publish(request).response
         response.whenSuccess { _ in self.delegate?.draftViewModel(self, didPublish: self.postId, anonymously: anonymous) }
         response.whenFailure { self.onError($0) }
     }
@@ -60,7 +60,7 @@ class DraftViewModel: ViewModel {
             $0.postID = postId
             $0.position = UInt32(position)
         }
-        let response = chapterService.create(request, callOptions: .authenticated).response
+        let response = chapterService.create(request).response
         response.whenSuccess { _ in self.onCreateChapter(position, type) }
         response.whenFailure { self.onError($0) }
     }
@@ -76,14 +76,14 @@ class DraftViewModel: ViewModel {
             $0.postID = postId
             $0.position = UInt32(position)
         }
-        let response = chapterService.delete(request, callOptions: .authenticated).response
+        let response = chapterService.delete(request).response
         response.whenSuccess { _ in self.onDeleteChapter(position) }
         response.whenFailure { self.onError($0) }
     }
 
     func updateImageChapter(_ image: Data, at position: Int) {
         isLoading.value = true
-        let stream = chapterService.updateImage(callOptions: .authenticated)
+        let stream = chapterService.updateImage()
         stream.response.whenSuccess { self.onUpdateImageChapter(position, $0) }
         stream.response.whenFailure { self.onError($0) }
         stream.upload(image, for: postId, at: position)
@@ -96,7 +96,7 @@ class DraftViewModel: ViewModel {
             $0.fromPosition = UInt32(fromPosition)
             $0.toPosition = UInt32(toPosition)
         }
-        let response = chapterService.move(request, callOptions: .authenticated).response
+        let response = chapterService.move(request).response
         response.whenSuccess { _ in self.onMoveChapter(fromPosition, toPosition) }
         response.whenFailure { self.onError($0) }
     }

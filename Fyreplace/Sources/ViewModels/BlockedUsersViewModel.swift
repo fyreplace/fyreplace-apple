@@ -19,7 +19,7 @@ class BlockedUsersViewModel: ViewModel {
             $0.id = userId
             $0.blocked = false
         }
-        let response = userService.updateBlock(request, callOptions: .authenticated).response
+        let response = userService.updateBlock(request).response
         response.whenSuccess { _ in self.delegate?.blockedUsersViewModel(self, didUnblockAtPosition: position) { completion(true) } }
         response.whenFailure {
             self.delegate?.viewModel(self, didFailWithError: $0)

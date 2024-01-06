@@ -11,7 +11,7 @@ class UserViewModel: ViewModel {
 
     func retrieve(id: Data) {
         let request = FPId.with { $0.id = id }
-        let response = userService.retrieve(request, callOptions: .authenticated).response
+        let response = userService.retrieve(request).response
         response.whenSuccess(onRetrieve(_:))
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
@@ -22,7 +22,7 @@ class UserViewModel: ViewModel {
             $0.id = id
             $0.blocked = blocked
         }
-        let response = userService.updateBlock(request, callOptions: .authenticated).response
+        let response = userService.updateBlock(request).response
         response.whenSuccess { _ in self.onBlockUpdate(id: id, blocked: blocked) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
@@ -30,7 +30,7 @@ class UserViewModel: ViewModel {
     func report() {
         let id = user.value!.profile.id
         let request = FPId.with { $0.id = id }
-        let response = userService.report(request, callOptions: .authenticated).response
+        let response = userService.report(request).response
         response.whenSuccess { _ in self.delegate?.userViewModel(self, didReport: id) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
@@ -46,7 +46,7 @@ class UserViewModel: ViewModel {
             case .ever: break
             }
         }
-        let response = userService.ban(request, callOptions: .authenticated).response
+        let response = userService.ban(request).response
         response.whenSuccess { _ in self.onBan(id: id) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }

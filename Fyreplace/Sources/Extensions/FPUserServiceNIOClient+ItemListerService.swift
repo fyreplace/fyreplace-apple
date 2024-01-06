@@ -5,6 +5,6 @@ extension FPUserServiceNIOClient: ItemListerService {
     typealias Items = FPProfiles
 
     func listItems(type: Int, handler: @escaping (Items) -> Void) -> BidirectionalStreamingCall<FPPage, Items> {
-        return listBlocked(callOptions: .authenticated, handler: handler)
+        return listBlocked(handler: handler)
     }
 }

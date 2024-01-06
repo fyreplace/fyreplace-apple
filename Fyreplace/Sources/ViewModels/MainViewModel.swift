@@ -58,21 +58,21 @@ class MainViewModel: ViewModel {
 
     func confirmEmailUpdate(with token: String) {
         let request = FPToken.with { $0.token = token }
-        let response = userService.confirmEmailUpdate(request, callOptions: .authenticated).response
+        let response = userService.confirmEmailUpdate(request).response
         response.whenSuccess { _ in self.onConfirmEmailUpdate(token: token) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0, canAutoDisconnect: false) }
     }
 
     func retrieveMe() {
         let request = Google_Protobuf_Empty()
-        let response = userService.retrieveMe(request, callOptions: .authenticated).response
+        let response = userService.retrieveMe(request).response
         response.whenSuccess { self.setCurrentUser($0) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func acknowledgeComment(id: Data) {
         let request = FPId.with { $0.id = id }
-        let response = commentService.acknowledge(request, callOptions: .authenticated).response
+        let response = commentService.acknowledge(request).response
         response.whenSuccess { _ in self.delegate?.mainViewModel(self, didAcknowledgeComment: id) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
@@ -82,7 +82,7 @@ class MainViewModel: ViewModel {
             $0.service = .apns
             $0.token = token
         }
-        let response = notificationService.registerToken(request, callOptions: .authenticated).response
+        let response = notificationService.registerToken(request).response
         response.whenSuccess { _ in self.delegate?.mainViewModel(self, didRegisterToken: token) }
     }
 

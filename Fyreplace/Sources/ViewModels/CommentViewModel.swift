@@ -15,7 +15,7 @@ class CommentViewModel: ViewModel, TextInputViewModel {
             $0.postID = postId
             $0.text = comment.value
         }
-        let response = commentService.create(request, callOptions: .authenticated).response
+        let response = commentService.create(request).response
         response.whenSuccess { self.delegate?.commentViewModel(self, didCreate: $0.id) }
         response.whenFailure { self.onError($0) }
     }

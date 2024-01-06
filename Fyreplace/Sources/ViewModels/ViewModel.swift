@@ -25,12 +25,12 @@ class ViewModel: NSObject {
     }
 
     private func setupServices() {
-        accountService = FPAccountServiceNIOClient(channel: Self.rpc.channel)
-        userService = FPUserServiceNIOClient(channel: Self.rpc.channel)
-        postService = FPPostServiceNIOClient(channel: Self.rpc.channel)
-        chapterService = FPChapterServiceNIOClient(channel: Self.rpc.channel)
-        commentService = FPCommentServiceNIOClient(channel: Self.rpc.channel)
-        notificationService = FPNotificationServiceNIOClient(channel: Self.rpc.channel)
+        accountService = FPAccountServiceNIOClient(channel: Self.rpc.channel, interceptors: AccountServiceClientInterceptorFactory())
+        userService = FPUserServiceNIOClient(channel: Self.rpc.channel, interceptors: UserServiceClientInterceptorFactory())
+        postService = FPPostServiceNIOClient(channel: Self.rpc.channel, interceptors: PostServiceClientInterceptorFactory())
+        chapterService = FPChapterServiceNIOClient(channel: Self.rpc.channel, interceptors: ChapterServiceClientInterceptorFactory())
+        commentService = FPCommentServiceNIOClient(channel: Self.rpc.channel, interceptors: CommentServiceClientInterceptorFactory())
+        notificationService = FPNotificationServiceNIOClient(channel: Self.rpc.channel, interceptors: NotificationServiceClientInterceptorFactory())
     }
 }
 

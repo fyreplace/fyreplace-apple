@@ -14,7 +14,7 @@ class FeedViewModel: ViewModel {
     }
 
     func startListing() {
-        stream = postService.listFeed(callOptions: .authenticated) { [self] post in
+        stream = postService.listFeed { [self] post in
             if let position = posts.firstIndex(where: { $0.id == post.id }) {
                 if post != posts[position] {
                     posts[position] = post

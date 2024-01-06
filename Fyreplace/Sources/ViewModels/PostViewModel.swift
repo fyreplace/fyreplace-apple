@@ -18,7 +18,7 @@ class PostViewModel: ViewModel {
 
     func retrieve(id: Data) {
         let request = FPId.with { $0.id = id }
-        let response = postService.retrieve(request, callOptions: .authenticated).response
+        let response = postService.retrieve(request).response
         response.whenSuccess(onRetrieve(_:))
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
@@ -28,21 +28,21 @@ class PostViewModel: ViewModel {
             $0.id = post.value.id
             $0.subscribed = subscribed
         }
-        let response = postService.updateSubscription(request, callOptions: .authenticated).response
+        let response = postService.updateSubscription(request).response
         response.whenSuccess { _ in self.onUpdateSubscription(subscribed) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func report() {
         let request = FPId.with { $0.id = post.value.id }
-        let response = postService.report(request, callOptions: .authenticated).response
+        let response = postService.report(request).response
         response.whenSuccess { _ in self.delegate?.postViewModel(self, didReport: self.post.value.id) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func delete() {
         let request = FPId.with { $0.id = post.value.id }
-        let response = postService.delete(request, callOptions: .authenticated).response
+        let response = postService.delete(request).response
         response.whenSuccess { _ in self.delegate?.postViewModel(self, didDelete: self.post.value.id) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
@@ -50,7 +50,7 @@ class PostViewModel: ViewModel {
     func reportComment(at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         guard let comment = comment(at: position) else { return }
         let request = FPId.with { $0.id = comment.id }
-        let response = commentService.report(request, callOptions: .authenticated).response
+        let response = commentService.report(request).response
         response.whenSuccess { _ in self.delegate?.postViewModel(self, didReportCommentAtPosition: position, inside: self.post.value.id) { completion(true) } }
         response.whenFailure {
             self.delegate?.viewModel(self, didFailWithError: $0)
@@ -61,7 +61,7 @@ class PostViewModel: ViewModel {
     func deleteComment(at position: Int, onCompletion completion: @escaping (Bool) -> Void) {
         guard let comment = comment(at: position) else { return }
         let request = FPId.with { $0.id = comment.id }
-        let response = commentService.delete(request, callOptions: .authenticated).response
+        let response = commentService.delete(request).response
         response.whenSuccess { _ in self.delegate?.postViewModel(self, didDeleteCommentAtPosition: position, inside: self.post.value.id) { completion(true) } }
         response.whenFailure {
             self.delegate?.viewModel(self, didFailWithError: $0)
