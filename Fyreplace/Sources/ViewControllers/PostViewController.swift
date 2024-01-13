@@ -435,6 +435,7 @@ extension PostViewController: PostViewModelDelegate {
         case .invalidArgument:
             switch message {
             case "invalid_uuid":
+                NotificationCenter.default.post(name: FPPost.wasNotFoundNotification, object: self)
                 return "Post.Error.NotFound"
 
             default:
