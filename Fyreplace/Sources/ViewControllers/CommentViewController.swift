@@ -62,10 +62,10 @@ extension CommentViewController: CommentViewModelDelegate {
         case .permissionDenied:
             switch message {
             case "caller_blocked":
-                return "Error.Permission"
+                return "Comment.Error.Blocked"
 
             default:
-                return "Comment.Error.Blocked"
+                return "Error.Permission"
             }
 
         case .invalidArgument:

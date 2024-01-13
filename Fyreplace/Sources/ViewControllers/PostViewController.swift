@@ -428,9 +428,18 @@ extension PostViewController: PostViewModelDelegate {
         errored = true
 
         switch GRPCStatus.Code(rawValue: code)! {
-        case .invalidArgument, .notFound:
+        case .notFound:
             NotificationCenter.default.post(name: FPPost.wasNotFoundNotification, object: self)
             return "Post.Error.NotFound"
+
+        case .invalidArgument:
+            switch message {
+            case "invalid_uuid":
+                return "Post.Error.NotFound"
+
+            default:
+                return "Error"
+            }
 
         default:
             return "Error"
