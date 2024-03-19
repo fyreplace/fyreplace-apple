@@ -212,6 +212,10 @@
 		4D28876126A74F7200D6D3CB /* Rpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rpc.swift; sourceTree = "<group>"; };
 		4D28B2D928C7268D007D09C1 /* FPNotification+IdentifiableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FPNotification+IdentifiableItem.swift"; sourceTree = "<group>"; };
 		4D350CEF27235A6E00D40BE2 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		4D356F3D2BAAF06100F9B813 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		4D356F3E2BAAF06100F9B813 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4D356F3F2BAAF06100F9B813 /* prepare.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = prepare.sh; sourceTree = "<group>"; };
+		4D356F402BAAF1A500F9B813 /* publishing.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = publishing.yml; sourceTree = "<group>"; };
 		4D35B1A726D7A60600077811 /* Fyreplace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fyreplace.entitlements; sourceTree = "<group>"; };
 		4D36CC3026964B5D00BA1675 /* LargeFilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFilledButton.swift; sourceTree = "<group>"; };
 		4D3AEDA226C512F100C93DFF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -353,6 +357,10 @@
 			isa = PBXGroup;
 			children = (
 				4D77947527DE9B460068F4E7 /* .gitignore */,
+				4D356F3E2BAAF06100F9B813 /* README.md */,
+				4D356F3D2BAAF06100F9B813 /* Makefile */,
+				4D356F3F2BAAF06100F9B813 /* prepare.sh */,
+				4D356F422BAAF1A500F9B813 /* .github */,
 				4D0040EA268EEDE800AF89FD /* Fyreplace */,
 				4D7C984A2691254B00819E3F /* protos */,
 				4D0040E9268EEDE800AF89FD /* Products */,
@@ -447,6 +455,22 @@
 				4D41605828797FEF008584FC /* CommentActivityItemProvider.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		4D356F412BAAF1A500F9B813 /* workflows */ = {
+			isa = PBXGroup;
+			children = (
+				4D356F402BAAF1A500F9B813 /* publishing.yml */,
+			);
+			path = workflows;
+			sourceTree = "<group>";
+		};
+		4D356F422BAAF1A500F9B813 /* .github */ = {
+			isa = PBXGroup;
+			children = (
+				4D356F412BAAF1A500F9B813 /* workflows */,
+			);
+			path = .github;
 			sourceTree = "<group>";
 		};
 		4D36CC2F26964B4000BA1675 /* Views */ = {
