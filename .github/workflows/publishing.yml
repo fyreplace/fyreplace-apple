@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: macos-latest
+    runs-on: macos-14
     environment: apple-app-store
     steps:
       - name: Checkout code
@@ -94,7 +94,7 @@ jobs:
   publish:
     name: Publish
     needs: build
-    runs-on: macos-latest
+    runs-on: macos-14
     environment: apple-app-store
     steps:
       - uses: actions/download-artifact@v4
