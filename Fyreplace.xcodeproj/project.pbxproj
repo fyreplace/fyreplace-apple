@@ -237,6 +237,7 @@
 		4D46E0BD2829A9E300572465 /* TextChapterNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChapterNavigationViewController.swift; sourceTree = "<group>"; };
 		4D480C83286868DD009C14A8 /* FPComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPComment.swift; sourceTree = "<group>"; };
 		4D480C8528686CA9009C14A8 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
+		4D4A8DCA2BCD7C64003BAF37 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4D4E21B228DB9A0C007D26C2 /* EnvironmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTableViewCell.swift; sourceTree = "<group>"; };
 		4D554F8429214F2800452570 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		4D554F8629214F5900452570 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
@@ -380,6 +381,7 @@
 			children = (
 				4D77941027DE4BEF0068F4E7 /* Info.plist.template.plist */,
 				4D0040F9268EEDE900AF89FD /* Info.plist */,
+				4D4A8DCA2BCD7C64003BAF37 /* PrivacyInfo.xcprivacy */,
 				4D89EB9728CE378500405BDB /* Fyreplace.debug.entitlements */,
 				4D35B1A726D7A60600077811 /* Fyreplace.entitlements */,
 				4D7B187027EBC45000FE31A0 /* version.py */,
