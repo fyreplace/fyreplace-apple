@@ -1,0 +1,119 @@
+name: Publishing
+
+on:
+  push:
+    branches:
+      - develop
+      - hotfix/*
+      - release/*
+    tags:
+      - v*.*.*
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-14
+    environment: apple-app-store
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - name: Cache packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/Library/Developer/Xcode/DerivedData/**/SourcePackages/checkouts
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-spm-
+
+      - name: Set up signing certificate
+        env:
+          CERTIFICATE_PRIVATE_KEY_B64: ${{ secrets.CERTIFICATE_PRIVATE_KEY_B64 }}
+        run: |
+          echo $CERTIFICATE_PRIVATE_KEY_B64 | base64 --decode > /tmp/cert-fyreplace.p12
+          security create-keychain -p password build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p password build.keychain
+          security set-keychain-settings build.keychain
+          security import /tmp/cert-fyreplace.p12 -k build.keychain -P '' -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple: -s -k password build.keychain
+
+      - name: Set up App Store Connect authentication
+        env:
+          APP_STORE_CONNECT_PRIVATE_KEY_B64: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY_B64 }}
+        run: echo $APP_STORE_CONNECT_PRIVATE_KEY_B64 | base64 --decode > /tmp/connect-key.p8
+
+      - name: Prepare files
+        run: make
+
+      - name: Install dependencies
+        run: |
+          brew install protobuf swift-protobuf grpc-swift
+
+      - name: Build app
+        run: |
+          xcodebuild archive \
+            DEVELOPMENT_TEAM=${{ secrets.TEAM_ID }} \
+            PROVISIONING_PROFILE_SPECIFIER=${{ secrets.PROVISIONING_PROFILE_NAME }} \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath /tmp/connect-key.p8 \
+            -authenticationKeyID ${{ secrets.APP_STORE_CONNECT_KEY_IDENTIFIER }} \
+            -authenticationKeyIssuerID ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }} \
+            -workspace Fyreplace.xcworkspace \
+            -scheme Fyreplace \
+            -archivePath archive.xcarchive
+
+      - name: Export to IPA
+        run: |
+          /usr/libexec/PlistBuddy -c "Add :method string" ExportOptions.plist
+          /usr/libexec/PlistBuddy -c "Set :method app-store" ExportOptions.plist
+          /usr/libexec/PlistBuddy -c "Add :teamId string" ExportOptions.plist
+          /usr/libexec/PlistBuddy -c "Set :teamId ${{ secrets.TEAM_ID }}" ExportOptions.plist
+          /usr/libexec/PlistBuddy -c "Add :provisioningProfiles dict" ExportOptions.plist
+          /usr/libexec/PlistBuddy -c "Add :provisioningProfiles:${{ secrets.APP_ID }} string ${{ secrets.PROVISIONING_PROFILE_NAME }}" ExportOptions.plist
+          xcodebuild export \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath /tmp/connect-key.p8 \
+            -authenticationKeyID ${{ secrets.APP_STORE_CONNECT_KEY_IDENTIFIER }} \
+            -authenticationKeyIssuerID ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }} \
+            -archivePath archive.xcarchive \
+            -exportArchive \
+            -exportOptionsPlist ExportOptions.plist \
+            -exportPath export
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Fyreplace.ipa
+          path: export/*.ipa
+          if-no-files-found: error
+
+  publish:
+    name: Publish
+    needs: build
+    runs-on: macos-14
+    environment: apple-app-store
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: Fyreplace.ipa
+          path: /tmp
+
+      - name: Set up App Store Connect authentication
+        env:
+          APP_STORE_CONNECT_PRIVATE_KEY_B64: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY_B64 }}
+        run: |
+          mkdir ~/private_keys
+          echo $APP_STORE_CONNECT_PRIVATE_KEY_B64 | base64 --decode > ~/private_keys/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_IDENTIFIER }}.p8
+
+      - name: Upload IPA to App Store Connect
+        run: |
+          xcrun altool \
+            --upload-app \
+            --type ios \
+            --file /tmp/Fyreplace.ipa \
+            --apiKey ${{ secrets.APP_STORE_CONNECT_KEY_IDENTIFIER }} \
+            --apiIssuer ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextPostFeedTableViewCell" customModule="Fyreplace" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tableViewCell-00" customClass="TextPostFeedTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="160"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tableViewCell-00" id="tableViewCell-00-contentView">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-label">
+                        <rect key="frame" x="20" y="11" width="196.66666666666666" height="110"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Stats" userLabel="Stats">
+                        <rect key="frame" x="20.000000000000007" y="129" width="111.66666666666669" height="20"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Stats-Votes-Icon" userLabel="Votes Icon">
+                                <rect key="frame" x="0.0" y="1.9999999999999982" width="20" height="16"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tableViewCell-00-contentView-Stats-Votes-Icon" secondAttribute="height" multiplier="1:1" id="00-00-01-00--C-00-00-00"/>
+                                    <constraint firstAttribute="height" constant="20" id="00-00-01-00--C-01"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Stats-Votes" userLabel="Votes">
+                                <rect key="frame" x="28" y="0.0" width="40" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="00-00-01-01--C-00-00"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.bubble.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Stats-Comments-Icon" userLabel="Comments Icon">
+                                <rect key="frame" x="76" y="1.3333333333333339" width="20" height="19"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="00-00-01-02--C-00"/>
+                                    <constraint firstAttribute="width" secondItem="tableViewCell-00-contentView-Stats-Comments-Icon" secondAttribute="height" multiplier="1:1" id="00-00-01-02--C-00-00-00"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Stats-Comments" userLabel="Comments">
+                                <rect key="frame" x="104" y="0.0" width="7.6666666666666714" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Buttons" userLabel="Buttons">
+                        <rect key="frame" x="333" y="29" width="40" height="102"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Buttons-Up" userLabel="Up">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="arrow.up.circle.fill" catalog="system"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                    </preferredSymbolConfiguration>
+                                </state>
+                                <connections>
+                                    <action selector="onUpPressed" destination="tableViewCell-00" eventType="primaryActionTriggered" id="ec8551335e32794e2601c75862b6e84ab7a5596eef3b1b8af333ef9ee45a358a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Buttons-Down" userLabel="Down">
+                                <rect key="frame" x="0.0" y="61" width="40" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="xmark.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                    </preferredSymbolConfiguration>
+                                </state>
+                                <connections>
+                                    <action selector="onDownPressed" destination="tableViewCell-00" eventType="primaryActionTriggered" id="aae92b58a19f01785efa217debda8d4cd41aac1a3f12fbb84cec158aecbf9b1a"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tableViewCell-00-contentView-Buttons" firstAttribute="trailing" secondItem="tableViewCell-00-contentView" secondAttribute="trailingMargin" id="00-00--C-01-00-00-01"/>
+                    <constraint firstItem="tableViewCell-00-contentView-label" firstAttribute="width" secondItem="tableViewCell-00-contentView" secondAttribute="width" multiplier="1:2" id="00-00--C-01-00-00-02"/>
+                    <constraint firstItem="tableViewCell-00-contentView-label" firstAttribute="top" secondItem="tableViewCell-00-contentView" secondAttribute="topMargin" id="00-00--C-01-00-00-03"/>
+                    <constraint firstItem="tableViewCell-00-contentView-label" firstAttribute="leading" secondItem="tableViewCell-00-contentView" secondAttribute="leadingMargin" id="00-00--C-01-00-00-04"/>
+                    <constraint firstItem="tableViewCell-00-contentView-Buttons" firstAttribute="centerY" secondItem="tableViewCell-00-contentView" secondAttribute="centerY" id="00-00--C-01-00-00-05"/>
+                    <constraint firstItem="tableViewCell-00-contentView-Stats" firstAttribute="leading" secondItem="tableViewCell-00-contentView" secondAttribute="leadingMargin" id="00-00--C-01-00-00-06"/>
+                    <constraint firstItem="tableViewCell-00-contentView-Stats" firstAttribute="top" secondItem="tableViewCell-00-contentView-label" secondAttribute="bottom" constant="8" symbolic="YES" id="00-00--C-01-00-00-07"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="tableViewCell-00-contentView-Stats" secondAttribute="bottom" id="00-00--C-01-00-01"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="comments" destination="tableViewCell-00-contentView-Stats-Comments" id="1149cb37067cfa833b70de838b68cce00eabaa498f228a8a4228a5b8f9d252f4"/>
+                <outlet property="down" destination="tableViewCell-00-contentView-Buttons-Down" id="c0a9e9b3b08d742d9a9caf12f9e41ebf8812234dc24dec3aa7500f5f289651cc"/>
+                <outlet property="preview" destination="tableViewCell-00-contentView-label" id="1ce683f5f4190009de6bf548d01a3c73751ebd6bf3606c9c52f85d4d8750d201"/>
+                <outlet property="up" destination="tableViewCell-00-contentView-Buttons-Up" id="a4504e4b1845af1b4745c05adeee51847d2c7163c341c8d9c60cb808e818fd6c"/>
+                <outlet property="votes" destination="tableViewCell-00-contentView-Stats-Votes" id="53e7aa85764c1a18aff1d25cf13708533c68ac77ac646c69a4dd836b377b0cba"/>
+            </connections>
+            <point key="canvasLocation" x="56" y="20"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow.up.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="eye.fill" catalog="system" width="128" height="80"/>
+        <image name="text.bubble.fill" catalog="system" width="128" height="110"/>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

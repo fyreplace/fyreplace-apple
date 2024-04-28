@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageDraftTableViewCell" customModule="Fyreplace" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tableViewCell-00" customClass="ImageDraftTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tableViewCell-00" id="tableViewCell-00-contentView">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-imageView">
+                        <rect key="frame" x="20" y="11" width="187.66666666666666" height="118"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="tableViewCell-00-contentView-imageView" secondAttribute="height" multiplier="16:9" id="00-00-00--C-00-00-00-00"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="parts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-parts">
+                        <rect key="frame" x="292.66666666666669" y="53.333333333333343" width="62.333333333333314" height="33.666666666666657"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tableViewCell-00-contentView-imageView" firstAttribute="top" secondItem="tableViewCell-00-contentView" secondAttribute="topMargin" id="00-00--C-00-00-00-00"/>
+                    <constraint firstItem="tableViewCell-00-contentView-parts" firstAttribute="centerY" secondItem="tableViewCell-00-contentView" secondAttribute="centerY" id="00-00--C-00-00-00-01"/>
+                    <constraint firstItem="tableViewCell-00-contentView-parts" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tableViewCell-00-contentView-imageView" secondAttribute="trailing" constant="8" symbolic="YES" id="00-00--C-00-00-00-01-00"/>
+                    <constraint firstItem="tableViewCell-00-contentView-imageView" firstAttribute="width" secondItem="tableViewCell-00-contentView" secondAttribute="width" multiplier="1:2" priority="750" id="00-00--C-00-00-00-02"/>
+                    <constraint firstItem="tableViewCell-00-contentView-imageView" firstAttribute="bottom" secondItem="tableViewCell-00-contentView" secondAttribute="bottomMargin" id="00-00--C-00-00-00-03"/>
+                    <constraint firstItem="tableViewCell-00-contentView-imageView" firstAttribute="leading" secondItem="tableViewCell-00-contentView" secondAttribute="leadingMargin" id="00-00--C-00-00-00-04"/>
+                    <constraint firstAttribute="trailing" secondItem="tableViewCell-00-contentView-parts" secondAttribute="trailing" constant="20" symbolic="YES" id="00-00--C-00-00-01"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="parts" destination="tableViewCell-00-contentView-parts" id="ac412c9499596ad11353b4b0f0523bf2a6bd8cff803fa301784866a6d661bb61"/>
+                <outlet property="preview" destination="tableViewCell-00-contentView-imageView" id="1ce683f5f4190009de6bf548d01a3c73751ebd6bf3606c9c52f85d4d8750d201"/>
+            </connections>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
