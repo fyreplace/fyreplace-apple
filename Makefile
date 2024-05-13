@@ -1,4 +1,4 @@
 .PHONY: all
 
 all:
-	bash prepare.sh
+	bash Config/Config.sh

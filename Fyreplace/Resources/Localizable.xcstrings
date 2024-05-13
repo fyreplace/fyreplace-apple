@@ -1,0 +1,106 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "App.Help.PrivacyPolicy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        }
+      }
+    },
+    "App.Help.TermsOfService" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms Of Service"
+          }
+        }
+      }
+    },
+    "App.Help.Website" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Website"
+          }
+        }
+      }
+    },
+    "Main.Archive" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Archive"
+          }
+        }
+      }
+    },
+    "Main.Drafts" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drafts"
+          }
+        }
+      }
+    },
+    "Main.Feed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feed"
+          }
+        }
+      }
+    },
+    "Main.Notifications" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications"
+          }
+        }
+      }
+    },
+    "Main.Published" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Published"
+          }
+        }
+      }
+    },
+    "Main.Settings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
+    "MultiChoiceScreen.Tab" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tab"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

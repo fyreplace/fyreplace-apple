@@ -12,8 +12,13 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: macos-14
+    runs-on: macos-latest
     environment: apple-app-store
+    strategy:
+      matrix:
+        platform:
+          - iOS
+          - macOS
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,14 +37,29 @@ jobs:
 
       - name: Set up signing certificate
         env:
-          CERTIFICATE_PRIVATE_KEY_B64: ${{ secrets.CERTIFICATE_PRIVATE_KEY_B64 }}
+          CERTIFICATE_DISTRIBUTION_B64: ${{ secrets.CERTIFICATE_DISTRIBUTION_B64 }}
+          CERTIFICATE_DISTRIBUTION_PRIVATE_KEY_B64: ${{ secrets.CERTIFICATE_DISTRIBUTION_PRIVATE_KEY_B64 }}
+          CERTIFICATE_MAC_INSTALLER_B64: ${{ secrets.CERTIFICATE_MAC_INSTALLER_B64 }}
+          CERTIFICATE_MAC_INSTALLER_PRIVATE_KEY_B64: ${{ secrets.CERTIFICATE_MAC_INSTALLER_PRIVATE_KEY_B64 }}
         run: |
-          echo $CERTIFICATE_PRIVATE_KEY_B64 | base64 --decode > /tmp/cert-fyreplace.p12
           security create-keychain -p password build.keychain
           security default-keychain -s build.keychain
           security unlock-keychain -p password build.keychain
           security set-keychain-settings build.keychain
-          security import /tmp/cert-fyreplace.p12 -k build.keychain -P '' -T /usr/bin/codesign
+          for CERTIFICATE in \
+            $CERTIFICATE_DISTRIBUTION_B64 \
+            $CERTIFICATE_MAC_INSTALLER_B64; \
+          do
+            echo $CERTIFICATE | base64 --decode > /tmp/certificate.cer
+            security import /tmp/certificate.cer -k build.keychain -P '' -T /usr/bin/codesign -T /usr/bin/productsign
+          done
+          for KEY in \
+            $CERTIFICATE_DISTRIBUTION_PRIVATE_KEY_B64 \
+            $CERTIFICATE_MAC_INSTALLER_PRIVATE_KEY_B64; \
+          do
+            echo $KEY | base64 --decode > /tmp/key.p12
+            security import /tmp/key.p12 -k build.keychain -P '' -T /usr/bin/codesign -T /usr/bin/productsign
+          done
           security set-key-partition-list -S apple-tool:,apple: -s -k password build.keychain
 
       - name: Set up App Store Connect authentication
@@ -50,56 +70,89 @@ jobs:
       - name: Prepare files
         run: make
 
-      - name: Install dependencies
-        run: |
-          brew install protobuf swift-protobuf grpc-swift
-
       - name: Build app
         run: |
           xcodebuild archive \
-            DEVELOPMENT_TEAM=${{ secrets.TEAM_ID }} \
-            PROVISIONING_PROFILE_SPECIFIER=${{ secrets.PROVISIONING_PROFILE_NAME }} \
+            DEVELOPMENT_TEAM=${{ vars.TEAM_ID }} \
             -allowProvisioningUpdates \
             -authenticationKeyPath /tmp/connect-key.p8 \
-            -authenticationKeyID ${{ secrets.APP_STORE_CONNECT_KEY_IDENTIFIER }} \
-            -authenticationKeyIssuerID ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }} \
-            -workspace Fyreplace.xcworkspace \
+            -authenticationKeyID ${{ vars.APP_STORE_CONNECT_KEY_ID }} \
+            -authenticationKeyIssuerID ${{ vars.APP_STORE_CONNECT_ISSUER_ID }} \
             -scheme Fyreplace \
+            -destination generic/platform=${{ matrix.platform }} \
             -archivePath archive.xcarchive
 
       - name: Export to IPA
+        if: ${{ matrix.platform == 'iOS' }}
         run: |
           /usr/libexec/PlistBuddy -c "Add :method string" ExportOptions.plist
           /usr/libexec/PlistBuddy -c "Set :method app-store" ExportOptions.plist
           /usr/libexec/PlistBuddy -c "Add :teamId string" ExportOptions.plist
-          /usr/libexec/PlistBuddy -c "Set :teamId ${{ secrets.TEAM_ID }}" ExportOptions.plist
+          /usr/libexec/PlistBuddy -c "Set :teamId ${{ vars.TEAM_ID }}" ExportOptions.plist
           /usr/libexec/PlistBuddy -c "Add :provisioningProfiles dict" ExportOptions.plist
-          /usr/libexec/PlistBuddy -c "Add :provisioningProfiles:${{ secrets.APP_ID }} string ${{ secrets.PROVISIONING_PROFILE_NAME }}" ExportOptions.plist
+          /usr/libexec/PlistBuddy -c "Add :provisioningProfiles:${{ vars.APP_ID }} string ${{ vars.PROVISIONING_PROFILE_NAME }}" ExportOptions.plist
           xcodebuild export \
             -allowProvisioningUpdates \
             -authenticationKeyPath /tmp/connect-key.p8 \
-            -authenticationKeyID ${{ secrets.APP_STORE_CONNECT_KEY_IDENTIFIER }} \
-            -authenticationKeyIssuerID ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }} \
+            -authenticationKeyID ${{ vars.APP_STORE_CONNECT_KEY_ID }} \
+            -authenticationKeyIssuerID ${{ vars.APP_STORE_CONNECT_ISSUER_ID }} \
             -archivePath archive.xcarchive \
             -exportArchive \
             -exportOptionsPlist ExportOptions.plist \
             -exportPath export
 
-      - uses: actions/upload-artifact@v4
+      - name: Export to PKG
+        if: ${{ matrix.platform == 'macOS' }}
+        run: |
+          mkdir export
+          productbuild \
+            --component archive.xcarchive/Products/Applications/Fyreplace.app \
+            /Applications \
+            export/Fyreplace.unsigned
+          productsign \
+            --sign ${{ vars.TEAM_ID }} \
+            export/Fyreplace.unsigned \
+            export/Fyreplace.pkg
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        if: ${{ matrix.platform == 'iOS' }}
         with:
           name: Fyreplace.ipa
           path: export/*.ipa
           if-no-files-found: error
 
+      - name: Upload PKG
+        uses: actions/upload-artifact@v4
+        if: ${{ matrix.platform == 'macOS' }}
+        with:
+          name: Fyreplace.pkg
+          path: export/*.pkg
+          if-no-files-found: error
+
   publish:
     name: Publish
     needs: build
-    runs-on: macos-14
+    runs-on: macos-latest
     environment: apple-app-store
+    strategy:
+      matrix:
+        platform:
+          - ios
+          - osx
     steps:
-      - uses: actions/download-artifact@v4
+      - name: Download IPA
+        uses: actions/download-artifact@v4
+        if: ${{ matrix.platform == 'ios' }}
         with:
           name: Fyreplace.ipa
+          path: /tmp
+
+      - name: Download PKG
+        uses: actions/download-artifact@v4
+        if: ${{ matrix.platform == 'osx' }}
+        with:
+          name: Fyreplace.pkg
           path: /tmp
 
       - name: Set up App Store Connect authentication
@@ -107,13 +160,16 @@ jobs:
           APP_STORE_CONNECT_PRIVATE_KEY_B64: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY_B64 }}
         run: |
           mkdir ~/private_keys
-          echo $APP_STORE_CONNECT_PRIVATE_KEY_B64 | base64 --decode > ~/private_keys/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_IDENTIFIER }}.p8
+          echo $APP_STORE_CONNECT_PRIVATE_KEY_B64 | base64 --decode > ~/private_keys/AuthKey_${{ vars.APP_STORE_CONNECT_KEY_ID }}.p8
 
-      - name: Upload IPA to App Store Connect
+      - name: Upload to App Store Connect
         run: |
-          xcrun altool \
-            --upload-app \
-            --type ios \
-            --file /tmp/Fyreplace.ipa \
-            --apiKey ${{ secrets.APP_STORE_CONNECT_KEY_IDENTIFIER }} \
-            --apiIssuer ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          for OPERATION in "--validate-app" "--upload-app"; \
+          do
+            xcrun altool \
+              $OPERATION \
+              --type ${{ matrix.platform }} \
+              --file /tmp/Fyreplace.* \
+              --apiKey ${{ vars.APP_STORE_CONNECT_KEY_ID }} \
+              --apiIssuer ${{ vars.APP_STORE_CONNECT_ISSUER_ID }}
+          done
