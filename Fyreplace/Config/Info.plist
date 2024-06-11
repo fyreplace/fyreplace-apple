@@ -2,14 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>FPPrivacyPolicy</key>
+	<key>FyreplacePrivacyPolicy</key>
 	<string>$(FYREPLACE_PRIVACY_POLICY)</string>
-	<key>FPTermsOfService</key>
+	<key>FyreplaceTermsOfService</key>
 	<string>$(FYREPLACE_TERMS_OF_SERVICE)</string>
-	<key>FPWebsite</key>
+	<key>FyreplaceWebsite</key>
 	<string>$(FYREPLACE_WEBSITE)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>SentryDSN</key>
+	<string>$(SENTRY_DSN)</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

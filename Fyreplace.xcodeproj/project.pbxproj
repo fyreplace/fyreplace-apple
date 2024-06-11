@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0DDC262C188869006CD503 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4D0DDC252C188869006CD503 /* SentrySwiftUI */; };
 		4D39A4C82BF516B7003FA52E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4D39A4C72BF516B7003FA52E /* Localizable.xcstrings */; };
 		4D4D394A2C086DA2007196D2 /* PublishedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D39492C086DA2007196D2 /* PublishedScreen.swift */; };
 		4D5251EC2C1097A600018CD2 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5251EB2C1097A600018CD2 /* Destination.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D0DDC292C18A467006CD503 /* .xcode-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
 		4D39A4C72BF516B7003FA52E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4D4D39492C086DA2007196D2 /* PublishedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedScreen.swift; sourceTree = "<group>"; };
 		4D5251A22C0A78F800018CD2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D0DDC262C188869006CD503 /* SentrySwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +158,7 @@
 				4D54C93C2BF26090001DE071 /* FyreplaceTests */,
 				4D54C9462BF26090001DE071 /* FyreplaceUITests */,
 				4D54C9632BF28695001DE071 /* .gitignore */,
+				4D0DDC292C18A467006CD503 /* .xcode-version */,
 				4D54C9592BF266F9001DE071 /* Makefile */,
 				4D54C9582BF266F9001DE071 /* README.md */,
 				4D54C9572BF266F9001DE071 /* COPYING.txt */,
@@ -247,9 +251,9 @@
 		4DD826FE2BFA0EBE00799CEB /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				4DCE06312C09E19400F69AF1 /* Info.plist */,
 				4D54C9622BF28592001DE071 /* Fyreplace.debug.entitlements */,
 				4D54C9312BF2608F001DE071 /* Fyreplace.release.entitlements */,
+				4DCE06312C09E19400F69AF1 /* Info.plist */,
 				4D9DC5022C11BF2500BA0507 /* Config.swift */,
 			);
 			path = Config;
@@ -265,12 +269,16 @@
 				4D54C9242BF2608A001DE071 /* Sources */,
 				4D54C9252BF2608A001DE071 /* Frameworks */,
 				4D54C9262BF2608A001DE071 /* Resources */,
+				4D0DDC272C188A1B006CD503 /* Upload Sources To Sentry */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Fyreplace;
+			packageProductDependencies = (
+				4D0DDC252C188869006CD503 /* SentrySwiftUI */,
+			);
 			productName = Fyreplace;
 			productReference = 4D54C9282BF2608A001DE071 /* Fyreplace.app */;
 			productType = "com.apple.product-type.application";
@@ -343,6 +351,9 @@
 				Base,
 			);
 			mainGroup = 4D54C91F2BF2608A001DE071;
+			packageReferences = (
+				4D0DDC242C188869006CD503 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
+			);
 			productRefGroup = 4D54C9292BF2608A001DE071 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -380,6 +391,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D0DDC272C188A1B006CD503 /* Upload Sources To Sentry */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			name = "Upload Sources To Sentry";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"$CONFIGURATION\" = \"Debug\" ]\nthen\n    exit 0\nfi\n\nif which sentry-cli >/dev/null\nthen\n    ERROR=$(sentry-cli debug-files upload \\\n        --org $SENTRY_ORG \\\n        --project $SENTRY_PROJECT \\\n        --auth-token $SENTRY_AUTH_TOKEN \\\n        --include-sources \"$DWARF_DSYM_FOLDER_PATH\" \\\n        --force-foreground 2>&1 >/dev/null)\n\n    if [ ! $? -eq 0 ]\n    then\n        echo \"error: sentry-cli - $ERROR\"\n        exit 1\n    fi\nelse\n    echo \"error: sentry-cli not installed\"\n    exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D54C9242BF2608A001DE071 /* Sources */ = {
@@ -574,6 +608,7 @@
 				"ENABLE_APP_SANDBOX[sdk=macosx*]" = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "${TARGET_NAME}/Config/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
@@ -613,6 +648,7 @@
 				"ENABLE_APP_SANDBOX[sdk=macosx*]" = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "${TARGET_NAME}/Config/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
@@ -771,6 +807,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4D0DDC242C188869006CD503 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.28.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D0DDC252C188869006CD503 /* SentrySwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D0DDC242C188869006CD503 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = SentrySwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D54C9202BF2608A001DE071 /* Project object */;
 }

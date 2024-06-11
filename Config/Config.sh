@@ -30,7 +30,11 @@ release/*)
     ;;
 esac
 
-script_dir=$(dirname $0)
-echo "VERSION_NUMBER=$commit_count.$version_number_suffix" > $script_dir/Config.xcconfig
-echo "VERSION_STRING=$version_string" >> $script_dir/Config.xcconfig
-cat $script_dir/Config.xcconfig
+cat <<< "
+VERSION_NUMBER=$commit_count.$version_number_suffix
+VERSION_STRING=$version_string
+SENTRY_DSN=$SENTRY_DSN
+SENTRY_ORG=$SENTRY_ORG
+SENTRY_PROJECT=$SENTRY_PROJECT
+SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN
+" | tee $(dirname $0)/Config.xcconfig

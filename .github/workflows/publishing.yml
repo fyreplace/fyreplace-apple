@@ -67,8 +67,29 @@ jobs:
           APP_STORE_CONNECT_PRIVATE_KEY_B64: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY_B64 }}
         run: echo $APP_STORE_CONNECT_PRIVATE_KEY_B64 | base64 --decode > /tmp/connect-key.p8
 
+      - name: Select Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_$(cat .xcode-version).app/Contents/Developer
+
       - name: Prepare files
+        if: ${{ matrix.platform == 'iOS' }}
+        env:
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN_IOS }}
+          SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT_IOS }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: make
+
+      - name: Prepare files
+        if: ${{ matrix.platform == 'macOS' }}
+        env:
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN_MACOS }}
+          SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT_MACOS }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        run: make
+
+      - name: Set up Sentry
+        run: curl -sL https://sentry.io/get-cli/ | sh
 
       - name: Build app
         run: |
@@ -86,7 +107,7 @@ jobs:
         if: ${{ matrix.platform == 'iOS' }}
         run: |
           /usr/libexec/PlistBuddy -c "Add :method string" ExportOptions.plist
-          /usr/libexec/PlistBuddy -c "Set :method app-store" ExportOptions.plist
+          /usr/libexec/PlistBuddy -c "Set :method app-store-connect" ExportOptions.plist
           /usr/libexec/PlistBuddy -c "Add :teamId string" ExportOptions.plist
           /usr/libexec/PlistBuddy -c "Set :teamId ${{ vars.TEAM_ID }}" ExportOptions.plist
           /usr/libexec/PlistBuddy -c "Add :provisioningProfiles dict" ExportOptions.plist
