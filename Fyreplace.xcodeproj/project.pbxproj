@@ -411,7 +411,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$CONFIGURATION\" = \"Debug\" ]\nthen\n    exit 0\nfi\n\nif which sentry-cli >/dev/null\nthen\n    ERROR=$(sentry-cli debug-files upload \\\n        --org $SENTRY_ORG \\\n        --project $SENTRY_PROJECT \\\n        --auth-token $SENTRY_AUTH_TOKEN \\\n        --include-sources \"$DWARF_DSYM_FOLDER_PATH\" \\\n        --force-foreground 2>&1 >/dev/null)\n\n    if [ ! $? -eq 0 ]\n    then\n        echo \"error: sentry-cli - $ERROR\"\n        exit 1\n    fi\nelse\n    echo \"error: sentry-cli not installed\"\n    exit 1\nfi\n";
+			shellScript = "if [ \"$CONFIGURATION\" = \"Debug\" ]\nthen\n    exit 0\nfi\n\nif which sentry-cli >/dev/null\nthen\n    ERROR=$(sentry-cli debug-files upload \\\n        --org $SENTRY_ORG \\\n        --project $SENTRY_PROJECT \\\n        --auth-token $SENTRY_AUTH_TOKEN \\\n        --include-sources \"$DWARF_DSYM_FOLDER_PATH\" \\\n        --force-foreground 2>&1 >/dev/null)\n\n    if [ ! $? -eq 0 ]\n    then\n        echo \"error: sentry-cli - $ERROR\"\n        exit 1\n    fi\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
