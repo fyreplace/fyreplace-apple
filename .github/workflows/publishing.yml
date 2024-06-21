@@ -180,7 +180,7 @@ jobs:
         if: ${{ matrix.platform == 'iOS' }}
         with:
           name: Fyreplace.ipa
-          path: Export/*.ipa
+          path: Export/Fyreplace.ipa
           if-no-files-found: error
 
       - name: Upload PKG
@@ -188,7 +188,7 @@ jobs:
         if: ${{ matrix.platform == 'macOS' }}
         with:
           name: ${{ matrix.distribution == 'standalone' && 'Fyreplace.standalone.pkg' || 'Fyreplace.pkg' }}
-          path: Export/*.pkg
+          path: Export/Fyreplace.pkg
           if-no-files-found: error
 
   publish:
