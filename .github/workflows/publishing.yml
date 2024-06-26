@@ -160,21 +160,6 @@ jobs:
             Export/Fyreplace.unsigned.pkg \
             Export/Fyreplace.pkg
 
-      - name: Notorize PKG
-        if: ${{ matrix.distribution == 'standalone' }}
-        env:
-          APP_STORE_CONNECT_PRIVATE_KEY_B64: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY_B64 }}
-        run: |
-          echo $APP_STORE_CONNECT_PRIVATE_KEY_B64 | base64 --decode > /tmp/connect-key.p8
-          xcrun notarytool \
-            submit \
-            --wait \
-            --key /tmp/connect-key.p8 \
-            --key-id ${{ vars.APP_STORE_CONNECT_KEY_ID }} \
-            --issuer ${{ vars.APP_STORE_CONNECT_ISSUER_ID }} \
-            Export/Fyreplace.pkg
-          xcrun stapler staple Export/Fyreplace.pkg
-
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         if: ${{ matrix.platform == 'iOS' }}
@@ -201,6 +186,12 @@ jobs:
         platform:
           - ios
           - osx
+        distribution:
+          - app-store
+          - standalone
+        exclude:
+          - platform: ios
+            distribution: standalone
     steps:
       - name: Download IPA
         uses: actions/download-artifact@v4
@@ -213,7 +204,7 @@ jobs:
         uses: actions/download-artifact@v4
         if: ${{ matrix.platform == 'osx' }}
         with:
-          name: Fyreplace.pkg
+          name: ${{ matrix.distribution == 'standalone' && 'Fyreplace.standalone.pkg' || 'Fyreplace.pkg' }}
           path: /tmp
 
       - name: Set up App Store Connect authentication
@@ -224,6 +215,7 @@ jobs:
           echo $APP_STORE_CONNECT_PRIVATE_KEY_B64 | base64 --decode > ~/private_keys/AuthKey_${{ vars.APP_STORE_CONNECT_KEY_ID }}.p8
 
       - name: Upload to App Store Connect
+        if: ${{ matrix.distribution == 'app-store' }}
         run: |
           for OPERATION in '--validate-app' '--upload-app'
           do
@@ -234,3 +226,24 @@ jobs:
               --apiKey ${{ vars.APP_STORE_CONNECT_KEY_ID }} \
               --apiIssuer ${{ vars.APP_STORE_CONNECT_ISSUER_ID }}
           done
+
+      - name: Notorize PKG
+        if: ${{ matrix.distribution == 'standalone' }}
+        run: |
+          xcrun notarytool \
+            submit \
+            --wait \
+            --key ~/private_keys/AuthKey_${{ vars.APP_STORE_CONNECT_KEY_ID }}.p8 \
+            --key-id ${{ vars.APP_STORE_CONNECT_KEY_ID }} \
+            --issuer ${{ vars.APP_STORE_CONNECT_ISSUER_ID }} \
+            /tmp/Fyreplace.pkg
+          xcrun stapler staple /tmp/Fyreplace.pkg
+
+      - name: Upload PKG
+        uses: actions/upload-artifact@v4
+        if: ${{ matrix.distribution == 'standalone' }}
+        with:
+          name: Fyreplace.standalone.pkg
+          path: /tmp/Fyreplace.pkg
+          overwrite: true
+          if-no-files-found: error
