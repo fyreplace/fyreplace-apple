@@ -1,8 +1,8 @@
 import SwiftUI
 
-@available(macOS, unavailable)
 struct MultiChoiceScreen: View {
     let choices: [Destination]
+
     @Binding
     var choice: Destination
 
@@ -10,7 +10,9 @@ struct MultiChoiceScreen: View {
         ZStack {
             Screen(destination: choice)
         }
+        #if !os(macOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Picker("MultiChoiceScreen.Tab", selection: $choice) {
@@ -26,8 +28,8 @@ struct MultiChoiceScreen: View {
     }
 }
 
-#if DEBUG && !os(macOS)
-    private enum PreviewData {
+#if DEBUG
+    enum PreviewData {
         @State
         static var choice = Destination.feed
     }

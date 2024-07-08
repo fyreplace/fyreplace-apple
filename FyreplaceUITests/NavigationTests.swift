@@ -1,22 +1,6 @@
 import XCTest
 
-final class MainTests: XCTestCase {
-    var app: XCUIApplication!
-
-    override func setUpWithError() throws {
-        app = XCUIApplication()
-        app.launch()
-    }
-
-    override func tearDownWithError() throws {
-        app.terminate()
-    }
-
-    func testInitialScreenIsFeed() {
-        let feed = app.descendants(matching: .any)["feed"].firstMatch
-        XCTAssert(feed.exists)
-    }
-
+final class NavigationTests: AppTests {
     func testNavigationIsComplete() {
         let feed = app.buttons["Feed"].firstMatch
         let notifications = app.buttons["Notifications"].firstMatch
@@ -24,7 +8,9 @@ final class MainTests: XCTestCase {
         let drafts = app.buttons["Drafts"].firstMatch
         let published = app.buttons["Published"].firstMatch
         let settings = app.buttons["Settings"].firstMatch
-        let picker = app.segmentedControls["tabs"].firstMatch
+        let login = app.segmentedButtons["Login"].firstMatch
+        let register = app.segmentedButtons["Sign up"].firstMatch
+        let tabs = app.segmentedButtonGroups["tabs"].firstMatch
 
         XCTAssert(feed.exists)
         XCTAssert(notifications.exists)
@@ -34,20 +20,30 @@ final class MainTests: XCTestCase {
         for (requiredDestination, optionalDestination) in [(notifications, archive), (drafts, published)] {
             if !optionalDestination.exists {
                 requiredDestination.tap()
-                XCTAssert(picker.exists)
+                XCTAssert(tabs.exists)
                 XCTAssert(optionalDestination.exists)
             } else {
                 requiredDestination.tap()
-                XCTAssert(!picker.exists)
+                XCTAssert(!tabs.exists)
             }
         }
+
+        settings.tap()
+        XCTAssert(tabs.exists)
+        XCTAssert(login.exists)
+        XCTAssert(register.exists)
     }
 
     func testNavigationShowsCorrectScreen() {
-        for name in ["Feed", "Notifications", "Archive", "Drafts", "Published", "Settings"] {
-            let button = app.buttons[name].firstMatch
-            button.tap()
+        for name in ["Feed", "Notifications", "Archive", "Drafts", "Published"] {
+            app.buttons[name].firstMatch.tap()
             XCTAssert(app.descendants(matching: .any)[name.lowercased()].exists)
         }
+
+        app.buttons["Settings"].firstMatch.tap()
+        app.segmentedButtons["Login"].firstMatch.tap()
+        XCTAssert(app.descendants(matching: .any)["login"].exists)
+        app.segmentedButtons["Sign up"].firstMatch.tap()
+        XCTAssert(app.descendants(matching: .any)["register"].exists)
     }
 }

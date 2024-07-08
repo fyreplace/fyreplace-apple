@@ -1,53 +1,36 @@
 import SwiftUI
 
-@available(macOS, unavailable)
 struct CompactNavigation: View {
     @SceneStorage("CompactNavigation.selectedTab")
     private var selectedTab = Destination.feed
 
-    @SceneStorage("CompactNavigation.notificationsChoice")
-    private var notificationsChoice = Destination.notifications
-
-    @SceneStorage("CompactNavigation.draftsChoice")
-    private var draftsChoice = Destination.drafts
+    @SceneStorage("CompactNavigation.choices")
+    private var choices = Destination.all.filter { $0.parent == nil }
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            NavigationStack {
-                Screen(destination: .feed)
-            }
-            .tabItem { Label(.feed) }
-            .tag(Destination.feed)
+            let destinations = Destination.all.filter { $0.parent == nil }
 
-            NavigationStack {
-                MultiChoiceScreen(
-                    choices: [.notifications, .archive],
-                    choice: $notificationsChoice
-                )
-            }
-            .tabItem { Label(.notifications) }
-            .tag(Destination.notifications)
+            ForEach(Array(destinations.enumerated()), id: \.element.id) { i, destination in
+                NavigationStack {
+                    let children = Destination.all.filter { $0.parent == destination }
 
-            NavigationStack {
-                MultiChoiceScreen(
-                    choices: [.drafts, .published],
-                    choice: $draftsChoice
-                )
+                    if children.isEmpty {
+                        Screen(destination: destination)
+                    } else {
+                        MultiChoiceScreen(
+                            choices: [destination] + children,
+                            choice: $choices[i]
+                        )
+                    }
+                }
+                .tabItem { Label(destination) }
+                .tag(destination)
             }
-            .tabItem { Label(.drafts) }
-            .tag(Destination.drafts)
-
-            NavigationStack {
-                Screen(destination: .settings)
-            }
-            .tabItem { Label(.settings) }
-            .tag(Destination.settings)
         }
     }
 }
 
-#if !os(macOS)
-    #Preview {
-        CompactNavigation()
-    }
-#endif
+#Preview {
+    CompactNavigation()
+}

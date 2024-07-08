@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(macOS, unavailable)
 struct DynamicNavigation: View {
     @Environment(\.horizontalSizeClass)
     private var horizontalSizeClass
@@ -23,8 +22,6 @@ struct DynamicNavigation: View {
     }
 }
 
-#if !os(macOS)
-    #Preview {
-        DynamicNavigation()
-    }
-#endif
+#Preview {
+    DynamicNavigation()
+}

@@ -1,11 +1,15 @@
 import SwiftUI
 
 struct SettingsScreen: View {
+    @SceneStorage("SettingsScreen.choice")
+    private var choice = Destination.login
+
     var body: some View {
-        Text(Destination.settings.titleKey)
-            .padding()
-            .navigationTitle(Destination.settings.titleKey)
-            .accessibilityIdentifier(Destination.settings.id)
+        MultiChoiceScreen(
+            choices: [.login, .register],
+            choice: $choice
+        )
+        .navigationTitle("")
     }
 }
 

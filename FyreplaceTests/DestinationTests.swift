@@ -5,11 +5,12 @@ import Fyreplace
 
 final class DestinationTests: XCTestCase {
     func testPropertiesExists() {
-        for first in Destination.allCases {
-            XCTAssertNotNil(first.titleKey)
-            XCTAssertNotEqual(first.titleKey, "")
-            XCTAssertNotNil(first.icon)
-            XCTAssertNotEqual(first.icon, "")
+        for destination in Destination.allCases {
+            XCTAssertNotEqual(destination.titleKey, "")
+
+            if destination.topLevel {
+                XCTAssertNotEqual(destination.icon, "")
+            }
         }
     }
 
@@ -17,8 +18,18 @@ final class DestinationTests: XCTestCase {
         for first in Destination.allCases {
             for second in Destination.allCases where first != second {
                 XCTAssertNotEqual(first.titleKey, second.titleKey)
-                XCTAssertNotEqual(first.icon, second.icon)
+
+                if first.icon != "" {
+                    XCTAssertNotEqual(first.icon, second.icon)
+                }
             }
+        }
+    }
+
+    func testParentsDoNotLoop() {
+        for destination in Destination.allCases {
+            XCTAssertNotEqual(destination, destination.parent)
+            XCTAssertNotEqual(destination, destination.parent?.parent)
         }
     }
 }

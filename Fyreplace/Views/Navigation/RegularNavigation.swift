@@ -6,7 +6,7 @@ struct RegularNavigation: View {
 
     var body: some View {
         NavigationSplitView {
-            List(Destination.allCases, selection: $selectedDestination) { destination in
+            List(Destination.all, selection: $selectedDestination) { destination in
                 NavigationLink(value: destination) {
                     Label(destination)
                 }
