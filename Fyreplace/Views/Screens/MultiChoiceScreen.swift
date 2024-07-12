@@ -19,6 +19,7 @@ struct MultiChoiceScreen: View {
                     }
                 }
                 .pickerStyle(.segmented)
+                .fixedSize()
                 .accessibilityIdentifier("tabs")
             }
         }
@@ -32,9 +33,11 @@ struct MultiChoiceScreen: View {
     }
 
     #Preview {
-        MultiChoiceScreen(
-            choices: [.feed, .settings],
-            choice: PreviewData.$choice
-        )
+        NavigationStack {
+            MultiChoiceScreen(
+                choices: [.feed, .settings],
+                choice: PreviewData.$choice
+            )
+        }
     }
 #endif
