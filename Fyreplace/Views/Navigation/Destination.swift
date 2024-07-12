@@ -30,17 +30,17 @@ enum Destination: String, CaseIterable, Identifiable {
     var icon: String {
         switch self {
         case .feed:
-            "house.fill"
+            "house"
         case .notifications:
-            "bell.fill"
+            "bell"
         case .archive:
-            "bookmark.fill"
+            "bookmark"
         case .drafts:
-            "doc.text.fill"
+            "doc.text"
         case .published:
-            "archivebox.fill"
+            "archivebox"
         case .settings:
-            "person.crop.circle.fill"
+            "person.crop.circle"
         }
     }
 }
