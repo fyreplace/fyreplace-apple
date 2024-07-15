@@ -3,3 +3,4 @@ xcuserdata
 ExportOptions.plist
 Export
 *.xcarchive
+.env

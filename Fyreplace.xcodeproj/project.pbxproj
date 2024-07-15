@@ -110,6 +110,8 @@
 		4DCE062A2C08E5E200F69AF1 /* CompactNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactNavigation.swift; sourceTree = "<group>"; };
 		4DCE062C2C08E65300F69AF1 /* RegularNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularNavigation.swift; sourceTree = "<group>"; };
 		4DCE06312C09E19400F69AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DCEF8652C452EBA00F53085 /* .env-example */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".env-example"; sourceTree = "<group>"; };
+		4DCEF8662C452ECC00F53085 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 		4DD826FD2BF9FDC500799CEB /* Config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Config.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +189,8 @@
 				4D54C9462BF26090001DE071 /* FyreplaceUITests */,
 				4D54C9632BF28695001DE071 /* .gitignore */,
 				4D0DDC292C18A467006CD503 /* .xcode-version */,
+				4DCEF8652C452EBA00F53085 /* .env-example */,
+				4DCEF8662C452ECC00F53085 /* .env */,
 				4D54C9592BF266F9001DE071 /* Makefile */,
 				4D54C9582BF266F9001DE071 /* README.md */,
 				4D54C9572BF266F9001DE071 /* COPYING.txt */,
@@ -687,7 +691,6 @@
 				CODE_SIGN_ENTITLEMENTS = "${TARGET_NAME}/Config/Fyreplace.debug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(VERSION_NUMBER)";
 				DEVELOPMENT_ASSET_PATHS = "\"${TARGET_NAME}/Preview Content\"";
 				"ENABLE_APP_SANDBOX[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
@@ -707,7 +710,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = "$(VERSION_STRING)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -726,7 +728,6 @@
 				CODE_SIGN_ENTITLEMENTS = "${TARGET_NAME}/Config/Fyreplace.release.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = "$(VERSION_NUMBER)";
 				DEVELOPMENT_ASSET_PATHS = "\"${TARGET_NAME}/Preview Content\"";
 				"ENABLE_APP_SANDBOX[sdk=macosx*]" = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -747,7 +748,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = "$(VERSION_STRING)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Fyreplace;
@@ -765,13 +765,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(VERSION_NUMBER)";
 				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = "$(VERSION_STRING)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.FyreplaceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -788,13 +785,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(VERSION_NUMBER)";
 				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = "$(VERSION_STRING)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.FyreplaceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -810,13 +804,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(VERSION_NUMBER)";
 				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = "$(VERSION_STRING)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.FyreplaceUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -832,13 +823,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(VERSION_NUMBER)";
 				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = "$(VERSION_STRING)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.FyreplaceUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

@@ -30,12 +30,21 @@ release/*)
     ;;
 esac
 
+current_directory=$(dirname $0)
+env_file=$current_directory/../.env
+
+if [ -f $env_file ]
+then
+    source $env_file
+fi
+
 cat <<< "
 SLASH=/
-VERSION_NUMBER=$commit_count.$version_number_suffix
-VERSION_STRING=$version_string
+DEVELOPMENT_TEAM=$DEVELOPMENT_TEAM
+CURRENT_PROJECT_VERSION=$commit_count.$version_number_suffix
+MARKETING_VERSION=$version_string
 SENTRY_DSN=${SENTRY_DSN//\//\$(SLASH)}
 SENTRY_ORG=$SENTRY_ORG
 SENTRY_PROJECT=$SENTRY_PROJECT
 SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN
-" | tee $(dirname $0)/Config.xcconfig
+" | tee $current_directory/Config.xcconfig
