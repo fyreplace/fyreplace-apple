@@ -10,10 +10,10 @@ struct FyreplaceApp: App {
             UserDefaults.standard.removePersistentDomain(forName: bundleId)
         }
 
-        guard let dsn = Config.main.sentry.dsn, !dsn.isEmpty else { return }
+        guard let dsn = Config.default.sentry.dsn, !dsn.isEmpty else { return }
         SentrySDK.start { options in
             options.dsn = dsn
-            options.environment = Config.main.version.environment()
+            options.environment = Config.default.version.environment
         }
     }
 
@@ -25,13 +25,13 @@ struct FyreplaceApp: App {
             SidebarCommands()
             ToolbarCommands()
             CommandGroup(replacing: .help) {
-                Link(destination: Config.main.fyreplace.website) {
+                Link(destination: Config.default.app.info.website) {
                     Text("App.Help.Website")
                 }
-                Link(destination: Config.main.fyreplace.termsOfService) {
+                Link(destination: Config.default.app.info.termsOfService) {
                     Text("App.Help.TermsOfService")
                 }
-                Link(destination: Config.main.fyreplace.privacyPolicy) {
+                Link(destination: Config.default.app.info.privacyPolicy) {
                     Text("App.Help.PrivacyPolicy")
                 }
             }

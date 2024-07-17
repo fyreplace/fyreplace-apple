@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4D0DDC262C188869006CD503 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4D0DDC252C188869006CD503 /* SentrySwiftUI */; };
+		4D13AF622C482F1C00845FDB /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 4D13AF612C482F1C00845FDB /* OpenAPIRuntime */; };
+		4D13AF652C482F4500845FDB /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = 4D13AF642C482F4500845FDB /* OpenAPIURLSession */; };
+		4D13AF692C482FE400845FDB /* openapi.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 4D13AF682C482FE300845FDB /* openapi.yaml */; };
+		4D13AF6B2C48301600845FDB /* openapi-generator-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 4D13AF6A2C48301600845FDB /* openapi-generator-config.yaml */; };
+		4D13AF722C492E7200845FDB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4D13AF712C492E7200845FDB /* .gitignore */; };
+		4D13AF752C492F4500845FDB /* Config.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4D13AF742C492F4500845FDB /* Config.sh */; };
 		4D39A4C82BF516B7003FA52E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4D39A4C72BF516B7003FA52E /* Localizable.xcstrings */; };
 		4D4D394A2C086DA2007196D2 /* PublishedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D39492C086DA2007196D2 /* PublishedScreen.swift */; };
 		4D5251EC2C1097A600018CD2 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5251EB2C1097A600018CD2 /* Destination.swift */; };
@@ -63,6 +69,13 @@
 
 /* Begin PBXFileReference section */
 		4D0DDC292C18A467006CD503 /* .xcode-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
+		4D13AF682C482FE300845FDB /* openapi.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
+		4D13AF6A2C48301600845FDB /* openapi-generator-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
+		4D13AF6F2C4916AF00845FDB /* trust-openapi-plugin.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "trust-openapi-plugin.sh"; sourceTree = "<group>"; };
+		4D13AF702C49179D00845FDB /* get-fingerprint.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "get-fingerprint.js"; sourceTree = "<group>"; };
+		4D13AF712C492E7200845FDB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4D13AF732C492E8E00845FDB /* Config.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.release.xcconfig; sourceTree = "<group>"; };
+		4D13AF742C492F4500845FDB /* Config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Config.sh; sourceTree = "<group>"; };
 		4D39A4C72BF516B7003FA52E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4D4D39492C086DA2007196D2 /* PublishedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedScreen.swift; sourceTree = "<group>"; };
 		4D5251A22C0A78F800018CD2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -120,6 +133,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D13AF622C482F1C00845FDB /* OpenAPIRuntime in Frameworks */,
+				4D13AF652C482F4500845FDB /* OpenAPIURLSession in Frameworks */,
 				4D0DDC262C188869006CD503 /* SentrySwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +161,8 @@
 			children = (
 				4D39A4C72BF516B7003FA52E /* Localizable.xcstrings */,
 				4D54C92F2BF2608F001DE071 /* Assets.xcassets */,
+				4D13AF682C482FE300845FDB /* openapi.yaml */,
+				4D13AF6A2C48301600845FDB /* openapi-generator-config.yaml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -252,6 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				4D54C95A2BF266F9001DE071 /* publishing.yml */,
+				4D13AF6F2C4916AF00845FDB /* trust-openapi-plugin.sh */,
+				4D13AF702C49179D00845FDB /* get-fingerprint.js */,
 			);
 			path = workflows;
 			sourceTree = "<group>";
@@ -326,6 +345,9 @@
 		4DD826FE2BFA0EBE00799CEB /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				4D13AF712C492E7200845FDB /* .gitignore */,
+				4D13AF742C492F4500845FDB /* Config.sh */,
+				4D13AF732C492E8E00845FDB /* Config.release.xcconfig */,
 				4D54C9622BF28592001DE071 /* Fyreplace.debug.entitlements */,
 				4D54C9312BF2608F001DE071 /* Fyreplace.release.entitlements */,
 				4DCE06312C09E19400F69AF1 /* Info.plist */,
@@ -349,10 +371,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				4D13AF672C482F5900845FDB /* PBXTargetDependency */,
 			);
 			name = Fyreplace;
 			packageProductDependencies = (
 				4D0DDC252C188869006CD503 /* SentrySwiftUI */,
+				4D13AF612C482F1C00845FDB /* OpenAPIRuntime */,
+				4D13AF642C482F4500845FDB /* OpenAPIURLSession */,
 			);
 			productName = Fyreplace;
 			productReference = 4D54C9282BF2608A001DE071 /* Fyreplace.app */;
@@ -428,6 +453,9 @@
 			mainGroup = 4D54C91F2BF2608A001DE071;
 			packageReferences = (
 				4D0DDC242C188869006CD503 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
+				4D13AF5F2C482F0100845FDB /* XCRemoteSwiftPackageReference "swift-openapi-generator" */,
+				4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */,
+				4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */,
 			);
 			productRefGroup = 4D54C9292BF2608A001DE071 /* Products */;
 			projectDirPath = "";
@@ -445,10 +473,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D13AF752C492F4500845FDB /* Config.sh in Resources */,
 				4D7F9CC22C259C30007B1CC3 /* PrivacyInfo.xcprivacy in Resources */,
+				4D13AF722C492E7200845FDB /* .gitignore in Resources */,
 				4D39A4C82BF516B7003FA52E /* Localizable.xcstrings in Resources */,
 				4D54C9302BF2608F001DE071 /* Assets.xcassets in Resources */,
 				4D54C9342BF2608F001DE071 /* Preview Assets.xcassets in Resources */,
+				4D13AF692C482FE400845FDB /* openapi.yaml in Resources */,
+				4D13AF6B2C48301600845FDB /* openapi-generator-config.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +578,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4D13AF672C482F5900845FDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 4D13AF662C482F5900845FDB /* OpenAPIGenerator */;
+		};
 		4D54C93B2BF26090001DE071 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4D54C9272BF2608A001DE071 /* Fyreplace */;
@@ -599,6 +635,9 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				FYREPLACE_API_URL_DEV = "https://dev.rest.api.fyreplace.app";
+				FYREPLACE_API_URL_LOCAL = "http://localhost:8080";
+				FYREPLACE_API_URL_MAIN = "https://rest.api.fyreplace.app";
 				FYREPLACE_PRIVACY_POLICY = "https://fyreplace.net/privacy-policy";
 				FYREPLACE_TERMS_OF_SERVICE = "https://fyreplace.net/terms-of-service";
 				FYREPLACE_WEBSITE = "https://fyreplace.net";
@@ -667,6 +706,9 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				FYREPLACE_API_URL_DEV = "https://dev.rest.api.fyreplace.app";
+				FYREPLACE_API_URL_LOCAL = "";
+				FYREPLACE_API_URL_MAIN = "https://rest.api.fyreplace.app";
 				FYREPLACE_PRIVACY_POLICY = "https://fyreplace.net/privacy-policy";
 				FYREPLACE_TERMS_OF_SERVICE = "https://fyreplace.net/terms-of-service";
 				FYREPLACE_WEBSITE = "https://fyreplace.net";
@@ -724,11 +766,11 @@
 		};
 		4D54C94F2BF26090001DE071 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D13AF732C492E8E00845FDB /* Config.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "${TARGET_NAME}/Config/Fyreplace.release.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"${TARGET_NAME}/Preview Content\"";
 				"ENABLE_APP_SANDBOX[sdk=macosx*]" = YES;
@@ -750,8 +792,6 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Fyreplace;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = Fyreplace.macOS;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -877,7 +917,31 @@
 			repositoryURL = "https://github.com/getsentry/sentry-cocoa";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.28.0;
+				minimumVersion = 8.30.1;
+			};
+		};
+		4D13AF5F2C482F0100845FDB /* XCRemoteSwiftPackageReference "swift-openapi-generator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-openapi-generator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
+		4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-openapi-runtime";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
+		4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-openapi-urlsession";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -887,6 +951,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4D0DDC242C188869006CD503 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
 			productName = SentrySwiftUI;
+		};
+		4D13AF612C482F1C00845FDB /* OpenAPIRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */;
+			productName = OpenAPIRuntime;
+		};
+		4D13AF642C482F4500845FDB /* OpenAPIURLSession */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */;
+			productName = OpenAPIURLSession;
+		};
+		4D13AF662C482F5900845FDB /* OpenAPIGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D13AF5F2C482F0100845FDB /* XCRemoteSwiftPackageReference "swift-openapi-generator" */;
+			productName = "plugin:OpenAPIGenerator";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

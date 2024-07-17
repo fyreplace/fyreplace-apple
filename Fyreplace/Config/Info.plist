@@ -2,16 +2,34 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>FyreplacePrivacyPolicy</key>
-	<string>$(FYREPLACE_PRIVACY_POLICY)</string>
-	<key>FyreplaceTermsOfService</key>
-	<string>$(FYREPLACE_TERMS_OF_SERVICE)</string>
-	<key>FyreplaceWebsite</key>
-	<string>$(FYREPLACE_WEBSITE)</string>
+	<key>App</key>
+	<dict>
+		<key>Api</key>
+		<dict>
+			<key>Dev</key>
+			<string>$(FYREPLACE_API_URL_DEV)</string>
+			<key>Local</key>
+			<string>$(FYREPLACE_API_URL_LOCAL)</string>
+			<key>Main</key>
+			<string>$(FYREPLACE_API_URL_MAIN)</string>
+		</dict>
+		<key>Info</key>
+		<dict>
+			<key>PrivacyPolicy</key>
+			<string>$(FYREPLACE_PRIVACY_POLICY)</string>
+			<key>TermsOfService</key>
+			<string>$(FYREPLACE_TERMS_OF_SERVICE)</string>
+			<key>Website</key>
+			<string>$(FYREPLACE_WEBSITE)</string>
+		</dict>
+	</dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
-	<key>SentryDSN</key>
-	<string>$(SENTRY_DSN)</string>
+	<key>Sentry</key>
+	<dict>
+		<key>Dsn</key>
+		<string>$(SENTRY_DSN)</string>
+	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
