@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mattpolzin/OpenAPIKit",
       "state" : {
-        "revision" : "33a9984b4af03f00e68b8ee85f1273cb826af04f",
-        "version" : "3.1.3"
+        "revision" : "4991b7e39a19cd1d0d11fe24fc64a601b4820144",
+        "version" : "3.2.0"
       }
     },
     {
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getsentry/sentry-cocoa",
       "state" : {
-        "revision" : "5a601a24aa1b3fb29fcdb824633f050e08257e92",
-        "version" : "8.30.1"
+        "revision" : "5421f94cc859eb65f5ae3866165a053aa634431e",
+        "version" : "8.32.0"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-argument-parser",
       "state" : {
-        "revision" : "0fbc8848e389af3bb55c182bc19ca9d5dc2f255b",
-        "version" : "1.4.0"
+        "revision" : "41982a3656a71c768319979febd796c6fd111d5c",
+        "version" : "1.5.0"
       }
     },
     {
@@ -69,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-openapi-generator.git",
       "state" : {
-        "revision" : "7992d77065f2787e7651cf6d9be9b99ad38f5166",
-        "version" : "1.2.1"
+        "revision" : "99859083e53912612b56b4b8713a971c20dab3ef",
+        "version" : "1.3.0"
       }
     },
     {
@@ -78,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-openapi-runtime",
       "state" : {
-        "revision" : "9a8291fa2f90cc7296f2393a99bb4824ee34f869",
-        "version" : "1.4.0"
+        "revision" : "71fcfa7691794054aa44538420acc281cc8e94e9",
+        "version" : "1.4.1"
       }
     },
     {
