@@ -35,6 +35,8 @@ struct RegisterScreen: View {
                 header: LogoHeader(text: "Register.Header", namespace: namespace),
                 footer: footer
             ) {
+                EnvironmentPicker(namespace: namespace)
+
                 TextField("Register.Username", text: $username, prompt: usernamePrompt)
                     .textContentType(.username)
                     .autocorrectionDisabled()

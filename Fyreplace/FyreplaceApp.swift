@@ -24,17 +24,7 @@ struct FyreplaceApp: App {
         .commands {
             SidebarCommands()
             ToolbarCommands()
-            CommandGroup(replacing: .help) {
-                Link(destination: Config.default.app.info.website) {
-                    Text("App.Help.Website")
-                }
-                Link(destination: Config.default.app.info.termsOfService) {
-                    Text("App.Help.TermsOfService")
-                }
-                Link(destination: Config.default.app.info.privacyPolicy) {
-                    Text("App.Help.PrivacyPolicy")
-                }
-            }
+            HelpCommands()
         }
     }
 }

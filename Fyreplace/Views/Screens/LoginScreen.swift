@@ -29,6 +29,8 @@ struct LoginScreen: View {
                 header: LogoHeader(text: "Login.Header", namespace: namespace),
                 footer: footer
             ) {
+                EnvironmentPicker(namespace: namespace)
+
                 TextField("Login.Identifier", text: $identifier, prompt: Text("Login.Identifier.Prompt"))
                     .autocorrectionDisabled()
                     .focused($focused)

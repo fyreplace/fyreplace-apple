@@ -14,6 +14,8 @@
 		4D13AF6B2C48301600845FDB /* openapi-generator-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 4D13AF6A2C48301600845FDB /* openapi-generator-config.yaml */; };
 		4D13AF722C492E7200845FDB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4D13AF712C492E7200845FDB /* .gitignore */; };
 		4D13AF752C492F4500845FDB /* Config.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4D13AF742C492F4500845FDB /* Config.sh */; };
+		4D13AF7B2C4E8F4200845FDB /* EnvironmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13AF7A2C4E8F4200845FDB /* EnvironmentPicker.swift */; };
+		4D13AF812C4E907200845FDB /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13AF802C4E907200845FDB /* Environment.swift */; };
 		4D39A4C82BF516B7003FA52E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4D39A4C72BF516B7003FA52E /* Localizable.xcstrings */; };
 		4D4D394A2C086DA2007196D2 /* PublishedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D39492C086DA2007196D2 /* PublishedScreen.swift */; };
 		4D5251EC2C1097A600018CD2 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5251EB2C1097A600018CD2 /* Destination.swift */; };
@@ -40,6 +42,7 @@
 		4D9B3B452C36F46F00A8F7AD /* NSTextContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */; };
 		4D9B3B472C36F50300A8F7AD /* UITextContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */; };
 		4D9DC5032C11BF2500BA0507 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DC5022C11BF2500BA0507 /* Config.swift */; };
+		4DB10B502C4FEBFC00634BF6 /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB10B4F2C4FEBFC00634BF6 /* HelpCommands.swift */; };
 		4DB2E36D2C416611007F958D /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2E36C2C416611007F958D /* SubmitButton.swift */; };
 		4DB2E36F2C418F5C007F958D /* DynamicForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2E36E2C418F5C007F958D /* DynamicForm.swift */; };
 		4DB2E3722C419612007F958D /* LoginScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2E3712C419612007F958D /* LoginScreenTests.swift */; };
@@ -76,6 +79,8 @@
 		4D13AF712C492E7200845FDB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4D13AF732C492E8E00845FDB /* Config.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.release.xcconfig; sourceTree = "<group>"; };
 		4D13AF742C492F4500845FDB /* Config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Config.sh; sourceTree = "<group>"; };
+		4D13AF7A2C4E8F4200845FDB /* EnvironmentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentPicker.swift; sourceTree = "<group>"; };
+		4D13AF802C4E907200845FDB /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		4D39A4C72BF516B7003FA52E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4D4D39492C086DA2007196D2 /* PublishedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedScreen.swift; sourceTree = "<group>"; };
 		4D5251A22C0A78F800018CD2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -114,6 +119,7 @@
 		4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextContentType.swift; sourceTree = "<group>"; };
 		4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextContentType.swift; sourceTree = "<group>"; };
 		4D9DC5022C11BF2500BA0507 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		4DB10B4F2C4FEBFC00634BF6 /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
 		4DB2E36C2C416611007F958D /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 		4DB2E36E2C418F5C007F958D /* DynamicForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicForm.swift; sourceTree = "<group>"; };
 		4DB2E3712C419612007F958D /* LoginScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenTests.swift; sourceTree = "<group>"; };
@@ -156,6 +162,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D13AF7C2C4E904E00845FDB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4D13AF802C4E907200845FDB /* Environment.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		4D39A4C62BF51693003FA52E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +246,9 @@
 				4D39A4C62BF51693003FA52E /* Resources */,
 				4D54C9322BF2608F001DE071 /* Preview Content */,
 				4D9B3B432C36E64F00A8F7AD /* Extensions */,
+				4D13AF7C2C4E904E00845FDB /* Data */,
 				4D54C95E2BF27C78001DE071 /* Views */,
+				4DB10B4E2C4FEBCE00634BF6 /* Commands */,
 				4D54C92B2BF2608A001DE071 /* FyreplaceApp.swift */,
 			);
 			path = Fyreplace;
@@ -309,8 +325,9 @@
 			isa = PBXGroup;
 			children = (
 				4DB2E36E2C418F5C007F958D /* DynamicForm.swift */,
-				4D9B3B3C2C34B13E00A8F7AD /* LogoHeader.swift */,
 				4DB2E36C2C416611007F958D /* SubmitButton.swift */,
+				4D13AF7A2C4E8F4200845FDB /* EnvironmentPicker.swift */,
+				4D9B3B3C2C34B13E00A8F7AD /* LogoHeader.swift */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -323,6 +340,14 @@
 				4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4DB10B4E2C4FEBCE00634BF6 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				4DB10B4F2C4FEBFC00634BF6 /* HelpCommands.swift */,
+			);
+			path = Commands;
 			sourceTree = "<group>";
 		};
 		4DB2E3702C4195FB007F958D /* Screens */ = {
@@ -530,6 +555,7 @@
 			files = (
 				4D9B3B3D2C34B13E00A8F7AD /* LogoHeader.swift in Sources */,
 				4D54C9712BF4EA15001DE071 /* SettingsScreen.swift in Sources */,
+				4D13AF7B2C4E8F4200845FDB /* EnvironmentPicker.swift in Sources */,
 				4D9B3B422C36E23A00A8F7AD /* Array+RawRepresentable.swift in Sources */,
 				4D4D394A2C086DA2007196D2 /* PublishedScreen.swift in Sources */,
 				4D5251EC2C1097A600018CD2 /* Destination.swift in Sources */,
@@ -539,6 +565,7 @@
 				4D9B3B472C36F50300A8F7AD /* UITextContentType.swift in Sources */,
 				4D9B3B382C334B3A00A8F7AD /* LoginScreen.swift in Sources */,
 				4D5251EF2C1098E900018CD2 /* MultiChoiceScreen.swift in Sources */,
+				4DB10B502C4FEBFC00634BF6 /* HelpCommands.swift in Sources */,
 				4D9B3B452C36F46F00A8F7AD /* NSTextContentType.swift in Sources */,
 				4D54C96F2BF4E9DF001DE071 /* DraftsScreen.swift in Sources */,
 				4DB2E36F2C418F5C007F958D /* DynamicForm.swift in Sources */,
@@ -548,6 +575,7 @@
 				4D9B3B3A2C334B6300A8F7AD /* RegisterScreen.swift in Sources */,
 				4DB2E36D2C416611007F958D /* SubmitButton.swift in Sources */,
 				4D54C96D2BF4E9BE001DE071 /* ArchiveScreen.swift in Sources */,
+				4D13AF812C4E907200845FDB /* Environment.swift in Sources */,
 				4D5251F52C10A9F100018CD2 /* DynamicNavigation.swift in Sources */,
 				4D9DC5032C11BF2500BA0507 /* Config.swift in Sources */,
 				4D54C92C2BF2608A001DE071 /* FyreplaceApp.swift in Sources */,

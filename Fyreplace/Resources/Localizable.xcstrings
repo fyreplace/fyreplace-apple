@@ -34,6 +34,66 @@
         }
       }
     },
+    "Environment.Default" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(default)"
+          }
+        }
+      }
+    },
+    "Environment.Dev" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Testing server"
+          }
+        }
+      }
+    },
+    "Environment.Help" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you don't know what this is, pick \"Production server\""
+          }
+        }
+      }
+    },
+    "Environment.Local" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Local server"
+          }
+        }
+      }
+    },
+    "Environment.Main" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Production server"
+          }
+        }
+      }
+    },
+    "Environment.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Environment"
+          }
+        }
+      }
+    },
     "Login.Header" : {
       "localizations" : {
         "en" : {
