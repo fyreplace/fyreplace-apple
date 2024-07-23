@@ -3,6 +3,9 @@ import SwiftUI
 struct Screen: View {
     let destination: Destination
 
+    @Namespace
+    private var namespace
+
     var body: some View {
         switch destination {
         case .feed:
@@ -18,9 +21,9 @@ struct Screen: View {
         case .settings:
             SettingsScreen()
         case .login:
-            LoginScreen()
+            LoginScreen(namespace: namespace)
         case .register:
-            RegisterScreen()
+            RegisterScreen(namespace: namespace)
         }
     }
 }

@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct RegisterScreen: View {
+    let namespace: Namespace.ID
+
     @SceneStorage("LoginScreen.username")
     private var username = ""
 
@@ -17,6 +19,7 @@ struct RegisterScreen: View {
     var body: some View {
         DynamicForm {
             let submitButton = SubmitButton(text: "Register.Submit", canSubmit: canSubmit, submit: submit)
+                .matchedGeometryEffect(id: "submit", in: namespace)
 
             #if os(macOS)
                 let footer = submitButton.padding(.top)
@@ -28,7 +31,10 @@ struct RegisterScreen: View {
                 let emailPrompt: Text? = nil
             #endif
 
-            Section(header: LogoHeader(text: "Register.Header"), footer: footer) {
+            Section(
+                header: LogoHeader(text: "Register.Header", namespace: namespace),
+                footer: footer
+            ) {
                 TextField("Register.Username", text: $username, prompt: usernamePrompt)
                     .textContentType(.username)
                     .autocorrectionDisabled()
@@ -36,6 +42,7 @@ struct RegisterScreen: View {
                     .submitLabel(.next)
                     .onSubmit { focusedField = .email }
                     .accessibilityIdentifier("username")
+                    .matchedGeometryEffect(id: "first-field", in: namespace)
 
                 TextField("Register.Email", text: $email, prompt: emailPrompt)
                     .textContentType(.email)
@@ -66,6 +73,9 @@ private enum FocusedField {
 
 #Preview {
     NavigationStack {
-        RegisterScreen()
+        @Namespace
+        var namespace
+
+        RegisterScreen(namespace: namespace)
     }
 }

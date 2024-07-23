@@ -12,6 +12,7 @@ struct SubmitButton: View {
                 Text(text).padding(.horizontal)
             }
             .disabled(!canSubmit)
+            .animation(.default, value: canSubmit)
             .controlSize(.large)
             .accessibilityIdentifier("submit")
             #if os(macOS)

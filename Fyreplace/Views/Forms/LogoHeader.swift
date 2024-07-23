@@ -2,6 +2,7 @@ import SwiftUI
 
 struct LogoHeader: View {
     let text: LocalizedStringKey
+    let namespace: Namespace.ID
 
     var body: some View {
         VStack {
@@ -34,5 +35,6 @@ struct LogoHeader: View {
                 Spacer()
             }
         }
+        .matchedGeometryEffect(id: "header", in: namespace)
     }
 }

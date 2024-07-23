@@ -10,6 +10,9 @@ struct SettingsScreen: View {
             choice: $choice
         )
         .navigationTitle("")
+        #if os(macOS)
+            .animation(.snappy, value: choice)
+        #endif
     }
 }
 
