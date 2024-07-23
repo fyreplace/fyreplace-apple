@@ -10,9 +10,6 @@ struct MultiChoiceScreen: View {
         ZStack {
             Screen(destination: choice)
         }
-        #if !os(macOS)
-        .navigationBarTitleDisplayMode(.inline)
-        #endif
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Picker("MultiChoiceScreen.Tab", selection: $choice) {
@@ -25,21 +22,20 @@ struct MultiChoiceScreen: View {
                 .accessibilityIdentifier("tabs")
             }
         }
+        #if !os(macOS)
+        .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
 }
 
-#if DEBUG
-    enum PreviewData {
+#Preview {
+    NavigationStack {
         @State
-        static var choice = Destination.feed
-    }
+        var choice = Destination.feed
 
-    #Preview {
-        NavigationStack {
-            MultiChoiceScreen(
-                choices: [.feed, .settings],
-                choice: PreviewData.$choice
-            )
-        }
+        MultiChoiceScreen(
+            choices: [.feed, .settings],
+            choice: $choice
+        )
     }
-#endif
+}
