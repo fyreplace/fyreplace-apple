@@ -1,8 +1,21 @@
 import SwiftUI
 
 struct RegularNavigation: View {
-    @SceneStorage("RegularNavigation.selectedDestination")
-    private var selectedDestination: Destination?
+    #if os(macOS)
+        @SceneStorage("RegularNavigation.selectedDestination")
+        private var selectedDestination = Destination.feed
+    #else
+        @SceneStorage("RegularNavigation.selectedDestination")
+        private var selectedDestination: Destination?
+    #endif
+
+    private var finalDestination: Destination {
+        #if os(macOS)
+            selectedDestination
+        #else
+            selectedDestination ?? .feed
+        #endif
+    }
 
     var body: some View {
         NavigationSplitView {
@@ -16,7 +29,7 @@ struct RegularNavigation: View {
             #endif
         } detail: {
             NavigationStack {
-                Screen(destination: selectedDestination ?? .feed)
+                Screen(destination: finalDestination)
             }
         }
     }
