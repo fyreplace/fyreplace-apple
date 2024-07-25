@@ -28,14 +28,22 @@ struct MultiChoiceScreen: View {
     }
 }
 
-#Preview {
-    NavigationStack {
+#if DEBUG
+    struct Preview: View {
         @State
         var choice = Destination.feed
 
-        MultiChoiceScreen(
-            choices: [.feed, .settings],
-            choice: $choice
-        )
+        var body: some View {
+            NavigationStack {
+                MultiChoiceScreen(
+                    choices: [.feed, .settings],
+                    choice: $choice
+                )
+            }
+        }
     }
-}
+
+    #Preview {
+        Preview()
+    }
+#endif
