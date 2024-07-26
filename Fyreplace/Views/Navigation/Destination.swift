@@ -72,5 +72,24 @@ public enum Destination: String, CaseIterable, Identifiable, Codable {
         }
     }
 
+    var keyboardShortcut: KeyboardShortcut? {
+        switch self {
+        case .feed:
+            .init("1")
+        case .notifications:
+            .init("2")
+        case .archive:
+            .init("3")
+        case .drafts:
+            .init("4")
+        case .published:
+            .init("5")
+        case .settings:
+            .init("6")
+        case .login, .register:
+            nil
+        }
+    }
+
     static let all = allCases.filter(\.topLevel)
 }

@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct RegularNavigation: View {
+    @Environment(\.destinationCommands)
+    private var destinationCommands
+
     #if os(macOS)
         @SceneStorage("RegularNavigation.selectedDestination")
         private var selectedDestination = Destination.feed
@@ -31,6 +34,9 @@ struct RegularNavigation: View {
             NavigationStack {
                 Screen(destination: finalDestination)
             }
+        }
+        .onReceive(destinationCommands) {
+            selectedDestination = $0
         }
     }
 }

@@ -51,6 +51,7 @@
 		4DB2E3792C43E304007F958D /* RegisterScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2E3782C43E304007F958D /* RegisterScreenTests.swift */; };
 		4DCE062B2C08E5E200F69AF1 /* CompactNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE062A2C08E5E200F69AF1 /* CompactNavigation.swift */; };
 		4DCE062D2C08E65300F69AF1 /* RegularNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE062C2C08E65300F69AF1 /* RegularNavigation.swift */; };
+		4DE140CD2C52688000A699AE /* DestinationCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE140CC2C52687F00A699AE /* DestinationCommands.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		4DCEF8652C452EBA00F53085 /* .env-example */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".env-example"; sourceTree = "<group>"; };
 		4DCEF8662C452ECC00F53085 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 		4DD826FD2BF9FDC500799CEB /* Config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Config.sh; sourceTree = "<group>"; };
+		4DE140CC2C52687F00A699AE /* DestinationCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCommands.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +347,7 @@
 		4DB10B4E2C4FEBCE00634BF6 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
+				4DE140CC2C52687F00A699AE /* DestinationCommands.swift */,
 				4DB10B4F2C4FEBFC00634BF6 /* HelpCommands.swift */,
 			);
 			path = Commands;
@@ -561,6 +564,7 @@
 				4D5251EC2C1097A600018CD2 /* Destination.swift in Sources */,
 				4D54C92E2BF2608A001DE071 /* MainView.swift in Sources */,
 				4D5251F12C109D0D00018CD2 /* Screen.swift in Sources */,
+				4DE140CD2C52688000A699AE /* DestinationCommands.swift in Sources */,
 				4D54C96B2BF4E97E001DE071 /* NotificationsScreen.swift in Sources */,
 				4D9B3B472C36F50300A8F7AD /* UITextContentType.swift in Sources */,
 				4D9B3B382C334B3A00A8F7AD /* LoginScreen.swift in Sources */,

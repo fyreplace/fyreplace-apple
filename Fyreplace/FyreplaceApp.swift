@@ -22,8 +22,9 @@ struct FyreplaceApp: App {
             MainView()
         }
         .commands {
-            SidebarCommands()
             ToolbarCommands()
+            SidebarCommands()
+            DestinationCommands()
             HelpCommands()
         }
     }
