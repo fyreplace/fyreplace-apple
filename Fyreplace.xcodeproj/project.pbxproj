@@ -950,7 +950,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		4D0DDC242C188869006CD503 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/getsentry/sentry-cocoa";
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 8.32.0;
@@ -961,23 +961,23 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-generator.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.1;
+				minimumVersion = 1.3.0;
 			};
 		};
 		4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-openapi-runtime";
+			repositoryURL = "https://github.com/apple/swift-openapi-runtime.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.4.0;
+				minimumVersion = 1.4.1;
 			};
 		};
 		4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-openapi-urlsession";
+			repositoryURL = "https://github.com/apple/swift-openapi-urlsession.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
+				minimumVersion = 1.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
