@@ -10,7 +10,7 @@ struct RegisterScreen: View {
     private var email = ""
 
     @FocusState
-    private var focusedField: FocusedField?
+    private var focused: FocusedField?
 
     private var isUsernameValid: Bool { 3 ... 50 ~= username.count }
     private var isEmailValid: Bool { 3 ... 254 ~= email.count && email.contains("@") }
@@ -40,19 +40,26 @@ struct RegisterScreen: View {
                 TextField("Register.Username", text: $username, prompt: usernamePrompt)
                     .textContentType(.username)
                     .autocorrectionDisabled()
-                    .focused($focusedField, equals: .username)
+                    .focused($focused, equals: .username)
                     .submitLabel(.next)
-                    .onSubmit { focusedField = .email }
+                    .onSubmit { focused = .email }
                     .accessibilityIdentifier("username")
                     .matchedGeometryEffect(id: "first-field", in: namespace)
 
                 TextField("Register.Email", text: $email, prompt: emailPrompt)
                     .textContentType(.email)
                     .autocorrectionDisabled()
-                    .focused($focusedField, equals: .email)
+                    .focused($focused, equals: .email)
                     .submitLabel(.done)
                     .onSubmit(submit)
                     .accessibilityIdentifier("email")
+            }
+            .onAppear {
+                if username.isEmpty {
+                    focused = .username
+                } else if email.isEmpty {
+                    focused = .email
+                }
             }
 
             #if !os(macOS)
@@ -64,7 +71,7 @@ struct RegisterScreen: View {
 
     private func submit() {
         guard canSubmit else { return }
-        focusedField = nil
+        focused = nil
     }
 }
 

@@ -6,9 +6,6 @@ struct LoginScreen: View {
     @SceneStorage("LoginScreen.identifier")
     private var identifier = ""
 
-    @Namespace
-    private var mainNamespace
-
     @FocusState
     private var focused: Bool
 
@@ -37,12 +34,11 @@ struct LoginScreen: View {
                     .onSubmit(submit)
                     .accessibilityIdentifier("identifier")
                     .matchedGeometryEffect(id: "first-field", in: namespace)
-                #if os(macOS)
-                    .prefersDefaultFocus(in: mainNamespace)
-                #else
+                #if !os(macOS)
                     .labelsHidden()
                 #endif
             }
+            .onAppear { focused = identifier.isEmpty }
 
             #if !os(macOS)
                 submitButton
