@@ -1,3 +1,4 @@
+import Combine
 import Sentry
 import SwiftUI
 
@@ -18,13 +19,15 @@ struct FyreplaceApp: App {
     }
 
     var body: some Scene {
+        let destinationsSubject = PassthroughSubject<Destination, Never>()
+
         WindowGroup {
-            MainView()
+            MainView(destinationCommands: destinationsSubject.eraseToAnyPublisher())
         }
         .commands {
             ToolbarCommands()
             SidebarCommands()
-            DestinationCommands()
+            DestinationCommands(subject: destinationsSubject)
             HelpCommands()
         }
     }

@@ -2,13 +2,15 @@ import Combine
 import SwiftUI
 
 struct DestinationCommands: Commands {
+    var subject: PassthroughSubject<Destination, Never>
+
     var body: some Commands {
         CommandGroup(after: .sidebar) {
             Divider()
 
             ForEach(Destination.all) { destination in
                 Button(destination.titleKey) {
-                    DestinationCommandKey.subject.send(destination)
+                    subject.send(destination)
                 }
                 .keyboardShortcut(destination.keyboardShortcut)
             }
@@ -18,14 +20,13 @@ struct DestinationCommands: Commands {
     }
 }
 
-private struct DestinationCommandKey: EnvironmentKey {
-    static let subject = PassthroughSubject<Destination, Never>()
-    static let defaultValue = subject.eraseToAnyPublisher()
+struct DestinationCommandEnvironmentKey: EnvironmentKey {
+    static let defaultValue = AnyPublisher<Destination, Never>.empty
 }
 
 extension EnvironmentValues {
     var destinationCommands: AnyPublisher<Destination, Never> {
-        get { self[DestinationCommandKey.self] }
-        set { self[DestinationCommandKey.self] = newValue }
+        get { self[DestinationCommandEnvironmentKey.self] }
+        set { self[DestinationCommandEnvironmentKey.self] = newValue }
     }
 }

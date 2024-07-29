@@ -52,6 +52,7 @@
 		4DCE062B2C08E5E200F69AF1 /* CompactNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE062A2C08E5E200F69AF1 /* CompactNavigation.swift */; };
 		4DCE062D2C08E65300F69AF1 /* RegularNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE062C2C08E65300F69AF1 /* RegularNavigation.swift */; };
 		4DE140CD2C52688000A699AE /* DestinationCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE140CC2C52687F00A699AE /* DestinationCommands.swift */; };
+		4DFB90642C57B98C00D4DABF /* AnyPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB90632C57B98C00D4DABF /* AnyPublisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,7 @@
 		4DCEF8662C452ECC00F53085 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 		4DD826FD2BF9FDC500799CEB /* Config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Config.sh; sourceTree = "<group>"; };
 		4DE140CC2C52687F00A699AE /* DestinationCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCommands.swift; sourceTree = "<group>"; };
+		4DFB90632C57B98C00D4DABF /* AnyPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPublisher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				4D9B3B412C36E23A00A8F7AD /* Array+RawRepresentable.swift */,
+				4DFB90632C57B98C00D4DABF /* AnyPublisher.swift */,
 				4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */,
 				4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */,
 			);
@@ -573,6 +576,7 @@
 				4D9B3B452C36F46F00A8F7AD /* NSTextContentType.swift in Sources */,
 				4D54C96F2BF4E9DF001DE071 /* DraftsScreen.swift in Sources */,
 				4DB2E36F2C418F5C007F958D /* DynamicForm.swift in Sources */,
+				4DFB90642C57B98C00D4DABF /* AnyPublisher.swift in Sources */,
 				4DCE062B2C08E5E200F69AF1 /* CompactNavigation.swift in Sources */,
 				4DCE062D2C08E65300F69AF1 /* RegularNavigation.swift in Sources */,
 				4D54C9692BF4E8F4001DE071 /* FeedScreen.swift in Sources */,
