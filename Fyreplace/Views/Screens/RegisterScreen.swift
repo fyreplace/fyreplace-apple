@@ -3,22 +3,15 @@ import SwiftUI
 struct RegisterScreen: View {
     let namespace: Namespace.ID
 
-    @SceneStorage("LoginScreen.username")
-    private var username = ""
-
-    @SceneStorage("LoginScreen.email")
-    private var email = ""
+    @ObservedObject
+    var viewModel: ViewModel
 
     @FocusState
     private var focused: FocusedField?
 
-    private var isUsernameValid: Bool { 3 ... 50 ~= username.count }
-    private var isEmailValid: Bool { 3 ... 254 ~= email.count && email.contains("@") }
-    private var canSubmit: Bool { isUsernameValid && isEmailValid }
-
     var body: some View {
         DynamicForm {
-            let submitButton = SubmitButton(text: "Register.Submit", canSubmit: canSubmit, submit: submit)
+            let submitButton = SubmitButton(text: "Register.Submit", canSubmit: viewModel.canSubmit, submit: submit)
                 .matchedGeometryEffect(id: "submit", in: namespace)
 
             #if os(macOS)
@@ -37,7 +30,7 @@ struct RegisterScreen: View {
             ) {
                 EnvironmentPicker(namespace: namespace)
 
-                TextField("Register.Username", text: $username, prompt: usernamePrompt)
+                TextField("Register.Username", text: $viewModel.username, prompt: usernamePrompt)
                     .textContentType(.username)
                     .autocorrectionDisabled()
                     .focused($focused, equals: .username)
@@ -46,7 +39,7 @@ struct RegisterScreen: View {
                     .accessibilityIdentifier("username")
                     .matchedGeometryEffect(id: "first-field", in: namespace)
 
-                TextField("Register.Email", text: $email, prompt: emailPrompt)
+                TextField("Register.Email", text: $viewModel.email, prompt: emailPrompt)
                     .textContentType(.email)
                     .autocorrectionDisabled()
                     .focused($focused, equals: .email)
@@ -55,9 +48,9 @@ struct RegisterScreen: View {
                     .accessibilityIdentifier("email")
             }
             .onAppear {
-                if username.isEmpty {
+                if viewModel.username.isEmpty {
                     focused = .username
-                } else if email.isEmpty {
+                } else if viewModel.email.isEmpty {
                     focused = .email
                 }
             }
@@ -70,7 +63,7 @@ struct RegisterScreen: View {
     }
 
     private func submit() {
-        guard canSubmit else { return }
+        guard viewModel.canSubmit else { return }
         focused = nil
     }
 }
@@ -85,6 +78,9 @@ private enum FocusedField {
         @Namespace
         var namespace
 
-        RegisterScreen(namespace: namespace)
+        @StateObject
+        var viewModel = RegisterScreen.ViewModel()
+
+        RegisterScreen(namespace: namespace, viewModel: viewModel)
     }
 }

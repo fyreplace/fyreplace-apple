@@ -3,17 +3,15 @@ import SwiftUI
 struct LoginScreen: View {
     let namespace: Namespace.ID
 
-    @SceneStorage("LoginScreen.identifier")
-    private var identifier = ""
+    @ObservedObject
+    var viewModel: ViewModel
 
     @FocusState
     private var focused: Bool
 
-    private var isIdentifierValid: Bool { 3 ... 254 ~= identifier.count }
-
     var body: some View {
         DynamicForm {
-            let submitButton = SubmitButton(text: "Login.Submit", canSubmit: isIdentifierValid, submit: submit)
+            let submitButton = SubmitButton(text: "Login.Submit", canSubmit: viewModel.canSubmit, submit: submit)
                 .matchedGeometryEffect(id: "submit", in: namespace)
 
             #if os(macOS)
@@ -28,7 +26,7 @@ struct LoginScreen: View {
             ) {
                 EnvironmentPicker(namespace: namespace)
 
-                TextField("Login.Identifier", text: $identifier, prompt: Text("Login.Identifier.Prompt"))
+                TextField("Login.Identifier", text: $viewModel.identifier, prompt: Text("Login.Identifier.Prompt"))
                     .autocorrectionDisabled()
                     .focused($focused)
                     .onSubmit(submit)
@@ -38,7 +36,7 @@ struct LoginScreen: View {
                     .labelsHidden()
                 #endif
             }
-            .onAppear { focused = identifier.isEmpty }
+            .onAppear { focused = viewModel.identifier.isEmpty }
 
             #if !os(macOS)
                 submitButton
@@ -48,7 +46,7 @@ struct LoginScreen: View {
     }
 
     private func submit() {
-        guard isIdentifierValid else { return }
+        guard viewModel.canSubmit else { return }
         focused = false
     }
 }
@@ -58,6 +56,9 @@ struct LoginScreen: View {
         @Namespace
         var namespace
 
-        LoginScreen(namespace: namespace)
+        @StateObject
+        var viewModel = LoginScreen.ViewModel()
+
+        LoginScreen(namespace: namespace, viewModel: viewModel)
     }
 }
