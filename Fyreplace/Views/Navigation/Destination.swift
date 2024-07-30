@@ -92,4 +92,6 @@ public enum Destination: String, CaseIterable, Identifiable, Codable {
     }
 
     static let all = allCases.filter(\.topLevel)
+
+    static let essentials = all.filter { $0.parent == nil }
 }

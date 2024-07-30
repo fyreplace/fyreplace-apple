@@ -4,12 +4,12 @@ struct CompactNavigation: View {
     @SceneStorage("CompactNavigation.selectedTab")
     private var selectedTab = Destination.feed
 
-    @SceneStorage("CompactNavigation.choices")
-    private var choices = Destination.all.filter { $0.parent == nil }
+    @SceneStorage("CompactNavigation.selectedChoices")
+    private var selectedChoices = Destination.essentials
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            let destinations = Destination.all.filter { $0.parent == nil }
+            let destinations = Destination.essentials
 
             ForEach(Array(destinations.enumerated()), id: \.element.id) { i, destination in
                 NavigationStack {
@@ -20,7 +20,7 @@ struct CompactNavigation: View {
                     } else {
                         MultiChoiceScreen(
                             choices: [destination] + children,
-                            choice: $choices[i]
+                            choice: $selectedChoices[i]
                         )
                     }
                 }

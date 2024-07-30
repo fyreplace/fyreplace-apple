@@ -12,9 +12,10 @@ struct FyreplaceApp: App {
         }
 
         guard let dsn = Config.default.sentry.dsn, !dsn.isEmpty else { return }
-        SentrySDK.start { options in
-            options.dsn = dsn
-            options.environment = Config.default.version.environment
+
+        SentrySDK.start {
+            $0.dsn = dsn
+            $0.environment = Config.default.version.environment
         }
     }
 
