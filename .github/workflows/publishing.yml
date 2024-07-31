@@ -89,7 +89,8 @@ jobs:
       - name: Prepare files
         if: ${{ matrix.distribution == 'app-store' }}
         env:
-          CODE_SIGN_IDENTITY: 'Apple Distribution'
+          DEVELOPMENT_TEAM: ${{ vars.TEAM_ID }}
+          CODE_SIGN_IDENTITY: Apple Distribution
           PROVISIONING_PROFILE_SPECIFIER: ${{ matrix.platform == 'macOS' && vars.PROVISIONING_PROFILE_NAME_MACOS || vars.PROVISIONING_PROFILE_NAME }}
           SENTRY_DSN: ${{ matrix.platform == 'iOS' && secrets.SENTRY_DSN_IOS || secrets.SENTRY_DSN_MACOS }}
           SENTRY_ORG: ${{ vars.SENTRY_ORG }}
@@ -100,7 +101,8 @@ jobs:
       - name: Prepare files
         if: ${{ matrix.distribution == 'standalone' }}
         env:
-          CODE_SIGN_IDENTITY: 'Developer ID Application'
+          DEVELOPMENT_TEAM: ${{ vars.TEAM_ID }}
+          CODE_SIGN_IDENTITY: Developer ID Application
           PROVISIONING_PROFILE_SPECIFIER: ${{ vars.PROVISIONING_PROFILE_NAME_MACOS_STANDALONE }}
         run: make
 
@@ -114,10 +116,9 @@ jobs:
       - name: Build app
         env:
           CODE_SIGN_IDENTITY: Apple Distribution
-          PROVISIONING_PROFILE_SPECIFIER: Fyreplace
+          PROVISIONING_PROFILE_SPECIFIER: ${{ vars.PROVISIONING_PROFILE_NAME }}
         run: |
           xcodebuild archive \
-            DEVELOPMENT_TEAM=${{ vars.TEAM_ID }} \
             -allowProvisioningUpdates \
             -authenticationKeyPath /tmp/connect-key.p8 \
             -authenticationKeyID ${{ vars.APP_STORE_CONNECT_KEY_ID }} \
@@ -176,9 +177,54 @@ jobs:
           path: Export/Fyreplace.pkg
           if-no-files-found: error
 
+  test:
+    name: Test
+    runs-on: macos-latest
+    environment: apple-app-store
+    strategy:
+      matrix:
+        platform:
+          - iOS
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - name: Cache packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/Library/Caches/org.swift.swiftpm
+            ~/Library/Developer/Xcode/DerivedData/**/SourcePackages/checkouts
+            ~/Library/Developer/Xcode/DerivedData/**/SourcePackages/repositories
+          key: ${{ runner.os }}-${{ matrix.platform }}-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.platform }}-spm-
+
+      - name: Select Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_$(cat .xcode-version).app/Contents/Developer
+
+      - name: Prepare files
+        run: make
+
+      - name: Trust OpenAPI plugin
+        run: bash .github/workflows/trust-openapi-plugin.sh
+
+      - name: Run tests
+        run: |
+          xcodebuild test \
+            CODE_SIGNING_ALLOWED=no \
+            -scheme Fyreplace \
+            -destination platform=${{ matrix.platform }},OS=$(cat .ios-test-version) \
+            -only-testing FyreplaceTests
+
   publish:
     name: Publish
-    needs: build
+    needs:
+      - build
+      - test
     runs-on: macos-latest
     environment: apple-app-store
     strategy:

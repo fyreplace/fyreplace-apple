@@ -115,6 +115,7 @@
 		4D54C96C2BF4E9BE001DE071 /* ArchiveScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveScreen.swift; sourceTree = "<group>"; };
 		4D54C96E2BF4E9DF001DE071 /* DraftsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsScreen.swift; sourceTree = "<group>"; };
 		4D54C9702BF4EA15001DE071 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		4D6641DB2C5B963500BE3D07 /* .ios-test-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ios-test-version"; sourceTree = "<group>"; };
 		4D7F9CC12C259C00007B1CC3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4D9B3B372C334B3A00A8F7AD /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		4D9B3B392C334B6300A8F7AD /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
@@ -228,6 +229,7 @@
 				4D54C9462BF26090001DE071 /* FyreplaceUITests */,
 				4D54C9632BF28695001DE071 /* .gitignore */,
 				4D0DDC292C18A467006CD503 /* .xcode-version */,
+				4D6641DB2C5B963500BE3D07 /* .ios-test-version */,
 				4DCEF8652C452EBA00F53085 /* .env-example */,
 				4DCEF8662C452ECC00F53085 /* .env */,
 				4D54C9592BF266F9001DE071 /* Makefile */,
@@ -682,7 +684,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -857,7 +858,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEAD_CODE_STRIPPING = YES;
+				CODE_SIGN_IDENTITY = "-";
 				GENERATE_INFOPLIST_FILE = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.FyreplaceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -875,7 +876,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.FyreplaceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -892,7 +892,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEAD_CODE_STRIPPING = YES;
+				CODE_SIGN_IDENTITY = "-";
 				GENERATE_INFOPLIST_FILE = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.FyreplaceUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -909,7 +909,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.FyreplaceUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
