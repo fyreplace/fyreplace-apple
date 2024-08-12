@@ -1,18 +1,55 @@
 import SwiftUI
 
-struct LoginScreen: View {
+protocol LoginScreenProtocol: StatefulProtocol where State == LoginScreen.State {
+    var eventBus: EventBus { get }
+
+    var client: APIProtocol { get }
+}
+
+@MainActor
+extension LoginScreenProtocol {
+    func sendEmail() async {
+        await callWhileLoading(failOn: eventBus) {
+            let response = try await client.createNewToken(.init(body: .json(.init(identifier: state.identifier))))
+
+            switch response {
+            case .ok:
+                break
+            case .notFound:
+                eventBus.send(.failure(title: "Login.Error.NotFound.Title", text: "Login.Error.NotFound.Message"))
+            case .badRequest:
+                eventBus.send(.failure(title: "Error.BadRequest.Title", text: "Error.BadRequest.Message"))
+            case .default:
+                eventBus.send(.error(UnknownError()))
+            }
+        }
+    }
+}
+
+struct LoginScreen: View, LoginScreenProtocol {
     let namespace: Namespace.ID
 
     @ObservedObject
-    var viewModel: ViewModel
+    var state: State
+
+    @EnvironmentObject
+    var eventBus: EventBus
+
+    @Environment(\.api)
+    var client
 
     @FocusState
     private var focused: Bool
 
     var body: some View {
         DynamicForm {
-            let submitButton = SubmitButton(text: "Login.Submit", canSubmit: viewModel.canSubmit, submit: submit)
-                .matchedGeometryEffect(id: "submit", in: namespace)
+            let submitButton = SubmitButton(
+                text: "Login.Submit",
+                canSubmit: state.canSubmit,
+                isLoading: state.isLoading,
+                submit: submit
+            )
+            .matchedGeometryEffect(id: "submit", in: namespace)
 
             #if os(macOS)
                 let footer = submitButton.padding(.top)
@@ -26,7 +63,7 @@ struct LoginScreen: View {
             ) {
                 EnvironmentPicker(namespace: namespace)
 
-                TextField("Login.Identifier", text: $viewModel.identifier, prompt: Text("Login.Identifier.Prompt"))
+                TextField("Login.Identifier", text: $state.identifier, prompt: Text("Login.Identifier.Prompt"))
                     .autocorrectionDisabled()
                     .focused($focused)
                     .onSubmit(submit)
@@ -36,7 +73,7 @@ struct LoginScreen: View {
                     .labelsHidden()
                 #endif
             }
-            .onAppear { focused = viewModel.identifier.isEmpty }
+            .onAppear { focused = state.identifier.isEmpty }
 
             #if !os(macOS)
                 submitButton
@@ -46,8 +83,19 @@ struct LoginScreen: View {
     }
 
     private func submit() {
-        guard viewModel.canSubmit else { return }
+        guard state.canSubmit else { return }
         focused = false
+
+        Task {
+            await sendEmail()
+        }
+    }
+
+    final class State: LoadingViewState {
+        @Published
+        var identifier = ""
+
+        var canSubmit: Bool { 3 ... 254 ~= identifier.count && !isLoading }
     }
 }
 
@@ -56,9 +104,9 @@ struct LoginScreen: View {
         @Namespace
         var namespace
 
-        @StateObject
-        var viewModel = LoginScreen.ViewModel()
+        @State
+        var state = LoginScreen.State()
 
-        LoginScreen(namespace: namespace, viewModel: viewModel)
+        LoginScreen(namespace: namespace, state: state)
     }
 }

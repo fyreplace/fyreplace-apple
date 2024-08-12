@@ -1,8 +1,6 @@
 import Foundation
 
 extension Array: RawRepresentable where Element: Codable {
-    public typealias RawValue = String
-
     public init?(rawValue: String) {
         self.init()
         guard let data = rawValue.data(using: .utf8),

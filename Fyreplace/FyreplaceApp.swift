@@ -5,12 +5,6 @@ import SwiftUI
 @main
 struct FyreplaceApp: App {
     init() {
-        if ProcessInfo.processInfo.arguments.contains("--ui-tests"),
-           let bundleId = Bundle.main.bundleIdentifier
-        {
-            UserDefaults.standard.removePersistentDomain(forName: bundleId)
-        }
-
         guard let dsn = Config.default.sentry.dsn, !dsn.isEmpty else { return }
 
         SentrySDK.start {
@@ -20,15 +14,15 @@ struct FyreplaceApp: App {
     }
 
     var body: some Scene {
-        let destinationsSubject = PassthroughSubject<Destination, Never>()
+        let eventBus = EventBus()
 
         WindowGroup {
-            MainView(destinationCommands: destinationsSubject.eraseToAnyPublisher())
+            MainView(eventBus: eventBus)
         }
         .commands {
             ToolbarCommands()
             SidebarCommands()
-            DestinationCommands(subject: destinationsSubject)
+            DestinationCommands(eventBus: eventBus)
             HelpCommands()
         }
     }

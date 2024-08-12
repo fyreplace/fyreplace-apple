@@ -7,10 +7,10 @@ struct Screen: View {
     private var namespace
 
     @StateObject
-    private var loginViewModel = LoginScreen.ViewModel()
+    private var loginState = LoginScreen.State()
 
     @StateObject
-    private var registerViewModel = RegisterScreen.ViewModel()
+    private var registerState = RegisterScreen.State()
 
     var body: some View {
         switch destination {
@@ -27,9 +27,9 @@ struct Screen: View {
         case .settings:
             SettingsScreen()
         case .login:
-            LoginScreen(namespace: namespace, viewModel: loginViewModel)
+            LoginScreen(namespace: namespace, state: loginState)
         case .register:
-            RegisterScreen(namespace: namespace, viewModel: registerViewModel)
+            RegisterScreen(namespace: namespace, state: registerState)
         }
     }
 }

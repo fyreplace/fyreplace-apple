@@ -1,8 +1,7 @@
-import Combine
 import SwiftUI
 
 struct DestinationCommands: Commands {
-    var subject: PassthroughSubject<Destination, Never>
+    let eventBus: EventBus
 
     var body: some Commands {
         CommandGroup(after: .sidebar) {
@@ -10,23 +9,14 @@ struct DestinationCommands: Commands {
 
             ForEach(Destination.all) { destination in
                 Button(destination.titleKey) {
-                    subject.send(destination)
+                    Task {
+                        await eventBus.send(.navigationShortcut(to: destination))
+                    }
                 }
                 .keyboardShortcut(destination.keyboardShortcut)
             }
 
             Divider()
         }
-    }
-}
-
-struct DestinationCommandEnvironmentKey: EnvironmentKey {
-    static let defaultValue = AnyPublisher<Destination, Never>.empty
-}
-
-extension EnvironmentValues {
-    var destinationCommands: AnyPublisher<Destination, Never> {
-        get { self[DestinationCommandEnvironmentKey.self] }
-        set { self[DestinationCommandEnvironmentKey.self] = newValue }
     }
 }

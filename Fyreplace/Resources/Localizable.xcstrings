@@ -94,6 +94,66 @@
         }
       }
     },
+    "Error.BadRequest.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An incorrect request was sent to the server."
+          }
+        }
+      }
+    },
+    "Error.BadRequest.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bad request"
+          }
+        }
+      }
+    },
+    "Error.Connection" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server seems to be unreachable."
+          }
+        }
+      }
+    },
+    "Error.Unknown" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown error. This should never happen…"
+          }
+        }
+      }
+    },
+    "Login.Error.NotFound.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No user account was found with this username or email."
+          }
+        }
+      }
+    },
+    "Login.Error.NotFound.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User not found"
+          }
+        }
+      }
+    },
     "Login.Header" : {
       "localizations" : {
         "en" : {
@@ -230,6 +290,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tab"
+          }
+        }
+      }
+    },
+    "Ok" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
           }
         }
       }

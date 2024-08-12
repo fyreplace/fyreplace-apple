@@ -1,3 +1,4 @@
+import OpenAPIURLSession
 import SwiftUI
 
 struct Config {
@@ -54,23 +55,33 @@ struct Config {
         struct Api {
             let main: URL
             let dev: URL
-            let local: URL?
+            #if DEBUG
+                let local: URL
+            #endif
 
             init(_ data: [String: Any]) {
                 main = data.url("Main")!
                 dev = data.url("Dev")!
-                local = data.url("Local")
+                #if DEBUG
+                    local = data.url("Local")!
+                #endif
             }
 
-            func url(for environment: ServerEnvironment) -> URL? {
-                switch environment {
+            func url(for environment: ServerEnvironment) -> URL {
+                return switch environment {
                 case .main:
                     main
                 case .dev:
                     dev
-                case .local:
-                    local
+                #if DEBUG
+                    case .local:
+                        local
+                #endif
                 }
+            }
+
+            func client(for environment: ServerEnvironment) -> Client {
+                return Client(serverURL: url(for: environment), transport: URLSessionTransport())
             }
         }
     }

@@ -1,8 +1,11 @@
 import SwiftUI
 
 struct RegularNavigation: View {
-    @Environment(\.destinationCommands)
-    private var destinationCommands
+    @EnvironmentObject
+    private var eventBus: EventBus
+
+    @Environment(\.isInForeground)
+    private var isInForeground
 
     #if os(macOS)
         @SceneStorage("RegularNavigation.selectedDestination")
@@ -35,8 +38,12 @@ struct RegularNavigation: View {
                 Screen(destination: finalDestination)
             }
         }
-        .onReceive(destinationCommands) {
-            selectedDestination = $0
+        .onReceive(
+            eventBus.events
+                .filter { _ in isInForeground }
+                .compactMap { $0 as? NavigationShortcutEvent }
+        ) {
+            selectedDestination = $0.destination
         }
     }
 }
