@@ -4,8 +4,6 @@
 <dict>
 	<key>App</key>
 	<dict>
-		<key>Name</key>
-		<string>$(PRODUCT_NAME)</string>
 		<key>Api</key>
 		<dict>
 			<key>Dev</key>
@@ -24,7 +22,13 @@
 			<key>Website</key>
 			<string>$(FYREPLACE_WEBSITE)</string>
 		</dict>
+		<key>Name</key>
+		<string>$(PRODUCT_NAME)</string>
 	</dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>app.fyreplace.Fyreplace.tokenRefresh</string>
+	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>Sentry</key>
@@ -34,6 +38,7 @@
 	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
 </dict>

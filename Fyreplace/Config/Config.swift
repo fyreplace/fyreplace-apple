@@ -83,7 +83,11 @@ struct Config {
             }
 
             func client(for environment: ServerEnvironment) -> Client {
-                return Client(serverURL: url(for: environment), transport: URLSessionTransport())
+                return Client(
+                    serverURL: url(for: environment),
+                    transport: URLSessionTransport(),
+                    middlewares: [AuthenticationMiddleware()]
+                )
             }
         }
     }

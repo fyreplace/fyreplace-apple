@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct MainView: View, MainViewProtocol {
-    let eventBus: EventBus
-
     @State
     var showError = false
 
@@ -15,19 +13,14 @@ struct MainView: View, MainViewProtocol {
     @State
     var failures: [FailureEvent] = []
 
-    @Environment(\.config)
-    private var config
+    @EnvironmentObject
+    private var eventBus: EventBus
 
-    #if os(macOS)
-        @Environment(\.controlActiveState)
-        private var status
-    #else
-        @Environment(\.scenePhase)
-        private var status
-    #endif
+    @Environment(\.api)
+    private var client
 
-    @AppStorage("connection.environment")
-    private var environment = ServerEnvironment.default
+    @KeychainStorage("connection.token")
+    private var token
 
     var body: some View {
         #if os(macOS)
@@ -37,9 +30,6 @@ struct MainView: View, MainViewProtocol {
         #endif
 
         navigation
-            .environment(\.isInForeground, status != .inactive)
-            .environment(\.api, config.app.api.client(for: environment))
-            .environmentObject(eventBus)
             .alert(
                 isPresented: $showError,
                 error: errors.first
@@ -64,13 +54,28 @@ struct MainView: View, MainViewProtocol {
                     Text(failure.text)
                 }
             )
-            .onReceive(eventBus.events.compactMap { ($0 as? ErrorEvent)?.error }, perform: addError(_:))
-            .onReceive(eventBus.events.compactMap { ($0 as? FailureEvent) }, perform: addFailure(_:))
+            .onReceive(eventBus.events.compactMap { ($0 as? ErrorEvent)?.error }, perform: addError)
+            .onReceive(eventBus.events.compactMap { ($0 as? FailureEvent) }, perform: addFailure)
+        #if os(macOS)
+            .task { await keepRefreshingToken() }
+        #endif
+    }
+
+    private func keepRefreshingToken() async {
+        do {
+            while true {
+                try await Task.sleep(for: .seconds(tokenRefreshDelaySeconds))
+
+                if let newToken = await refreshToken(using: client) {
+                    token = newToken
+                }
+            }
+        } catch {}
     }
 }
 
 #Preview {
-    MainView(eventBus: .init())
+    MainView()
 }
 
 struct ForegroundEnvironmentKey: EnvironmentKey {

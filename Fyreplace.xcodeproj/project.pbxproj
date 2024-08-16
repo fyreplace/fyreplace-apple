@@ -17,6 +17,7 @@
 		4D13AF7B2C4E8F4200845FDB /* EnvironmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13AF7A2C4E8F4200845FDB /* EnvironmentPicker.swift */; };
 		4D13AF812C4E907200845FDB /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13AF802C4E907200845FDB /* Environment.swift */; };
 		4D39A4C82BF516B7003FA52E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4D39A4C72BF516B7003FA52E /* Localizable.xcstrings */; };
+		4D4AF71C2C7CE72900621FF3 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AF71B2C7CE72900621FF3 /* Tokens.swift */; };
 		4D4D394A2C086DA2007196D2 /* PublishedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D39492C086DA2007196D2 /* PublishedScreen.swift */; };
 		4D51F2802C621ADB0018E76E /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51F27F2C621ADB0018E76E /* ViewProtocol.swift */; };
 		4D51F2842C621B8D0018E76E /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51F2832C621B8D0018E76E /* EventBus.swift */; };
@@ -53,7 +54,10 @@
 		4DC5B1CD2C6FA28E00B75A07 /* RegisterScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5B1CC2C6FA28E00B75A07 /* RegisterScreenProtocol.swift */; };
 		4DC5B1CF2C6FA2BE00B75A07 /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5B1CE2C6FA2BE00B75A07 /* MainViewProtocol.swift */; };
 		4DC5B1D62C6FEA2100B75A07 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5B1D52C6FEA2100B75A07 /* Keychain.swift */; };
+		4DC5B1D92C720B9800B75A07 /* AuthenticationMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5B1D82C720B9800B75A07 /* AuthenticationMiddleware.swift */; };
 		4DC5B1E02C7277B300B75A07 /* AuthenticatingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5B1DF2C7277B300B75A07 /* AuthenticatingScreen.swift */; };
+		4DC5B1F42C7A137B00B75A07 /* SettingsScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5B1F32C7A137B00B75A07 /* SettingsScreenProtocol.swift */; };
+		4DC5B1F72C7A2F3700B75A07 /* EnvironmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5B1F62C7A2F3700B75A07 /* EnvironmentView.swift */; };
 		4DCE062B2C08E5E200F69AF1 /* CompactNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE062A2C08E5E200F69AF1 /* CompactNavigation.swift */; };
 		4DCE062D2C08E65300F69AF1 /* RegularNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE062C2C08E65300F69AF1 /* RegularNavigation.swift */; };
 		4DE140CD2C52688000A699AE /* DestinationCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE140CC2C52687F00A699AE /* DestinationCommands.swift */; };
@@ -90,6 +94,7 @@
 		4D13AF7A2C4E8F4200845FDB /* EnvironmentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentPicker.swift; sourceTree = "<group>"; };
 		4D13AF802C4E907200845FDB /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		4D39A4C72BF516B7003FA52E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		4D4AF71B2C7CE72900621FF3 /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
 		4D4D39492C086DA2007196D2 /* PublishedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedScreen.swift; sourceTree = "<group>"; };
 		4D51F27F2C621ADB0018E76E /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		4D51F2832C621B8D0018E76E /* EventBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
@@ -139,7 +144,10 @@
 		4DC5B1CC2C6FA28E00B75A07 /* RegisterScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenProtocol.swift; sourceTree = "<group>"; };
 		4DC5B1CE2C6FA2BE00B75A07 /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
 		4DC5B1D52C6FEA2100B75A07 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		4DC5B1D82C720B9800B75A07 /* AuthenticationMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMiddleware.swift; sourceTree = "<group>"; };
 		4DC5B1DF2C7277B300B75A07 /* AuthenticatingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatingScreen.swift; sourceTree = "<group>"; };
+		4DC5B1F32C7A137B00B75A07 /* SettingsScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenProtocol.swift; sourceTree = "<group>"; };
+		4DC5B1F62C7A2F3700B75A07 /* EnvironmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentView.swift; sourceTree = "<group>"; };
 		4DCE062A2C08E5E200F69AF1 /* CompactNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactNavigation.swift; sourceTree = "<group>"; };
 		4DCE062C2C08E65300F69AF1 /* RegularNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularNavigation.swift; sourceTree = "<group>"; };
 		4DCE06312C09E19400F69AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,6 +192,8 @@
 			children = (
 				4D13AF802C4E907200845FDB /* Environment.swift */,
 				4DC5B1D52C6FEA2100B75A07 /* Keychain.swift */,
+				4DC5B1D82C720B9800B75A07 /* AuthenticationMiddleware.swift */,
+				4D4AF71B2C7CE72900621FF3 /* Tokens.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -210,6 +220,7 @@
 				4D54C96C2BF4E9BE001DE071 /* ArchiveScreen.swift */,
 				4D54C96E2BF4E9DF001DE071 /* DraftsScreen.swift */,
 				4D4D39492C086DA2007196D2 /* PublishedScreen.swift */,
+				4DC5B1F32C7A137B00B75A07 /* SettingsScreenProtocol.swift */,
 				4D54C9702BF4EA15001DE071 /* SettingsScreen.swift */,
 				4DC5B1C92C6FA23000B75A07 /* LoginScreenProtocol.swift */,
 				4D9B3B372C334B3A00A8F7AD /* LoginScreen.swift */,
@@ -337,6 +348,7 @@
 				4D5251E82C10532100018CD2 /* Navigation */,
 				4D4D394B2C086DD3007196D2 /* Screens */,
 				4D51F27F2C621ADB0018E76E /* ViewProtocol.swift */,
+				4DC5B1F62C7A2F3700B75A07 /* EnvironmentView.swift */,
 				4DC5B1CE2C6FA2BE00B75A07 /* MainViewProtocol.swift */,
 				4D54C92D2BF2608A001DE071 /* MainView.swift */,
 			);
@@ -589,6 +601,7 @@
 			files = (
 				4D9B3B3D2C34B13E00A8F7AD /* LogoHeader.swift in Sources */,
 				4DA7BFBB2C5FDEC1005CC4FF /* FakeClient.swift in Sources */,
+				4D4AF71C2C7CE72900621FF3 /* Tokens.swift in Sources */,
 				4D54C9712BF4EA15001DE071 /* SettingsScreen.swift in Sources */,
 				4D13AF7B2C4E8F4200845FDB /* EnvironmentPicker.swift in Sources */,
 				4DC5B1CF2C6FA2BE00B75A07 /* MainViewProtocol.swift in Sources */,
@@ -600,8 +613,10 @@
 				4DE140CD2C52688000A699AE /* DestinationCommands.swift in Sources */,
 				4D54C96B2BF4E97E001DE071 /* NotificationsScreen.swift in Sources */,
 				4D51F2802C621ADB0018E76E /* ViewProtocol.swift in Sources */,
+				4DC5B1D92C720B9800B75A07 /* AuthenticationMiddleware.swift in Sources */,
 				4D9B3B472C36F50300A8F7AD /* UITextContentType.swift in Sources */,
 				4D9B3B382C334B3A00A8F7AD /* LoginScreen.swift in Sources */,
+				4DC5B1F72C7A2F3700B75A07 /* EnvironmentView.swift in Sources */,
 				4DC5B1E02C7277B300B75A07 /* AuthenticatingScreen.swift in Sources */,
 				4D5251EF2C1098E900018CD2 /* MultiChoiceScreen.swift in Sources */,
 				4DB10B502C4FEBFC00634BF6 /* HelpCommands.swift in Sources */,
@@ -612,6 +627,7 @@
 				4DCE062B2C08E5E200F69AF1 /* CompactNavigation.swift in Sources */,
 				4DCE062D2C08E65300F69AF1 /* RegularNavigation.swift in Sources */,
 				4D54C9692BF4E8F4001DE071 /* FeedScreen.swift in Sources */,
+				4DC5B1F42C7A137B00B75A07 /* SettingsScreenProtocol.swift in Sources */,
 				4DC5B1D62C6FEA2100B75A07 /* Keychain.swift in Sources */,
 				4D9B3B3A2C334B6300A8F7AD /* RegisterScreen.swift in Sources */,
 				4DB2E36D2C416611007F958D /* SubmitButton.swift in Sources */,

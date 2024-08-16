@@ -60,8 +60,13 @@ extension LoginScreenProtocol {
             switch response.body {
             case let .plainText(body):
                 token = try await .init(collecting: body, upTo: 1024)
+                identifier = ""
                 randomCode = ""
                 isWaitingForRandomCode = false
+
+                #if !os(macOS)
+                    scheduleTokenRefresh()
+                #endif
             }
         case .badRequest:
             eventBus.send(.failure(title: "Login.Error.BadRequest.Title", text: "Login.Error.BadRequest.Message"))

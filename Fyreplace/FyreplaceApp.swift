@@ -17,7 +17,7 @@ struct FyreplaceApp: App {
         let eventBus = EventBus()
 
         WindowGroup {
-            MainView(eventBus: eventBus)
+            EnvironmentView(eventBus: eventBus)
         }
         .commands {
             ToolbarCommands()
@@ -25,5 +25,8 @@ struct FyreplaceApp: App {
             DestinationCommands(eventBus: eventBus)
             HelpCommands()
         }
+        #if !os(macOS)
+        .backgroundTask(.appRefresh("app.fyreplace.Fyreplace.tokenRefresh"), action: tokenRefreshBackgroundTask)
+        #endif
     }
 }

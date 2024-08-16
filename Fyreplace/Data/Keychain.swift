@@ -3,7 +3,7 @@ import Security
 import SwiftUI
 
 struct Keychain {
-    let service: String
+    private let service: String
 
     private var query: [CFString: Any] {
         [
@@ -12,6 +12,10 @@ struct Keychain {
             kSecAttrLabel: Config.default.app.name,
             kSecAttrService: service,
         ]
+    }
+
+    init(service: String) {
+        self.service = service.replacing(".", with: ":")
     }
 
     func get() -> String {
@@ -72,9 +76,8 @@ struct KeychainStorage: DynamicProperty {
     }
 
     init(_ key: String) {
-        let cleanKey = key.replacing(".", with: ":")
-        keychain = .init(service: cleanKey)
-        cache = .shared(for: cleanKey, defaultValue: keychain.get())
+        keychain = .init(service: key)
+        cache = .shared(for: key, defaultValue: keychain.get())
     }
 }
 
