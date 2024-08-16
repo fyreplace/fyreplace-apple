@@ -138,14 +138,6 @@ extension FakeClient {
     }
 }
 
-// MARK: Stored files
-
-extension FakeClient {
-    func getStoredFile(_: Operations.getStoredFile.Input) async throws -> Operations.getStoredFile.Output {
-        fatalError("Not implemented")
-    }
-}
-
 // MARK: Subscriptions
 
 extension FakeClient {
