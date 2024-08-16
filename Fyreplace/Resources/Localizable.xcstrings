@@ -34,6 +34,16 @@
         }
       }
     },
+    "Cancel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
     "Environment.Default" : {
       "localizations" : {
         "en" : {
@@ -134,6 +144,26 @@
         }
       }
     },
+    "Login.Error.BadRequest.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check if the code you provided is correct."
+          }
+        }
+      }
+    },
+    "Login.Error.BadRequest.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid code"
+          }
+        }
+      }
+    },
     "Login.Error.NotFound.Message" : {
       "localizations" : {
         "en" : {
@@ -164,6 +194,16 @@
         }
       }
     },
+    "Login.Help.RandomCode" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A one-time use code has been sent to your email address."
+          }
+        }
+      }
+    },
     "Login.Identifier" : {
       "localizations" : {
         "en" : {
@@ -180,6 +220,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Username or email"
+          }
+        }
+      }
+    },
+    "Login.RandomCode" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One-time code"
+          }
+        }
+      }
+    },
+    "Login.RandomCode.Prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123456"
           }
         }
       }
@@ -370,6 +430,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Only letters, numbers and dashes"
+          }
+        }
+      }
+    },
+    "Settings.Logout" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logout"
           }
         }
       }

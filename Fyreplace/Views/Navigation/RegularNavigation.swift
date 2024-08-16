@@ -15,7 +15,10 @@ struct RegularNavigation: View {
         private var selectedDestination: Destination?
     #endif
 
-    private var finalDestination: Destination {
+    @KeychainStorage("connection.token")
+    private var token
+
+    private var undeniableDestination: Destination {
         #if os(macOS)
             selectedDestination
         #else
@@ -29,13 +32,20 @@ struct RegularNavigation: View {
                 NavigationLink(value: destination) {
                     Label(destination)
                 }
+                .disabled(destination.requiresAuthentication && token.isEmpty)
             }
             #if os(macOS)
             .navigationSplitViewColumnWidth(min: 180, ideal: 180)
             #endif
         } detail: {
             NavigationStack {
-                Screen(destination: finalDestination)
+                if undeniableDestination.canOfferAuthentication {
+                    AuthenticatingScreen {
+                        Screen(destination: undeniableDestination)
+                    }
+                } else {
+                    Screen(destination: undeniableDestination)
+                }
             }
         }
         .onReceive(

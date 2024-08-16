@@ -6,6 +6,8 @@ struct MultiChoiceScreen: View {
     @Binding
     var choice: Destination
 
+    var canChoose = true
+
     var body: some View {
         ZStack {
             Screen(destination: choice)
@@ -17,9 +19,9 @@ struct MultiChoiceScreen: View {
                         Text(choice.titleKey).tag(choice)
                     }
                 }
+                .disabled(!canChoose)
                 .pickerStyle(.segmented)
                 .fixedSize()
-                .accessibilityIdentifier("tabs")
             }
         }
         #if !os(macOS)

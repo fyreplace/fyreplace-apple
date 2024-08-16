@@ -32,10 +32,12 @@ struct Config {
     }
 
     struct App {
+        let name: String
         let info: Info
         let api: Api
 
         init(_ data: [String: Any]) {
+            name = data.string("Name")!
             info = .init(data.dictionary("Info")!)
             api = .init(data.dictionary("Api")!)
         }

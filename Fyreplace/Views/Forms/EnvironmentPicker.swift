@@ -4,10 +4,10 @@ struct EnvironmentPicker: View {
     let namespace: Namespace.ID
 
     @AppStorage("connection.environment")
-    private var selection = ServerEnvironment.default
+    private var selectedEnvironment = ServerEnvironment.default
 
     var body: some View {
-        Picker("Environment.Title", selection: $selection) {
+        Picker("Environment.Title", selection: $selectedEnvironment) {
             ForEach(ServerEnvironment.allCases) { environment in
                 let suffix = environment == .default
                     ? " " + .init(localized: "Environment.Default")

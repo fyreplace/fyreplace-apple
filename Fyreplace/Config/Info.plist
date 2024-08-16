@@ -4,6 +4,8 @@
 <dict>
 	<key>App</key>
 	<dict>
+		<key>Name</key>
+		<string>$(PRODUCT_NAME)</string>
 		<key>Api</key>
 		<dict>
 			<key>Dev</key>

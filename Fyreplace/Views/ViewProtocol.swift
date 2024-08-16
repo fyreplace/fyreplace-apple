@@ -1,14 +1,14 @@
 import OpenAPIRuntime
 import Sentry
 
-protocol StatefulProtocol {
-    associatedtype State
+protocol ViewProtocol {}
 
-    var state: State { get }
+protocol LoadingViewProtocol: ViewProtocol {
+    var isLoading: Bool { get nonmutating set }
 }
 
 @MainActor
-extension StatefulProtocol {
+extension ViewProtocol {
     func call(failOn eventBus: EventBus, action: () async throws -> Void) async {
         do {
             try await action()
@@ -22,11 +22,11 @@ extension StatefulProtocol {
 }
 
 @MainActor
-extension StatefulProtocol where State: LoadingViewState {
+extension LoadingViewProtocol {
     func callWhileLoading(failOn eventBus: EventBus, action: () async throws -> Void) async {
-        state.isLoading = true
+        isLoading = true
         await call(failOn: eventBus, action: action)
-        state.isLoading = false
+        isLoading = false
     }
 }
 

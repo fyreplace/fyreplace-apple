@@ -5,7 +5,6 @@ struct PublishedScreen: View {
         Text(Destination.published.titleKey)
             .padding()
             .navigationTitle(Destination.published.titleKey)
-            .accessibilityIdentifier(Destination.published.id)
     }
 }
 

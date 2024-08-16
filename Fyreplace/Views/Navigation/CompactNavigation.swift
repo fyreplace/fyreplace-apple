@@ -7,21 +7,19 @@ struct CompactNavigation: View {
     @SceneStorage("CompactNavigation.selectedChoices")
     private var selectedChoices = Destination.essentials
 
+    @KeychainStorage("connection.token")
+    private var token
+
     var body: some View {
         TabView(selection: $selectedTab) {
-            let destinations = Destination.essentials
-
-            ForEach(Array(destinations.enumerated()), id: \.element.id) { i, destination in
+            ForEach(Array(Destination.essentials.enumerated()), id: \.element.id) { i, destination in
                 NavigationStack {
-                    let children = Destination.all.filter { $0.parent == destination }
+                    let content = CompactNavigationDestination(destination: destination, multiScreenChoice: $selectedChoices[i])
 
-                    if children.isEmpty {
-                        Screen(destination: destination)
+                    if destination.canOfferAuthentication {
+                        AuthenticatingScreen { content }
                     } else {
-                        MultiChoiceScreen(
-                            choices: [destination] + children,
-                            choice: $selectedChoices[i]
-                        )
+                        content
                     }
                 }
                 .tabItem { Label(destination) }
@@ -33,4 +31,23 @@ struct CompactNavigation: View {
 
 #Preview {
     CompactNavigation()
+}
+
+private struct CompactNavigationDestination: View {
+    let destination: Destination
+
+    let multiScreenChoice: Binding<Destination>
+
+    var body: some View {
+        let children = Destination.all.filter { $0.parent == destination }
+
+        if children.isEmpty {
+            Screen(destination: destination)
+        } else {
+            MultiChoiceScreen(
+                choices: [destination] + children,
+                choice: multiScreenChoice
+            )
+        }
+    }
 }

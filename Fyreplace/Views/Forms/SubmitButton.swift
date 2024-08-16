@@ -2,37 +2,43 @@ import SwiftUI
 
 struct SubmitButton: View {
     let text: LocalizedStringKey
-    let canSubmit: Bool
     let isLoading: Bool
     let submit: () -> Void
 
+    @Namespace
+    private var namespace
+
+    @Environment(\.isEnabled)
+    private var isEnabled
+
     var body: some View {
-        HStack {
-            Spacer()
-
-            let button = Button(action: submit) {
-                Text(text).padding(.horizontal)
-            }
-            .disabled(!canSubmit)
-            .animation(.default, value: canSubmit)
-            .controlSize(.large)
-            .accessibilityIdentifier("submit")
-
+        let button = Button(action: submit) {
+            Text(text)
             #if os(macOS)
-                if canSubmit {
-                    button.buttonStyle(.borderedProminent)
-                } else {
-                    button
-                }
-            #else
-                if isLoading {
-                    ProgressView()
-                } else {
-                    button
+                .padding(.horizontal)
+                .opacity(isLoading ? 0 : 1)
+                .overlay {
+                    if isLoading {
+                        ProgressView().controlSize(.small)
+                    }
                 }
             #endif
-
-            Spacer()
         }
+        .animation(.default, value: isEnabled)
+        .matchedGeometryEffect(id: "button", in: namespace)
+
+        #if os(macOS)
+            if isEnabled {
+                button.buttonStyle(.borderedProminent)
+            } else {
+                button
+            }
+        #else
+            if isLoading {
+                ProgressView().controlSize(.regular)
+            } else {
+                button
+            }
+        #endif
     }
 }

@@ -5,7 +5,6 @@ struct DraftsScreen: View {
         Text(Destination.drafts.titleKey)
             .padding()
             .navigationTitle(Destination.drafts.titleKey)
-            .accessibilityIdentifier(Destination.drafts.id)
     }
 }
 

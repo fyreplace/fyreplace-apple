@@ -6,12 +6,6 @@ struct Screen: View {
     @Namespace
     private var namespace
 
-    @StateObject
-    private var loginState = LoginScreen.State()
-
-    @StateObject
-    private var registerState = RegisterScreen.State()
-
     var body: some View {
         switch destination {
         case .feed:
@@ -27,9 +21,9 @@ struct Screen: View {
         case .settings:
             SettingsScreen()
         case .login:
-            LoginScreen(namespace: namespace, state: loginState)
+            LoginScreen(namespace: namespace)
         case .register:
-            RegisterScreen(namespace: namespace, state: registerState)
+            RegisterScreen(namespace: namespace)
         }
     }
 }

@@ -72,6 +72,29 @@ public enum Destination: String, CaseIterable, Identifiable, Codable {
         }
     }
 
+    var canOfferAuthentication: Bool {
+        switch self {
+        case .feed,
+             .login,
+             .register:
+            false
+        default:
+            true
+        }
+    }
+
+    var requiresAuthentication: Bool {
+        switch self {
+        case .feed,
+             .settings,
+             .login,
+             .register:
+            false
+        default:
+            true
+        }
+    }
+
     var keyboardShortcut: KeyboardShortcut? {
         switch self {
         case .feed:

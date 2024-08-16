@@ -5,7 +5,6 @@ struct ArchiveScreen: View {
         Text(Destination.archive.titleKey)
             .padding()
             .navigationTitle(Destination.archive.titleKey)
-            .accessibilityIdentifier(Destination.archive.id)
     }
 }
 

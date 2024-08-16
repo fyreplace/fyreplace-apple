@@ -5,7 +5,6 @@ struct NotificationsScreen: View {
         Text(Destination.notifications.titleKey)
             .padding()
             .navigationTitle(Destination.notifications.titleKey)
-            .accessibilityIdentifier(Destination.notifications.id)
     }
 }
 
