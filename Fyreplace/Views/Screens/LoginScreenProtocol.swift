@@ -28,6 +28,13 @@ extension LoginScreenProtocol {
         }
     }
 
+    func cancel() {
+        withAnimation {
+            isWaitingForRandomCode = false
+            randomCode = ""
+        }
+    }
+
     func sendEmail() async throws -> Bool {
         let response = try await client.createNewToken(body: .json(.init(identifier: identifier)))
 

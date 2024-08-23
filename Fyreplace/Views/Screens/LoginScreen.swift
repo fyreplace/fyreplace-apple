@@ -36,27 +36,25 @@ struct LoginScreen: View, LoginScreenProtocol {
         .disabled(!canSubmit)
         .matchedGeometryEffect(id: "submit", in: namespace)
 
-        let cancelButton = Button(role: .cancel) {
-            withAnimation {
-                isWaitingForRandomCode = false
-                randomCode = ""
-            }
-        } label: {
+        let cancelButton = Button(role: .cancel, action: cancel) {
             Text("Cancel").padding(.horizontal)
         }
         .disabled(!isWaitingForRandomCode)
 
+        let footer = isWaitingForRandomCode
+            ? VStack {
+                if isWaitingForRandomCode {
+                    Text("Login.Help.RandomCode")
+                }
+            }
+            : nil
+
         DynamicForm {
             Section(
                 header: LogoHeader(text: "Login.Header", namespace: namespace),
-                footer: VStack {
-                    if isWaitingForRandomCode {
-                        Text("Login.Help.RandomCode")
-                    }
-                }
+                footer: footer
             ) {
-                EnvironmentPicker(namespace: namespace)
-                    .disabled(isWaitingForRandomCode)
+                EnvironmentPicker(namespace: namespace).disabled(isWaitingForRandomCode)
 
                 TextField("Login.Identifier", text: $identifier, prompt: Text("Login.Identifier.Prompt"))
                     .autocorrectionDisabled()
