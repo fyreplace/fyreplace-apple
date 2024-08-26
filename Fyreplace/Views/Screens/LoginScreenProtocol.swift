@@ -13,7 +13,7 @@ protocol LoginScreenProtocol: LoadingViewProtocol {
 @MainActor
 extension LoginScreenProtocol {
     var canSubmit: Bool {
-        !isLoading && (isWaitingForRandomCode ? randomCode.count == 6 : 3 ... 254 ~= identifier.count)
+        !isLoading && (isWaitingForRandomCode ? randomCode.count >= 8 : 3 ... 254 ~= identifier.count)
     }
 
     func submit() async {

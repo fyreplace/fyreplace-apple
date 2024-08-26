@@ -159,8 +159,8 @@ extension FakeClient {
 extension FakeClient {
     static let badIdentifer = "bad-identifier"
     static let goodIdentifer = "good-identifier"
-    static let badSecret = "000000"
-    static let goodSecret = "123456"
+    static let badSecret = "nopenope"
+    static let goodSecret = "abcd1234"
     static let badToken = "bad-token"
     static let goodToken = "good-token"
 

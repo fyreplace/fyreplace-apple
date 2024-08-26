@@ -48,6 +48,9 @@ struct RegisterScreen: View, RegisterScreenProtocol {
                     .submitLabel(.next)
                     .onSubmit { focused = .email }
                     .matchedGeometryEffect(id: "first-field", in: namespace)
+                #if !os(macOS)
+                    .keyboardType(.asciiCapable)
+                #endif
 
                 TextField("Register.Email", text: $email, prompt: emailPrompt)
                     .textContentType(.email)

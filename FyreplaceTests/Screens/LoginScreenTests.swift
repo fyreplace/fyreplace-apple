@@ -64,12 +64,10 @@ final class LoginScreenTests: XCTestCase {
         let screen = FakeScreen(eventBus: .init(), client: .fake())
         screen.identifier = FakeClient.goodIdentifer
         screen.isWaitingForRandomCode = true
-        screen.randomCode = "12345"
+        screen.randomCode = "abcd123"
         XCTAssertFalse(screen.canSubmit)
-        screen.randomCode = "123456"
+        screen.randomCode = "abcd1234"
         XCTAssertTrue(screen.canSubmit)
-        screen.randomCode = "1234567"
-        XCTAssertFalse(screen.canSubmit)
     }
 
     @MainActor

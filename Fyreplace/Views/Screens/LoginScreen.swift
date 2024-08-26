@@ -64,6 +64,9 @@ struct LoginScreen: View, LoginScreenProtocol {
                     .disabled(isWaitingForRandomCode)
                     .onSubmit(submit)
                     .matchedGeometryEffect(id: "first-field", in: namespace)
+                #if !os(macOS)
+                    .keyboardType(.asciiCapable)
+                #endif
 
                 if isWaitingForRandomCode {
                     TextField("Login.RandomCode", text: $randomCode, prompt: Text("Login.RandomCode.Prompt"))
@@ -77,7 +80,7 @@ struct LoginScreen: View, LoginScreenProtocol {
                             }
                         }
                     #if !os(macOS)
-                        .keyboardType(.numberPad)
+                        .keyboardType(.asciiCapable)
                     #endif
                 }
             }
