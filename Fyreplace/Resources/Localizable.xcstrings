@@ -134,6 +134,26 @@
         }
       }
     },
+    "Error.Forbidden.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unauthorized request was sent to the server."
+          }
+        }
+      }
+    },
+    "Error.Forbidden.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forbidden"
+          }
+        }
+      }
+    },
     "Error.Unknown" : {
       "localizations" : {
         "en" : {

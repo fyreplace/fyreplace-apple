@@ -43,6 +43,8 @@ extension LoginScreenProtocol {
             return true
         case .badRequest:
             eventBus.send(.failure(title: "Error.BadRequest.Title", text: "Error.BadRequest.Message"))
+        case .forbidden:
+            eventBus.send(.failure(title: "Error.Forbidden.Title", text: "Error.Forbidden.Message"))
         case .notFound:
             eventBus.send(.failure(title: "Login.Error.NotFound.Title", text: "Login.Error.NotFound.Message"))
         case .default:
