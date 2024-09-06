@@ -83,10 +83,18 @@ struct Config {
             }
 
             func client(for environment: ServerEnvironment) -> Client {
+                let configuration = URLSessionConfiguration.default
+                configuration.waitsForConnectivity = true
+
+                #if os(iOS)
+                configuration.multipathServiceType = .handover
+                #endif
+
                 return Client(
                     serverURL: url(for: environment),
-                    transport: URLSessionTransport(),
-                    middlewares: [AuthenticationMiddleware()]
+                    configuration: .init(dateTranscoder: .iso8601WithFractionalSeconds),
+                    transport: URLSessionTransport(configuration: .init(session: .init(configuration: configuration))),
+                    middlewares: [RequestIdMiddleware(), AuthenticationMiddleware()]
                 )
             }
         }

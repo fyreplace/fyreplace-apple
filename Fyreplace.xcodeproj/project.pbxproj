@@ -61,6 +61,9 @@
 		4DCE062B2C08E5E200F69AF1 /* CompactNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE062A2C08E5E200F69AF1 /* CompactNavigation.swift */; };
 		4DCE062D2C08E65300F69AF1 /* RegularNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCE062C2C08E65300F69AF1 /* RegularNavigation.swift */; };
 		4DE140CD2C52688000A699AE /* DestinationCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE140CC2C52687F00A699AE /* DestinationCommands.swift */; };
+		4DE785822C88B248000EC4E5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE785812C88B248000EC4E5 /* String.swift */; };
+		4DE785852C88EF8C000EC4E5 /* RequestIdMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE785842C88EF8C000EC4E5 /* RequestIdMiddleware.swift */; };
+		4DE785882C88F392000EC4E5 /* HTTPField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE785872C88F392000EC4E5 /* HTTPField.swift */; };
 		4DFB90702C5908DE00D4DABF /* LoginScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB906F2C5908DE00D4DABF /* LoginScreenTests.swift */; };
 		4DFB90762C59173C00D4DABF /* RegisterScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB90752C59173C00D4DABF /* RegisterScreenTests.swift */; };
 /* End PBXBuildFile section */
@@ -155,6 +158,9 @@
 		4DCEF8662C452ECC00F53085 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 		4DD826FD2BF9FDC500799CEB /* Config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Config.sh; sourceTree = "<group>"; };
 		4DE140CC2C52687F00A699AE /* DestinationCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCommands.swift; sourceTree = "<group>"; };
+		4DE785812C88B248000EC4E5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		4DE785842C88EF8C000EC4E5 /* RequestIdMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestIdMiddleware.swift; sourceTree = "<group>"; };
+		4DE785872C88F392000EC4E5 /* HTTPField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPField.swift; sourceTree = "<group>"; };
 		4DFB906F2C5908DE00D4DABF /* LoginScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenTests.swift; sourceTree = "<group>"; };
 		4DFB90752C59173C00D4DABF /* RegisterScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +198,7 @@
 			children = (
 				4D13AF802C4E907200845FDB /* Environment.swift */,
 				4DC5B1D52C6FEA2100B75A07 /* Keychain.swift */,
+				4DE785842C88EF8C000EC4E5 /* RequestIdMiddleware.swift */,
 				4DC5B1D82C720B9800B75A07 /* AuthenticationMiddleware.swift */,
 				4D4AF71B2C7CE72900621FF3 /* Tokens.swift */,
 			);
@@ -380,9 +387,11 @@
 		4D9B3B432C36E64F00A8F7AD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4DE785812C88B248000EC4E5 /* String.swift */,
 				4D9B3B412C36E23A00A8F7AD /* Array+RawRepresentable.swift */,
 				4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */,
 				4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */,
+				4DE785872C88F392000EC4E5 /* HTTPField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -601,6 +610,7 @@
 			files = (
 				4D9B3B3D2C34B13E00A8F7AD /* LogoHeader.swift in Sources */,
 				4DA7BFBB2C5FDEC1005CC4FF /* FakeClient.swift in Sources */,
+				4DE785822C88B248000EC4E5 /* String.swift in Sources */,
 				4D4AF71C2C7CE72900621FF3 /* Tokens.swift in Sources */,
 				4D54C9712BF4EA15001DE071 /* SettingsScreen.swift in Sources */,
 				4D13AF7B2C4E8F4200845FDB /* EnvironmentPicker.swift in Sources */,
@@ -612,6 +622,7 @@
 				4D5251F12C109D0D00018CD2 /* Screen.swift in Sources */,
 				4DE140CD2C52688000A699AE /* DestinationCommands.swift in Sources */,
 				4D54C96B2BF4E97E001DE071 /* NotificationsScreen.swift in Sources */,
+				4DE785882C88F392000EC4E5 /* HTTPField.swift in Sources */,
 				4D51F2802C621ADB0018E76E /* ViewProtocol.swift in Sources */,
 				4DC5B1D92C720B9800B75A07 /* AuthenticationMiddleware.swift in Sources */,
 				4D9B3B472C36F50300A8F7AD /* UITextContentType.swift in Sources */,
@@ -621,6 +632,7 @@
 				4D5251EF2C1098E900018CD2 /* MultiChoiceScreen.swift in Sources */,
 				4DB10B502C4FEBFC00634BF6 /* HelpCommands.swift in Sources */,
 				4D9B3B452C36F46F00A8F7AD /* NSTextContentType.swift in Sources */,
+				4DE785852C88EF8C000EC4E5 /* RequestIdMiddleware.swift in Sources */,
 				4D54C96F2BF4E9DF001DE071 /* DraftsScreen.swift in Sources */,
 				4D51F2862C6232A30018E76E /* Event.swift in Sources */,
 				4DB2E36F2C418F5C007F958D /* DynamicForm.swift in Sources */,
