@@ -5,18 +5,30 @@ struct DestinationCommands: Commands {
 
     var body: some Commands {
         CommandGroup(after: .sidebar) {
-            Divider()
-
-            ForEach(Destination.all) { destination in
-                Button(destination.titleKey) {
-                    Task {
-                        await eventBus.send(.navigationShortcut(to: destination))
-                    }
-                }
-                .keyboardShortcut(destination.keyboardShortcut)
-            }
-
-            Divider()
+            DestinationCommandsContent(eventBus: eventBus)
         }
+    }
+}
+
+struct DestinationCommandsContent: View {
+    let eventBus: EventBus
+
+    @KeychainStorage("connection.token")
+    private var token
+
+    var body: some View {
+        Divider()
+
+        ForEach(Destination.all) { destination in
+            Button(destination.titleKey) {
+                Task {
+                    eventBus.send(.navigationShortcut(to: destination))
+                }
+            }
+            .disabled(destination.requiresAuthentication && token.isEmpty)
+            .keyboardShortcut(destination.keyboardShortcut)
+        }
+
+        Divider()
     }
 }
