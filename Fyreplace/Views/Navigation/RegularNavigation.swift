@@ -15,6 +15,9 @@ struct RegularNavigation: View {
         private var selectedDestination: Destination?
     #endif
 
+    @AppStorage("account.isRegistering")
+    private var isRegistering = false
+
     @KeychainStorage("connection.token")
     private var token
 
@@ -40,7 +43,7 @@ struct RegularNavigation: View {
         } detail: {
             NavigationStack {
                 if undeniableDestination.canOfferAuthentication {
-                    AuthenticatingScreen {
+                    AuthenticatingScreen(isRegistering: isRegistering) {
                         Screen(destination: undeniableDestination)
                     }
                 } else {

@@ -11,6 +11,10 @@ final class RegisterScreenTests: XCTestCase {
         var isLoading = false
         var username = ""
         var email = ""
+        var randomCode = ""
+        var isWaitingForRandomCode = false
+        var isRegistering = false
+        var token = ""
 
         init(eventBus: EventBus, client: APIProtocol) {
             self.eventBus = eventBus
@@ -64,5 +68,77 @@ final class RegisterScreenTests: XCTestCase {
         XCTAssertFalse(screen.canSubmit)
         screen.email = "email@example"
         XCTAssertTrue(screen.canSubmit)
+    }
+
+    @MainActor
+    func testInvalidUsernameProducesFailure() async {
+        let eventBus = StoringEventBus()
+        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        screen.email = FakeClient.goodEmail
+        screen.username = FakeClient.badUsername
+        await screen.submit()
+        XCTAssertEqual(1, eventBus.storedEvents.count)
+        XCTAssert(eventBus.storedEvents.first is FailureEvent)
+        XCTAssertFalse(screen.isWaitingForRandomCode)
+    }
+
+    @MainActor
+    func testInvalidEmailProducesFailure() async {
+        let eventBus = StoringEventBus()
+        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        screen.username = FakeClient.goodUsername
+        screen.email = FakeClient.badEmail
+        await screen.submit()
+        XCTAssertEqual(1, eventBus.storedEvents.count)
+        XCTAssert(eventBus.storedEvents.first is FailureEvent)
+        XCTAssertFalse(screen.isWaitingForRandomCode)
+    }
+
+    @MainActor
+    func testValidUsernameAndEmailProduceNoFailures() async {
+        let eventBus = StoringEventBus()
+        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        screen.username = FakeClient.goodUsername
+        screen.email = FakeClient.goodEmail
+        await screen.submit()
+        XCTAssertEqual(0, eventBus.storedEvents.count)
+        XCTAssertTrue(screen.isWaitingForRandomCode)
+    }
+
+    @MainActor
+    func testRandomCodeMustHaveCorrentLength() async {
+        let screen = FakeScreen(eventBus: .init(), client: .fake())
+        screen.username = FakeClient.goodUsername
+        screen.email = FakeClient.goodEmail
+        screen.isWaitingForRandomCode = true
+        screen.randomCode = "abcd123"
+        XCTAssertFalse(screen.canSubmit)
+        screen.randomCode = "abcd1234"
+        XCTAssertTrue(screen.canSubmit)
+    }
+
+    @MainActor
+    func testInvalidRandomCodeProducesFailure() async {
+        let eventBus = StoringEventBus()
+        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        screen.username = FakeClient.goodUsername
+        screen.email = FakeClient.goodEmail
+        screen.randomCode = FakeClient.badSecret
+        screen.isWaitingForRandomCode = true
+        await screen.submit()
+        XCTAssertEqual(1, eventBus.storedEvents.count)
+        XCTAssert(eventBus.storedEvents.first is FailureEvent)
+    }
+
+    @MainActor
+    func testValidRandomCodeProducesNoFailures() async {
+        let eventBus = StoringEventBus()
+        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        screen.username = FakeClient.goodUsername
+        screen.email = FakeClient.goodEmail
+        screen.randomCode = FakeClient.goodSecret
+        screen.isWaitingForRandomCode = true
+        await screen.submit()
+        XCTAssertEqual(0, eventBus.storedEvents.count)
     }
 }

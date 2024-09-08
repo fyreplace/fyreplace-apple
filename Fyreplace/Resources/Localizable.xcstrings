@@ -4,6 +4,56 @@
     "" : {
 
     },
+    "Account.Error.CreateToken.BadRequest.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check if the code you provided is correct."
+          }
+        }
+      }
+    },
+    "Account.Error.CreateToken.BadRequest.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid code"
+          }
+        }
+      }
+    },
+    "Account.Help.RandomCode" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A one-time use code has been sent to your email address."
+          }
+        }
+      }
+    },
+    "Account.RandomCode" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One-time code"
+          }
+        }
+      }
+    },
+    "Account.RandomCode.Prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "abcd1234"
+          }
+        }
+      }
+    },
     "App.Help.PrivacyPolicy" : {
       "localizations" : {
         "en" : {
@@ -69,7 +119,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "If you don't know what this is, pick \"Production server\""
+            "value" : "If you don't know what this is, pick the default one."
           }
         }
       }
@@ -164,26 +214,6 @@
         }
       }
     },
-    "Login.Error.BadRequest.Message" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Check if the code you provided is correct."
-          }
-        }
-      }
-    },
-    "Login.Error.BadRequest.Title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Invalid code"
-          }
-        }
-      }
-    },
     "Login.Error.NotFound.Message" : {
       "localizations" : {
         "en" : {
@@ -214,16 +244,6 @@
         }
       }
     },
-    "Login.Help.RandomCode" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A one-time use code has been sent to your email address."
-          }
-        }
-      }
-    },
     "Login.Identifier" : {
       "localizations" : {
         "en" : {
@@ -240,26 +260,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Username or email"
-          }
-        }
-      }
-    },
-    "Login.RandomCode" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "One-time code"
-          }
-        }
-      }
-    },
-    "Login.RandomCode.Prompt" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "abcd1234"
           }
         }
       }
@@ -400,6 +400,126 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "email@example.org"
+          }
+        }
+      }
+    },
+    "Register.Error.CreateToken.NotFound.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No user account was found with this email. It might have been deleted if you didn't activate it within one hour."
+          }
+        }
+      }
+    },
+    "Register.Error.CreateToken.NotFound.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User not found"
+          }
+        }
+      }
+    },
+    "Register.Error.CreateUser.BadRequest.Email.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This email address is not valid."
+          }
+        }
+      }
+    },
+    "Register.Error.CreateUser.BadRequest.Email.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid email"
+          }
+        }
+      }
+    },
+    "Register.Error.CreateUser.BadRequest.Username.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This username is not valid."
+          }
+        }
+      }
+    },
+    "Register.Error.CreateUser.BadRequest.Username.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid username"
+          }
+        }
+      }
+    },
+    "Register.Error.CreateUser.Conflict.Email.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This email is already used by someone else."
+          }
+        }
+      }
+    },
+    "Register.Error.CreateUser.Conflict.Email.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email unavailable"
+          }
+        }
+      }
+    },
+    "Register.Error.CreateUser.Conflict.Username.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This username is already used by someone else."
+          }
+        }
+      }
+    },
+    "Register.Error.CreateUser.Conflict.Username.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Username unavailable"
+          }
+        }
+      }
+    },
+    "Register.Error.CreateUser.Forbidden.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This username is not allowed."
+          }
+        }
+      }
+    },
+    "Register.Error.CreateUser.Forbidden.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Username forbidden"
           }
         }
       }

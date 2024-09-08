@@ -1,5 +1,3 @@
-import SwiftUI
-
 protocol LoginScreenProtocol: LoadingViewProtocol {
     var eventBus: EventBus { get }
     var client: APIProtocol { get }
@@ -20,48 +18,55 @@ extension LoginScreenProtocol {
         await callWhileLoading(failOn: eventBus) {
             if isWaitingForRandomCode {
                 try await createToken()
-            } else if try await sendEmail() {
-                withAnimation {
-                    isWaitingForRandomCode = true
-                }
+            } else {
+                try await sendEmail()
             }
         }
     }
 
     func cancel() {
-        withAnimation {
-            isWaitingForRandomCode = false
-            randomCode = ""
-        }
+        isWaitingForRandomCode = false
+        randomCode = ""
     }
 
-    func sendEmail() async throws -> Bool {
+    func sendEmail() async throws {
         let response = try await client.createNewToken(body: .json(.init(identifier: identifier)))
 
         switch response {
         case .ok:
-            return true
+            isWaitingForRandomCode = true
+
         case .badRequest:
-            eventBus.send(.failure(title: "Error.BadRequest.Title", text: "Error.BadRequest.Message"))
+            eventBus.send(.failure(
+                title: "Error.BadRequest.Title",
+                text: "Error.BadRequest.Message"
+            ))
+
         case .forbidden:
-            eventBus.send(.failure(title: "Error.Forbidden.Title", text: "Error.Forbidden.Message"))
+            eventBus.send(.failure(
+                title: "Error.Forbidden.Title",
+                text: "Error.Forbidden.Message"
+            ))
+
         case .notFound:
-            eventBus.send(.failure(title: "Login.Error.NotFound.Title", text: "Login.Error.NotFound.Message"))
+            eventBus.send(.failure(
+                title: "Login.Error.NotFound.Title",
+                text: "Login.Error.NotFound.Message"
+            ))
+
         case .default:
             eventBus.send(.error(UnknownError()))
         }
-
-        return false
     }
 
     func createToken() async throws {
         let response = try await client.createToken(body: .json(.init(identifier: identifier, secret: randomCode)))
 
         switch response {
-        case let .created(response):
-            switch response.body {
-            case let .plainText(body):
-                token = try await .init(collecting: body, upTo: 1024)
+        case let .created(created):
+            switch created.body {
+            case let .plainText(text):
+                token = try await .init(collecting: text, upTo: 1024)
                 identifier = ""
                 randomCode = ""
                 isWaitingForRandomCode = false
@@ -70,10 +75,19 @@ extension LoginScreenProtocol {
                     scheduleTokenRefresh()
                 #endif
             }
+
         case .badRequest:
-            eventBus.send(.failure(title: "Login.Error.BadRequest.Title", text: "Login.Error.BadRequest.Message"))
+            eventBus.send(.failure(
+                title: "Account.Error.CreateToken.BadRequest.Title",
+                text: "Account.Error.CreateToken.BadRequest.Message"
+            ))
+
         case .notFound:
-            eventBus.send(.failure(title: "Login.Error.NotFound.Title", text: "Login.Error.NotFound.Message"))
+            eventBus.send(.failure(
+                title: "Login.Error.NotFound.Title",
+                text: "Login.Error.NotFound.Message"
+            ))
+
         case .default:
             eventBus.send(.error(UnknownError()))
         }

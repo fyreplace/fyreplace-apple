@@ -157,8 +157,8 @@ extension FakeClient {
 // MARK: Tokens
 
 extension FakeClient {
-    static let badIdentifer = "bad-identifier"
-    static let goodIdentifer = "good-identifier"
+    static let badIdentifer = badEmail
+    static let goodIdentifer = goodEmail
     static let badSecret = "nopenope"
     static let goodSecret = "abcd1234"
     static let badToken = "bad-token"
@@ -192,12 +192,48 @@ extension FakeClient {
 // MARK: Users
 
 extension FakeClient {
+    static let badUsername = "bad-username"
+    static let reservedUsername = "reserved-username"
+    static let usedUsername = "used-username"
+    static let goodUsername = "good-username"
+    static let badEmail = "bad-email"
+    static let usedEmail = "used-email"
+    static let goodEmail = "good-email"
+
     func countBlockedUsers(_: Operations.countBlockedUsers.Input) async throws -> Operations.countBlockedUsers.Output {
         fatalError("Not implemented")
     }
 
-    func createUser(_: Operations.createUser.Input) async throws -> Operations.createUser.Output {
-        fatalError("Not implemented")
+    func createUser(_ input: Operations.createUser.Input) async throws -> Operations.createUser.Output {
+        return switch input.body {
+        case let .json(json) where json.username == Self.badUsername:
+            .badRequest(.init(body: .json(.init())))
+
+        case let .json(json) where json.username == Self.reservedUsername:
+            .forbidden(.init(body: .json(.init())))
+
+        case let .json(json) where json.username == Self.usedUsername:
+            .conflict(.init(body: .json(.init())))
+
+        case let .json(json) where json.email == Self.badEmail:
+            .badRequest(.init(body: .json(.init())))
+
+        case let .json(json) where json.email == Self.usedEmail:
+            .conflict(.init(body: .json(.init())))
+
+        case let .json(json):
+            .created(.init(body: .json(.init(
+                id: .randomUuid,
+                dateCreated: .now,
+                username: json.username,
+                rank: .CITIZEN,
+                avatar: "",
+                bio: "",
+                banned: false,
+                blocked: false,
+                tint: "#7F7F7F"
+            ))))
+        }
     }
 
     func deleteCurrentUser(_: Operations.deleteCurrentUser.Input) async throws -> Operations.deleteCurrentUser.Output {

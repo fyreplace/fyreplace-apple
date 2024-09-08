@@ -3,6 +3,7 @@ import BackgroundTasks
 let tokenRefreshDelaySeconds: Double = 60 * 60 * 24
 
 @available(macOS, unavailable)
+@Sendable
 func tokenRefreshBackgroundTask() async {
     let keychain = Keychain(service: "connection.token")
     guard !keychain.get().isEmpty else { return }

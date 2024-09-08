@@ -28,26 +28,11 @@ struct LoginScreen: View, LoginScreenProtocol {
     private var focused: FocusedField?
 
     var body: some View {
-        let submitButton = SubmitButton(
-            text: "Login.Submit",
-            isLoading: isLoading,
-            submit: submit
-        )
-        .disabled(!canSubmit)
-        .matchedGeometryEffect(id: "submit", in: namespace)
-
-        let cancelButton = Button(role: .cancel, action: cancel) {
-            Text("Cancel").padding(.horizontal)
-        }
-        .disabled(!isWaitingForRandomCode)
-
-        let footer = isWaitingForRandomCode
-            ? VStack {
-                if isWaitingForRandomCode {
-                    Text("Login.Help.RandomCode")
-                }
+        let footer = VStack {
+            if isWaitingForRandomCode {
+                Text("Account.Help.RandomCode")
             }
-            : nil
+        }
 
         DynamicForm {
             Section(
@@ -67,7 +52,7 @@ struct LoginScreen: View, LoginScreenProtocol {
                 #endif
 
                 if isWaitingForRandomCode {
-                    TextField("Login.RandomCode", text: $randomCode, prompt: Text("Login.RandomCode.Prompt"))
+                    TextField("Account.RandomCode", text: $randomCode, prompt: Text("Account.RandomCode.Prompt"))
                         .textContentType(.oneTimeCode)
                         .autocorrectionDisabled()
                         .focused($focused, equals: .randomCode)
@@ -89,31 +74,22 @@ struct LoginScreen: View, LoginScreenProtocol {
             }
 
             Section {
-                HStack {
-                    #if os(macOS)
-                        cancelButton.controlSize(.large)
-                        Spacer()
-                        submitButton.controlSize(.large)
-                    #else
-                        Spacer()
-                        submitButton
-                            .toolbar {
-                                if isWaitingForRandomCode {
-                                    ToolbarItem {
-                                        cancelButton
-                                    }
-                                }
-                            }
-                        Spacer()
-                    #endif
-                }
+                SubmitOrCancel(
+                    namespace: namespace,
+                    submitLabel: "Login.Submit",
+                    canSubmit: canSubmit,
+                    canCancel: isWaitingForRandomCode,
+                    isLoading: isLoading,
+                    submitAction: submit,
+                    cancelAction: cancel
+                )
             }
         }
         .disabled(isLoading)
+        .animation(.default, value: isWaitingForRandomCode)
     }
 
     private func submit() {
-        guard canSubmit else { return }
         focused = nil
 
         Task {

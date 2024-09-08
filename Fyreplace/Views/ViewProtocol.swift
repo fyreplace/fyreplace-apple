@@ -13,7 +13,7 @@ extension ViewProtocol {
         do {
             try await action()
         } catch is ClientError {
-            eventBus.send(Event.error(ConnectionError()))
+            eventBus.send(.error(ConnectionError()))
         } catch {
             eventBus.send(.error(UnknownError()))
             SentrySDK.capture(error: error)

@@ -7,8 +7,8 @@ struct CompactNavigation: View {
     @SceneStorage("CompactNavigation.selectedChoices")
     private var selectedChoices = Destination.essentials
 
-    @KeychainStorage("connection.token")
-    private var token
+    @AppStorage("account.isRegistering")
+    private var isRegistering = false
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -17,7 +17,7 @@ struct CompactNavigation: View {
                     let content = CompactNavigationDestination(destination: destination, multiScreenChoice: $selectedChoices[i])
 
                     if destination.canOfferAuthentication {
-                        AuthenticatingScreen { content }
+                        AuthenticatingScreen(isRegistering: isRegistering) { content }
                     } else {
                         content
                     }

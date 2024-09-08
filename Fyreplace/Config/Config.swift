@@ -87,7 +87,7 @@ struct Config {
                 configuration.waitsForConnectivity = true
 
                 #if os(iOS)
-                configuration.multipathServiceType = .handover
+                    configuration.multipathServiceType = .handover
                 #endif
 
                 return Client(

@@ -1,10 +1,127 @@
 protocol RegisterScreenProtocol: LoadingViewProtocol {
+    var eventBus: EventBus { get }
+    var client: APIProtocol { get }
+
     var username: String { get nonmutating set }
     var email: String { get nonmutating set }
+    var randomCode: String { get nonmutating set }
+    var isWaitingForRandomCode: Bool { get nonmutating set }
+    var isRegistering: Bool { get nonmutating set }
+    var token: String { get nonmutating set }
 }
 
+@MainActor
 extension RegisterScreenProtocol {
     var isUsernameValid: Bool { 3 ... 50 ~= username.count }
     var isEmailValid: Bool { 3 ... 254 ~= email.count && email.contains("@") }
-    var canSubmit: Bool { isUsernameValid && isEmailValid && !isLoading }
+    var canSubmit: Bool {
+        !isLoading && (isWaitingForRandomCode ? randomCode.count >= 8 : isUsernameValid && isEmailValid)
+    }
+
+    func submit() async {
+        await callWhileLoading(failOn: eventBus) {
+            if isWaitingForRandomCode {
+                try await createToken()
+            } else {
+                try await sendEmail()
+            }
+        }
+    }
+
+    func cancel() {
+        isWaitingForRandomCode = false
+        randomCode = ""
+        isRegistering = false
+    }
+
+    func sendEmail() async throws {
+        let response = try await client.createUser(body: .json(.init(email: email, username: username)))
+
+        switch response {
+        case .created:
+            isWaitingForRandomCode = true
+            isRegistering = true
+
+        case let .badRequest(badRequest):
+            switch badRequest.body {
+            case let .json(json) where json.violations?.first?.field == "createUser.input.username":
+                eventBus.send(.failure(
+                    title: "Register.Error.CreateUser.BadRequest.Username.Title",
+                    text: "Register.Error.CreateUser.BadRequest.Username.Message"
+                ))
+
+            case let .json(json) where json.violations?.first?.field == "createUser.input.email":
+                eventBus.send(.failure(
+                    title: "Register.Error.CreateUser.BadRequest.Email.Title",
+                    text: "Register.Error.CreateUser.BadRequest.Email.Message"
+                ))
+
+            case .json:
+                eventBus.send(.failure(
+                    title: "Error.BadRequest.Title",
+                    text: "Error.BadRequest.Message"
+                ))
+            }
+
+        case .forbidden:
+            eventBus.send(.failure(
+                title: "Register.Error.CreateUser.Forbidden.Title",
+                text: "Register.Error.CreateUser.Forbidden.Message"
+            ))
+
+        case let .conflict(conflict):
+            switch conflict.body {
+            case let .json(explanation) where explanation.reason == "username_taken":
+                eventBus.send(.failure(
+                    title: "Register.Error.CreateUser.Conflict.Username.Title",
+                    text: "Register.Error.CreateUser.Conflict.Username.Message"
+                ))
+
+            case .json:
+                eventBus.send(.failure(
+                    title: "Register.Error.CreateUser.Conflict.Email.Title",
+                    text: "Register.Error.CreateUser.Conflict.Email.Message"
+                ))
+            }
+
+        case .default:
+            eventBus.send(.error(UnknownError()))
+        }
+    }
+
+    func createToken() async throws {
+        let response = try await client.createToken(body: .json(.init(identifier: email, secret: randomCode)))
+
+        switch response {
+        case let .created(created):
+            switch created.body {
+            case let .plainText(text):
+                token = try await .init(collecting: text, upTo: 1024)
+                username = ""
+                email = ""
+                randomCode = ""
+                isWaitingForRandomCode = false
+                isRegistering = false
+
+                #if !os(macOS)
+                    scheduleTokenRefresh()
+                #endif
+            }
+
+        case .badRequest:
+            eventBus.send(.failure(
+                title: "Account.Error.CreateToken.BadRequest.Title",
+                text: "Account.Error.CreateToken.BadRequest.Message"
+            ))
+
+        case .notFound:
+            eventBus.send(.failure(
+                title: "Register.Error.CreateToken.NotFound.Title",
+                text: "Register.Error.CreateToken.NotFound.Message"
+            ))
+
+        case .default:
+            eventBus.send(.error(UnknownError()))
+        }
+    }
 }

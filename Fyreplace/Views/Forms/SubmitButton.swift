@@ -3,7 +3,7 @@ import SwiftUI
 struct SubmitButton: View {
     let text: LocalizedStringKey
     let isLoading: Bool
-    let submit: () -> Void
+    let action: () -> Void
 
     @Namespace
     private var namespace
@@ -12,7 +12,7 @@ struct SubmitButton: View {
     private var isEnabled
 
     var body: some View {
-        let button = Button(action: submit) {
+        let button = Button(action: action) {
             Text(text)
             #if os(macOS)
                 .padding(.horizontal)

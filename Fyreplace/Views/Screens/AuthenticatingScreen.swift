@@ -4,14 +4,19 @@ struct AuthenticatingScreen<Content>: View where Content: View {
     @ViewBuilder
     let content: () -> Content
 
-    @SceneStorage("RstrictedScreen.choice")
-    private var choice = Destination.login
-
     @AppStorage("account.isWaitingForRandomCode")
     private var isWaitingForRandomCode = false
 
     @KeychainStorage("connection.token")
     private var token
+
+    @State
+    private var choice: Destination
+
+    init(isRegistering: Bool, content: @escaping () -> Content) {
+        self.content = content
+        choice = isRegistering ? .register : .login
+    }
 
     var body: some View {
         if token.isEmpty {
