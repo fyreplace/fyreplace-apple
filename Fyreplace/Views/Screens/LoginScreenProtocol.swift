@@ -1,6 +1,6 @@
 protocol LoginScreenProtocol: LoadingViewProtocol {
     var eventBus: EventBus { get }
-    var client: APIProtocol { get }
+    var api: APIProtocol { get }
 
     var identifier: String { get nonmutating set }
     var randomCode: String { get nonmutating set }
@@ -30,7 +30,7 @@ extension LoginScreenProtocol {
     }
 
     func sendEmail() async throws {
-        let response = try await client.createNewToken(body: .json(.init(identifier: identifier)))
+        let response = try await api.createNewToken(body: .json(.init(identifier: identifier)))
 
         switch response {
         case .ok:
@@ -60,7 +60,7 @@ extension LoginScreenProtocol {
     }
 
     func createToken() async throws {
-        let response = try await client.createToken(body: .json(.init(identifier: identifier, secret: randomCode)))
+        let response = try await api.createToken(body: .json(.init(identifier: identifier, secret: randomCode)))
 
         switch response {
         case let .created(created):

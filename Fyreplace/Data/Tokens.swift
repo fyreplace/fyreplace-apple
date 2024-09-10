@@ -29,8 +29,8 @@ func scheduleTokenRefresh() {
     try? BGTaskScheduler.shared.submit(request)
 }
 
-func refreshToken(using client: APIProtocol) async -> String? {
-    guard let response = try? await client.getNewToken().ok,
+func refreshToken(using api: APIProtocol) async -> String? {
+    guard let response = try? await api.getNewToken().ok,
           let newToken = try? await String(collecting: response.body.plainText, upTo: 1024)
     else { return nil }
     return newToken

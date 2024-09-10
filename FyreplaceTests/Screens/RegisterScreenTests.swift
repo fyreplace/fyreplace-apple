@@ -6,7 +6,7 @@ import Fyreplace
 final class RegisterScreenTests: XCTestCase {
     class FakeScreen: RegisterScreenProtocol {
         var eventBus: EventBus
-        var client: APIProtocol
+        var api: APIProtocol
 
         var isLoading = false
         var username = ""
@@ -16,15 +16,15 @@ final class RegisterScreenTests: XCTestCase {
         var isRegistering = false
         var token = ""
 
-        init(eventBus: EventBus, client: APIProtocol) {
+        init(eventBus: EventBus, api: APIProtocol) {
             self.eventBus = eventBus
-            self.client = client
+            self.api = api
         }
     }
 
     @MainActor
     func testUsernameMustHaveCorrectLength() {
-        let screen = FakeScreen(eventBus: .init(), client: .fake())
+        let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.email = "email@example"
 
         for i in 0 ..< 3 {
@@ -43,7 +43,7 @@ final class RegisterScreenTests: XCTestCase {
 
     @MainActor
     func testEmailMustHaveCorrectLength() {
-        let screen = FakeScreen(eventBus: .init(), client: .fake())
+        let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.username = "Example"
 
         for i in 0 ..< 3 {
@@ -62,7 +62,7 @@ final class RegisterScreenTests: XCTestCase {
 
     @MainActor
     func testEmailMustHaveAtSign() {
-        let screen = FakeScreen(eventBus: .init(), client: .fake())
+        let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.username = "Example"
         screen.email = "email"
         XCTAssertFalse(screen.canSubmit)
@@ -73,7 +73,7 @@ final class RegisterScreenTests: XCTestCase {
     @MainActor
     func testInvalidUsernameProducesFailure() async {
         let eventBus = StoringEventBus()
-        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.email = FakeClient.goodEmail
         screen.username = FakeClient.badUsername
         await screen.submit()
@@ -85,7 +85,7 @@ final class RegisterScreenTests: XCTestCase {
     @MainActor
     func testInvalidEmailProducesFailure() async {
         let eventBus = StoringEventBus()
-        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.username = FakeClient.goodUsername
         screen.email = FakeClient.badEmail
         await screen.submit()
@@ -97,7 +97,7 @@ final class RegisterScreenTests: XCTestCase {
     @MainActor
     func testValidUsernameAndEmailProduceNoFailures() async {
         let eventBus = StoringEventBus()
-        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.username = FakeClient.goodUsername
         screen.email = FakeClient.goodEmail
         await screen.submit()
@@ -107,7 +107,7 @@ final class RegisterScreenTests: XCTestCase {
 
     @MainActor
     func testRandomCodeMustHaveCorrentLength() async {
-        let screen = FakeScreen(eventBus: .init(), client: .fake())
+        let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.username = FakeClient.goodUsername
         screen.email = FakeClient.goodEmail
         screen.isWaitingForRandomCode = true
@@ -120,7 +120,7 @@ final class RegisterScreenTests: XCTestCase {
     @MainActor
     func testInvalidRandomCodeProducesFailure() async {
         let eventBus = StoringEventBus()
-        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.username = FakeClient.goodUsername
         screen.email = FakeClient.goodEmail
         screen.randomCode = FakeClient.badSecret
@@ -133,7 +133,7 @@ final class RegisterScreenTests: XCTestCase {
     @MainActor
     func testValidRandomCodeProducesNoFailures() async {
         let eventBus = StoringEventBus()
-        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.username = FakeClient.goodUsername
         screen.email = FakeClient.goodEmail
         screen.randomCode = FakeClient.goodSecret

@@ -7,7 +7,7 @@ struct LoginScreen: View, LoginScreenProtocol {
     var eventBus: EventBus
 
     @Environment(\.api)
-    var client
+    var api
 
     @State
     var isLoading = false

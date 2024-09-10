@@ -6,7 +6,7 @@ import Fyreplace
 final class LoginScreenTests: XCTestCase {
     class FakeScreen: LoginScreenProtocol {
         var eventBus: EventBus
-        var client: APIProtocol
+        var api: APIProtocol
 
         var isLoading = false
         var identifier = ""
@@ -14,15 +14,15 @@ final class LoginScreenTests: XCTestCase {
         var isWaitingForRandomCode = false
         var token = ""
 
-        init(eventBus: EventBus, client: APIProtocol) {
+        init(eventBus: EventBus, api: APIProtocol) {
             self.eventBus = eventBus
-            self.client = client
+            self.api = api
         }
     }
 
     @MainActor
     func testIdentifierMustHaveCorrectLength() {
-        let screen = FakeScreen(eventBus: .init(), client: .fake())
+        let screen = FakeScreen(eventBus: .init(), api: .fake())
 
         for i in 0 ..< 3 {
             screen.identifier = .init(repeating: "a", count: i)
@@ -41,7 +41,7 @@ final class LoginScreenTests: XCTestCase {
     @MainActor
     func testInvalidIdentifierProducesFailure() async {
         let eventBus = StoringEventBus()
-        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.identifier = FakeClient.badIdentifer
         await screen.submit()
         XCTAssertEqual(1, eventBus.storedEvents.count)
@@ -52,7 +52,7 @@ final class LoginScreenTests: XCTestCase {
     @MainActor
     func testValidIdentifierProducesNoFailures() async {
         let eventBus = StoringEventBus()
-        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.identifier = FakeClient.goodIdentifer
         await screen.submit()
         XCTAssertEqual(0, eventBus.storedEvents.count)
@@ -61,7 +61,7 @@ final class LoginScreenTests: XCTestCase {
 
     @MainActor
     func testRandomCodeMustHaveCorrentLength() async {
-        let screen = FakeScreen(eventBus: .init(), client: .fake())
+        let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.identifier = FakeClient.goodIdentifer
         screen.isWaitingForRandomCode = true
         screen.randomCode = "abcd123"
@@ -73,7 +73,7 @@ final class LoginScreenTests: XCTestCase {
     @MainActor
     func testInvalidRandomCodeProducesFailure() async {
         let eventBus = StoringEventBus()
-        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.identifier = FakeClient.goodIdentifer
         screen.randomCode = FakeClient.badSecret
         screen.isWaitingForRandomCode = true
@@ -85,7 +85,7 @@ final class LoginScreenTests: XCTestCase {
     @MainActor
     func testValidRandomCodeProducesNoFailures() async {
         let eventBus = StoringEventBus()
-        let screen = FakeScreen(eventBus: eventBus, client: .fake())
+        let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.identifier = FakeClient.goodIdentifer
         screen.randomCode = FakeClient.goodSecret
         screen.isWaitingForRandomCode = true

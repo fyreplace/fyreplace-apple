@@ -7,7 +7,7 @@ struct RegisterScreen: View, RegisterScreenProtocol {
     var eventBus: EventBus
 
     @Environment(\.api)
-    var client
+    var api
 
     @State
     var isLoading = false

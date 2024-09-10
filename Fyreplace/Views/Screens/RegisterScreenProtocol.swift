@@ -1,6 +1,6 @@
 protocol RegisterScreenProtocol: LoadingViewProtocol {
     var eventBus: EventBus { get }
-    var client: APIProtocol { get }
+    var api: APIProtocol { get }
 
     var username: String { get nonmutating set }
     var email: String { get nonmutating set }
@@ -35,7 +35,7 @@ extension RegisterScreenProtocol {
     }
 
     func sendEmail() async throws {
-        let response = try await client.createUser(body: .json(.init(email: email, username: username)))
+        let response = try await api.createUser(body: .json(.init(email: email, username: username)))
 
         switch response {
         case .created:
@@ -90,7 +90,7 @@ extension RegisterScreenProtocol {
     }
 
     func createToken() async throws {
-        let response = try await client.createToken(body: .json(.init(identifier: email, secret: randomCode)))
+        let response = try await api.createToken(body: .json(.init(identifier: email, secret: randomCode)))
 
         switch response {
         case let .created(created):

@@ -17,7 +17,7 @@ struct MainView: View, MainViewProtocol {
     private var eventBus: EventBus
 
     @Environment(\.api)
-    private var client
+    private var api
 
     @KeychainStorage("connection.token")
     private var token
@@ -66,7 +66,7 @@ struct MainView: View, MainViewProtocol {
             while true {
                 try await Task.sleep(for: .seconds(tokenRefreshDelaySeconds))
 
-                if let newToken = await refreshToken(using: client) {
+                if let newToken = await refreshToken(using: api) {
                     token = newToken
                 }
             }
@@ -89,13 +89,13 @@ extension EnvironmentValues {
     }
 }
 
-struct APIClientEnvironmentKey: EnvironmentKey {
+struct APIEnvironmentKey: EnvironmentKey {
     static let defaultValue: APIProtocol = .fake()
 }
 
 extension EnvironmentValues {
     var api: APIProtocol {
-        get { self[APIClientEnvironmentKey.self] }
-        set { self[APIClientEnvironmentKey.self] = newValue }
+        get { self[APIEnvironmentKey.self] }
+        set { self[APIEnvironmentKey.self] = newValue }
     }
 }
