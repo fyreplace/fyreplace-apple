@@ -9,8 +9,8 @@ protocol NavigationProtocol {
 @MainActor
 extension NavigationProtocol {
     func handle(url: URL) {
-        switch url.path() {
-        case "/login", "/register":
+        switch url.path().trimmingPrefix("/") {
+        case "login", "register":
             attemptAuthentication(with: url.fragment() ?? "")
 
         default:

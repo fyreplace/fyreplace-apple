@@ -26,6 +26,7 @@ struct AuthenticatingScreen<Content>: View where Content: View {
                 canChoose: !isWaitingForRandomCode
             )
             .navigationTitle("")
+            .handlesExternalEvents(preferring: ["*"], allowing: ["action=connect"])
             #if os(macOS)
                 .animation(.snappy, value: choice)
             #endif

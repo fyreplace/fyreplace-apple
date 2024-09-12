@@ -19,6 +19,7 @@ struct FyreplaceApp: App {
         WindowGroup {
             EnvironmentView(eventBus: eventBus)
         }
+        .handlesExternalEvents(matching: ["*"])
         .commands {
             ToolbarCommands()
             SidebarCommands()
