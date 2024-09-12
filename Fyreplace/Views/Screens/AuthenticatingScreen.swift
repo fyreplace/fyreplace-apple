@@ -15,7 +15,7 @@ struct AuthenticatingScreen<Content>: View where Content: View {
 
     init(isRegistering: Bool, content: @escaping () -> Content) {
         self.content = content
-        choice = isRegistering ? .register : .login
+        self.choice = isRegistering ? .register: .login
     }
 
     var body: some View {

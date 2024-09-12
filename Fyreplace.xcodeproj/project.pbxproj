@@ -255,7 +255,6 @@
 				4DCE062C2C08E65300F69AF1 /* RegularNavigation.swift */,
 				4D5251F42C10A9F100018CD2 /* DynamicNavigation.swift */,
 				4D5251EB2C1097A600018CD2 /* Destination.swift */,
-				4D5251F22C109FAC00018CD2 /* Label+Destination.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -395,6 +394,7 @@
 				4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */,
 				4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */,
 				4DE785872C88F392000EC4E5 /* HTTPField.swift */,
+				4D5251F22C109FAC00018CD2 /* Label+Destination.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
