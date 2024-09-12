@@ -1,6 +1,6 @@
 import SwiftUI
 
-public enum Destination: String, CaseIterable, Identifiable, Codable {
+public enum Destination: String, Codable, Identifiable {
     case feed
     case notifications
     case archive
@@ -10,15 +10,8 @@ public enum Destination: String, CaseIterable, Identifiable, Codable {
     case login
     case register
 
-    public var id: String { rawValue }
-
-    var topLevel: Bool {
-        switch self {
-        case .login, .register:
-            false
-        default:
-            true
-        }
+    public var id: String {
+        .init(reflecting: self)
     }
 
     var parent: Destination? {
@@ -114,7 +107,14 @@ public enum Destination: String, CaseIterable, Identifiable, Codable {
         }
     }
 
-    static let all = allCases.filter(\.topLevel)
+    static let all: [Destination] = [
+        .feed,
+        .notifications,
+        .archive,
+        .drafts,
+        .published,
+        .settings,
+    ]
 
     static let essentials = all.filter { $0.parent == nil }
 }

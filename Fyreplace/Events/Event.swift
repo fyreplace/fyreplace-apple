@@ -34,3 +34,15 @@ struct NavigationShortcutEvent: Event {
 extension Event {
     typealias navigationShortcut = NavigationShortcutEvent
 }
+
+struct RandomCodeEvent: Event {
+    let randomCode: String
+
+    init(_ randomCode: String) {
+        self.randomCode = randomCode
+    }
+}
+
+extension Event {
+    typealias randomCode = RandomCodeEvent
+}

@@ -29,6 +29,19 @@
 	<array>
 		<string>app.fyreplace.Fyreplace.tokenRefresh</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLName</key>
+			<string>app.fyreplace.Fyreplace</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fyreplace</string>
+			</array>
+		</dict>
+	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>Sentry</key>

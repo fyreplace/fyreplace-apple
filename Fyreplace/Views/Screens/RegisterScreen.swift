@@ -121,9 +121,18 @@ struct RegisterScreen: View, RegisterScreenProtocol {
         }
         .disabled(isLoading)
         .animation(.default, value: isWaitingForRandomCode)
+        .onReceive(
+            eventBus.events
+                .filter { _ in isWaitingForRandomCode }
+                .compactMap { $0 as? RandomCodeEvent }
+        ) {
+            randomCode = $0.randomCode
+            submit()
+        }
     }
 
     private func submit() {
+        guard canSubmit else { return }
         focused = nil
 
         Task {

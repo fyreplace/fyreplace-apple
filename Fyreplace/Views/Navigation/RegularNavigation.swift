@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct RegularNavigation: View {
+struct RegularNavigation: View, NavigationProtocol {
     @EnvironmentObject
-    private var eventBus: EventBus
+    var eventBus: EventBus
 
     @Environment(\.isInForeground)
     private var isInForeground
@@ -58,6 +58,11 @@ struct RegularNavigation: View {
         ) {
             selectedDestination = $0.destination
         }
+        .onOpenURL(perform: handle)
+    }
+
+    func navigateToSettings() {
+        selectedDestination = .settings
     }
 }
 

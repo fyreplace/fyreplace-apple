@@ -1,8 +1,11 @@
 import SwiftUI
 
-struct CompactNavigation: View {
-    @SceneStorage("CompactNavigation.selectedTab")
-    private var selectedTab = Destination.feed
+struct CompactNavigation: View, NavigationProtocol {
+    @EnvironmentObject
+    var eventBus: EventBus
+
+    @SceneStorage("CompactNavigation.selectedDestination")
+    private var selectedDestination = Destination.feed
 
     @SceneStorage("CompactNavigation.selectedChoices")
     private var selectedChoices = Destination.essentials
@@ -11,7 +14,7 @@ struct CompactNavigation: View {
     private var isRegistering = false
 
     var body: some View {
-        TabView(selection: $selectedTab) {
+        TabView(selection: $selectedDestination) {
             ForEach(Array(Destination.essentials.enumerated()), id: \.element.id) { i, destination in
                 NavigationStack {
                     let content = CompactNavigationDestination(destination: destination, multiScreenChoice: $selectedChoices[i])
@@ -26,6 +29,11 @@ struct CompactNavigation: View {
                 .tag(destination)
             }
         }
+        .onOpenURL(perform: handle)
+    }
+
+    func navigateToSettings() {
+        selectedDestination = .settings
     }
 }
 

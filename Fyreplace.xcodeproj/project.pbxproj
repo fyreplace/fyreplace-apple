@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D060BBF2C907FA4008C32D1 /* NavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D060BBE2C907FA3008C32D1 /* NavigationProtocol.swift */; };
 		4D0DDC262C188869006CD503 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4D0DDC252C188869006CD503 /* SentrySwiftUI */; };
 		4D13AF622C482F1C00845FDB /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 4D13AF612C482F1C00845FDB /* OpenAPIRuntime */; };
 		4D13AF652C482F4500845FDB /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = 4D13AF642C482F4500845FDB /* OpenAPIURLSession */; };
@@ -87,6 +88,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D060BBE2C907FA3008C32D1 /* NavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationProtocol.swift; sourceTree = "<group>"; };
 		4D0DDC292C18A467006CD503 /* .xcode-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
 		4D13AF682C482FE300845FDB /* openapi.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
 		4D13AF6A2C48301600845FDB /* openapi-generator-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
@@ -251,10 +253,11 @@
 		4D5251E82C10532100018CD2 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				4D5251EB2C1097A600018CD2 /* Destination.swift */,
+				4D060BBE2C907FA3008C32D1 /* NavigationProtocol.swift */,
 				4DCE062A2C08E5E200F69AF1 /* CompactNavigation.swift */,
 				4DCE062C2C08E65300F69AF1 /* RegularNavigation.swift */,
 				4D5251F42C10A9F100018CD2 /* DynamicNavigation.swift */,
-				4D5251EB2C1097A600018CD2 /* Destination.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				4D13AF812C4E907200845FDB /* Environment.swift in Sources */,
 				4DC5B1CA2C6FA23000B75A07 /* LoginScreenProtocol.swift in Sources */,
 				4D51F2842C621B8D0018E76E /* EventBus.swift in Sources */,
+				4D060BBF2C907FA4008C32D1 /* NavigationProtocol.swift in Sources */,
 				4D5251F52C10A9F100018CD2 /* DynamicNavigation.swift in Sources */,
 				4D9DC5032C11BF2500BA0507 /* Config.swift in Sources */,
 				4D54C92C2BF2608A001DE071 /* FyreplaceApp.swift in Sources */,
