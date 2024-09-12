@@ -11,19 +11,19 @@ extension NavigationProtocol {
     func handle(url: URL) {
         switch url.path().trimmingPrefix("/") {
         case "login", "register":
-            attemptAuthentication(with: url.fragment() ?? "")
+            Task {
+                await attemptAuthentication(with: url.fragment() ?? "")
+            }
 
         default:
             break
         }
     }
 
-    func attemptAuthentication(with randomCode: String) {
+    private func attemptAuthentication(with randomCode: String) async {
+        try? await Task.sleep(for: .seconds(0.3))
         navigateToSettings()
-
-        Task {
-            try? await Task.sleep(for: .seconds(0.5))
-            eventBus.send(.randomCode(randomCode))
-        }
+        try? await Task.sleep(for: .seconds(0.3))
+        eventBus.send(.randomCode(randomCode))
     }
 }
