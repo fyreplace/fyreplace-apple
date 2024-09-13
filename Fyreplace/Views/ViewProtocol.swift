@@ -1,7 +1,9 @@
 import OpenAPIRuntime
 import Sentry
 
-protocol ViewProtocol {}
+protocol ViewProtocol {
+    var eventBus: EventBus { get }
+}
 
 protocol LoadingViewProtocol: ViewProtocol {
     var isLoading: Bool { get nonmutating set }
@@ -9,23 +11,32 @@ protocol LoadingViewProtocol: ViewProtocol {
 
 @MainActor
 extension ViewProtocol {
-    func call(failOn eventBus: EventBus, action: () async throws -> Void) async {
+    func call(action: () async throws -> UnfortunateEvent?) async {
+        let unfortunateEvent: UnfortunateEvent?
+
         do {
-            try await action()
+            unfortunateEvent = try await action()
         } catch is ClientError {
-            eventBus.send(.error(ConnectionError()))
+            unfortunateEvent = .error(ConnectionError())
         } catch {
-            eventBus.send(.error(UnknownError()))
-            SentrySDK.capture(error: error)
+            unfortunateEvent = .error(UnknownError())
+        }
+
+        if let event = unfortunateEvent {
+            eventBus.send(event)
+
+            if let event = unfortunateEvent as? ErrorEvent {
+                SentrySDK.capture(error: event.error)
+            }
         }
     }
 }
 
 @MainActor
 extension LoadingViewProtocol {
-    func callWhileLoading(failOn eventBus: EventBus, action: () async throws -> Void) async {
+    func callWhileLoading(action: () async throws -> UnfortunateEvent?) async {
         isLoading = true
-        await call(failOn: eventBus, action: action)
+        await call(action: action)
         isLoading = false
     }
 }

@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct MainView: View, MainViewProtocol {
+    @EnvironmentObject
+    var eventBus: EventBus
+
     @State
     var showError = false
 
@@ -12,9 +15,6 @@ struct MainView: View, MainViewProtocol {
 
     @State
     var failures: [FailureEvent] = []
-
-    @EnvironmentObject
-    private var eventBus: EventBus
 
     @Environment(\.api)
     private var api

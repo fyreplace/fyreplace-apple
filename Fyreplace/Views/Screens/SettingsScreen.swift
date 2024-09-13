@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct SettingsScreen: View, SettingsScreenProtocol {
+    @EnvironmentObject
+    var eventBus: EventBus
+
     @KeychainStorage("connection.token")
     var token
 

@@ -1,5 +1,4 @@
 protocol LoginScreenProtocol: LoadingViewProtocol {
-    var eventBus: EventBus { get }
     var api: APIProtocol { get }
 
     var identifier: String { get nonmutating set }
@@ -15,12 +14,8 @@ extension LoginScreenProtocol {
     }
 
     func submit() async {
-        await callWhileLoading(failOn: eventBus) {
-            if isWaitingForRandomCode {
-                try await createToken()
-            } else {
-                try await sendEmail()
-            }
+        await callWhileLoading {
+            try await (isWaitingForRandomCode ? createToken() : sendEmail())
         }
     }
 
@@ -29,37 +24,38 @@ extension LoginScreenProtocol {
         randomCode = ""
     }
 
-    func sendEmail() async throws {
+    func sendEmail() async throws -> UnfortunateEvent? {
         let response = try await api.createNewToken(body: .json(.init(identifier: identifier)))
 
         switch response {
         case .ok:
             isWaitingForRandomCode = true
+            return nil
 
         case .badRequest:
-            eventBus.send(.failure(
+            return .failure(
                 title: "Error.BadRequest.Title",
                 text: "Error.BadRequest.Message"
-            ))
+            )
 
         case .forbidden:
-            eventBus.send(.failure(
+            return .failure(
                 title: "Error.Forbidden.Title",
                 text: "Error.Forbidden.Message"
-            ))
+            )
 
         case .notFound:
-            eventBus.send(.failure(
+            return .failure(
                 title: "Login.Error.NotFound.Title",
                 text: "Login.Error.NotFound.Message"
-            ))
+            )
 
         case .default:
-            eventBus.send(.error(UnknownError()))
+            return .error(UnknownError())
         }
     }
 
-    func createToken() async throws {
+    func createToken() async throws -> UnfortunateEvent? {
         let response = try await api.createToken(body: .json(.init(identifier: identifier, secret: randomCode)))
 
         switch response {
@@ -74,22 +70,24 @@ extension LoginScreenProtocol {
                 #if !os(macOS)
                     scheduleTokenRefresh()
                 #endif
+
+                return nil
             }
 
         case .badRequest:
-            eventBus.send(.failure(
+            return .failure(
                 title: "Account.Error.CreateToken.BadRequest.Title",
                 text: "Account.Error.CreateToken.BadRequest.Message"
-            ))
+            )
 
         case .notFound:
-            eventBus.send(.failure(
+            return .failure(
                 title: "Login.Error.NotFound.Title",
                 text: "Login.Error.NotFound.Message"
-            ))
+            )
 
         case .default:
-            eventBus.send(.error(UnknownError()))
+            return .error(UnknownError())
         }
     }
 }

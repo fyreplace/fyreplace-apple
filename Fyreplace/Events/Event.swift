@@ -2,7 +2,9 @@ import SwiftUI
 
 protocol Event {}
 
-struct ErrorEvent: Event {
+protocol UnfortunateEvent: Event {}
+
+struct ErrorEvent: UnfortunateEvent {
     let error: UnexpectedError
 
     init(_ error: UnexpectedError) {
@@ -14,7 +16,7 @@ extension Event {
     typealias error = ErrorEvent
 }
 
-struct FailureEvent: Event {
+struct FailureEvent: UnfortunateEvent {
     let title: LocalizedStringKey
     let text: LocalizedStringKey
 }
