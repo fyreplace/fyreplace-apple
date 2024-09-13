@@ -29,7 +29,7 @@ struct CompactNavigation: View, NavigationProtocol {
                 .tag(destination)
             }
         }
-        .onOpenURL(perform: handle)
+        .onDeepLink(perform: handle)
     }
 
     func navigateToSettings() {

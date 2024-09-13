@@ -58,7 +58,7 @@ struct RegularNavigation: View, NavigationProtocol {
         ) {
             selectedDestination = $0.destination
         }
-        .onOpenURL(perform: handle)
+        .onDeepLink(perform: handle)
     }
 
     func navigateToSettings() {

@@ -21,7 +21,6 @@ extension NavigationProtocol {
     }
 
     private func attemptAuthentication(with randomCode: String) async {
-        try? await Task.sleep(for: .seconds(0.3))
         navigateToSettings()
         try? await Task.sleep(for: .seconds(0.3))
         eventBus.send(.randomCode(randomCode))

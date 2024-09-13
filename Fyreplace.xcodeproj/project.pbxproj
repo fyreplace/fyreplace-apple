@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D060BBF2C907FA4008C32D1 /* NavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D060BBE2C907FA3008C32D1 /* NavigationProtocol.swift */; };
+		4D060BCB2C9438E8008C32D1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D060BCA2C9438E8008C32D1 /* View.swift */; };
 		4D0DDC262C188869006CD503 /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4D0DDC252C188869006CD503 /* SentrySwiftUI */; };
 		4D13AF622C482F1C00845FDB /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 4D13AF612C482F1C00845FDB /* OpenAPIRuntime */; };
 		4D13AF652C482F4500845FDB /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = 4D13AF642C482F4500845FDB /* OpenAPIURLSession */; };
@@ -89,6 +90,7 @@
 
 /* Begin PBXFileReference section */
 		4D060BBE2C907FA3008C32D1 /* NavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationProtocol.swift; sourceTree = "<group>"; };
+		4D060BCA2C9438E8008C32D1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		4D0DDC292C18A467006CD503 /* .xcode-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
 		4D13AF682C482FE300845FDB /* openapi.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
 		4D13AF6A2C48301600845FDB /* openapi-generator-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */,
 				4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */,
 				4DE785872C88F392000EC4E5 /* HTTPField.swift */,
+				4D060BCA2C9438E8008C32D1 /* View.swift */,
 				4D5251F22C109FAC00018CD2 /* Label+Destination.swift */,
 			);
 			path = Extensions;
@@ -630,6 +633,7 @@
 				4D54C96B2BF4E97E001DE071 /* NotificationsScreen.swift in Sources */,
 				4DE785952C8B17AE000EC4E5 /* SubmitOrCancel.swift in Sources */,
 				4DE785882C88F392000EC4E5 /* HTTPField.swift in Sources */,
+				4D060BCB2C9438E8008C32D1 /* View.swift in Sources */,
 				4D51F2802C621ADB0018E76E /* ViewProtocol.swift in Sources */,
 				4DC5B1D92C720B9800B75A07 /* AuthenticationMiddleware.swift in Sources */,
 				4D9B3B472C36F50300A8F7AD /* UITextContentType.swift in Sources */,
