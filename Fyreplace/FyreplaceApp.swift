@@ -18,6 +18,7 @@ struct FyreplaceApp: App {
 
         WindowGroup {
             EnvironmentView(eventBus: eventBus)
+                .handlesExternalEvents(preferring: [], allowing: ["*"])
         }
         .handlesExternalEvents(matching: ["*"])
         .commands {
