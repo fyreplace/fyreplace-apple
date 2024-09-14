@@ -25,7 +25,7 @@ extension ViewProtocol {
         if let event = unfortunateEvent {
             eventBus.send(event)
 
-            if let event = unfortunateEvent as? ErrorEvent {
+            if let event = unfortunateEvent as? ErrorEvent, event.error is UnknownError {
                 SentrySDK.capture(error: event.error)
             }
         }
