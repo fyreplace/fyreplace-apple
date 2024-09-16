@@ -231,7 +231,7 @@ extension FakeClient {
                 bio: "",
                 banned: false,
                 blocked: false,
-                tint: "#7F7F7F"
+                tint: .init(r: 0x7F, g: 0x7F, b: 0x7F)
             ))))
         }
     }
