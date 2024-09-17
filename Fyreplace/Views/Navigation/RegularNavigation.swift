@@ -38,7 +38,7 @@ struct RegularNavigation: View, NavigationProtocol {
                 .disabled(destination.requiresAuthentication && token.isEmpty)
             }
             #if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 180)
+                .navigationSplitViewColumnWidth(min: 180, ideal: 180)
             #endif
         } detail: {
             NavigationStack {

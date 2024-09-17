@@ -167,6 +167,7 @@
 		4DE785842C88EF8C000EC4E5 /* RequestIdMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestIdMiddleware.swift; sourceTree = "<group>"; };
 		4DE785872C88F392000EC4E5 /* HTTPField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPField.swift; sourceTree = "<group>"; };
 		4DE785942C8B17AE000EC4E5 /* SubmitOrCancel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitOrCancel.swift; sourceTree = "<group>"; };
+		4DF3737F2C99C23D0008AB04 /* .swift-format */ = {isa = PBXFileReference; explicitFileType = text.json; path = ".swift-format"; sourceTree = "<group>"; };
 		4DFB906F2C5908DE00D4DABF /* LoginScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenTests.swift; sourceTree = "<group>"; };
 		4DFB90752C59173C00D4DABF /* RegisterScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -273,6 +274,7 @@
 				4D54C93C2BF26090001DE071 /* FyreplaceTests */,
 				4D54C9462BF26090001DE071 /* FyreplaceUITests */,
 				4D54C9632BF28695001DE071 /* .gitignore */,
+				4DF3737F2C99C23D0008AB04 /* .swift-format */,
 				4D0DDC292C18A467006CD503 /* .xcode-version */,
 				4D6641DB2C5B963500BE3D07 /* .ios-test-version */,
 				4DCEF8652C452EBA00F53085 /* .env-example */,

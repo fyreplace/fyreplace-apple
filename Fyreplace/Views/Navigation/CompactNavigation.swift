@@ -15,9 +15,13 @@ struct CompactNavigation: View, NavigationProtocol {
 
     var body: some View {
         TabView(selection: $selectedDestination) {
-            ForEach(Array(Destination.essentials.enumerated()), id: \.element.id) { i, destination in
+            ForEach(Array(Destination.essentials.enumerated()), id: \.element.id) {
+                i, destination in
                 NavigationStack {
-                    let content = CompactNavigationDestination(destination: destination, multiScreenChoice: $selectedChoices[i])
+                    let content = CompactNavigationDestination(
+                        destination: destination,
+                        multiScreenChoice: $selectedChoices[i]
+                    )
 
                     if destination.canOfferAuthentication {
                         AuthenticatingScreen(isRegistering: isRegistering) { content }

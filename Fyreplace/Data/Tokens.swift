@@ -31,7 +31,7 @@ func scheduleTokenRefresh() {
 
 func refreshToken(using api: APIProtocol) async -> String? {
     guard let response = try? await api.getNewToken().ok,
-          let newToken = try? await String(collecting: response.body.plainText, upTo: 1024)
+        let newToken = try? await String(collecting: response.body.plainText, upTo: 1024)
     else { return nil }
     return newToken
 }

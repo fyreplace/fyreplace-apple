@@ -9,7 +9,8 @@ struct DynamicNavigation: View {
 
     var body: some View {
         GeometryReader { geometry in
-            let largeEnough = geometry.size.width > geometry.size.height
+            let largeEnough =
+                geometry.size.width > geometry.size.height
                 && horizontalSizeClass != .compact
                 && verticalSizeClass != .compact
 

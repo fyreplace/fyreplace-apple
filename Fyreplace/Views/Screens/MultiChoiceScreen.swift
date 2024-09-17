@@ -25,7 +25,7 @@ struct MultiChoiceScreen: View {
             }
         }
         #if !os(macOS)
-        .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline)
         #endif
     }
 }

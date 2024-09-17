@@ -10,17 +10,17 @@ struct LogoHeader: View {
                 Spacer()
                 Image("Logo", label: Text("Logo"))
                     .resizable()
-                #if os(macOS)
-                    .frame(width: 50, height: 50)
-                #else
-                    .frame(width: 80, height: 80)
-                #endif
+                    #if os(macOS)
+                        .frame(width: 50, height: 50)
+                    #else
+                        .frame(width: 80, height: 80)
+                    #endif
                 Spacer()
             }
             #if os(macOS)
-            .padding(.bottom)
+                .padding(.bottom)
             #else
-            .padding(.vertical, 40)
+                .padding(.vertical, 40)
             #endif
 
             HStack {
@@ -29,9 +29,9 @@ struct LogoHeader: View {
                 #endif
                 Text(text)
                     .fixedSize(horizontal: false, vertical: true)
-                #if os(macOS)
-                    .font(.headline)
-                #endif
+                    #if os(macOS)
+                        .font(.headline)
+                    #endif
                 Spacer()
             }
         }

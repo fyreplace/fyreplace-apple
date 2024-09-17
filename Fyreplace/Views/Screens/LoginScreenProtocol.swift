@@ -10,7 +10,7 @@ protocol LoginScreenProtocol: LoadingViewProtocol {
 @MainActor
 extension LoginScreenProtocol {
     var canSubmit: Bool {
-        !isLoading && (isWaitingForRandomCode ? randomCode.count >= 8 : 3 ... 254 ~= identifier.count)
+        !isLoading && (isWaitingForRandomCode ? randomCode.count >= 8 : 3...254 ~= identifier.count)
     }
 
     func submit() async {
@@ -56,7 +56,9 @@ extension LoginScreenProtocol {
     }
 
     func createToken() async throws -> UnfortunateEvent? {
-        let response = try await api.createToken(body: .json(.init(identifier: identifier, secret: randomCode)))
+        let response = try await api.createToken(
+            body: .json(.init(identifier: identifier, secret: randomCode))
+        )
 
         switch response {
         case let .created(created):

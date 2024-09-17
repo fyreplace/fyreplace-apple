@@ -9,23 +9,33 @@ extension APIProtocol {
 // MARK: Chapters
 
 extension FakeClient {
-    func createChapter(_: Operations.createChapter.Input) async throws -> Operations.createChapter.Output {
+    func createChapter(_: Operations.createChapter.Input) async throws
+        -> Operations.createChapter.Output
+    {
         fatalError("Not implemented")
     }
 
-    func deleteChapter(_: Operations.deleteChapter.Input) async throws -> Operations.deleteChapter.Output {
+    func deleteChapter(_: Operations.deleteChapter.Input) async throws
+        -> Operations.deleteChapter.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setChapterImage(_: Operations.setChapterImage.Input) async throws -> Operations.setChapterImage.Output {
+    func setChapterImage(_: Operations.setChapterImage.Input) async throws
+        -> Operations.setChapterImage.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setChapterPosition(_: Operations.setChapterPosition.Input) async throws -> Operations.setChapterPosition.Output {
+    func setChapterPosition(_: Operations.setChapterPosition.Input) async throws
+        -> Operations.setChapterPosition.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setChapterText(_: Operations.setChapterText.Input) async throws -> Operations.setChapterText.Output {
+    func setChapterText(_: Operations.setChapterText.Input) async throws
+        -> Operations.setChapterText.Output
+    {
         fatalError("Not implemented")
     }
 }
@@ -33,27 +43,39 @@ extension FakeClient {
 // MARK: Comments
 
 extension FakeClient {
-    func acknowledgeComment(_: Operations.acknowledgeComment.Input) async throws -> Operations.acknowledgeComment.Output {
+    func acknowledgeComment(_: Operations.acknowledgeComment.Input) async throws
+        -> Operations.acknowledgeComment.Output
+    {
         fatalError("Not implemented")
     }
 
-    func countComments(_: Operations.countComments.Input) async throws -> Operations.countComments.Output {
+    func countComments(_: Operations.countComments.Input) async throws
+        -> Operations.countComments.Output
+    {
         fatalError("Not implemented")
     }
 
-    func createComment(_: Operations.createComment.Input) async throws -> Operations.createComment.Output {
+    func createComment(_: Operations.createComment.Input) async throws
+        -> Operations.createComment.Output
+    {
         fatalError("Not implemented")
     }
 
-    func deleteComment(_: Operations.deleteComment.Input) async throws -> Operations.deleteComment.Output {
+    func deleteComment(_: Operations.deleteComment.Input) async throws
+        -> Operations.deleteComment.Output
+    {
         fatalError("Not implemented")
     }
 
-    func listComments(_: Operations.listComments.Input) async throws -> Operations.listComments.Output {
+    func listComments(_: Operations.listComments.Input) async throws
+        -> Operations.listComments.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setCommentReported(_: Operations.setCommentReported.Input) async throws -> Operations.setCommentReported.Output {
+    func setCommentReported(_: Operations.setCommentReported.Input) async throws
+        -> Operations.setCommentReported.Output
+    {
         fatalError("Not implemented")
     }
 }
@@ -61,27 +83,39 @@ extension FakeClient {
 // MARK: Emails
 
 extension FakeClient {
-    func activateEmail(_: Operations.activateEmail.Input) async throws -> Operations.activateEmail.Output {
+    func activateEmail(_: Operations.activateEmail.Input) async throws
+        -> Operations.activateEmail.Output
+    {
         fatalError("Not implemented")
     }
 
-    func countEmails(_: Operations.countEmails.Input) async throws -> Operations.countEmails.Output {
+    func countEmails(_: Operations.countEmails.Input) async throws
+        -> Operations.countEmails.Output
+    {
         fatalError("Not implemented")
     }
 
-    func createEmail(_: Operations.createEmail.Input) async throws -> Operations.createEmail.Output {
+    func createEmail(_: Operations.createEmail.Input) async throws
+        -> Operations.createEmail.Output
+    {
         fatalError("Not implemented")
     }
 
-    func deleteEmail(_: Operations.deleteEmail.Input) async throws -> Operations.deleteEmail.Output {
+    func deleteEmail(_: Operations.deleteEmail.Input) async throws
+        -> Operations.deleteEmail.Output
+    {
         fatalError("Not implemented")
     }
 
-    func listEmails(_: Operations.listEmails.Input) async throws -> Operations.listEmails.Output {
+    func listEmails(_: Operations.listEmails.Input) async throws
+        -> Operations.listEmails.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setMainEmail(_: Operations.setMainEmail.Input) async throws -> Operations.setMainEmail.Output {
+    func setMainEmail(_: Operations.setMainEmail.Input) async throws
+        -> Operations.setMainEmail.Output
+    {
         fatalError("Not implemented")
     }
 }
@@ -89,43 +123,63 @@ extension FakeClient {
 // MARK: Posts
 
 extension FakeClient {
-    func countPosts(_: Operations.countPosts.Input) async throws -> Operations.countPosts.Output {
+    func countPosts(_: Operations.countPosts.Input) async throws
+        -> Operations.countPosts.Output
+    {
         fatalError("Not implemented")
     }
 
-    func createPost(_: Operations.createPost.Input) async throws -> Operations.createPost.Output {
+    func createPost(_: Operations.createPost.Input) async throws
+        -> Operations.createPost.Output
+    {
         fatalError("Not implemented")
     }
 
-    func deletePost(_: Operations.deletePost.Input) async throws -> Operations.deletePost.Output {
+    func deletePost(_: Operations.deletePost.Input) async throws
+        -> Operations.deletePost.Output
+    {
         fatalError("Not implemented")
     }
 
-    func getPost(_: Operations.getPost.Input) async throws -> Operations.getPost.Output {
+    func getPost(_: Operations.getPost.Input) async throws
+        -> Operations.getPost.Output
+    {
         fatalError("Not implemented")
     }
 
-    func listPosts(_: Operations.listPosts.Input) async throws -> Operations.listPosts.Output {
+    func listPosts(_: Operations.listPosts.Input) async throws
+        -> Operations.listPosts.Output
+    {
         fatalError("Not implemented")
     }
 
-    func listPostsFeed(_: Operations.listPostsFeed.Input) async throws -> Operations.listPostsFeed.Output {
+    func listPostsFeed(_: Operations.listPostsFeed.Input) async throws
+        -> Operations.listPostsFeed.Output
+    {
         fatalError("Not implemented")
     }
 
-    func publishPost(_: Operations.publishPost.Input) async throws -> Operations.publishPost.Output {
+    func publishPost(_: Operations.publishPost.Input) async throws
+        -> Operations.publishPost.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setPostReported(_: Operations.setPostReported.Input) async throws -> Operations.setPostReported.Output {
+    func setPostReported(_: Operations.setPostReported.Input) async throws
+        -> Operations.setPostReported.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setPostSubscribed(_: Operations.setPostSubscribed.Input) async throws -> Operations.setPostSubscribed.Output {
+    func setPostSubscribed(_: Operations.setPostSubscribed.Input) async throws
+        -> Operations.setPostSubscribed.Output
+    {
         fatalError("Not implemented")
     }
 
-    func votePost(_: Operations.votePost.Input) async throws -> Operations.votePost.Output {
+    func votePost(_: Operations.votePost.Input) async throws
+        -> Operations.votePost.Output
+    {
         fatalError("Not implemented")
     }
 }
@@ -133,7 +187,9 @@ extension FakeClient {
 // MARK: Reports
 
 extension FakeClient {
-    func listReports(_: Operations.listReports.Input) async throws -> Operations.listReports.Output {
+    func listReports(_: Operations.listReports.Input) async throws
+        -> Operations.listReports.Output
+    {
         fatalError("Not implemented")
     }
 }
@@ -141,15 +197,21 @@ extension FakeClient {
 // MARK: Subscriptions
 
 extension FakeClient {
-    func clearUnreadSubscriptions(_: Operations.clearUnreadSubscriptions.Input) async throws -> Operations.clearUnreadSubscriptions.Output {
+    func clearUnreadSubscriptions(_: Operations.clearUnreadSubscriptions.Input) async throws
+        -> Operations.clearUnreadSubscriptions.Output
+    {
         fatalError("Not implemented")
     }
 
-    func deleteSubscription(_: Operations.deleteSubscription.Input) async throws -> Operations.deleteSubscription.Output {
+    func deleteSubscription(_: Operations.deleteSubscription.Input) async throws
+        -> Operations.deleteSubscription.Output
+    {
         fatalError("Not implemented")
     }
 
-    func listUnreadSubscriptions(_: Operations.listUnreadSubscriptions.Input) async throws -> Operations.listUnreadSubscriptions.Output {
+    func listUnreadSubscriptions(_: Operations.listUnreadSubscriptions.Input) async throws
+        -> Operations.listUnreadSubscriptions.Output
+    {
         fatalError("Not implemented")
     }
 }
@@ -164,7 +226,9 @@ extension FakeClient {
     static let badToken = "bad-token"
     static let goodToken = "good-token"
 
-    func createNewToken(_ input: Operations.createNewToken.Input) async throws -> Operations.createNewToken.Output {
+    func createNewToken(_ input: Operations.createNewToken.Input) async throws
+        -> Operations.createNewToken.Output
+    {
         return switch input.body {
         case let .json(json) where json.identifier == Self.goodIdentifer:
             .ok(.init())
@@ -174,9 +238,12 @@ extension FakeClient {
         }
     }
 
-    func createToken(_ input: Operations.createToken.Input) async throws -> Operations.createToken.Output {
+    func createToken(_ input: Operations.createToken.Input) async throws
+        -> Operations.createToken.Output
+    {
         return switch input.body {
-        case let .json(json) where json.identifier == Self.goodIdentifer && json.secret == Self.goodSecret:
+        case let .json(json)
+        where json.identifier == Self.goodIdentifer && json.secret == Self.goodSecret:
             .created(.init(body: .plainText(.init(stringLiteral: Self.goodToken))))
 
         case .json:
@@ -184,7 +251,9 @@ extension FakeClient {
         }
     }
 
-    func getNewToken(_: Operations.getNewToken.Input) async throws -> Operations.getNewToken.Output {
+    func getNewToken(_: Operations.getNewToken.Input) async throws
+        -> Operations.getNewToken.Output
+    {
         return .ok(.init(body: .plainText(.init(stringLiteral: Self.goodToken))))
     }
 }
@@ -200,11 +269,15 @@ extension FakeClient {
     static let usedEmail = "used-email"
     static let goodEmail = "good-email"
 
-    func countBlockedUsers(_: Operations.countBlockedUsers.Input) async throws -> Operations.countBlockedUsers.Output {
+    func countBlockedUsers(_: Operations.countBlockedUsers.Input) async throws
+        -> Operations.countBlockedUsers.Output
+    {
         fatalError("Not implemented")
     }
 
-    func createUser(_ input: Operations.createUser.Input) async throws -> Operations.createUser.Output {
+    func createUser(_ input: Operations.createUser.Input) async throws
+        -> Operations.createUser.Output
+    {
         return switch input.body {
         case let .json(json) where json.username == Self.badUsername:
             .badRequest(.init(body: .json(.init())))
@@ -222,57 +295,80 @@ extension FakeClient {
             .conflict(.init(body: .json(.init())))
 
         case let .json(json):
-            .created(.init(body: .json(.init(
-                id: .randomUuid,
-                dateCreated: .now,
-                username: json.username,
-                rank: .CITIZEN,
-                avatar: "",
-                bio: "",
-                banned: false,
-                blocked: false,
-                tint: .init(r: 0x7F, g: 0x7F, b: 0x7F)
-            ))))
+            .created(
+                .init(
+                    body: .json(
+                        .init(
+                            id: .randomUuid,
+                            dateCreated: .now,
+                            username: json.username,
+                            rank: .CITIZEN,
+                            avatar: "",
+                            bio: "",
+                            banned: false,
+                            blocked: false,
+                            tint: .init(r: 0x7F, g: 0x7F, b: 0x7F)
+                        ))))
         }
     }
 
-    func deleteCurrentUser(_: Operations.deleteCurrentUser.Input) async throws -> Operations.deleteCurrentUser.Output {
+    func deleteCurrentUser(_: Operations.deleteCurrentUser.Input) async throws
+        -> Operations.deleteCurrentUser.Output
+    {
         fatalError("Not implemented")
     }
 
-    func deleteCurrentUserAvatar(_: Operations.deleteCurrentUserAvatar.Input) async throws -> Operations.deleteCurrentUserAvatar.Output {
+    func deleteCurrentUserAvatar(_: Operations.deleteCurrentUserAvatar.Input) async throws
+        -> Operations.deleteCurrentUserAvatar.Output
+    {
         fatalError("Not implemented")
     }
 
-    func getCurrentUser(_: Operations.getCurrentUser.Input) async throws -> Operations.getCurrentUser.Output {
+    func getCurrentUser(_: Operations.getCurrentUser.Input) async throws
+        -> Operations.getCurrentUser.Output
+    {
         fatalError("Not implemented")
     }
 
-    func getUser(_: Operations.getUser.Input) async throws -> Operations.getUser.Output {
+    func getUser(_: Operations.getUser.Input) async throws
+        -> Operations.getUser.Output
+    {
         fatalError("Not implemented")
     }
 
-    func listBlockedUsers(_: Operations.listBlockedUsers.Input) async throws -> Operations.listBlockedUsers.Output {
+    func listBlockedUsers(_: Operations.listBlockedUsers.Input) async throws
+        -> Operations.listBlockedUsers.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setCurrentUserAvatar(_: Operations.setCurrentUserAvatar.Input) async throws -> Operations.setCurrentUserAvatar.Output {
+    func setCurrentUserAvatar(_: Operations.setCurrentUserAvatar.Input) async throws
+        -> Operations.setCurrentUserAvatar.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setCurrentUserBio(_: Operations.setCurrentUserBio.Input) async throws -> Operations.setCurrentUserBio.Output {
+    func setCurrentUserBio(_: Operations.setCurrentUserBio.Input) async throws
+        -> Operations.setCurrentUserBio.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setUserBanned(_: Operations.setUserBanned.Input) async throws -> Operations.setUserBanned.Output {
+    func setUserBanned(_: Operations.setUserBanned.Input) async throws
+        -> Operations.setUserBanned.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setUserBlocked(_: Operations.setUserBlocked.Input) async throws -> Operations.setUserBlocked.Output {
+    func setUserBlocked(_: Operations.setUserBlocked.Input) async throws
+        -> Operations.setUserBlocked.Output
+    {
         fatalError("Not implemented")
     }
 
-    func setUserReported(_: Operations.setUserReported.Input) async throws -> Operations.setUserReported.Output {
+    func setUserReported(_: Operations.setUserReported.Input) async throws
+        -> Operations.setUserReported.Output
+    {
         fatalError("Not implemented")
     }
 }

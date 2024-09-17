@@ -59,41 +59,53 @@ struct RegisterScreen: View, RegisterScreenProtocol {
             ) {
                 EnvironmentPicker(namespace: namespace).disabled(isWaitingForRandomCode)
 
-                TextField("Register.Username", text: $username, prompt: usernamePrompt)
-                    .textContentType(.username)
-                    .autocorrectionDisabled()
-                    .focused($focused, equals: .username)
-                    .disabled(isWaitingForRandomCode)
-                    .submitLabel(.next)
-                    .onSubmit { focused = .email }
-                    .matchedGeometryEffect(id: "first-field", in: namespace)
+                TextField(
+                    "Register.Username",
+                    text: $username,
+                    prompt: usernamePrompt
+                )
+                .textContentType(.username)
+                .autocorrectionDisabled()
+                .focused($focused, equals: .username)
+                .disabled(isWaitingForRandomCode)
+                .submitLabel(.next)
+                .onSubmit { focused = .email }
+                .matchedGeometryEffect(id: "first-field", in: namespace)
                 #if !os(macOS)
                     .keyboardType(.asciiCapable)
                 #endif
 
-                TextField("Register.Email", text: $email, prompt: emailPrompt)
-                    .textContentType(.email)
-                    .autocorrectionDisabled()
-                    .focused($focused, equals: .email)
-                    .disabled(isWaitingForRandomCode)
-                    .submitLabel(.done)
-                    .onSubmit(submit)
+                TextField(
+                    "Register.Email",
+                    text: $email,
+                    prompt: emailPrompt
+                )
+                .textContentType(.email)
+                .autocorrectionDisabled()
+                .focused($focused, equals: .email)
+                .disabled(isWaitingForRandomCode)
+                .submitLabel(.done)
+                .onSubmit(submit)
                 #if !os(macOS)
                     .textInputAutocapitalization(.never)
                     .keyboardType(.emailAddress)
                 #endif
 
                 if isWaitingForRandomCode {
-                    TextField("Account.RandomCode", text: $randomCode, prompt: Text("Account.RandomCode.Prompt"))
-                        .textContentType(.oneTimeCode)
-                        .autocorrectionDisabled()
-                        .focused($focused, equals: .randomCode)
-                        .onSubmit(submit)
-                        .onAppear {
-                            if randomCode.isEmpty {
-                                focused = .randomCode
-                            }
+                    TextField(
+                        "Account.RandomCode",
+                        text: $randomCode,
+                        prompt: Text("Account.RandomCode.Prompt")
+                    )
+                    .textContentType(.oneTimeCode)
+                    .autocorrectionDisabled()
+                    .focused($focused, equals: .randomCode)
+                    .onSubmit(submit)
+                    .onAppear {
+                        if randomCode.isEmpty {
+                            focused = .randomCode
                         }
+                    }
                     #if !os(macOS)
                         .keyboardType(.asciiCapable)
                     #endif

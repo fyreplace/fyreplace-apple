@@ -93,7 +93,9 @@ struct Config {
                 return Client(
                     serverURL: url(for: environment),
                     configuration: .init(dateTranscoder: .iso8601WithFractionalSeconds),
-                    transport: URLSessionTransport(configuration: .init(session: .init(configuration: configuration))),
+                    transport: URLSessionTransport(
+                        configuration: .init(session: .init(configuration: configuration))
+                    ),
                     middlewares: [RequestIdMiddleware(), AuthenticationMiddleware()]
                 )
             }
@@ -109,17 +111,17 @@ struct Config {
     }
 }
 
-private extension [String: Any] {
-    func string(_ key: String) -> String? {
+extension [String: Any] {
+    fileprivate func string(_ key: String) -> String? {
         return self[key] as? String
     }
 
-    func url(_ key: String) -> URL? {
+    fileprivate func url(_ key: String) -> URL? {
         guard let s = string(key) else { return nil }
         return .init(string: s)
     }
 
-    func dictionary(_ key: String) -> [String: Any]? {
+    fileprivate func dictionary(_ key: String) -> [String: Any]? {
         return self[key] as? [String: Any]
     }
 }

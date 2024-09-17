@@ -1,5 +1,4 @@
-@testable
-import Fyreplace
+@testable import Fyreplace
 
 class StoringEventBus: EventBus {
     var storedEvents: [Event] = []

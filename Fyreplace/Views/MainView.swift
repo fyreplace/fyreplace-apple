@@ -50,15 +50,16 @@ struct MainView: View, MainViewProtocol {
                             await removeFailure()
                         }
                     }
-                }, message: { (failure: FailureEvent) in
+                },
+                message: { (failure: FailureEvent) in
                     Text(failure.text)
                 }
             )
             .onReceive(eventBus.events.compactMap { ($0 as? ErrorEvent)?.error }, perform: addError)
             .onReceive(eventBus.events.compactMap { ($0 as? FailureEvent) }, perform: addFailure)
-        #if os(macOS)
-            .task { await keepRefreshingToken() }
-        #endif
+            #if os(macOS)
+                .task { await keepRefreshingToken() }
+            #endif
     }
 
     private func keepRefreshingToken() async {

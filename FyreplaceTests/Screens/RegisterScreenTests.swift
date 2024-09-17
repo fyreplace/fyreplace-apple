@@ -1,7 +1,6 @@
 import XCTest
 
-@testable
-import Fyreplace
+@testable import Fyreplace
 
 final class RegisterScreenTests: XCTestCase {
     class FakeScreen: RegisterScreenProtocol {
@@ -27,12 +26,12 @@ final class RegisterScreenTests: XCTestCase {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.email = "email@example"
 
-        for i in 0 ..< 3 {
+        for i in 0..<3 {
             screen.username = .init(repeating: "a", count: i)
             XCTAssertFalse(screen.canSubmit)
         }
 
-        for i in 3 ... 50 {
+        for i in 3...50 {
             screen.username = .init(repeating: "a", count: i)
             XCTAssertTrue(screen.canSubmit)
         }
@@ -46,12 +45,12 @@ final class RegisterScreenTests: XCTestCase {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.username = "Example"
 
-        for i in 0 ..< 3 {
+        for i in 0..<3 {
             screen.email = .init(repeating: "@", count: i)
             XCTAssertFalse(screen.canSubmit)
         }
 
-        for i in 3 ... 254 {
+        for i in 3...254 {
             screen.email = .init(repeating: "@", count: i)
             XCTAssertTrue(screen.canSubmit)
         }

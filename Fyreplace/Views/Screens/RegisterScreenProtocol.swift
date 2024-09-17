@@ -11,10 +11,11 @@ protocol RegisterScreenProtocol: LoadingViewProtocol {
 
 @MainActor
 extension RegisterScreenProtocol {
-    var isUsernameValid: Bool { 3 ... 50 ~= username.count }
-    var isEmailValid: Bool { 3 ... 254 ~= email.count && email.contains("@") }
+    var isUsernameValid: Bool { 3...50 ~= username.count }
+    var isEmailValid: Bool { 3...254 ~= email.count && email.contains("@") }
     var canSubmit: Bool {
-        !isLoading && (isWaitingForRandomCode ? randomCode.count >= 8 : isUsernameValid && isEmailValid)
+        !isLoading
+            && (isWaitingForRandomCode ? randomCode.count >= 8 : isUsernameValid && isEmailValid)
     }
 
     func submit() async {
@@ -30,7 +31,9 @@ extension RegisterScreenProtocol {
     }
 
     func sendEmail() async throws -> UnfortunateEvent? {
-        let response = try await api.createUser(body: .json(.init(email: email, username: username)))
+        let response = try await api.createUser(
+            body: .json(.init(email: email, username: username))
+        )
 
         switch response {
         case .created:
@@ -86,7 +89,9 @@ extension RegisterScreenProtocol {
     }
 
     func createToken() async throws -> UnfortunateEvent? {
-        let response = try await api.createToken(body: .json(.init(identifier: email, secret: randomCode)))
+        let response = try await api.createToken(
+            body: .json(.init(identifier: email, secret: randomCode))
+        )
 
         switch response {
         case let .created(created):

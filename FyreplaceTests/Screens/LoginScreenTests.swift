@@ -1,7 +1,6 @@
 import XCTest
 
-@testable
-import Fyreplace
+@testable import Fyreplace
 
 final class LoginScreenTests: XCTestCase {
     class FakeScreen: LoginScreenProtocol {
@@ -24,12 +23,12 @@ final class LoginScreenTests: XCTestCase {
     func testIdentifierMustHaveCorrectLength() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
 
-        for i in 0 ..< 3 {
+        for i in 0..<3 {
             screen.identifier = .init(repeating: "a", count: i)
             XCTAssertFalse(screen.canSubmit)
         }
 
-        for i in 3 ... 254 {
+        for i in 3...254 {
             screen.identifier = .init(repeating: "a", count: i)
             XCTAssertTrue(screen.canSubmit)
         }

@@ -41,27 +41,35 @@ struct LoginScreen: View, LoginScreenProtocol {
             ) {
                 EnvironmentPicker(namespace: namespace).disabled(isWaitingForRandomCode)
 
-                TextField("Login.Identifier", text: $identifier, prompt: Text("Login.Identifier.Prompt"))
-                    .autocorrectionDisabled()
-                    .focused($focused, equals: .identifier)
-                    .disabled(isWaitingForRandomCode)
-                    .onSubmit(submit)
-                    .matchedGeometryEffect(id: "first-field", in: namespace)
+                TextField(
+                    "Login.Identifier",
+                    text: $identifier,
+                    prompt: Text("Login.Identifier.Prompt")
+                )
+                .autocorrectionDisabled()
+                .focused($focused, equals: .identifier)
+                .disabled(isWaitingForRandomCode)
+                .onSubmit(submit)
+                .matchedGeometryEffect(id: "first-field", in: namespace)
                 #if !os(macOS)
                     .keyboardType(.asciiCapable)
                 #endif
 
                 if isWaitingForRandomCode {
-                    TextField("Account.RandomCode", text: $randomCode, prompt: Text("Account.RandomCode.Prompt"))
-                        .textContentType(.oneTimeCode)
-                        .autocorrectionDisabled()
-                        .focused($focused, equals: .randomCode)
-                        .onSubmit(submit)
-                        .onAppear {
-                            if randomCode.isEmpty {
-                                focused = .randomCode
-                            }
+                    TextField(
+                        "Account.RandomCode",
+                        text: $randomCode,
+                        prompt: Text("Account.RandomCode.Prompt")
+                    )
+                    .textContentType(.oneTimeCode)
+                    .autocorrectionDisabled()
+                    .focused($focused, equals: .randomCode)
+                    .onSubmit(submit)
+                    .onAppear {
+                        if randomCode.isEmpty {
+                            focused = .randomCode
                         }
+                    }
                     #if !os(macOS)
                         .keyboardType(.asciiCapable)
                     #endif

@@ -33,7 +33,10 @@ struct FyreplaceApp: App {
             HelpCommands()
         }
         #if !os(macOS)
-        .backgroundTask(.appRefresh("app.fyreplace.Fyreplace.tokenRefresh"), action: tokenRefreshBackgroundTask)
+            .backgroundTask(
+                .appRefresh("app.fyreplace.Fyreplace.tokenRefresh"),
+                action: tokenRefreshBackgroundTask
+            )
         #endif
     }
 }

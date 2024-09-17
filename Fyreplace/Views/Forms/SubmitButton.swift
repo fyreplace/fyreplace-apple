@@ -14,15 +14,15 @@ struct SubmitButton: View {
     var body: some View {
         let button = Button(action: action) {
             Text(text)
-            #if os(macOS)
-                .padding(.horizontal)
-                .opacity(isLoading ? 0 : 1)
-                .overlay {
-                    if isLoading {
-                        ProgressView().controlSize(.small)
+                #if os(macOS)
+                    .padding(.horizontal)
+                    .opacity(isLoading ? 0 : 1)
+                    .overlay {
+                        if isLoading {
+                            ProgressView().controlSize(.small)
+                        }
                     }
-                }
-            #endif
+                #endif
         }
         .animation(.default, value: isEnabled)
         .matchedGeometryEffect(id: "button", in: namespace)

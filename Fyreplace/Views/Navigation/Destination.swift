@@ -68,8 +68,8 @@ public enum Destination: String, Codable, Identifiable {
     var canOfferAuthentication: Bool {
         switch self {
         case .feed,
-             .login,
-             .register:
+            .login,
+            .register:
             false
         default:
             true
@@ -79,9 +79,9 @@ public enum Destination: String, Codable, Identifiable {
     var requiresAuthentication: Bool {
         switch self {
         case .feed,
-             .settings,
-             .login,
-             .register:
+            .settings,
+            .login,
+            .register:
             false
         default:
             true

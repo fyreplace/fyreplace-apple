@@ -23,8 +23,8 @@ struct Keychain {
         info[kSecReturnData] = true
         var itemReference: CFTypeRef?
         guard SecItemCopyMatching(info as CFDictionary, &itemReference) == errSecSuccess,
-              let data = itemReference as? Data,
-              let value = String(data: data, encoding: .utf8)
+            let data = itemReference as? Data,
+            let value = String(data: data, encoding: .utf8)
         else { return "" }
         return value
     }
@@ -33,8 +33,9 @@ struct Keychain {
     func set(_ value: String) -> Bool {
         guard !value.isEmpty else { return delete() }
         let data = value.data(using: .utf8)
+        let attributes = [kSecValueData: data] as CFDictionary
 
-        if SecItemUpdate(query as CFDictionary, [kSecValueData: data] as CFDictionary) == errSecSuccess {
+        if SecItemUpdate(query as CFDictionary, attributes) == errSecSuccess {
             return true
         } else {
             var info = query
