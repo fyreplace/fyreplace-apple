@@ -1,14 +1,18 @@
 import SwiftUI
 
-protocol Event {}
+@MainActor
+protocol Event: Sendable {}
 
+@MainActor
 protocol UnfortunateEvent: Event {}
 
-struct ErrorEvent: UnfortunateEvent {
-    let error: UnexpectedError
+struct ErrorEvent: UnfortunateEvent, LocalizedError {
+    static let defaultDescription: String.LocalizationValue = "Error.Unknown"
 
-    init(_ error: UnexpectedError) {
-        self.error = error
+    var description = defaultDescription
+
+    var errorDescription: String {
+        .init(localized: description)
     }
 }
 

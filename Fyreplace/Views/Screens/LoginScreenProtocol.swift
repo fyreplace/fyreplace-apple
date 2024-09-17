@@ -1,3 +1,4 @@
+@MainActor
 protocol LoginScreenProtocol: LoadingViewProtocol {
     var api: APIProtocol { get }
 
@@ -52,7 +53,7 @@ extension LoginScreenProtocol {
             )
 
         case .default:
-            return .error(UnknownError())
+            return .error()
         }
     }
 
@@ -90,7 +91,7 @@ extension LoginScreenProtocol {
             )
 
         case .default:
-            return .error(UnknownError())
+            return .error()
         }
     }
 }

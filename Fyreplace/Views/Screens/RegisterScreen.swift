@@ -161,11 +161,14 @@ struct RegisterScreen: View, RegisterScreenProtocol {
     }
 }
 
+@available(macOS 14.0, *)
+@available(iOS 17.0, *)
 #Preview {
-    NavigationStack {
-        @Namespace
-        var namespace
+    @Previewable
+    @Namespace
+    var namespace
 
+    NavigationStack {
         RegisterScreen(namespace: namespace)
     }
     .environmentObject(EventBus())

@@ -1,3 +1,4 @@
+@MainActor
 protocol SettingsScreenProtocol: ViewProtocol {
     var api: APIProtocol { get }
 
@@ -23,7 +24,7 @@ extension SettingsScreenProtocol {
                 return .authorizationIssue()
 
             case .forbidden, .default:
-                return .error(UnknownError())
+                return .error()
             }
         }
     }

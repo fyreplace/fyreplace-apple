@@ -2,6 +2,7 @@ import XCTest
 
 @testable import Fyreplace
 
+@MainActor
 final class RegisterScreenTests: XCTestCase {
     class FakeScreen: RegisterScreenProtocol {
         var eventBus: EventBus
@@ -21,7 +22,6 @@ final class RegisterScreenTests: XCTestCase {
         }
     }
 
-    @MainActor
     func testUsernameMustHaveCorrectLength() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.email = "email@example"
@@ -40,7 +40,6 @@ final class RegisterScreenTests: XCTestCase {
         XCTAssertFalse(screen.canSubmit)
     }
 
-    @MainActor
     func testEmailMustHaveCorrectLength() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.username = "Example"
@@ -59,7 +58,6 @@ final class RegisterScreenTests: XCTestCase {
         XCTAssertFalse(screen.canSubmit)
     }
 
-    @MainActor
     func testEmailMustHaveAtSign() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.username = "Example"
@@ -69,7 +67,6 @@ final class RegisterScreenTests: XCTestCase {
         XCTAssertTrue(screen.canSubmit)
     }
 
-    @MainActor
     func testInvalidUsernameProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
@@ -81,7 +78,6 @@ final class RegisterScreenTests: XCTestCase {
         XCTAssertFalse(screen.isWaitingForRandomCode)
     }
 
-    @MainActor
     func testInvalidEmailProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
@@ -93,7 +89,6 @@ final class RegisterScreenTests: XCTestCase {
         XCTAssertFalse(screen.isWaitingForRandomCode)
     }
 
-    @MainActor
     func testValidUsernameAndEmailProduceNoFailures() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
@@ -104,7 +99,6 @@ final class RegisterScreenTests: XCTestCase {
         XCTAssertTrue(screen.isWaitingForRandomCode)
     }
 
-    @MainActor
     func testRandomCodeMustHaveCorrentLength() async {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.username = FakeClient.goodUsername
@@ -116,7 +110,6 @@ final class RegisterScreenTests: XCTestCase {
         XCTAssertTrue(screen.canSubmit)
     }
 
-    @MainActor
     func testInvalidRandomCodeProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
@@ -129,7 +122,6 @@ final class RegisterScreenTests: XCTestCase {
         XCTAssert(eventBus.storedEvents.first is FailureEvent)
     }
 
-    @MainActor
     func testValidRandomCodeProducesNoFailures() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())

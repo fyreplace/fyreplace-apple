@@ -7,7 +7,7 @@ struct CompactNavigation: View, NavigationProtocol {
     @SceneStorage("CompactNavigation.selectedDestination")
     private var selectedDestination = Destination.feed
 
-    @SceneStorage("CompactNavigation.selectedChoices")
+    @State
     private var selectedChoices = Destination.essentials
 
     @AppStorage("account.isRegistering")

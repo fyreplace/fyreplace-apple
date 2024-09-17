@@ -122,11 +122,14 @@ struct LoginScreen: View, LoginScreenProtocol {
     }
 }
 
+@available(macOS 14.0, *)
+@available(iOS 17.0, *)
 #Preview {
-    NavigationStack {
-        @Namespace
-        var namespace
+    @Previewable
+    @Namespace
+    var namespace
 
+    NavigationStack {
         LoginScreen(namespace: namespace)
     }
     .environmentObject(EventBus())

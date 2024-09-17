@@ -11,7 +11,7 @@ struct AuthenticationMiddleware: ClientMiddleware {
         next: @Sendable (HTTPRequest, HTTPBody?, URL) async throws -> (HTTPResponse, HTTPBody?)
     ) async throws -> (HTTPResponse, HTTPBody?) {
         var request = request
-        let token = KeychainCache.shared(for: "connection.token").value
+        let token = await KeychainCache.shared(for: "connection.token").value
 
         if !token.isEmpty {
             request.headerFields[.authorization] = "Bearer \(token)"

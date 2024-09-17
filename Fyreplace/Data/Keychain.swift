@@ -54,6 +54,7 @@ actor KeychainActor: GlobalActor {
     static let shared = KeychainActor()
 }
 
+@MainActor
 @propertyWrapper
 struct KeychainStorage: DynamicProperty {
     @ObservedObject
@@ -81,6 +82,7 @@ struct KeychainStorage: DynamicProperty {
     }
 }
 
+@MainActor
 class KeychainCache: ObservableObject {
     private static var instances: [String: KeychainCache] = [:]
 

@@ -2,6 +2,7 @@ import XCTest
 
 @testable import Fyreplace
 
+@MainActor
 final class LoginScreenTests: XCTestCase {
     class FakeScreen: LoginScreenProtocol {
         var eventBus: EventBus
@@ -19,7 +20,6 @@ final class LoginScreenTests: XCTestCase {
         }
     }
 
-    @MainActor
     func testIdentifierMustHaveCorrectLength() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
 
@@ -37,7 +37,6 @@ final class LoginScreenTests: XCTestCase {
         XCTAssertFalse(screen.canSubmit)
     }
 
-    @MainActor
     func testInvalidIdentifierProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
@@ -48,7 +47,6 @@ final class LoginScreenTests: XCTestCase {
         XCTAssertFalse(screen.isWaitingForRandomCode)
     }
 
-    @MainActor
     func testValidIdentifierProducesNoFailures() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
@@ -58,7 +56,6 @@ final class LoginScreenTests: XCTestCase {
         XCTAssertTrue(screen.isWaitingForRandomCode)
     }
 
-    @MainActor
     func testPasswordIdentifierProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
@@ -68,7 +65,6 @@ final class LoginScreenTests: XCTestCase {
         XCTAssertTrue(screen.isWaitingForRandomCode)
     }
 
-    @MainActor
     func testRandomCodeMustHaveCorrentLength() async {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.identifier = FakeClient.goodUsername
@@ -79,7 +75,6 @@ final class LoginScreenTests: XCTestCase {
         XCTAssertTrue(screen.canSubmit)
     }
 
-    @MainActor
     func testInvalidRandomCodeProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
@@ -91,7 +86,6 @@ final class LoginScreenTests: XCTestCase {
         XCTAssert(eventBus.storedEvents.first is FailureEvent)
     }
 
-    @MainActor
     func testValidRandomCodeProducesNoFailures() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())

@@ -214,7 +214,7 @@ jobs:
           xcodebuild test \
             CODE_SIGNING_ALLOWED=no \
             -scheme Fyreplace \
-            -destination platform=${{ matrix.platform }},OS=$(cat .ios-test-version) \
+            -destination platform="${{ matrix.platform }} Simulator,OS=$(cat .ios-test-version),name=$(cat .ios-test-model)" \
             -only-testing FyreplaceTests
 
   publish:

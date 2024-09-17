@@ -11,7 +11,7 @@ struct MainView: View, MainViewProtocol {
     var showFailure = false
 
     @State
-    var errors: [UnexpectedError] = []
+    var errors: [ErrorEvent] = []
 
     @State
     var failures: [FailureEvent] = []
@@ -55,7 +55,7 @@ struct MainView: View, MainViewProtocol {
                     Text(failure.text)
                 }
             )
-            .onReceive(eventBus.events.compactMap { ($0 as? ErrorEvent)?.error }, perform: addError)
+            .onReceive(eventBus.events.compactMap { ($0 as? ErrorEvent) }, perform: addError)
             .onReceive(eventBus.events.compactMap { ($0 as? FailureEvent) }, perform: addFailure)
             .onReceive(eventBus.events.filter { $0 is AuthorizationIssueEvent }) { _ in
                 token = ""

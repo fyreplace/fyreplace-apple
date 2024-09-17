@@ -2,7 +2,7 @@ import OpenAPIURLSession
 import SwiftUI
 
 struct Config {
-    static var `default` = Config(from: Bundle.main)
+    static let `default` = Config(from: Bundle.main)
 
     let version: Version
     let app: App
@@ -127,7 +127,7 @@ extension [String: Any] {
 }
 
 private struct ConfigEnvironmentKey: EnvironmentKey {
-    static var defaultValue = Config(from: Bundle.main)
+    static let defaultValue = Config(from: Bundle.main)
 }
 
 extension EnvironmentValues {

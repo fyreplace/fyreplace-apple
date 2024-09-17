@@ -45,7 +45,6 @@
 		4D9B3B382C334B3A00A8F7AD /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B372C334B3A00A8F7AD /* LoginScreen.swift */; };
 		4D9B3B3A2C334B6300A8F7AD /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B392C334B6300A8F7AD /* RegisterScreen.swift */; };
 		4D9B3B3D2C34B13E00A8F7AD /* LogoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B3C2C34B13E00A8F7AD /* LogoHeader.swift */; };
-		4D9B3B422C36E23A00A8F7AD /* Array+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B412C36E23A00A8F7AD /* Array+RawRepresentable.swift */; };
 		4D9B3B452C36F46F00A8F7AD /* NSTextContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */; };
 		4D9B3B472C36F50300A8F7AD /* UITextContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */; };
 		4D9DC5032C11BF2500BA0507 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DC5022C11BF2500BA0507 /* Config.swift */; };
@@ -143,7 +142,6 @@
 		4D9B3B372C334B3A00A8F7AD /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		4D9B3B392C334B6300A8F7AD /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		4D9B3B3C2C34B13E00A8F7AD /* LogoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHeader.swift; sourceTree = "<group>"; };
-		4D9B3B412C36E23A00A8F7AD /* Array+RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+RawRepresentable.swift"; sourceTree = "<group>"; };
 		4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextContentType.swift; sourceTree = "<group>"; };
 		4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextContentType.swift; sourceTree = "<group>"; };
 		4D9DC5022C11BF2500BA0507 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -152,6 +150,7 @@
 		4DB10B4F2C4FEBFC00634BF6 /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
 		4DB2E36C2C416611007F958D /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 		4DB2E36E2C418F5C007F958D /* DynamicForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicForm.swift; sourceTree = "<group>"; };
+		4DBF0BD32C9DB2E500E797BF /* .ios-test-model */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ios-test-model"; sourceTree = "<group>"; };
 		4DC5B1C92C6FA23000B75A07 /* LoginScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenProtocol.swift; sourceTree = "<group>"; };
 		4DC5B1CC2C6FA28E00B75A07 /* RegisterScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenProtocol.swift; sourceTree = "<group>"; };
 		4DC5B1CE2C6FA2BE00B75A07 /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
@@ -289,6 +288,7 @@
 				4DF3737F2C99C23D0008AB04 /* .swift-format */,
 				4D0DDC292C18A467006CD503 /* .xcode-version */,
 				4D6641DB2C5B963500BE3D07 /* .ios-test-version */,
+				4DBF0BD32C9DB2E500E797BF /* .ios-test-model */,
 				4DCEF8652C452EBA00F53085 /* .env-example */,
 				4DCEF8662C452ECC00F53085 /* .env */,
 				4D54C9592BF266F9001DE071 /* Makefile */,
@@ -410,7 +410,6 @@
 			isa = PBXGroup;
 			children = (
 				4DE785812C88B248000EC4E5 /* String.swift */,
-				4D9B3B412C36E23A00A8F7AD /* Array+RawRepresentable.swift */,
 				4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */,
 				4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */,
 				4DE785872C88F392000EC4E5 /* HTTPField.swift */,
@@ -641,7 +640,6 @@
 				4D13AF7B2C4E8F4200845FDB /* EnvironmentPicker.swift in Sources */,
 				4D30DA5F2C986B6C00499450 /* Avatar.swift in Sources */,
 				4DC5B1CF2C6FA2BE00B75A07 /* MainViewProtocol.swift in Sources */,
-				4D9B3B422C36E23A00A8F7AD /* Array+RawRepresentable.swift in Sources */,
 				4D4D394A2C086DA2007196D2 /* PublishedScreen.swift in Sources */,
 				4D5251EC2C1097A600018CD2 /* Destination.swift in Sources */,
 				4D54C92E2BF2608A001DE071 /* MainView.swift in Sources */,
@@ -791,6 +789,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -854,6 +853,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -889,7 +889,6 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -926,7 +925,6 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -942,7 +940,6 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fyreplace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fyreplace";
 			};
@@ -959,7 +956,6 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fyreplace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fyreplace";
 			};
@@ -975,7 +971,6 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Fyreplace;
 			};
@@ -991,7 +986,6 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Fyreplace;
 			};

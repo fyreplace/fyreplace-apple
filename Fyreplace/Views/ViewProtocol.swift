@@ -1,10 +1,12 @@
 import OpenAPIRuntime
 import Sentry
 
+@MainActor
 protocol ViewProtocol {
     var eventBus: EventBus { get }
 }
 
+@MainActor
 protocol LoadingViewProtocol: ViewProtocol {
     var isLoading: Bool { get nonmutating set }
 }
@@ -17,16 +19,18 @@ extension ViewProtocol {
         do {
             unfortunateEvent = try await action()
         } catch is ClientError {
-            unfortunateEvent = .error(ConnectionError())
+            unfortunateEvent = .error(description: "Error.Connection")
         } catch {
-            unfortunateEvent = .error(UnknownError())
+            unfortunateEvent = .error()
         }
 
         if let event = unfortunateEvent {
             eventBus.send(event)
 
-            if let event = unfortunateEvent as? ErrorEvent, event.error is UnknownError {
-                SentrySDK.capture(error: event.error)
+            if let event = unfortunateEvent as? ErrorEvent,
+                event.description == ErrorEvent.defaultDescription
+            {
+                SentrySDK.capture(error: event)
             }
         }
     }
@@ -38,23 +42,5 @@ extension LoadingViewProtocol {
         isLoading = true
         await call(action: action)
         isLoading = false
-    }
-}
-
-class UnexpectedError: LocalizedError {
-    var errorDescription: String? {
-        nil
-    }
-}
-
-class ConnectionError: UnexpectedError {
-    override var errorDescription: String {
-        .init(localized: "Error.Connection")
-    }
-}
-
-class UnknownError: UnexpectedError {
-    override var errorDescription: String? {
-        .init(localized: "Error.Unknown")
     }
 }

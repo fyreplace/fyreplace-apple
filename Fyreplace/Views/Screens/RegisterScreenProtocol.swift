@@ -1,3 +1,4 @@
+@MainActor
 protocol RegisterScreenProtocol: LoadingViewProtocol {
     var api: APIProtocol { get }
 
@@ -84,7 +85,7 @@ extension RegisterScreenProtocol {
             }
 
         case .default:
-            return .error(UnknownError())
+            return .error()
         }
     }
 
@@ -124,7 +125,7 @@ extension RegisterScreenProtocol {
             )
 
         case .default:
-            return .error(UnknownError())
+            return .error()
         }
     }
 }

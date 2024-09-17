@@ -1,13 +1,16 @@
+import Foundation
+
+@MainActor
 protocol MainViewProtocol: ViewProtocol {
     var showError: Bool { get nonmutating set }
     var showFailure: Bool { get nonmutating set }
-    var errors: [UnexpectedError] { get nonmutating set }
+    var errors: [ErrorEvent] { get nonmutating set }
     var failures: [FailureEvent] { get nonmutating set }
 }
 
 @MainActor
 extension MainViewProtocol {
-    func addError(_ error: UnexpectedError) {
+    func addError(_ error: ErrorEvent) {
         errors.append(error)
         tryShowSomething()
     }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-public enum Destination: String, Codable, Identifiable {
+enum Destination: String, Identifiable {
     case feed
     case notifications
     case archive
@@ -10,7 +10,7 @@ public enum Destination: String, Codable, Identifiable {
     case login
     case register
 
-    public var id: String {
+    var id: String {
         .init(reflecting: self)
     }
 

@@ -1,5 +1,6 @@
 import Foundation
 
+@MainActor
 protocol NavigationProtocol {
     var eventBus: EventBus { get }
 
