@@ -114,9 +114,6 @@ jobs:
         run: curl -sL https://sentry.io/get-cli/ | sh
 
       - name: Build app
-        env:
-          CODE_SIGN_IDENTITY: Apple Distribution
-          PROVISIONING_PROFILE_SPECIFIER: ${{ vars.PROVISIONING_PROFILE_NAME }}
         run: |
           xcodebuild archive \
             -allowProvisioningUpdates \
