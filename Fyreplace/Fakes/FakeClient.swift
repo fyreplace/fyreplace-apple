@@ -308,7 +308,10 @@ extension FakeClient {
                             banned: false,
                             blocked: false,
                             tint: .init(r: 0x7F, g: 0x7F, b: 0x7F)
-                        ))))
+                        )
+                    )
+                )
+            )
         }
     }
 
@@ -327,7 +330,7 @@ extension FakeClient {
     func getCurrentUser(_: Operations.getCurrentUser.Input) async throws
         -> Operations.getCurrentUser.Output
     {
-        fatalError("Not implemented")
+        return .ok(.init(body: .json(.placeholder)))
     }
 
     func getUser(_: Operations.getUser.Input) async throws

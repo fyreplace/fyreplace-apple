@@ -6,19 +6,15 @@ struct DynamicForm<Content>: View where Content: View {
 
     var body: some View {
         #if os(macOS)
-            Form {
-                content()
-            }
-            .formStyle(.grouped)
-            .frame(minWidth: 360, maxWidth: 600)
-            .fixedSize()
-            .padding()
+            Form(content: content)
+                .formStyle(.grouped)
+                .frame(minWidth: 360, maxWidth: 600)
+                .fixedSize()
+                .padding()
         #else
             HStack {
-                Form {
-                    content()
-                }
-                .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 600 : nil)
+                Form(content: content)
+                    .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 600 : nil)
             }
             .frame(maxWidth: .infinity)
             .background(Color(UIColor.systemGroupedBackground))

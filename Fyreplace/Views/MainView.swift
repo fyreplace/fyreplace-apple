@@ -57,6 +57,11 @@ struct MainView: View, MainViewProtocol {
             )
             .onReceive(eventBus.events.compactMap { ($0 as? ErrorEvent)?.error }, perform: addError)
             .onReceive(eventBus.events.compactMap { ($0 as? FailureEvent) }, perform: addFailure)
+            .onReceive(eventBus.events.filter { $0 is AuthorizationIssueEvent }) { _ in
+                token = ""
+                eventBus.send(
+                    .failure(title: "Error.Unauthorized.Title", text: "Error.Unauthorized.Text"))
+            }
             #if os(macOS)
                 .task { await keepRefreshingToken() }
             #endif

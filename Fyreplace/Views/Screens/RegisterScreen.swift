@@ -44,19 +44,8 @@ struct RegisterScreen: View, RegisterScreenProtocol {
             let emailPrompt: Text? = nil
         #endif
 
-        let footer = VStack {
-            if isWaitingForRandomCode {
-                Text("Account.Help.RandomCode")
-            } else {
-                firstStepFooter
-            }
-        }
-
         DynamicForm {
-            Section(
-                header: LogoHeader(text: "Register.Header", namespace: namespace),
-                footer: footer
-            ) {
+            Section {
                 EnvironmentPicker(namespace: namespace).disabled(isWaitingForRandomCode)
 
                 TextField(
@@ -72,6 +61,7 @@ struct RegisterScreen: View, RegisterScreenProtocol {
                 .onSubmit { focused = .email }
                 .matchedGeometryEffect(id: "first-field", in: namespace)
                 #if !os(macOS)
+                    .textInputAutocapitalization(.never)
                     .keyboardType(.asciiCapable)
                 #endif
 
@@ -110,16 +100,7 @@ struct RegisterScreen: View, RegisterScreenProtocol {
                         .keyboardType(.asciiCapable)
                     #endif
                 }
-            }
-            .onAppear {
-                if username.isEmpty {
-                    focused = .username
-                } else if email.isEmpty {
-                    focused = .email
-                }
-            }
 
-            Section {
                 SubmitOrCancel(
                     namespace: namespace,
                     submitLabel: "Register.Submit",
@@ -129,6 +110,27 @@ struct RegisterScreen: View, RegisterScreenProtocol {
                     submitAction: submit,
                     cancelAction: cancel
                 )
+            } header: {
+                LogoHeader(namespace: namespace) {
+                    Image("Logo", label: Text("Logo")).resizable()
+                } textContent: {
+                    Text("Register.Header")
+                }
+            } footer: {
+                VStack {
+                    if isWaitingForRandomCode {
+                        Text("Account.Help.RandomCode")
+                    } else {
+                        firstStepFooter
+                    }
+                }
+            }
+            .onAppear {
+                if username.isEmpty {
+                    focused = .username
+                } else if email.isEmpty {
+                    focused = .email
+                }
             }
         }
         .disabled(isLoading)

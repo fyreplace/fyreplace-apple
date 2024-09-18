@@ -28,17 +28,8 @@ struct LoginScreen: View, LoginScreenProtocol {
     private var focused: FocusedField?
 
     var body: some View {
-        let footer = VStack {
-            if isWaitingForRandomCode {
-                Text("Account.Help.RandomCode")
-            }
-        }
-
         DynamicForm {
-            Section(
-                header: LogoHeader(text: "Login.Header", namespace: namespace),
-                footer: footer
-            ) {
+            Section {
                 EnvironmentPicker(namespace: namespace).disabled(isWaitingForRandomCode)
 
                 TextField(
@@ -52,6 +43,7 @@ struct LoginScreen: View, LoginScreenProtocol {
                 .onSubmit(submit)
                 .matchedGeometryEffect(id: "first-field", in: namespace)
                 #if !os(macOS)
+                    .textInputAutocapitalization(.never)
                     .keyboardType(.asciiCapable)
                 #endif
 
@@ -74,14 +66,7 @@ struct LoginScreen: View, LoginScreenProtocol {
                         .keyboardType(.asciiCapable)
                     #endif
                 }
-            }
-            .onAppear {
-                if identifier.isEmpty {
-                    focused = .identifier
-                }
-            }
 
-            Section {
                 SubmitOrCancel(
                     namespace: namespace,
                     submitLabel: "Login.Submit",
@@ -91,6 +76,23 @@ struct LoginScreen: View, LoginScreenProtocol {
                     submitAction: submit,
                     cancelAction: cancel
                 )
+            } header: {
+                LogoHeader(namespace: namespace) {
+                    Image("Logo", label: Text("Logo")).resizable()
+                } textContent: {
+                    Text("Login.Header")
+                }
+            } footer: {
+                VStack {
+                    if isWaitingForRandomCode {
+                        Text("Account.Help.RandomCode")
+                    }
+                }
+            }
+            .onAppear {
+                if identifier.isEmpty {
+                    focused = .identifier
+                }
             }
         }
         .disabled(isLoading)

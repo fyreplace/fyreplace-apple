@@ -204,12 +204,42 @@
         }
       }
     },
+    "Error.Unauthorized.Text" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It looks like your session has expired."
+          }
+        }
+      }
+    },
+    "Error.Unauthorized.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have been disconnected"
+          }
+        }
+      }
+    },
     "Error.Unknown" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unknown error. This should never happen…"
+          }
+        }
+      }
+    },
+    "Loading" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "…"
           }
         }
       }
@@ -574,12 +604,42 @@
         }
       }
     },
+    "Settings.DateJoined" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Joined on"
+          }
+        }
+      }
+    },
+    "Settings.Header" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        }
+      }
+    },
     "Settings.Logout" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Logout"
+          }
+        }
+      }
+    },
+    "Settings.Username" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Username"
           }
         }
       }

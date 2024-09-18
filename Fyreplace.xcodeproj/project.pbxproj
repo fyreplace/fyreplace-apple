@@ -18,6 +18,8 @@
 		4D13AF752C492F4500845FDB /* Config.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4D13AF742C492F4500845FDB /* Config.sh */; };
 		4D13AF7B2C4E8F4200845FDB /* EnvironmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13AF7A2C4E8F4200845FDB /* EnvironmentPicker.swift */; };
 		4D13AF812C4E907200845FDB /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13AF802C4E907200845FDB /* Environment.swift */; };
+		4D30DA5F2C986B6C00499450 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30DA5E2C986B6C00499450 /* Avatar.swift */; };
+		4D30DA612C98706C00499450 /* Placeholders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30DA602C98706C00499450 /* Placeholders.swift */; };
 		4D39A4C82BF516B7003FA52E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4D39A4C72BF516B7003FA52E /* Localizable.xcstrings */; };
 		4D4AF71C2C7CE72900621FF3 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AF71B2C7CE72900621FF3 /* Tokens.swift */; };
 		4D4D394A2C086DA2007196D2 /* PublishedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D39492C086DA2007196D2 /* PublishedScreen.swift */; };
@@ -101,6 +103,8 @@
 		4D13AF742C492F4500845FDB /* Config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Config.sh; sourceTree = "<group>"; };
 		4D13AF7A2C4E8F4200845FDB /* EnvironmentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentPicker.swift; sourceTree = "<group>"; };
 		4D13AF802C4E907200845FDB /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		4D30DA5E2C986B6C00499450 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		4D30DA602C98706C00499450 /* Placeholders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholders.swift; sourceTree = "<group>"; };
 		4D39A4C72BF516B7003FA52E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4D4AF71B2C7CE72900621FF3 /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
 		4D4D39492C086DA2007196D2 /* PublishedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedScreen.swift; sourceTree = "<group>"; };
@@ -210,6 +214,14 @@
 				4D4AF71B2C7CE72900621FF3 /* Tokens.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		4D30DA5C2C986B6000499450 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4D30DA5E2C986B6C00499450 /* Avatar.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		4D39A4C62BF51693003FA52E /* Resources */ = {
@@ -359,6 +371,7 @@
 		4D54C95E2BF27C78001DE071 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D30DA5C2C986B6000499450 /* Components */,
 				4D9B3B3B2C34B11D00A8F7AD /* Forms */,
 				4D5251E82C10532100018CD2 /* Navigation */,
 				4D4D394B2C086DD3007196D2 /* Screens */,
@@ -411,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				4DA7BFBA2C5FDEC1005CC4FF /* FakeClient.swift */,
+				4D30DA602C98706C00499450 /* Placeholders.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -625,6 +639,7 @@
 				4D4AF71C2C7CE72900621FF3 /* Tokens.swift in Sources */,
 				4D54C9712BF4EA15001DE071 /* SettingsScreen.swift in Sources */,
 				4D13AF7B2C4E8F4200845FDB /* EnvironmentPicker.swift in Sources */,
+				4D30DA5F2C986B6C00499450 /* Avatar.swift in Sources */,
 				4DC5B1CF2C6FA2BE00B75A07 /* MainViewProtocol.swift in Sources */,
 				4D9B3B422C36E23A00A8F7AD /* Array+RawRepresentable.swift in Sources */,
 				4D4D394A2C086DA2007196D2 /* PublishedScreen.swift in Sources */,
@@ -664,6 +679,7 @@
 				4D060BBF2C907FA4008C32D1 /* NavigationProtocol.swift in Sources */,
 				4D5251F52C10A9F100018CD2 /* DynamicNavigation.swift in Sources */,
 				4D9DC5032C11BF2500BA0507 /* Config.swift in Sources */,
+				4D30DA612C98706C00499450 /* Placeholders.swift in Sources */,
 				4D54C92C2BF2608A001DE071 /* FyreplaceApp.swift in Sources */,
 				4D5251F32C109FAC00018CD2 /* Label+Destination.swift in Sources */,
 			);

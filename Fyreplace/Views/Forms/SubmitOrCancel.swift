@@ -25,19 +25,18 @@ struct SubmitOrCancel: View {
 
         HStack {
             #if os(macOS)
-                cancel.controlSize(.large)
-                Spacer()
-                submit.controlSize(.large)
-            #else
+                cancel
                 Spacer()
                 submit
-                    .toolbar {
-                        if canCancel {
-                            ToolbarItem {
-                                cancel
-                            }
+            #else
+                Spacer()
+                submit.toolbar {
+                    if canCancel {
+                        ToolbarItem {
+                            cancel
                         }
                     }
+                }
                 Spacer()
             #endif
         }

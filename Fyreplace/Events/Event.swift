@@ -25,6 +25,12 @@ extension Event {
     typealias failure = FailureEvent
 }
 
+struct AuthorizationIssueEvent: UnfortunateEvent {}
+
+extension Event {
+    typealias authorizationIssue = AuthorizationIssueEvent
+}
+
 struct NavigationShortcutEvent: Event {
     let destination: Destination
 
