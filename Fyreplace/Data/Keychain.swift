@@ -8,7 +8,6 @@ struct Keychain {
     private var query: [CFString: Any] {
         [
             kSecClass: kSecClassGenericPassword,
-            kSecMatchLimit: kSecMatchLimitOne,
             kSecAttrLabel: Config.default.app.name,
             kSecAttrService: service,
         ]
