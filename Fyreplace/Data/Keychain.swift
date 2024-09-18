@@ -77,7 +77,7 @@ struct KeychainStorage: DynamicProperty {
 
     init(_ key: String) {
         keychain = .init(service: key)
-        cache = .shared(for: key, defaultValue: keychain.get())
+        cache = .shared(for: key)
     }
 }
 
@@ -94,12 +94,13 @@ class KeychainCache: ObservableObject {
         value = defaultValue
     }
 
-    static func shared(for key: String, defaultValue: String) -> KeychainCache {
+    static func shared(for key: String) -> KeychainCache {
         if let instance = instances[key] {
             return instance
         }
 
-        let instance = KeychainCache(key: key, defaultValue: defaultValue)
+        let keychain = Keychain(service: key)
+        let instance = KeychainCache(key: key, defaultValue: keychain.get())
         instances[key] = instance
         return instance
     }

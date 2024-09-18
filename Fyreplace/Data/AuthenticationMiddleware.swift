@@ -3,8 +3,6 @@ import HTTPTypes
 import OpenAPIRuntime
 
 struct AuthenticationMiddleware: ClientMiddleware {
-    private let keychain = Keychain(service: "connection.token")
-
     func intercept(
         _ request: HTTPRequest,
         body: HTTPBody?,
@@ -13,7 +11,7 @@ struct AuthenticationMiddleware: ClientMiddleware {
         next: @Sendable (HTTPRequest, HTTPBody?, URL) async throws -> (HTTPResponse, HTTPBody?)
     ) async throws -> (HTTPResponse, HTTPBody?) {
         var request = request
-        let token = keychain.get()
+        let token = KeychainCache.shared(for: "connection.token").value
 
         if !token.isEmpty {
             request.headerFields[.authorization] = "Bearer \(token)"
