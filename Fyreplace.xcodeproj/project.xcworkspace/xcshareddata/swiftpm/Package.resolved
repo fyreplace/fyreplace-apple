@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-collections",
       "state" : {
-        "revision" : "3d2dc41a01f9e49d84f0a3925fb858bed64f702d",
-        "version" : "1.1.2"
+        "revision" : "9bf03ff58ce34478e66aaee630e491823326fd06",
+        "version" : "1.1.3"
       }
     },
     {
@@ -67,10 +67,10 @@
     {
       "identity" : "swift-openapi-generator",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-openapi-generator.git",
+      "location" : "https://github.com/apple/swift-openapi-generator",
       "state" : {
-        "revision" : "99859083e53912612b56b4b8713a971c20dab3ef",
-        "version" : "1.3.0"
+        "revision" : "d5f6a6abf18549c8bae6526bf2c9d5773269c570",
+        "version" : "1.3.1"
       }
     },
     {
@@ -85,7 +85,7 @@
     {
       "identity" : "swift-openapi-urlsession",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-openapi-urlsession.git",
+      "location" : "https://github.com/apple/swift-openapi-urlsession",
       "state" : {
         "revision" : "9bf4c712ad7989d6a91dbe68748b8829a50837e4",
         "version" : "1.0.2"
