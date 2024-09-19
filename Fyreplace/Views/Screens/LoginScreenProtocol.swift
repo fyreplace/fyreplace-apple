@@ -39,9 +39,10 @@ extension LoginScreenProtocol {
             )
 
         case .forbidden:
+            isWaitingForRandomCode = true
             return .failure(
-                title: "Error.Forbidden.Title",
-                text: "Error.Forbidden.Message"
+                title: "Login.Error.Forbidden.Title",
+                text: "Login.Error.Forbidden.Message"
             )
 
         case .notFound:

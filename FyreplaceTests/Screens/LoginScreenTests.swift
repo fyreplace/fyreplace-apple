@@ -41,7 +41,7 @@ final class LoginScreenTests: XCTestCase {
     func testInvalidIdentifierProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
-        screen.identifier = FakeClient.badIdentifer
+        screen.identifier = FakeClient.badUsername
         await screen.submit()
         XCTAssertEqual(1, eventBus.storedEvents.count)
         XCTAssert(eventBus.storedEvents.first is FailureEvent)
@@ -52,16 +52,26 @@ final class LoginScreenTests: XCTestCase {
     func testValidIdentifierProducesNoFailures() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
-        screen.identifier = FakeClient.goodIdentifer
+        screen.identifier = FakeClient.goodUsername
         await screen.submit()
         XCTAssertEqual(0, eventBus.storedEvents.count)
         XCTAssertTrue(screen.isWaitingForRandomCode)
     }
 
     @MainActor
+    func testPasswordIdentifierProducesFailure() async {
+        let eventBus = StoringEventBus()
+        let screen = FakeScreen(eventBus: eventBus, api: .fake())
+        screen.identifier = FakeClient.passwordUsername
+        await screen.submit()
+        XCTAssertEqual(1, eventBus.storedEvents.count)
+        XCTAssertTrue(screen.isWaitingForRandomCode)
+    }
+
+    @MainActor
     func testRandomCodeMustHaveCorrentLength() async {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
-        screen.identifier = FakeClient.goodIdentifer
+        screen.identifier = FakeClient.goodUsername
         screen.isWaitingForRandomCode = true
         screen.randomCode = "abcd123"
         XCTAssertFalse(screen.canSubmit)
@@ -73,7 +83,7 @@ final class LoginScreenTests: XCTestCase {
     func testInvalidRandomCodeProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
-        screen.identifier = FakeClient.goodIdentifer
+        screen.identifier = FakeClient.goodUsername
         screen.randomCode = FakeClient.badSecret
         screen.isWaitingForRandomCode = true
         await screen.submit()
@@ -85,7 +95,7 @@ final class LoginScreenTests: XCTestCase {
     func testValidRandomCodeProducesNoFailures() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
-        screen.identifier = FakeClient.goodIdentifer
+        screen.identifier = FakeClient.goodUsername
         screen.randomCode = FakeClient.goodSecret
         screen.isWaitingForRandomCode = true
         await screen.submit()

@@ -184,26 +184,6 @@
         }
       }
     },
-    "Error.Forbidden.Message" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "An unauthorized request was sent to the server."
-          }
-        }
-      }
-    },
-    "Error.Forbidden.Title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Forbidden"
-          }
-        }
-      }
-    },
     "Error.Unauthorized.Text" : {
       "localizations" : {
         "en" : {
@@ -240,6 +220,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "…"
+          }
+        }
+      }
+    },
+    "Login.Error.Forbidden.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This account does not use an email for logging in. Please use your password instead."
+          }
+        }
+      }
+    },
+    "Login.Error.Forbidden.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use a password"
           }
         }
       }

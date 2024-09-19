@@ -219,8 +219,7 @@ extension FakeClient {
 // MARK: Tokens
 
 extension FakeClient {
-    static let badIdentifer = badEmail
-    static let goodIdentifer = goodEmail
+    static let goodIdentifers = [goodUsername, goodEmail]
     static let badSecret = "nopenope"
     static let goodSecret = "abcd1234"
     static let badToken = "bad-token"
@@ -230,8 +229,11 @@ extension FakeClient {
         -> Operations.createNewToken.Output
     {
         return switch input.body {
-        case let .json(json) where json.identifier == Self.goodIdentifer:
+        case let .json(json) where Self.goodIdentifers.contains(json.identifier):
             .ok(.init())
+
+        case let .json(json) where json.identifier == Self.passwordUsername:
+            .forbidden(.init(body: .json(.init())))
 
         case .json:
             .notFound(.init())
@@ -243,7 +245,7 @@ extension FakeClient {
     {
         return switch input.body {
         case let .json(json)
-        where json.identifier == Self.goodIdentifer && json.secret == Self.goodSecret:
+        where Self.goodIdentifers.contains(json.identifier) && json.secret == Self.goodSecret:
             .created(.init(body: .plainText(.init(stringLiteral: Self.goodToken))))
 
         case .json:
@@ -264,6 +266,7 @@ extension FakeClient {
     static let badUsername = "bad-username"
     static let reservedUsername = "reserved-username"
     static let usedUsername = "used-username"
+    static let passwordUsername = "password-username"
     static let goodUsername = "good-username"
     static let badEmail = "bad-email"
     static let usedEmail = "used-email"
@@ -287,6 +290,9 @@ extension FakeClient {
 
         case let .json(json) where json.username == Self.usedUsername:
             .conflict(.init(body: .json(.init())))
+
+        case let .json(json) where json.username == Self.passwordUsername:
+            .forbidden(.init(body: .json(.init())))
 
         case let .json(json) where json.email == Self.badEmail:
             .badRequest(.init(body: .json(.init())))
