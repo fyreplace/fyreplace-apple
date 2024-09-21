@@ -27,7 +27,8 @@ struct Avatar: View {
                 Image(systemName: "person.crop.circle.fill")
                     .resizable()
                     .scaledToFit()
-                    .foregroundStyle(tint)
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle(.white.gradient, tint.gradient)
             }
         }
         .clipShape(.circle)
