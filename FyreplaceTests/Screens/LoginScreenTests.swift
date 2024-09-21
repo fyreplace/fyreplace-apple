@@ -1,9 +1,10 @@
-import XCTest
+import Testing
 
 @testable import Fyreplace
 
+@Suite("Login screen")
 @MainActor
-final class LoginScreenTests: XCTestCase {
+struct LoginScreenTests {
     class FakeScreen: LoginScreenProtocol {
         var eventBus: EventBus
         var api: APIProtocol
@@ -20,79 +21,86 @@ final class LoginScreenTests: XCTestCase {
         }
     }
 
-    func testIdentifierMustHaveCorrectLength() {
+    @Test("Identifier must have correct length")
+    func identifierMustHaveCorrectLength() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
 
         for i in 0..<3 {
             screen.identifier = .init(repeating: "a", count: i)
-            XCTAssertFalse(screen.canSubmit)
+            #expect(!screen.canSubmit)
         }
 
         for i in 3...254 {
             screen.identifier = .init(repeating: "a", count: i)
-            XCTAssertTrue(screen.canSubmit)
+            #expect(screen.canSubmit)
         }
 
         screen.identifier = .init(repeating: "a", count: 255)
-        XCTAssertFalse(screen.canSubmit)
+        #expect(!screen.canSubmit)
     }
 
-    func testInvalidIdentifierProducesFailure() async {
+    @Test("Invalid identifier produces a failure")
+    func invalidIdentifierProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.identifier = FakeClient.badUsername
         await screen.submit()
-        XCTAssertEqual(1, eventBus.storedEvents.count)
-        XCTAssert(eventBus.storedEvents.first is FailureEvent)
-        XCTAssertFalse(screen.isWaitingForRandomCode)
+        #expect(eventBus.storedEvents.count == 1)
+        #expect(eventBus.storedEvents.first is FailureEvent)
+        #expect(!screen.isWaitingForRandomCode)
     }
 
-    func testValidIdentifierProducesNoFailures() async {
+    @Test("Valid identifier produces no failures")
+    func validIdentifierProducesNoFailures() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.identifier = FakeClient.goodUsername
         await screen.submit()
-        XCTAssertEqual(0, eventBus.storedEvents.count)
-        XCTAssertTrue(screen.isWaitingForRandomCode)
+        #expect(eventBus.storedEvents.isEmpty)
+        #expect(screen.isWaitingForRandomCode)
     }
 
-    func testPasswordIdentifierProducesFailure() async {
+    @Test("Password identifier produces a failure")
+    func passwordIdentifierProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.identifier = FakeClient.passwordUsername
         await screen.submit()
-        XCTAssertEqual(1, eventBus.storedEvents.count)
-        XCTAssertTrue(screen.isWaitingForRandomCode)
+        #expect(eventBus.storedEvents.count == 1)
+        #expect(screen.isWaitingForRandomCode)
     }
 
-    func testRandomCodeMustHaveCorrentLength() async {
+    @Test("Random code must have correct length")
+    func randomCodeMustHaveCorrentLength() async {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.identifier = FakeClient.goodUsername
         screen.isWaitingForRandomCode = true
         screen.randomCode = "abcd123"
-        XCTAssertFalse(screen.canSubmit)
+        #expect(!screen.canSubmit)
         screen.randomCode = "abcd1234"
-        XCTAssertTrue(screen.canSubmit)
+        #expect(screen.canSubmit)
     }
 
-    func testInvalidRandomCodeProducesFailure() async {
+    @Test("Invalid random code produces a failure")
+    func invalidRandomCodeProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.identifier = FakeClient.goodUsername
         screen.randomCode = FakeClient.badSecret
         screen.isWaitingForRandomCode = true
         await screen.submit()
-        XCTAssertEqual(1, eventBus.storedEvents.count)
-        XCTAssert(eventBus.storedEvents.first is FailureEvent)
+        #expect(eventBus.storedEvents.count == 1)
+        #expect(eventBus.storedEvents.first is FailureEvent)
     }
 
-    func testValidRandomCodeProducesNoFailures() async {
+    @Test("Valid random code produces no failures")
+    func validRandomCodeProducesNoFailures() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.identifier = FakeClient.goodUsername
         screen.randomCode = FakeClient.goodSecret
         screen.isWaitingForRandomCode = true
         await screen.submit()
-        XCTAssertEqual(0, eventBus.storedEvents.count)
+        #expect(eventBus.storedEvents.isEmpty)
     }
 }

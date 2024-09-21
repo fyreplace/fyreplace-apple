@@ -1,9 +1,10 @@
-import XCTest
+import Testing
 
 @testable import Fyreplace
 
+@Suite("Register screen")
 @MainActor
-final class RegisterScreenTests: XCTestCase {
+struct RegisterScreenTests {
     class FakeScreen: RegisterScreenProtocol {
         var eventBus: EventBus
         var api: APIProtocol
@@ -22,95 +23,103 @@ final class RegisterScreenTests: XCTestCase {
         }
     }
 
-    func testUsernameMustHaveCorrectLength() {
+    @Test("Username must have correct length")
+    func usernameMustHaveCorrectLength() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.email = "email@example"
 
         for i in 0..<3 {
             screen.username = .init(repeating: "a", count: i)
-            XCTAssertFalse(screen.canSubmit)
+            #expect(!screen.canSubmit)
         }
 
         for i in 3...50 {
             screen.username = .init(repeating: "a", count: i)
-            XCTAssertTrue(screen.canSubmit)
+            #expect(screen.canSubmit)
         }
 
         screen.username = .init(repeating: "a", count: 51)
-        XCTAssertFalse(screen.canSubmit)
+        #expect(!screen.canSubmit)
     }
 
-    func testEmailMustHaveCorrectLength() {
+    @Test("Email must have correct length")
+    func emailMustHaveCorrectLength() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.username = "Example"
 
         for i in 0..<3 {
             screen.email = .init(repeating: "@", count: i)
-            XCTAssertFalse(screen.canSubmit)
+            #expect(!screen.canSubmit)
         }
 
         for i in 3...254 {
             screen.email = .init(repeating: "@", count: i)
-            XCTAssertTrue(screen.canSubmit)
+            #expect(screen.canSubmit)
         }
 
         screen.email = .init(repeating: "@", count: 255)
-        XCTAssertFalse(screen.canSubmit)
+        #expect(!screen.canSubmit)
     }
 
-    func testEmailMustHaveAtSign() {
+    @Test("Email must have @")
+    func emailMustHaveAtSign() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.username = "Example"
         screen.email = "email"
-        XCTAssertFalse(screen.canSubmit)
+        #expect(!screen.canSubmit)
         screen.email = "email@example"
-        XCTAssertTrue(screen.canSubmit)
+        #expect(screen.canSubmit)
     }
 
-    func testInvalidUsernameProducesFailure() async {
+    @Test("Invalid username produces a failure")
+    func invalidUsernameProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.email = FakeClient.goodEmail
         screen.username = FakeClient.badUsername
         await screen.submit()
-        XCTAssertEqual(1, eventBus.storedEvents.count)
-        XCTAssert(eventBus.storedEvents.first is FailureEvent)
-        XCTAssertFalse(screen.isWaitingForRandomCode)
+        #expect(eventBus.storedEvents.count == 1)
+        #expect(eventBus.storedEvents.first is FailureEvent)
+        #expect(!screen.isWaitingForRandomCode)
     }
 
-    func testInvalidEmailProducesFailure() async {
+    @Test("Invalid email produces a failure")
+    func invalidEmailProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.username = FakeClient.goodUsername
         screen.email = FakeClient.badEmail
         await screen.submit()
-        XCTAssertEqual(1, eventBus.storedEvents.count)
-        XCTAssert(eventBus.storedEvents.first is FailureEvent)
-        XCTAssertFalse(screen.isWaitingForRandomCode)
+        #expect(eventBus.storedEvents.count == 1)
+        #expect(eventBus.storedEvents.first is FailureEvent)
+        #expect(!screen.isWaitingForRandomCode)
     }
 
-    func testValidUsernameAndEmailProduceNoFailures() async {
+    @Test("Valid username and email produce no failures")
+    func validUsernameAndEmailProduceNoFailures() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.username = FakeClient.goodUsername
         screen.email = FakeClient.goodEmail
         await screen.submit()
-        XCTAssertEqual(0, eventBus.storedEvents.count)
-        XCTAssertTrue(screen.isWaitingForRandomCode)
+        #expect(eventBus.storedEvents.isEmpty)
+        #expect(screen.isWaitingForRandomCode)
     }
 
-    func testRandomCodeMustHaveCorrentLength() async {
+    @Test("Random code must have correct length")
+    func randomCodeMustHaveCorrentLength() async {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.username = FakeClient.goodUsername
         screen.email = FakeClient.goodEmail
         screen.isWaitingForRandomCode = true
         screen.randomCode = "abcd123"
-        XCTAssertFalse(screen.canSubmit)
+        #expect(!screen.canSubmit)
         screen.randomCode = "abcd1234"
-        XCTAssertTrue(screen.canSubmit)
+        #expect(screen.canSubmit)
     }
 
-    func testInvalidRandomCodeProducesFailure() async {
+    @Test("Invalid random code produces a failure")
+    func invalidRandomCodeProducesFailure() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.username = FakeClient.goodUsername
@@ -118,11 +127,12 @@ final class RegisterScreenTests: XCTestCase {
         screen.randomCode = FakeClient.badSecret
         screen.isWaitingForRandomCode = true
         await screen.submit()
-        XCTAssertEqual(1, eventBus.storedEvents.count)
-        XCTAssert(eventBus.storedEvents.first is FailureEvent)
+        #expect(eventBus.storedEvents.count == 1)
+        #expect(eventBus.storedEvents.first is FailureEvent)
     }
 
-    func testValidRandomCodeProducesNoFailures() async {
+    @Test("Valid random code produces no failures")
+    func validRandomCodeProducesNoFailures() async {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.username = FakeClient.goodUsername
@@ -130,6 +140,6 @@ final class RegisterScreenTests: XCTestCase {
         screen.randomCode = FakeClient.goodSecret
         screen.isWaitingForRandomCode = true
         await screen.submit()
-        XCTAssertEqual(0, eventBus.storedEvents.count)
+        #expect(eventBus.storedEvents.isEmpty)
     }
 }
