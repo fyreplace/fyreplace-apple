@@ -5,10 +5,7 @@ import Testing
 @Suite("Register screen")
 @MainActor
 struct RegisterScreenTests {
-    class FakeScreen: RegisterScreenProtocol {
-        var eventBus: EventBus
-        var api: APIProtocol
-
+    class FakeScreen: FakeScreenBase, RegisterScreenProtocol {
         var isLoading = false
         var username = ""
         var email = ""
@@ -16,11 +13,6 @@ struct RegisterScreenTests {
         var isWaitingForRandomCode = false
         var isRegistering = false
         var token = ""
-
-        init(eventBus: EventBus, api: APIProtocol) {
-            self.eventBus = eventBus
-            self.api = api
-        }
     }
 
     @Test("Username must have correct length")

@@ -614,6 +614,24 @@
         }
       }
     },
+    "Settings.Error.ContentTooLarge.Message" : {
+
+    },
+    "Settings.Error.ContentTooLarge.Title" : {
+
+    },
+    "Settings.Error.Image.Message" : {
+
+    },
+    "Settings.Error.Image.Title" : {
+
+    },
+    "Settings.Error.UnsupportedMediaType.Message" : {
+
+    },
+    "Settings.Error.UnsupportedMediaType.Title" : {
+
+    },
     "Settings.Header" : {
       "localizations" : {
         "en" : {

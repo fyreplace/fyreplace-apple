@@ -5,20 +5,12 @@ import Testing
 @Suite("Login screen")
 @MainActor
 struct LoginScreenTests {
-    class FakeScreen: LoginScreenProtocol {
-        var eventBus: EventBus
-        var api: APIProtocol
-
+    class FakeScreen: FakeScreenBase, LoginScreenProtocol {
         var isLoading = false
         var identifier = ""
         var randomCode = ""
         var isWaitingForRandomCode = false
         var token = ""
-
-        init(eventBus: EventBus, api: APIProtocol) {
-            self.eventBus = eventBus
-            self.api = api
-        }
     }
 
     @Test("Identifier must have correct length")

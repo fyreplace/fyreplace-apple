@@ -1,4 +1,5 @@
 import Foundation
+import OpenAPIRuntime
 
 struct FakeClient: APIProtocol {}
 
@@ -268,9 +269,16 @@ extension FakeClient {
     static let usedUsername = "used-username"
     static let passwordUsername = "password-username"
     static let goodUsername = "good-username"
+
     static let badEmail = "bad-email"
     static let usedEmail = "used-email"
     static let goodEmail = "good-email"
+
+    static let notImageBody = HTTPBody(stringLiteral: "Not")
+    static let largeImageBody = HTTPBody(stringLiteral: "Large")
+    static let normalImageBody = HTTPBody(stringLiteral: "Normal")
+
+    static let avatar = "avatar"
 
     func countBlockedUsers(_: Operations.countBlockedUsers.Input) async throws
         -> Operations.countBlockedUsers.Output
@@ -335,10 +343,22 @@ extension FakeClient {
         fatalError("Not implemented")
     }
 
-    func setCurrentUserAvatar(_: Operations.setCurrentUserAvatar.Input) async throws
+    func setCurrentUserAvatar(_ input: Operations.setCurrentUserAvatar.Input) async throws
         -> Operations.setCurrentUserAvatar.Output
     {
-        fatalError("Not implemented")
+        let normalImage = try await String(collecting: Self.normalImageBody, upTo: 64)
+        let largeImage = try await String(collecting: Self.largeImageBody, upTo: 64)
+
+        return switch input.body {
+        case let .binary(binary) where try await String(collecting: binary, upTo: 64) == normalImage:
+            .ok(.init(body: .plainText(.init(stringLiteral: Self.avatar))))
+
+        case let .binary(binary) where try await String(collecting: binary, upTo: 64) == largeImage:
+            .contentTooLarge(.init())
+
+        case .binary:
+            .unsupportedMediaType(.init())
+        }
     }
 
     func setCurrentUserBio(_: Operations.setCurrentUserBio.Input) async throws

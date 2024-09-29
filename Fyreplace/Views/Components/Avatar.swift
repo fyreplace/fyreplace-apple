@@ -3,6 +3,8 @@ import SwiftUI
 struct Avatar: View {
     let user: Components.Schemas.User?
 
+    var blurred = false
+
     private var tint: Color {
         if let user = user {
             .init(
@@ -31,6 +33,7 @@ struct Avatar: View {
                     .foregroundStyle(.white.gradient, tint.gradient)
             }
         }
+        .blur(radius: blurred ? 1 : 0)
         .clipShape(.circle)
     }
 }
