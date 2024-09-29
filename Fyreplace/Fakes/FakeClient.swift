@@ -301,23 +301,7 @@ extension FakeClient {
             .conflict(.init(body: .json(.init())))
 
         case let .json(json):
-            .created(
-                .init(
-                    body: .json(
-                        .init(
-                            id: .randomUuid,
-                            dateCreated: .now,
-                            username: json.username,
-                            rank: .CITIZEN,
-                            avatar: "",
-                            bio: "",
-                            banned: false,
-                            blocked: false,
-                            tint: .init(r: 0x7F, g: 0x7F, b: 0x7F)
-                        )
-                    )
-                )
-            )
+            .created(.init(body: .json(.make(named: json.username))))
         }
     }
 
