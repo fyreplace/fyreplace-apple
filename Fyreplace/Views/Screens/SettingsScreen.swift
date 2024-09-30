@@ -53,19 +53,6 @@ struct SettingsScreen: View, SettingsScreenProtocol {
             }
         }
     }
-
-    private func updateAvatar(with item: PhotosPickerItem) async {
-        if let data = try? await item.loadTransferable(type: Data.self) {
-            await updateAvatar(with: data)
-        } else {
-            eventBus.send(
-                .failure(
-                    title: "Settings.Error.Image.Title",
-                    text: "Settings.Error.Image.Message"
-                )
-            )
-        }
-    }
 }
 
 #Preview {

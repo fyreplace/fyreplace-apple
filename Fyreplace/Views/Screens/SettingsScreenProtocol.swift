@@ -33,6 +33,19 @@ extension SettingsScreenProtocol {
         }
     }
 
+    func updateAvatar(with item: PhotosPickerItem) async {
+        if let data = try? await item.loadTransferable(type: Data.self) {
+            await updateAvatar(with: data)
+        } else {
+            eventBus.send(
+                .failure(
+                    title: "Settings.Error.Image.Title",
+                    text: "Settings.Error.Image.Message"
+                )
+            )
+        }
+    }
+
     func updateAvatar(with data: Data) async {
         await call {
             let response = try await api.setCurrentUserAvatar(body: .binary(.init(data)))
