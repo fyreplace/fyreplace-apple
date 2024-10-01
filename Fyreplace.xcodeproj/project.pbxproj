@@ -43,6 +43,7 @@
 		4D54C96D2BF4E9BE001DE071 /* ArchiveScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D54C96C2BF4E9BE001DE071 /* ArchiveScreen.swift */; };
 		4D54C96F2BF4E9DF001DE071 /* DraftsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D54C96E2BF4E9DF001DE071 /* DraftsScreen.swift */; };
 		4D54C9712BF4EA15001DE071 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D54C9702BF4EA15001DE071 /* SettingsScreen.swift */; };
+		4D6A24DD2CAC193F001B4435 /* EditableAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6A24DC2CAC192F001B4435 /* EditableAvatar.swift */; };
 		4D7F9CC22C259C30007B1CC3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4D7F9CC12C259C00007B1CC3 /* PrivacyInfo.xcprivacy */; };
 		4D9B3B382C334B3A00A8F7AD /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B372C334B3A00A8F7AD /* LoginScreen.swift */; };
 		4D9B3B3A2C334B6300A8F7AD /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B392C334B6300A8F7AD /* RegisterScreen.swift */; };
@@ -142,6 +143,7 @@
 		4D54C96E2BF4E9DF001DE071 /* DraftsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsScreen.swift; sourceTree = "<group>"; };
 		4D54C9702BF4EA15001DE071 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		4D6641DB2C5B963500BE3D07 /* .ios-test-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ios-test-version"; sourceTree = "<group>"; };
+		4D6A24DC2CAC192F001B4435 /* EditableAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableAvatar.swift; sourceTree = "<group>"; };
 		4D7F9CC12C259C00007B1CC3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4D9B3B372C334B3A00A8F7AD /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		4D9B3B392C334B6300A8F7AD /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 		4D30DA5C2C986B6000499450 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4D6A24DC2CAC192F001B4435 /* EditableAvatar.swift */,
 				4D30DA5E2C986B6C00499450 /* Avatar.swift */,
 			);
 			path = Components;
@@ -655,6 +658,7 @@
 				4DE785952C8B17AE000EC4E5 /* SubmitOrCancel.swift in Sources */,
 				4DE785882C88F392000EC4E5 /* HTTPField.swift in Sources */,
 				4D060BCB2C9438E8008C32D1 /* View.swift in Sources */,
+				4D6A24DD2CAC193F001B4435 /* EditableAvatar.swift in Sources */,
 				4D51F2802C621ADB0018E76E /* ViewProtocol.swift in Sources */,
 				4DC5B1D92C720B9800B75A07 /* AuthenticationMiddleware.swift in Sources */,
 				4D9B3B472C36F50300A8F7AD /* UITextContentType.swift in Sources */,

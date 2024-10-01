@@ -36,11 +36,7 @@ struct SettingsScreen: View, SettingsScreenProtocol {
                 }
             } header: {
                 LogoHeader(namespace: namespace) {
-                    PickableAvatar(user: currentUser) { item in
-                        Task {
-                            await updateAvatar(with: item)
-                        }
-                    }
+                    EditableAvatar(user: currentUser, avatarSelected: updateAvatar)
                 } textContent: {
                     Text("Settings.Header")
                 }
@@ -80,44 +76,6 @@ private struct DateText: View {
             )
         } else {
             Text("Loading")
-        }
-    }
-}
-
-private struct PickableAvatar: View {
-    let user: Components.Schemas.User?
-
-    let avatarSelected: (PhotosPickerItem) -> Void
-
-    @State
-    private var showEditOverlay = false
-
-    @State
-    private var avatarItem: PhotosPickerItem?
-
-    var body: some View {
-        let opacity = showEditOverlay ? 1.0 : 0.0
-        let blurred = showEditOverlay
-        PhotosPicker(selection: $avatarItem) {
-            Avatar(user: user, blurred: blurred)
-                .overlay {
-                    Image(systemName: "pencil")
-                        .scaleEffect(2)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .padding()
-                        .background(.black.opacity(0.5))
-                        .foregroundStyle(.white)
-                        .clipShape(.circle)
-                        .opacity(opacity)
-                }
-        }
-        .animation(.default.speed(3), value: showEditOverlay)
-        .buttonStyle(.borderless)
-        .onHover { showEditOverlay = $0 }
-        .onChange(of: avatarItem) {
-            if let item = $0 {
-                avatarSelected(item)
-            }
         }
     }
 }
