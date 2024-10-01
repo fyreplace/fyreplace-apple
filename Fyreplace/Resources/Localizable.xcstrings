@@ -615,22 +615,64 @@
       }
     },
     "Settings.Error.ContentTooLarge.Message" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This file is too heavy; please select a file under 1M."
+          }
+        }
+      }
     },
     "Settings.Error.ContentTooLarge.Title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "File too large"
+          }
+        }
+      }
     },
     "Settings.Error.Image.Message" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error has occurred when trying to use this photo."
+          }
+        }
+      }
     },
     "Settings.Error.Image.Title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to use photo"
+          }
+        }
+      }
     },
     "Settings.Error.UnsupportedMediaType.Message" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This file you have selected is not supported."
+          }
+        }
+      }
     },
     "Settings.Error.UnsupportedMediaType.Title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unsupported file format"
+          }
+        }
+      }
     },
     "Settings.Header" : {
       "localizations" : {
