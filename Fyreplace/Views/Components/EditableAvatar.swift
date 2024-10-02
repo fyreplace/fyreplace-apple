@@ -36,6 +36,7 @@ struct EditableAvatar: View {
         .onHover { showEditOverlay = $0 }
         .dropDestination(for: Data.self) { items, _ in
             guard let data = items.first else { return false }
+            avatarItem = nil
 
             Task {
                 await avatarSelected(data)
@@ -45,6 +46,7 @@ struct EditableAvatar: View {
         }
         .onChange(of: avatarItem) { item in
             guard let item else { return }
+            avatarItem = nil
 
             Task {
                 await usePhotoItem(item)
