@@ -6,6 +6,7 @@ protocol RegisterScreenProtocol: LoadingViewProtocol {
     var email: String { get nonmutating set }
     var randomCode: String { get nonmutating set }
     var isWaitingForRandomCode: Bool { get nonmutating set }
+    var hasAcceptedTerms: Bool { get nonmutating set }
     var isRegistering: Bool { get nonmutating set }
     var token: String { get nonmutating set }
 }
@@ -15,7 +16,7 @@ extension RegisterScreenProtocol {
     var isUsernameValid: Bool { 3...50 ~= username.count }
     var isEmailValid: Bool { 3...254 ~= email.count && email.contains("@") }
     var canSubmit: Bool {
-        !isLoading
+        !isLoading && hasAcceptedTerms
             && (isWaitingForRandomCode ? randomCode.count >= 8 : isUsernameValid && isEmailValid)
     }
 

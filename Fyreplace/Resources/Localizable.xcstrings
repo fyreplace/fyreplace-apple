@@ -584,6 +584,16 @@
         }
       }
     },
+    "Register.TermsAcceptance" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I accept the terms of service and the privacy policy"
+          }
+        }
+      }
+    },
     "Register.Username" : {
       "localizations" : {
         "en" : {

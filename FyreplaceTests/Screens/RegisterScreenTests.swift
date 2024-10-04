@@ -11,6 +11,7 @@ struct RegisterScreenTests {
         var email = ""
         var randomCode = ""
         var isWaitingForRandomCode = false
+        var hasAcceptedTerms = false
         var isRegistering = false
         var token = ""
     }
@@ -18,7 +19,8 @@ struct RegisterScreenTests {
     @Test("Username must have correct length")
     func usernameMustHaveCorrectLength() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
-        screen.email = "email@example"
+        screen.email = FakeClient.goodEmail
+        screen.hasAcceptedTerms = true
 
         for i in 0..<3 {
             screen.username = .init(repeating: "a", count: i)
@@ -37,7 +39,8 @@ struct RegisterScreenTests {
     @Test("Email must have correct length")
     func emailMustHaveCorrectLength() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
-        screen.username = "Example"
+        screen.username = FakeClient.goodUsername
+        screen.hasAcceptedTerms = true
 
         for i in 0..<3 {
             screen.email = .init(repeating: "@", count: i)
@@ -56,10 +59,22 @@ struct RegisterScreenTests {
     @Test("Email must have @")
     func emailMustHaveAtSign() {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
-        screen.username = "Example"
+        screen.username = FakeClient.goodUsername
         screen.email = "email"
+        screen.hasAcceptedTerms = true
         #expect(!screen.canSubmit)
         screen.email = "email@example"
+        #expect(screen.canSubmit)
+    }
+
+    @Test("Terms must be accepted")
+    func termsMustBeAccepted() {
+        let screen = FakeScreen(eventBus: .init(), api: .fake())
+        screen.username = FakeClient.goodUsername
+        screen.email = FakeClient.goodEmail
+        screen.hasAcceptedTerms = false
+        #expect(!screen.canSubmit)
+        screen.hasAcceptedTerms = true
         #expect(screen.canSubmit)
     }
 
@@ -103,8 +118,9 @@ struct RegisterScreenTests {
         let screen = FakeScreen(eventBus: .init(), api: .fake())
         screen.username = FakeClient.goodUsername
         screen.email = FakeClient.goodEmail
-        screen.isWaitingForRandomCode = true
         screen.randomCode = "abcd123"
+        screen.isWaitingForRandomCode = true
+        screen.hasAcceptedTerms = true
         #expect(!screen.canSubmit)
         screen.randomCode = "abcd1234"
         #expect(screen.canSubmit)

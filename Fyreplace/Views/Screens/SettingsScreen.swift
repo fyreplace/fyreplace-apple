@@ -35,7 +35,7 @@ struct SettingsScreen: View, SettingsScreenProtocol {
                     #endif
                 }
             } header: {
-                LogoHeader(namespace: namespace) {
+                LogoHeader {
                     EditableAvatar(user: currentUser, avatarSelected: updateAvatar)
                 } textContent: {
                     Text("Settings.Header")

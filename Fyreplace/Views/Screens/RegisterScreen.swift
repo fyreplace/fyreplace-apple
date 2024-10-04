@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct RegisterScreen: View, RegisterScreenProtocol {
-    let namespace: Namespace.ID
-
     @EnvironmentObject
     var eventBus: EventBus
 
@@ -24,11 +22,17 @@ struct RegisterScreen: View, RegisterScreenProtocol {
     @AppStorage("account.isWaitingForRandomCode")
     var isWaitingForRandomCode = false
 
+    @AppStorage("account.hasAcceptedTerms")
+    var hasAcceptedTerms = false
+
     @AppStorage("account.isRegistering")
     var isRegistering = false
 
     @KeychainStorage("connection.token")
     var token
+
+    @Environment(\.config)
+    private var config
 
     @FocusState
     private var focused: FocusedField?
@@ -46,7 +50,7 @@ struct RegisterScreen: View, RegisterScreenProtocol {
 
         DynamicForm {
             Section {
-                EnvironmentPicker(namespace: namespace).disabled(isWaitingForRandomCode)
+                EnvironmentPicker().disabled(isWaitingForRandomCode)
 
                 TextField(
                     "Register.Username",
@@ -59,7 +63,6 @@ struct RegisterScreen: View, RegisterScreenProtocol {
                 .disabled(isWaitingForRandomCode)
                 .submitLabel(.next)
                 .onSubmit { focused = .email }
-                .matchedGeometryEffect(id: "first-field", in: namespace)
                 #if !os(macOS)
                     .textInputAutocapitalization(.never)
                     .keyboardType(.asciiCapable)
@@ -100,18 +103,8 @@ struct RegisterScreen: View, RegisterScreenProtocol {
                         .keyboardType(.asciiCapable)
                     #endif
                 }
-
-                SubmitOrCancel(
-                    namespace: namespace,
-                    submitLabel: "Register.Submit",
-                    canSubmit: canSubmit,
-                    canCancel: isWaitingForRandomCode,
-                    isLoading: isLoading,
-                    submitAction: submit,
-                    cancelAction: cancel
-                )
             } header: {
-                LogoHeader(namespace: namespace) {
+                LogoHeader {
                     Image("Logo", label: Text("Logo")).resizable()
                 } textContent: {
                     Text("Register.Header")
@@ -131,6 +124,34 @@ struct RegisterScreen: View, RegisterScreenProtocol {
                 } else if email.isEmpty {
                     focused = .email
                 }
+            }
+
+            Section {
+                Toggle("Register.TermsAcceptance", isOn: $hasAcceptedTerms)
+                    .disabled(isWaitingForRandomCode)
+
+                Link(destination: config.app.info.termsOfService) {
+                    Label("App.Help.TermsOfService", systemImage: "shield")
+                }
+                .foregroundStyle(.tint)
+
+                Link(destination: config.app.info.privacyPolicy) {
+                    Label("App.Help.PrivacyPolicy", systemImage: "lock")
+                }
+                .foregroundStyle(.tint)
+            } footer: {
+                Spacer()
+            }
+
+            Section {
+                SubmitOrCancel(
+                    submitLabel: "Register.Submit",
+                    canSubmit: canSubmit,
+                    canCancel: isWaitingForRandomCode,
+                    isLoading: isLoading,
+                    submitAction: submit,
+                    cancelAction: cancel
+                )
             }
         }
         .disabled(isLoading)
@@ -161,15 +182,9 @@ struct RegisterScreen: View, RegisterScreenProtocol {
     }
 }
 
-@available(macOS 14.0, *)
-@available(iOS 17.0, *)
 #Preview {
-    @Previewable
-    @Namespace
-    var namespace
-
     NavigationStack {
-        RegisterScreen(namespace: namespace)
+        RegisterScreen()
     }
     .environmentObject(EventBus())
 }

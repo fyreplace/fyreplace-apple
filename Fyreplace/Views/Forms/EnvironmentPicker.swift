@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct EnvironmentPicker: View {
-    let namespace: Namespace.ID
-
     @AppStorage("connection.environment")
     private var selectedEnvironment = ServerEnvironment.default
 
@@ -19,6 +17,5 @@ struct EnvironmentPicker: View {
             }
         }
         .help("Environment.Help")
-        .matchedGeometryEffect(id: "environment-picker", in: namespace)
     }
 }

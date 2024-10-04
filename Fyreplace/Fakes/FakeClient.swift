@@ -270,9 +270,9 @@ extension FakeClient {
     static let passwordUsername = "password-username"
     static let goodUsername = "good-username"
 
-    static let badEmail = "bad-email"
-    static let usedEmail = "used-email"
-    static let goodEmail = "good-email"
+    static let badEmail = "bad@email"
+    static let usedEmail = "used@email"
+    static let goodEmail = "good@email"
 
     static let notImageBody = HTTPBody(stringLiteral: "Not")
     static let largeImageBody = HTTPBody(stringLiteral: "Large")

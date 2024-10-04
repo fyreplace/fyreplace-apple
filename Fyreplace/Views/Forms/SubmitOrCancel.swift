@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct SubmitOrCancel: View {
-    let namespace: Namespace.ID
     let submitLabel: LocalizedStringKey
     let canSubmit: Bool
     let canCancel: Bool
@@ -16,7 +15,6 @@ struct SubmitOrCancel: View {
             action: submitAction
         )
         .disabled(!canSubmit)
-        .matchedGeometryEffect(id: "submit", in: namespace)
 
         let cancel = Button(role: .cancel, action: cancelAction) {
             Text("Cancel").padding(.horizontal)

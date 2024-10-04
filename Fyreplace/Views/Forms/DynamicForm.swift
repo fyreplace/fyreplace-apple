@@ -8,11 +8,9 @@ struct DynamicForm<Content>: View where Content: View {
         #if os(macOS)
             Form(content: content)
                 .formStyle(.grouped)
-                .frame(minWidth: 360, maxWidth: 600)
-                .fixedSize()
-                .padding()
+                .frame(minWidth: 360)
         #else
-            HStack {
+            ZStack {
                 Form(content: content)
                     .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 600 : nil)
             }

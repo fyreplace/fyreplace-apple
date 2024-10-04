@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct LogoHeader<ImageContent, TextContent>: View where ImageContent: View, TextContent: View {
-    let namespace: Namespace.ID
-
     @ViewBuilder
     let imageContent: () -> ImageContent
 
@@ -40,18 +38,11 @@ struct LogoHeader<ImageContent, TextContent>: View where ImageContent: View, Tex
                 Spacer()
             }
         }
-        .matchedGeometryEffect(id: "header", in: namespace)
     }
 }
 
-@available(macOS 14.0, *)
-@available(iOS 17.0, *)
 #Preview {
-    @Previewable
-    @Namespace
-    var namespace
-
-    LogoHeader(namespace: namespace) {
+    LogoHeader {
         Image(systemName: "photo")
             .resizable()
             .scaledToFit()

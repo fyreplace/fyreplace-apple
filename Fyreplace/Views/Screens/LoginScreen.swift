@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct LoginScreen: View, LoginScreenProtocol {
-    let namespace: Namespace.ID
-
     @EnvironmentObject
     var eventBus: EventBus
 
@@ -30,7 +28,7 @@ struct LoginScreen: View, LoginScreenProtocol {
     var body: some View {
         DynamicForm {
             Section {
-                EnvironmentPicker(namespace: namespace).disabled(isWaitingForRandomCode)
+                EnvironmentPicker().disabled(isWaitingForRandomCode)
 
                 TextField(
                     "Login.Identifier",
@@ -41,7 +39,6 @@ struct LoginScreen: View, LoginScreenProtocol {
                 .focused($focused, equals: .identifier)
                 .disabled(isWaitingForRandomCode)
                 .onSubmit(submit)
-                .matchedGeometryEffect(id: "first-field", in: namespace)
                 #if !os(macOS)
                     .textInputAutocapitalization(.never)
                     .keyboardType(.asciiCapable)
@@ -68,7 +65,6 @@ struct LoginScreen: View, LoginScreenProtocol {
                 }
 
                 SubmitOrCancel(
-                    namespace: namespace,
                     submitLabel: "Login.Submit",
                     canSubmit: canSubmit,
                     canCancel: isWaitingForRandomCode,
@@ -77,7 +73,7 @@ struct LoginScreen: View, LoginScreenProtocol {
                     cancelAction: cancel
                 )
             } header: {
-                LogoHeader(namespace: namespace) {
+                LogoHeader {
                     Image("Logo", label: Text("Logo")).resizable()
                 } textContent: {
                     Text("Login.Header")
@@ -122,15 +118,9 @@ struct LoginScreen: View, LoginScreenProtocol {
     }
 }
 
-@available(macOS 14.0, *)
-@available(iOS 17.0, *)
 #Preview {
-    @Previewable
-    @Namespace
-    var namespace
-
     NavigationStack {
-        LoginScreen(namespace: namespace)
+        LoginScreen()
     }
     .environmentObject(EventBus())
 }
