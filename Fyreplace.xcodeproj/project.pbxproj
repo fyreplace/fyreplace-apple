@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -556,7 +556,6 @@
 				};
 			};
 			buildConfigurationList = 4D54C9232BF2608A001DE071 /* Build configuration list for PBXProject "Fyreplace" */;
-			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -570,6 +569,7 @@
 				4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */,
 				4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */,
 			);
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 4D54C9292BF2608A001DE071 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
