@@ -67,6 +67,24 @@ extension SettingsScreenProtocol {
         }
     }
 
+    func removeAvatar() async {
+        await call {
+            let response = try await api.deleteCurrentUserAvatar()
+
+            switch response {
+            case .noContent:
+                currentUser?.avatar = ""
+                return nil
+
+            case .unauthorized:
+                return .authorizationIssue()
+
+            case .forbidden, .default:
+                return .error()
+            }
+        }
+    }
+
     func logout() {
         token = ""
     }

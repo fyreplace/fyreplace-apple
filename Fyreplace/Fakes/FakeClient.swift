@@ -322,7 +322,7 @@ extension FakeClient {
     func deleteCurrentUserAvatar(_: Operations.deleteCurrentUserAvatar.Input) async throws
         -> Operations.deleteCurrentUserAvatar.Output
     {
-        fatalError("Not implemented")
+        return .noContent(.init())
     }
 
     func getCurrentUser(_: Operations.getCurrentUser.Input) async throws

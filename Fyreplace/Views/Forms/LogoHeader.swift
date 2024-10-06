@@ -11,12 +11,7 @@ struct LogoHeader<ImageContent, TextContent>: View where ImageContent: View, Tex
         VStack {
             HStack {
                 Spacer()
-                imageContent()
-                    #if os(macOS)
-                        .frame(width: 60, height: 60)
-                    #else
-                        .frame(width: 80, height: 80)
-                    #endif
+                imageContent().frame(width: .logoSize, height: .logoSize)
                 Spacer()
             }
             #if os(macOS)

@@ -14,32 +14,55 @@ struct SettingsScreen: View, SettingsScreenProtocol {
     @State
     var currentUser: Components.Schemas.User?
 
+    @Environment(\.config)
+    private var config
+
     @Namespace
     private var namespace
+
+    @State
+    private var showPhotosPicker = false
+
+    @State
+    private var avatarItem: PhotosPickerItem?
 
     var body: some View {
         DynamicForm {
             Section {
-                LabeledContent(
-                    "Settings.Username", value: currentUser?.username ?? .init(localized: "Loading")
-                )
-                LabeledContent("Settings.DateJoined") {
-                    DateText(date: currentUser?.dateCreated)
-                }
+                let logoutButton = Button("Settings.Logout", role: .destructive, action: logout)
 
                 HStack {
-                    Spacer()
-                    Button("Settings.Logout", role: .destructive, action: logout)
-                    #if !os(macOS)
+                    EditableAvatar(
+                        user: currentUser,
+                        avatarSelected: updateAvatar,
+                        avatarRemoved: removeAvatar
+                    )
+                    .frame(width: .logoSize, height: .logoSize)
+
+                    VStack(alignment: .leading, spacing: 4) {
                         Spacer()
+                        Text(verbatim: currentUser?.username ?? .init(localized: "Loading"))
+                            .font(.headline)
+                        DateJoinedText(date: currentUser?.dateCreated)
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                    }
+
+                    #if os(macOS)
+                        Spacer()
+                        logoutButton
                     #endif
                 }
+
+                #if !os(macOS)
+                    HStack {
+                        Spacer()
+                        logoutButton
+                        Spacer()
+                    }
+                #endif
             } header: {
-                LogoHeader {
-                    EditableAvatar(user: currentUser, avatarSelected: updateAvatar)
-                } textContent: {
-                    Text("Settings.Header")
-                }
+                Text("Settings.Profile.Header")
             }
         }
         .navigationTitle(Destination.settings.titleKey)
@@ -57,7 +80,7 @@ struct SettingsScreen: View, SettingsScreenProtocol {
     }
 }
 
-private struct DateText: View {
+private struct DateJoinedText: View {
     let date: Date?
 
     var body: some View {
@@ -68,12 +91,7 @@ private struct DateText: View {
                 let dateFormatStyle = Date.FormatStyle.DateStyle.abbreviated
             #endif
 
-            Text(
-                verbatim: date.formatted(
-                    date: dateFormatStyle,
-                    time: .shortened
-                )
-            )
+            Text("Settings.DateJoined:\(date.formatted(date: dateFormatStyle, time: .shortened))")
         } else {
             Text("Loading")
         }

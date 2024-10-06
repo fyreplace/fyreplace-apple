@@ -94,6 +94,26 @@
         }
       }
     },
+    "EditableAvatar.ContextMenu.Change" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change avatar"
+          }
+        }
+      }
+    },
+    "EditableAvatar.ContextMenu.Remove" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove avatar"
+          }
+        }
+      }
+    },
     "Environment.Default" : {
       "localizations" : {
         "en" : {
@@ -614,12 +634,12 @@
         }
       }
     },
-    "Settings.DateJoined" : {
+    "Settings.DateJoined:%@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Joined on"
+            "value" : "Joined: %@"
           }
         }
       }
@@ -684,16 +704,6 @@
         }
       }
     },
-    "Settings.Header" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Profile"
-          }
-        }
-      }
-    },
     "Settings.Logout" : {
       "localizations" : {
         "en" : {
@@ -704,12 +714,12 @@
         }
       }
     },
-    "Settings.Username" : {
+    "Settings.Profile.Header" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Username"
+            "value" : "Profile"
           }
         }
       }

@@ -18,8 +18,8 @@ struct SettingsScreenTests {
         #expect(screen.currentUser != nil)
     }
 
-    @Test("Too large avatar produces a failure")
-    func tooLargeAvatarProducesFailure() async throws {
+    @Test("Updating avatar with a too large image produces a failure")
+    func updateAvatarTooLargeProducesFailure() async throws {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         await screen.getCurrentUser()
@@ -29,8 +29,8 @@ struct SettingsScreenTests {
         #expect(screen.currentUser?.avatar == "")
     }
 
-    @Test("Not image avatar produces a failure")
-    func notImageAvatarProducesFailure() async throws {
+    @Test("Updating avatar with an invalid image produces a failure")
+    func updateAvatarNotImageProducesFailure() async throws {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         await screen.getCurrentUser()
@@ -40,8 +40,8 @@ struct SettingsScreenTests {
         #expect(screen.currentUser?.avatar == "")
     }
 
-    @Test("Valid avatar produces no failures")
-    func validAvatarProducesNoFailures() async throws {
+    @Test("Updating avatar with a valid image produces no failures")
+    func updateAvatarValidProducesNoFailures() async throws {
         let eventBus = StoringEventBus()
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         await screen.getCurrentUser()
@@ -49,5 +49,17 @@ struct SettingsScreenTests {
             with: try await .init(collecting: FakeClient.normalImageBody, upTo: 64))
         #expect(eventBus.storedEvents.isEmpty)
         #expect(screen.currentUser?.avatar == FakeClient.avatar)
+    }
+
+    @Test("Removing avatar produces no failures")
+    func removeAvatarProducesNoFailures() async throws {
+        let eventBus = StoringEventBus()
+        let screen = FakeScreen(eventBus: eventBus, api: .fake())
+        await screen.getCurrentUser()
+        await screen.updateAvatar(
+            with: try await .init(collecting: FakeClient.normalImageBody, upTo: 64))
+        await screen.removeAvatar()
+        #expect(eventBus.storedEvents.isEmpty)
+        #expect(screen.currentUser?.avatar == "")
     }
 }

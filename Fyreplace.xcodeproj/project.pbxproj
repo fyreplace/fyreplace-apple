@@ -51,6 +51,7 @@
 		4D9B3B452C36F46F00A8F7AD /* NSTextContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */; };
 		4D9B3B472C36F50300A8F7AD /* UITextContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */; };
 		4D9DC5032C11BF2500BA0507 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9DC5022C11BF2500BA0507 /* Config.swift */; };
+		4DA04EE22CAEEAD800B70D73 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA04EE12CAEEAD100B70D73 /* CGFloat.swift */; };
 		4DA7BFB72C5FD479005CC4FF /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7BFB62C5FD479005CC4FF /* PerformanceTests.swift */; };
 		4DA7BFBB2C5FDEC1005CC4FF /* FakeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7BFBA2C5FDEC1005CC4FF /* FakeClient.swift */; };
 		4DB10B502C4FEBFC00634BF6 /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB10B4F2C4FEBFC00634BF6 /* HelpCommands.swift */; };
@@ -151,6 +152,7 @@
 		4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextContentType.swift; sourceTree = "<group>"; };
 		4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextContentType.swift; sourceTree = "<group>"; };
 		4D9DC5022C11BF2500BA0507 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		4DA04EE12CAEEAD100B70D73 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		4DA7BFB62C5FD479005CC4FF /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		4DA7BFBA2C5FDEC1005CC4FF /* FakeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeClient.swift; sourceTree = "<group>"; };
 		4DB10B4F2C4FEBFC00634BF6 /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 		4D9B3B432C36E64F00A8F7AD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4DA04EE12CAEEAD100B70D73 /* CGFloat.swift */,
 				4DE785812C88B248000EC4E5 /* String.swift */,
 				4D9B3B442C36F46F00A8F7AD /* NSTextContentType.swift */,
 				4D9B3B462C36F50300A8F7AD /* UITextContentType.swift */,
@@ -641,6 +644,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DA04EE22CAEEAD800B70D73 /* CGFloat.swift in Sources */,
 				4D9B3B3D2C34B13E00A8F7AD /* LogoHeader.swift in Sources */,
 				4DA7BFBB2C5FDEC1005CC4FF /* FakeClient.swift in Sources */,
 				4DE785822C88B248000EC4E5 /* String.swift in Sources */,

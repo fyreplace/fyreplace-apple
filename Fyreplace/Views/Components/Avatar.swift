@@ -20,10 +20,16 @@ struct Avatar: View {
     var body: some View {
         ZStack {
             if let avatar = user?.avatar, !avatar.isEmpty {
-                AsyncImage(url: .init(string: avatar)) {
-                    $0.resizable().scaledToFill()
-                } placeholder: {
-                    ProgressView()
+                GeometryReader { geometry in
+                    let size = min(geometry.size.width, geometry.size.height)
+                    AsyncImage(url: .init(string: avatar)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: size, height: size)
+                    } placeholder: {
+                        ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
+                    }
                 }
             } else {
                 Image(systemName: "person.crop.circle.fill")

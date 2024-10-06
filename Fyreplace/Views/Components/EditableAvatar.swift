@@ -6,6 +6,8 @@ struct EditableAvatar: View {
 
     let avatarSelected: (Data) async -> Void
 
+    let avatarRemoved: () async -> Void
+
     @EnvironmentObject
     private var eventBus: EventBus
 
@@ -13,27 +15,53 @@ struct EditableAvatar: View {
     private var showEditOverlay = false
 
     @State
+    private var showPhotosPicker = false
+
+    @State
     private var avatarItem: PhotosPickerItem?
 
     var body: some View {
         let opacity = showEditOverlay ? 1.0 : 0.0
         let blurred = showEditOverlay
-        PhotosPicker(selection: $avatarItem) {
+        Button {
+            showPhotosPicker = true
+        } label: {
             Avatar(user: user, blurred: blurred)
                 .overlay {
                     Image(systemName: "pencil")
-                        .scaleEffect(2)
+                        .resizable()
+                        .scaledToFit()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .padding()
                         .background(.black.opacity(0.5))
                         .foregroundStyle(.white)
-                        .clipShape(.circle)
                         .opacity(opacity)
+                        .clipShape(.circle)
                 }
         }
         .animation(.default.speed(3), value: showEditOverlay)
         .buttonStyle(.borderless)
+        .photosPicker(isPresented: $showPhotosPicker, selection: $avatarItem)
         .onHover { showEditOverlay = $0 }
+        .contextMenu {
+            Button {
+                showPhotosPicker = true
+            } label: {
+                Label("EditableAvatar.ContextMenu.Change", systemImage: "photo")
+            }
+            .disabled(user == nil)
+
+            Button(role: .destructive) {
+                avatarItem = nil
+
+                Task {
+                    await avatarRemoved()
+                }
+            } label: {
+                Label("EditableAvatar.ContextMenu.Remove", systemImage: "trash")
+            }
+            .disabled(user?.avatar.isEmpty ?? true)
+        }
         .dropDestination(for: Data.self) { items, _ in
             guard let data = items.first else { return false }
             avatarItem = nil
