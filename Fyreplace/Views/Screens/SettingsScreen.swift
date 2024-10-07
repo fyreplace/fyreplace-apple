@@ -64,6 +64,30 @@ struct SettingsScreen: View, SettingsScreenProtocol {
             } header: {
                 Text("Settings.Profile.Header")
             }
+
+            Section {
+                Link(destination: config.app.info.website) {
+                    Label("App.Help.Website", systemImage: "safari")
+                }
+                .foregroundStyle(.tint)
+
+                Link(destination: config.app.info.termsOfService) {
+                    Label("App.Help.TermsOfService", systemImage: "shield")
+                }
+                .foregroundStyle(.tint)
+
+                Link(destination: config.app.info.privacyPolicy) {
+                    Label("App.Help.PrivacyPolicy", systemImage: "lock")
+                }
+                .foregroundStyle(.tint)
+
+                Link(destination: config.app.info.sourceCode) {
+                    Label("App.Help.SourceCode", systemImage: "curlybraces")
+                }
+                .foregroundStyle(.tint)
+            } header: {
+                Text("Settings.About.Header")
+            }
         }
         .navigationTitle(Destination.settings.titleKey)
         .onAppear {

@@ -46,11 +46,13 @@ struct Config {
             let website: URL
             let termsOfService: URL
             let privacyPolicy: URL
+            let sourceCode: URL
 
             init(_ data: [String: Any]) {
                 website = data.url("Website")!
                 termsOfService = data.url("TermsOfService")!
                 privacyPolicy = data.url("PrivacyPolicy")!
+                sourceCode = data.url("SourceCode")!
             }
         }
 

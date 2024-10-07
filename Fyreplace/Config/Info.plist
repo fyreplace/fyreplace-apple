@@ -16,11 +16,13 @@
 		<key>Info</key>
 		<dict>
 			<key>PrivacyPolicy</key>
-			<string>$(FYREPLACE_PRIVACY_POLICY)</string>
+			<string>$(FYREPLACE_INFO_URL_PRIVACY_POLICY)</string>
+			<key>SourceCode</key>
+			<string>$(FYREPLACE_INFO_URL_SOURCE_CODE)</string>
 			<key>TermsOfService</key>
-			<string>$(FYREPLACE_TERMS_OF_SERVICE)</string>
+			<string>$(FYREPLACE_INFO_URL_TERMS_OF_SERVICE)</string>
 			<key>Website</key>
-			<string>$(FYREPLACE_WEBSITE)</string>
+			<string>$(FYREPLACE_INFO_URL_WEBSITE)</string>
 		</dict>
 		<key>Name</key>
 		<string>$(PRODUCT_NAME)</string>

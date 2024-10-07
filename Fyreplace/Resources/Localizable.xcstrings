@@ -59,7 +59,17 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Privacy Policy"
+            "value" : "Privacy policy"
+          }
+        }
+      }
+    },
+    "App.Help.SourceCode" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Source code"
           }
         }
       }
@@ -69,7 +79,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Terms Of Service"
+            "value" : "Terms of service"
           }
         }
       }
@@ -630,6 +640,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Only letters, numbers and dashes"
+          }
+        }
+      }
+    },
+    "Settings.About.Header" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
           }
         }
       }

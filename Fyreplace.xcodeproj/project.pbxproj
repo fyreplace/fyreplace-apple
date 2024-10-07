@@ -780,9 +780,10 @@
 				FYREPLACE_API_URL_DEV = "https://dev.rest.api.fyreplace.app";
 				FYREPLACE_API_URL_LOCAL = "http://localhost:8080";
 				FYREPLACE_API_URL_MAIN = "https://rest.api.fyreplace.app";
-				FYREPLACE_PRIVACY_POLICY = "https://fyreplace.net/privacy-policy";
-				FYREPLACE_TERMS_OF_SERVICE = "https://fyreplace.net/terms-of-service";
-				FYREPLACE_WEBSITE = "https://fyreplace.net";
+				FYREPLACE_INFO_URL_PRIVACY_POLICY = "https://fyreplace.net/privacy-policy";
+				FYREPLACE_INFO_URL_SOURCE_CODE = "https://github.com/fyreplace";
+				FYREPLACE_INFO_URL_TERMS_OF_SERVICE = "https://fyreplace.net/terms-of-service";
+				FYREPLACE_INFO_URL_WEBSITE = "https://fyreplace.net";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -852,9 +853,10 @@
 				FYREPLACE_API_URL_DEV = "https://dev.rest.api.fyreplace.app";
 				FYREPLACE_API_URL_LOCAL = "";
 				FYREPLACE_API_URL_MAIN = "https://rest.api.fyreplace.app";
-				FYREPLACE_PRIVACY_POLICY = "https://fyreplace.net/privacy-policy";
-				FYREPLACE_TERMS_OF_SERVICE = "https://fyreplace.net/terms-of-service";
-				FYREPLACE_WEBSITE = "https://fyreplace.net";
+				FYREPLACE_INFO_URL_PRIVACY_POLICY = "https://fyreplace.net/privacy-policy";
+				FYREPLACE_INFO_URL_SOURCE_CODE = "https://github.com/fyreplace";
+				FYREPLACE_INFO_URL_TERMS_OF_SERVICE = "https://fyreplace.net/terms-of-service";
+				FYREPLACE_INFO_URL_WEBSITE = "https://fyreplace.net";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

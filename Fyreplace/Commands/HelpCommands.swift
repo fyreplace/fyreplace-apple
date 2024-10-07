@@ -13,14 +13,9 @@ private struct HelpCommandsLinks: View {
     private var config
 
     var body: some View {
-        Link(destination: config.app.info.website) {
-            Text("App.Help.Website")
-        }
-        Link(destination: config.app.info.termsOfService) {
-            Text("App.Help.TermsOfService")
-        }
-        Link(destination: config.app.info.privacyPolicy) {
-            Text("App.Help.PrivacyPolicy")
-        }
+        Link("App.Help.Website", destination: config.app.info.website)
+        Link("App.Help.TermsOfService", destination: config.app.info.termsOfService)
+        Link("App.Help.PrivacyPolicy", destination: config.app.info.privacyPolicy)
+        Link("App.Help.SourceCode", destination: config.app.info.sourceCode)
     }
 }
