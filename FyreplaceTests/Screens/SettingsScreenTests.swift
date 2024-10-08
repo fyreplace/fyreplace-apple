@@ -9,6 +9,7 @@ struct SettingsScreenTests {
     class FakeScreen: FakeScreenBase, SettingsScreenProtocol {
         var token = ""
         var currentUser: Components.Schemas.User?
+        var isLoadingAvatar = false
     }
 
     @Test("Screen retrieves current user")

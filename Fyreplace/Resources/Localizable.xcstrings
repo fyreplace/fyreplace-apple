@@ -669,7 +669,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This file is too heavy; please select a file under 1M."
+            "value" : "Uploaded files can only go up to 10M."
           }
         }
       }
@@ -709,7 +709,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This file you have selected is not supported."
+            "value" : "The type of file you have selected is not supported."
           }
         }
       }

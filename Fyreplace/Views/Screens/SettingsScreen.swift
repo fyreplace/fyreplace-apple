@@ -14,6 +14,9 @@ struct SettingsScreen: View, SettingsScreenProtocol {
     @State
     var currentUser: Components.Schemas.User?
 
+    @State
+    var isLoadingAvatar = false
+
     @Environment(\.config)
     private var config
 
@@ -32,11 +35,17 @@ struct SettingsScreen: View, SettingsScreenProtocol {
                 let logoutButton = Button("Settings.Logout", role: .destructive, action: logout)
 
                 HStack {
-                    EditableAvatar(
-                        user: currentUser,
-                        avatarSelected: updateAvatar,
-                        avatarRemoved: removeAvatar
-                    )
+                    ZStack {
+                        if isLoadingAvatar {
+                            ProgressView()
+                        } else {
+                            EditableAvatar(
+                                user: currentUser,
+                                avatarSelected: updateAvatar,
+                                avatarRemoved: removeAvatar
+                            )
+                        }
+                    }
                     .frame(width: .logoSize, height: .logoSize)
 
                     VStack(alignment: .leading, spacing: 4) {

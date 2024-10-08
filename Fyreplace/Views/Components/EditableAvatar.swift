@@ -21,12 +21,10 @@ struct EditableAvatar: View {
     private var avatarItem: PhotosPickerItem?
 
     var body: some View {
-        let opacity = showEditOverlay ? 1.0 : 0.0
-        let blurred = showEditOverlay
         Button {
             showPhotosPicker = true
         } label: {
-            Avatar(user: user, blurred: blurred)
+            Avatar(user: user, blurred: showEditOverlay)
                 .overlay {
                     Image(systemName: "pencil")
                         .resizable()
@@ -35,7 +33,7 @@ struct EditableAvatar: View {
                         .padding()
                         .background(.black.opacity(0.5))
                         .foregroundStyle(.white)
-                        .opacity(opacity)
+                        .opacity(showEditOverlay ? 1.0 : 0.0)
                         .clipShape(.circle)
                 }
         }

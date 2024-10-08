@@ -7,6 +7,7 @@ protocol SettingsScreenProtocol: ViewProtocol {
 
     var token: String { get nonmutating set }
     var currentUser: Components.Schemas.User? { get nonmutating set }
+    var isLoadingAvatar: Bool { get nonmutating set }
 }
 
 @MainActor
@@ -34,6 +35,8 @@ extension SettingsScreenProtocol {
     }
 
     func updateAvatar(with data: Data) async {
+        isLoadingAvatar = true
+
         await call {
             let response = try await api.setCurrentUserAvatar(body: .binary(.init(data)))
 
@@ -65,9 +68,13 @@ extension SettingsScreenProtocol {
                 return .error()
             }
         }
+
+        isLoadingAvatar = false
     }
 
     func removeAvatar() async {
+        isLoadingAvatar = true
+
         await call {
             let response = try await api.deleteCurrentUserAvatar()
 
@@ -83,6 +90,8 @@ extension SettingsScreenProtocol {
                 return .error()
             }
         }
+
+        isLoadingAvatar = false
     }
 
     func logout() {
