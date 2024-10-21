@@ -15,6 +15,9 @@ struct SettingsScreen: View, SettingsScreenProtocol {
     var currentUser: Components.Schemas.User?
 
     @State
+    var bio = ""
+
+    @State
     var isLoadingAvatar = false
 
     @Environment(\.config)
@@ -29,9 +32,12 @@ struct SettingsScreen: View, SettingsScreenProtocol {
     @State
     private var avatarItem: PhotosPickerItem?
 
+    @FocusState
+    private var bioFocused: Bool
+
     var body: some View {
         DynamicForm {
-            Section {
+            Section("Settings.Profile.Header") {
                 let logoutButton = Button("Settings.Logout", role: .destructive, action: logout)
 
                 HStack {
@@ -70,11 +76,32 @@ struct SettingsScreen: View, SettingsScreenProtocol {
                         Spacer()
                     }
                 #endif
-            } header: {
-                Text("Settings.Profile.Header")
             }
 
             Section {
+                TextEditor(text: $bio)
+                    .scrollContentBackground(.hidden)
+                    .frame(maxHeight: 160)
+
+                HStack {
+                    Spacer()
+                    Button("Settings.Bio.Update") {
+                        Task {
+                            await updateBio()
+                        }
+                    }
+                    .disabled(!canUpdateBio)
+                    #if !os(macOS)
+                        Spacer()
+                    #endif
+                }
+            } header: {
+                Text("Settings.Bio.Header")
+            } footer: {
+                Text("Settings.Bio.Footer:\(bio.count),\(Components.Schemas.User.maxBioSize)")
+            }
+
+            Section("Settings.About.Header") {
                 Link(destination: config.app.info.website) {
                     Label("App.Help.Website", systemImage: "safari")
                 }
@@ -94,8 +121,6 @@ struct SettingsScreen: View, SettingsScreenProtocol {
                     Label("App.Help.SourceCode", systemImage: "curlybraces")
                 }
                 .foregroundStyle(.tint)
-            } header: {
-                Text("Settings.About.Header")
             }
         }
         .navigationTitle(Destination.settings.titleKey)

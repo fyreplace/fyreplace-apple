@@ -7,11 +7,16 @@ protocol SettingsScreenProtocol: ViewProtocol {
 
     var token: String { get nonmutating set }
     var currentUser: Components.Schemas.User? { get nonmutating set }
+    var bio: String { get nonmutating set }
     var isLoadingAvatar: Bool { get nonmutating set }
 }
 
 @MainActor
 extension SettingsScreenProtocol {
+    var canUpdateBio: Bool {
+        bio != currentUser?.bio ?? "" && bio.count <= Components.Schemas.User.maxBioSize
+    }
+
     func getCurrentUser() async {
         await call {
             let response = try await api.getCurrentUser()
@@ -21,6 +26,7 @@ extension SettingsScreenProtocol {
                 switch ok.body {
                 case let .json(user):
                     currentUser = user
+                    bio = user.bio
                 }
 
                 return nil
@@ -92,6 +98,37 @@ extension SettingsScreenProtocol {
         }
 
         isLoadingAvatar = false
+    }
+
+    func updateBio() async {
+        await call {
+            let response = try await api.setCurrentUserBio(
+                body: .plainText(bio.isEmpty ? .init() : .init(stringLiteral: bio)))
+
+            switch response {
+            case let .ok(ok):
+                switch ok.body {
+                case let .plainText(text):
+                    bio = try await .init(
+                        collecting: text, upTo: Components.Schemas.User.maxBioSize * 4)
+                    currentUser?.bio = bio
+                }
+
+                return nil
+
+            case .badRequest(_):
+                return .failure(
+                    title: "Error.BadRequest.Title",
+                    text: "Error.BadRequest.Message"
+                )
+
+            case .unauthorized:
+                return .authorizationIssue()
+
+            case .forbidden, .default:
+                return .error()
+            }
+        }
     }
 
     func logout() {

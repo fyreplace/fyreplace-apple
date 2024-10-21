@@ -361,10 +361,13 @@ extension FakeClient {
         }
     }
 
-    func setCurrentUserBio(_: Operations.setCurrentUserBio.Input) async throws
+    func setCurrentUserBio(_ input: Operations.setCurrentUserBio.Input) async throws
         -> Operations.setCurrentUserBio.Output
     {
-        fatalError("Not implemented")
+        return switch input.body {
+        case let .plainText(text):
+            .ok(.init(body: .plainText(text)))
+        }
     }
 
     func setUserBanned(_: Operations.setUserBanned.Input) async throws
