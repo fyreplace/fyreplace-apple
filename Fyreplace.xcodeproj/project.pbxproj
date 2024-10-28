@@ -1060,7 +1060,7 @@
 			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.38.0;
+				minimumVersion = 8.39.0;
 			};
 		};
 		4D13AF5F2C482F0100845FDB /* XCRemoteSwiftPackageReference "swift-openapi-generator" */ = {
@@ -1068,7 +1068,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-generator.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.1;
+				minimumVersion = 1.4.0;
 			};
 		};
 		4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */ = {
