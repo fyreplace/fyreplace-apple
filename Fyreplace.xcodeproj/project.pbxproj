@@ -1076,7 +1076,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-runtime.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.0;
+				minimumVersion = 1.6.0;
 			};
 		};
 		4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */ = {
