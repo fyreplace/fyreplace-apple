@@ -1,7 +1,5 @@
 @MainActor
 protocol RegisterScreenProtocol: LoadingViewProtocol {
-    var api: APIProtocol { get }
-
     var username: String { get nonmutating set }
     var email: String { get nonmutating set }
     var randomCode: String { get nonmutating set }

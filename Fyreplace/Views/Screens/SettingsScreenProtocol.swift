@@ -2,9 +2,7 @@ import PhotosUI
 import SwiftUI
 
 @MainActor
-protocol SettingsScreenProtocol: ViewProtocol {
-    var api: APIProtocol { get }
-
+protocol SettingsScreenProtocol: APIViewProtocol {
     var token: String { get nonmutating set }
     var currentUser: Components.Schemas.User? { get nonmutating set }
     var bio: String { get nonmutating set }

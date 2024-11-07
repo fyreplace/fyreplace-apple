@@ -1,7 +1,5 @@
 @MainActor
 protocol LoginScreenProtocol: LoadingViewProtocol {
-    var api: APIProtocol { get }
-
     var identifier: String { get nonmutating set }
     var randomCode: String { get nonmutating set }
     var isWaitingForRandomCode: Bool { get nonmutating set }

@@ -7,3 +7,9 @@ extension CGFloat {
         static var logoSize: Self { 80 }
     #endif
 }
+
+extension String {
+    static var randomUuid: String {
+        UUID().uuidString
+    }
+}

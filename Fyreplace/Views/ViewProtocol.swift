@@ -7,7 +7,12 @@ protocol ViewProtocol {
 }
 
 @MainActor
-protocol LoadingViewProtocol: ViewProtocol {
+protocol APIViewProtocol: ViewProtocol {
+    var api: APIProtocol { get }
+}
+
+@MainActor
+protocol LoadingViewProtocol: APIViewProtocol {
     var isLoading: Bool { get nonmutating set }
 }
 
