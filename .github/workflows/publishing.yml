@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: macos-latest
+    runs-on: macos-15
     environment: apple-app-store
     strategy:
       matrix:
@@ -83,11 +83,8 @@ jobs:
           APP_STORE_CONNECT_PRIVATE_KEY_B64: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY_B64 }}
         run: echo $APP_STORE_CONNECT_PRIVATE_KEY_B64 | base64 --decode > /tmp/connect-key.p8
 
-      - name: Install Xcode
-        run: sudo xcodes install $(cat .xcode-version)
-
       - name: Select Xcode version
-        run: sudo xcodes select $(cat .xcode-version)
+        run: sudo xcode-select -s /Applications/Xcode_$(cat .xcode-version).app/Contents/Developer
 
       - name: Prepare files
         if: ${{ matrix.distribution == 'app-store' }}
@@ -179,7 +176,7 @@ jobs:
 
   test:
     name: Test
-    runs-on: macos-latest
+    runs-on: macos-15
     environment: apple-app-store
     strategy:
       matrix:
