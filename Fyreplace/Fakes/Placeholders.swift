@@ -4,7 +4,7 @@ extension Components.Schemas.User {
     }
 
     static func make(named username: String) -> Self {
-        return Self(
+        return .init(
             id: .randomUuid,
             dateCreated: .now,
             username: username,
@@ -14,6 +14,18 @@ extension Components.Schemas.User {
             banned: false,
             blocked: false,
             tint: .init(r: 0x7F, g: 0x7F, b: 0x7F)
+        )
+    }
+}
+
+extension Components.Schemas.Email {
+    static func make(verified: Bool = true, main: Bool = false) -> Self {
+        let id = String.randomUuid
+        return .init(
+            id: id,
+            email: "\(id)@example.org",
+            verified: verified,
+            main: main
         )
     }
 }

@@ -124,6 +124,16 @@
         }
       }
     },
+    "Emails.Main" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Main address"
+          }
+        }
+      }
+    },
     "Environment.Default" : {
       "localizations" : {
         "en" : {
@@ -360,6 +370,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Drafts"
+          }
+        }
+      }
+    },
+    "Main.Emails" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emails"
           }
         }
       }
@@ -690,6 +710,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Joined: %@"
+          }
+        }
+      }
+    },
+    "Settings.Emails" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add or remove email addresses"
+          }
+        }
+      }
+    },
+    "Settings.Emails.Header" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emails"
           }
         }
       }

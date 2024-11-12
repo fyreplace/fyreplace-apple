@@ -93,7 +93,8 @@ extension FakeClient {
     func countEmails(_: Operations.countEmails.Input) async throws
         -> Operations.countEmails.Output
     {
-        fatalError("Not implemented")
+        let emails = try await listEmails(.init()).ok.body.json
+        return .ok(.init(body: .json(Int64(emails.count))))
     }
 
     func createEmail(_: Operations.createEmail.Input) async throws
@@ -108,10 +109,16 @@ extension FakeClient {
         fatalError("Not implemented")
     }
 
-    func listEmails(_: Operations.listEmails.Input) async throws
+    func listEmails(_ input: Operations.listEmails.Input) async throws
         -> Operations.listEmails.Output
     {
-        fatalError("Not implemented")
+        return switch input.query.page {
+        case nil, 0:
+            .ok(.init(body: .json([.make(main: true), .make(), .make()])))
+
+        default:
+            .ok(.init(body: .json([])))
+        }
     }
 
     func setMainEmail(_: Operations.setMainEmail.Input) async throws

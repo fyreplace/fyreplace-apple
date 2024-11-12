@@ -17,6 +17,8 @@
 		4D13AF752C492F4500845FDB /* Config.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4D13AF742C492F4500845FDB /* Config.sh */; };
 		4D13AF7B2C4E8F4200845FDB /* EnvironmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13AF7A2C4E8F4200845FDB /* EnvironmentPicker.swift */; };
 		4D13AF812C4E907200845FDB /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13AF802C4E907200845FDB /* Environment.swift */; };
+		4D30D7232CCFAF4E0071B03F /* EmailsScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30D7222CCFAF440071B03F /* EmailsScreenProtocol.swift */; };
+		4D30D7262CCFB01B0071B03F /* EmailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30D7252CCFB0170071B03F /* EmailsScreen.swift */; };
 		4D30DA5F2C986B6C00499450 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30DA5E2C986B6C00499450 /* Avatar.swift */; };
 		4D30DA612C98706C00499450 /* Placeholders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D30DA602C98706C00499450 /* Placeholders.swift */; };
 		4D351AEB2CA6BD45002EEB8F /* SettingsScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D351AEA2CA6BD3A002EEB8F /* SettingsScreenTests.swift */; };
@@ -55,6 +57,7 @@
 		4DB10B502C4FEBFC00634BF6 /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB10B4F2C4FEBFC00634BF6 /* HelpCommands.swift */; };
 		4DB2E36D2C416611007F958D /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2E36C2C416611007F958D /* SubmitButton.swift */; };
 		4DB2E36F2C418F5C007F958D /* DynamicForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2E36E2C418F5C007F958D /* DynamicForm.swift */; };
+		4DB367BC2CE364C300853CFE /* EmailsScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB367BB2CE364BC00853CFE /* EmailsScreenTests.swift */; };
 		4DC5B1CA2C6FA23000B75A07 /* LoginScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5B1C92C6FA23000B75A07 /* LoginScreenProtocol.swift */; };
 		4DC5B1CD2C6FA28E00B75A07 /* RegisterScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5B1CC2C6FA28E00B75A07 /* RegisterScreenProtocol.swift */; };
 		4DC5B1CF2C6FA2BE00B75A07 /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5B1CE2C6FA2BE00B75A07 /* MainViewProtocol.swift */; };
@@ -71,6 +74,7 @@
 		4DE785952C8B17AE000EC4E5 /* SubmitOrCancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE785942C8B17AE000EC4E5 /* SubmitOrCancel.swift */; };
 		4DFB90702C5908DE00D4DABF /* LoginScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB906F2C5908DE00D4DABF /* LoginScreenTests.swift */; };
 		4DFB90762C59173C00D4DABF /* RegisterScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB90752C59173C00D4DABF /* RegisterScreenTests.swift */; };
+		4DFDBC102CD1080000CCDA4A /* DynamicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDBC0E2CD107FC00CCDA4A /* DynamicList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +106,8 @@
 		4D13AF742C492F4500845FDB /* Config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Config.sh; sourceTree = "<group>"; };
 		4D13AF7A2C4E8F4200845FDB /* EnvironmentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentPicker.swift; sourceTree = "<group>"; };
 		4D13AF802C4E907200845FDB /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		4D30D7222CCFAF440071B03F /* EmailsScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailsScreenProtocol.swift; sourceTree = "<group>"; };
+		4D30D7252CCFB0170071B03F /* EmailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailsScreen.swift; sourceTree = "<group>"; };
 		4D30DA5E2C986B6C00499450 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		4D30DA602C98706C00499450 /* Placeholders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholders.swift; sourceTree = "<group>"; };
 		4D351AEA2CA6BD3A002EEB8F /* SettingsScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenTests.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 		4DB10B4F2C4FEBFC00634BF6 /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
 		4DB2E36C2C416611007F958D /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
 		4DB2E36E2C418F5C007F958D /* DynamicForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicForm.swift; sourceTree = "<group>"; };
+		4DB367BB2CE364BC00853CFE /* EmailsScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailsScreenTests.swift; sourceTree = "<group>"; };
 		4DBF0BD32C9DB2E500E797BF /* .ios-test-model */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ios-test-model"; sourceTree = "<group>"; };
 		4DC5B1C92C6FA23000B75A07 /* LoginScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenProtocol.swift; sourceTree = "<group>"; };
 		4DC5B1CC2C6FA28E00B75A07 /* RegisterScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenProtocol.swift; sourceTree = "<group>"; };
@@ -175,6 +182,7 @@
 		4DF3737F2C99C23D0008AB04 /* .swift-format */ = {isa = PBXFileReference; explicitFileType = text.json; path = ".swift-format"; sourceTree = "<group>"; };
 		4DFB906F2C5908DE00D4DABF /* LoginScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenTests.swift; sourceTree = "<group>"; };
 		4DFB90752C59173C00D4DABF /* RegisterScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenTests.swift; sourceTree = "<group>"; };
+		4DFDBC0E2CD107FC00CCDA4A /* DynamicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +258,8 @@
 				4D4D39492C086DA2007196D2 /* PublishedScreen.swift */,
 				4DC5B1F32C7A137B00B75A07 /* SettingsScreenProtocol.swift */,
 				4D54C9702BF4EA15001DE071 /* SettingsScreen.swift */,
+				4D30D7222CCFAF440071B03F /* EmailsScreenProtocol.swift */,
+				4D30D7252CCFB0170071B03F /* EmailsScreen.swift */,
 				4DC5B1C92C6FA23000B75A07 /* LoginScreenProtocol.swift */,
 				4D9B3B372C334B3A00A8F7AD /* LoginScreen.swift */,
 				4DC5B1CC2C6FA28E00B75A07 /* RegisterScreenProtocol.swift */,
@@ -401,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				4DB2E36E2C418F5C007F958D /* DynamicForm.swift */,
+				4DFDBC0E2CD107FC00CCDA4A /* DynamicList.swift */,
 				4DB2E36C2C416611007F958D /* SubmitButton.swift */,
 				4DE785942C8B17AE000EC4E5 /* SubmitOrCancel.swift */,
 				4D13AF7A2C4E8F4200845FDB /* EnvironmentPicker.swift */,
@@ -457,6 +468,7 @@
 			children = (
 				4D351AEC2CA6BE27002EEB8F /* FakeScreenBase.swift */,
 				4D351AEA2CA6BD3A002EEB8F /* SettingsScreenTests.swift */,
+				4DB367BB2CE364BC00853CFE /* EmailsScreenTests.swift */,
 				4DFB906F2C5908DE00D4DABF /* LoginScreenTests.swift */,
 				4DFB90752C59173C00D4DABF /* RegisterScreenTests.swift */,
 			);
@@ -637,6 +649,7 @@
 			files = (
 				4D40ACB42CC3ECBC00B26FDF /* OpenAPI.swift in Sources */,
 				4DA04EE22CAEEAD800B70D73 /* Foundation.swift in Sources */,
+				4D30D7232CCFAF4E0071B03F /* EmailsScreenProtocol.swift in Sources */,
 				4D9B3B3D2C34B13E00A8F7AD /* LogoHeader.swift in Sources */,
 				4DA7BFBB2C5FDEC1005CC4FF /* FakeClient.swift in Sources */,
 				4D4AF71C2C7CE72900621FF3 /* Tokens.swift in Sources */,
@@ -653,6 +666,7 @@
 				4DE785952C8B17AE000EC4E5 /* SubmitOrCancel.swift in Sources */,
 				4DE785882C88F392000EC4E5 /* HTTPTypes.swift in Sources */,
 				4D6A24DD2CAC193F001B4435 /* EditableAvatar.swift in Sources */,
+				4DFDBC102CD1080000CCDA4A /* DynamicList.swift in Sources */,
 				4D51F2802C621ADB0018E76E /* ViewProtocol.swift in Sources */,
 				4DC5B1D92C720B9800B75A07 /* AuthenticationMiddleware.swift in Sources */,
 				4D9B3B382C334B3A00A8F7AD /* LoginScreen.swift in Sources */,
@@ -667,6 +681,7 @@
 				4DB2E36F2C418F5C007F958D /* DynamicForm.swift in Sources */,
 				4DCE062B2C08E5E200F69AF1 /* CompactNavigation.swift in Sources */,
 				4DCE062D2C08E65300F69AF1 /* RegularNavigation.swift in Sources */,
+				4D30D7262CCFB01B0071B03F /* EmailsScreen.swift in Sources */,
 				4D54C9692BF4E8F4001DE071 /* FeedScreen.swift in Sources */,
 				4DC5B1F42C7A137B00B75A07 /* SettingsScreenProtocol.swift in Sources */,
 				4DC5B1D62C6FEA2100B75A07 /* Keychain.swift in Sources */,
@@ -691,6 +706,7 @@
 			files = (
 				4D351AEB2CA6BD45002EEB8F /* SettingsScreenTests.swift in Sources */,
 				4D351AED2CA6BE2D002EEB8F /* FakeScreenBase.swift in Sources */,
+				4DB367BC2CE364C300853CFE /* EmailsScreenTests.swift in Sources */,
 				4D5348612C6646F80001EFDE /* StoringEventBus.swift in Sources */,
 				4DFB90702C5908DE00D4DABF /* LoginScreenTests.swift in Sources */,
 				4DFB90762C59173C00D4DABF /* RegisterScreenTests.swift in Sources */,

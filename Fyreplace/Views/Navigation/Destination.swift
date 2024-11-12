@@ -7,6 +7,7 @@ enum Destination: String, Identifiable {
     case drafts
     case published
     case settings
+    case emails
     case login
     case register
 
@@ -39,6 +40,8 @@ enum Destination: String, Identifiable {
             "Main.Published"
         case .settings:
             "Main.Settings"
+        case .emails:
+            "Main.Emails"
         case .login:
             "Main.Login"
         case .register:
@@ -60,7 +63,7 @@ enum Destination: String, Identifiable {
             "archivebox"
         case .settings:
             "person.crop.circle"
-        case .login, .register:
+        default:
             ""
         }
     }
@@ -102,7 +105,7 @@ enum Destination: String, Identifiable {
             .init("5")
         case .settings:
             .init("6")
-        case .login, .register:
+        default:
             nil
         }
     }

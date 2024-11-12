@@ -101,6 +101,12 @@ struct SettingsScreen: View, SettingsScreenProtocol {
                 Text("Settings.Bio.Footer:\(bio.count),\(Components.Schemas.User.maxBioSize)")
             }
 
+            Section("Settings.Emails.Header") {
+                NavigationLink("Settings.Emails") {
+                    Screen(destination: .emails)
+                }
+            }
+
             Section("Settings.About.Header") {
                 Link(destination: config.app.info.website) {
                     Label("App.Help.Website", systemImage: "safari")

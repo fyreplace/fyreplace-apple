@@ -17,6 +17,8 @@ struct Screen: View {
             PublishedScreen()
         case .settings:
             SettingsScreen()
+        case .emails:
+            EmailsScreen()
         case .login:
             LoginScreen()
         case .register:
