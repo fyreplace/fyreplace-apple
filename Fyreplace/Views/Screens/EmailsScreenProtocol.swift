@@ -30,6 +30,12 @@ extension EmailsScreenProtocol {
 
                 return nil
 
+            case .badRequest:
+                return .failure(
+                    title: "Error.BadRequest.Title",
+                    text: "Error.BadRequest.Message"
+                )
+
             case .unauthorized:
                 return .authorizationIssue()
 

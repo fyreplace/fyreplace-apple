@@ -114,7 +114,7 @@ extension SettingsScreenProtocol {
 
                 return nil
 
-            case .badRequest(_):
+            case .badRequest:
                 return .failure(
                     title: "Error.BadRequest.Title",
                     text: "Error.BadRequest.Message"
