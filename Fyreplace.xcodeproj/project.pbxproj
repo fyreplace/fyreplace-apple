@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -188,27 +188,21 @@
 /* Begin PBXFrameworksBuildPhase section */
 		4D54C9252BF2608A001DE071 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				4D13AF622C482F1C00845FDB /* OpenAPIRuntime in Frameworks */,
 				4D13AF652C482F4500845FDB /* OpenAPIURLSession in Frameworks */,
 				4D0DDC262C188869006CD503 /* SentrySwiftUI in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4D54C9362BF26090001DE071 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4D54C9402BF26090001DE071 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -575,7 +569,7 @@
 				4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */,
 				4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */,
 			);
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = 4D54C9292BF2608A001DE071 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -590,7 +584,6 @@
 /* Begin PBXResourcesBuildPhase section */
 		4D54C9262BF2608A001DE071 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				4D13AF752C492F4500845FDB /* Config.sh in Resources */,
 				4D7F9CC22C259C30007B1CC3 /* PrivacyInfo.xcprivacy in Resources */,
@@ -601,21 +594,16 @@
 				4D13AF692C482FE400845FDB /* openapi.yaml in Resources */,
 				4D13AF6B2C48301600845FDB /* openapi-generator-config.yaml in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4D54C9372BF26090001DE071 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4D54C9412BF26090001DE071 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
@@ -623,29 +611,41 @@
 		4D0DDC272C188A1B006CD503 /* Upload Sources To Sentry */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 			);
 			name = "Upload Sources To Sentry";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$CONFIGURATION\" = \"Debug\" ]\nthen\n    exit 0\nfi\n\nif which sentry-cli >/dev/null\nthen\n    ERROR=$(sentry-cli debug-files upload \\\n        --org $SENTRY_ORG \\\n        --project $SENTRY_PROJECT \\\n        --auth-token $SENTRY_AUTH_TOKEN \\\n        --include-sources \"$DWARF_DSYM_FOLDER_PATH\" \\\n        --force-foreground 2>&1 >/dev/null)\n\n    if [ ! $? -eq 0 ]\n    then\n        echo \"error: sentry-cli - $ERROR\"\n        exit 1\n    fi\nfi\n";
+			shellScript = (
+				"if [ \"$CONFIGURATION\" = \"Debug\" ]",
+				"then",
+				"    exit 0",
+				"fi",
+				"",
+				"if which sentry-cli >/dev/null",
+				"then",
+				"    ERROR=$(sentry-cli debug-files upload \\",
+				"        --org $SENTRY_ORG \\",
+				"        --project $SENTRY_PROJECT \\",
+				"        --auth-token $SENTRY_AUTH_TOKEN \\",
+				"        --include-sources \"$DWARF_DSYM_FOLDER_PATH\" \\",
+				"        --force-foreground 2>&1 >/dev/null)",
+				"",
+				"    if [ ! $? -eq 0 ]",
+				"    then",
+				"        echo \"error: sentry-cli - $ERROR\"",
+				"        exit 1",
+				"    fi",
+				"fi",
+				"",
+				"",
+			);
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D54C9242BF2608A001DE071 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				4D40ACB42CC3ECBC00B26FDF /* OpenAPI.swift in Sources */,
 				4DA04EE22CAEEAD800B70D73 /* Foundation.swift in Sources */,
@@ -698,11 +698,9 @@
 				4D30DA612C98706C00499450 /* Placeholders.swift in Sources */,
 				4D54C92C2BF2608A001DE071 /* FyreplaceApp.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4D54C9352BF26090001DE071 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				4D351AEB2CA6BD45002EEB8F /* SettingsScreenTests.swift in Sources */,
 				4D351AED2CA6BE2D002EEB8F /* FakeScreenBase.swift in Sources */,
@@ -711,15 +709,12 @@
 				4DFB90702C5908DE00D4DABF /* LoginScreenTests.swift in Sources */,
 				4DFB90762C59173C00D4DABF /* RegisterScreenTests.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4D54C93F2BF26090001DE071 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				4DA7BFB72C5FD479005CC4FF /* PerformanceTests.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -741,7 +736,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		4D54C94B2BF26090001DE071 /* Debug */ = {
+		4D54C94B2BF26090001DE071 /* Debug configuration for PBXProject "Fyreplace" */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4D54C9612BF28458001DE071 /* Config.xcconfig */;
 			buildSettings = {
@@ -814,7 +809,7 @@
 			};
 			name = Debug;
 		};
-		4D54C94C2BF26090001DE071 /* Release */ = {
+		4D54C94C2BF26090001DE071 /* Release configuration for PBXProject "Fyreplace" */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4D54C9612BF28458001DE071 /* Config.xcconfig */;
 			buildSettings = {
@@ -879,7 +874,7 @@
 			};
 			name = Release;
 		};
-		4D54C94E2BF26090001DE071 /* Debug */ = {
+		4D54C94E2BF26090001DE071 /* Debug configuration for PBXNativeTarget "Fyreplace" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -915,7 +910,7 @@
 			};
 			name = Debug;
 		};
-		4D54C94F2BF26090001DE071 /* Release */ = {
+		4D54C94F2BF26090001DE071 /* Release configuration for PBXNativeTarget "Fyreplace" */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4D13AF732C492E8E00845FDB /* Config.release.xcconfig */;
 			buildSettings = {
@@ -951,7 +946,7 @@
 			};
 			name = Release;
 		};
-		4D54C9512BF26090001DE071 /* Debug */ = {
+		4D54C9512BF26090001DE071 /* Debug configuration for PBXNativeTarget "FyreplaceTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -967,7 +962,7 @@
 			};
 			name = Debug;
 		};
-		4D54C9522BF26090001DE071 /* Release */ = {
+		4D54C9522BF26090001DE071 /* Release configuration for PBXNativeTarget "FyreplaceTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -983,7 +978,7 @@
 			};
 			name = Release;
 		};
-		4D54C9542BF26090001DE071 /* Debug */ = {
+		4D54C9542BF26090001DE071 /* Debug configuration for PBXNativeTarget "FyreplaceUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = YES;
@@ -998,7 +993,7 @@
 			};
 			name = Debug;
 		};
-		4D54C9552BF26090001DE071 /* Release */ = {
+		4D54C9552BF26090001DE071 /* Release configuration for PBXNativeTarget "FyreplaceUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = YES;
@@ -1019,37 +1014,33 @@
 		4D54C9232BF2608A001DE071 /* Build configuration list for PBXProject "Fyreplace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4D54C94B2BF26090001DE071 /* Debug */,
-				4D54C94C2BF26090001DE071 /* Release */,
+				4D54C94B2BF26090001DE071 /* Debug configuration for PBXProject "Fyreplace" */,
+				4D54C94C2BF26090001DE071 /* Release configuration for PBXProject "Fyreplace" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		4D54C94D2BF26090001DE071 /* Build configuration list for PBXNativeTarget "Fyreplace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4D54C94E2BF26090001DE071 /* Debug */,
-				4D54C94F2BF26090001DE071 /* Release */,
+				4D54C94E2BF26090001DE071 /* Debug configuration for PBXNativeTarget "Fyreplace" */,
+				4D54C94F2BF26090001DE071 /* Release configuration for PBXNativeTarget "Fyreplace" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		4D54C9502BF26090001DE071 /* Build configuration list for PBXNativeTarget "FyreplaceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4D54C9512BF26090001DE071 /* Debug */,
-				4D54C9522BF26090001DE071 /* Release */,
+				4D54C9512BF26090001DE071 /* Debug configuration for PBXNativeTarget "FyreplaceTests" */,
+				4D54C9522BF26090001DE071 /* Release configuration for PBXNativeTarget "FyreplaceTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		4D54C9532BF26090001DE071 /* Build configuration list for PBXNativeTarget "FyreplaceUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4D54C9542BF26090001DE071 /* Debug */,
-				4D54C9552BF26090001DE071 /* Release */,
+				4D54C9542BF26090001DE071 /* Debug configuration for PBXNativeTarget "FyreplaceUITests" */,
+				4D54C9552BF26090001DE071 /* Release configuration for PBXNativeTarget "FyreplaceUITests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
