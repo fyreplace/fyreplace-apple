@@ -38,7 +38,7 @@ struct LoginScreenTests {
         screen.identifier = FakeClient.badUsername
         await screen.submit()
         #expect(eventBus.storedEvents.count == 1)
-        #expect(eventBus.storedEvents.first is FailureEvent)
+        #expect(eventBus.storedEvents.first?.isFailure == true)
         #expect(!screen.isWaitingForRandomCode)
     }
 
@@ -82,7 +82,7 @@ struct LoginScreenTests {
         screen.isWaitingForRandomCode = true
         await screen.submit()
         #expect(eventBus.storedEvents.count == 1)
-        #expect(eventBus.storedEvents.first is FailureEvent)
+        #expect(eventBus.storedEvents.first?.isFailure == true)
     }
 
     @Test("Valid random code produces no failures")

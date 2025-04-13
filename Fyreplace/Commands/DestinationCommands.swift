@@ -22,7 +22,7 @@ struct DestinationCommandsContent: View {
         ForEach(Destination.all) { destination in
             Button(destination.titleKey) {
                 Task {
-                    eventBus.send(.navigationShortcut(to: destination))
+                    eventBus.send(.navigationShortcut(destination: destination))
                 }
             }
             .disabled(destination.requiresAuthentication && token.isEmpty)

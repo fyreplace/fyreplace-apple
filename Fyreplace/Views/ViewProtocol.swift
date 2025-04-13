@@ -18,8 +18,8 @@ protocol LoadingViewProtocol: APIViewProtocol {
 
 @MainActor
 extension ViewProtocol {
-    func call(action: () async throws -> UnfortunateEvent?) async {
-        let unfortunateEvent: UnfortunateEvent?
+    func call(action: () async throws -> Event?) async {
+        let unfortunateEvent: Event?
 
         do {
             unfortunateEvent = try await action()
@@ -29,21 +29,20 @@ extension ViewProtocol {
             unfortunateEvent = .error()
         }
 
-        if let event = unfortunateEvent {
-            eventBus.send(event)
-
-            if let event = unfortunateEvent as? ErrorEvent,
-                event.description == ErrorEvent.defaultDescription
-            {
-                SentrySDK.capture(error: event)
-            }
+        guard let unfortunateEvent else { return }
+        eventBus.send(unfortunateEvent)
+        
+        if case let .error(error) = unfortunateEvent,
+           error == CriticalError.defaultDescription
+        {
+            SentrySDK.capture(error: CriticalError(description: error))
         }
     }
 }
 
 @MainActor
 extension LoadingViewProtocol {
-    func callWhileLoading(action: () async throws -> UnfortunateEvent?) async {
+    func callWhileLoading(action: () async throws -> Event?) async {
         isLoading = true
         await call(action: action)
         isLoading = false

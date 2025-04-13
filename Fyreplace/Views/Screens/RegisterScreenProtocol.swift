@@ -30,7 +30,7 @@ extension RegisterScreenProtocol {
         isRegistering = false
     }
 
-    func sendEmail() async throws -> UnfortunateEvent? {
+    func sendEmail() async throws -> Event? {
         let response = try await api.createUser(
             body: .json(.init(email: email, username: username))
         )
@@ -88,7 +88,7 @@ extension RegisterScreenProtocol {
         }
     }
 
-    func createToken() async throws -> UnfortunateEvent? {
+    func createToken() async throws -> Event? {
         let response = try await api.createToken(
             body: .json(.init(identifier: email, secret: randomCode))
         )

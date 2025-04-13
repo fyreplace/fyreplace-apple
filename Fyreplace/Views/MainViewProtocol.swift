@@ -4,13 +4,13 @@ import Foundation
 protocol MainViewProtocol: ViewProtocol {
     var showError: Bool { get nonmutating set }
     var showFailure: Bool { get nonmutating set }
-    var errors: [ErrorEvent] { get nonmutating set }
-    var failures: [FailureEvent] { get nonmutating set }
+    var errors: [CriticalError] { get nonmutating set }
+    var failures: [Failure] { get nonmutating set }
 }
 
 @MainActor
 extension MainViewProtocol {
-    func addError(_ error: ErrorEvent) {
+    func addError(_ error: CriticalError) {
         errors.append(error)
         tryShowSomething()
     }
@@ -21,7 +21,7 @@ extension MainViewProtocol {
         tryShowSomething()
     }
 
-    func addFailure(_ failure: FailureEvent) {
+    func addFailure(_ failure: Failure) {
         failures.append(failure)
         tryShowSomething()
     }

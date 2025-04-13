@@ -51,12 +51,12 @@ struct RegularNavigation: View, NavigationProtocol {
                 }
             }
         }
-        .onReceive(
-            eventBus.events
-                .filter { _ in isInForeground }
-                .compactMap { $0 as? NavigationShortcutEvent }
-        ) {
-            selectedDestination = $0.destination
+        .onReceive(eventBus.events) {
+            guard isInForeground else { return }
+            
+            if case let .navigationShortcut(destination) = $0 {
+                selectedDestination = destination
+            }
         }
         .onDeepLink(perform: handle)
     }

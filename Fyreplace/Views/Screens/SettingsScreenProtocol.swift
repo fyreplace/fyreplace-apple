@@ -30,7 +30,7 @@ extension SettingsScreenProtocol {
                 return nil
 
             case .unauthorized:
-                return .authorizationIssue()
+                return .authorizationIssue
 
             case .forbidden, .default:
                 return .error()
@@ -66,7 +66,7 @@ extension SettingsScreenProtocol {
                 )
 
             case .unauthorized:
-                return .authorizationIssue()
+                return .authorizationIssue
 
             case .forbidden, .default:
                 return .error()
@@ -88,7 +88,7 @@ extension SettingsScreenProtocol {
                 return nil
 
             case .unauthorized:
-                return .authorizationIssue()
+                return .authorizationIssue
 
             case .forbidden, .default:
                 return .error()
@@ -121,7 +121,7 @@ extension SettingsScreenProtocol {
                 )
 
             case .unauthorized:
-                return .authorizationIssue()
+                return .authorizationIssue
 
             case .forbidden, .default:
                 return .error()

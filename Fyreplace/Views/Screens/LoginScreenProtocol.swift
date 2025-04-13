@@ -23,7 +23,7 @@ extension LoginScreenProtocol {
         randomCode = ""
     }
 
-    func sendEmail() async throws -> UnfortunateEvent? {
+    func sendEmail() async throws -> Event? {
         let response = try await api.createNewToken(body: .json(.init(identifier: identifier)))
 
         switch response {
@@ -55,7 +55,7 @@ extension LoginScreenProtocol {
         }
     }
 
-    func createToken() async throws -> UnfortunateEvent? {
+    func createToken() async throws -> Event? {
         let response = try await api.createToken(
             body: .json(.init(identifier: identifier, secret: randomCode))
         )

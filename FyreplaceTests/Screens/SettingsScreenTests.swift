@@ -40,6 +40,7 @@ struct SettingsScreenTests {
             with: try await .init(collecting: FakeClient.notImageBody, upTo: 64)
         )
         #expect(eventBus.storedEvents.count == 1)
+        #expect(eventBus.storedEvents.first?.isFailure == true)
         #expect(screen.currentUser?.avatar == "")
     }
 

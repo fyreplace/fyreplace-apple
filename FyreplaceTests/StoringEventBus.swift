@@ -8,3 +8,13 @@ class StoringEventBus: EventBus {
         storedEvents.append(event)
     }
 }
+
+extension Event {
+    var isFailure: Bool {
+        if case .failure = self {
+            return true
+        } else {
+            return false
+        }
+    }
+}

@@ -37,7 +37,7 @@ extension EmailsScreenProtocol {
                 )
 
             case .unauthorized:
-                return .authorizationIssue()
+                return .authorizationIssue
 
             case .forbidden, .default:
                 return .error()

@@ -1,60 +1,25 @@
 import SwiftUI
 
 @MainActor
-protocol Event: Sendable {}
+enum Event: Sendable {
+    case error(description: LocalizedStringResource = CriticalError.defaultDescription)
+    case failure(title: LocalizedStringResource, text: LocalizedStringResource)
+    case authorizationIssue
+    case navigationShortcut(destination: Destination)
+    case randomCode(_ code: String)
+}
 
-@MainActor
-protocol UnfortunateEvent: Event {}
+struct CriticalError: LocalizedError {
+    static let defaultDescription: LocalizedStringResource = "Error.Unknown"
 
-struct ErrorEvent: UnfortunateEvent, LocalizedError {
-    static let defaultDescription: String.LocalizationValue = "Error.Unknown"
-
-    var description = defaultDescription
+    var description: LocalizedStringResource
 
     var errorDescription: String {
         .init(localized: description)
     }
 }
 
-extension Event {
-    typealias error = ErrorEvent
-}
-
-struct FailureEvent: UnfortunateEvent {
-    let title: LocalizedStringKey
-    let text: LocalizedStringKey
-}
-
-extension Event {
-    typealias failure = FailureEvent
-}
-
-struct AuthorizationIssueEvent: UnfortunateEvent {}
-
-extension Event {
-    typealias authorizationIssue = AuthorizationIssueEvent
-}
-
-struct NavigationShortcutEvent: Event {
-    let destination: Destination
-
-    init(to destination: Destination) {
-        self.destination = destination
-    }
-}
-
-extension Event {
-    typealias navigationShortcut = NavigationShortcutEvent
-}
-
-struct RandomCodeEvent: Event {
-    let randomCode: String
-
-    init(_ randomCode: String) {
-        self.randomCode = randomCode
-    }
-}
-
-extension Event {
-    typealias randomCode = RandomCodeEvent
+struct Failure: Sendable {
+    let title: LocalizedStringResource
+    let text: LocalizedStringResource
 }

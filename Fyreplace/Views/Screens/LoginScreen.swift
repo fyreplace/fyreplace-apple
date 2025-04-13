@@ -93,13 +93,13 @@ struct LoginScreen: View, LoginScreenProtocol {
         }
         .disabled(isLoading)
         .animation(.default, value: isWaitingForRandomCode)
-        .onReceive(
-            eventBus.events
-                .filter { _ in isWaitingForRandomCode }
-                .compactMap { $0 as? RandomCodeEvent }
-        ) {
-            randomCode = $0.randomCode
-            submit()
+        .onReceive(eventBus.events) {
+            guard isWaitingForRandomCode else { return }
+            
+            if case let .randomCode(code) = $0 {
+                randomCode = code
+                submit()
+            }
         }
     }
 

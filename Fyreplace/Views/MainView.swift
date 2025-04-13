@@ -11,10 +11,10 @@ struct MainView: View, MainViewProtocol {
     var showFailure = false
 
     @State
-    var errors: [ErrorEvent] = []
+    var errors: [CriticalError] = []
 
     @State
-    var failures: [FailureEvent] = []
+    var failures: [Failure] = []
 
     @Environment(\.api)
     private var api
@@ -41,7 +41,7 @@ struct MainView: View, MainViewProtocol {
                 }
             }
             .alert(
-                failures.first?.title ?? "",
+                String(localized: failures.first?.title ?? ""),
                 isPresented: $showFailure,
                 presenting: failures.first,
                 actions: { _ in
@@ -51,16 +51,22 @@ struct MainView: View, MainViewProtocol {
                         }
                     }
                 },
-                message: { (failure: FailureEvent) in
+                message: { (failure: Failure) in
                     Text(failure.text)
                 }
             )
-            .onReceive(eventBus.events.compactMap { ($0 as? ErrorEvent) }, perform: addError)
-            .onReceive(eventBus.events.compactMap { ($0 as? FailureEvent) }, perform: addFailure)
-            .onReceive(eventBus.events.filter { $0 is AuthorizationIssueEvent }) { _ in
-                token = ""
-                eventBus.send(
-                    .failure(title: "Error.Unauthorized.Title", text: "Error.Unauthorized.Text"))
+            .onReceive(eventBus.events) {
+                switch $0 {
+                case let .error(description):
+                    addError(.init(description: description))
+                case let .failure(title, text):
+                    addFailure(.init(title: title, text: text))
+                case .authorizationIssue:
+                    token = ""
+                    eventBus.send(.failure(title: "Error.Unauthorized.Title", text: "Error.Unauthorized.Text"))
+                default:
+                    break
+                }
             }
             #if os(macOS)
                 .task { await keepRefreshingToken() }
