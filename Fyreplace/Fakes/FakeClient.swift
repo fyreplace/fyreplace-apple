@@ -84,12 +84,6 @@ extension FakeClient {
 // MARK: Emails
 
 extension FakeClient {
-    func activateEmail(_: Operations.activateEmail.Input) async throws
-        -> Operations.activateEmail.Output
-    {
-        fatalError("Not implemented")
-    }
-
     func countEmails(_: Operations.countEmails.Input) async throws
         -> Operations.countEmails.Output
     {
@@ -123,6 +117,12 @@ extension FakeClient {
 
     func setMainEmail(_: Operations.setMainEmail.Input) async throws
         -> Operations.setMainEmail.Output
+    {
+        fatalError("Not implemented")
+    }
+    
+    func verifyEmail(_: Operations.verifyEmail.Input) async throws
+        -> Operations.verifyEmail.Output
     {
         fatalError("Not implemented")
     }
