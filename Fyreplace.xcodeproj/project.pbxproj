@@ -638,7 +638,6 @@
 				"    fi",
 				"fi",
 				"",
-				"",
 			);
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1051,7 +1050,7 @@
 			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.47.0;
+				minimumVersion = 8.49.2;
 			};
 		};
 		4D13AF5F2C482F0100845FDB /* XCRemoteSwiftPackageReference "swift-openapi-generator" */ = {
@@ -1059,7 +1058,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-generator.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.7.1;
+				minimumVersion = 1.7.2;
 			};
 		};
 		4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */ = {
@@ -1067,7 +1066,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-runtime.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.8.1;
+				minimumVersion = 1.8.2;
 			};
 		};
 		4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */ = {
@@ -1075,7 +1074,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-urlsession.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
+				minimumVersion = 1.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
