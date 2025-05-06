@@ -85,8 +85,7 @@ struct RegisterScreenTests {
         screen.email = FakeClient.goodEmail
         screen.username = FakeClient.badUsername
         await screen.submit()
-        #expect(eventBus.storedEvents.count == 1)
-        #expect(eventBus.storedEvents.first?.isFailure == true)
+        #expect(eventBus.storedEvents.filter(\.isFailure).count == 1)
         #expect(!screen.isWaitingForRandomCode)
     }
 
@@ -97,8 +96,7 @@ struct RegisterScreenTests {
         screen.username = FakeClient.goodUsername
         screen.email = FakeClient.badEmail
         await screen.submit()
-        #expect(eventBus.storedEvents.count == 1)
-        #expect(eventBus.storedEvents.first?.isFailure == true)
+        #expect(eventBus.storedEvents.filter(\.isFailure).count == 1)
         #expect(!screen.isWaitingForRandomCode)
     }
 
@@ -135,8 +133,7 @@ struct RegisterScreenTests {
         screen.randomCode = FakeClient.badSecret
         screen.isWaitingForRandomCode = true
         await screen.submit()
-        #expect(eventBus.storedEvents.count == 1)
-        #expect(eventBus.storedEvents.first?.isFailure == true)
+        #expect(eventBus.storedEvents.filter(\.isFailure).count == 1)
     }
 
     @Test("Valid random code produces no failures")

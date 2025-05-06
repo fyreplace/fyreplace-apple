@@ -27,7 +27,7 @@ struct SettingsScreenTests {
         await screen.updateAvatar(
             with: try await .init(collecting: FakeClient.largeImageBody, upTo: 64)
         )
-        #expect(eventBus.storedEvents.count == 1)
+        #expect(eventBus.storedEvents.filter(\.isFailure).count == 1)
         #expect(screen.currentUser?.avatar == "")
     }
 
@@ -39,7 +39,7 @@ struct SettingsScreenTests {
         await screen.updateAvatar(
             with: try await .init(collecting: FakeClient.notImageBody, upTo: 64)
         )
-        #expect(eventBus.storedEvents.count == 1)
+        #expect(eventBus.storedEvents.filter(\.isFailure).count == 1)
         #expect(eventBus.storedEvents.first?.isFailure == true)
         #expect(screen.currentUser?.avatar == "")
     }

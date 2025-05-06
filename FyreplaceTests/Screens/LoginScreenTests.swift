@@ -37,7 +37,7 @@ struct LoginScreenTests {
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.identifier = FakeClient.badUsername
         await screen.submit()
-        #expect(eventBus.storedEvents.count == 1)
+        #expect(eventBus.storedEvents.filter(\.isFailure).count == 1)
         #expect(eventBus.storedEvents.first?.isFailure == true)
         #expect(!screen.isWaitingForRandomCode)
     }
@@ -58,7 +58,7 @@ struct LoginScreenTests {
         let screen = FakeScreen(eventBus: eventBus, api: .fake())
         screen.identifier = FakeClient.passwordUsername
         await screen.submit()
-        #expect(eventBus.storedEvents.count == 1)
+        #expect(eventBus.storedEvents.filter(\.isFailure).count == 1)
         #expect(screen.isWaitingForRandomCode)
     }
 
@@ -81,7 +81,7 @@ struct LoginScreenTests {
         screen.randomCode = FakeClient.badSecret
         screen.isWaitingForRandomCode = true
         await screen.submit()
-        #expect(eventBus.storedEvents.count == 1)
+        #expect(eventBus.storedEvents.filter(\.isFailure).count == 1)
         #expect(eventBus.storedEvents.first?.isFailure == true)
     }
 

@@ -12,9 +12,9 @@ class StoringEventBus: EventBus {
 extension Event {
     var isFailure: Bool {
         if case .failure = self {
-            return true
+            true
         } else {
-            return false
+            false
         }
     }
 }
