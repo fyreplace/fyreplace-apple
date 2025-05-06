@@ -74,7 +74,7 @@ struct LoginScreen: View, LoginScreenProtocol {
                 )
             } header: {
                 LogoHeader {
-                    Image("Logo", label: Text("Logo")).resizable()
+                    Image(ImageResource.logo).resizable()
                 } textContent: {
                     Text("Login.Header")
                 }

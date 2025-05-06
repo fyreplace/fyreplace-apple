@@ -105,7 +105,7 @@ struct RegisterScreen: View, RegisterScreenProtocol {
                 }
             } header: {
                 LogoHeader {
-                    Image("Logo", label: Text("Logo")).resizable()
+                    Image(ImageResource.logo).resizable()
                 } textContent: {
                     Text("Register.Header")
                 }

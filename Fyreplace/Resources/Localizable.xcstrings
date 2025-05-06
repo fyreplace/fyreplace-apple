@@ -344,16 +344,6 @@
         }
       }
     },
-    "Logo" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Logo"
-          }
-        }
-      }
-    },
     "Main.Archive" : {
       "localizations" : {
         "en" : {
