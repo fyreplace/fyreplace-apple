@@ -31,9 +31,9 @@ extension ViewProtocol {
 
         guard let unfortunateEvent else { return }
         eventBus.send(unfortunateEvent)
-        
+
         if case let .error(error) = unfortunateEvent,
-           error == CriticalError.defaultDescription
+            error == CriticalError.defaultDescription
         {
             SentrySDK.capture(error: CriticalError(description: error))
         }

@@ -40,6 +40,7 @@ extension SettingsScreenProtocol {
 
     func updateAvatar(with data: Data) async {
         isLoadingAvatar = true
+        defer { isLoadingAvatar = false }
 
         await call {
             let response = try await api.setCurrentUserAvatar(body: .binary(.init(data)))
@@ -72,12 +73,11 @@ extension SettingsScreenProtocol {
                 return .error()
             }
         }
-
-        isLoadingAvatar = false
     }
 
     func removeAvatar() async {
         isLoadingAvatar = true
+        defer { isLoadingAvatar = false }
 
         await call {
             let response = try await api.deleteCurrentUserAvatar()
@@ -94,8 +94,6 @@ extension SettingsScreenProtocol {
                 return .error()
             }
         }
-
-        isLoadingAvatar = false
     }
 
     func updateBio() async {

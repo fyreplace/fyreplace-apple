@@ -95,8 +95,8 @@ struct LoginScreen: View, LoginScreenProtocol {
         .animation(.default, value: isWaitingForRandomCode)
         .onReceive(eventBus.events) {
             guard isWaitingForRandomCode else { return }
-            
-            if case let .randomCode(code) = $0 {
+
+            if case let .connection(code) = $0 {
                 randomCode = code
                 submit()
             }

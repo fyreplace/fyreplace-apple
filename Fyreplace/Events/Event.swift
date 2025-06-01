@@ -6,7 +6,9 @@ enum Event: Sendable {
     case failure(title: LocalizedStringResource, text: LocalizedStringResource)
     case authorizationIssue
     case navigationShortcut(destination: Destination)
-    case randomCode(_ code: String)
+    case connection(randomCode: String)
+    case emailVerification(email: String, randomCode: String)
+    case emailVerified(email: String)
 }
 
 struct CriticalError: LocalizedError {

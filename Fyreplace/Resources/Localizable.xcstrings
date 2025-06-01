@@ -124,12 +124,104 @@
         }
       }
     },
+    "Emails.Add" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add email address"
+          }
+        }
+      }
+    },
+    "Emails.Add.Prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "email@example.org"
+          }
+        }
+      }
+    },
+    "Emails.Error.BadRequest.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This email address is not valid."
+          }
+        }
+      }
+    },
+    "Emails.Error.BadRequest.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid email"
+          }
+        }
+      }
+    },
+    "Emails.Error.Conflict.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This email address is already in use."
+          }
+        }
+      }
+    },
+    "Emails.Error.Conflict.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Used email"
+          }
+        }
+      }
+    },
+    "Emails.Help.RandomCode:%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "A one-time use code has been sent to your unverified address."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "A one-time use code has been sent to your %lld unverified addresses."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "Emails.Main" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Main address"
+          }
+        }
+      }
+    },
+    "Emails.Verify" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verify"
           }
         }
       }
@@ -370,6 +462,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Emails"
+          }
+        }
+      }
+    },
+    "Main.EmailVerified.Message:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can now use %@ to connect to your account."
+          }
+        }
+      }
+    },
+    "Main.EmailVerified.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email verified"
+          }
+        }
+      }
+    },
+    "Main.Error.EmailVerification.NotFound.Message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This code is not valid. Check the code you received via email."
+          }
+        }
+      }
+    },
+    "Main.Error.EmailVerification.NotFound.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email not verified"
           }
         }
       }
@@ -709,7 +841,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add or remove email addresses"
+            "value" : "Manage email addresses"
           }
         }
       }

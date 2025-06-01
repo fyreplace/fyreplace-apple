@@ -91,10 +91,24 @@ extension FakeClient {
         return .ok(.init(body: .json(Int64(emails.count))))
     }
 
-    func createEmail(_: Operations.createEmail.Input) async throws
+    func createEmail(_ input: Operations.createEmail.Input) async throws
         -> Operations.createEmail.Output
     {
-        fatalError("Not implemented")
+        return switch input.body {
+        case let .json(json) where json.email == Self.badEmail:
+            .badRequest(.init(body: .json(.init())))
+
+        case let .json(json) where json.email == Self.usedEmail:
+            .conflict(.init(body: .json(.init())))
+
+        case let .json(json):
+            .created(
+                .init(
+                    body: .json(
+                        .init(
+                            id: String.randomUuid, email: json.email, verified: false, main: false))
+                ))
+        }
     }
 
     func deleteEmail(_: Operations.deleteEmail.Input) async throws
@@ -108,7 +122,7 @@ extension FakeClient {
     {
         return switch input.query.page {
         case nil, 0:
-            .ok(.init(body: .json([.make(main: true), .make(), .make()])))
+            .ok(.init(body: .json([.make(main: true), .make(), .make(verified: false)])))
 
         default:
             .ok(.init(body: .json([])))
@@ -120,11 +134,17 @@ extension FakeClient {
     {
         fatalError("Not implemented")
     }
-    
-    func verifyEmail(_: Operations.verifyEmail.Input) async throws
+
+    func verifyEmail(_ input: Operations.verifyEmail.Input) async throws
         -> Operations.verifyEmail.Output
     {
-        fatalError("Not implemented")
+        return switch input.body {
+        case let .json(json) where json.code == Self.goodSecret:
+            .ok(.init())
+
+        case .json:
+            .notFound(.init())
+        }
     }
 }
 

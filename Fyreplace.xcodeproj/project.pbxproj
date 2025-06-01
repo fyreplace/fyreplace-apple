@@ -46,6 +46,7 @@
 		4D54C9712BF4EA15001DE071 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D54C9702BF4EA15001DE071 /* SettingsScreen.swift */; };
 		4D6A24DD2CAC193F001B4435 /* EditableAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6A24DC2CAC192F001B4435 /* EditableAvatar.swift */; };
 		4D7F9CC22C259C30007B1CC3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4D7F9CC12C259C00007B1CC3 /* PrivacyInfo.xcprivacy */; };
+		4D81CC752DCBE247000269C5 /* MainViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D81CC742DCBE247000269C5 /* MainViewTests.swift */; };
 		4D9B3B382C334B3A00A8F7AD /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B372C334B3A00A8F7AD /* LoginScreen.swift */; };
 		4D9B3B3A2C334B6300A8F7AD /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B392C334B6300A8F7AD /* RegisterScreen.swift */; };
 		4D9B3B3D2C34B13E00A8F7AD /* LogoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9B3B3C2C34B13E00A8F7AD /* LogoHeader.swift */; };
@@ -148,6 +149,7 @@
 		4D6641DB2C5B963500BE3D07 /* .ios-test-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ios-test-version"; sourceTree = "<group>"; };
 		4D6A24DC2CAC192F001B4435 /* EditableAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableAvatar.swift; sourceTree = "<group>"; };
 		4D7F9CC12C259C00007B1CC3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		4D81CC742DCBE247000269C5 /* MainViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTests.swift; sourceTree = "<group>"; };
 		4D9B3B372C334B3A00A8F7AD /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		4D9B3B392C334B6300A8F7AD /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		4D9B3B3C2C34B13E00A8F7AD /* LogoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHeader.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			children = (
 				4DFB906E2C5908BF00D4DABF /* Screens */,
 				4D5348602C6646F80001EFDE /* StoringEventBus.swift */,
+				4D81CC742DCBE247000269C5 /* MainViewTests.swift */,
 			);
 			path = FyreplaceTests;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 		4D54C9352BF26090001DE071 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				4D81CC752DCBE247000269C5 /* MainViewTests.swift in Sources */,
 				4D351AEB2CA6BD45002EEB8F /* SettingsScreenTests.swift in Sources */,
 				4D351AED2CA6BE2D002EEB8F /* FakeScreenBase.swift in Sources */,
 				4DB367BC2CE364C300853CFE /* EmailsScreenTests.swift in Sources */,
