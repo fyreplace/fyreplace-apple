@@ -14,7 +14,7 @@ struct Keychain {
     }
 
     init(service: String) {
-        self.service = service.replacing(".", with: ":")
+        self.service = Config.default.app.name.lowercased() + ":" + service.replacing(".", with: ":")
     }
 
     func get() -> String {

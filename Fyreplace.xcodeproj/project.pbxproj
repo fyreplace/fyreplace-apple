@@ -122,7 +122,7 @@
 		4D5251F02C109D0D00018CD2 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		4D5251F42C10A9F100018CD2 /* DynamicNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicNavigation.swift; sourceTree = "<group>"; };
 		4D5348602C6646F80001EFDE /* StoringEventBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoringEventBus.swift; sourceTree = "<group>"; };
-		4D54C9282BF2608A001DE071 /* Fyreplace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fyreplace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D54C9282BF2608A001DE071 /* Fyredebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fyredebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D54C92B2BF2608A001DE071 /* FyreplaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FyreplaceApp.swift; sourceTree = "<group>"; };
 		4D54C92D2BF2608A001DE071 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4D54C92F2BF2608F001DE071 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -306,7 +306,7 @@
 		4D54C9292BF2608A001DE071 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4D54C9282BF2608A001DE071 /* Fyreplace.app */,
+				4D54C9282BF2608A001DE071 /* Fyredebug.app */,
 				4D54C9392BF26090001DE071 /* FyreplaceTests.xctest */,
 				4D54C9432BF26090001DE071 /* FyreplaceUITests.xctest */,
 			);
@@ -490,7 +490,7 @@
 				4D13AF642C482F4500845FDB /* OpenAPIURLSession */,
 			);
 			productName = Fyreplace;
-			productReference = 4D54C9282BF2608A001DE071 /* Fyreplace.app */;
+			productReference = 4D54C9282BF2608A001DE071 /* Fyredebug.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4D54C9382BF26090001DE071 /* FyreplaceTests */ = {
@@ -872,7 +872,7 @@
 		4D54C94E2BF26090001DE071 /* Debug configuration for PBXNativeTarget "Fyreplace" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDebug;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "${TARGET_NAME}/Config/Fyreplace.debug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -897,8 +897,9 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace.debug;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = Fyredebug;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -934,6 +935,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -954,7 +956,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fyreplace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fyreplace";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fyredebug.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fyredebug";
 			};
 			name = Debug;
 		};
@@ -970,7 +972,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fyreplace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fyreplace";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fyredebug.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fyredebug";
 			};
 			name = Release;
 		};
