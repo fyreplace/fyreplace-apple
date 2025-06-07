@@ -1,5 +1,4 @@
 .PHONY: all
 
 all:
-	bash Config/Config.sh
-	bash Fyreplace/Config/Config.sh
+	@bash Config/Config.sh

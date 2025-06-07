@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+current_directory=$(dirname $0)
+env_file=$current_directory/../.env
+
+if [ -f $env_file ]
+then
+    source $env_file
+fi
+
+#========#
+# Common #
+#========#
+
+echo "Generating common config..."
+
 branch=$(git rev-parse --abbrev-ref HEAD)
 commit_count=$(git rev-list --count HEAD)
 version=$(git describe --tags)
@@ -30,14 +44,6 @@ release/*)
     ;;
 esac
 
-current_directory=$(dirname $0)
-env_file=$current_directory/../.env
-
-if [ -f $env_file ]
-then
-    source $env_file
-fi
-
 cat <<< "
 SLASH=/
 DEVELOPMENT_TEAM=$DEVELOPMENT_TEAM
@@ -48,3 +54,16 @@ SENTRY_ORG=$SENTRY_ORG
 SENTRY_PROJECT=$SENTRY_PROJECT
 SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN
 " | tee $current_directory/Config.xcconfig
+
+#=========#
+# Release #
+#=========#
+
+echo "Generating release config..."
+
+cat <<< "
+#include \"Config.xcconfig\"
+
+CODE_SIGN_IDENTITY=$CODE_SIGN_IDENTITY
+PROVISIONING_PROFILE_SPECIFIER=$PROVISIONING_PROFILE_SPECIFIER
+" | tee $current_directory/Config.release.xcconfig
