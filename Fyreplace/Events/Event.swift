@@ -16,7 +16,7 @@ struct CriticalError: LocalizedError {
 
     var description: LocalizedStringResource
 
-    var errorDescription: String {
+    var errorDescription: String? {
         .init(localized: description)
     }
 }
