@@ -1,4 +1,5 @@
 import Foundation
+import Sentry
 
 @MainActor
 protocol MainViewProtocol: APIViewProtocol {
@@ -8,6 +9,7 @@ protocol MainViewProtocol: APIViewProtocol {
     var errors: [CriticalError] { get nonmutating set }
     var failures: [Failure] { get nonmutating set }
     var verifiedEmail: String { get nonmutating set }
+    var currentUserId: String { get nonmutating set }
     var token: String { get nonmutating set }
 }
 
@@ -64,6 +66,37 @@ extension MainViewProtocol {
         failures.removeFirst()
         await wait()
         tryShowSomething()
+    }
+
+    func storeCurrentUser(for token: String) async {
+        guard !token.isEmpty else {
+            currentUserId = ""
+            SentrySDK.setUser(nil)
+            return
+        }
+
+        await call {
+            let response = try await api.getCurrentUser()
+
+            switch response {
+            case let .ok(ok):
+                switch ok.body {
+                case let .json(json):
+                    currentUserId = json.id
+                    let user = User(userId: currentUserId)
+                    user.username = json.username
+                    SentrySDK.setUser(user)
+                }
+
+                return nil
+
+            case .unauthorized:
+                return .authorizationIssue
+
+            case .forbidden, .default:
+                return .error()
+            }
+        }
     }
 
     func verifyEmail(email: String, code: String) async {

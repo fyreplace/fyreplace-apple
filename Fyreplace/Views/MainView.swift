@@ -25,6 +25,9 @@ struct MainView: View, MainViewProtocol {
     @State
     var verifiedEmail = ""
 
+    @AppStorage("currentUser.id")
+    var currentUserId = ""
+
     @KeychainStorage("connection.token")
     var token
 
@@ -67,6 +70,11 @@ struct MainView: View, MainViewProtocol {
                 Text("Main.EmailVerified.Message:\(verifiedEmail)")
             }
             .onReceive(eventBus.events, perform: handle)
+            .onChange(of: token) { token in
+                Task {
+                    await storeCurrentUser(for: token)
+                }
+            }
             #if os(macOS)
                 .task { await keepRefreshingToken() }
             #endif

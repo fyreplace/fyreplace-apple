@@ -12,6 +12,7 @@ struct MainViewTests {
         var errors: [CriticalError] = []
         var failures: [Failure] = []
         var verifiedEmail = ""
+        var currentUserId = ""
         var token = ""
     }
 
