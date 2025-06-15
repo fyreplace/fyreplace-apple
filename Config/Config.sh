@@ -53,7 +53,7 @@ SENTRY_DSN=${SENTRY_DSN//\//\$(SLASH)}
 SENTRY_ORG=$SENTRY_ORG
 SENTRY_PROJECT=$SENTRY_PROJECT
 SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN
-" | tee $current_directory/Config.xcconfig
+" > $current_directory/Config.xcconfig
 
 #=========#
 # Release #
@@ -66,4 +66,4 @@ cat <<< "
 
 CODE_SIGN_IDENTITY=$CODE_SIGN_IDENTITY
 PROVISIONING_PROFILE_SPECIFIER=$PROVISIONING_PROFILE_SPECIFIER
-" | tee $current_directory/Config.release.xcconfig
+" > $current_directory/Config.release.xcconfig
