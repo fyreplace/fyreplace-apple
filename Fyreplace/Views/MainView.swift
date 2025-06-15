@@ -96,25 +96,3 @@ struct MainView: View, MainViewProtocol {
 #Preview {
     MainView()
 }
-
-struct ForegroundEnvironmentKey: EnvironmentKey {
-    static let defaultValue = true
-}
-
-extension EnvironmentValues {
-    var isInForeground: Bool {
-        get { self[ForegroundEnvironmentKey.self] }
-        set { self[ForegroundEnvironmentKey.self] = newValue }
-    }
-}
-
-struct APIEnvironmentKey: EnvironmentKey {
-    static let defaultValue: APIProtocol = .fake()
-}
-
-extension EnvironmentValues {
-    var api: APIProtocol {
-        get { self[APIEnvironmentKey.self] }
-        set { self[APIEnvironmentKey.self] = newValue }
-    }
-}

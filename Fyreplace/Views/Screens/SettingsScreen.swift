@@ -142,6 +142,7 @@ struct SettingsScreen: View, SettingsScreenProtocol {
     NavigationStack {
         SettingsScreen()
     }
+    .environmentObject(EventBus())
 }
 
 private struct DateJoinedText: View {

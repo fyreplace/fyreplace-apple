@@ -5,7 +5,7 @@ struct EmailsScreen: View, EmailsScreenProtocol {
     var eventBus: EventBus
 
     @Environment(\.api)
-    var api: any APIProtocol
+    var api
 
     @State
     var isLoading = false
@@ -136,4 +136,5 @@ struct EmailsScreen: View, EmailsScreenProtocol {
     NavigationStack {
         EmailsScreen()
     }
+    .environmentObject(EventBus())
 }

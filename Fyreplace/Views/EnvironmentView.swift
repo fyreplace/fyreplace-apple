@@ -24,3 +24,8 @@ struct EnvironmentView: View {
             .environmentObject(eventBus)
     }
 }
+
+extension EnvironmentValues {
+    @Entry var isInForeground = true
+    @Entry var api: APIProtocol = .fake()
+}
