@@ -106,12 +106,15 @@ jobs:
           PROVISIONING_PROFILE_SPECIFIER: ${{ vars.PROVISIONING_PROFILE_NAME_MACOS_STANDALONE }}
         run: make
 
-      - name: Trust OpenAPI plugin
-        run: bash .github/workflows/trust-openapi-plugin.sh
+      - name: Trust SPM plugins
+        run: bash .github/workflows/trust-spm-plugins.sh
 
       - name: Set up Sentry
         if: ${{ matrix.distribution == 'app-store' }}
         run: curl -sL https://sentry.io/get-cli/ | sh
+
+      - name: Install Protobuf
+        run: brew install protobuf
 
       - name: Build app
         run: |
@@ -120,7 +123,7 @@ jobs:
             -authenticationKeyPath /tmp/connect-key.p8 \
             -authenticationKeyID ${{ vars.APP_STORE_CONNECT_KEY_ID }} \
             -authenticationKeyIssuerID ${{ vars.APP_STORE_CONNECT_ISSUER_ID }} \
-            -scheme Fyreplace \
+            -scheme ${{ matrix.platform == 'macOS' && 'Fyreplace' || 'FyreplaceLegacy' }} \
             -destination generic/platform=${{ matrix.platform }} \
             -archivePath archive.xcarchive
 
@@ -206,8 +209,8 @@ jobs:
       - name: Prepare files
         run: make
 
-      - name: Trust OpenAPI plugin
-        run: bash .github/workflows/trust-openapi-plugin.sh
+      - name: Trust SPM plugins
+        run: bash .github/workflows/trust-spm-plugins.sh
 
       - name: Run tests
         run: |

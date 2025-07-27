@@ -4,7 +4,7 @@ struct CompactNavigation: View, NavigationProtocol {
     @EnvironmentObject
     var eventBus: EventBus
 
-    @SceneStorage("CompactNavigation.selectedDestination")
+    @SceneStorageCompat("CompactNavigation.selectedDestination")
     private var selectedDestination = Destination.feed
 
     @State

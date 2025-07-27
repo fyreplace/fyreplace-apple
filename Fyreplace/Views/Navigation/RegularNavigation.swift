@@ -8,10 +8,10 @@ struct RegularNavigation: View, NavigationProtocol {
     private var isInForeground
 
     #if os(macOS)
-        @SceneStorage("RegularNavigation.selectedDestination")
+        @SceneStorageCompat("RegularNavigation.selectedDestination")
         private var selectedDestination = Destination.feed
     #else
-        @SceneStorage("RegularNavigation.selectedDestination")
+        @SceneStorageCompat("RegularNavigation.selectedDestination")
         private var selectedDestination: Destination?
     #endif
 

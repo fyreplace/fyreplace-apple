@@ -8,12 +8,6 @@ then
     source $env_file
 fi
 
-#========#
-# Common #
-#========#
-
-echo "Generating common config..."
-
 branch=$(git rev-parse --abbrev-ref HEAD)
 commit_count=$(git rev-list --count HEAD)
 version=$(git describe --tags)
@@ -44,6 +38,12 @@ release/*)
     ;;
 esac
 
+#========#
+# Common #
+#========#
+
+echo "Generating main config..."
+
 cat <<< "
 SLASH=/
 DEVELOPMENT_TEAM=$DEVELOPMENT_TEAM
@@ -59,7 +59,7 @@ SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN
 # Release #
 #=========#
 
-echo "Generating release config..."
+echo "Generating main release config..."
 
 cat <<< "
 #include \"Config.xcconfig\"

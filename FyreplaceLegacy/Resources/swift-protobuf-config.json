@@ -1,0 +1,17 @@
+{
+    "protocPath": "/opt/homebrew/bin/protoc",
+    "invocations": [
+        {
+            "protoFiles": [
+                "protos/comment.proto",
+                "protos/id.proto",
+                "protos/image.proto",
+                "protos/notification.proto",
+                "protos/pagination.proto",
+                "protos/post.proto",
+                "protos/user.proto"
+            ],
+            "visibility": "internal"
+        }
+    ]
+}

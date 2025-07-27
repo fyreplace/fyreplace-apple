@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageChapterTableViewCell" customModule="Fyreplace" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tableViewCell-00" customClass="ImageChapterTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tableViewCell-00" id="tableViewCell-00-contentView">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-imageView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="tableViewCell-00-contentView-imageView" secondAttribute="bottom" id="00-00--C-00-00-00"/>
+                    <constraint firstItem="tableViewCell-00-contentView-imageView" firstAttribute="leading" secondItem="tableViewCell-00-contentView" secondAttribute="leading" id="00-00--C-00-00-00-00"/>
+                    <constraint firstItem="tableViewCell-00-contentView-imageView" firstAttribute="top" secondItem="tableViewCell-00-contentView" secondAttribute="top" id="00-00--C-00-00-00-01"/>
+                    <constraint firstAttribute="trailing" secondItem="tableViewCell-00-contentView-imageView" secondAttribute="trailing" id="00-00--C-00-00-01"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="content" destination="tableViewCell-00-contentView-imageView" id="7da8d9ae0ca7d72e130723b551566037a466335738a27627d05e6e2452b95fed"/>
+            </connections>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </tableViewCell>
+    </objects>
+</document>

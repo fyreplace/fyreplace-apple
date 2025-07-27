@@ -1,0 +1,3 @@
+[submodule "FyreplaceLegacy/Resources/protos"]
+	path = FyreplaceLegacy/Resources/protos
+	url = https://github.com/fyreplace/fyreplace-protos.git
