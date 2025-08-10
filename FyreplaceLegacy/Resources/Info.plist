@@ -56,6 +56,11 @@
 	<string>$(FYREPLACE_API_PORT)</string>
 	<key>FPLinkHosts</key>
 	<string>$(FYREPLACE_LINK_HOSTS)</string>
+	<key>Sentry</key>
+	<dict>
+		<key>Dsn</key>
+		<string></string>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -93,10 +98,5 @@
 		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
-	<key>Sentry</key>
-	<dict>
-		<key>Dsn</key>
-		<string></string>
-	</dict>
 </dict>
 </plist>
