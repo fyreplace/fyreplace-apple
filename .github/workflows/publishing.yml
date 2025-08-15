@@ -27,7 +27,7 @@ jobs:
             distribution: standalone
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           submodules: true
@@ -187,7 +187,7 @@ jobs:
           - iOS
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           submodules: true
@@ -225,7 +225,7 @@ jobs:
     needs:
       - build
       - test
-    runs-on: macos-latest
+    runs-on: macos-15
     environment: apple-app-store
     strategy:
       matrix:
@@ -240,14 +240,14 @@ jobs:
             distribution: standalone
     steps:
       - name: Download IPA
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         if: ${{ matrix.platform == 'ios' }}
         with:
           name: Fyreplace.ipa
           path: /tmp
 
       - name: Download PKG
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         if: ${{ matrix.platform == 'osx' }}
         with:
           name: ${{ matrix.distribution == 'standalone' && 'Fyreplace.standalone.pkg' || 'Fyreplace.pkg' }}
