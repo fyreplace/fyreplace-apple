@@ -2,10 +2,10 @@
 
 export PATH="$PATH:/opt/homebrew/bin"
 
-if [[ $CONFIGURATION -eq "Debug" ]]
+if [[ $CONFIGURATION = "Debug" ]]
 then
     echo "Skipping Sentry sources upload"
-elif [ -n $SENTRY_AUTH_TOKEN ]
+elif [[ -n $SENTRY_AUTH_TOKEN ]]
 then
     ERROR=$(sentry-cli debug-files upload \
         --org $SENTRY_ORG \
