@@ -7,16 +7,11 @@ then
     echo "Skipping Sentry sources upload"
 elif [[ -n $SENTRY_AUTH_TOKEN ]]
 then
-    ERROR=$(sentry-cli debug-files upload \
-        --org $SENTRY_ORG \
-        --project $SENTRY_PROJECT \
-        --auth-token $SENTRY_AUTH_TOKEN \
-        --include-sources "$DWARF_DSYM_FOLDER_PATH" \
-        --force-foreground 2>&1 >/dev/null)
+    sentry-cli debug-files upload --include-sources "$DWARF_DSYM_FOLDER_PATH"
 
     if [[ $? -ne 0 ]]
     then
-        echo "error: sentry-cli - $ERROR"
+        echo "error: failed to upload debug files to Sentry"
         exit 1
     fi
 fi
