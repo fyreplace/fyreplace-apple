@@ -204,7 +204,6 @@
 				4D54C9242BF2608A001DE071 /* Sources */,
 				4D54C9252BF2608A001DE071 /* Frameworks */,
 				4D54C9262BF2608A001DE071 /* Resources */,
-				4D0DDC272C188A1B006CD503 /* Upload Sources To Sentry */,
 			);
 			buildRules = (
 			);
@@ -273,7 +272,6 @@
 				4D926C052E363F2400A406D1 /* Sources */,
 				4D926C062E363F2400A406D1 /* Frameworks */,
 				4D926C072E363F2400A406D1 /* Resources */,
-				4DF75C812E51F7B400976B90 /* Upload Sources To Sentry */,
 			);
 			buildRules = (
 			);
@@ -380,35 +378,6 @@
 			);
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4D0DDC272C188A1B006CD503 /* Upload Sources To Sentry */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-			);
-			name = "Upload Sources To Sentry";
-			shellPath = /bin/sh;
-			shellScript = (
-				"$(dirname $WORKSPACE_DIR)/Scripts/upload-sentry-sources.sh",
-				"",
-			);
-		};
-		4DF75C812E51F7B400976B90 /* Upload Sources To Sentry */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-			);
-			name = "Upload Sources To Sentry";
-			shellPath = /bin/sh;
-			shellScript = (
-				"$(dirname $WORKSPACE_DIR)/Scripts/upload-sentry-sources.sh",
-				"",
-			);
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D54C9242BF2608A001DE071 /* Sources */ = {

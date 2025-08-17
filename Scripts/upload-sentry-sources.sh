@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 export PATH="$PATH:/opt/homebrew/bin"
 
 if [[ $CONFIGURATION = "Debug" ]]
@@ -8,10 +10,4 @@ then
 elif [[ -n $SENTRY_AUTH_TOKEN ]]
 then
     sentry-cli debug-files upload --include-sources "$DWARF_DSYM_FOLDER_PATH"
-
-    if [[ $? -ne 0 ]]
-    then
-        echo "error: failed to upload debug files to Sentry"
-        exit 1
-    fi
 fi

@@ -15,9 +15,9 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "4D54C9272BF2608A001DE071"
+                     BlueprintIdentifier = "4D926C082E363F2400A406D1"
                      BuildableName = "Fyreplace.app"
-                     BlueprintName = "Fyreplace"
+                     BlueprintName = "FyreplaceLegacy"
                      ReferencedContainer = "container:Fyreplace.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -33,9 +33,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4D54C9272BF2608A001DE071"
+               BlueprintIdentifier = "4D926C082E363F2400A406D1"
                BuildableName = "Fyreplace.app"
-               BlueprintName = "Fyreplace"
+               BlueprintName = "FyreplaceLegacy"
                ReferencedContainer = "container:Fyreplace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,28 +47,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
-      <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4D54C9382BF26090001DE071"
-               BuildableName = "FyreplaceTests.xctest"
-               BlueprintName = "FyreplaceTests"
-               ReferencedContainer = "container:Fyreplace.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4D54C9422BF26090001DE071"
-               BuildableName = "FyreplaceUITests.xctest"
-               BlueprintName = "FyreplaceUITests"
-               ReferencedContainer = "container:Fyreplace.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -84,19 +62,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D54C9272BF2608A001DE071"
+            BlueprintIdentifier = "4D926C082E363F2400A406D1"
             BuildableName = "Fyreplace.app"
-            BlueprintName = "Fyreplace"
+            BlueprintName = "FyreplaceLegacy"
             ReferencedContainer = "container:Fyreplace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "IDEPreferLogStreaming"
-            value = "YES"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -108,9 +79,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D54C9272BF2608A001DE071"
+            BlueprintIdentifier = "4D926C082E363F2400A406D1"
             BuildableName = "Fyreplace.app"
-            BlueprintName = "Fyreplace"
+            BlueprintName = "FyreplaceLegacy"
             ReferencedContainer = "container:Fyreplace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -121,5 +92,23 @@
    <ArchiveAction
       buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "$(dirname $WORKSPACE_DIR)/Scripts/upload-sentry-sources.sh&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "4D926C082E363F2400A406D1"
+                     BuildableName = "Fyreplace.app"
+                     BlueprintName = "FyreplaceLegacy"
+                     ReferencedContainer = "container:Fyreplace.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
    </ArchiveAction>
 </Scheme>
