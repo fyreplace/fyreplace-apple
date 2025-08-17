@@ -32,7 +32,7 @@ extension AppDelegate: UIApplicationDelegate {
         SDImageCodersManager.shared.addCoder(SDImageWebPCoder.shared)
         firstTimeSetup()
 
-        for case let window? in application.windows + [window] {
+        for case let window? in application.sceneWindows + [window] {
             window.tintColor = .accent
         }
 
@@ -56,7 +56,6 @@ extension AppDelegate: UIApplicationDelegate {
         return true
     }
 
-    @available(iOS 13, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }

@@ -74,7 +74,7 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
             delay: 0,
             options: .init(rawValue: curve?.uintValue ?? UInt(UIView.AnimationCurve.easeOut.rawValue)),
             animations: {
-                for window in UIApplication.shared.windows {
+                for window in UIApplication.shared.sceneWindows {
                     window.layoutIfNeeded()
                 }
             }

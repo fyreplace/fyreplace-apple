@@ -6,13 +6,15 @@ struct FyreplaceApp: App {
     init() {
         guard let dsn = Config.default.sentry.dsn, !dsn.isEmpty else { return }
 
-        SentrySDK.start {
-            $0.dsn = dsn
-            $0.environment = Config.default.version.environment
+        SentrySDK.start { options in
+            options.dsn = dsn
+            options.environment = Config.default.version.environment
             #if DEBUG
-                $0.tracesSampleRate = 1
-                $0.profilesSampleRate = 1
-                $0.enableSpotlight = true
+                options.tracesSampleRate = 1
+                options.enableSpotlight = true
+                options.configureProfiling = {
+                    $0.sessionSampleRate = 1
+                }
             #endif
         }
     }

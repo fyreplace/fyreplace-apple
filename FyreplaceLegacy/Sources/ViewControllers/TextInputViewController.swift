@@ -25,7 +25,7 @@ class TextInputViewController: UIViewController {
         length.reactive.textColor <~ textInputViewModel.text
             .map { $0.count <= maxLength }
             .skipRepeats()
-            .map { $0 ? .labelCompat : .systemRed }
+            .map { $0 ? .label : .systemRed }
     }
 
     override func viewDidAppear(_ animated: Bool) {

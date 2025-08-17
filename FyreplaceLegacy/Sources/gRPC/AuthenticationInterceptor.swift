@@ -1,7 +1,7 @@
 import GRPC
 import NIOCore
 
-class AuthenticationInterceptor<Request, Response>: ClientInterceptor<Request, Response> {
+class AuthenticationInterceptor<Request, Response>: ClientInterceptor<Request, Response>, @unchecked Sendable {
     private let authToken = KeychainWrapper.authToken
 
     override func send(_ part: GRPCClientRequestPart<Request>, promise: EventLoopPromise<Void>?, context: ClientInterceptorContext<Request, Response>) {

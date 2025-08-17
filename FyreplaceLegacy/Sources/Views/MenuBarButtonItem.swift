@@ -49,15 +49,9 @@ class MenuBarButtonItem: UIBarButtonItem {
 
     private func attachMultipleActions() {
         navigationDelegate.navigationItem.rightBarButtonItem = self
-
-        if #available(iOS 14, *) {
-            attachMenu()
-        } else {
-            attachAlert()
-        }
+        attachMenu()
     }
 
-    @available(iOS 14, *)
     private func attachMenu() {
         let elements = orderedActions.map { action in
             UIAction(
@@ -67,38 +61,5 @@ class MenuBarButtonItem: UIBarButtonItem {
             ) { _ in action.execute() }
         }
         menu = UIMenu(title: "", image: nil, children: elements)
-    }
-
-    private func attachAlert() {
-        alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-
-        for action in visibleActions {
-            let alertAction = UIAlertAction(
-                title: action.title,
-                style: action.isDestructive ? .destructive : .default
-            ) { _ in action.execute() }
-            alert?.addAction(alertAction)
-        }
-
-        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
-        alert?.addAction(cancel)
-        action = #selector(showAlert)
-        target = self
-    }
-
-    @objc
-    private func executeSingleAction() {
-        visibleActions.first?.execute()
-    }
-
-    @objc
-    private func showAlert() {
-        guard let alert else { return }
-
-        if let popoverController = alert.popoverPresentationController {
-            popoverController.sourceView = navigationDelegate.navigationController?.navigationBar
-        }
-
-        navigationDelegate.present(alert, animated: true)
     }
 }

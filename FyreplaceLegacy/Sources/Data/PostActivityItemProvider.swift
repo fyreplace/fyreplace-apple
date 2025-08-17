@@ -1,6 +1,6 @@
 import LinkPresentation
 
-class PostActivityItemProvider: URLActivityItemProvider {
+class PostActivityItemProvider: URLActivityItemProvider, @unchecked Sendable {
     private let post: FPPost
 
     init(post: FPPost) {
@@ -8,7 +8,6 @@ class PostActivityItemProvider: URLActivityItemProvider {
         super.init(url: .init(for: "p", id: post.id))
     }
 
-    @available(iOS 13, *)
     override func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
         let metadata = super.activityViewControllerLinkMetadata(activityViewController)
         let author = post.isAnonymous ? FPProfile() : post.author

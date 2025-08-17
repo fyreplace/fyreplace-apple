@@ -9,6 +9,6 @@ extension UserDefaults {
 
     func message<M: Message>(forKey defaultName: String) -> M? {
         guard let data = UserDefaults.standard.data(forKey: defaultName) else { return nil }
-        return try? M(serializedData: data)
+        return try? M(serializedBytes: data)
     }
 }

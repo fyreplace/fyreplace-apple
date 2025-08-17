@@ -27,7 +27,7 @@ class LoginViewController: UITableViewController {
         vm.email <~ email.reactive.continuousTextValues
         vm.username <~ username.reactive.continuousTextValues
         vm.conditionsAccepted <~ conditionsAccepted.reactive.isOnValues
-        button.reactive.textColor <~ vm.canProceed.map { $0 ? .tintColorCompat : .secondaryLabelCompat }
+        button.reactive.textColor <~ vm.canProceed.map { $0 ? .tintColor : .secondaryLabel }
         button.reactive.isHidden <~ vm.isLoading
         buttonContainer.reactive.isUserInteractionEnabled <~ vm.canProceed
         loader.reactive.isAnimating <~ vm.isLoading

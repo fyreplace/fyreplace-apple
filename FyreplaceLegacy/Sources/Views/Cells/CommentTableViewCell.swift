@@ -48,13 +48,13 @@ class CommentTableViewCell: BaseCommentTableViewCell {
     }
 
     func setup(withComment comment: FPComment, at position: Int, isPostAuthor: Bool, isSelected: Bool, isHighlighted: Bool) {
-        backgroundColor = isSelected ? .tintColorCompat.withAlphaComponent(0.3) : nil
+        backgroundColor = isSelected ? .tintColor.withAlphaComponent(0.3) : nil
         highlight.isHidden = !isHighlighted
         avatar.isUserInteractionEnabled = !comment.author.username.isEmpty
         avatar.setAvatar(from: comment.author)
         avatar.tag = position
         username.isUserInteractionEnabled = avatar.isUserInteractionEnabled
-        username.tintColor = isPostAuthor ? .tintColorCompat : .labelCompat
+        username.tintColor = isPostAuthor ? .tintColor : .label
         username.setUsername(comment.author)
         username.tag = position
         content.setComment(comment, font: isHighlighted ? originalFont?.withTraits(.traitBold) : originalFont)

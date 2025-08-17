@@ -77,13 +77,13 @@ class FeedTableViewCell: UITableViewCell {
     private func vote(with button: UIButton) {
         guard !isVoting else { return }
         isVoting = true
-        button.tintColor = .tintColorCompat
+        button.tintColor = .tintColor
         feedbackGenerator.selectionChanged()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
             delegate.feedTableViewCell(self, didSpread: button == up)
             isVoting = false
-            button.tintColor = .labelCompat
+            button.tintColor = .label
         }
     }
 

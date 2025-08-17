@@ -2,7 +2,7 @@ import Foundation
 import GRPC
 import NIOCore
 
-class RequestIdentificationInterceptor<Request, Response>: ClientInterceptor<Request, Response> {
+class RequestIdentificationInterceptor<Request, Response>: ClientInterceptor<Request, Response>, @unchecked Sendable {
     override func send(_ part: GRPCClientRequestPart<Request>, promise: EventLoopPromise<Void>?, context: ClientInterceptorContext<Request, Response>) {
         if case var GRPCClientRequestPart.metadata(headers) = part {
             headers.add(name: "x-request-id", value: UUID().uuidString)

@@ -3,7 +3,6 @@ import UIKit
 class SceneDelegate: UIResponder {
     var window: UIWindow?
 
-    @available(iOS 13, *)
     private func handle(urlContexts: Set<UIOpenURLContext>) {
         for context in urlContexts {
             UIApplication.shared.open(url: context.url)
@@ -11,7 +10,6 @@ class SceneDelegate: UIResponder {
     }
 }
 
-@available(iOS 13, *)
 extension SceneDelegate: UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         window?.tintColor = .accent

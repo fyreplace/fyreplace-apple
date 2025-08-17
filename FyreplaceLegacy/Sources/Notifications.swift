@@ -38,7 +38,7 @@ func makeUserNotificationContent(comment: FPComment, postId: Data, info: [AnyHas
     content.userInfo = info
     content.threadIdentifier = postId.base64ShortString
 
-    if #available(iOS 15, *), let score = info["_aps.relevance-score"] as? Double {
+    if let score = info["_aps.relevance-score"] as? Double {
         content.relevanceScore = score
     }
 

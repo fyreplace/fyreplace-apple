@@ -116,7 +116,7 @@ class MainViewController: UITabBarController {
             return
         }
 
-        if #available(iOS 14, *), postId != postController?.vm.post.value.id {
+        if postId != postController?.vm.post.value.id {
             options.insert(.list)
         }
     }

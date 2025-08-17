@@ -635,7 +635,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13;
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace.debug;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = Fyreplace;
 				PRODUCT_NAME = Fyredebug;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -674,7 +674,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13;
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = Fyreplace;
 				PRODUCT_NAME = Fyreplace;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -773,6 +773,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace.debug;
+				PRODUCT_MODULE_NAME = Fyreplace;
 				PRODUCT_NAME = Fyredebug;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -812,6 +813,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.fyreplace.Fyreplace;
+				PRODUCT_MODULE_NAME = Fyreplace;
 				PRODUCT_NAME = Fyreplace;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -354,8 +354,8 @@ extension PostViewController {
             )
         }
 
-        share.image = .init(called: "square.and.arrow.up.fill")
-        reportOrDelete.image = .init(called: canDelete ? "trash.fill" : "exclamationmark.bubble.fill")
+        share.image = .init(systemName: "square.and.arrow.up.fill")
+        reportOrDelete.image = .init(systemName: canDelete ? "trash.fill" : "exclamationmark.bubble.fill")
         return .init(actions: [share, reportOrDelete])
     }
 }

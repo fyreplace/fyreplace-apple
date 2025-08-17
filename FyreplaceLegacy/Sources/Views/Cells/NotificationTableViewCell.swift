@@ -18,7 +18,7 @@ extension NotificationTableViewCell where Self: PostTableViewCell {
 extension NotificationTableViewCell {
     func setup(withCount count: UInt32, isFlag: Bool) {
         self.count.text = String(count)
-        self.count.textColor = isFlag ? .systemRed : .labelCompat
+        self.count.textColor = isFlag ? .systemRed : .label
     }
 }
 

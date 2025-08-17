@@ -7,7 +7,7 @@ extension UIButton {
     }
 
     func setAvatar(from profile: FPProfile?) {
-        let defaultImage = UIImage(called: "person.crop.circle.fill")
+        let defaultImage = UIImage(systemName: "person.crop.circle.fill")
 
         if let profile, !profile.isBanned {
             sd_setImage(

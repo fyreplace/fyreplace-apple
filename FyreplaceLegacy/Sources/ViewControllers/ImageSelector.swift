@@ -47,7 +47,7 @@ class ImageSelector: NSObject {
     private func selectImage(from source: UIImagePickerController.SourceType) {
         let picker: UIViewController
 
-        if #available(iOS 14, *), source != .camera {
+        if source != .camera {
             picker = makeSelectPicturePicker()
         } else {
             picker = makeSelectPictureOrPhotoPicker(from: source)
@@ -56,7 +56,6 @@ class ImageSelector: NSObject {
         delegate?.present(picker, animated: true)
     }
 
-    @available(iOS 14, *)
     private func makeSelectPicturePicker() -> UIViewController {
         var config = PHPickerConfiguration()
         config.filter = .images
@@ -133,7 +132,6 @@ extension ImageSelector: UINavigationControllerDelegate, UIImagePickerController
     }
 }
 
-@available(iOS 14, *)
 extension ImageSelector: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)

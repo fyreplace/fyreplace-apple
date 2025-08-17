@@ -1,6 +1,6 @@
 import LinkPresentation
 
-class CommentActivityItemProvider: URLActivityItemProvider {
+class CommentActivityItemProvider: URLActivityItemProvider, @unchecked Sendable {
     private let comment: FPComment
 
     init(post: FPPost, comment: FPComment, at position: Int) {
@@ -8,7 +8,6 @@ class CommentActivityItemProvider: URLActivityItemProvider {
         super.init(url: .init(for: "p", id: post.id, at: position))
     }
 
-    @available(iOS 13, *)
     override func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
         let metadata = super.activityViewControllerLinkMetadata(activityViewController)
         let author = comment.author.getNormalizedUsername(with: nil).string

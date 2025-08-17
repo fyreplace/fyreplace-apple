@@ -1,6 +1,6 @@
 import UIKit
 
-class DateFormat: DateFormatter {
+class DateFormat: DateFormatter, @unchecked Sendable {
     @IBInspectable
     var concise: Bool = false { didSet { setupStyle() } }
 
