@@ -107,14 +107,14 @@ jobs:
         run: make
 
       - name: Trust SPM plugins
-        run: bash .github/workflows/trust-spm-plugins.sh
-
-      - name: Set up Sentry
-        if: ${{ matrix.distribution == 'app-store' }}
-        run: curl -sL https://sentry.io/get-cli/ | sh
+        run: bash Scripts/trust-spm-plugins.sh
 
       - name: Install Protobuf
         run: brew install protobuf
+
+      - name: Install Sentry CLI
+        if: ${{ matrix.distribution == 'app-store' }}
+        run: brew install sentry-cli
 
       - name: Build app
         run: |
@@ -210,7 +210,7 @@ jobs:
         run: make
 
       - name: Trust SPM plugins
-        run: bash .github/workflows/trust-spm-plugins.sh
+        run: bash Scripts/trust-spm-plugins.sh
 
       - name: Run tests
         run: |

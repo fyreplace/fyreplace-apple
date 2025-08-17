@@ -118,6 +118,11 @@
 			path = FyreplaceLegacy;
 			sourceTree = "<group>";
 		};
+		4DF75C7B2E51F76400976B90 /* Scripts */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +164,7 @@
 			children = (
 				4D0017DD2DF46E8E000A0C1B /* .github */,
 				4D0017E22DF46E91000A0C1B /* Config */,
+				4DF75C7B2E51F76400976B90 /* Scripts */,
 				4D00182C2DF46E93000A0C1B /* Fyreplace */,
 				4D926C0A2E363F2400A406D1 /* FyreplaceLegacy */,
 				4D0018702DF46E95000A0C1B /* FyreplaceTests */,
@@ -267,6 +273,7 @@
 				4D926C052E363F2400A406D1 /* Sources */,
 				4D926C062E363F2400A406D1 /* Frameworks */,
 				4D926C072E363F2400A406D1 /* Resources */,
+				4DF75C812E51F7B400976B90 /* Upload Sources To Sentry */,
 			);
 			buildRules = (
 			);
@@ -384,26 +391,20 @@
 			name = "Upload Sources To Sentry";
 			shellPath = /bin/sh;
 			shellScript = (
-				"if [ \"$CONFIGURATION\" = \"Debug\" ]",
-				"then",
-				"    exit 0",
-				"fi",
+				"$(dirname $WORKSPACE_DIR)/Scripts/upload-sentry-sources.sh",
 				"",
-				"if which sentry-cli >/dev/null",
-				"then",
-				"    ERROR=$(sentry-cli debug-files upload \\",
-				"        --org $SENTRY_ORG \\",
-				"        --project $SENTRY_PROJECT \\",
-				"        --auth-token $SENTRY_AUTH_TOKEN \\",
-				"        --include-sources \"$DWARF_DSYM_FOLDER_PATH\" \\",
-				"        --force-foreground 2>&1 >/dev/null)",
-				"",
-				"    if [ ! $? -eq 0 ]",
-				"    then",
-				"        echo \"error: sentry-cli - $ERROR\"",
-				"        exit 1",
-				"    fi",
-				"fi",
+			);
+		};
+		4DF75C812E51F7B400976B90 /* Upload Sources To Sentry */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			name = "Upload Sources To Sentry";
+			shellPath = /bin/sh;
+			shellScript = (
+				"$(dirname $WORKSPACE_DIR)/Scripts/upload-sentry-sources.sh",
 				"",
 			);
 		};
@@ -753,6 +754,7 @@
 				CODE_SIGN_ENTITLEMENTS = Fyreplace/Config/Fyreplace.debug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FYREPLACE_API_HOST_DEFAULT_KEY = FPApiHostLocal;
 				FYREPLACE_API_HOST_DEV = dev.api.fyreplace.app;
 				FYREPLACE_API_HOST_LOCAL = localhost;
@@ -793,6 +795,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Fyreplace/Config/Fyreplace.release.entitlements;
 				CODE_SIGN_STYLE = Manual;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FYREPLACE_API_HOST_DEFAULT_KEY = FPApiHostMain;
 				FYREPLACE_API_HOST_DEV = dev.api.fyreplace.app;
 				FYREPLACE_API_HOST_LOCAL = localhost;
