@@ -1,6 +1,6 @@
 .DS_Store
 xcuserdata
-build
-archive.xcarchive
-export
 ExportOptions.plist
+Export
+*.xcarchive
+.env

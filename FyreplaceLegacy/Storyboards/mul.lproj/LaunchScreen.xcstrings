@@ -1,0 +1,78 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Archive-Archive-Archive.title" : {
+      "comment" : "Class = \"UITabBarItem\"; title = \" \"; ObjectID = \"Archive-Archive-Archive\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : " "
+          }
+        }
+      }
+    },
+    "Drafts-Drafts-Drafts.title" : {
+      "comment" : "Class = \"UITabBarItem\"; title = \" \"; ObjectID = \"Drafts-Drafts-Drafts\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : " "
+          }
+        }
+      }
+    },
+    "Feed-Feed.title" : {
+      "comment" : "Class = \"UIViewController\"; title = \"Feed\"; ObjectID = \"Feed-Feed\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Feed"
+          }
+        }
+      }
+    },
+    "Feed-Navigation-Feed-Navigation-Feed.title" : {
+      "comment" : "Class = \"UITabBarItem\"; title = \" \"; ObjectID = \"Feed-Navigation-Feed-Navigation-Feed\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : " "
+          }
+        }
+      }
+    },
+    "Notifications-Notifications-Notifications.title" : {
+      "comment" : "Class = \"UITabBarItem\"; title = \" \"; ObjectID = \"Notifications-Notifications-Notifications\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : " "
+          }
+        }
+      }
+    },
+    "Settings-Settings-Settings.title" : {
+      "comment" : "Class = \"UITabBarItem\"; title = \" \"; ObjectID = \"Settings-Settings-Settings\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : " "
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

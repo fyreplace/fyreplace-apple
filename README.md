@@ -1,8 +1,8 @@
-# Fyreplace iOS app
+# Fyreplace Apple app
 
-[![Shipping](https://github.com/fyreplace/fyreplace-ios/actions/workflows/publishing.yml/badge.svg)](https://github.com/fyreplace/fyreplace-ios/actions/workflows/publishing.yml)
+[![Shipping](https://github.com/fyreplace/fyreplace-apple/actions/workflows/publishing.yml/badge.svg)](https://github.com/fyreplace/fyreplace-apple/actions/workflows/publishing.yml)
 
-The iOS client app for [Fyreplace](https://fyreplace.net).
+The Apple client app for [Fyreplace](https://fyreplace.net).
 
 ## License
 
