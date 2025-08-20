@@ -30,11 +30,11 @@ esac
 case $branch in
 hotfix/*)
     version_number_suffix=2
-    version_string=${branch/"hotfix/"/}
+    version_string=$(echo ${branch/hotfix/} | tr -d /)
     ;;
 release/*)
     version_number_suffix=1
-    version_string=${branch/"release/"/}
+    version_string=$(echo ${branch/release/} | tr -d /)
     ;;
 esac
 
