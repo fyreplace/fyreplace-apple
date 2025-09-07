@@ -21,6 +21,11 @@ class FeedViewModel: ViewModel {
                     delegate?.feedViewModel(self, didUpdatePostAtPosition: position)
                 }
             } else {
+                while posts.count >= 3 {
+                    posts.remove(at: 0)
+                    delegate?.feedViewModel(self, didDismissPostAtPosition: 0)
+                }
+                
                 posts += [post]
                 delegate?.feedViewModel(self, didReceivePostAtPosition: posts.count - 1)
             }
@@ -46,7 +51,7 @@ class FeedViewModel: ViewModel {
         })
         response?.whenSuccess { [self] in
             posts.removeAll { $0.id == postId }
-            delegate?.feedViewModel(self, didVotePostAtPosition: position)
+            delegate?.feedViewModel(self, didDismissPostAtPosition: position)
         }
     }
 }
@@ -57,7 +62,7 @@ protocol FeedViewModelDelegate: ViewModelDelegate {
 
     func feedViewModel(_ viewModel: FeedViewModel, didUpdatePostAtPosition position: Int)
 
-    func feedViewModel(_ viewModel: FeedViewModel, didVotePostAtPosition position: Int)
+    func feedViewModel(_ viewModel: FeedViewModel, didDismissPostAtPosition position: Int)
 
     func didFinishListing(_ viewModel: FeedViewModel)
 }
