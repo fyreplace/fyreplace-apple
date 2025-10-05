@@ -10,15 +10,15 @@ extension UIButton {
         let defaultImage = UIImage(systemName: "person.crop.circle.fill")
 
         if let profile, !profile.isBanned {
-            sd_setImage(
-                with: .init(string: profile.avatar.url),
-                for: .normal,
-                placeholderImage: defaultImage
-            )
+            SDWebImageManager.shared.loadImage(with: .init(string: profile.avatar.url), progress: nil) { image, _, _, _, _, _ in
+                let size = CGSize(width: 32, height: 32)
+                guard let resized = image?.resized(at: size.width),
+                      let rounded = resized.sd_roundedCornerImage(withRadius: size.width / 2, corners: .allCorners, borderWidth: 0, borderColor: nil)
+                else { return }
+                self.configuration?.image = rounded
+            }
         } else {
-            setImage(defaultImage, for: .normal)
+            self.configuration?.image = defaultImage
         }
-
-        imageView?.contentMode = .scaleAspectFill
     }
 }

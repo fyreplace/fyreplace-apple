@@ -63,7 +63,7 @@ class UserViewController: UIViewController {
     }
 
     @IBAction
-    func onOkPressed() {
+    func onCancelPressed() {
         navigationController?.dismiss(animated: true)
     }
 

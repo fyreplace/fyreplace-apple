@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: macos-15
+    runs-on: macos-26
     environment: apple-app-store
     strategy:
       matrix:
@@ -179,7 +179,7 @@ jobs:
 
   test:
     name: Test
-    runs-on: macos-15
+    runs-on: macos-26
     environment: apple-app-store
     strategy:
       matrix:
@@ -225,7 +225,7 @@ jobs:
     needs:
       - build
       - test
-    runs-on: macos-15
+    runs-on: macos-26
     environment: apple-app-store
     strategy:
       matrix:

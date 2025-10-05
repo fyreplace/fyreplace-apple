@@ -5,10 +5,6 @@ class TextInputViewController: UIViewController {
     @IBOutlet
     var done: UIBarButtonItem!
     @IBOutlet
-    var loader: UIActivityIndicatorView!
-    @IBOutlet
-    var length: UILabel!
-    @IBOutlet
     var content: UITextView!
 
     var textInputViewModel: TextInputViewModel! { nil }
@@ -18,14 +14,12 @@ class TextInputViewController: UIViewController {
         super.viewDidLoad()
         let maxLength = maxContentLength
         done.reactive.isEnabled <~ textInputViewModel.isLoading.negate()
-        loader.reactive.isAnimating <~ textInputViewModel.isLoading
-        length.reactive.text <~ textInputViewModel.text.map {
-            String.localizedStringWithFormat(.tr("Bio.Length"), $0.count, maxLength)
+        navigationItem.reactive.title <~ textInputViewModel.text.map {
+            String.localizedStringWithFormat(
+                .tr("TextInput.Length." + ($0.count <= maxLength ? "Ok" : "TooLong")), $0.count,
+                maxLength
+            )
         }
-        length.reactive.textColor <~ textInputViewModel.text
-            .map { $0.count <= maxLength }
-            .skipRepeats()
-            .map { $0 ? .label : .systemRed }
     }
 
     override func viewDidAppear(_ animated: Bool) {

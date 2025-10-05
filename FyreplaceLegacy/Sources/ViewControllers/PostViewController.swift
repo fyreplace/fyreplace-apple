@@ -17,13 +17,9 @@ class PostViewController: ItemRandomAccessListViewController {
     @IBOutlet
     var delete: ActionBarButtonItem!
     @IBOutlet
-    var avatar: UIButton!
+    var author: UIButton!
     @IBOutlet
-    var username: UIButton!
-    @IBOutlet
-    var dateCreated: UIButton!
-    @IBOutlet
-    var comment: UIButton!
+    var comment: UIBarButtonItem!
     @IBOutlet
     var tableHeader: PostTableHeaderView!
     @IBOutlet
@@ -46,7 +42,6 @@ class PostViewController: ItemRandomAccessListViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        avatar.sd_imageTransition = .fade
         tableView.register(.init(nibName: "LoadingCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "Loader")
         tableView.register(.init(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: "Comment")
         vm.post.value = post
@@ -80,7 +75,7 @@ class PostViewController: ItemRandomAccessListViewController {
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard [avatar, username, dateCreated].contains(sender as? UIView) else { return true }
+        guard (sender as? UIView) == author else { return true }
         let author = vm.post.value.isAnonymous ? FPProfile() : vm.post.value.author
         return author.isAvailable
     }
@@ -90,9 +85,9 @@ class PostViewController: ItemRandomAccessListViewController {
 
         if let sender = sender as? UIView,
            let userNavigationController = segue.destination as? UserNavigationViewController,
-           let profile = [avatar, username, dateCreated].contains(sender)
-           ? vm.post.value.author
-           : vm.comment(at: sender.tag)?.author
+           let profile = sender == author
+               ? vm.post.value.author
+               : vm.comment(at: sender.tag)?.author
         {
             userNavigationController.profile = profile
         } else if let commentNavigationController = segue.destination as? CommentNavigationViewController {
@@ -198,10 +193,14 @@ class PostViewController: ItemRandomAccessListViewController {
         DispatchQueue.main.async { [self] in
             let author = post.isAnonymous ? FPProfile() : post.author
             menu.reload()
-            avatar.isHidden = !author.isAvailable
-            avatar.setAvatar(from: post.isAnonymous ? nil : post.author)
-            username.setUsername(author)
-            dateCreated.setTitle(dateFormat.string(from: post.dateCreated.date), for: .normal)
+
+            if !author.isAvailable {
+                self.author.setImage(nil, for: .normal)
+            }
+
+            self.author.setAvatar(from: post.isAnonymous ? nil : post.author)
+            self.author.setUsername(author)
+            self.author.configuration?.subtitle = dateFormat.string(from: post.dateCreated.date)
             tableHeader.setup(with: post)
         }
     }
@@ -223,7 +222,7 @@ class PostViewController: ItemRandomAccessListViewController {
         guard let navigationController = navigationController else { return }
         navigationController.setToolbarHidden(hidden, animated: true)
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        setToolbarItems(hidden || currentUser == nil ? nil : [space, .init(customView: comment), space], animated: false)
+        setToolbarItems(hidden || currentUser == nil ? nil : [space, comment, space], animated: false)
     }
 
     private func showComment(at position: Int, insteadOf oldPosition: Int?) {

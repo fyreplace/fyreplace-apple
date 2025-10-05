@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextPostFeedTableViewCell" customModule="Fyreplace" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextPostFeedTableViewCell" customModule="FyreplaceLegacy" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tableViewCell-00" customClass="TextPostFeedTableViewCell" customModule="Fyreplace" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tableViewCell-00" customClass="TextPostFeedTableViewCell" customModule="FyreplaceLegacy" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="393" height="160"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tableViewCell-00" id="tableViewCell-00-contentView">
@@ -20,13 +20,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-label">
-                        <rect key="frame" x="20" y="11" width="196.66666666666666" height="110"/>
+                        <rect key="frame" x="20" y="15" width="196.66666666666666" height="102"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Stats" userLabel="Stats">
-                        <rect key="frame" x="20.000000000000007" y="129" width="111.66666666666669" height="20"/>
+                        <rect key="frame" x="20.000000000000007" y="125" width="111.66666666666669" height="20"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tableViewCell-00-contentView-Stats-Votes-Icon" userLabel="Votes Icon">
                                 <rect key="frame" x="0.0" y="1.9999999999999982" width="20" height="16"/>
@@ -114,7 +114,7 @@
                 <outlet property="up" destination="tableViewCell-00-contentView-Buttons-Up" id="a4504e4b1845af1b4745c05adeee51847d2c7163c341c8d9c60cb808e818fd6c"/>
                 <outlet property="votes" destination="tableViewCell-00-contentView-Stats-Votes" id="53e7aa85764c1a18aff1d25cf13708533c68ac77ac646c69a4dd836b377b0cba"/>
             </connections>
-            <point key="canvasLocation" x="56" y="20"/>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500">
+    <rect x="0" y="300" width="500" height="100" fill="#DFBF3F" />
+    <g fill="black" stroke="none">
+        <polyline points="0,350 0,300 50,300" />
+        <polyline points="50,400 150,300 250,300 150,400" />
+        <polyline points="250,400 350,300 450,300 350,400" />
+        <polyline points="450,400 500,350 500,400" />
+    </g>
+</svg>

@@ -66,4 +66,4 @@ cat <<< "
 
 CODE_SIGN_IDENTITY=$CODE_SIGN_IDENTITY
 PROVISIONING_PROFILE_SPECIFIER=$PROVISIONING_PROFILE_SPECIFIER
-" > $current_directory/Config.release.xcconfig
+" > $current_directory/Config.Release.xcconfig

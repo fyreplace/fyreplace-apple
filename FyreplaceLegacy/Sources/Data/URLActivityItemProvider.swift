@@ -10,9 +10,9 @@ open class URLActivityItemProvider: UIActivityItemProvider, @unchecked Sendable 
         super.init(placeholderItem: url)
     }
 
-    override open func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+    override open func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata {
         let metadata = LPLinkMetadata()
-        let iconUrl = Bundle.main.url(forResource: "AppIcon", withExtension: nil)
+        let iconUrl = Bundle.main.url(forResource: "Logo", withExtension: "png")
         metadata.iconProvider = NSItemProvider(contentsOf: iconUrl)
         return metadata
     }

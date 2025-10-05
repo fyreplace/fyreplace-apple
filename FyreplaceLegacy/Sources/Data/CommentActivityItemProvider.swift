@@ -8,10 +8,10 @@ class CommentActivityItemProvider: URLActivityItemProvider, @unchecked Sendable 
         super.init(url: .init(for: "p", id: post.id, at: position))
     }
 
-    override func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+    override func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata {
         let metadata = super.activityViewControllerLinkMetadata(activityViewController)
         let author = comment.author.getNormalizedUsername(with: nil).string
-        metadata?.title = .localizedStringWithFormat(.tr("Post.Comment.Share.Title"), author)
+        metadata.title = .localizedStringWithFormat(.tr("Post.Comment.Share.Title"), author)
         return metadata
     }
 }

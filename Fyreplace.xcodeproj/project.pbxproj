@@ -73,7 +73,7 @@
 		4D926DDC2E36497400A406D1 /* Exceptions for "FyreplaceLegacy" folder in "FyreplaceLegacy" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Resources/Info.plist,
+				Config/Info.plist,
 				Resources/protos/.gitignore,
 			);
 			target = 4D926C082E363F2400A406D1 /* FyreplaceLegacy */;
@@ -271,6 +271,7 @@
 			buildPhases = (
 				4D926C052E363F2400A406D1 /* Sources */,
 				4D926C062E363F2400A406D1 /* Frameworks */,
+				4D04F23D2EC87FC2002A15A4 /* Normalize Storyboards */,
 				4D926C072E363F2400A406D1 /* Resources */,
 			);
 			buildRules = (
@@ -306,7 +307,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					4D54C9272BF2608A001DE071 = {
 						CreatedOnToolsVersion = 15.3;
@@ -378,6 +379,18 @@
 			);
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D04F23D2EC87FC2002A15A4 /* Normalize Storyboards */ = {
+			isa = PBXShellScriptBuildPhase;
+			name = "Normalize Storyboards";
+			shellPath = /bin/sh;
+			shellScript = (
+				"python3 ${PROJECT_DIR}/FyreplaceLegacy/Storyboards/identify.py",
+				"",
+			);
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D54C9242BF2608A001DE071 /* Sources */ = {
@@ -467,6 +480,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "${PROJECT_NAME}/Config/Fyreplace.${CONFIGURATION}.entitlements";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -500,6 +515,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -510,7 +526,7 @@
 		4D54C94C2BF26090001DE071 /* Release configuration for PBXProject "Fyreplace" */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = 4D0017E22DF46E91000A0C1B /* Config */;
-			baseConfigurationReferenceRelativePath = Config.release.xcconfig;
+			baseConfigurationReferenceRelativePath = Config.Release.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -542,6 +558,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "${PROJECT_NAME}/Config/Fyreplace.${CONFIGURATION}.entitlements";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -568,6 +586,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
@@ -579,13 +598,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDebug;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "${TARGET_NAME}/Config/Fyreplace.debug.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"${TARGET_NAME}/Preview Content\"";
+				ENABLE_APP_SANDBOX = YES;
 				"ENABLE_APP_SANDBOX[sdk=macosx*]" = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -619,12 +637,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "${TARGET_NAME}/Config/Fyreplace.release.entitlements";
-				CODE_SIGN_STYLE = Manual;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"${TARGET_NAME}/Preview Content\"";
+				ENABLE_APP_SANDBOX = YES;
 				"ENABLE_APP_SANDBOX[sdk=macosx*]" = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -720,9 +738,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDebug;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Fyreplace/Config/Fyreplace.debug.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FYREPLACE_API_HOST_DEFAULT_KEY = FPApiHostLocal;
 				FYREPLACE_API_HOST_DEV = dev.api.fyreplace.app;
@@ -731,7 +747,7 @@
 				FYREPLACE_API_PORT = 50051;
 				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FyreplaceLegacy/Resources/Info.plist;
+				INFOPLIST_FILE = FyreplaceLegacy/Config/Info.plist;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) uses the camera to add pictures to posts, or to change your avatar.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -763,8 +779,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Fyreplace/Config/Fyreplace.release.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FYREPLACE_API_HOST_DEFAULT_KEY = FPApiHostMain;
 				FYREPLACE_API_HOST_DEV = dev.api.fyreplace.app;
@@ -773,7 +788,7 @@
 				FYREPLACE_API_PORT = 50051;
 				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FyreplaceLegacy/Resources/Info.plist;
+				INFOPLIST_FILE = FyreplaceLegacy/Config/Info.plist;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) uses the camera to add pictures to posts, or to change your avatar.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

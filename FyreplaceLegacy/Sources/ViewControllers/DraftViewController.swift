@@ -11,7 +11,7 @@ class DraftViewController: UITableViewController {
     @IBOutlet
     var menu: MenuBarButtonItem!
     @IBOutlet
-    var publish: UIButton!
+    var publish: UIBarButtonItem!
     @IBOutlet
     var done: UIBarButtonItem!
     @IBOutlet
@@ -84,7 +84,7 @@ class DraftViewController: UITableViewController {
         alert.addAction(cancel)
 
         if let popoverController = alert.popoverPresentationController {
-            popoverController.sourceView = publish
+            popoverController.sourceItem = publish
         }
 
         present(alert, animated: true)
@@ -163,7 +163,7 @@ class DraftViewController: UITableViewController {
         guard let navigationController = navigationController else { return }
         navigationController.setToolbarHidden(hidden, animated: true)
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        setToolbarItems(hidden ? nil : [space, addText, addImage, space, .init(customView: publish), space], animated: false)
+        setToolbarItems(hidden ? nil : [space, addText, addImage, space, publish, space], animated: false)
     }
 
     private func createChapter(_ type: ChapterType) {

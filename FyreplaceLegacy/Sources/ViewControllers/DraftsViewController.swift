@@ -7,8 +7,6 @@ class DraftsViewController: ItemListViewController {
     var vm: DraftsViewModel!
     @IBOutlet
     var add: UIBarButtonItem!
-    @IBOutlet
-    var loader: UIActivityIndicatorView!
 
     private var createdPostId = Data()
 
@@ -30,7 +28,6 @@ class DraftsViewController: ItemListViewController {
         tableView.register(.init(nibName: "TextDraftTableViewCell", bundle: nil), forCellReuseIdentifier: "Text")
         tableView.register(.init(nibName: "ImageDraftTableViewCell", bundle: nil), forCellReuseIdentifier: "Image")
         add.reactive.isEnabled <~ vm.isLoading.negate()
-        loader.reactive.isAnimating <~ vm.isLoading
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
