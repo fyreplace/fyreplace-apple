@@ -706,6 +706,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="37"/>
                                         </activityIndicatorView>
                                     </subviews>
+                                    <connections>
+                                        <outlet property="delegate" destination="Post-Post" id="6fabd50e6cf14e34910c993fdaf29e6d4e84b22347af667c9ebeae46dda40b9c"/>
+                                    </connections>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -962,7 +965,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view-Bio" userLabel="Bio">
-                                                <rect key="frame" x="196.66666666666666" y="156.33333333333331" width="0.0" height="38"/>
+                                                <rect key="frame" x="20" y="156.33333333333331" width="353" height="38"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="0f-00-00-00-00-02--C-00-00"/>
                                                 </constraints>
@@ -974,14 +977,14 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="User-User-view-scrollView-view-Bio" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="0f-00-00-00-00--C-00-00-00-00"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-Bio" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="User-User-view-scrollView-view" secondAttribute="leading" constant="20" id="0f-00-00-00-00--C-00-00-00-00-00"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-Avatar" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" constant="20" symbolic="YES" id="0f-00-00-00-00--C-00-00-00-01"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-Bio" firstAttribute="bottom" secondItem="User-User-view-scrollView-view" secondAttribute="bottom" id="0f-00-00-00-00--C-00-00-00-02"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="top" secondItem="User-User-view-scrollView-view-Avatar" secondAttribute="bottom" constant="8" symbolic="YES" id="0f-00-00-00-00--C-00-00-00-03"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-Bio" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="User-User-view-scrollView-view" secondAttribute="trailing" constant="-20" id="0f-00-00-00-00--C-00-00-00-03-00"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="0f-00-00-00-00--C-00-00-00-04"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-Bio" firstAttribute="top" secondItem="User-User-view-scrollView-view-Date-Joined" secondAttribute="bottom" constant="8" symbolic="YES" id="0f-00-00-00-00--C-00-00-00-05"/>
-                                            <constraint firstItem="User-User-view-scrollView-view-Avatar" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="0f-00-00-00-00--C-00-00-00-06"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Bio" firstAttribute="leading" secondItem="User-User-view-scrollView-view" secondAttribute="leading" priority="750" constant="20" id="0f-00-00-00-00--C-00-00-00-01"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Avatar" firstAttribute="top" secondItem="User-User-view-scrollView-view" secondAttribute="top" constant="20" symbolic="YES" id="0f-00-00-00-00--C-00-00-00-02"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Bio" firstAttribute="bottom" secondItem="User-User-view-scrollView-view" secondAttribute="bottom" id="0f-00-00-00-00--C-00-00-00-03"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="top" secondItem="User-User-view-scrollView-view-Avatar" secondAttribute="bottom" constant="8" symbolic="YES" id="0f-00-00-00-00--C-00-00-00-04"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Bio" firstAttribute="trailing" secondItem="User-User-view-scrollView-view" secondAttribute="trailing" priority="750" constant="-20" id="0f-00-00-00-00--C-00-00-00-05"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Date-Joined" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="0f-00-00-00-00--C-00-00-00-06"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Bio" firstAttribute="top" secondItem="User-User-view-scrollView-view-Date-Joined" secondAttribute="bottom" constant="8" symbolic="YES" id="0f-00-00-00-00--C-00-00-00-07"/>
+                                            <constraint firstItem="User-User-view-scrollView-view-Avatar" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="0f-00-00-00-00--C-00-00-00-08"/>
                                         </constraints>
                                     </view>
                                 </subviews>

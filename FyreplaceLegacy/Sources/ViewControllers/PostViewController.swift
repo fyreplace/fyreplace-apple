@@ -196,9 +196,10 @@ class PostViewController: ItemRandomAccessListViewController {
 
             if !author.isAvailable {
                 self.author.setImage(nil, for: .normal)
+            } else {
+                self.author.setAvatar(from: post.isAnonymous ? nil : post.author)
             }
 
-            self.author.setAvatar(from: post.isAnonymous ? nil : post.author)
             self.author.setUsername(author)
             self.author.configuration?.subtitle = dateFormat.string(from: post.dateCreated.date)
             tableHeader.setup(with: post)

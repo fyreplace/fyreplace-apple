@@ -15,10 +15,10 @@ extension UIButton {
                 guard let resized = image?.resized(at: size.width),
                       let rounded = resized.sd_roundedCornerImage(withRadius: size.width / 2, corners: .allCorners, borderWidth: 0, borderColor: nil)
                 else { return }
-                self.configuration?.image = rounded
+                self.setImage(rounded, for: .normal)
             }
         } else {
-            self.configuration?.image = defaultImage
+            setImage(defaultImage, for: .normal)
         }
     }
 }
