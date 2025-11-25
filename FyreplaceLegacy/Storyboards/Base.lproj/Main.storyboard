@@ -878,8 +878,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Comment-Comment-view-textView">
-                                <rect key="frame" x="16" y="70" width="361" height="723"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Comment-Comment-view-TextInputTextView" customClass="TextInputTextView" customModule="FyreplaceLegacy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -888,10 +888,10 @@
                         <viewLayoutGuide key="safeArea" id="Comment-Comment-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Comment-Comment-view-textView" firstAttribute="top" secondItem="Comment-Comment-view" secondAttribute="topMargin" id="0d-00-00--C-00-00-00-00"/>
-                            <constraint firstItem="Comment-Comment-view-textView" firstAttribute="bottom" secondItem="Comment-Comment-view" secondAttribute="bottom" id="0d-00-00--C-00-00-00-01" customClass="KeyboardDodgingConstraint" customModule="FyreplaceLegacy" customModuleProvider="target"/>
-                            <constraint firstItem="Comment-Comment-view-textView" firstAttribute="trailing" secondItem="Comment-Comment-view" secondAttribute="trailingMargin" id="0d-00-00--C-00-00-00-02"/>
-                            <constraint firstItem="Comment-Comment-view-textView" firstAttribute="leading" secondItem="Comment-Comment-view" secondAttribute="leadingMargin" id="0d-00-00--C-00-00-00-03"/>
+                            <constraint firstItem="Comment-Comment-view-TextInputTextView" firstAttribute="top" secondItem="Comment-Comment-view" secondAttribute="top" id="0d-00-00--C-00-00-00-00"/>
+                            <constraint firstItem="Comment-Comment-view-TextInputTextView" firstAttribute="bottom" secondItem="Comment-Comment-view" secondAttribute="bottom" id="0d-00-00--C-00-00-00-01" customClass="KeyboardDodgingConstraint" customModule="FyreplaceLegacy" customModuleProvider="target"/>
+                            <constraint firstItem="Comment-Comment-view-TextInputTextView" firstAttribute="trailing" secondItem="Comment-Comment-view" secondAttribute="trailing" id="0d-00-00--C-00-00-00-02"/>
+                            <constraint firstItem="Comment-Comment-view-TextInputTextView" firstAttribute="leading" secondItem="Comment-Comment-view" secondAttribute="leading" id="0d-00-00--C-00-00-00-03"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Comment-Comment-navigationItem">
@@ -907,7 +907,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="content" destination="Comment-Comment-view-textView" id="84a5b4f3b67522cbf57438f592b90eb1525d976435eb40785e9fa074e331c0b5"/>
+                        <outlet property="content" destination="Comment-Comment-view-TextInputTextView" id="84a5b4f3b67522cbf57438f592b90eb1525d976435eb40785e9fa074e331c0b5"/>
                         <outlet property="done" destination="Comment-Comment-navigationItem-done" id="fa406a915433dfb21d3f391cbed71556c5336c9b4a5caf625a5bdcc27a851e03"/>
                         <outlet property="vm" destination="Comment-CommentViewModel" id="fec2d535c2c11b5182de0eef3ca625eb6e503d5238263f6dc497f238868bdf71"/>
                     </connections>
@@ -946,7 +946,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView">
-                                <rect key="frame" x="0.0" y="122" width="393" height="671"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="194.33333333333334"/>
@@ -966,7 +966,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="User-User-view-scrollView-view-Bio" userLabel="Bio">
-                                                <rect key="frame" x="20" y="156.33333333333331" width="353" height="38"/>
+                                                <rect key="frame" x="20" y="156.33333333333334" width="353" height="38"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="0f-00-00-00-00-02--C-00-00"/>
                                                 </constraints>
@@ -976,6 +976,7 @@
                                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                             </textView>
                                         </subviews>
+                                        <viewLayoutGuide key="safeArea" id="User-User-view-scrollView-view-safeArea"/>
                                         <constraints>
                                             <constraint firstItem="User-User-view-scrollView-view-Bio" firstAttribute="centerX" secondItem="User-User-view-scrollView-view" secondAttribute="centerX" id="0f-00-00-00-00--C-00-00-00-00"/>
                                             <constraint firstItem="User-User-view-scrollView-view-Bio" firstAttribute="leading" secondItem="User-User-view-scrollView-view" secondAttribute="leading" priority="750" constant="20" id="0f-00-00-00-00--C-00-00-00-01"/>
@@ -990,11 +991,11 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="bottom" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="bottom" id="0f-00-00-00--C-02-00-00-01"/>
-                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="width" secondItem="User-User-view-scrollView-frameLayoutGuide" secondAttribute="width" id="0f-00-00-00--C-02-00-00-02"/>
-                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="trailing" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="trailing" id="0f-00-00-00--C-02-00-00-03"/>
-                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="leading" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="leading" id="0f-00-00-00--C-02-00-00-04"/>
-                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="top" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="top" id="0f-00-00-00--C-02-00-00-05"/>
+                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="bottom" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="bottom" id="0f-00-00-00--C-03-00-00-01"/>
+                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="width" secondItem="User-User-view-scrollView-frameLayoutGuide" secondAttribute="width" id="0f-00-00-00--C-03-00-00-02"/>
+                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="trailing" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="trailing" id="0f-00-00-00--C-03-00-00-03"/>
+                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="leading" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="leading" id="0f-00-00-00--C-03-00-00-04"/>
+                                    <constraint firstItem="User-User-view-scrollView-view" firstAttribute="top" secondItem="User-User-view-scrollView-contentLayoutGuide" secondAttribute="top" id="0f-00-00-00--C-03-00-00-05"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="User-User-view-scrollView-contentLayoutGuide"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="User-User-view-scrollView-frameLayoutGuide"/>
@@ -1003,10 +1004,10 @@
                         <viewLayoutGuide key="safeArea" id="User-User-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="User-User-view-scrollView" firstAttribute="leading" secondItem="User-User-view-safeArea" secondAttribute="leading" id="0f-00-00--C-00-00-00-00"/>
-                            <constraint firstItem="User-User-view-scrollView" firstAttribute="bottom" secondItem="User-User-view-safeArea" secondAttribute="bottom" id="0f-00-00--C-00-00-00-01"/>
-                            <constraint firstItem="User-User-view-scrollView" firstAttribute="top" secondItem="User-User-view-safeArea" secondAttribute="top" id="0f-00-00--C-00-00-00-02"/>
-                            <constraint firstItem="User-User-view-scrollView" firstAttribute="trailing" secondItem="User-User-view-safeArea" secondAttribute="trailing" id="0f-00-00--C-00-00-00-03"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="leading" secondItem="User-User-view" secondAttribute="leading" id="0f-00-00--C-00-00-00-00"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="bottom" secondItem="User-User-view" secondAttribute="bottom" id="0f-00-00--C-00-00-00-01"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="top" secondItem="User-User-view" secondAttribute="top" id="0f-00-00--C-00-00-00-02"/>
+                            <constraint firstItem="User-User-view-scrollView" firstAttribute="trailing" secondItem="User-User-view" secondAttribute="trailing" id="0f-00-00--C-00-00-00-03"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Username" id="User-User-Username">
@@ -1208,8 +1209,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Text-Chapter-Text-Chapter-view-textView">
-                                <rect key="frame" x="16" y="70" width="361" height="723"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Text-Chapter-Text-Chapter-view-TextInputTextView" customClass="TextInputTextView" customModule="FyreplaceLegacy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1218,10 +1219,10 @@
                         <viewLayoutGuide key="safeArea" id="Text-Chapter-Text-Chapter-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Text-Chapter-Text-Chapter-view-textView" firstAttribute="top" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="topMargin" id="12-00-00--C-00-00-00-00"/>
-                            <constraint firstItem="Text-Chapter-Text-Chapter-view-textView" firstAttribute="leading" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="leadingMargin" id="12-00-00--C-00-00-00-01"/>
-                            <constraint firstItem="Text-Chapter-Text-Chapter-view-textView" firstAttribute="trailing" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="trailingMargin" id="12-00-00--C-00-00-00-02"/>
-                            <constraint firstItem="Text-Chapter-Text-Chapter-view-textView" firstAttribute="bottom" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="bottom" id="12-00-00--C-00-00-00-03" customClass="KeyboardDodgingConstraint" customModule="FyreplaceLegacy" customModuleProvider="target"/>
+                            <constraint firstItem="Text-Chapter-Text-Chapter-view-TextInputTextView" firstAttribute="top" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="top" id="12-00-00--C-00-00-00-00"/>
+                            <constraint firstItem="Text-Chapter-Text-Chapter-view-TextInputTextView" firstAttribute="leading" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="leading" id="12-00-00--C-00-00-00-01"/>
+                            <constraint firstItem="Text-Chapter-Text-Chapter-view-TextInputTextView" firstAttribute="trailing" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="trailing" id="12-00-00--C-00-00-00-02"/>
+                            <constraint firstItem="Text-Chapter-Text-Chapter-view-TextInputTextView" firstAttribute="bottom" secondItem="Text-Chapter-Text-Chapter-view" secondAttribute="bottom" id="12-00-00--C-00-00-00-03" customClass="KeyboardDodgingConstraint" customModule="FyreplaceLegacy" customModuleProvider="target"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Text-Chapter-Text-Chapter-navigationItem">
@@ -1237,7 +1238,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="content" destination="Text-Chapter-Text-Chapter-view-textView" id="13f11c02e7ad38b0e89023cf79d5541102575adca398e1970a5e72aed545c2b3"/>
+                        <outlet property="content" destination="Text-Chapter-Text-Chapter-view-TextInputTextView" id="13f11c02e7ad38b0e89023cf79d5541102575adca398e1970a5e72aed545c2b3"/>
                         <outlet property="done" destination="Text-Chapter-Text-Chapter-navigationItem-done" id="81f45b24f3dc71651177e58c112bbdb8a8c6b25625adfac4a08aa5b81d50777d"/>
                         <outlet property="vm" destination="Text-Chapter-TextChapterViewModel" id="b77898702628799461d03a679f66ee4593cd809160f54fe6066f5e9c80d01f7f"/>
                     </connections>
@@ -1275,8 +1276,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-view-textView">
-                                <rect key="frame" x="16" y="70" width="361" height="723"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bio-Bio-view-TextInputTextView" customClass="TextInputTextView" customModule="FyreplaceLegacy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1285,10 +1286,10 @@
                         <viewLayoutGuide key="safeArea" id="Bio-Bio-view-safeArea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="top" secondItem="Bio-Bio-view" secondAttribute="topMargin" id="14-00-00--C-00-00-00-00"/>
-                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="leading" secondItem="Bio-Bio-view" secondAttribute="leadingMargin" id="14-00-00--C-00-00-00-01"/>
-                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="bottom" secondItem="Bio-Bio-view" secondAttribute="bottom" id="14-00-00--C-00-00-00-02" customClass="KeyboardDodgingConstraint" customModule="FyreplaceLegacy" customModuleProvider="target"/>
-                            <constraint firstItem="Bio-Bio-view-textView" firstAttribute="trailing" secondItem="Bio-Bio-view" secondAttribute="trailingMargin" id="14-00-00--C-00-00-00-03"/>
+                            <constraint firstItem="Bio-Bio-view-TextInputTextView" firstAttribute="top" secondItem="Bio-Bio-view" secondAttribute="top" id="14-00-00--C-00-00-00-00"/>
+                            <constraint firstItem="Bio-Bio-view-TextInputTextView" firstAttribute="leading" secondItem="Bio-Bio-view" secondAttribute="leading" id="14-00-00--C-00-00-00-01"/>
+                            <constraint firstItem="Bio-Bio-view-TextInputTextView" firstAttribute="bottom" secondItem="Bio-Bio-view" secondAttribute="bottom" id="14-00-00--C-00-00-00-02" customClass="KeyboardDodgingConstraint" customModule="FyreplaceLegacy" customModuleProvider="target"/>
+                            <constraint firstItem="Bio-Bio-view-TextInputTextView" firstAttribute="trailing" secondItem="Bio-Bio-view" secondAttribute="trailing" id="14-00-00--C-00-00-00-03"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Bio-Bio-navigationItem">
@@ -1304,7 +1305,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="content" destination="Bio-Bio-view-textView" id="a93a901edbe9492a91f0561d345f7023145a90bbd50d5e6586441d216348eb2f"/>
+                        <outlet property="content" destination="Bio-Bio-view-TextInputTextView" id="a93a901edbe9492a91f0561d345f7023145a90bbd50d5e6586441d216348eb2f"/>
                         <outlet property="done" destination="Bio-Bio-navigationItem-done" id="218da9851d06f4f58a44e643bc8c2b2c29b72ba5b4f1f550c4875d8cbdcc04d1"/>
                         <outlet property="vm" destination="Bio-BioViewModel" id="35b591f2f93c0e2606132d1255b7238939fc8a9ea9937b9048d667836e3ef1db"/>
                     </connections>
