@@ -4,7 +4,6 @@ import UIKit
 class KeyboardDodgingConstraint: NSLayoutConstraint {
     private var originalConstant: CGFloat?
     private var lastOrientation: UIDeviceOrientation?
-    private var keyboardHeight: CGFloat = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -63,8 +62,15 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
     }
 
     private func keyboardChanged(height: CGFloat, info: [AnyHashable: Any]?) {
-        keyboardHeight = height
-        constant = originalConstant! + keyboardHeight
+        let totalHeight = abs(originalConstant!) + height
+
+        if let firstView = firstItem as? UIView,
+           let secondView = secondItem as? UIView,
+           firstView.superview == secondView {
+            constant = -totalHeight
+        } else {
+            constant = totalHeight
+        }
 
         let duration = info?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber
         let curve = info?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
