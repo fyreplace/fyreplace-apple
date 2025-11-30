@@ -127,11 +127,13 @@ class PostViewController: ItemRandomAccessListViewController {
     @IBAction
     func onSubscribePressed() {
         vm.updateSubscription(subscribed: true)
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
     }
 
     @IBAction
     func onUnsubscribePressed() {
         vm.updateSubscription(subscribed: false)
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
     }
 
     @IBAction
