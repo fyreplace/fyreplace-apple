@@ -105,7 +105,7 @@
         <scene sceneID="d2b99d24bb974293997f197093470cbe153f096ba76e1b6fcd8a102a4d21dd86">
             <objects>
                 <navigationController storyboardIdentifier="Notifications Navigation" id="Notifications-Navigation-Notifications-Navigation" userLabel="Notifications Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Notifications" image="bell.fill" catalog="system" id="Notifications-Navigation-Notifications-Navigation-Notifications"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="bell.fill" catalog="system" id="Notifications-Navigation-Notifications-Navigation-Notifications"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Notifications-Navigation-Notifications-Navigation-navigationBar">
                         <rect key="frame" x="0.0" y="118" width="393" height="106"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -172,7 +172,7 @@
         <scene sceneID="5169889791b781ea2408f56b22f1d05aecbed7e1e60d11b813725b1142b2ff73">
             <objects>
                 <navigationController storyboardIdentifier="Archive Navigation" id="Archive-Navigation-Archive-Navigation" userLabel="Archive Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Archive" image="clock.fill" catalog="system" id="Archive-Navigation-Archive-Navigation-Archive"/>
+                    <tabBarItem key="tabBarItem" title="Archive" image="clock.fill" catalog="system" id="Archive-Navigation-Archive-Navigation-Archive"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Archive-Navigation-Archive-Navigation-navigationBar">
                         <rect key="frame" x="0.0" y="118" width="393" height="106"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -256,7 +256,7 @@
         <scene sceneID="7c32e21b1d2962dd71fb51dd8c7bf1fcfd70e05cf376235174301e21e06c46ad">
             <objects>
                 <navigationController storyboardIdentifier="Drafts Navigation" id="Drafts-Navigation-Drafts-Navigation" userLabel="Drafts Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Drafts" image="doc.text.fill" catalog="system" id="Drafts-Navigation-Drafts-Navigation-Drafts"/>
+                    <tabBarItem key="tabBarItem" title="Drafts" image="doc.text.fill" catalog="system" id="Drafts-Navigation-Drafts-Navigation-Drafts"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Drafts-Navigation-Drafts-Navigation-navigationBar">
                         <rect key="frame" x="0.0" y="118" width="393" height="106"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -727,10 +727,9 @@
                             <outlet property="delegate" destination="Post-Post" id="c80f5bfa80f9727a1c117acb2d2603617466b95936385f4b3fd49705211fa6a0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="Post-Post-navigationItem">
-                        <nil key="title"/>
-                        <barButtonItem key="backBarButtonItem" id="Post-Post-navigationItem-backBarButtonItem"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" id="Post-Post-navigationItem-Author" userLabel="Author" customClass="ProfileButton" customModule="FyreplaceLegacy" customModuleProvider="target">
+                    <navigationItem key="navigationItem" title="Post" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="Post-Post-Post">
+                        <barButtonItem key="backBarButtonItem" id="Post-Post-Post-backBarButtonItem"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" id="Post-Post-Post-Author" userLabel="Author" customClass="ProfileButton" customModule="FyreplaceLegacy" customModuleProvider="target">
                             <rect key="frame" x="96.333333333333314" y="-3" width="200" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
@@ -744,29 +743,29 @@
                                 <fontDescription key="subtitleFontDescription" style="UICTFontTextStyleCaption1"/>
                             </buttonConfiguration>
                             <connections>
-                                <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorView="Post-Post-navigationItem-Author" id="9d42b4731a37373267482ce1547b8c3c3ad231e21f598662d2e3117153d94364">
+                                <segue destination="User-Navigation-User-Navigation" kind="popoverPresentation" popoverAnchorView="Post-Post-Post-Author" id="520ebad8dd2e4e486749ea0da55a59fccde3b0efb4849276965ea95dfab67f8a">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
                         </button>
-                        <barButtonItem key="rightBarButtonItem" title="Options" image="ellipsis" catalog="system" id="Post-Post-navigationItem-Options" customClass="MenuBarButtonItem" customModule="FyreplaceLegacy" customModuleProvider="target">
+                        <barButtonItem key="rightBarButtonItem" title="Options" image="ellipsis" catalog="system" id="Post-Post-Post-Options" customClass="MenuBarButtonItem" customModule="FyreplaceLegacy" customModuleProvider="target">
                             <connections>
-                                <outlet property="navigationDelegate" destination="Post-Post" id="a84f39982866bc8c4bd7bb1e0bd9e104398146a61f662bd2779b3972a4e01b31"/>
-                                <outletCollection property="actions" destination="Post-Share" collectionClass="NSMutableArray" id="0afe043863d5739baef73a86c92180f79eb3ed8515fec5469e942f3a191badea"/>
-                                <outletCollection property="actions" destination="Post-Subscribe" collectionClass="NSMutableArray" id="5d5d3be587cdbd713b6ec6d776ad435bdb20967b125f4e789883abe6e93abd50"/>
-                                <outletCollection property="actions" destination="Post-Unsubscribe" collectionClass="NSMutableArray" id="9e3055307a37d59179873af2d3993b61dd69a9dbd30ba1471d26b4557a19dee9"/>
-                                <outletCollection property="actions" destination="Post-Report" collectionClass="NSMutableArray" id="f75710e4142d0830d71d86fcb01b64cd00b3f795ad2326c2b90c96a94efb34bd"/>
-                                <outletCollection property="actions" destination="Post-Delete" collectionClass="NSMutableArray" id="176a94f971b573f0bb4d3b70eccc3f576ac6098cfc8c05fb64622c22e90f2c2d"/>
+                                <outlet property="navigationDelegate" destination="Post-Post" id="1a5c7659cb12800c37529b7a789bcdd7602ca60a7f64060fc94f0f9bfc858e59"/>
+                                <outletCollection property="actions" destination="Post-Share" collectionClass="NSMutableArray" id="2f2f12cd6ce205cf7117f9ed5cdb732836f8f9b36060dd8cadb7bcadf82d5a37"/>
+                                <outletCollection property="actions" destination="Post-Subscribe" collectionClass="NSMutableArray" id="8f0901f6ede163641327d724dcbae928eaef92e788bd808df1fa00d9e8ecd083"/>
+                                <outletCollection property="actions" destination="Post-Unsubscribe" collectionClass="NSMutableArray" id="8bda1d25f35d4419fab4f20dde67906cd1de132b393c799bb623e80dedf9fa51"/>
+                                <outletCollection property="actions" destination="Post-Report" collectionClass="NSMutableArray" id="50ac07fdbd281c9c083d1bb858bf99111d5d2709368567bcdcda1e81f12d1135"/>
+                                <outletCollection property="actions" destination="Post-Delete" collectionClass="NSMutableArray" id="0cd79b277feb2d274f9924e050dff7ff07db2a950c52053c8967be3687fa7754"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="author" destination="Post-Post-navigationItem-Author" id="1162136f070bcf4878f267a7b9c667a7d2d2f86040914883965c4de0c8ea22fd"/>
+                        <outlet property="author" destination="Post-Post-Post-Author" id="1162136f070bcf4878f267a7b9c667a7d2d2f86040914883965c4de0c8ea22fd"/>
                         <outlet property="comment" destination="Post-Comment" id="32d0ee4de166cb676fb12dc88da3fe0973ff04dadde5727e9d25d80a60c5f21d"/>
                         <outlet property="dateFormat" destination="Post-DateFormat" id="2bf14b14e043f0afe26d547ddbe5d6f7e64e1df25fcde10d654ac3bd3df5c421"/>
                         <outlet property="delete" destination="Post-Delete" id="99538391e95fcdcf705a668f4efdf6989d6ec3370f9fc5372da3568e75b49490"/>
                         <outlet property="listDelegate" destination="Post-PostViewModel" id="4831c8e4dc9058bd3a7ec06a1cfb384a50532b43ceeaa3674b336c929650110c"/>
-                        <outlet property="menu" destination="Post-Post-navigationItem-Options" id="8f04735f671d332bcf545cc5fea606f2fae76e3c664cf09d97575837bafaa444"/>
+                        <outlet property="menu" destination="Post-Post-Post-Options" id="8f04735f671d332bcf545cc5fea606f2fae76e3c664cf09d97575837bafaa444"/>
                         <outlet property="report" destination="Post-Report" id="3872e32847f71c0f4ec36e05c69af0b8d8de222d07e0d484ad22f37804d0f86e"/>
                         <outlet property="subscribe" destination="Post-Subscribe" id="459044615fd0c6ef2e04205aeec94c404cd393049b30924854db219329ff5da3"/>
                         <outlet property="tableHeader" destination="Post-Post-view-Header" id="ae62783ad10c717ce9fbce363f30e0e615e9b435789c0800c800e72b3c8b0b58"/>

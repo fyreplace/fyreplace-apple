@@ -409,8 +409,8 @@
         }
       }
     },
-    "Post-Post-navigationItem-Author.configuration.subtitle" : {
-      "comment" : "Class = \"UIButton\"; configuration.subtitle = \"Date Created\"; ObjectID = \"Post-Post-navigationItem-Author\";",
+    "Post-Post-Post-Author.configuration.subtitle" : {
+      "comment" : "Class = \"UIButton\"; configuration.subtitle = \"Date Created\"; ObjectID = \"Post-Post-Post-Author\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -421,8 +421,8 @@
         }
       }
     },
-    "Post-Post-navigationItem-Author.configuration.title" : {
-      "comment" : "Class = \"UIButton\"; configuration.title = \"Username\"; ObjectID = \"Post-Post-navigationItem-Author\";",
+    "Post-Post-Post-Author.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Username\"; ObjectID = \"Post-Post-Post-Author\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -433,8 +433,8 @@
         }
       }
     },
-    "Post-Post-navigationItem-Author.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Username\"; ObjectID = \"Post-Post-navigationItem-Author\";",
+    "Post-Post-Post-Author.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Username\"; ObjectID = \"Post-Post-Post-Author\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -445,14 +445,26 @@
         }
       }
     },
-    "Post-Post-navigationItem-Options.title" : {
-      "comment" : "Class = \"UIBarButtonItem\"; title = \"Options\"; ObjectID = \"Post-Post-navigationItem-Options\";",
+    "Post-Post-Post-Options.title" : {
+      "comment" : "Class = \"UIBarButtonItem\"; title = \"Options\"; ObjectID = \"Post-Post-Post-Options\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Options"
+          }
+        }
+      }
+    },
+    "Post-Post-Post.title" : {
+      "comment" : "Class = \"UINavigationItem\"; title = \"Post\"; ObjectID = \"Post-Post-Post\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Post"
           }
         }
       }
