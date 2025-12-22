@@ -14,22 +14,12 @@ class KeyboardDodgingConstraint: NSLayoutConstraint {
             .observeValues { [unowned self] in onDeviceOrientationDidChange($0) }
 
         NotificationCenter.default.reactive
-            .notifications(forName: UIWindow.keyboardWillShowNotification)
-            .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onWindowKeyboardShow($0) }
-
-        NotificationCenter.default.reactive
             .notifications(forName: UIWindow.keyboardDidShowNotification)
             .take(during: reactive.lifetime)
             .observeValues { [unowned self] in onWindowKeyboardShow($0) }
 
         NotificationCenter.default.reactive
             .notifications(forName: UIWindow.keyboardWillHideNotification)
-            .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onWindowKeyboardHide($0) }
-
-        NotificationCenter.default.reactive
-            .notifications(forName: UIWindow.keyboardDidHideNotification)
             .take(during: reactive.lifetime)
             .observeValues { [unowned self] in onWindowKeyboardHide($0) }
     }
