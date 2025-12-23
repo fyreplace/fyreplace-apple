@@ -134,7 +134,7 @@ extension FeedViewController: FeedViewModelDelegate {
     }
 
     func feedViewModel(_ viewModel: FeedViewModel, didReceivePostAtPosition position: Int) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [self] in
+        DispatchQueue.main.async { [self] in
             postCount += 1
             tableView.insertRows(at: .init(row: position, section: 0), with: .automatic)
             stopRefreshing()
@@ -147,7 +147,7 @@ extension FeedViewController: FeedViewModelDelegate {
         }
     }
 
-    func feedViewModel(_ viewModel: FeedViewModel, didVotePostAtPosition position: Int) {
+    func feedViewModel(_ viewModel: FeedViewModel, didDismissPostAtPosition position: Int) {
         DispatchQueue.main.async { [self] in
             postCount -= 1
             tableView.deleteRows(at: .init(row: position, section: 0), with: .automatic)

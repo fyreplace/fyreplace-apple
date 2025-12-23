@@ -20,7 +20,7 @@ case $version in
     minor=$(echo $version_string | cut -d '.' -f 2)
     patch=$(echo $version_string | cut -d '.' -f 3)
     minor=$((minor + 1))
-    version_string="$major.$minor.$patch"
+    version_string="$major.$minor.0"
     ;;
 *)
     version_number_suffix=3
@@ -66,4 +66,4 @@ cat <<< "
 
 CODE_SIGN_IDENTITY=$CODE_SIGN_IDENTITY
 PROVISIONING_PROFILE_SPECIFIER=$PROVISIONING_PROFILE_SPECIFIER
-" > $current_directory/Config.release.xcconfig
+" > $current_directory/Config.Release.xcconfig

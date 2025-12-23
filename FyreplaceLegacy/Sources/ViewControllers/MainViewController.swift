@@ -65,7 +65,6 @@ class MainViewController: UITabBarController {
             .observe(on: UIScheduler())
             .observeValues { [unowned self] in onCommentWasSeen($0) }
 
-        toggleAuthenticatedTabs(enabled: currentUser != nil)
         vm.tryRetrieveMe()
     }
 
@@ -145,7 +144,6 @@ class MainViewController: UITabBarController {
         guard let info = notification.userInfo,
               let connected = info["connected"] as? Bool
         else { return }
-        toggleAuthenticatedTabs(enabled: connected)
 
         if connected {
             UIApplication.shared.registerForRemoteNotifications()
@@ -171,10 +169,6 @@ class MainViewController: UITabBarController {
               let commentId = info["id"] as? Data
         else { return }
         vm.acknowledgeComment(id: commentId)
-    }
-
-    private func toggleAuthenticatedTabs(enabled: Bool) {
-        tabBar.items?.filter { $0.tag == 1 }.forEach { $0.isEnabled = enabled }
     }
 
     private func requestNotificationAuthorization() {

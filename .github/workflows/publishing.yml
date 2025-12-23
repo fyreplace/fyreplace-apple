@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: macos-15
+    runs-on: macos-26
     environment: apple-app-store
     strategy:
       matrix:
@@ -162,7 +162,7 @@ jobs:
             Export/Fyreplace.pkg
 
       - name: Upload IPA
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ matrix.platform == 'iOS' }}
         with:
           name: Fyreplace.ipa
@@ -170,7 +170,7 @@ jobs:
           if-no-files-found: error
 
       - name: Upload PKG
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ matrix.platform == 'macOS' }}
         with:
           name: ${{ matrix.distribution == 'standalone' && 'Fyreplace.standalone.pkg' || 'Fyreplace.pkg' }}
@@ -179,7 +179,7 @@ jobs:
 
   test:
     name: Test
-    runs-on: macos-15
+    runs-on: macos-26
     environment: apple-app-store
     strategy:
       matrix:
@@ -225,7 +225,7 @@ jobs:
     needs:
       - build
       - test
-    runs-on: macos-15
+    runs-on: macos-26
     environment: apple-app-store
     strategy:
       matrix:
@@ -240,14 +240,14 @@ jobs:
             distribution: standalone
     steps:
       - name: Download IPA
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         if: ${{ matrix.platform == 'ios' }}
         with:
           name: Fyreplace.ipa
           path: /tmp
 
       - name: Download PKG
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         if: ${{ matrix.platform == 'osx' }}
         with:
           name: ${{ matrix.distribution == 'standalone' && 'Fyreplace.standalone.pkg' || 'Fyreplace.pkg' }}
@@ -286,7 +286,7 @@ jobs:
           xcrun stapler staple /tmp/Fyreplace.pkg
 
       - name: Upload PKG
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: ${{ matrix.distribution == 'standalone' }}
         with:
           name: Fyreplace.standalone.pkg

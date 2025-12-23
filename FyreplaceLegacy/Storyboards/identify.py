@@ -52,7 +52,7 @@ def process(ib_file: Text):
     ib_file_name = splitext(basename(ib_file))[0]
     walk(tree.find("scenes") or tree.find("objects"), mapping, [])
 
-    for name in [ib_file] + glob.glob(f"**/{ib_file_name}.strings"):
+    for name in [ib_file] + glob.glob(f"**/{ib_file_name}.xcstrings"):
         old_to_new = [(old, new) for old, new in mapping_items(mapping) if old != new]
 
         if len(old_to_new) == 0:

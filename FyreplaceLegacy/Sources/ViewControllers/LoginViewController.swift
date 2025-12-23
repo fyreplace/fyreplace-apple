@@ -13,7 +13,7 @@ class LoginViewController: UITableViewController {
     @IBOutlet
     var conditionsAccepted: UISwitch!
     @IBOutlet
-    var button: UILabel!
+    var buttonLabel: UILabel!
     @IBOutlet
     var buttonContainer: UITableViewCell!
     @IBOutlet
@@ -27,13 +27,13 @@ class LoginViewController: UITableViewController {
         vm.email <~ email.reactive.continuousTextValues
         vm.username <~ username.reactive.continuousTextValues
         vm.conditionsAccepted <~ conditionsAccepted.reactive.isOnValues
-        button.reactive.textColor <~ vm.canProceed.map { $0 ? .tintColor : .secondaryLabel }
-        button.reactive.isHidden <~ vm.isLoading
+        buttonLabel.reactive.textColor <~ vm.canProceed.map { $0 ? .tintColor : .secondaryLabel }
+        buttonLabel.reactive.isHidden <~ vm.isLoading
         buttonContainer.reactive.isUserInteractionEnabled <~ vm.canProceed
         loader.reactive.isAnimating <~ vm.isLoading
         navigationItem.title = .tr("Login." + (isRegistering ? "Register" : "Login"))
         email.returnKeyType = isRegistering ? .next : .done
-        button.text = navigationItem.title
+        buttonLabel.text = navigationItem.title
     }
 
     @IBAction
@@ -108,16 +108,16 @@ extension LoginViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let cell = tableView.cellForRow(at: indexPath)
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
 
-        switch cell?.tag {
-        case 12:
+        switch cell.accessibilityIdentifier {
+        case "PrivacyPolicy":
             URL(string: .tr("Legal.PrivacyPolicy.Url"))?.browse()
 
-        case 13:
+        case "TermsOfService":
             URL(string: .tr("Legal.TermsOfService.Url"))?.browse()
 
-        case 21:
+        case "Submit":
             if isRegistering {
                 vm.register()
             } else {

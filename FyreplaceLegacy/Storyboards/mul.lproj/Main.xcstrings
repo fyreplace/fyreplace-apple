@@ -1,20 +1,8 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Archive-Archive-navigationItem--.title" : {
-      "comment" : "Class = \"UIBarButtonItem\"; title = \" \"; ObjectID = \"Archive-Archive-navigationItem--\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : " "
-          }
-        }
-      }
-    },
-    "Archive-Archive-navigationItem-titleView.segmentTitles[0]" : {
-      "comment" : "Class = \"UISegmentedControl\"; Archive-Archive-navigationItem-titleView.segmentTitles[0] = \"All posts\"; ObjectID = \"Archive-Archive-navigationItem-titleView\";",
+    "Archive-Archive-Archive-Segments.segmentTitles[0]" : {
+      "comment" : "Class = \"UISegmentedControl\"; Archive-Archive-Archive-Segments.segmentTitles[0] = \"All posts\"; ObjectID = \"Archive-Archive-Archive-Segments\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -25,14 +13,38 @@
         }
       }
     },
-    "Archive-Archive-navigationItem-titleView.segmentTitles[1]" : {
-      "comment" : "Class = \"UISegmentedControl\"; Archive-Archive-navigationItem-titleView.segmentTitles[1] = \"My posts\"; ObjectID = \"Archive-Archive-navigationItem-titleView\";",
+    "Archive-Archive-Archive-Segments.segmentTitles[1]" : {
+      "comment" : "Class = \"UISegmentedControl\"; Archive-Archive-Archive-Segments.segmentTitles[1] = \"My posts\"; ObjectID = \"Archive-Archive-Archive-Segments\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "My posts"
+          }
+        }
+      }
+    },
+    "Archive-Archive-Archive.title" : {
+      "comment" : "Class = \"UINavigationItem\"; title = \"Archive\"; ObjectID = \"Archive-Archive-Archive\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Archive"
+          }
+        }
+      }
+    },
+    "Archive-Archive-Empty-Placeholder.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"No subscribed posts\"; ObjectID = \"Archive-Archive-Empty-Placeholder\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No subscribed posts"
           }
         }
       }
@@ -49,38 +61,14 @@
         }
       }
     },
-    "Archive-No-published-posts.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"No published posts\"; ObjectID = \"Archive-No-published-posts\";",
+    "Archive-Own-Posts-Empty-Placeholder.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"No published posts\"; ObjectID = \"Archive-Own-Posts-Empty-Placeholder\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No published posts"
-          }
-        }
-      }
-    },
-    "Archive-No-subscribed-posts.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"No subscribed posts\"; ObjectID = \"Archive-No-subscribed-posts\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "No subscribed posts"
-          }
-        }
-      }
-    },
-    "Bio-Bio-navigationItem-titleView-Length.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Length\"; ObjectID = \"Bio-Bio-navigationItem-titleView-Length\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Length"
           }
         }
       }
@@ -97,50 +85,14 @@
         }
       }
     },
-    "Blocked-Users-No-users-blocked.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"No users blocked\"; ObjectID = \"Blocked-Users-No-users-blocked\";",
+    "Blocked-Users-Empty-Placeholder.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"No users blocked\"; ObjectID = \"Blocked-Users-Empty-Placeholder\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No users blocked"
-          }
-        }
-      }
-    },
-    "Comment-Comment-navigationItem-Close.title" : {
-      "comment" : "Class = \"UIBarButtonItem\"; title = \"Close\"; ObjectID = \"Comment-Comment-navigationItem-Close\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Close"
-          }
-        }
-      }
-    },
-    "Comment-Comment-navigationItem-Post.title" : {
-      "comment" : "Class = \"UIBarButtonItem\"; title = \"Post\"; ObjectID = \"Comment-Comment-navigationItem-Post\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Post"
-          }
-        }
-      }
-    },
-    "Comment-Comment-navigationItem-titleView-Length.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Length\"; ObjectID = \"Comment-Comment-navigationItem-titleView-Length\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Length"
           }
         }
       }
@@ -169,30 +121,6 @@
         }
       }
     },
-    "Draft-Button.configuration.title" : {
-      "comment" : "Class = \"UIButton\"; configuration.title = \"Publish\"; ObjectID = \"Draft-Button\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Publish"
-          }
-        }
-      }
-    },
-    "Draft-Button.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"Draft-Button\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      }
-    },
     "Draft-Delete.title" : {
       "comment" : "Class = \"UIBarButtonItem\"; title = \"Delete\"; ObjectID = \"Draft-Delete\";",
       "extractionState" : "extracted_with_value",
@@ -205,14 +133,14 @@
         }
       }
     },
-    "Draft-Draft-navigationItem-Menu.title" : {
-      "comment" : "Class = \"UIBarButtonItem\"; title = \"Menu\"; ObjectID = \"Draft-Draft-navigationItem-Menu\";",
+    "Draft-Draft-navigationItem-Options.title" : {
+      "comment" : "Class = \"UIBarButtonItem\"; title = \"Options\"; ObjectID = \"Draft-Draft-navigationItem-Options\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Menu"
+            "value" : "Options"
           }
         }
       }
@@ -229,6 +157,18 @@
         }
       }
     },
+    "Draft-Publish.title" : {
+      "comment" : "Class = \"UIBarButtonItem\"; title = \"Publish\"; ObjectID = \"Draft-Publish\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Publish"
+          }
+        }
+      }
+    },
     "Drafts-Drafts-Drafts.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"Drafts\"; ObjectID = \"Drafts-Drafts-Drafts\";",
       "extractionState" : "extracted_with_value",
@@ -237,6 +177,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Drafts"
+          }
+        }
+      }
+    },
+    "Drafts-Empty-Placeholder.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"No drafts\"; ObjectID = \"Drafts-Empty-Placeholder\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No drafts"
           }
         }
       }
@@ -253,26 +205,14 @@
         }
       }
     },
-    "Drafts-No-drafts.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"No drafts\"; ObjectID = \"Drafts-No-drafts\";",
+    "Feed-Empty-Placeholder.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Nothing more to see for now\"; ObjectID = \"Feed-Empty-Placeholder\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "No drafts"
-          }
-        }
-      }
-    },
-    "Feed-Feed-Feed--.title" : {
-      "comment" : "Class = \"UIBarButtonItem\"; title = \" \"; ObjectID = \"Feed-Feed-Feed--\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : " "
+            "value" : "Nothing more to see for now"
           }
         }
       }
@@ -309,18 +249,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Feed"
-          }
-        }
-      }
-    },
-    "Feed-Nothing-more-to-see-for-now.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Nothing more to see for now\"; ObjectID = \"Feed-Nothing-more-to-see-for-now\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Nothing more to see for now"
           }
         }
       }
@@ -373,8 +301,8 @@
         }
       }
     },
-    "Login-Login-view-tableViewSection-01-tableViewCell-01-contentView-Privacy-policy.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Privacy policy\"; ObjectID = \"Login-Login-view-tableViewSection-01-tableViewCell-01-contentView-Privacy-policy\";",
+    "Login-Login-view-tableViewSection-01-tableViewCell-01.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Privacy policy\"; ObjectID = \"Login-Login-view-tableViewSection-01-tableViewCell-01\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -385,8 +313,8 @@
         }
       }
     },
-    "Login-Login-view-tableViewSection-01-tableViewCell-02-contentView-Terms-of-service.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Terms of service\"; ObjectID = \"Login-Login-view-tableViewSection-01-tableViewCell-02-contentView-Terms-of-service\";",
+    "Login-Login-view-tableViewSection-01-tableViewCell-02.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Terms of service\"; ObjectID = \"Login-Login-view-tableViewSection-01-tableViewCell-02\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -409,20 +337,8 @@
         }
       }
     },
-    "Notifications-Navigation-Notifications-Navigation-Notifications.title" : {
-      "comment" : "Class = \"UITabBarItem\"; title = \"Notifications\"; ObjectID = \"Notifications-Navigation-Notifications-Navigation-Notifications\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Notifications"
-          }
-        }
-      }
-    },
-    "Notifications-No-notifications.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"No notifications\"; ObjectID = \"Notifications-No-notifications\";",
+    "Notifications-Empty-Placeholder.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"No notifications\"; ObjectID = \"Notifications-Empty-Placeholder\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -433,14 +349,14 @@
         }
       }
     },
-    "Notifications-Notifications-Notifications--.title" : {
-      "comment" : "Class = \"UIBarButtonItem\"; title = \" \"; ObjectID = \"Notifications-Notifications-Notifications--\";",
+    "Notifications-Navigation-Notifications-Navigation-Notifications.title" : {
+      "comment" : "Class = \"UITabBarItem\"; title = \"Notifications\"; ObjectID = \"Notifications-Navigation-Notifications-Navigation-Notifications\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : " "
+            "value" : "Notifications"
           }
         }
       }
@@ -469,26 +385,14 @@
         }
       }
     },
-    "Post-Button.configuration.title" : {
-      "comment" : "Class = \"UIButton\"; configuration.title = \"Comment\"; ObjectID = \"Post-Button\";",
+    "Post-Comment.title" : {
+      "comment" : "Class = \"UIBarButtonItem\"; title = \"Comment\"; ObjectID = \"Post-Comment\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Comment"
-          }
-        }
-      }
-    },
-    "Post-Button.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"Post-Button\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
           }
         }
       }
@@ -505,14 +409,62 @@
         }
       }
     },
-    "Post-Post-navigationItem-Menu.title" : {
-      "comment" : "Class = \"UIBarButtonItem\"; title = \"Menu\"; ObjectID = \"Post-Post-navigationItem-Menu\";",
+    "Post-Post-Post-Author.configuration.subtitle" : {
+      "comment" : "Class = \"UIButton\"; configuration.subtitle = \"Date Created\"; ObjectID = \"Post-Post-Post-Author\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Menu"
+            "value" : "Date Created"
+          }
+        }
+      }
+    },
+    "Post-Post-Post-Author.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Username\"; ObjectID = \"Post-Post-Post-Author\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Username"
+          }
+        }
+      }
+    },
+    "Post-Post-Post-Author.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Username\"; ObjectID = \"Post-Post-Post-Author\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Username"
+          }
+        }
+      }
+    },
+    "Post-Post-Post-Options.title" : {
+      "comment" : "Class = \"UIBarButtonItem\"; title = \"Options\"; ObjectID = \"Post-Post-Post-Options\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Options"
+          }
+        }
+      }
+    },
+    "Post-Post-Post.title" : {
+      "comment" : "Class = \"UINavigationItem\"; title = \"Post\"; ObjectID = \"Post-Post-Post\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Post"
           }
         }
       }
@@ -589,8 +541,8 @@
         }
       }
     },
-    "Settings-Settings-view-About-tableViewCell-00-contentView-Subtitle.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"See how your data is handled\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-00-contentView-Subtitle\";",
+    "Settings-Settings-view-About-tableViewCell-00.contentConfiguration.secondaryText" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"See how your data is handled\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-00\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -601,8 +553,8 @@
         }
       }
     },
-    "Settings-Settings-view-About-tableViewCell-00-contentView-Title.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Privacy policy\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-00-contentView-Title\";",
+    "Settings-Settings-view-About-tableViewCell-00.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Privacy policy\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-00\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -613,8 +565,8 @@
         }
       }
     },
-    "Settings-Settings-view-About-tableViewCell-01-contentView-Subtitle.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Check the rules of the app\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-01-contentView-Subtitle\";",
+    "Settings-Settings-view-About-tableViewCell-01.contentConfiguration.secondaryText" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"Check the rules of the app\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-01\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -625,8 +577,8 @@
         }
       }
     },
-    "Settings-Settings-view-About-tableViewCell-01-contentView-Title.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Terms of service\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-01-contentView-Title\";",
+    "Settings-Settings-view-About-tableViewCell-01.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Terms of service\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-01\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -637,8 +589,8 @@
         }
       }
     },
-    "Settings-Settings-view-About-tableViewCell-02-contentView-Subtitle.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"This app is open-source\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-02-contentView-Subtitle\";",
+    "Settings-Settings-view-About-tableViewCell-02.contentConfiguration.secondaryText" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"This app is open-source\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-02\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -649,8 +601,8 @@
         }
       }
     },
-    "Settings-Settings-view-About-tableViewCell-02-contentView-Title.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Source code\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-02-contentView-Title\";",
+    "Settings-Settings-view-About-tableViewCell-02.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Source code\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-02\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -661,8 +613,8 @@
         }
       }
     },
-    "Settings-Settings-view-About-tableViewCell-03-contentView-Subtitle.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Send an email\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-03-contentView-Subtitle\";",
+    "Settings-Settings-view-About-tableViewCell-03.contentConfiguration.secondaryText" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"Send an email\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-03\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -673,8 +625,8 @@
         }
       }
     },
-    "Settings-Settings-view-About-tableViewCell-03-contentView-Title.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Report a bug\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-03-contentView-Title\";",
+    "Settings-Settings-view-About-tableViewCell-03.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Report a bug\"; ObjectID = \"Settings-Settings-view-About-tableViewCell-03\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -721,20 +673,8 @@
         }
       }
     },
-    "Settings-Settings-view-Environment-tableViewCell-00-contentView-Production.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Production\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-00-contentView-Production\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Production"
-          }
-        }
-      }
-    },
-    "Settings-Settings-view-Environment-tableViewCell-00-contentView-Public-server-for-normal-use.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Public server for normal use\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-00-contentView-Public-server-for-normal-use\";",
+    "Settings-Settings-view-Environment-tableViewCell-00.contentConfiguration.secondaryText" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"Public server for normal use\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-00\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -745,20 +685,20 @@
         }
       }
     },
-    "Settings-Settings-view-Environment-tableViewCell-01-contentView-Sandbox.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Sandbox\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-01-contentView-Sandbox\";",
+    "Settings-Settings-view-Environment-tableViewCell-00.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Production\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-00\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Sandbox"
+            "value" : "Production"
           }
         }
       }
     },
-    "Settings-Settings-view-Environment-tableViewCell-01-contentView-Semi-public-server-for-testing.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Semi-public server for testing\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-01-contentView-Semi-public-server-for-testing\";",
+    "Settings-Settings-view-Environment-tableViewCell-01.contentConfiguration.secondaryText" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"Semi-public server for testing\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-01\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -769,26 +709,38 @@
         }
       }
     },
-    "Settings-Settings-view-Environment-tableViewCell-02-contentView-Local.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Local\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-02-contentView-Local\";",
+    "Settings-Settings-view-Environment-tableViewCell-01.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Sandbox\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-01\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sandbox"
+          }
+        }
+      }
+    },
+    "Settings-Settings-view-Environment-tableViewCell-02.contentConfiguration.secondaryText" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"Local-network server for development\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-02\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Local-network server for development"
+          }
+        }
+      }
+    },
+    "Settings-Settings-view-Environment-tableViewCell-02.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Local\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-02\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Local"
-          }
-        }
-      }
-    },
-    "Settings-Settings-view-Environment-tableViewCell-02-contentView-Network-local-server-for-development.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Network-local server for development\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-02-contentView-Network-local-server-for-development\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Network-local server for development"
           }
         }
       }
@@ -801,6 +753,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Environment"
+          }
+        }
+      }
+    },
+    "Settings-Settings-view-Header-Username.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Guest\"; ObjectID = \"Settings-Settings-view-Header-Username\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Guest"
           }
         }
       }
@@ -865,18 +829,6 @@
         }
       }
     },
-    "Settings-Settings-view-tableHeaderView-Username.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Guest\"; ObjectID = \"Settings-Settings-view-tableHeaderView-Username\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Guest"
-          }
-        }
-      }
-    },
     "Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Delete-account.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Delete account\"; ObjectID = \"Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Delete-account\";",
       "extractionState" : "extracted_with_value",
@@ -889,8 +841,8 @@
         }
       }
     },
-    "Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView-Register.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Register\"; ObjectID = \"Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView-Register\";",
+    "Settings-Settings-view-tableViewSection-01-tableViewCell-00.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Register\"; ObjectID = \"Settings-Settings-view-tableViewSection-01-tableViewCell-00\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -901,26 +853,14 @@
         }
       }
     },
-    "Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView-Login.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Login\"; ObjectID = \"Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView-Login\";",
+    "Settings-Settings-view-tableViewSection-01-tableViewCell-01.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Login\"; ObjectID = \"Settings-Settings-view-tableViewSection-01-tableViewCell-01\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Login"
-          }
-        }
-      }
-    },
-    "Text-Chapter-Text-Chapter-navigationItem-titleView-Length.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Length\"; ObjectID = \"Text-Chapter-Text-Chapter-navigationItem-titleView-Length\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Length"
           }
         }
       }
@@ -973,26 +913,14 @@
         }
       }
     },
-    "User-User-Username-Menu.title" : {
-      "comment" : "Class = \"UIBarButtonItem\"; title = \"Menu\"; ObjectID = \"User-User-Username-Menu\";",
+    "User-User-Username-Options.title" : {
+      "comment" : "Class = \"UIBarButtonItem\"; title = \"Options\"; ObjectID = \"User-User-Username-Options\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Menu"
-          }
-        }
-      }
-    },
-    "User-User-Username-OK.title" : {
-      "comment" : "Class = \"UIBarButtonItem\"; title = \"OK\"; ObjectID = \"User-User-Username-OK\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "OK"
+            "value" : "Options"
           }
         }
       }
@@ -1022,5 +950,5 @@
       }
     }
   },
-  "version" : "1.0"
+  "version" : "1.1"
 }

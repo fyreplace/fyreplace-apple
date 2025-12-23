@@ -43,7 +43,6 @@ class SettingsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        avatar.sd_imageIndicator = SDWebImageActivityIndicator.medium
         avatar.sd_imageTransition = .fade
         avatar.reactive.isUserInteractionEnabled <~ vm.user.map { $0 != nil }
         username.reactive.text <~ vm.user.map { $0?.profile.username ?? .tr("Settings.Username") }
@@ -141,29 +140,29 @@ extension SettingsViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
 
-        switch cell.tag {
-        case 2:
+        switch cell.accessibilityIdentifier {
+        case "Profile.Email":
             changeEmail()
 
-        case 11:
+        case "About.Legal.PrivacyPolicy":
             URL(string: .tr("Legal.PrivacyPolicy.Url"))?.browse()
 
-        case 12:
+        case "About.Legal.TermsOfService":
             URL(string: .tr("Legal.TermsOfService.Url"))?.browse()
 
-        case 13:
+        case "About.App.Code":
             URL(string: .tr("App.Code.Url"))?.browse()
 
-        case 14:
+        case "About.App.BugReport":
             URL(string: .tr("App.BugReport.Url"))?.browse()
 
-        case 21:
+        case "Account.Logout":
             vm.logout()
 
-        case 31:
+        case "Account.Delete":
             deleteAccount(from: cell)
 
-        case 51, 52, 53:
+        case let .some(identifier) where identifier.starts(with: "Environment"):
             guard let cell = cell as? EnvironmentTableViewCell else { return }
             UserDefaults.standard.set(cell.hostKey, forKey: "app:environment")
             NotificationCenter.default.post(name: AppDelegate.didChangeEnvironmentNotification, object: self)
