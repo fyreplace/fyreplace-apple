@@ -159,7 +159,7 @@ struct RegisterScreen: View, RegisterScreenProtocol {
         .onReceive(eventBus.events) {
             guard isWaitingForRandomCode else { return }
 
-            if case let .connection(code) = $0 {
+            if case .connection(let code) = $0 {
                 randomCode = code
                 submit()
             }

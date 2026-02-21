@@ -41,15 +41,15 @@ extension RegisterScreenProtocol {
             isRegistering = true
             return nil
 
-        case let .badRequest(badRequest):
+        case .badRequest(let badRequest):
             switch badRequest.body {
-            case let .json(json) where json.violations?.first?.field == "createUser.input.username":
+            case .json(let json) where json.violations?.first?.field == "createUser.input.username":
                 return .failure(
                     title: "Register.Error.CreateUser.BadRequest.Username.Title",
                     text: "Register.Error.CreateUser.BadRequest.Username.Message"
                 )
 
-            case let .json(json) where json.violations?.first?.field == "createUser.input.email":
+            case .json(let json) where json.violations?.first?.field == "createUser.input.email":
                 return .failure(
                     title: "Register.Error.CreateUser.BadRequest.Email.Title",
                     text: "Register.Error.CreateUser.BadRequest.Email.Message"
@@ -68,9 +68,9 @@ extension RegisterScreenProtocol {
                 text: "Register.Error.CreateUser.Forbidden.Message"
             )
 
-        case let .conflict(conflict):
+        case .conflict(let conflict):
             switch conflict.body {
-            case let .json(explanation) where explanation.reason == "username_taken":
+            case .json(let explanation) where explanation.reason == "username_taken":
                 return .failure(
                     title: "Register.Error.CreateUser.Conflict.Username.Title",
                     text: "Register.Error.CreateUser.Conflict.Username.Message"
@@ -94,9 +94,9 @@ extension RegisterScreenProtocol {
         )
 
         switch response {
-        case let .created(created):
+        case .created(let created):
             switch created.body {
-            case let .plainText(text):
+            case .plainText(let text):
                 token = try await .init(collecting: text, upTo: 1024)
                 username = ""
                 email = ""

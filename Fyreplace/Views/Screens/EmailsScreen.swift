@@ -124,7 +124,7 @@ struct EmailsScreen: View, EmailsScreenProtocol {
             }
         }
         .onReceive(eventBus.events) {
-            if case let .emailVerified(email) = $0 {
+            if case .emailVerified(let email) = $0 {
                 finishVerifyingEmail(email)
             }
         }

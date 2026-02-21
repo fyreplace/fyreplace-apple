@@ -95,13 +95,13 @@ extension FakeClient {
         -> Operations.createEmail.Output
     {
         return switch input.body {
-        case let .json(json) where json.email == Self.badEmail:
+        case .json(let json) where json.email == Self.badEmail:
             .badRequest(.init(body: .json(.init())))
 
-        case let .json(json) where json.email == Self.usedEmail:
+        case .json(let json) where json.email == Self.usedEmail:
             .conflict(.init(body: .json(.init())))
 
-        case let .json(json):
+        case .json(let json):
             .created(
                 .init(
                     body: .json(
@@ -139,7 +139,7 @@ extension FakeClient {
         -> Operations.verifyEmail.Output
     {
         return switch input.body {
-        case let .json(json) where json.code == Self.goodSecret:
+        case .json(let json) where json.code == Self.goodSecret:
             .ok(.init())
 
         case .json:
@@ -257,10 +257,10 @@ extension FakeClient {
         -> Operations.createNewToken.Output
     {
         return switch input.body {
-        case let .json(json) where Self.goodIdentifers.contains(json.identifier):
+        case .json(let json) where Self.goodIdentifers.contains(json.identifier):
             .ok(.init())
 
-        case let .json(json) where json.identifier == Self.passwordUsername:
+        case .json(let json) where json.identifier == Self.passwordUsername:
             .forbidden(.init(body: .json(.init())))
 
         case .json:
@@ -272,7 +272,7 @@ extension FakeClient {
         -> Operations.createToken.Output
     {
         return switch input.body {
-        case let .json(json)
+        case .json(let json)
         where Self.goodIdentifers.contains(json.identifier) && json.secret == Self.goodSecret:
             .created(.init(body: .plainText(.init(stringLiteral: Self.goodToken))))
 
@@ -317,25 +317,25 @@ extension FakeClient {
         -> Operations.createUser.Output
     {
         return switch input.body {
-        case let .json(json) where json.username == Self.badUsername:
+        case .json(let json) where json.username == Self.badUsername:
             .badRequest(.init(body: .json(.init())))
 
-        case let .json(json) where json.username == Self.reservedUsername:
+        case .json(let json) where json.username == Self.reservedUsername:
             .forbidden(.init(body: .json(.init())))
 
-        case let .json(json) where json.username == Self.usedUsername:
+        case .json(let json) where json.username == Self.usedUsername:
             .conflict(.init(body: .json(.init())))
 
-        case let .json(json) where json.username == Self.passwordUsername:
+        case .json(let json) where json.username == Self.passwordUsername:
             .forbidden(.init(body: .json(.init())))
 
-        case let .json(json) where json.email == Self.badEmail:
+        case .json(let json) where json.email == Self.badEmail:
             .badRequest(.init(body: .json(.init())))
 
-        case let .json(json) where json.email == Self.usedEmail:
+        case .json(let json) where json.email == Self.usedEmail:
             .conflict(.init(body: .json(.init())))
 
-        case let .json(json):
+        case .json(let json):
             .created(.init(body: .json(.make(named: json.username))))
         }
     }
@@ -377,10 +377,10 @@ extension FakeClient {
         let largeImage = try await String(collecting: Self.largeImageBody, upTo: 64)
 
         return switch input.body {
-        case let .binary(binary) where try await String(collecting: binary, upTo: 64) == normalImage:
+        case .binary(let binary) where try await String(collecting: binary, upTo: 64) == normalImage:
             .ok(.init(body: .plainText(.init(stringLiteral: Self.avatar))))
 
-        case let .binary(binary) where try await String(collecting: binary, upTo: 64) == largeImage:
+        case .binary(let binary) where try await String(collecting: binary, upTo: 64) == largeImage:
             .contentTooLarge(.init())
 
         case .binary:
@@ -392,7 +392,7 @@ extension FakeClient {
         -> Operations.setCurrentUserBio.Output
     {
         return switch input.body {
-        case let .plainText(text):
+        case .plainText(let text):
             .ok(.init(body: .plainText(text)))
         }
     }

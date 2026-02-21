@@ -17,10 +17,10 @@ protocol MainViewProtocol: APIViewProtocol {
 extension MainViewProtocol {
     func handle(event: Event) {
         switch event {
-        case let .error(description):
+        case .error(let description):
             addError(.init(description: description))
 
-        case let .failure(title, text):
+        case .failure(let title, let text):
             addFailure(.init(title: title, text: text))
 
         case .authorizationIssue:
@@ -32,12 +32,12 @@ extension MainViewProtocol {
                 )
             )
 
-        case let .emailVerification(email, randomCode):
+        case .emailVerification(let email, let randomCode):
             Task {
                 await verifyEmail(email: email, code: randomCode)
             }
 
-        case let .emailVerified(email):
+        case .emailVerified(let email):
             verifiedEmail = email
             showEmailVerified = true
 
@@ -79,9 +79,9 @@ extension MainViewProtocol {
             let response = try await api.getCurrentUser()
 
             switch response {
-            case let .ok(ok):
+            case .ok(let ok):
                 switch ok.body {
-                case let .json(json):
+                case .json(let json):
                     currentUserId = json.id
                     let user = User(userId: currentUserId)
                     user.username = json.username
