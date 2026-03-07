@@ -136,6 +136,23 @@ extension SettingsViewController {
         return shouldHide(section: section) ? nil : super.tableView(tableView, titleForFooterInSection: section)
     }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+
+        switch cell.accessibilityIdentifier {
+        case "AppIcon.Normal":
+            cell.accessoryType = UIApplication.shared.alternateIconName == nil ? .checkmark : .none
+
+        case "AppIcon.Alternate":
+            cell.accessoryType = UIApplication.shared.alternateIconName != nil ? .checkmark : .none
+
+        default:
+            break
+        }
+
+        return cell
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
@@ -143,6 +160,16 @@ extension SettingsViewController {
         switch cell.accessibilityIdentifier {
         case "Profile.Email":
             changeEmail()
+
+        case "AppIcon.Normal":
+            UIApplication.shared.setAlternateIconName(nil) { [weak self] in
+                self?.handleAppIconError($0)
+            }
+
+        case "AppIcon.Alternate":
+            UIApplication.shared.setAlternateIconName(.init(appIconName: "AppIconAlt")) { [weak self] in
+                self?.handleAppIconError($0)
+            }
 
         case "About.Legal.PrivacyPolicy":
             URL(string: .tr("Legal.PrivacyPolicy.Url"))?.browse()
@@ -179,6 +206,14 @@ extension SettingsViewController {
     private func shouldHide(section: Int) -> Bool {
         guard section >= 0, section < tableView.numberOfSections else { return false }
         return (vm.user.value == nil) && (section < tableView.numberOfSections - (canChangeEnvironment ? 2 : 1))
+    }
+
+    private func handleAppIconError(_ error: (any Error)?) {
+        if error != nil {
+            presentBasicAlert(text: "Settings.AppIcon.Error", feedback: .error)
+        } else {
+            reloadTable()
+        }
     }
 
     private func changeEmail() {

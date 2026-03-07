@@ -673,6 +673,42 @@
         }
       }
     },
+    "Settings-Settings-view-App-icon-tableViewCell-00.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Classic\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-00\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Classic"
+          }
+        }
+      }
+    },
+    "Settings-Settings-view-App-icon-tableViewCell-01.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Alternative\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-01\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alternative"
+          }
+        }
+      }
+    },
+    "Settings-Settings-view-App-icon.headerTitle" : {
+      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"App icon\"; ObjectID = \"Settings-Settings-view-App-icon\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "App icon"
+          }
+        }
+      }
+    },
     "Settings-Settings-view-Environment-tableViewCell-00.contentConfiguration.secondaryText" : {
       "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"Public server for normal use\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-00\";",
       "extractionState" : "extracted_with_value",
