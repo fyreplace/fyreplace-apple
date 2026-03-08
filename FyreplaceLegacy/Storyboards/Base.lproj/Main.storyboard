@@ -496,7 +496,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="AppIcon.Normal"/>
-                                        <listContentConfiguration key="contentConfiguration" text="Classic" secondaryText="" image="AppIconPreview" imageToTextPadding="10"/>
+                                        <listContentConfiguration key="contentConfiguration" text="Orange" secondaryText="The classic, original style" image="AppIconPreview" imageToTextPadding="10"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Settings-Settings-view-App-icon-tableViewCell-01">
                                         <rect key="frame" x="20" y="552.33333396911621" width="353" height="95"/>
@@ -506,7 +506,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="AppIcon.Alternate"/>
-                                        <listContentConfiguration key="contentConfiguration" text="Alternative" secondaryText="" image="AppIconPreviewAlt" imageToTextPadding="10"/>
+                                        <listContentConfiguration key="contentConfiguration" text="White" secondaryText="The new, alternative style" image="AppIconPreviewAlt" imageToTextPadding="10"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

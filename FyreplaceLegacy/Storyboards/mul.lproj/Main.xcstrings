@@ -673,26 +673,50 @@
         }
       }
     },
-    "Settings-Settings-view-App-icon-tableViewCell-00.contentConfiguration.text" : {
-      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Classic\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-00\";",
+    "Settings-Settings-view-App-icon-tableViewCell-00.contentConfiguration.secondaryText" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"The classic, original style\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-00\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Classic"
+            "value" : "The classic, original style"
+          }
+        }
+      }
+    },
+    "Settings-Settings-view-App-icon-tableViewCell-00.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Orange\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-00\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Orange"
+          }
+        }
+      }
+    },
+    "Settings-Settings-view-App-icon-tableViewCell-01.contentConfiguration.secondaryText" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"The new, alternative style\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-01\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The new, alternative style"
           }
         }
       }
     },
     "Settings-Settings-view-App-icon-tableViewCell-01.contentConfiguration.text" : {
-      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Alternative\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-01\";",
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"White\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-01\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Alternative"
+            "value" : "White"
           }
         }
       }
