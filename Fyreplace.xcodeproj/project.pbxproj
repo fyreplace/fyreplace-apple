@@ -865,7 +865,7 @@
 			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.5.0;
+				minimumVersion = 9.8.0;
 			};
 		};
 		4D13AF5F2C482F0100845FDB /* XCRemoteSwiftPackageReference "swift-openapi-generator" */ = {
@@ -873,7 +873,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-generator.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.10.4;
+				minimumVersion = 1.11.0;
 			};
 		};
 		4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */ = {
@@ -881,7 +881,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-runtime.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.9.0;
+				minimumVersion = 1.11.0;
 			};
 		};
 		4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */ = {
@@ -896,16 +896,16 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/grpc/grpc-swift.git";
 			requirement = {
-				kind = exactVersion;
-				version = 1.27.1;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.27.4;
 			};
 		};
 		4D926DB22E36481D00A406D1 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-protobuf.git";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.34.1;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.36.1;
 			};
 		};
 		4D926DBB2E36486E00A406D1 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
@@ -921,7 +921,7 @@
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.21.6;
+				minimumVersion = 5.21.7;
 			};
 		};
 		4D926DC32E36489B00A406D1 /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */ = {
