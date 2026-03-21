@@ -20,9 +20,9 @@ extension SettingsScreenProtocol {
             let response = try await api.getCurrentUser()
 
             switch response {
-            case let .ok(ok):
+            case .ok(let ok):
                 switch ok.body {
-                case let .json(user):
+                case .json(let user):
                     currentUser = user
                     bio = user.bio
                 }
@@ -46,9 +46,9 @@ extension SettingsScreenProtocol {
             let response = try await api.setCurrentUserAvatar(body: .binary(.init(data)))
 
             switch response {
-            case let .ok(ok):
+            case .ok(let ok):
                 switch ok.body {
-                case let .plainText(text):
+                case .plainText(let text):
                     currentUser?.avatar = try await .init(collecting: text, upTo: 1024)
                 }
 
@@ -102,9 +102,9 @@ extension SettingsScreenProtocol {
                 body: .plainText(bio.isEmpty ? .init() : .init(stringLiteral: bio)))
 
             switch response {
-            case let .ok(ok):
+            case .ok(let ok):
                 switch ok.body {
-                case let .plainText(text):
+                case .plainText(let text):
                     bio = try await .init(
                         collecting: text, upTo: Components.Schemas.User.maxBioSize * 4)
                     currentUser?.bio = bio

@@ -54,7 +54,7 @@ struct RegularNavigation: View, NavigationProtocol {
         .onReceive(eventBus.events) {
             guard isInForeground else { return }
 
-            if case let .navigationShortcut(destination) = $0 {
+            if case .navigationShortcut(let destination) = $0 {
                 selectedDestination = destination
             }
         }

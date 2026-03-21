@@ -673,6 +673,66 @@
         }
       }
     },
+    "Settings-Settings-view-App-icon-tableViewCell-00.contentConfiguration.secondaryText" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"The classic, original style\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-00\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The classic, original style"
+          }
+        }
+      }
+    },
+    "Settings-Settings-view-App-icon-tableViewCell-00.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"Orange\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-00\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Orange"
+          }
+        }
+      }
+    },
+    "Settings-Settings-view-App-icon-tableViewCell-01.contentConfiguration.secondaryText" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"The new, alternative style\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-01\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The new, alternative style"
+          }
+        }
+      }
+    },
+    "Settings-Settings-view-App-icon-tableViewCell-01.contentConfiguration.text" : {
+      "comment" : "Class = \"UITableViewCell\"; contentConfiguration.text = \"White\"; ObjectID = \"Settings-Settings-view-App-icon-tableViewCell-01\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "White"
+          }
+        }
+      }
+    },
+    "Settings-Settings-view-App-icon.headerTitle" : {
+      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"App icon\"; ObjectID = \"Settings-Settings-view-App-icon\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "App icon"
+          }
+        }
+      }
+    },
     "Settings-Settings-view-Environment-tableViewCell-00.contentConfiguration.secondaryText" : {
       "comment" : "Class = \"UITableViewCell\"; contentConfiguration.secondaryText = \"Public server for normal use\"; ObjectID = \"Settings-Settings-view-Environment-tableViewCell-00\";",
       "extractionState" : "extracted_with_value",

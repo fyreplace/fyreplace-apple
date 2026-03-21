@@ -61,9 +61,9 @@ extension LoginScreenProtocol {
         )
 
         switch response {
-        case let .created(created):
+        case .created(let created):
             switch created.body {
-            case let .plainText(text):
+            case .plainText(let text):
                 token = try await .init(collecting: text, upTo: 1024)
                 identifier = ""
                 randomCode = ""

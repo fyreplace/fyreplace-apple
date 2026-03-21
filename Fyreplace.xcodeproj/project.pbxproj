@@ -451,7 +451,10 @@
 			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = AppIconAltDebug;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDebug;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -528,7 +531,10 @@
 			baseConfigurationReferenceRelativePath = Config.Release.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = AppIconAlt;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -594,7 +600,6 @@
 		4D54C94E2BF26090001DE071 /* Debug configuration for PBXNativeTarget "Fyreplace" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDebug;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "${PROJECT_NAME}/Config/Fyreplace.${CONFIGURATION}.entitlements";
 				DEAD_CODE_STRIPPING = YES;
@@ -631,7 +636,6 @@
 		4D54C94F2BF26090001DE071 /* Release configuration for PBXNativeTarget "Fyreplace" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "${PROJECT_NAME}/Config/Fyreplace.${CONFIGURATION}.entitlements";
 				DEAD_CODE_STRIPPING = YES;
@@ -730,7 +734,6 @@
 		4D926C1A2E363F2500A406D1 /* Debug configuration for PBXNativeTarget "FyreplaceLegacy" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDebug;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "${PROJECT_NAME}/Config/Fyreplace.${CONFIGURATION}.entitlements";
 				ENABLE_APP_SANDBOX = YES;
@@ -772,7 +775,6 @@
 		4D926C1B2E363F2500A406D1 /* Release configuration for PBXNativeTarget "FyreplaceLegacy" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "${PROJECT_NAME}/Config/Fyreplace.${CONFIGURATION}.entitlements";
 				ENABLE_APP_SANDBOX = YES;
@@ -863,7 +865,7 @@
 			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.1.0;
+				minimumVersion = 9.8.0;
 			};
 		};
 		4D13AF5F2C482F0100845FDB /* XCRemoteSwiftPackageReference "swift-openapi-generator" */ = {
@@ -871,7 +873,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-generator.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.10.3;
+				minimumVersion = 1.11.0;
 			};
 		};
 		4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */ = {
@@ -879,7 +881,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-runtime.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.9.0;
+				minimumVersion = 1.11.0;
 			};
 		};
 		4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */ = {
@@ -895,7 +897,7 @@
 			repositoryURL = "https://github.com/grpc/grpc-swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.27.1;
+				minimumVersion = 1.27.4;
 			};
 		};
 		4D926DB22E36481D00A406D1 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
@@ -903,7 +905,7 @@
 			repositoryURL = "https://github.com/apple/swift-protobuf.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.33.3;
+				minimumVersion = 1.36.1;
 			};
 		};
 		4D926DBB2E36486E00A406D1 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
@@ -919,7 +921,7 @@
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.21.5;
+				minimumVersion = 5.21.7;
 			};
 		};
 		4D926DC32E36489B00A406D1 /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */ = {

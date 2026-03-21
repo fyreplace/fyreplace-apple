@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Main-Main">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Main-Main">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -486,10 +486,34 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="App icon" id="Settings-Settings-view-App-icon">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Settings-Settings-view-App-icon-tableViewCell-00">
+                                        <rect key="frame" x="20" y="457.33333396911621" width="353" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-App-icon-tableViewCell-00" id="Settings-Settings-view-App-icon-tableViewCell-00-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="95"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="AppIcon.Normal"/>
+                                        <listContentConfiguration key="contentConfiguration" text="Orange" secondaryText="The classic, original style" image="AppIconPreview" imageToTextPadding="10"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Settings-Settings-view-App-icon-tableViewCell-01">
+                                        <rect key="frame" x="20" y="552.33333396911621" width="353" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-App-icon-tableViewCell-01" id="Settings-Settings-view-App-icon-tableViewCell-01-contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="95"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="AppIcon.Alternate"/>
+                                        <listContentConfiguration key="contentConfiguration" text="White" secondaryText="The new, alternative style" image="AppIconPreviewAlt" imageToTextPadding="10"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="About" id="Settings-Settings-view-About">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Settings-Settings-view-About-tableViewCell-00">
-                                        <rect key="frame" x="20" y="457.33333396911621" width="353" height="69.333335876464844"/>
+                                        <rect key="frame" x="20" y="702.66666793823242" width="353" height="69.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-About-tableViewCell-00" id="Settings-Settings-view-About-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="322.66666666666669" height="69.333335876464844"/>
@@ -499,7 +523,7 @@
                                         <listContentConfiguration key="contentConfiguration" style="subtitleCell" text="Privacy policy" secondaryText="See how your data is handled"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Settings-Settings-view-About-tableViewCell-01">
-                                        <rect key="frame" x="20" y="526.66666984558105" width="353" height="69.333335876464844"/>
+                                        <rect key="frame" x="20" y="772.00000381469727" width="353" height="69.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-About-tableViewCell-01" id="Settings-Settings-view-About-tableViewCell-01-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="322.66666666666669" height="69.333335876464844"/>
@@ -509,20 +533,20 @@
                                         <listContentConfiguration key="contentConfiguration" style="subtitleCell" text="Terms of service" secondaryText="Check the rules of the app"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Settings-Settings-view-About-tableViewCell-02">
-                                        <rect key="frame" x="20" y="596.0000057220459" width="353" height="69.333335876464844"/>
+                                        <rect key="frame" x="20" y="841.33333969116211" width="353" height="69.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-About-tableViewCell-02" id="Settings-Settings-view-About-tableViewCell-02-contentView">
-                                            <rect key="frame" x="0.0" y="0.0" width="322.66666666666669" height="69.333335876464844"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="334.66666666666669" height="69.333335876464844"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="About.App.Code"/>
                                         <listContentConfiguration key="contentConfiguration" style="subtitleCell" text="Source code" secondaryText="This app is open-source"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Settings-Settings-view-About-tableViewCell-03">
-                                        <rect key="frame" x="20" y="665.33334159851074" width="353" height="69.333335876464844"/>
+                                        <rect key="frame" x="20" y="910.66667556762695" width="353" height="69.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-About-tableViewCell-03" id="Settings-Settings-view-About-tableViewCell-03-contentView">
-                                            <rect key="frame" x="0.0" y="0.0" width="322.66666666666669" height="69.333335876464844"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="334.66666666666669" height="69.333335876464844"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="About.App.BugReport"/>
@@ -533,7 +557,7 @@
                             <tableViewSection headerTitle="Account" id="Settings-Settings-view-Account">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-Account-tableViewCell-00-contentView-Logout" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-Account-tableViewCell-00">
-                                        <rect key="frame" x="20" y="790.0000114440918" width="353" height="51"/>
+                                        <rect key="frame" x="20" y="1035.333345413208" width="353" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Account-tableViewCell-00" id="Settings-Settings-view-Account-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="51"/>
@@ -555,7 +579,7 @@
                             <tableViewSection id="Settings-Settings-view-tableViewSection-00">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView-Delete-account" style="IBUITableViewCellStyleDefault" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00">
-                                        <rect key="frame" x="20" y="876.0000114440918" width="353" height="51"/>
+                                        <rect key="frame" x="20" y="1121.333345413208" width="353" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-00-tableViewCell-00" id="Settings-Settings-view-tableViewSection-00-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="51"/>
@@ -577,7 +601,7 @@
                             <tableViewSection id="Settings-Settings-view-tableViewSection-01">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00">
-                                        <rect key="frame" x="20" y="962.0000114440918" width="353" height="53"/>
+                                        <rect key="frame" x="20" y="1207.333345413208" width="353" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-01-tableViewCell-00" id="Settings-Settings-view-tableViewSection-01-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="334.66666666666669" height="53"/>
@@ -590,7 +614,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01">
-                                        <rect key="frame" x="20" y="1015.0000114440918" width="353" height="53"/>
+                                        <rect key="frame" x="20" y="1260.333345413208" width="353" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-tableViewSection-01-tableViewCell-01" id="Settings-Settings-view-tableViewSection-01-tableViewCell-01-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="334.66666666666669" height="53"/>
@@ -607,7 +631,7 @@
                             <tableViewSection headerTitle="Environment" id="Settings-Settings-view-Environment">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Settings-Settings-view-Environment-tableViewCell-00" customClass="EnvironmentTableViewCell" customModule="FyreplaceLegacy" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="1123.333345413208" width="353" height="69.333335876464844"/>
+                                        <rect key="frame" x="20" y="1368.6666793823242" width="353" height="69.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Environment-tableViewCell-00" id="Settings-Settings-view-Environment-tableViewCell-00-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="69.333335876464844"/>
@@ -620,7 +644,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Settings-Settings-view-Environment-tableViewCell-01" customClass="EnvironmentTableViewCell" customModule="FyreplaceLegacy" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="1192.6666812896729" width="353" height="69.333335876464844"/>
+                                        <rect key="frame" x="20" y="1438.0000152587891" width="353" height="69.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Environment-tableViewCell-01" id="Settings-Settings-view-Environment-tableViewCell-01-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="69.333335876464844"/>
@@ -633,7 +657,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Settings-Settings-view-Environment-tableViewCell-02" customClass="EnvironmentTableViewCell" customModule="FyreplaceLegacy" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="1262.0000171661377" width="353" height="69.333335876464844"/>
+                                        <rect key="frame" x="20" y="1507.3333511352539" width="353" height="69.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Settings-Settings-view-Environment-tableViewCell-02" id="Settings-Settings-view-Environment-tableViewCell-02-contentView">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="69.333335876464844"/>
@@ -1564,6 +1588,8 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>
+        <image name="AppIconPreview" width="64" height="64"/>
+        <image name="AppIconPreviewAlt" width="64" height="64"/>
         <image name="Logo" width="500" height="500"/>
         <image name="bell" catalog="system" width="125" height="128"/>
         <image name="bell.fill" catalog="system" width="123" height="128"/>
@@ -1588,16 +1614,16 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="placeholderTextColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.2196078431372549" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

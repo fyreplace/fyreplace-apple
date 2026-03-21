@@ -1409,6 +1409,28 @@
         }
       }
     },
+    "Settings.AppIcon.Error.Message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There was an issue when trying to update the app icon."
+          }
+        }
+      }
+    },
+    "Settings.AppIcon.Error.Title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App icon not set"
+          }
+        }
+      }
+    },
     "Settings.Bio" : {
       "extractionState" : "manual",
       "localizations" : {

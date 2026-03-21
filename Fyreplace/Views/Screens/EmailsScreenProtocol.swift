@@ -30,9 +30,9 @@ extension EmailsScreenProtocol {
             let response = try await api.listEmails(query: .init(page: page))
 
             switch response {
-            case let .ok(ok):
+            case .ok(let ok):
                 switch ok.body {
-                case let .json(json):
+                case .json(let json):
                     hasMore = !json.isEmpty
                     emails.append(contentsOf: json)
                 }
@@ -65,9 +65,9 @@ extension EmailsScreenProtocol {
             let response = try await api.createEmail(body: .json(.init(email: newEmail)))
 
             switch response {
-            case let .created(created):
+            case .created(let created):
                 switch created.body {
-                case let .json(json):
+                case .json(let json):
                     emails.append(json)
                 }
 
