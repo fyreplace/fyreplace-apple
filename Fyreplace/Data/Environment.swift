@@ -3,9 +3,7 @@ import SwiftUI
 enum ServerEnvironment: String, CaseIterable, Identifiable {
     case main
     case dev
-    #if DEBUG
-        case local
-    #endif
+    case local
 
     var id: String { rawValue }
 
@@ -15,10 +13,8 @@ enum ServerEnvironment: String, CaseIterable, Identifiable {
             .init(localized: "Environment.Main")
         case .dev:
             .init(localized: "Environment.Dev")
-        #if DEBUG
-            case .local:
-                .init(localized: "Environment.Local")
-        #endif
+        case .local:
+            .init(localized: "Environment.Local")
         }
     }
 

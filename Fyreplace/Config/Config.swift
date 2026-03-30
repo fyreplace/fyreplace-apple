@@ -59,16 +59,12 @@ struct Config {
         struct Api {
             let main: URL
             let dev: URL
-            #if DEBUG
-                let local: URL
-            #endif
+            let local: URL
 
             init(_ data: [String: Any]) {
                 main = data.url("Main")!
                 dev = data.url("Dev")!
-                #if DEBUG
-                    local = data.url("Local")!
-                #endif
+                local = data.url("Local")!
             }
 
             func url(for environment: ServerEnvironment) -> URL {
@@ -77,10 +73,8 @@ struct Config {
                     main
                 case .dev:
                     dev
-                #if DEBUG
-                    case .local:
-                        local
-                #endif
+                case .local:
+                    local
                 }
             }
 
