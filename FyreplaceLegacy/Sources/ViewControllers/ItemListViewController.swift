@@ -7,11 +7,13 @@ class ItemListViewController: BaseListViewController {
     @IBOutlet
     var emptyPlaceholder: UILabel!
 
+    private var refresh: UIRefreshControl?
     private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         listViewDelegate = self
+        refresh = refreshControl
 
         NotificationCenter.default
             .publisher(for: UIApplication.didBecomeActiveNotification)
@@ -28,6 +30,7 @@ class ItemListViewController: BaseListViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        refreshControl = currentUser != nil ? refresh : nil
         fillIfEmpty()
     }
 
@@ -81,10 +84,17 @@ class ItemListViewController: BaseListViewController {
 
     private func onCurrentUserDidChange(_ notification: Notification) {
         guard let info = notification.userInfo,
-              let connected = info["connected"] as? Bool,
-              !connected
+              let connected = info["connected"] as? Bool
         else { return }
-        resetListing()
+
+        refreshControl = connected ? refresh : nil
+
+        if connected {
+            refreshControl = refresh
+        } else {
+            refreshControl = nil
+            resetListing()
+        }
     }
 
     private func fillIfEmpty() {
