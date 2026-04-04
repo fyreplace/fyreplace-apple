@@ -1445,7 +1445,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email">
                                                     <rect key="frame" x="20" y="0.0" width="313" height="50"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                     <connections>
                                                         <action selector="onEmailDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="b9c4c10a1331eef8b66547732fce89dfef29f8a1531e6cb67a9bb2e5fdf540d1"/>
                                                         <action selector="onEmailEditingChanged" destination="Login-Login" eventType="editingChanged" id="294983e32a16754a5c2a33b9c22c8b778418c8a5de42679189f3014a033e748d"/>
