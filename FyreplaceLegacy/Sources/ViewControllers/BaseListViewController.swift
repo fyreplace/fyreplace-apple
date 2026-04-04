@@ -1,4 +1,4 @@
-import ReactiveSwift
+import Combine
 import UIKit
 
 class BaseListViewController: UITableViewController {
@@ -7,23 +7,24 @@ class BaseListViewController: UITableViewController {
     open var removalNotifications: [Notification.Name] { [] }
 
     weak var listViewDelegate: BaseListViewDelegate!
-    private var notificationTrash: [Disposable?] = []
+    private var cancellables = Set<AnyCancellable>()
+    private var refreshableCancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshNotificationHandlers()
 
-        NotificationCenter.default.reactive
-            .notifications(forName: UIApplication.willEnterForegroundNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onApplicationWillEnterForeground($0) }
+        NotificationCenter.default
+            .publisher(for: UIApplication.willEnterForegroundNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onApplicationWillEnterForeground($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: UIApplication.didEnterBackgroundNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onApplicationDidEnterBackground($0) }
+        NotificationCenter.default
+            .publisher(for: UIApplication.didEnterBackgroundNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onApplicationDidEnterBackground($0) }
+            .store(in: &cancellables)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,37 +38,30 @@ class BaseListViewController: UITableViewController {
     }
 
     func refreshNotificationHandlers() {
-        for disposable in notificationTrash {
-            disposable?.dispose()
-        }
-
-        notificationTrash.removeAll()
+        refreshableCancellables.removeAll()
 
         for additionNotification in additionNotifications {
-            let disposable = NotificationCenter.default.reactive
-                .notifications(forName: additionNotification)
-                .take(during: reactive.lifetime)
-                .observe(on: UIScheduler())
-                .observeValues { [unowned self] in onItemAdded($0) }
-            notificationTrash.append(disposable)
+            NotificationCenter.default
+                .publisher(for: additionNotification)
+                .receive(on: RunLoop.main)
+                .sink { [unowned self] in onItemAdded($0) }
+                .store(in: &refreshableCancellables)
         }
 
         for updateNotification in updateNotifications {
-            let disposable = NotificationCenter.default.reactive
-                .notifications(forName: updateNotification)
-                .take(during: reactive.lifetime)
-                .observe(on: UIScheduler())
-                .observeValues { [unowned self] in onItemUpdated($0) }
-            notificationTrash.append(disposable)
+            NotificationCenter.default
+                .publisher(for: updateNotification)
+                .receive(on: RunLoop.main)
+                .sink { [unowned self] in onItemUpdated($0) }
+                .store(in: &refreshableCancellables)
         }
 
         for removalNotification in removalNotifications {
-            let disposable = NotificationCenter.default.reactive
-                .notifications(forName: removalNotification)
-                .take(during: reactive.lifetime)
-                .observe(on: UIScheduler())
-                .observeValues { [unowned self] in onItemRemoved($0) }
-            notificationTrash.append(disposable)
+            NotificationCenter.default
+                .publisher(for: removalNotification)
+                .receive(on: RunLoop.main)
+                .sink { [unowned self] in onItemRemoved($0) }
+                .store(in: &refreshableCancellables)
         }
     }
 

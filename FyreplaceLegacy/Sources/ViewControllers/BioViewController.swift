@@ -1,18 +1,23 @@
+import Combine
 import GRPC
-import ReactiveSwift
 import UIKit
 
 class BioViewController: TextInputViewController {
-    override var textInputViewModel: TextInputViewModel! { vm }
+    override var textInputViewModel: TextInputViewModel { vm }
     override var maxContentLength: Int { 3000 }
 
     @IBOutlet
     var vm: BioViewModel!
 
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        content.text = vm.bio.value
-        vm.bio <~ content.reactive.continuousTextValues.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+        content.text = vm.bio
+
+        content.textPublisher
+            .compactMap { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .assign(to: &vm.$bio)
     }
 
     override func onDonePressed() {

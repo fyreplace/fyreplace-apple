@@ -1,6 +1,5 @@
 import Foundation
 import GRPC
-import ReactiveSwift
 
 class FeedViewModel: ViewModel {
     @IBOutlet

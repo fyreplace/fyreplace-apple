@@ -1,6 +1,5 @@
 import GRPC
-import ReactiveCocoa
-import ReactiveSwift
+import Combine
 import UIKit
 
 class DraftViewController: UITableViewController {
@@ -20,22 +19,38 @@ class DraftViewController: UITableViewController {
     var addImage: UIBarButtonItem!
 
     var post: FPPost!
-
     private var currentChapterPosition = -1
+    private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(.init(nibName: "ImageChapterTableViewCell", bundle: nil), forCellReuseIdentifier: "Image")
         tableView.register(.init(nibName: "TextChapterTableViewCell", bundle: nil), forCellReuseIdentifier: "Text")
-        vm.post.producer
-            .take(during: reactive.lifetime)
-            .startWithValues { [unowned self] in onPost($0) }
-        vm.chapterCount.producer
-            .take(during: reactive.lifetime)
-            .startWithValues { [unowned self] in onChapterCount($0) }
-        vm.editingStatus.producer
-            .take(during: reactive.lifetime)
-            .startWithValues { [unowned self] in onEditingStatus($0) }
+
+        vm.$post
+            .sink { [unowned self] in onPost($0) }
+            .store(in: &cancellables)
+        vm.$chapterCount
+            .sink { [unowned self] in onChapterCount($0) }
+            .store(in: &cancellables)
+        vm.$post
+            .compactMap(\.?.chapterCount)
+            .map { $0 > 0 }
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: publish)
+            .store(in: &cancellables)
+        vm.$editingStatus
+            .sink { [unowned self] in onEditingStatus($0) }
+            .store(in: &cancellables)
+        vm.canAddChapter
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: addText)
+            .store(in: &cancellables)
+        vm.canAddChapter
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: addImage)
+            .store(in: &cancellables)
+
         vm.retrieve(id: post.id)
         setTitleChapterCount(Int(post.chapterCount))
     }
@@ -43,9 +58,6 @@ class DraftViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setToolbarHidden(false)
-        publish.reactive.isEnabled <~ vm.chapterCount.map { $0 > 0 }
-        addText.reactive.isEnabled <~ vm.canAddChapter
-        addImage.reactive.isEnabled <~ vm.canAddChapter
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,9 +69,9 @@ class DraftViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
 
         if let chapterNavigationontroller = segue.destination as? TextChapterNavigationViewController {
-            chapterNavigationontroller.post = vm.post.value
+            chapterNavigationontroller.post = vm.post
             chapterNavigationontroller.position = currentChapterPosition
-            chapterNavigationontroller.text = vm.post.value?.chapters[currentChapterPosition].text
+            chapterNavigationontroller.text = vm.post?.chapters[currentChapterPosition].text
         }
     }
 
@@ -122,7 +134,7 @@ class DraftViewController: UITableViewController {
         guard let post = post else { return }
         let editingStatus: EditingStatus = post.chapterCount > 1 ? .canEdit : .cannotEdit
 
-        if vm.editingStatus.value != .isEditing, editingStatus != vm.editingStatus.value {
+        if vm.editingStatus != .isEditing, editingStatus != vm.editingStatus {
             vm.updateEditingStatus(editingStatus)
         }
 
@@ -178,11 +190,11 @@ class DraftViewController: UITableViewController {
 
 extension DraftViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vm.chapterCount.value
+        return vm.chapterCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let chapter = vm.post.value!.chapters[indexPath.row]
+        let chapter = vm.post!.chapters[indexPath.row]
         let identifier = chapter.hasImage ? "Image" : "Text"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         (cell as? ChapterTableViewCell)?.setup(withChapter: chapter)
@@ -190,7 +202,7 @@ extension DraftViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let chapter = vm.post.value!.chapters[indexPath.row]
+        let chapter = vm.post!.chapters[indexPath.row]
         return chapter.hasImage
             ? CGFloat(chapter.image.height) * tableView.frame.width / CGFloat(chapter.image.width)
             : super.tableView(tableView, heightForRowAt: indexPath)
@@ -240,7 +252,7 @@ extension DraftViewController: DraftViewModelDelegate {
     }
 
     func draftViewModel(_ viewModel: DraftViewModel, didDelete id: Data) {
-        let preview = vm.post.value!.makePreview()
+        let preview = vm.post!.makePreview()
 
         NotificationCenter.default.post(
             name: FPPost.draftWasDeletedNotification,
@@ -254,7 +266,7 @@ extension DraftViewController: DraftViewModelDelegate {
     }
 
     func draftViewModel(_ viewModel: DraftViewModel, didPublish id: Data, anonymously anonymous: Bool) {
-        let preview = vm.post.value!.makePreview(anonymous: anonymous)
+        let preview = vm.post!.makePreview(anonymous: anonymous)
 
         NotificationCenter.default.post(
             name: FPPost.draftWasPublishedNotification,
@@ -323,7 +335,7 @@ extension DraftViewController: ImageSelectorDelegate {
     }
 
     func didNotSelectImage(_ imageSelector: ImageSelector) {
-        if vm.post.value?.chapters[currentChapterPosition].hasImage == false {
+        if vm.post?.chapters[currentChapterPosition].hasImage == false {
             deleteChapter(at: currentChapterPosition)
         }
     }

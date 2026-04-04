@@ -1,4 +1,4 @@
-import ReactiveSwift
+import Combine
 import SDWebImage
 import UIKit
 
@@ -17,7 +17,7 @@ class FeedTableViewCell: UITableViewCell {
     private let feedbackGenerator = UISelectionFeedbackGenerator()
     private var isVoting = false
     private var postId: Data?
-    private var trash: [Disposable] = []
+    private var cancellables = Set<AnyCancellable>()
 
     @IBAction
     func onDownPressed() {
@@ -37,22 +37,19 @@ class FeedTableViewCell: UITableViewCell {
         votes.text = String(post.voteCount)
         comments.text = String(post.commentCount)
         postId = post.id
+        cancellables.removeAll()
 
-        for disposable in trash {
-            disposable.dispose()
-        }
+        NotificationCenter.default
+            .publisher(for: AppDelegate.didReceiveRemoteNotificationNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onAppDidReceiveRemoteNotification($0) }
+            .store(in: &cancellables)
 
-        trash.append(NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.didReceiveRemoteNotificationNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onAppDidReceiveRemoteNotification($0) }!)
-
-        trash.append(NotificationCenter.default.reactive
-            .notifications(forName: FPComment.wasCreatedNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCommentWasCreated($0) }!)
+        NotificationCenter.default
+            .publisher(for: FPComment.wasCreatedNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onCommentWasCreated($0) }
+            .store(in: &cancellables)
     }
 
     private func onAppDidReceiveRemoteNotification(_ notification: Notification) {

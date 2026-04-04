@@ -1,23 +1,28 @@
+import Combine
 import Foundation
-import ReactiveSwift
 
 class UserViewModel: ViewModel {
     @IBOutlet
     weak var delegate: UserViewModelDelegate?
 
-    let user = MutableProperty<FPUser?>(nil)
-    let blocked = MutableProperty<Bool>(false)
-    let banned = MutableProperty<Bool>(false)
+    @Published
+    private(set) var user: FPUser?
+
+    @Published
+    private(set) var blocked = false
+
+    @Published
+    private(set) var banned = false
 
     func retrieve(id: Data) {
         let request = FPId.with { $0.id = id }
         let response = userService.retrieve(request).response
-        response.whenSuccess(onRetrieve(_:))
+        response.whenSuccess(onRetrieve)
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func updateBlock(blocked: Bool) {
-        let id = user.value!.profile.id
+        let id = user!.profile.id
         let request = FPBlock.with {
             $0.id = id
             $0.blocked = blocked
@@ -28,7 +33,7 @@ class UserViewModel: ViewModel {
     }
 
     func report() {
-        let id = user.value!.profile.id
+        let id = user!.profile.id
         let request = FPId.with { $0.id = id }
         let response = userService.report(request).response
         response.whenSuccess { _ in self.delegate?.userViewModel(self, didReport: id) }
@@ -36,7 +41,7 @@ class UserViewModel: ViewModel {
     }
 
     func ban(for sentence: BanSentence) {
-        let id = user.value!.profile.id
+        let id = user!.profile.id
         let request = FPBanSentence.with {
             $0.id = id
 
@@ -52,18 +57,18 @@ class UserViewModel: ViewModel {
     }
 
     private func onRetrieve(_ user: FPUser) {
-        self.user.value = user
-        blocked.value = user.profile.isBlocked
-        banned.value = user.profile.isBanned
+        self.user = user
+        blocked = user.profile.isBlocked
+        banned = user.profile.isBanned
     }
 
     private func onBlockUpdate(id: Data, blocked: Bool) {
-        self.blocked.value = blocked
+        self.blocked = blocked
         delegate?.userViewModel(self, didUpdate: id, blocked: blocked)
     }
 
     private func onBan(id: Data) {
-        banned.value = true
+        banned = true
         delegate?.userViewModel(self, didBan: id)
     }
 }

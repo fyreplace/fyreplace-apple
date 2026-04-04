@@ -11,7 +11,6 @@
 		4D13AF622C482F1C00845FDB /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 4D13AF612C482F1C00845FDB /* OpenAPIRuntime */; };
 		4D13AF652C482F4500845FDB /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = 4D13AF642C482F4500845FDB /* OpenAPIURLSession */; };
 		4D926DAC2E3647F900A406D1 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 4D926DAB2E3647F900A406D1 /* GRPC */; };
-		4D926DBD2E36486E00A406D1 /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4D926DBC2E36486E00A406D1 /* ReactiveCocoa */; };
 		4D926DC12E36488800A406D1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4D926DC02E36488800A406D1 /* SDWebImage */; };
 		4D926DC52E36489B00A406D1 /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 4D926DC42E36489B00A406D1 /* SDWebImageWebPCoder */; };
 		4DF91AA42E3BFEF600CCB53E /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4DF91AA32E3BFEF600CCB53E /* SentrySwiftUI */; };
@@ -153,7 +152,6 @@
 				4D926DC52E36489B00A406D1 /* SDWebImageWebPCoder in Frameworks */,
 				4DF91AA82E3BFEF600CCB53E /* OpenAPIURLSession in Frameworks */,
 				4DF91AA62E3BFEF600CCB53E /* OpenAPIRuntime in Frameworks */,
-				4D926DBD2E36486E00A406D1 /* ReactiveCocoa in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -288,7 +286,6 @@
 			name = FyreplaceLegacy;
 			packageProductDependencies = (
 				4D926DAB2E3647F900A406D1 /* GRPC */,
-				4D926DBC2E36486E00A406D1 /* ReactiveCocoa */,
 				4D926DC02E36488800A406D1 /* SDWebImage */,
 				4D926DC42E36489B00A406D1 /* SDWebImageWebPCoder */,
 				4DF91AA32E3BFEF600CCB53E /* SentrySwiftUI */,
@@ -340,7 +337,6 @@
 				4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */,
 				4D926DA82E3647F900A406D1 /* XCRemoteSwiftPackageReference "grpc-swift" */,
 				4D926DB22E36481D00A406D1 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
-				4D926DBB2E36486E00A406D1 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
 				4D926DBF2E36488800A406D1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				4D926DC32E36489B00A406D1 /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
 			);
@@ -908,14 +904,6 @@
 				minimumVersion = 1.36.1;
 			};
 		};
-		4D926DBB2E36486E00A406D1 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveCocoa.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.0.0;
-			};
-		};
 		4D926DBF2E36488800A406D1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -959,11 +947,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4D926DA82E3647F900A406D1 /* XCRemoteSwiftPackageReference "grpc-swift" */;
 			productName = GRPC;
-		};
-		4D926DBC2E36486E00A406D1 /* ReactiveCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4D926DBB2E36486E00A406D1 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */;
-			productName = ReactiveCocoa;
 		};
 		4D926DC02E36488800A406D1 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;

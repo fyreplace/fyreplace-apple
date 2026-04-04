@@ -1,4 +1,4 @@
-import ReactiveSwift
+import Combine
 import UIKit
 
 class NotificationsViewController: ItemListViewController {
@@ -6,6 +6,8 @@ class NotificationsViewController: ItemListViewController {
     var vm: NotificationsViewModel!
     @IBOutlet
     var clear: UIBarButtonItem!
+
+    private var cancellables = Set<AnyCancellable>()
 
     override var updateNotifications: [Notification.Name] {
         [FPNotification.wasUpdatedNotification]
@@ -15,28 +17,24 @@ class NotificationsViewController: ItemListViewController {
         [FPNotification.wasDeletedNotification]
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        NotificationCenter.default.reactive
-            .notifications(forName: UIApplication.didEnterBackgroundNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onApplicationDidEnterBackground($0) }
-
-        NotificationCenter.default.reactive
-            .notifications(forName: FPNotification.wasCreatedNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onNotificationWasCreated($0) }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(.init(nibName: "UserNotificationTableViewCell", bundle: nil), forCellReuseIdentifier: "User")
         tableView.register(.init(nibName: "TextPostNotificationTableViewCell", bundle: nil), forCellReuseIdentifier: "Text Post")
         tableView.register(.init(nibName: "ImagePostNotificationTableViewCell", bundle: nil), forCellReuseIdentifier: "Image Post")
         tableView.register(.init(nibName: "CommentNotificationTableViewCell", bundle: nil), forCellReuseIdentifier: "Comment")
+
+        NotificationCenter.default
+            .publisher(for: UIApplication.didEnterBackgroundNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onApplicationDidEnterBackground($0) }
+            .store(in: &cancellables)
+
+        NotificationCenter.default
+            .publisher(for: FPNotification.wasCreatedNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onNotificationWasCreated($0) }
+            .store(in: &cancellables)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

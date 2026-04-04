@@ -1,12 +1,13 @@
+import Combine
 import Foundation
-import ReactiveSwift
 import SwiftProtobuf
 
 class DraftsViewModel: ViewModel {
     @IBOutlet
     weak var delegate: DraftsViewModelDelegate?
 
-    let isLoading = MutableProperty(false)
+    @Published
+    private(set) var isLoading = false
 
     private lazy var draftLister = ItemLister<FPPost, FPPosts, FPPostServiceNIOClient>(
         delegatingTo: delegate,
@@ -20,7 +21,7 @@ class DraftsViewModel: ViewModel {
     }
 
     func create() {
-        isLoading.value = true
+        isLoading = true
         let request = Google_Protobuf_Empty()
         let response = postService.create(request).response
         response.whenSuccess { self.onCreate($0) }
@@ -38,12 +39,12 @@ class DraftsViewModel: ViewModel {
     }
 
     private func onCreate(_ postId: FPId) {
-        isLoading.value = false
+        isLoading = false
         delegate?.draftsViewModel(self, didCreate: postId.id)
     }
 
     private func onError(_ error: Error) {
-        isLoading.value = false
+        isLoading = false
         delegate?.viewModel(self, didFailWithError: error)
     }
 }

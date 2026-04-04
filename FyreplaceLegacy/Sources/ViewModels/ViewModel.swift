@@ -1,5 +1,5 @@
+import Combine
 import GRPC
-import ReactiveSwift
 import UIKit
 
 class ViewModel: NSObject {
@@ -11,13 +11,15 @@ class ViewModel: NSObject {
     var commentService: FPCommentServiceNIOClient!
     var notificationService: FPNotificationServiceNIOClient!
 
+    private var cancellables = Set<AnyCancellable>()
+
     override init() {
         super.init()
         setupServices()
-        NotificationCenter.default.reactive
-            .notifications(forName: Rpc.didChangeChannelNotification)
-            .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onRpcDidChangeChannel($0) }
+        NotificationCenter.default
+            .publisher(for: Rpc.didChangeChannelNotification)
+            .sink { [unowned self] in onRpcDidChangeChannel($0) }
+            .store(in: &cancellables)
     }
 
     private func onRpcDidChangeChannel(_ notification: Notification) {

@@ -1,18 +1,19 @@
+import Combine
 import Foundation
 import GRPC
-import ReactiveSwift
 
 class Rpc: NSObject {
     static let didChangeChannelNotification = Notification.Name("Rpc.channelChange")
-    private let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
     lazy var channel: ClientConnection = makeChannel()
+    private let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
+    private var cancellables = Set<AnyCancellable>()
 
     override init() {
         super.init()
-        NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.didChangeEnvironmentNotification)
-            .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onAppDidChangeEnvironment($0) }
+        NotificationCenter.default
+            .publisher(for: AppDelegate.didChangeEnvironmentNotification)
+            .sink { [unowned self] in onAppDidChangeEnvironment($0) }
+            .store(in: &cancellables)
     }
 
     deinit {

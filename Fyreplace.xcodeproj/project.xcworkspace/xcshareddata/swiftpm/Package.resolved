@@ -1,5 +1,5 @@
 {
-  "originHash" : "7f34c000fe1f78cd60ac79f7463b2d338bdd3ba0cf7e7ff2585145e6fe12231a",
+  "originHash" : "dddfa18f8aab0797afd61ff296eef5f4c03a85d97f8afc451c9fcbbafacf9990",
   "pins" : [
     {
       "identity" : "grpc-swift",
@@ -26,24 +26,6 @@
       "state" : {
         "revision" : "343b2c1793058fcc53c1bd7e2907f8e3a4d640fb",
         "version" : "3.9.0"
-      }
-    },
-    {
-      "identity" : "reactivecocoa",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ReactiveCocoa/ReactiveCocoa.git",
-      "state" : {
-        "revision" : "8a5b07b18c6abb8e12fb845bf742675dc4914ed8",
-        "version" : "12.0.0"
-      }
-    },
-    {
-      "identity" : "reactiveswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ReactiveCocoa/ReactiveSwift",
-      "state" : {
-        "revision" : "a44317ce38b5bcce173b03f5d36cfdc939e1768b",
-        "version" : "7.2.1"
       }
     },
     {

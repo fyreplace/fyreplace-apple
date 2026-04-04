@@ -1,4 +1,4 @@
-import GRPC
+import Combine
 import SDWebImage
 import UIKit
 
@@ -26,21 +26,23 @@ class UserViewController: UIViewController {
 
     var profile: FPProfile!
 
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         avatar.sd_imageIndicator = SDWebImageActivityIndicator.medium
         avatar.sd_imageTransition = .fade
-        vm.blocked.value = profile.isBlocked
         vm.retrieve(id: profile.id)
-        vm.user.producer
-            .take(during: reactive.lifetime)
-            .startWithValues { [unowned self] in onUser($0) }
-        vm.blocked.producer
-            .take(during: reactive.lifetime)
-            .startWithValues { [unowned self] in onBlocked($0) }
-        vm.banned.producer
-            .take(during: reactive.lifetime)
-            .startWithValues { [unowned self] in onBanned($0) }
+
+        vm.$user
+            .sink { [unowned self] in onUser($0) }
+            .store(in: &cancellables)
+        vm.$blocked
+            .sink { [unowned self] in onBlocked($0) }
+            .store(in: &cancellables)
+        vm.$banned
+            .sink { [unowned self] in onBanned($0) }
+            .store(in: &cancellables)
 
         let isCurrentUser = profile.id == currentProfile?.id
         let currentRank = currentProfile?.rank ?? .unspecified

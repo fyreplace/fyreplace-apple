@@ -1,35 +1,40 @@
+import Combine
 import Foundation
-import ReactiveSwift
 import SwiftProtobuf
 
 class SettingsViewModel: ViewModel {
     @IBOutlet
     weak var delegate: SettingsViewModelDelegate?
 
-    let user = MutableProperty<FPUser?>(nil)
-    let blockedUsers = MutableProperty<UInt32>(0)
+    @Published
+    private(set) var user: FPUser?
+
+    @Published
+    private(set) var blockedUsers: UInt32 = 0
+
+    private var cancellables = Set<AnyCancellable>()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         reloadUser()
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentDidChangeNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in reloadUser() }
+        NotificationCenter.default
+            .publisher(for: FPUser.currentDidChangeNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] _ in reloadUser() }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.wasBlockedNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in blockedUsers.value += 1 }
+        NotificationCenter.default
+            .publisher(for: FPUser.wasBlockedNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] _ in blockedUsers += 1 }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.wasUnblockedNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in blockedUsers.value -= 1 }
+        NotificationCenter.default
+            .publisher(for: FPUser.wasUnblockedNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] _ in blockedUsers -= 1 }
+            .store(in: &cancellables)
     }
 
     func updateAvatar(image: Data?) {
@@ -60,13 +65,13 @@ class SettingsViewModel: ViewModel {
     }
 
     private func reloadUser() {
-        user.value = currentUser
-        blockedUsers.value = user.value?.blockedUsers ?? 0
+        user = currentUser
+        blockedUsers = user?.blockedUsers ?? 0
     }
 
     private func onUpdateAvatar(_ image: FPImage) {
         delegate?.settingsViewModel(self, didUpdateAvatar: image.url)
-        user.modify { $0?.profile.avatar = image }
+        user?.profile.avatar = image
     }
 
     private func onLogout() {

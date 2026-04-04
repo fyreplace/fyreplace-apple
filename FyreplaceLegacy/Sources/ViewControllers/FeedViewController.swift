@@ -1,5 +1,4 @@
-import ReactiveCocoa
-import ReactiveSwift
+import Combine
 import UIKit
 
 class FeedViewController: UITableViewController {
@@ -12,6 +11,7 @@ class FeedViewController: UITableViewController {
 
     private var postCount = 0
     private var isAuthenticated = false
+    private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,28 +21,23 @@ class FeedViewController: UITableViewController {
         isAuthenticated = currentUser != nil
         setupHelp()
 
-        refreshControl?.reactive.controlEvents(.valueChanged)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in onRefresh() }
+        NotificationCenter.default
+            .publisher(for: UIApplication.willEnterForegroundNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onApplicationWillEnterForeground($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: UIApplication.willEnterForegroundNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onApplicationWillEnterForeground($0) }
+        NotificationCenter.default
+            .publisher(for: UIApplication.didEnterBackgroundNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onApplicationDidEnterBackground($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: UIApplication.didEnterBackgroundNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onApplicationDidEnterBackground($0) }
-
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentDidChangeNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCurrentUserDidChange($0) }
+        NotificationCenter.default
+            .publisher(for: FPUser.currentDidChangeNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onCurrentUserDidChange($0) }
+            .store(in: &cancellables)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -69,6 +64,11 @@ class FeedViewController: UITableViewController {
     @IBAction
     func onHelpPressed() {
         presentBasicAlert(text: "Feed.Help")
+    }
+
+    @IBAction
+    func onRefreshValueChanged(_ sender: UIRefreshControl) {
+        onRefresh()
     }
 
     private func onRefresh() {

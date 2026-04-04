@@ -77,6 +77,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="secondaryLabelColor"/>
+                        <connections>
+                            <action selector="onRefreshValueChanged:" destination="Feed-Feed" eventType="valueChanged" id="3c91b86ef019506af5f6249eafa1223b2dff5af3bb01ec37924b471b7d9fcb36"/>
+                        </connections>
                     </refreshControl>
                     <connections>
                         <outlet property="emptyPlaceholder" destination="Feed-Empty-Placeholder" id="15a1942e3e600fbec3f76e0d4df25461c30fe23890317dd8cfa769d211e29515"/>
@@ -142,6 +145,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="secondaryLabelColor"/>
+                        <connections>
+                            <action selector="onRefreshControlValueChanged:" destination="Notifications-Notifications" eventType="valueChanged" id="d4bd325cb70c74cb5730b813c66cd7e070f32c02ff2b5d44b8bac607927c350e"/>
+                        </connections>
                     </refreshControl>
                     <connections>
                         <outlet property="clear" destination="Notifications-Notifications-Notifications-Clear" id="b6d85dfa4ca69f7f34a6008bb2aef96817dc71750e85e0d7a3b2cd0d693b06bf"/>
@@ -216,6 +222,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="secondaryLabelColor"/>
+                        <connections>
+                            <action selector="onRefreshControlValueChanged:" destination="Archive-Archive" eventType="valueChanged" id="7c1f2c7d0f110ad6a4fbfe8b6a126c87f7ed462d698d4b91ea1461d7f6004519"/>
+                        </connections>
                     </refreshControl>
                     <connections>
                         <outlet property="archiveEmptyPlaceholder" destination="Archive-Archive-Empty-Placeholder" id="b5d2171d7288e2bca2ff40c3bc87decdbd6120b920262d77dd28de3e2cdec65f"/>
@@ -293,6 +302,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="secondaryLabelColor"/>
+                        <connections>
+                            <action selector="onRefreshControlValueChanged:" destination="Drafts-Drafts" eventType="valueChanged" id="9f9ce9e6192f614f655b6b95d7fbd83f0e0402ff74fa528df0c54bb1f79ee3fc"/>
+                        </connections>
                     </refreshControl>
                     <connections>
                         <outlet property="add" destination="Drafts-Drafts-Drafts-add" id="b7ccd635463fee408b99ce7ae285b859ff3c12919089114e4048c37441009263"/>
@@ -1436,11 +1448,12 @@
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                     <connections>
                                                         <action selector="onEmailDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="b9c4c10a1331eef8b66547732fce89dfef29f8a1531e6cb67a9bb2e5fdf540d1"/>
+                                                        <action selector="onEmailEditingChanged" destination="Login-Login" eventType="editingChanged" id="294983e32a16754a5c2a33b9c22c8b778418c8a5de42679189f3014a033e748d"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email" firstAttribute="top" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView" secondAttribute="top" id="16-00-00-01-00-00--C-00-00-00-01"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email" firstAttribute="top" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView" secondAttribute="top" id="16-00-00-01-00-00--C-00-00-00-02"/>
                                                 <constraint firstAttribute="trailing" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email" secondAttribute="trailing" constant="20" symbolic="YES" id="16-00-00-01-00-00--C-00-00-01"/>
                                                 <constraint firstItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email" firstAttribute="leading" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="16-00-00-01-00-00--C-00-00-01-00"/>
                                                 <constraint firstAttribute="bottom" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email" secondAttribute="bottom" id="16-00-00-01-00-00--C-00-00-02"/>
@@ -1460,11 +1473,12 @@
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                                     <connections>
                                                         <action selector="onUsernameDidEndOnExit" destination="Login-Login" eventType="editingDidEndOnExit" id="d73ff7bd73913ce10f74c4adfd465092f8d1b38afd3780abff6197a7df9b5bbd"/>
+                                                        <action selector="onUsernameEditingChanged" destination="Login-Login" eventType="editingChanged" id="d51de3713bdf45dcd6f93b0f2ece5f4911e58990fcb1befbc0ee83bc7cbfc355"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username" firstAttribute="top" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView" secondAttribute="top" id="16-00-00-01-01-00--C-00-00-00-01"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username" firstAttribute="top" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView" secondAttribute="top" id="16-00-00-01-01-00--C-00-00-00-02"/>
                                                 <constraint firstAttribute="trailing" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username" secondAttribute="trailing" constant="20" symbolic="YES" id="16-00-00-01-01-00--C-00-00-01"/>
                                                 <constraint firstItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username" firstAttribute="leading" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="16-00-00-01-01-00--C-00-00-01-00"/>
                                                 <constraint firstAttribute="bottom" secondItem="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username" secondAttribute="bottom" id="16-00-00-01-01-00--C-00-00-02"/>
@@ -1490,15 +1504,18 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Accepted" userLabel="Accepted">
                                                     <rect key="frame" x="272" y="38.666666666666664" width="63" height="27.999999999999993"/>
+                                                    <connections>
+                                                        <action selector="onConditionsAcceptedValueChanged:" destination="Login-Login" eventType="valueChanged" id="84490e3e6d9d3ccb64343156771ce485fa1be68ad4d5a43e24a5e856aab2bd56"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Accepted" secondAttribute="trailing" constant="20" symbolic="YES" id="16-00-00-02-00-00--C-00-00-00"/>
-                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" firstAttribute="leading" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="16-00-00-02-00-00--C-00-00-00-00"/>
-                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Accepted" firstAttribute="leading" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" secondAttribute="trailing" constant="8" symbolic="YES" id="16-00-00-02-00-00--C-00-00-00-01"/>
-                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Accepted" firstAttribute="centerY" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView" secondAttribute="centerY" id="16-00-00-02-00-00--C-00-00-00-02"/>
-                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" firstAttribute="top" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView" secondAttribute="top" constant="20" symbolic="YES" id="16-00-00-02-00-00--C-00-00-00-03"/>
-                                                <constraint firstAttribute="bottom" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" secondAttribute="bottom" constant="20" symbolic="YES" id="16-00-00-02-00-00--C-00-00-01"/>
+                                                <constraint firstAttribute="trailing" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Accepted" secondAttribute="trailing" constant="20" symbolic="YES" id="16-00-00-02-00-00--C-00-00-01"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" firstAttribute="leading" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView" secondAttribute="leading" constant="20" symbolic="YES" id="16-00-00-02-00-00--C-00-00-01-00"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Accepted" firstAttribute="leading" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" secondAttribute="trailing" constant="8" symbolic="YES" id="16-00-00-02-00-00--C-00-00-01-01"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Accepted" firstAttribute="centerY" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView" secondAttribute="centerY" id="16-00-00-02-00-00--C-00-00-01-02"/>
+                                                <constraint firstItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" firstAttribute="top" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView" secondAttribute="top" constant="20" symbolic="YES" id="16-00-00-02-00-00--C-00-00-01-03"/>
+                                                <constraint firstAttribute="bottom" secondItem="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Conditions" secondAttribute="bottom" constant="20" symbolic="YES" id="16-00-00-02-00-00--C-00-00-02"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1564,7 +1581,6 @@
                     <connections>
                         <outlet property="buttonContainer" destination="Login-Login-view-tableViewSection-02-tableViewCell-00" id="ca9218a1320a954f7690511a1dbd12a6a4a3b9ef7232beb715ceba438f20cfa0"/>
                         <outlet property="buttonLabel" destination="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView-Login" id="0ff8253725f3917bd2cb1ea09e696260f6fd22703a0aa9a42741f1c007fb283c"/>
-                        <outlet property="conditionsAccepted" destination="Login-Login-view-tableViewSection-01-tableViewCell-00-contentView-Accepted" id="961b3b3a7f03f594ff13d7b8bb6a1aa69a55838f75b6daea9f71e5b752bb0a9f"/>
                         <outlet property="email" destination="Login-Login-view-tableViewSection-00-tableViewCell-00-contentView-Email" id="d9ebeab3af2ce5b3fa5b80c6f47b8bbe854fadf5c3ae38b8284b057497e11c1c"/>
                         <outlet property="loader" destination="Login-Login-view-tableViewSection-02-tableViewCell-00-contentView-activityIndicatorView" id="9f59c7dbedaeced85135c8b36c94d3268dd6c362b7256bf446fa67836afd1a78"/>
                         <outlet property="username" destination="Login-Login-view-tableViewSection-00-tableViewCell-01-contentView-Username" id="e8460bffe0a5872f8c9ab2aad867c80c92bb4a4cd937bd508170f01324323d1e"/>

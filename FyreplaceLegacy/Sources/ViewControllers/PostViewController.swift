@@ -1,5 +1,5 @@
+import Combine
 import GRPC
-import ReactiveSwift
 import SDWebImage
 import UIKit
 
@@ -31,6 +31,7 @@ class PostViewController: ItemRandomAccessListViewController {
     private var errored = false
     private lazy var currentUserIsAdmin = (currentProfile?.rank ?? .citizen) > .citizen
     private var savedComment = ""
+    private var cancellables = Set<AnyCancellable>()
 
     override var additionNotifications: [Notification.Name] {
         [FPComment.wasCreatedNotification]
@@ -44,20 +45,21 @@ class PostViewController: ItemRandomAccessListViewController {
         super.viewDidLoad()
         tableView.register(.init(nibName: "LoadingCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "Loader")
         tableView.register(.init(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: "Comment")
-        vm.post.value = post
-        vm.subscribed.value = post.isSubscribed
-        vm.post.producer
-            .take(during: reactive.lifetime)
-            .startWithValues { [unowned self] in onPost($0) }
-        vm.subscribed.producer
-            .take(during: reactive.lifetime)
-            .startWithValues { [unowned self] in onSubscribed($0) }
+        vm.post = post
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPComment.wasSavedNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCommentWasSaved($0) }
+        vm.$post
+            .sink { [unowned self] in onPost($0) }
+            .store(in: &cancellables)
+        vm.$post
+            .map(\.isSubscribed)
+            .sink { [unowned self] in onSubscribed($0) }
+            .store(in: &cancellables)
+
+        NotificationCenter.default
+            .publisher(for: FPComment.wasSavedNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onCommentWasSaved($0) }
+            .store(in: &cancellables)
 
         if post.isPreview || post.chapterCount == 0 {
             vm.retrieve(id: post.id)
@@ -76,7 +78,7 @@ class PostViewController: ItemRandomAccessListViewController {
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard (sender as? UIView) == author else { return true }
-        let author = vm.post.value.isAnonymous ? FPProfile() : vm.post.value.author
+        let author = vm.post.isAnonymous ? FPProfile() : vm.post.author
         return author.isAvailable
     }
 
@@ -86,40 +88,40 @@ class PostViewController: ItemRandomAccessListViewController {
         if let sender = sender as? UIView,
            let userNavigationController = segue.destination as? UserNavigationViewController,
            let profile = sender == author
-               ? vm.post.value.author
+               ? vm.post.author
                : vm.comment(at: sender.tag)?.author
         {
             userNavigationController.profile = profile
         } else if let commentNavigationController = segue.destination as? CommentNavigationViewController {
-            commentNavigationController.postId = vm.post.value.id
+            commentNavigationController.postId = vm.post.id
             commentNavigationController.text = savedComment
         }
     }
 
     override func addItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
-        guard reason.userInfo?["postId"] as? Data == vm.post.value.id else { return }
+        guard reason.userInfo?["postId"] as? Data == vm.post.id else { return }
         super.addItem(item, at: indexPath, becauseOf: reason)
         let title = tableView.headerView(forSection: 0)
         title?.textLabel?.text = tableView(tableView, titleForHeaderInSection: 0)
 
         guard reason.userInfo?["byCurrentUser"] as? Bool == true else { return }
         _ = tryShowComment(
-            for: vm.post.value.id,
+            for: vm.post.id,
             at: listDelegate.lister.totalCount - 1,
             selected: false
         )
         savedComment = ""
-        vm.subscribed.value = true
+        vm.post.isSubscribed = true
     }
 
     override func updateItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
-        guard reason.userInfo?["postId"] as? Data == vm.post.value.id else { return }
+        guard reason.userInfo?["postId"] as? Data == vm.post.id else { return }
         super.updateItem(item, at: indexPath, becauseOf: reason)
     }
 
     @IBAction
     func onSharePressed() {
-        let provider = PostActivityItemProvider(post: vm.post.value)
+        let provider = PostActivityItemProvider(post: vm.post)
         let activityController = UIActivityViewController(activityItems: [provider], applicationActivities: nil)
         present(activityController, animated: true)
     }
@@ -153,7 +155,7 @@ class PostViewController: ItemRandomAccessListViewController {
     }
 
     func tryShowComment(for postId: Data, at position: Int, selected: Bool = true) -> Bool {
-        guard postId == vm.post.value.id else { return false }
+        guard postId == vm.post.id else { return false }
         var oldPosition: Int?
 
         if selected {
@@ -169,7 +171,7 @@ class PostViewController: ItemRandomAccessListViewController {
     }
 
     func tryHandleCommentCreation(for postId: Data) -> Bool {
-        guard postId == vm.post.value.id else { return false }
+        guard postId == vm.post.id else { return false }
         let position = tableView.indexPathsForVisibleRows?.last?.row ?? -1
 
         if position == vm.lister.totalCount - 1 {
@@ -182,7 +184,7 @@ class PostViewController: ItemRandomAccessListViewController {
     }
 
     func showUnreadComments() {
-        let commentsRead = Int(vm.post.value.commentsRead)
+        let commentsRead = Int(vm.post.commentsRead)
         guard commentsRead > 0 else { return }
         showComment(at: commentsRead, insteadOf: nil)
     }
@@ -257,13 +259,13 @@ class PostViewController: ItemRandomAccessListViewController {
     }
 
     private func isCommentHighlighted(at position: Int) -> Bool {
-        return vm.post.value.isSubscribed && position >= vm.post.value.commentsRead
+        return vm.post.isSubscribed && position >= vm.post.commentsRead
     }
 }
 
 extension PostViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return vm.post.value.isPreview ? 0 : super.numberOfSections(in: tableView)
+        return vm.post.isPreview ? 0 : super.numberOfSections(in: tableView)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -274,7 +276,7 @@ extension PostViewController {
 
             if let selectedComment {
                 showComment(at: selectedComment, insteadOf: nil)
-            } else if vm.post.value.commentsRead > 0 {
+            } else if vm.post.commentsRead > 0 {
                 showUnreadComments()
             }
         }
@@ -296,7 +298,7 @@ extension PostViewController {
             cell.setup(
                 withComment: comment,
                 at: indexPath.row,
-                isPostAuthor: vm.post.value.author.id == comment.author.id,
+                isPostAuthor: vm.post.author.id == comment.author.id,
                 isSelected: indexPath.row == selectedComment,
                 isHighlighted: isCommentHighlighted(at: indexPath.row)
             )
@@ -314,7 +316,7 @@ extension PostViewController {
 
         if indexPath.row == selectedComment {
             showComment(at: indexPath.row, insteadOf: nil)
-        } else if indexPath.row == vm.post.value.commentsRead, vm.post.value.commentsRead > 0 {
+        } else if indexPath.row == vm.post.commentsRead, vm.post.commentsRead > 0 {
             showUnreadComments()
         }
     }
@@ -329,7 +331,7 @@ extension PostViewController {
             style: .normal,
             title: .tr("Post.Comment.Menu.Action.Share")
         ) { [self] _, _, completion in
-            let provider = CommentActivityItemProvider(post: vm.post.value, comment: comment, at: indexPath.row)
+            let provider = CommentActivityItemProvider(post: vm.post, comment: comment, at: indexPath.row)
             let activityController = UIActivityViewController(activityItems: [provider], applicationActivities: nil)
             present(activityController, animated: true)
             completion(true)
@@ -365,8 +367,8 @@ extension PostViewController {
 extension PostViewController: PostViewModelDelegate {
     override func itemRandomAccessLister(_ itemLister: ItemRandomAccessListerProtocol, didFetch count: Int, at position: Int, oldTotal: Int, newTotal: Int) {
         if oldTotal == 0,
-           vm.post.value.commentsRead > 0,
-           vm.post.value.commentsRead < vm.lister.totalCount
+           vm.post.commentsRead > 0,
+           vm.post.commentsRead < vm.lister.totalCount
         {
             shouldScrollToComment = true
         }
@@ -391,7 +393,7 @@ extension PostViewController: PostViewModelDelegate {
                 ? FPPost.wasSubscribedToNotification
                 : FPPost.wasUnsubscribedFromNotification,
             object: self,
-            userInfo: ["item": vm.post.value.makePreview()]
+            userInfo: ["item": vm.post.makePreview()]
         )
     }
 
@@ -403,7 +405,7 @@ extension PostViewController: PostViewModelDelegate {
         NotificationCenter.default.post(
             name: FPPost.wasDeletedNotification,
             object: self,
-            userInfo: ["item": vm.post.value.makePreview()]
+            userInfo: ["item": vm.post.makePreview()]
         )
 
         DispatchQueue.main.async {
@@ -421,7 +423,7 @@ extension PostViewController: PostViewModelDelegate {
         NotificationCenter.default.post(
             name: FPComment.wasDeletedNotification,
             object: self,
-            userInfo: ["item": comment, "postId": vm.post.value.id, "_completionHandler": handler]
+            userInfo: ["item": comment, "postId": vm.post.id, "_completionHandler": handler]
         )
     }
 
