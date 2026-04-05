@@ -20,11 +20,6 @@ class FeedViewModel: ViewModel {
                     delegate?.feedViewModel(self, didUpdatePostAtPosition: position)
                 }
             } else {
-                while posts.count >= 3 {
-                    posts.remove(at: 0)
-                    delegate?.feedViewModel(self, didDismissPostAtPosition: 0)
-                }
-                
                 posts += [post]
                 delegate?.feedViewModel(self, didReceivePostAtPosition: posts.count - 1)
             }
@@ -34,11 +29,12 @@ class FeedViewModel: ViewModel {
 
     func stopListing() {
         _ = stream?.sendEnd()
+        posts = []
+        delegate?.didRemoveAllPosts(self)
     }
 
     func refresh() {
         stopListing()
-        posts = []
         startListing()
     }
 
@@ -62,6 +58,8 @@ protocol FeedViewModelDelegate: ViewModelDelegate {
     func feedViewModel(_ viewModel: FeedViewModel, didUpdatePostAtPosition position: Int)
 
     func feedViewModel(_ viewModel: FeedViewModel, didDismissPostAtPosition position: Int)
+
+    func didRemoveAllPosts(_ viewModel: FeedViewModel)
 
     func didFinishListing(_ viewModel: FeedViewModel)
 }

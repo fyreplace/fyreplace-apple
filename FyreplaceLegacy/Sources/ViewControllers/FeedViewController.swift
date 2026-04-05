@@ -72,7 +72,6 @@ class FeedViewController: UITableViewController {
     }
 
     private func onRefresh() {
-        setupHelp()
         postCount = 0
         tableView.reloadData()
         vm.refresh()
@@ -95,6 +94,7 @@ class FeedViewController: UITableViewController {
         else { return }
 
         isAuthenticated = connected
+        setupHelp()
         onRefresh()
     }
 
@@ -142,8 +142,9 @@ extension FeedViewController: FeedViewModelDelegate {
     }
 
     func feedViewModel(_ viewModel: FeedViewModel, didUpdatePostAtPosition position: Int) {
-        DispatchQueue.main.async {
-            self.tableView.reloadRows(at: .init(row: position, section: 0), with: .automatic)
+        DispatchQueue.main.async { [self] in
+            tableView.reloadRows(at: .init(row: position, section: 0), with: .automatic)
+            stopRefreshing()
         }
     }
 
@@ -151,6 +152,13 @@ extension FeedViewController: FeedViewModelDelegate {
         DispatchQueue.main.async { [self] in
             postCount -= 1
             tableView.deleteRows(at: .init(row: position, section: 0), with: .automatic)
+        }
+    }
+
+    func didRemoveAllPosts(_ viewModel: FeedViewModel) {
+        DispatchQueue.main.async { [self] in
+            postCount = 0
+            tableView.reloadData()
         }
     }
 
