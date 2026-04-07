@@ -7,21 +7,27 @@ class FeedViewModel: ViewModel {
 
     private var stream: BidirectionalStreamingCall<FPVote, FPPost>?
     private var posts: [FPPost] = []
+    private var stalePostIds = Set<Data>()
 
     func post(at position: Int) -> FPPost? {
         return posts[position, default: nil]
     }
 
     func startListing() {
+        stalePostIds = .init(posts.map(\.id))
         stream = postService.listFeed { [self] post in
             if let position = posts.firstIndex(where: { $0.id == post.id }) {
                 if post != posts[position] {
                     posts[position] = post
                     delegate?.feedViewModel(self, didUpdatePostAtPosition: position)
                 }
+
+                stalePostIds.remove(post.id)
+                pruneStalePosts(before: position)
             } else {
-                posts += [post]
+                posts.append(post)
                 delegate?.feedViewModel(self, didReceivePostAtPosition: posts.count - 1)
+                pruneStalePosts(before: posts.count)
             }
         }
         stream!.status.whenComplete { [self] _ in delegate?.didFinishListing(self) }
@@ -29,12 +35,12 @@ class FeedViewModel: ViewModel {
 
     func stopListing() {
         _ = stream?.sendEnd()
-        posts = []
-        delegate?.didRemoveAllPosts(self)
     }
 
     func refresh() {
         stopListing()
+        posts.removeAll()
+        delegate?.didDismissAllPosts(self)
         startListing()
     }
 
@@ -49,6 +55,13 @@ class FeedViewModel: ViewModel {
             delegate?.feedViewModel(self, didDismissPostAtPosition: position)
         }
     }
+
+    private func pruneStalePosts(before index: Int) {
+        for i in (0 ..< index).reversed() where stalePostIds.contains(posts[i].id) {
+            stalePostIds.remove(posts.remove(at: i).id)
+            delegate?.feedViewModel(self, didDismissPostAtPosition: i)
+        }
+    }
 }
 
 @objc
@@ -59,7 +72,7 @@ protocol FeedViewModelDelegate: ViewModelDelegate {
 
     func feedViewModel(_ viewModel: FeedViewModel, didDismissPostAtPosition position: Int)
 
-    func didRemoveAllPosts(_ viewModel: FeedViewModel)
+    func didDismissAllPosts(_ viewModel: FeedViewModel)
 
     func didFinishListing(_ viewModel: FeedViewModel)
 }

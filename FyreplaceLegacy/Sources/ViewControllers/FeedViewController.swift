@@ -72,8 +72,6 @@ class FeedViewController: UITableViewController {
     }
 
     private func onRefresh() {
-        postCount = 0
-        tableView.reloadData()
         vm.refresh()
     }
 
@@ -155,7 +153,7 @@ extension FeedViewController: FeedViewModelDelegate {
         }
     }
 
-    func didRemoveAllPosts(_ viewModel: FeedViewModel) {
+    func didDismissAllPosts(_ viewModel: FeedViewModel) {
         DispatchQueue.main.async { [self] in
             postCount = 0
             tableView.reloadData()
