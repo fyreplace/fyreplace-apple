@@ -112,6 +112,8 @@ class PostViewController: ItemRandomAccessListViewController {
         )
         savedComment = ""
         vm.post.isSubscribed = true
+        vm.post.commentsRead = vm.post.commentCount
+        vm.post.commentCount += 1
     }
 
     override func updateItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {

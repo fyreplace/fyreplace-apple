@@ -103,7 +103,8 @@ class PostViewModel: ViewModel {
     }
 
     private func onUpdateSubscription(_ subscribed: Bool) {
-        self.post.isSubscribed = subscribed
+        post.isSubscribed = subscribed
+        post.commentsRead = subscribed ? post.commentCount : 0
         delegate?.postViewModel(self, didUpdate: post.id, subscribed: subscribed)
     }
 }
