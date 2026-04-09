@@ -30,7 +30,10 @@ class FeedViewModel: ViewModel {
                 pruneStalePosts(before: posts.count)
             }
         }
-        stream!.status.whenComplete { [self] _ in delegate?.didFinishListing(self) }
+        stream!.status.whenComplete { [self] _ in
+            pruneStalePosts(before: posts.count)
+            delegate?.didFinishListing(self)
+        }
     }
 
     func stopListing() {
