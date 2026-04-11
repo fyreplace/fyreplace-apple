@@ -738,7 +738,10 @@
 				FYREPLACE_API_HOST_DEV = dev.api.fyreplace.app;
 				FYREPLACE_API_HOST_LOCAL = localhost;
 				FYREPLACE_API_HOST_MAIN = api.fyreplace.app;
-				FYREPLACE_API_PORT = 50051;
+				FYREPLACE_API_PORT_DEFAULT_KEY = FPApiPortLocal;
+				FYREPLACE_API_PORT_DEV = 443;
+				FYREPLACE_API_PORT_LOCAL = 50051;
+				FYREPLACE_API_PORT_MAIN = 443;
 				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FyreplaceLegacy/Config/Info.plist;
@@ -780,7 +783,10 @@
 				FYREPLACE_API_HOST_DEV = dev.api.fyreplace.app;
 				FYREPLACE_API_HOST_LOCAL = localhost;
 				FYREPLACE_API_HOST_MAIN = api.fyreplace.app;
-				FYREPLACE_API_PORT = 50051;
+				FYREPLACE_API_PORT_DEFAULT_KEY = FPApiPortMain;
+				FYREPLACE_API_PORT_DEV = 443;
+				FYREPLACE_API_PORT_LOCAL = 50051;
+				FYREPLACE_API_PORT_MAIN = 443;
 				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FyreplaceLegacy/Config/Info.plist;

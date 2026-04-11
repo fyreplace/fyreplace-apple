@@ -28,9 +28,15 @@ class Rpc: NSObject {
     private func makeChannel() -> ClientConnection {
         let hostKey = UserDefaults.standard.string(forKey: "app:environment") ?? Bundle.main.apiDefaultHostKey
         let host = Bundle.main.getString(hostKey)
+        let port = switch host {
+        case Bundle.main.apiHostLocal: Bundle.main.apiPortLocal
+        case Bundle.main.apiHostDev: Bundle.main.apiPortDev
+        case Bundle.main.apiHostMain: Bundle.main.apiPortMain
+        default: 0
+        }
         let builder = host == Bundle.main.apiHostLocal
             ? ClientConnection.insecure(group: group)
             : ClientConnection.usingPlatformAppropriateTLS(for: group)
-        return builder.connect(host: host, port: Bundle.main.apiPort)
+        return builder.connect(host: host, port: port)
     }
 }
