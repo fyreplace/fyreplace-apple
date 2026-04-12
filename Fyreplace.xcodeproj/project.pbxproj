@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 90;
+	objectVersion = 100;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -340,7 +340,7 @@
 				4D926DBF2E36488800A406D1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				4D926DC32E36489B00A406D1 /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
 			);
-			preferredProjectObjectVersion = 90;
+			preferredProjectObjectVersion = 100;
 			productRefGroup = 4D54C9292BF2608A001DE071 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
