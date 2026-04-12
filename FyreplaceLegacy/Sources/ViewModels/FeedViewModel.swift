@@ -42,8 +42,6 @@ class FeedViewModel: ViewModel {
 
     func refresh() {
         stopListing()
-        posts.removeAll()
-        delegate?.didDismissAllPosts(self)
         startListing()
     }
 
@@ -74,8 +72,6 @@ protocol FeedViewModelDelegate: ViewModelDelegate {
     func feedViewModel(_ viewModel: FeedViewModel, didUpdatePostAtPosition position: Int)
 
     func feedViewModel(_ viewModel: FeedViewModel, didDismissPostAtPosition position: Int)
-
-    func didDismissAllPosts(_ viewModel: FeedViewModel)
 
     func didFinishListing(_ viewModel: FeedViewModel)
 }

@@ -9,7 +9,7 @@ class FeedViewController: UITableViewController {
     @IBOutlet
     var help: UIBarButtonItem!
 
-    private var postCount = 0
+    private var posts: [FPPost] = []
     private var isAuthenticated = false
     private var cancellables = Set<AnyCancellable>()
 
@@ -57,7 +57,7 @@ class FeedViewController: UITableViewController {
            let cell = sender as? UITableViewCell,
            let position = tableView.indexPath(for: cell)?.row
         {
-            postController.post = vm.post(at: position)
+            postController.post = posts[position]
         }
     }
 
@@ -103,18 +103,18 @@ class FeedViewController: UITableViewController {
 
 extension FeedViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableView.backgroundView = postCount == 0 ? emptyPlaceholder : nil
-        return postCount
+        tableView.backgroundView = posts.count == 0 ? emptyPlaceholder : nil
+        return posts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let post = vm.post(at: indexPath.row)
+        let post = posts[indexPath.row]
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: post?.chapters.first?.text.isEmpty ?? false ? "Image" : "Text",
+            withIdentifier: post.chapters.first?.text.isEmpty ?? false ? "Image" : "Text",
             for: indexPath
         )
 
-        guard let cell = cell as? FeedTableViewCell, let post else { return cell }
+        guard let cell = cell as? FeedTableViewCell else { return cell }
         cell.delegate = self
         cell.setup(withPost: post)
         return cell
@@ -132,15 +132,18 @@ extension FeedViewController: FeedViewModelDelegate {
     }
 
     func feedViewModel(_ viewModel: FeedViewModel, didReceivePostAtPosition position: Int) {
+        guard let post = vm.post(at: position) else { return }
         DispatchQueue.main.async { [self] in
-            postCount += 1
+            posts.append(post)
             tableView.insertRows(at: .init(row: position, section: 0), with: .automatic)
             stopRefreshing()
         }
     }
 
     func feedViewModel(_ viewModel: FeedViewModel, didUpdatePostAtPosition position: Int) {
+        guard let post = vm.post(at: position) else { return }
         DispatchQueue.main.async { [self] in
+            posts[position] = post
             tableView.reloadRows(at: .init(row: position, section: 0), with: .automatic)
             stopRefreshing()
         }
@@ -148,15 +151,8 @@ extension FeedViewController: FeedViewModelDelegate {
 
     func feedViewModel(_ viewModel: FeedViewModel, didDismissPostAtPosition position: Int) {
         DispatchQueue.main.async { [self] in
-            postCount -= 1
+            posts.remove(at: position)
             tableView.deleteRows(at: .init(row: position, section: 0), with: .automatic)
-        }
-    }
-
-    func didDismissAllPosts(_ viewModel: FeedViewModel) {
-        DispatchQueue.main.async { [self] in
-            postCount = 0
-            tableView.reloadData()
         }
     }
 
