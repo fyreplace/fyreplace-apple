@@ -1,4 +1,4 @@
-import ReactiveSwift
+import Combine
 import UIKit
 
 class ItemListViewController: BaseListViewController {
@@ -7,30 +7,30 @@ class ItemListViewController: BaseListViewController {
     @IBOutlet
     var emptyPlaceholder: UILabel!
 
+    private var refresh: UIRefreshControl?
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         listViewDelegate = self
+        refresh = refreshControl
 
-        refreshControl?.reactive.controlEvents(.valueChanged)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in onRefresh() }
+        NotificationCenter.default
+            .publisher(for: UIApplication.didBecomeActiveNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onApplicationDidBecomeActive($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: UIApplication.didBecomeActiveNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onApplicationDidBecomeActive($0) }
-
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentDidChangeNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCurrentUserDidChange($0) }
+        NotificationCenter.default
+            .publisher(for: FPUser.currentDidChangeNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onCurrentUserDidChange($0) }
+            .store(in: &cancellables)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        refreshControl = currentUser != nil ? refresh : nil
         fillIfEmpty()
     }
 
@@ -53,6 +53,11 @@ class ItemListViewController: BaseListViewController {
     override func removeItem(_ item: Any, at indexPath: IndexPath, becauseOf reason: Notification) {
         listDelegate.lister.remove(at: indexPath.row)
         super.removeItem(item, at: indexPath, becauseOf: reason)
+    }
+
+    @IBAction
+    func onRefreshControlValueChanged(_ sender: UIRefreshControl) {
+        onRefresh()
     }
 
     func resetListing() {
@@ -79,10 +84,17 @@ class ItemListViewController: BaseListViewController {
 
     private func onCurrentUserDidChange(_ notification: Notification) {
         guard let info = notification.userInfo,
-              let connected = info["connected"] as? Bool,
-              !connected
+              let connected = info["connected"] as? Bool
         else { return }
-        resetListing()
+
+        refreshControl = connected ? refresh : nil
+
+        if connected {
+            refreshControl = refresh
+        } else {
+            refreshControl = nil
+            resetListing()
+        }
     }
 
     private func fillIfEmpty() {

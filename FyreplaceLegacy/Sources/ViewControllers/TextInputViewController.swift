@@ -1,4 +1,4 @@
-import ReactiveSwift
+import Combine
 import UIKit
 
 class TextInputViewController: UIViewController {
@@ -10,16 +10,27 @@ class TextInputViewController: UIViewController {
     var textInputViewModel: TextInputViewModel! { nil }
     var maxContentLength: Int { 0 }
 
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let maxLength = maxContentLength
-        done.reactive.isEnabled <~ textInputViewModel.isLoading.negate()
-        navigationItem.reactive.title <~ textInputViewModel.text.map {
-            String.localizedStringWithFormat(
-                .tr("TextInput.Length." + ($0.count <= maxLength ? "Ok" : "TooLong")), $0.count,
-                maxLength
-            )
-        }
+
+        textInputViewModel.isLoadingPublisher
+            .map { !$0 }
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: done)
+            .store(in: &cancellables)
+        textInputViewModel.textPublisher
+            .map {
+                String.localizedStringWithFormat(
+                    .tr("TextInput.Length." + ($0.count <= maxLength ? "Ok" : "TooLong")), $0.count,
+                    maxLength
+                )
+            }
+            .receive(on: RunLoop.main)
+            .assign(to: \.title, on: navigationItem)
+            .store(in: &cancellables)
     }
 
     override func viewDidAppear(_ animated: Bool) {

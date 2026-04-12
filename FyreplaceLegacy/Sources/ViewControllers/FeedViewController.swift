@@ -1,5 +1,4 @@
-import ReactiveCocoa
-import ReactiveSwift
+import Combine
 import UIKit
 
 class FeedViewController: UITableViewController {
@@ -10,8 +9,9 @@ class FeedViewController: UITableViewController {
     @IBOutlet
     var help: UIBarButtonItem!
 
-    private var postCount = 0
+    private var posts: [FPPost] = []
     private var isAuthenticated = false
+    private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,28 +21,23 @@ class FeedViewController: UITableViewController {
         isAuthenticated = currentUser != nil
         setupHelp()
 
-        refreshControl?.reactive.controlEvents(.valueChanged)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in onRefresh() }
+        NotificationCenter.default
+            .publisher(for: UIApplication.willEnterForegroundNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onApplicationWillEnterForeground($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: UIApplication.willEnterForegroundNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onApplicationWillEnterForeground($0) }
+        NotificationCenter.default
+            .publisher(for: UIApplication.didEnterBackgroundNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onApplicationDidEnterBackground($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: UIApplication.didEnterBackgroundNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onApplicationDidEnterBackground($0) }
-
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentDidChangeNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCurrentUserDidChange($0) }
+        NotificationCenter.default
+            .publisher(for: FPUser.currentDidChangeNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onCurrentUserDidChange($0) }
+            .store(in: &cancellables)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -62,7 +57,7 @@ class FeedViewController: UITableViewController {
            let cell = sender as? UITableViewCell,
            let position = tableView.indexPath(for: cell)?.row
         {
-            postController.post = vm.post(at: position)
+            postController.post = posts[position]
         }
     }
 
@@ -71,10 +66,12 @@ class FeedViewController: UITableViewController {
         presentBasicAlert(text: "Feed.Help")
     }
 
+    @IBAction
+    func onRefreshValueChanged(_ sender: UIRefreshControl) {
+        onRefresh()
+    }
+
     private func onRefresh() {
-        setupHelp()
-        postCount = 0
-        tableView.reloadData()
         vm.refresh()
     }
 
@@ -95,6 +92,7 @@ class FeedViewController: UITableViewController {
         else { return }
 
         isAuthenticated = connected
+        setupHelp()
         onRefresh()
     }
 
@@ -105,18 +103,18 @@ class FeedViewController: UITableViewController {
 
 extension FeedViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableView.backgroundView = postCount == 0 ? emptyPlaceholder : nil
-        return postCount
+        tableView.backgroundView = posts.count == 0 ? emptyPlaceholder : nil
+        return posts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let post = vm.post(at: indexPath.row)
+        let post = posts[indexPath.row]
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: post?.chapters.first?.text.isEmpty ?? false ? "Image" : "Text",
+            withIdentifier: post.chapters.first?.text.isEmpty ?? false ? "Image" : "Text",
             for: indexPath
         )
 
-        guard let cell = cell as? FeedTableViewCell, let post else { return cell }
+        guard let cell = cell as? FeedTableViewCell else { return cell }
         cell.delegate = self
         cell.setup(withPost: post)
         return cell
@@ -134,22 +132,26 @@ extension FeedViewController: FeedViewModelDelegate {
     }
 
     func feedViewModel(_ viewModel: FeedViewModel, didReceivePostAtPosition position: Int) {
+        guard let post = vm.post(at: position) else { return }
         DispatchQueue.main.async { [self] in
-            postCount += 1
+            posts.append(post)
             tableView.insertRows(at: .init(row: position, section: 0), with: .automatic)
             stopRefreshing()
         }
     }
 
     func feedViewModel(_ viewModel: FeedViewModel, didUpdatePostAtPosition position: Int) {
-        DispatchQueue.main.async {
-            self.tableView.reloadRows(at: .init(row: position, section: 0), with: .automatic)
+        guard let post = vm.post(at: position) else { return }
+        DispatchQueue.main.async { [self] in
+            posts[position] = post
+            tableView.reloadRows(at: .init(row: position, section: 0), with: .automatic)
+            stopRefreshing()
         }
     }
 
     func feedViewModel(_ viewModel: FeedViewModel, didDismissPostAtPosition position: Int) {
         DispatchQueue.main.async { [self] in
-            postCount -= 1
+            posts.remove(at: position)
             tableView.deleteRows(at: .init(row: position, section: 0), with: .automatic)
         }
     }

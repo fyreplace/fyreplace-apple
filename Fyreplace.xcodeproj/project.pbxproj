@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 90;
+	objectVersion = 100;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,6 @@
 		4D13AF622C482F1C00845FDB /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 4D13AF612C482F1C00845FDB /* OpenAPIRuntime */; };
 		4D13AF652C482F4500845FDB /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = 4D13AF642C482F4500845FDB /* OpenAPIURLSession */; };
 		4D926DAC2E3647F900A406D1 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 4D926DAB2E3647F900A406D1 /* GRPC */; };
-		4D926DBD2E36486E00A406D1 /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4D926DBC2E36486E00A406D1 /* ReactiveCocoa */; };
 		4D926DC12E36488800A406D1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4D926DC02E36488800A406D1 /* SDWebImage */; };
 		4D926DC52E36489B00A406D1 /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 4D926DC42E36489B00A406D1 /* SDWebImageWebPCoder */; };
 		4DF91AA42E3BFEF600CCB53E /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4DF91AA32E3BFEF600CCB53E /* SentrySwiftUI */; };
@@ -153,7 +152,6 @@
 				4D926DC52E36489B00A406D1 /* SDWebImageWebPCoder in Frameworks */,
 				4DF91AA82E3BFEF600CCB53E /* OpenAPIURLSession in Frameworks */,
 				4DF91AA62E3BFEF600CCB53E /* OpenAPIRuntime in Frameworks */,
-				4D926DBD2E36486E00A406D1 /* ReactiveCocoa in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -288,7 +286,6 @@
 			name = FyreplaceLegacy;
 			packageProductDependencies = (
 				4D926DAB2E3647F900A406D1 /* GRPC */,
-				4D926DBC2E36486E00A406D1 /* ReactiveCocoa */,
 				4D926DC02E36488800A406D1 /* SDWebImage */,
 				4D926DC42E36489B00A406D1 /* SDWebImageWebPCoder */,
 				4DF91AA32E3BFEF600CCB53E /* SentrySwiftUI */,
@@ -340,11 +337,10 @@
 				4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */,
 				4D926DA82E3647F900A406D1 /* XCRemoteSwiftPackageReference "grpc-swift" */,
 				4D926DB22E36481D00A406D1 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
-				4D926DBB2E36486E00A406D1 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
 				4D926DBF2E36488800A406D1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				4D926DC32E36489B00A406D1 /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
 			);
-			preferredProjectObjectVersion = 90;
+			preferredProjectObjectVersion = 100;
 			productRefGroup = 4D54C9292BF2608A001DE071 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -742,11 +738,14 @@
 				FYREPLACE_API_HOST_DEV = dev.api.fyreplace.app;
 				FYREPLACE_API_HOST_LOCAL = localhost;
 				FYREPLACE_API_HOST_MAIN = api.fyreplace.app;
-				FYREPLACE_API_PORT = 50051;
+				FYREPLACE_API_PORT_DEV = 443;
+				FYREPLACE_API_PORT_LOCAL = 50051;
+				FYREPLACE_API_PORT_MAIN = 443;
 				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FyreplaceLegacy/Config/Info.plist;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) uses the camera to add pictures to posts, or to change your avatar.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -783,11 +782,14 @@
 				FYREPLACE_API_HOST_DEV = dev.api.fyreplace.app;
 				FYREPLACE_API_HOST_LOCAL = localhost;
 				FYREPLACE_API_HOST_MAIN = api.fyreplace.app;
-				FYREPLACE_API_PORT = 50051;
+				FYREPLACE_API_PORT_DEV = 443;
+				FYREPLACE_API_PORT_LOCAL = 50051;
+				FYREPLACE_API_PORT_MAIN = 443;
 				FYREPLACE_LINK_HOSTS = "fyreplace.app;fyreplace.link";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FyreplaceLegacy/Config/Info.plist;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) uses the camera to add pictures to posts, or to change your avatar.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -865,15 +867,17 @@
 			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.8.0;
+				minimumVersion = 9.10.0;
 			};
+			traits = (
+			);
 		};
 		4D13AF5F2C482F0100845FDB /* XCRemoteSwiftPackageReference "swift-openapi-generator" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-openapi-generator.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.11.0;
+				minimumVersion = 1.11.1;
 			};
 		};
 		4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */ = {
@@ -906,14 +910,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.36.1;
-			};
-		};
-		4D926DBB2E36486E00A406D1 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveCocoa.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.0.0;
 			};
 		};
 		4D926DBF2E36488800A406D1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
@@ -959,11 +955,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4D926DA82E3647F900A406D1 /* XCRemoteSwiftPackageReference "grpc-swift" */;
 			productName = GRPC;
-		};
-		4D926DBC2E36486E00A406D1 /* ReactiveCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4D926DBB2E36486E00A406D1 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */;
-			productName = ReactiveCocoa;
 		};
 		4D926DC02E36488800A406D1 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;

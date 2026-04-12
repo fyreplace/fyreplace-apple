@@ -1,34 +1,35 @@
+import Combine
 import Foundation
-import ReactiveSwift
 
 class TextChapterViewModel: ViewModel, TextInputViewModel {
     @IBOutlet
     weak var delegate: TextChapterViewModelDelegate?
 
-    var text: MutableProperty<String> { chapterText }
-    let isLoading = MutableProperty(false)
-    let chapterText = MutableProperty("")
+    var textPublisher: AnyPublisher<String, Never> { $chapterText.eraseToAnyPublisher() }
+    var isLoadingPublisher: AnyPublisher<Bool, Never> { $isLoading.eraseToAnyPublisher() }
 
-    func setInitialChapterText(_ text: String) {
-        chapterText.value = text
-    }
+    @Published
+    var chapterText = ""
+
+    @Published
+    private(set) var isLoading = false
 
     func updateChapter(for postId: Data, at position: Int) {
-        isLoading.value = true
+        isLoading = true
         let request = FPChapterTextUpdate.with {
             $0.location = .with {
                 $0.postID = postId
                 $0.position = UInt32(position)
             }
-            $0.text = chapterText.value
+            $0.text = chapterText
         }
         let response = chapterService.updateText(request).response
-        response.whenSuccess { _ in self.delegate?.textChapterViewModel(self, didUpdateAtPosition: position, withText: self.chapterText.value) }
+        response.whenSuccess { _ in self.delegate?.textChapterViewModel(self, didUpdateAtPosition: position, withText: self.chapterText) }
         response.whenFailure { self.onError($0) }
     }
 
     private func onError(_ error: Error) {
-        isLoading.value = false
+        isLoading = false
         delegate?.viewModel(self, didFailWithError: error)
     }
 }

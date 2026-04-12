@@ -1,10 +1,9 @@
+import Combine
 import GRPC
-import ReactiveCocoa
-import ReactiveSwift
 import UIKit
 
 class CommentViewController: TextInputViewController {
-    override var textInputViewModel: TextInputViewModel! { vm }
+    override var textInputViewModel: TextInputViewModel { vm }
     override var maxContentLength: Int { 1500 }
 
     @IBOutlet
@@ -13,13 +12,21 @@ class CommentViewController: TextInputViewController {
     var postId: Data!
     var text: String!
     private var isDone = false
+    private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         content.text = text
-        done.reactive.isEnabled <~ vm.comment.map(\.isEmpty).negate()
-        vm.comment <~ content.reactive.continuousTextValues.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-        vm.comment.value = text
+
+        content
+            .textPublisher
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .assign(to: &vm.$comment)
+        vm.$comment
+            .map { !$0.isEmpty }
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: done)
+            .store(in: &cancellables)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -27,7 +34,7 @@ class CommentViewController: TextInputViewController {
             NotificationCenter.default.post(
                 name: FPComment.wasSavedNotification,
                 object: self,
-                userInfo: ["text": vm.text.value]
+                userInfo: ["text": vm.comment]
             )
         }
 
@@ -43,7 +50,7 @@ extension CommentViewController: CommentViewModelDelegate {
     func commentViewModel(_ viewModel: CommentViewModel, didCreate id: Data) {
         let comment = FPComment.with {
             $0.id = id
-            $0.text = vm.comment.value
+            $0.text = vm.comment
             $0.author = currentProfile!
             $0.dateCreated = .init(date: .init())
         }

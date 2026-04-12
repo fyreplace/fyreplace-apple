@@ -1,31 +1,30 @@
+import Combine
 import Foundation
-import ReactiveSwift
 
 class PostViewModel: ViewModel {
     @IBOutlet
     weak var delegate: PostViewModelDelegate?
 
-    let post = MutableProperty<FPPost>(FPPost())
-    let subscribed = MutableProperty<Bool>(false)
-    var lister: ItemRandomAccessListerProtocol { commentLister }
+    @Published
+    var post = FPPost()
 
     private lazy var commentLister = ItemRandomAccessLister<FPComment, FPComments, FPCommentServiceNIOClient>(
         delegatingTo: delegate,
         using: self.commentService,
-        contextId: post.value.id
+        contextId: post.id
     )
     private var acknowledgedPosition = -1
 
     func retrieve(id: Data) {
         let request = FPId.with { $0.id = id }
         let response = postService.retrieve(request).response
-        response.whenSuccess(onRetrieve(_:))
+        response.whenSuccess(onRetrieve)
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func updateSubscription(subscribed: Bool) {
         let request = FPSubscription.with {
-            $0.id = post.value.id
+            $0.id = post.id
             $0.subscribed = subscribed
         }
         let response = postService.updateSubscription(request).response
@@ -34,16 +33,16 @@ class PostViewModel: ViewModel {
     }
 
     func report() {
-        let request = FPId.with { $0.id = post.value.id }
+        let request = FPId.with { $0.id = post.id }
         let response = postService.report(request).response
-        response.whenSuccess { _ in self.delegate?.postViewModel(self, didReport: self.post.value.id) }
+        response.whenSuccess { _ in self.delegate?.postViewModel(self, didReport: self.post.id) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
     func delete() {
-        let request = FPId.with { $0.id = post.value.id }
+        let request = FPId.with { $0.id = post.id }
         let response = postService.delete(request).response
-        response.whenSuccess { _ in self.delegate?.postViewModel(self, didDelete: self.post.value.id) }
+        response.whenSuccess { _ in self.delegate?.postViewModel(self, didDelete: self.post.id) }
         response.whenFailure { self.delegate?.viewModel(self, didFailWithError: $0) }
     }
 
@@ -51,7 +50,7 @@ class PostViewModel: ViewModel {
         guard let comment = comment(at: position) else { return }
         let request = FPId.with { $0.id = comment.id }
         let response = commentService.report(request).response
-        response.whenSuccess { _ in self.delegate?.postViewModel(self, didReportCommentAtPosition: position, inside: self.post.value.id) { completion(true) } }
+        response.whenSuccess { _ in self.delegate?.postViewModel(self, didReportCommentAtPosition: position, inside: self.post.id) { completion(true) } }
         response.whenFailure {
             self.delegate?.viewModel(self, didFailWithError: $0)
             completion(false)
@@ -62,7 +61,7 @@ class PostViewModel: ViewModel {
         guard let comment = comment(at: position) else { return }
         let request = FPId.with { $0.id = comment.id }
         let response = commentService.delete(request).response
-        response.whenSuccess { _ in self.delegate?.postViewModel(self, didDeleteCommentAtPosition: position, inside: self.post.value.id) { completion(true) } }
+        response.whenSuccess { _ in self.delegate?.postViewModel(self, didDeleteCommentAtPosition: position, inside: self.post.id) { completion(true) } }
         response.whenFailure {
             self.delegate?.viewModel(self, didFailWithError: $0)
             completion(false)
@@ -80,7 +79,7 @@ class PostViewModel: ViewModel {
             object: self,
             userInfo: [
                 "id": comment.id,
-                "postId": post.value.id,
+                "postId": post.id,
                 "commentsLeft": lister.totalCount - 1 - position,
             ]
         )
@@ -98,19 +97,21 @@ class PostViewModel: ViewModel {
     }
 
     private func onRetrieve(_ post: FPPost) {
-        self.post.value = post
-        subscribed.value = post.isSubscribed
+        self.post = post
         acknowledgedPosition = Int(post.commentsRead) - 1
         delegate?.postViewModel(self, didRetrieve: post.id)
     }
 
     private func onUpdateSubscription(_ subscribed: Bool) {
-        self.subscribed.value = subscribed
-        delegate?.postViewModel(self, didUpdate: post.value.id, subscribed: subscribed)
+        post.isSubscribed = subscribed
+        post.commentsRead = subscribed ? post.commentCount : 0
+        delegate?.postViewModel(self, didUpdate: post.id, subscribed: subscribed)
     }
 }
 
 extension PostViewModel: ItemRandomAccessListViewDelegate {
+    var lister: ItemRandomAccessListerProtocol { commentLister }
+
     func itemRandomAccessListView(_ listViewController: ItemRandomAccessListViewController, itemPreviewTypeAtPosition position: Int) -> String {
         return itemRandomAccessListView(listViewController, hasItemAtPosition: position) ? "Comment" : "Loader"
     }

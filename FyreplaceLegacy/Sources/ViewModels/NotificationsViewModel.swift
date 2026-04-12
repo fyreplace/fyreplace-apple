@@ -1,5 +1,5 @@
+import Combine
 import Foundation
-import ReactiveSwift
 import SwiftProtobuf
 
 class NotificationsViewModel: ViewModel {
@@ -11,21 +11,22 @@ class NotificationsViewModel: ViewModel {
         using: notificationService,
         forward: false
     )
+    private var cancellables = Set<AnyCancellable>()
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPComment.wasSeenNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCommentWasSeen($0) }
+        NotificationCenter.default
+            .publisher(for: FPComment.wasSeenNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onCommentWasSeen($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.didReceiveRemoteNotificationNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onAppDidReceiveRemoteNotification($0) }
+        NotificationCenter.default
+            .publisher(for: AppDelegate.didReceiveRemoteNotificationNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onAppDidReceiveRemoteNotification($0) }
+            .store(in: &cancellables)
     }
 
     func notification(at position: Int) -> FPNotification {

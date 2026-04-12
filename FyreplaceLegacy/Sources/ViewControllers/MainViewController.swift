@@ -1,5 +1,5 @@
+import Combine
 import GRPC
-import ReactiveSwift
 import SDWebImage
 import UIKit
 import UserNotifications
@@ -10,60 +10,61 @@ class MainViewController: UITabBarController {
 
     private var navigationBackTitles: [UIViewController: String?] = [:]
     private var lastHandledUrl: URL?
+    private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.didOpenUrlNotification)
-            .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onAppDidOpenUrl($0) }
+        NotificationCenter.default
+            .publisher(for: AppDelegate.didOpenUrlNotification)
+            .sink { [unowned self] in onAppDidOpenUrl($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.didUpdateRemoteNotificationTokenNotification)
-            .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onAppDidUpdateRemoteNotificationToken($0) }
+        NotificationCenter.default
+            .publisher(for: AppDelegate.didUpdateRemoteNotificationTokenNotification)
+            .sink { [unowned self] in onAppDidUpdateRemoteNotificationToken($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.didReceiveRemoteNotificationNotification)
-            .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onAppDidReceiveRemoteNotification($0) }
+        NotificationCenter.default
+            .publisher(for: AppDelegate.didReceiveRemoteNotificationNotification)
+            .sink { [unowned self] in onAppDidReceiveRemoteNotification($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.didOpenRemoteNotificationNotification)
-            .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onAppDidOpenRemoteNotification($0) }
+        NotificationCenter.default
+            .publisher(for: AppDelegate.didOpenRemoteNotificationNotification)
+            .sink { [unowned self] in onAppDidOpenRemoteNotification($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentDidSendRegistrationEmailNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCurrentUserDidSendRegistrationEmail($0) }
+        NotificationCenter.default
+            .publisher(for: FPUser.currentDidSendRegistrationEmailNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onCurrentUserDidSendRegistrationEmail($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentDidSendConnectionEmailNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCurrentUserDidSendConnectionEmail($0) }
+        NotificationCenter.default
+            .publisher(for: FPUser.currentDidSendConnectionEmailNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onCurrentUserDidSendConnectionEmail($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentDidChangeNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCurrentUserDidChange($0) }
+        NotificationCenter.default
+            .publisher(for: FPUser.currentDidChangeNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onCurrentUserDidChange($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPPost.wasNotFoundNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onPostWasNotFound($0) }
+        NotificationCenter.default
+            .publisher(for: FPPost.wasNotFoundNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onPostWasNotFound($0) }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPComment.wasSeenNotification)
-            .debounce(1, on: QueueScheduler.main)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onCommentWasSeen($0) }
+        NotificationCenter.default
+            .publisher(for: FPComment.wasSeenNotification)
+            .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onCommentWasSeen($0) }
+            .store(in: &cancellables)
 
         vm.tryRetrieveMe()
     }
@@ -115,7 +116,7 @@ class MainViewController: UITabBarController {
             return
         }
 
-        if postId != postController?.vm.post.value.id {
+        if postId != postController?.vm.post.id {
             options.insert(.list)
         }
     }
@@ -216,7 +217,7 @@ class MainViewController: UITabBarController {
                 return
             }
 
-            if postController.vm.post.value.id == postId {
+            if postController.vm.post.id == postId {
                 return postController.showUnreadComments()
             }
         }

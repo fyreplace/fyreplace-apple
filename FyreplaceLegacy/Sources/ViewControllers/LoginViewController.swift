@@ -1,6 +1,5 @@
+import Combine
 import GRPC
-import ReactiveCocoa
-import ReactiveSwift
 import UIKit
 
 class LoginViewController: UITableViewController {
@@ -11,8 +10,6 @@ class LoginViewController: UITableViewController {
     @IBOutlet
     var username: UITextField!
     @IBOutlet
-    var conditionsAccepted: UISwitch!
-    @IBOutlet
     var buttonLabel: UILabel!
     @IBOutlet
     var buttonContainer: UITableViewCell!
@@ -20,20 +17,44 @@ class LoginViewController: UITableViewController {
     var loader: UIActivityIndicatorView!
 
     var isRegistering = true
+    private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        vm.isRegistering.value = isRegistering
-        vm.email <~ email.reactive.continuousTextValues
-        vm.username <~ username.reactive.continuousTextValues
-        vm.conditionsAccepted <~ conditionsAccepted.reactive.isOnValues
-        buttonLabel.reactive.textColor <~ vm.canProceed.map { $0 ? .tintColor : .secondaryLabel }
-        buttonLabel.reactive.isHidden <~ vm.isLoading
-        buttonContainer.reactive.isUserInteractionEnabled <~ vm.canProceed
-        loader.reactive.isAnimating <~ vm.isLoading
+        vm.isRegistering = isRegistering
+
+        vm.$isLoading
+            .receive(on: RunLoop.main)
+            .assign(to: \.isHidden, on: buttonLabel)
+            .store(in: &cancellables)
+        vm.$isLoading
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in
+                if $0 {
+                    loader.startAnimating()
+                } else {
+                    loader.stopAnimating()
+                }
+            }
+            .store(in: &cancellables)
+        vm.canProceedPublisher
+            .map { $0 ? .tintColor : .secondaryLabel }
+            .receive(on: RunLoop.main)
+            .assign(to: \.textColor, on: buttonLabel)
+            .store(in: &cancellables)
+        vm.canProceedPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.isUserInteractionEnabled, on: buttonContainer)
+            .store(in: &cancellables)
+
         navigationItem.title = .tr("Login." + (isRegistering ? "Register" : "Login"))
         email.returnKeyType = isRegistering ? .next : .done
         buttonLabel.text = navigationItem.title
+    }
+
+    @IBAction
+    func onEmailEditingChanged() {
+        vm.email = email.text ?? ""
     }
 
     @IBAction
@@ -46,10 +67,20 @@ class LoginViewController: UITableViewController {
     }
 
     @IBAction
+    func onUsernameEditingChanged() {
+        vm.username = username.text ?? ""
+    }
+
+    @IBAction
     func onUsernameDidEndOnExit() {
         username.resignFirstResponder()
     }
 
+    @IBAction
+    func onConditionsAcceptedValueChanged(_ sender: UISwitch) {
+        vm.conditionsAccepted = sender.isOn
+    }
+    
     private func askPassword() {
         let alert = UIAlertController(
             title: .tr("Login.Password.Title"),
@@ -57,18 +88,22 @@ class LoginViewController: UITableViewController {
             preferredStyle: .alert
         )
         var password = ""
+        var cancellable: AnyCancellable?
         let ok = UIAlertAction(title: .tr("Ok"), style: .default) { _ in
             self.vm.login(with: password)
+            cancellable?.cancel()
         }
-        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
+        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel) { _ in
+            cancellable?.cancel()
+        }
 
         alert.addTextField {
             $0.textContentType = .password
             $0.returnKeyType = .done
             $0.isSecureTextEntry = true
-            $0.reactive.continuousTextValues
-                .take(during: $0.reactive.lifetime)
-                .observeValues {
+            cancellable = $0.textPublisher
+                .compactMap(\.self)
+                .sink {
                     ok.isEnabled = $0.count > 0
                     password = $0
                 }

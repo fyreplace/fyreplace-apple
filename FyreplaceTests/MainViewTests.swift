@@ -2,7 +2,7 @@ import Testing
 
 @testable import Fyreplace
 
-@Suite("")
+@Suite("Main screen")
 @MainActor
 struct MainViewTests {
     class FakeView: FakeScreenBase, MainViewProtocol {

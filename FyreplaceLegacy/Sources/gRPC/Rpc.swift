@@ -1,18 +1,19 @@
+import Combine
 import Foundation
 import GRPC
-import ReactiveSwift
 
 class Rpc: NSObject {
     static let didChangeChannelNotification = Notification.Name("Rpc.channelChange")
-    private let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
     lazy var channel: ClientConnection = makeChannel()
+    private let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
+    private var cancellables = Set<AnyCancellable>()
 
     override init() {
         super.init()
-        NotificationCenter.default.reactive
-            .notifications(forName: AppDelegate.didChangeEnvironmentNotification)
-            .take(during: reactive.lifetime)
-            .observeValues { [unowned self] in onAppDidChangeEnvironment($0) }
+        NotificationCenter.default
+            .publisher(for: AppDelegate.didChangeEnvironmentNotification)
+            .sink { [unowned self] in onAppDidChangeEnvironment($0) }
+            .store(in: &cancellables)
     }
 
     deinit {
@@ -27,9 +28,15 @@ class Rpc: NSObject {
     private func makeChannel() -> ClientConnection {
         let hostKey = UserDefaults.standard.string(forKey: "app:environment") ?? Bundle.main.apiDefaultHostKey
         let host = Bundle.main.getString(hostKey)
+        let port = switch host {
+        case Bundle.main.apiHostLocal: Bundle.main.apiPortLocal
+        case Bundle.main.apiHostDev: Bundle.main.apiPortDev
+        case Bundle.main.apiHostMain: Bundle.main.apiPortMain
+        default: 0
+        }
         let builder = host == Bundle.main.apiHostLocal
             ? ClientConnection.insecure(group: group)
             : ClientConnection.usingPlatformAppropriateTLS(for: group)
-        return builder.connect(host: host, port: Bundle.main.apiPort)
+        return builder.connect(host: host, port: port)
     }
 }

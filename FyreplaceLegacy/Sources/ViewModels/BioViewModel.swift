@@ -1,29 +1,34 @@
+import Combine
 import Foundation
-import ReactiveSwift
 
 class BioViewModel: ViewModel, TextInputViewModel {
     @IBOutlet
     weak var delegate: BioViewModelDelegate?
 
-    var text: MutableProperty<String> { bio }
-    let isLoading = MutableProperty(false)
-    let bio = MutableProperty("")
+    var textPublisher: AnyPublisher<String, Never> { $bio.eraseToAnyPublisher() }
+    var isLoadingPublisher: AnyPublisher<Bool, Never> { $isLoading.eraseToAnyPublisher() }
+
+    @Published
+    var bio = ""
+
+    @Published
+    private(set) var isLoading = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        bio.value = currentUser?.bio ?? ""
+        bio = currentUser?.bio ?? ""
     }
 
     func updateBio() {
-        isLoading.value = true
-        let request = FPBio.with { $0.bio = bio.value }
+        isLoading = true
+        let request = FPBio.with { $0.bio = bio }
         let response = userService.updateBio(request).response
-        response.whenSuccess { _ in self.delegate?.bioViewModel(self, didUpdateBio: self.bio.value) }
+        response.whenSuccess { _ in self.delegate?.bioViewModel(self, didUpdateBio: self.bio) }
         response.whenFailure { self.onError($0) }
     }
 
     private func onError(_ error: Error) {
-        isLoading.value = false
+        isLoading = false
         delegate?.viewModel(self, didFailWithError: error)
     }
 }

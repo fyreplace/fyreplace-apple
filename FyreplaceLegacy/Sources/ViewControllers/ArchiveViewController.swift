@@ -1,4 +1,4 @@
-import ReactiveSwift
+import Combine
 import UIKit
 
 class ArchiveViewController: ItemListViewController {
@@ -14,6 +14,7 @@ class ArchiveViewController: ItemListViewController {
     var dateFormat: DateFormat!
 
     private var isListingAllPosts: Bool { segments.selectedSegmentIndex == 0 }
+    private var cancellables = Set<AnyCancellable>()
 
     override var additionNotifications: [Notification.Name] {
         isListingAllPosts
@@ -32,11 +33,11 @@ class ArchiveViewController: ItemListViewController {
         tableView.register(.init(nibName: "TextPostTableViewCell", bundle: nil), forCellReuseIdentifier: "Text")
         tableView.register(.init(nibName: "ImagePostTableViewCell", bundle: nil), forCellReuseIdentifier: "Image")
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPPost.wasSeenNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] in onPostWasSeen($0) }
+        NotificationCenter.default
+            .publisher(for: FPPost.wasSeenNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] in onPostWasSeen($0) }
+            .store(in: &cancellables)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

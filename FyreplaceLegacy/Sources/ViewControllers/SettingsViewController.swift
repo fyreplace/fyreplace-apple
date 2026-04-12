@@ -1,5 +1,5 @@
+import Combine
 import GRPC
-import ReactiveSwift
 import SDWebImage
 import SwiftProtobuf
 import UIKit
@@ -30,6 +30,7 @@ class SettingsViewController: UITableViewController {
         formatter.timeStyle = .none
         return formatter
     }
+    private var cancellables = Set<AnyCancellable>()
 
     private var canChangeEnvironment: Bool {
         if let hostKey = UserDefaults.standard.string(forKey: "app:environment"),
@@ -44,20 +45,41 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         avatar.sd_imageTransition = .fade
-        avatar.reactive.isUserInteractionEnabled <~ vm.user.map { $0 != nil }
-        username.reactive.text <~ vm.user.map { $0?.profile.username ?? .tr("Settings.Username") }
-        dateJoined.reactive.text <~ vm.user.map(\.?.dateJoined).map { [weak self] dateJoined -> String in
-            guard let dateJoined = dateJoined,
-                  let dateFormatter = self?.dateFormatter
-            else { return "" }
-            return dateFormatter.string(from: dateJoined.date)
-        }
-        email.reactive.text <~ vm.user.map(\.?.email)
-        bio.reactive.text <~ vm.user.map { ($0?.bio.count ?? 0) > 0 ? $0!.bio : .tr("Settings.Bio") }
-        blockedUsers.reactive.text <~ vm.blockedUsers.map { String($0) }
-        vm.user.producer
-            .take(during: reactive.lifetime)
-            .startWithValues { [unowned self] in onUser($0) }
+
+        vm.$user
+            .map { $0 != nil }
+            .receive(on: RunLoop.main)
+            .assign(to: \.isUserInteractionEnabled, on: avatar)
+            .store(in: &cancellables)
+        vm.$user
+            .map { $0?.profile.username ?? .tr("Settings.Username") }
+            .receive(on: RunLoop.main)
+            .assign(to: \.text, on: username)
+            .store(in: &cancellables)
+        vm.$user
+            .compactMap(\.?.dateJoined)
+            .map { [unowned self] dateJoined -> String in dateFormatter.string(from: dateJoined.date) }
+            .receive(on: RunLoop.main)
+            .assign(to: \.text, on: dateJoined)
+            .store(in: &cancellables)
+        vm.$user
+            .map(\.?.email)
+            .receive(on: RunLoop.main)
+            .assign(to: \.text, on: email)
+            .store(in: &cancellables)
+        vm.$user
+            .map { ($0?.bio.count ?? 0) > 0 ? $0!.bio : .tr("Settings.Bio") }
+            .receive(on: RunLoop.main)
+            .assign(to: \.text, on: bio)
+            .store(in: &cancellables)
+        vm.$user
+            .sink { [unowned self] in onUser($0) }
+            .store(in: &cancellables)
+        vm.$blockedUsers
+            .map(String.init)
+            .receive(on: RunLoop.main)
+            .assign(to: \.text, on: blockedUsers)
+            .store(in: &cancellables)
 
         let hostKey = UserDefaults.standard.string(forKey: "app:environment") ?? Bundle.main.apiDefaultHostKey
 
@@ -81,7 +103,7 @@ class SettingsViewController: UITableViewController {
 
     @IBAction
     func onAvatarPressed() {
-        imageSelector.selectImage(canRemove: vm.user.value?.profile.hasAvatar == true, fromView: avatar)
+        imageSelector.selectImage(canRemove: vm.user?.profile.hasAvatar == true, fromView: avatar)
     }
 
     private func onUser(_ user: FPUser?) {
@@ -99,7 +121,7 @@ extension SettingsViewController {
         let count = super.numberOfSections(in: tableView)
         var omitted = 0
 
-        if vm.user.value != nil {
+        if vm.user != nil {
             omitted = 2
         } else if !canChangeEnvironment {
             omitted = 1
@@ -111,7 +133,7 @@ extension SettingsViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if Bundle.main.apiDefaultHostKey != Bundle.apiHostLocalKey,
            section == tableView.numberOfSections - 1,
-           vm.user.value == nil,
+           vm.user == nil,
            canChangeEnvironment
         {
             return super.tableView(tableView, numberOfRowsInSection: section) - 1
@@ -205,7 +227,7 @@ extension SettingsViewController {
 
     private func shouldHide(section: Int) -> Bool {
         guard section >= 0, section < tableView.numberOfSections else { return false }
-        return (vm.user.value == nil) && (section < tableView.numberOfSections - (canChangeEnvironment ? 2 : 1))
+        return (vm.user == nil) && (section < tableView.numberOfSections - (canChangeEnvironment ? 2 : 1))
     }
 
     private func handleAppIconError(_ error: (any Error)?) {
@@ -223,19 +245,21 @@ extension SettingsViewController {
             preferredStyle: .alert
         )
         var newEmail = ""
+        var cancellable: AnyCancellable?
         let update = UIAlertAction(title: .tr("Ok"), style: .default) { _ in
             self.vm.sendEmailUpdateEmail(email: newEmail)
+            cancellable?.cancel()
         }
-        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel)
+        let cancel = UIAlertAction(title: .tr("Cancel"), style: .cancel) { _ in cancellable?.cancel() }
 
         alert.addTextField {
             $0.placeholder = .tr("Settings.EmailChange.TextField.Placeholder")
             $0.textContentType = .emailAddress
             $0.keyboardType = .emailAddress
             $0.returnKeyType = .done
-            $0.reactive.continuousTextValues
-                .take(during: $0.reactive.lifetime)
-                .observeValues {
+            cancellable = $0.textPublisher
+                .compactMap(\.self)
+                .sink {
                     update.isEnabled = $0.count > 0
                     newEmail = $0
                 }

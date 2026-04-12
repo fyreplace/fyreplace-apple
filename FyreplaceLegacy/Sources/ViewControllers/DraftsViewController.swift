@@ -1,5 +1,4 @@
-import ReactiveCocoa
-import ReactiveSwift
+import Combine
 import UIKit
 
 class DraftsViewController: ItemListViewController {
@@ -9,6 +8,7 @@ class DraftsViewController: ItemListViewController {
     var add: UIBarButtonItem!
 
     private var createdPostId = Data()
+    private var cancellables = Set<AnyCancellable>()
 
     override var additionNotifications: [Notification.Name] {
         [FPPost.draftWasCreatedNotification]
@@ -27,7 +27,12 @@ class DraftsViewController: ItemListViewController {
         tableView.register(.init(nibName: "EmptyDraftTableViewCell", bundle: nil), forCellReuseIdentifier: "Empty")
         tableView.register(.init(nibName: "TextDraftTableViewCell", bundle: nil), forCellReuseIdentifier: "Text")
         tableView.register(.init(nibName: "ImageDraftTableViewCell", bundle: nil), forCellReuseIdentifier: "Image")
-        add.reactive.isEnabled <~ vm.isLoading.negate()
+
+        vm.$isLoading
+            .map { !$0 }
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: add)
+            .store(in: &cancellables)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

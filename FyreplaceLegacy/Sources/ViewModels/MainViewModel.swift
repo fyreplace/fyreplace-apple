@@ -1,5 +1,5 @@
+import Combine
 import Foundation
-import ReactiveSwift
 import SwiftProtobuf
 
 class MainViewModel: ViewModel {
@@ -7,33 +7,34 @@ class MainViewModel: ViewModel {
     weak var delegate: MainViewModelDelegate?
 
     private let authToken = KeychainWrapper.authToken
+    private var cancellables = Set<AnyCancellable>()
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentDidConnectNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in retrieveMe() }
+        NotificationCenter.default
+            .publisher(for: FPUser.currentDidConnectNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] _ in retrieveMe() }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.currentShouldBeReloadedNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in retrieveMe() }
+        NotificationCenter.default
+            .publisher(for: FPUser.currentShouldBeReloadedNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] _ in retrieveMe() }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.wasBlockedNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in retrieveMe() }
+        NotificationCenter.default
+            .publisher(for: FPUser.wasBlockedNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] _ in retrieveMe() }
+            .store(in: &cancellables)
 
-        NotificationCenter.default.reactive
-            .notifications(forName: FPUser.wasUnblockedNotification)
-            .take(during: reactive.lifetime)
-            .observe(on: UIScheduler())
-            .observeValues { [unowned self] _ in retrieveMe() }
+        NotificationCenter.default
+            .publisher(for: FPUser.wasUnblockedNotification)
+            .receive(on: RunLoop.main)
+            .sink { [unowned self] _ in retrieveMe() }
+            .store(in: &cancellables)
     }
 
     func confirmActivation(with token: String) {

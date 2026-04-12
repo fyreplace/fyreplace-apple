@@ -1,4 +1,3 @@
-import ReactiveSwift
 import UIKit
 
 class ItemRandomAccessListViewController: BaseListViewController {

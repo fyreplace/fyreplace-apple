@@ -1,19 +1,24 @@
+import Combine
 import Foundation
-import ReactiveSwift
 
 class CommentViewModel: ViewModel, TextInputViewModel {
     @IBOutlet
     weak var delegate: CommentViewModelDelegate?
 
-    var text: MutableProperty<String> { comment }
-    let isLoading = MutableProperty(false)
-    let comment = MutableProperty("")
+    var textPublisher: AnyPublisher<String, Never> { $comment.eraseToAnyPublisher() }
+    var isLoadingPublisher: AnyPublisher<Bool, Never> { $isLoading.eraseToAnyPublisher() }
+
+    @Published
+    var comment = ""
+
+    @Published
+    private(set) var isLoading = false
 
     func create(for postId: Data) {
-        isLoading.value = true
+        isLoading = true
         let request = FPCommentCreation.with {
             $0.postID = postId
-            $0.text = comment.value
+            $0.text = comment
         }
         let response = commentService.create(request).response
         response.whenSuccess { self.delegate?.commentViewModel(self, didCreate: $0.id) }
@@ -21,7 +26,7 @@ class CommentViewModel: ViewModel, TextInputViewModel {
     }
 
     private func onError(_ error: Error) {
-        isLoading.value = false
+        isLoading = false
         delegate?.viewModel(self, didFailWithError: error)
     }
 }

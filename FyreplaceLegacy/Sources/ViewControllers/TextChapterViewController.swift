@@ -1,9 +1,9 @@
+import Combine
 import GRPC
-import ReactiveSwift
 import UIKit
 
 class TextChapterViewController: TextInputViewController {
-    override var textInputViewModel: TextInputViewModel! { vm }
+    override var textInputViewModel: TextInputViewModel { vm }
     override var maxContentLength: Int { 500 }
 
     @IBOutlet
@@ -16,8 +16,11 @@ class TextChapterViewController: TextInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         content.text = text
-        vm.setInitialChapterText(text)
-        vm.chapterText <~ content.reactive.continuousTextValues.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+
+        content
+            .textPublisher
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .assign(to: &vm.$chapterText)
     }
 
     override func onDonePressed() {

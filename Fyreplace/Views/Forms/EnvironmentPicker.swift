@@ -6,7 +6,13 @@ struct EnvironmentPicker: View {
 
     var body: some View {
         Picker("Environment.Title", selection: $selectedEnvironment) {
-            ForEach(ServerEnvironment.allCases) { environment in
+            #if DEBUG
+                let environments = ServerEnvironment.allCases
+            #else
+                let environments: [ServerEnvironment] = [.main, .dev]
+            #endif
+
+            ForEach(environments) { environment in
                 let suffix =
                     environment == .default
                     ? " " + .init(localized: "Environment.Default")
