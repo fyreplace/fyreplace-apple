@@ -44,9 +44,7 @@
 		4D54C9582BF266F9001DE071 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4D54C9592BF266F9001DE071 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		4D54C9632BF28695001DE071 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4D6641DB2C5B963500BE3D07 /* .ios-test-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ios-test-version"; sourceTree = "<group>"; };
 		4D926C092E363F2400A406D1 /* Fyredebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fyredebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DBF0BD32C9DB2E500E797BF /* .ios-test-model */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ios-test-model"; sourceTree = "<group>"; };
 		4DCEF8652C452EBA00F53085 /* .env-example */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".env-example"; sourceTree = "<group>"; };
 		4DCEF8662C452ECC00F53085 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 		4DF3737F2C99C23D0008AB04 /* .swift-format */ = {isa = PBXFileReference; explicitFileType = text.json; path = ".swift-format"; sourceTree = "<group>"; };
@@ -170,8 +168,6 @@
 				4D54C9632BF28695001DE071 /* .gitignore */,
 				4DF3737F2C99C23D0008AB04 /* .swift-format */,
 				4D0DDC292C18A467006CD503 /* .xcode-version */,
-				4D6641DB2C5B963500BE3D07 /* .ios-test-version */,
-				4DBF0BD32C9DB2E500E797BF /* .ios-test-model */,
 				4DCEF8652C452EBA00F53085 /* .env-example */,
 				4DCEF8662C452ECC00F53085 /* .env */,
 				4D54C9592BF266F9001DE071 /* Makefile */,
@@ -867,7 +863,7 @@
 			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.10.0;
+				minimumVersion = 9.19.1;
 			};
 			traits = (
 			);
@@ -877,7 +873,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-generator.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.11.1;
+				minimumVersion = 1.12.2;
 			};
 		};
 		4D13AF602C482F1C00845FDB /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */ = {
@@ -885,7 +881,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-runtime.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.11.0;
+				minimumVersion = 1.12.0;
 			};
 		};
 		4D13AF632C482F4500845FDB /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */ = {
@@ -893,7 +889,7 @@
 			repositoryURL = "https://github.com/apple/swift-openapi-urlsession.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
+				minimumVersion = 1.3.1;
 			};
 		};
 		4D926DA82E3647F900A406D1 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
@@ -901,7 +897,7 @@
 			repositoryURL = "https://github.com/grpc/grpc-swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.27.4;
+				minimumVersion = 1.27.5;
 			};
 		};
 		4D926DB22E36481D00A406D1 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
@@ -909,7 +905,7 @@
 			repositoryURL = "https://github.com/apple/swift-protobuf.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.36.1;
+				minimumVersion = 1.38.1;
 			};
 		};
 		4D926DBF2E36488800A406D1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
